@@ -4,23 +4,33 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#8fd0ff">
+<meta name="theme-color" content="#04060b">
 <!-- © 2026 h!ro53 / deus ex machina. All rights reserved.
      Viewing permitted. Reproduction, redistribution, and reuse of source code
      or assets — in whole or in part — is prohibited without written permission. -->
 <meta name="author" content="h!ro53" />
-<title>hiro53-cyberwafer-v20 — ERA — transcendence / deus ex machina</title>
+<title>hiro53-cyberwafer-v24 — MODEL — transcendence / deus ex machina</title>
 
 <style>
-  html,body{margin:0;padding:0;background:#8fd0ff;overflow:hidden;height:100%;-webkit-user-select:none;user-select:none;touch-action:none}
+  html,body{margin:0;padding:0;background:#04060b;overflow:hidden;height:100%;-webkit-user-select:none;user-select:none;touch-action:none}
   canvas{display:block}
-  .hud{position:fixed;pointer-events:none;font-family:"SF Mono","Menlo","Consolas",monospace;letter-spacing:.14em;z-index:10}
-  #hudTitle{top:calc(12px + env(safe-area-inset-top));left:16px;font-size:11px;color:#0c6f7c;text-shadow:0 1px 0 rgba(255,255,255,.85),0 0 10px rgba(255,255,255,.9)}
+  /* --- UIは上下2つの単一縦スタックのみ。要素ごとのfixedは置かない --- */
+  #uiTop,#uiBot{position:fixed;left:0;right:0;pointer-events:none;display:flex;flex-direction:column;
+    font-family:"SF Mono","Menlo","Consolas",monospace;letter-spacing:.14em}
+  #uiTop{top:0;z-index:10;padding:calc(12px + env(safe-area-inset-top)) 16px 0;gap:5px}
+  #uiBot{bottom:0;z-index:20;padding:0 12px calc(34px + env(safe-area-inset-bottom));align-items:center;gap:8px}
+  /* 視認性スクリム：モデルと文字/ボタンの重なりを緩和 */
+  #uiTop::before,#uiBot::before{content:"";position:absolute;left:0;right:0;z-index:-1;pointer-events:none}
+  #uiTop::before{top:0;height:calc(104px + env(safe-area-inset-top));
+    background:linear-gradient(180deg,rgba(4,6,11,.62),rgba(4,6,11,.18) 62%,rgba(4,6,11,0))}
+  #uiBot::before{bottom:0;height:calc(118px + env(safe-area-inset-bottom));
+    background:linear-gradient(0deg,rgba(4,6,11,.70),rgba(4,6,11,.20) 62%,rgba(4,6,11,0))}
+  #hudTitle{font-size:11px;line-height:1.25;color:#0c6f7c;text-shadow:0 1px 0 rgba(255,255,255,.85),0 0 10px rgba(255,255,255,.9)}
   #hudTitle b{color:#d1177f;font-weight:600}
-  #hudBrand{bottom:calc(14px + env(safe-area-inset-bottom));right:16px;font-size:9px;color:#274058;opacity:.78;text-align:right;line-height:1.7;text-shadow:0 1px 0 rgba(255,255,255,.8)}
-  #hudHint{bottom:calc(14px + env(safe-area-inset-bottom));left:16px;font-size:9px;color:#0c6f7c;opacity:.6;text-shadow:0 1px 0 rgba(255,255,255,.8)}
-  #eraWrap{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(34px + env(safe-area-inset-bottom));display:flex;gap:8px;z-index:20;font-family:"SF Mono","Menlo","Consolas",monospace}
-  .eraBtn{font-family:inherit;font-size:10px;letter-spacing:.14em;padding:7px 13px;border-radius:14px;border:1.5px solid #0c6f7c;background:rgba(255,255,255,.72);color:#0c6f7c;-webkit-appearance:none;appearance:none;outline:none}
+  #hudBrand{font-size:9px;line-height:1.6;white-space:nowrap;letter-spacing:.10em;color:#274058;opacity:.78;text-shadow:0 1px 0 rgba(255,255,255,.8)}
+  #hudHint{align-self:flex-end;font-size:9px;line-height:1.25;color:#0c6f7c;opacity:.6;text-shadow:0 1px 0 rgba(255,255,255,.8)}
+  #eraWrap{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;max-width:100%}
+  .eraBtn{pointer-events:auto;font-family:inherit;font-size:10px;line-height:1.2;letter-spacing:.14em;padding:7px 13px;border-radius:14px;border:1.5px solid #0c6f7c;background:rgba(255,255,255,.72);color:#0c6f7c;-webkit-appearance:none;appearance:none;outline:none}
   .eraBtn.on{border-color:#d1177f;color:#d1177f;font-weight:600;background:rgba(255,255,255,.9)}
   body.dark{background:#04060b}
   body.dark #hudTitle{color:#3fe0d6;text-shadow:0 0 8px rgba(47,184,198,.55)}
@@ -89,13 +99,16 @@
 <body>
 <div class="h53-copy">© 2026 h!ro53 · deus ex machina &mdash; viewing permitted, reuse prohibited</div>
 
-<div class="hud" id="hudTitle">h!ro53 // <b>CYBERWAFER</b> v20</div>
-<div class="hud" id="hudBrand">transcendence / by / deus ex machina / h!ro53</div>
-<div class="hud" id="hudHint">drag &middot; pinch &middot; tap</div>
-<div id="eraWrap">
-  <button class="eraBtn on" id="eraB0">Y2K</button>
-  <button class="eraBtn" id="eraB1">MODERN</button>
-  <button class="eraBtn" id="eraB2">FUTURE</button>
+<div id="uiTop">
+  <div id="hudTitle">h!ro53 // <b>CYBERWAFER</b> v24</div>
+  <div id="hudBrand">transcendence / by / deus ex machina / h!ro53</div>
+  <div id="hudHint">drag &middot; pinch &middot; tap</div>
+</div>
+<div id="uiBot">
+  <div id="eraWrap">
+    <button class="eraBtn on" id="eraB0">Y2K</button>
+    <button class="eraBtn" id="eraB1">TRANSCENDENCE</button>
+  </div>
 </div>
 <script>
 (function(){
@@ -120,8 +133,7 @@ var WORLD_Y = -3.4000000953674316;
 /* ================= Y2K look constants ================= */
 var pixScale = 0.5;         /* dynamic: low-res render scale (css px), era-driven */
 var eraT = 0, bloomStr = 0, bloomIters = 2, flareGlobal = 1, rtNearest = true, shadowSoft = false;
-var SKY_TOP = '#3fa4ff', SKY_HORIZON = '#eaf6ff';
-var FLOOR_BG = '#e3eaf2', TRACE_MAIN = '#9fb0c6', TRACE_TQ = 'rgba(47,184,198,0.85)', TRACE_PK = 'rgba(255,79,184,0.75)';
+var SKY_TOP = '#3fa4ff';   /* chrome env band only */
 
 /* ================= decode helpers ================= */
 function b64bytes(b){ var s = atob(b), u = new Uint8Array(s.length); for (var i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u; }
@@ -158,16 +170,14 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputEncoding = THREE.sRGBEncoding;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.05;
-var clearCol = 0xeaf6ff;
+var clearCol = 0x03040a;   /* = hiro53-object cyber backdrop bottom stop */
 renderer.setClearColor(clearCol, 1);
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.BasicShadowMap;   /* hard-edged early-CG shadow */
+renderer.shadowMap.enabled = false;   /* no floor to receive: backdrop is the ground */
+renderer.shadowMap.type = THREE.BasicShadowMap;
 document.body.appendChild(renderer.domElement);
 
 var scene = new THREE.Scene();
-var fogColBright = new THREE.Color(0xe3eaf2).convertSRGBToLinear();
-var fogColDark = new THREE.Color(0x0a1220).convertSRGBToLinear();
-scene.fog = new THREE.Fog(fogColBright.clone(), 34, 100);
+/* no fog — hiro53-object grade: the backdrop image is the entire distance */
 
 var camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 300);
 
@@ -222,119 +232,61 @@ var envBright = null, envDark = null;
   pmrem.dispose();
 })();
 
-/* ================= sky dome ================= */
-/* ================= unified circuit pattern: one layout, two gradings ================= */
-function makeCircuitCanvas(pal){
-  var S = 512;
-  var c = makeCanvas(S, S);
+/* ================= backdrop — hiro53-object cyber background (fixed) ================= */
+/* procedural cyberspace: deep gradient + neon perspective grid converging to a horizon */
+function cyberTex(){
+  var W = 1280, H = 1280;
+  var c = makeCanvas(W, H);
   var g = c.getContext('2d');
-  var seed = 53;
-  function rnd(){ seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }
-  g.fillStyle = pal.bg;
-  g.fillRect(0, 0, S, S);
-  g.fillStyle = pal.dot;
-  var gx, gy;
-  for (gx = 16; gx < S; gx += 32){
-    for (gy = 16; gy < S; gy += 32){ g.fillRect(gx - 1, gy - 1, 3, 3); }
+  var gr = g.createLinearGradient(0, 0, 0, H);
+  gr.addColorStop(0, '#05060d');
+  gr.addColorStop(0.42, '#0a1430');
+  gr.addColorStop(0.52, '#102a55');
+  gr.addColorStop(0.62, '#081026');
+  gr.addColorStop(1, '#03040a');
+  g.fillStyle = gr;
+  g.fillRect(0, 0, W, H);
+  var hY = H * 0.52, vx = W / 2;
+  var i;
+  for (i = 0; i < 140; i++){
+    var sx = Math.random() * W, sy = Math.random() * hY * 0.95, sr = Math.random() * 1.4;
+    g.globalAlpha = 0.2 + Math.random() * 0.6;
+    g.fillStyle = '#bfe9ff';
+    g.beginPath(); g.arc(sx, sy, sr, 0, Math.PI * 2); g.fill();
   }
-  var bI;
-  for (bI = 0; bI < 5; bI++){
-    var bw = 40 + Math.floor(rnd() * 40);
-    var bh = 30 + Math.floor(rnd() * 30);
-    var bx = 32 + Math.floor(rnd() * (S - 64 - bw));
-    var by = 32 + Math.floor(rnd() * (S - 64 - bh));
-    g.fillStyle = pal.icFill;
-    g.fillRect(bx, by, bw, bh);
-    g.strokeStyle = pal.icStroke; g.lineWidth = 2;
-    g.strokeRect(bx, by, bw, bh);
-    g.fillStyle = pal.icCore;
-    g.fillRect(bx + 6, by + 6, bw - 12, bh - 12);
-    g.fillStyle = pal.icStroke;
-    var py;
-    for (py = by + 8; py < by + bh - 4; py += 10){
-      g.fillRect(bx - 6, py, 6, 4);
-      g.fillRect(bx + bw, py, 6, 4);
-    }
+  g.globalAlpha = 1;
+  var hg = g.createLinearGradient(0, hY - 60, 0, hY + 60);
+  hg.addColorStop(0, 'rgba(0,200,255,0)');
+  hg.addColorStop(0.5, 'rgba(40,220,255,0.55)');
+  hg.addColorStop(1, 'rgba(0,200,255,0)');
+  g.fillStyle = hg;
+  g.fillRect(0, hY - 60, W, 120);
+  g.lineWidth = 2;
+  for (i = -12; i <= 12; i++){
+    var fx = vx + i * (W / 10);
+    g.strokeStyle = (i % 2 === 0) ? 'rgba(60,230,255,0.55)' : 'rgba(190,80,255,0.4)';
+    g.beginPath(); g.moveTo(vx, hY); g.lineTo(fx, H); g.stroke();
   }
-  var DIRX = [1, 1, 0, -1, -1, -1, 0, 1];
-  var DIRY = [0, 1, 1, 1, 0, -1, -1, -1];
-  g.lineWidth = 3; g.lineCap = 'round'; g.lineJoin = 'round';
-  var tI;
-  for (tI = 0; tI < 46; tI++){
-    var r0 = rnd();
-    var col = (r0 < pal.tqP) ? pal.tq : (r0 < pal.tqP + pal.pkP) ? pal.pk : pal.main;
-    var wx = 32 + Math.floor(rnd() * ((S - 64) / 8)) * 8;
-    var wy = 32 + Math.floor(rnd() * ((S - 64) / 8)) * 8;
-    var di = Math.floor(rnd() * 4) * 2;
-    var xs = [wx], ys = [wy];
-    var nSeg = 3 + Math.floor(rnd() * 7), sgi;
-    for (sgi = 0; sgi < nSeg; sgi++){
-      if (rnd() < 0.5){ di = (di + (rnd() < 0.5 ? 1 : 7)) % 8; }
-      var L = 16 * (1 + Math.floor(rnd() * 3));
-      var nx = wx + DIRX[di] * L, ny = wy + DIRY[di] * L;
-      if (nx < 32 || nx > S - 32 || ny < 32 || ny > S - 32) break;
-      wx = nx; wy = ny;
-      xs.push(nx); ys.push(ny);
-    }
-    if (xs.length < 2) continue;
-    g.strokeStyle = col;
-    g.beginPath();
-    g.moveTo(xs[0], ys[0]);
-    var pi;
-    for (pi = 1; pi < xs.length; pi++){ g.lineTo(xs[pi], ys[pi]); }
-    g.stroke();
-    g.fillStyle = col;
-    var eI;
-    for (eI = 0; eI < 2; eI++){
-      var ex = eI === 0 ? xs[0] : xs[xs.length - 1];
-      var ey = eI === 0 ? ys[0] : ys[ys.length - 1];
-      g.beginPath(); g.arc(ex, ey, 5, 0, Math.PI * 2); g.fill();
-      g.save();
-      g.fillStyle = pal.via;
-      g.beginPath(); g.arc(ex, ey, 2, 0, Math.PI * 2); g.fill();
-      g.restore();
-    }
+  for (i = 1; i <= 16; i++){
+    var tt = i / 16, yy = hY + (H - hY) * (tt * tt);
+    g.strokeStyle = 'rgba(80,220,255,' + (0.5 * (1 - tt) + 0.12) + ')';
+    g.beginPath(); g.moveTo(0, yy); g.lineTo(W, yy); g.stroke();
   }
-  return c;
-}
-var PAL_LIGHT = { bg: '#e3eaf2', dot: 'rgba(90,110,140,0.10)', icFill: '#c3cede', icStroke: '#8a9ab2',
-  icCore: 'rgba(47,184,198,0.18)', main: '#9fb0c6', tq: 'rgba(47,184,198,0.85)', pk: 'rgba(255,79,184,0.75)',
-  via: '#eef3f8', tqP: 0.08, pkP: 0.08 };
-var PAL_DARK = { bg: '#0a1220', dot: 'rgba(120,150,190,0.12)', icFill: '#141f30', icStroke: '#3a4f6d',
-  icCore: 'rgba(63,224,214,0.16)', main: '#3a4f6d', tq: 'rgba(63,224,214,0.9)', pk: 'rgba(255,79,184,0.85)',
-  via: '#0a1220', tqP: 0.12, pkP: 0.12 };
-var circuitLightCv = makeCircuitCanvas(PAL_LIGHT);
-var circuitDarkCv = makeCircuitCanvas(PAL_DARK);
-function circuitTex(cv, rx, ry){
-  var t = new THREE.CanvasTexture(cv);
+  var vg = g.createRadialGradient(vx, hY, 80, vx, hY, W * 0.8);
+  vg.addColorStop(0, 'rgba(0,0,0,0)');
+  vg.addColorStop(1, 'rgba(0,0,0,0.55)');
+  g.fillStyle = vg;
+  g.fillRect(0, 0, W, H);
+  var t = new THREE.CanvasTexture(c);
   t.encoding = THREE.sRGBEncoding;
-  t.wrapS = THREE.RepeatWrapping;
-  t.wrapT = THREE.RepeatWrapping;
-  t.repeat.set(rx, ry);
-  t.anisotropy = 4;
   return t;
 }
-var floorTexLight = circuitTex(circuitLightCv, 28, 28);
-var floorTexDark = circuitTex(circuitDarkCv, 28, 28);
-var domeTexLight = circuitTex(circuitLightCv, 6, 3);
-var domeTexDark = circuitTex(circuitDarkCv, 6, 3);
+/* one backdrop, no switcher — exactly what hiro53-object shows */
+scene.background = cyberTex();
+renderer.setClearColor(clearCol, 1);
 
-/* circuit dome: the entire backdrop is circuitry in every era */
-var domeMat = new THREE.MeshBasicMaterial({ map: domeTexLight, side: THREE.BackSide, fog: false });
-var skyDome = new THREE.Mesh(new THREE.SphereGeometry(140, 32, 16), domeMat);
-skyDome.position.set(0, 0, 0);
-scene.add(skyDome);
-
-/* circuit floor */
-var floorMesh, floorMat;
-(function makeFloor(){
-  floorMat = new THREE.MeshPhysicalMaterial({ map: floorTexLight, roughness: 0.88, metalness: 0.0, envMapIntensity: 0.2 });
-  floorMesh = new THREE.Mesh(new THREE.PlaneGeometry(560, 560), floorMat);
-  floorMesh.rotation.x = -Math.PI / 2;
-  floorMesh.position.set(0, -5.56, 0);
-  floorMesh.receiveShadow = true;
-  scene.add(floorMesh);
-})();
+/* no dome, no floor: the T / rings / wafer stack float against the backdrop,
+   exactly as they do in hiro53-object */
 
 /* ================= lights (hard Y2K sun) ================= */
 var dirLight = new THREE.DirectionalLight(0xffffff, 0.85);
@@ -394,7 +346,7 @@ for (var rm = 0; rm < 4; rm++){
     map: neonTex[rm], transparent: true, alphaTest: 0.012, depthWrite: false, side: THREE.FrontSide,
     toneMapped: rm === 3
   }));
-  /* dimmed stand-in for the bloom source pass: keeps FUTURE glow gentle and legible */
+  /* dimmed stand-in for the bloom source pass: keeps TRANSCENDENCE glow gentle and legible */
   ringBloomMats.push(new THREE.MeshBasicMaterial({
     map: neonTex[rm], transparent: true, alphaTest: 0.012, depthWrite: false, side: THREE.FrontSide,
     color: 0x3c3c3c
@@ -634,7 +586,7 @@ fxaaMat = new THREE.ShaderMaterial({
 rebuildLowRT(true);
 resizeLowRT();
 
-/* ================= selective bloom (half resolution) — FUTURE era ================= */
+/* ================= selective bloom (half resolution) — TRANSCENDENCE ================= */
 var bloomSize = new THREE.Vector2(window.innerWidth / 2, window.innerHeight / 2);
 var rtParams = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBAFormat };
 var rtBloomA = new THREE.WebGLRenderTarget(bloomSize.x, bloomSize.y, rtParams);
@@ -665,7 +617,7 @@ var bloomCompMat = new THREE.ShaderMaterial({
 var blackMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
 var tBloomMat = new THREE.MeshBasicMaterial({ map: gradEm, transparent: true, opacity: 0.95 });
 /* non-emitters -> black, T -> pure emissive; ring glyphs stay lit as-is */
-var bloomSwap = [[tMesh, tBloomMat], [skyDome, blackMat], [floorMesh, blackMat], [discTop, blackMat]];
+var bloomSwap = [[tMesh, tBloomMat], [discTop, blackMat]];
 (function(){
   var bi;
   for (bi = 0; bi < discs.length; bi++){ bloomSwap.push([discs[bi], blackMat]); }
@@ -673,8 +625,8 @@ var bloomSwap = [[tMesh, tBloomMat], [skyDome, blackMat], [floorMesh, blackMat],
 })();
 
 function renderBloom(){
-  var savedFog = scene.fog, savedEnv = scene.environment;
-  scene.fog = null; scene.environment = null;
+  var savedEnv = scene.environment, savedBg = scene.background;
+  scene.environment = null; scene.background = null;
   var i, saved = [];
   for (i = 0; i < bloomSwap.length; i++){ saved.push(bloomSwap[i][0].material); bloomSwap[i][0].material = bloomSwap[i][1]; }
   renderer.setClearColor(0x000000, 1);
@@ -682,7 +634,7 @@ function renderBloom(){
   renderer.clear();
   renderer.render(scene, camera);
   for (i = 0; i < bloomSwap.length; i++){ bloomSwap[i][0].material = saved[i]; }
-  scene.fog = savedFog; scene.environment = savedEnv;
+  scene.environment = savedEnv; scene.background = savedBg;
   renderer.setClearColor(clearCol, 1);
   quadMesh.material = bloomBlurMat;
   for (i = 0; i < bloomIters; i++){
@@ -703,15 +655,16 @@ function renderBloom(){
   renderer.autoClear = ac;
 }
 
-/* ================= era control: 3 discrete looks ================= */
-var litMats = [tMat, waferMat, floorMat];
+/* ================= model control: 2 looks — Y2K / TRANSCENDENCE ================= */
+var litMats = [tMat, waferMat];
 var ERA = [
-  { pix: 0.5, lv: 22,  scan: 0.05, ca: 0,     bloom: 0,    iters: 2, flare: 1,    near: true,  soft: false, dark: false, vig: 0,    exp: 1.05, tEm: 0.7, fxaa: false, ring: 0xffffff },
-  { pix: 1.0, lv: 256, scan: 0,    ca: 0,     bloom: 0,    iters: 2, flare: 0.25, near: false, soft: true,  dark: false, vig: 0,    exp: 1.05, tEm: 0.7, fxaa: true,  ring: 0xffffff },
-  { pix: 1.0, lv: 256, scan: 0,    ca: 0.003, bloom: 1.15, iters: 3, flare: 0,    near: false, soft: true,  dark: true,  vig: 0.30, exp: 1.12, tEm: 1.1, fxaa: true,  ring: 0xaaaaaa }
+  /* Y2K */
+  { pix: 0.5, lv: 22,  scan: 0.05, ca: 0,     bloom: 0,    iters: 2, flare: 1, near: true,  soft: false, dark: false, vig: 0,    exp: 1.05, tEm: 0.7, fxaa: false, ring: 0xffffff },
+  /* TRANSCENDENCE */
+  { pix: 1.0, lv: 256, scan: 0,    ca: 0.003, bloom: 1.15, iters: 3, flare: 0, near: false, soft: true,  dark: true,  vig: 0.30, exp: 1.12, tEm: 1.1, fxaa: true,  ring: 0xaaaaaa }
 ];
 var fxaaOn = false;
-var eraBtns = [document.getElementById('eraB0'), document.getElementById('eraB1'), document.getElementById('eraB2')];
+var eraBtns = [document.getElementById('eraB0'), document.getElementById('eraB1')];
 function applyEra(idx){
   var e = ERA[idx];
   eraT = idx;
@@ -739,29 +692,17 @@ function applyEra(idx){
     ringCoreMats[ri].color.setHex(e.ring);
     ringHaloMats[ri].color.setHex(e.ring);
   }
-  /* unified circuit backdrop: light grading <-> dark neon grading */
-  domeMat.map = e.dark ? domeTexDark : domeTexLight;
-  domeMat.needsUpdate = true;
-  floorMat.map = e.dark ? floorTexDark : floorTexLight;
-  floorMat.needsUpdate = true;
+  /* chrome reflections follow the model; the backdrop never changes */
   scene.environment = e.dark ? envDark : envBright;
-  clearCol = e.dark ? 0x0a1220 : 0xe3eaf2;
-  renderer.setClearColor(clearCol, 1);
-  if (e.dark){
-    scene.fog.color.copy(fogColDark);
-    scene.fog.near = 26; scene.fog.far = 80;
-  } else {
-    scene.fog.color.copy(fogColBright);
-    scene.fog.near = 34; scene.fog.far = 100;
-  }
-  document.body.className = e.dark ? 'dark' : '';
+  /* the backdrop is dark -> HUD stays on the dark palette */
+  document.body.className = 'dark';
   resizeLowRT();
   var li;
-  for (li = 0; li < 3; li++){ eraBtns[li].className = li === idx ? 'eraBtn on' : 'eraBtn'; }
+  for (li = 0; li < ERA.length; li++){ eraBtns[li].className = li === idx ? 'eraBtn on' : 'eraBtn'; }
 }
 (function wireEra(){
   var bi;
-  for (bi = 0; bi < 3; bi++){
+  for (bi = 0; bi < ERA.length; bi++){
     (function(ix){ eraBtns[ix].addEventListener('click', function(){ applyEra(ix); }); })(bi);
   }
 })();
@@ -804,6 +745,41 @@ var yaw = 0.62, pitch = 0.16, dist = 15.5;
 var yawVel = 0, pitchVel = 0;
 var target = new THREE.Vector3(0, 0.55, 0);
 var MIN_DIST = 8, MAX_DIST = 26;
+
+/* ---- UI占有領域を実測し、距離と注視点を再計算（文字/ボタンとモデルの重なり回避）----
+   モデル鉛直範囲: Tの上端(浮遊込み) 〜 最下段の可視ディスク。
+   傾き pitch のとき鉛直範囲は cos(pitch) 倍に、半径 R は sin(pitch) 倍だけ画面縦に効く。 */
+var FIT_PITCH = 0.16;
+var MODEL_TOP = 8.27 + FLOAT_AMP + WORLD_Y;
+var MODEL_BOT = SLOT_Y[5] + WORLD_Y - 0.02;
+var MODEL_MID = (MODEL_TOP + MODEL_BOT) / 2;
+var MODEL_H = MODEL_TOP - MODEL_BOT;
+var MODEL_R = 2.10;
+var BASE_DIST = 15.5;
+function fitView(){
+  var te = document.getElementById('uiTop'), be = document.getElementById('uiBot');
+  if (!te || !be) return;
+  var H = window.innerHeight;
+  if (!(H > 0)) return;
+  var tH = te.getBoundingClientRect().bottom + 10;
+  var bT = be.getBoundingClientRect().top;
+  var cb = document.querySelector('.h53-copy');
+  if (cb){ var ct = cb.getBoundingClientRect().top; if (ct < bT) bT = ct; }
+  var bH = (H - bT) + 10;
+  var usable = (H - tH - bH) / H;
+  if (usable < 0.42) usable = 0.42;
+  if (usable > 1) usable = 1;
+  var cp = Math.cos(FIT_PITCH), sp = Math.sin(FIT_PITCH);
+  var halfV = cp * MODEL_H / 2 + sp * MODEL_R;      /* 画面縦軸への投影半幅 */
+  var tanH = Math.tan(camera.fov * Math.PI / 360);
+  var d = (2 * halfV / usable) / (2 * tanH);
+  if (d < BASE_DIST) d = BASE_DIST;
+  var wpp = (2 * d * tanH) / H;                     /* world per px */
+  dist = d;
+  target.y = MODEL_MID + ((tH - bH) / 2) * wpp / cp;
+  MAX_DIST = Math.max(26, d * 1.7);
+  MIN_DIST = Math.min(8, d * 0.5);
+}
 var lastInteract = -10;
 
 var pointers = {};
@@ -888,11 +864,16 @@ window.addEventListener('resize', function(){
   rtBloomB.setSize(Math.max(2, Math.floor(bloomSize.x)), Math.max(2, Math.floor(bloomSize.y)));
   bloomBlurMat.uniforms.uRes.value.set(bloomSize.x, bloomSize.y);
   invAspect = window.innerWidth > 0 ? window.innerHeight / window.innerWidth : 1;
+  fitView();
 });
 invAspect = window.innerWidth > 0 ? window.innerHeight / window.innerWidth : 1;
 
 /* ================= animation loop ================= */
 applyEra(0);
+fitView();
+/* 初回レイアウト確定後にもう一度実測する（iOSはツールバー分でinnerHeightが遅れて確定する） */
+requestAnimationFrame(function(){ fitView(); });
+window.addEventListener('orientationchange', function(){ setTimeout(fitView, 260); });
 
 var clock = new THREE.Clock();
 var clockTime = 0;
