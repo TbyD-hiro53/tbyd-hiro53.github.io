@@ -2087,13 +2087,14 @@ function fitOverview(){
   const tH=te.getBoundingClientRect().bottom+10;
   const bH=(H-be.getBoundingClientRect().top)+10;
   const usable=Math.max(0.42,Math.min(1,(H-tH-bH)/H));
-  const cp=Math.cos(VIEWS[0].phi), sp=Math.sin(VIEWS[0].phi);
-  const halfV=cp*FIT_H/2 + sp*FIT_R;
+  // φは+Y軸からの極角。仰角は(π/2−φ)なので、鉛直の画面縦射影は sin(φ)、半径方向は cos(φ)
+  const vf=Math.sin(VIEWS[0].phi), rf=Math.cos(VIEWS[0].phi);
+  const halfV=vf*FIT_H/2 + rf*FIT_R;
   const tanH=Math.tan(camera.fov*Math.PI/360);
   const d=Math.max(FIT_R0,(2*halfV/usable)/(2*tanH));
   const wpp=(2*d*tanH)/H;
   VIEWS[0].radius=d;
-  VIEWS[0].ty=FIT_MID+((tH-bH)/2)*wpp/cp;
+  VIEWS[0].ty=FIT_MID+((tH-bH)/2)*wpp/vf;
 }
 
 document.getElementById('reset').onclick=function(){view=0;fitOverview();goView(0);
