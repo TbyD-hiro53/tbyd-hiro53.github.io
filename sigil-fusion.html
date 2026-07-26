@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#ffffff">
+<!-- © 2026 h!ro53 / deus ex machina. All rights reserved.
+     Viewing permitted. Reproduction, redistribution, and reuse of source code
+     or assets — in whole or in part — is prohibited without written permission. -->
+<meta name="author" content="h!ro53">
+<title>h!ro53 — transcendence sigil</title>
+<style id="h53-copyright-css">
+  html,body{margin:0;height:100%;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .stage{width:min(94vmin,780px);height:min(94vmin,780px)}
+  text{font-family:"Avenir Next","Helvetica Neue",Futura,Arial,sans-serif;letter-spacing:0.2em}
+  .phrase{font-weight:500}
+  .brand{font-weight:700;letter-spacing:0.24em}
+  @keyframes rotcw {from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  @keyframes rotccw{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
+  /* 白地用の著作権表示（h53-copyright-css: publisher の二重注入を抑止するマーカー名） */
+  .h53-copy{position:fixed;left:0;right:0;bottom:0;z-index:99999;pointer-events:none;
+    padding:6px 10px calc(6px + env(safe-area-inset-bottom));
+    font:9px/1.4 ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.04em;
+    color:rgba(60,64,72,.62);text-align:center;
+    background:linear-gradient(0deg,rgba(255,255,255,.92),rgba(255,255,255,0))}
+</style>
+</head>
+<body>
+<div class="h53-copy">© 2026 h!ro53 · deus ex machina — viewing permitted, reuse prohibited</div>
+<svg class="stage" viewBox="0 0 1000 1000" aria-label="h!ro53 transcendence sigil">
+  <defs>
+    <radialGradient id="cortex" cx="40%" cy="30%" r="85%">
+      <stop offset="0%"  stop-color="#ffe6f0"/>
+      <stop offset="30%" stop-color="#ff8ab8"/>
+      <stop offset="68%" stop-color="#f0136e"/>
+      <stop offset="100%" stop-color="#b00d3f"/>
+    </radialGradient>
+    <radialGradient id="auraGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#ff2d92" stop-opacity="0.55"/>
+      <stop offset="70%" stop-color="#ff2d92" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#ff2d92" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eef1f4"/><stop offset="100%" stop-color="#8f979f"/>
+    </linearGradient>
+    <linearGradient id="wafer" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#fbfdfe"/>
+      <stop offset="38%"  stop-color="#dfe4e9"/>
+      <stop offset="70%"  stop-color="#b4bcc4"/>
+      <stop offset="100%" stop-color="#9aa2ab"/>
+    </linearGradient>
+    <linearGradient id="irisA" x1="0" y1="0" x2="1" y2="0.3">
+      <stop offset="0%"   stop-color="#ff2d92" stop-opacity="0"/>
+      <stop offset="30%"  stop-color="#ffd166"/>
+      <stop offset="55%"  stop-color="#6ee7b7"/>
+      <stop offset="80%"  stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="irisB" x1="1" y1="0" x2="0" y2="0.3">
+      <stop offset="0%"   stop-color="#c084fc" stop-opacity="0"/>
+      <stop offset="30%"  stop-color="#60a5fa"/>
+      <stop offset="55%"  stop-color="#6ee7b7"/>
+      <stop offset="80%"  stop-color="#ffd166"/>
+      <stop offset="100%" stop-color="#ff2d92" stop-opacity="0"/>
+    </linearGradient>
+  
+    <path id="r1p" d="M 100,500 A 400,400 0 1,1 900,500 A 400,400 0 1,1 100,500"/>
+    <path id="r2p" d="M 138,500 A 362,362 0 1,1 862,500 A 362,362 0 1,1 138,500"/>
+    <path id="r3p" d="M 172,500 A 328,328 0 1,1 828,500 A 328,328 0 1,1 172,500"/>
+    <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#f2f5f7"/>
+      <stop offset="42%" stop-color="#c3cad0"/>
+      <stop offset="58%" stop-color="#e9edf0"/>
+      <stop offset="100%" stop-color="#8f979f"/>
+    </linearGradient>
+  </defs>
+
+  <g>
+    <circle cx="500" cy="500" r="400" fill="none" stroke="#2fb8c6" stroke-opacity="0.10" stroke-width="4.0"/>
+    <circle cx="500" cy="500" r="362" fill="none" stroke="#ff2d92" stroke-opacity="0.10" stroke-width="4.0"/>
+    <circle cx="500" cy="500" r="328" fill="none" stroke="#b7bec5" stroke-opacity="0.10" stroke-width="4.0"/>
+  </g>
+
+  <g id="core" transform="translate(500 500) scale(1.05) translate(-500 -500)">
+  <!-- wafer generator -->
+  <g id="discs">
+    <g class="disc">
+      <ellipse cx="0" cy="0" rx="160" ry="34" fill="url(#wafer)" stroke="#8b9199" stroke-width="1.3"/>
+      <ellipse class="irisA" cx="0" cy="0" rx="146" ry="27" fill="url(#irisA)"/>
+      <ellipse class="irisB" cx="0" cy="0" rx="146" ry="27" fill="url(#irisB)"/>
+      <ellipse cx="0" cy="0" rx="100" ry="21" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+    </g>
+    <g class="disc">
+      <ellipse cx="0" cy="0" rx="160" ry="34" fill="url(#wafer)" stroke="#8b9199" stroke-width="1.3"/>
+      <ellipse class="irisA" cx="0" cy="0" rx="146" ry="27" fill="url(#irisA)"/>
+      <ellipse class="irisB" cx="0" cy="0" rx="146" ry="27" fill="url(#irisB)"/>
+      <ellipse cx="0" cy="0" rx="100" ry="21" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+    </g>
+    <g class="disc">
+      <ellipse cx="0" cy="0" rx="160" ry="34" fill="url(#wafer)" stroke="#8b9199" stroke-width="1.3"/>
+      <ellipse class="irisA" cx="0" cy="0" rx="146" ry="27" fill="url(#irisA)"/>
+      <ellipse class="irisB" cx="0" cy="0" rx="146" ry="27" fill="url(#irisB)"/>
+      <ellipse cx="0" cy="0" rx="100" ry="21" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+    </g>
+    <g class="disc">
+      <ellipse cx="0" cy="0" rx="160" ry="34" fill="url(#wafer)" stroke="#8b9199" stroke-width="1.3"/>
+      <ellipse class="irisA" cx="0" cy="0" rx="146" ry="27" fill="url(#irisA)"/>
+      <ellipse class="irisB" cx="0" cy="0" rx="146" ry="27" fill="url(#irisB)"/>
+      <ellipse cx="0" cy="0" rx="100" ry="21" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- brain -->
+  <circle id="aura" cx="500" cy="400" r="250" fill="url(#auraGrad)"/>
+  <g id="brain">
+    <path d="M -150,10 C -158,-52 -118,-108 -52,-118 C -20,-146 40,-146 74,-116 C 132,-104 162,-52 152,4 C 168,44 138,92 92,100 C 62,124 -8,128 -52,106 C -110,112 -152,66 -150,10 Z" fill="url(#cortex)" stroke="#7d1f42" stroke-width="5"/>
+    <path d="M -150,10 C -158,-52 -118,-108 -52,-118 C -20,-146 40,-146 74,-116 C 132,-104 162,-52 152,4 C 168,44 138,92 92,100 C 62,124 -8,128 -52,106 C -110,112 -152,66 -150,10 Z" fill="none" stroke="#ffb7d4" stroke-width="2" opacity="0.7"
+          transform="scale(0.97)"/>
+    <path d="M 0,-136 C 10,-90 8,40 0,116" fill="none" stroke="#8e0d3d" stroke-width="4.5" opacity="0.7"/>
+    <path class="sulcus" d="M -118,-30 C -86,-58 -46,-56 -20,-30" fill="none" stroke="#9c0f45" stroke-width="5.5" stroke-linecap="round"/>
+      <path class="sulcus" d="M -96,22 C -66,-6 -22,-8 6,16" fill="none" stroke="#9c0f45" stroke-width="5.5" stroke-linecap="round"/>
+      <path class="sulcus" d="M -64,64 C -30,40 16,44 44,66" fill="none" stroke="#9c0f45" stroke-width="5.5" stroke-linecap="round"/>
+      <path class="sulcus" d="M 22,-92 C 54,-72 62,-40 46,-8" fill="none" stroke="#9c0f45" stroke-width="5.5" stroke-linecap="round"/>
+      <path class="sulcus" d="M 76,-64 C 106,-40 112,-6 92,26" fill="none" stroke="#9c0f45" stroke-width="5.5" stroke-linecap="round"/>
+      <path class="sulcus" d="M 40,40 C 74,30 104,44 116,66" fill="none" stroke="#9c0f45" stroke-width="5.5" stroke-linecap="round"/>
+      <path class="sulcus" d="M -34,-96 C -12,-76 -10,-52 -26,-34" fill="none" stroke="#9c0f45" stroke-width="5.5" stroke-linecap="round"/>
+    <path class="vein" d="M -128,-6 C -108,-24 -92,-20 -78,-40 M -100,-14 C -92,-4 -80,-2 -70,8" fill="none" stroke="#ff4d86" stroke-width="2.4" stroke-linecap="round"/>
+      <path class="vein" d="M 118,-18 C 100,-34 88,-30 74,-48 M 96,-8 C 88,4 74,6 64,18" fill="none" stroke="#ff4d86" stroke-width="2.4" stroke-linecap="round"/>
+      <path class="vein" d="M -46,84 C -30,70 -12,74 2,60 M -22,80 C -14,92 0,94 10,86" fill="none" stroke="#ff4d86" stroke-width="2.4" stroke-linecap="round"/>
+      <path class="vein" d="M 34,-118 C 44,-104 58,-102 64,-88" fill="none" stroke="#ff4d86" stroke-width="2.4" stroke-linecap="round"/>
+    <ellipse cx="-58" cy="-72" rx="46" ry="26" fill="#ffffff" opacity="0.5"
+             transform="rotate(-24 -58 -72)"/>
+    <ellipse cx="14" cy="-104" rx="18" ry="9" fill="#ffffff" opacity="0.65"
+             transform="rotate(8 14 -104)"/>
+    <g transform="translate(-98,-72) rotate(-38)">
+        <rect x="-5" y="-26" width="10" height="26" rx="2" fill="url(#pin)" stroke="#5d6166" stroke-width="1"/>
+        <line x1="0" y1="-26" x2="0" y2="-46" stroke="#8f979f" stroke-width="2"/>
+        <circle cx="0" cy="-52" r="6" fill="#1f2428"/>
+        <circle class="led" cx="0" cy="-52" r="4" fill="#2fb8c6"/>
+      </g>
+      <g transform="translate(-44,-116) rotate(-12)">
+        <rect x="-5" y="-26" width="10" height="26" rx="2" fill="url(#pin)" stroke="#5d6166" stroke-width="1"/>
+        <line x1="0" y1="-26" x2="0" y2="-46" stroke="#8f979f" stroke-width="2"/>
+        <circle cx="0" cy="-52" r="6" fill="#1f2428"/>
+        <circle class="led" cx="0" cy="-52" r="4" fill="#2fb8c6"/>
+      </g>
+      <g transform="translate(18,-124) rotate(4)">
+        <rect x="-5" y="-26" width="10" height="26" rx="2" fill="url(#pin)" stroke="#5d6166" stroke-width="1"/>
+        <line x1="0" y1="-26" x2="0" y2="-46" stroke="#8f979f" stroke-width="2"/>
+        <circle cx="0" cy="-52" r="6" fill="#1f2428"/>
+        <circle class="led" cx="0" cy="-52" r="4" fill="#2fb8c6"/>
+      </g>
+      <g transform="translate(78,-96) rotate(26)">
+        <rect x="-5" y="-26" width="10" height="26" rx="2" fill="url(#pin)" stroke="#5d6166" stroke-width="1"/>
+        <line x1="0" y1="-26" x2="0" y2="-46" stroke="#8f979f" stroke-width="2"/>
+        <circle cx="0" cy="-52" r="6" fill="#1f2428"/>
+        <circle class="led" cx="0" cy="-52" r="4" fill="#2fb8c6"/>
+      </g>
+      <g transform="translate(122,-44) rotate(52)">
+        <rect x="-5" y="-26" width="10" height="26" rx="2" fill="url(#pin)" stroke="#5d6166" stroke-width="1"/>
+        <line x1="0" y1="-26" x2="0" y2="-46" stroke="#8f979f" stroke-width="2"/>
+        <circle cx="0" cy="-52" r="6" fill="#1f2428"/>
+        <circle class="led" cx="0" cy="-52" r="4" fill="#2fb8c6"/>
+      </g>
+      <g transform="translate(-134,-16) rotate(-64)">
+        <rect x="-5" y="-26" width="10" height="26" rx="2" fill="url(#pin)" stroke="#5d6166" stroke-width="1"/>
+        <line x1="0" y1="-26" x2="0" y2="-46" stroke="#8f979f" stroke-width="2"/>
+        <circle cx="0" cy="-52" r="6" fill="#1f2428"/>
+        <circle class="led" cx="0" cy="-52" r="4" fill="#2fb8c6"/>
+      </g>
+  </g>
+  </g>
+
+
+<g style="transform-origin:500px 500px;animation:rotccw 15.384s linear infinite">
+      <text class="phrase" style="font-size:34px" fill="#2fb8c6" >
+        <textPath href="#r1p" startOffset="25%" text-anchor="middle">Transcendence by deus ex machina</textPath>
+      </text>
+      <text class="brand" style="font-size:40px" fill="#2fb8c6" >
+        <textPath href="#r1p" startOffset="75%" text-anchor="middle">h!ro53</textPath>
+      </text>
+    </g>
+    <g style="transform-origin:500px 500px;animation:rotcw 18.462s linear infinite">
+      <text class="phrase" style="font-size:30px" fill="#ff2d92" >
+        <textPath href="#r2p" startOffset="25%" text-anchor="middle">Transcendence by deus ex machina</textPath>
+      </text>
+      <text class="brand" style="font-size:36px" fill="#ff2d92" >
+        <textPath href="#r2p" startOffset="75%" text-anchor="middle">h!ro53</textPath>
+      </text>
+    </g>
+    <g style="transform-origin:500px 500px;animation:rotccw 19.672s linear infinite">
+      <text class="phrase" style="font-size:26px" fill="#d3dae0" stroke="#9aa2ab" stroke-width="0.6">
+        <textPath href="#r3p" startOffset="25%" text-anchor="middle">Transcendence by deus ex machina</textPath>
+      </text>
+      <text class="brand" style="font-size:32px" fill="#d3dae0" stroke="#9aa2ab" stroke-width="0.6">
+        <textPath href="#r3p" startOffset="75%" text-anchor="middle">h!ro53</textPath>
+      </text>
+    </g>
+
+</svg>
+
+<script>
+(function(){
+  "use strict";
+  var PUMP_PERIOD = 0.78;              // canonical heartbeat
+  var DISC_PERIOD = 2.4;               // canonical conveyor period
+
+  var brain = document.getElementById('brain');
+  var aura  = document.getElementById('aura');
+  var discs = document.querySelectorAll('#discs .disc');
+  var leds  = document.querySelectorAll('.led');
+  var sulci = document.querySelectorAll('.sulcus');
+  var veins = document.querySelectorAll('.vein');
+  var irisA = document.querySelectorAll('.irisA');
+  var irisB = document.querySelectorAll('.irisB');
+
+  var BX = 500, BY = 400;
+  var Y0 = 574, Y1 = 792;
+  var TAU = Math.PI * 2;
+
+  function pumpBeat(t){
+    var p = (t % PUMP_PERIOD) / PUMP_PERIOD;
+    var s1 = Math.exp(-Math.pow((p - 0.12) / 0.05, 2));
+    var s2 = 0.5 * Math.exp(-Math.pow((p - 0.33) / 0.085, 2));
+    return s1 + s2;
+  }
+  function lerp(a,b,u){ return a + (b - a) * u; }
+
+  function frame(now){
+    var t = now / 2000;   // global 0.5x time-scale
+    var breath = 1 + 0.22 * Math.sin(TAU * t / 6.4);   // slow envelope
+    var b = pumpBeat(t) * breath;
+    if (b > 1.15) b = 1.15;
+
+    // jelly squash & stretch + systolic surge + micro sway
+    var sx = 1 + 0.062 * b;
+    var sy = 1 - 0.030 * b + 0.026 * pumpBeat(t - 0.06) * breath;
+    var dy = 3.2 * b;
+    var rot = 0.7 * Math.sin(TAU * t / 3.1) * (0.3 + 0.7 * b);
+    brain.setAttribute('transform',
+      'translate(' + BX + ' ' + (BY + dy).toFixed(1) + ') rotate(' + rot.toFixed(2) +
+      ') scale(' + sx.toFixed(4) + ' ' + sy.toFixed(4) + ')');
+    aura.setAttribute('opacity', Math.min(1, 0.30 + 0.62 * b).toFixed(3));
+
+    var i, so = (0.40 + 0.38 * b).toFixed(3), vo = (0.10 + 0.62 * b).toFixed(3);
+    for (i = 0; i < sulci.length; i++) sulci[i].setAttribute('opacity', so);
+    for (i = 0; i < veins.length; i++) veins[i].setAttribute('opacity', vo);
+
+    // LEDs: per-unit irregular blink, all-flash on systole
+    for (i = 0; i < leds.length; i++) {
+      var w = 1.3 + 0.53 * i, ph = i * 2.39;
+      var on = Math.sin(TAU * t * w / 3 + ph) > 0.35 || b > 0.9;
+      leds[i].setAttribute('fill', on ? '#5ff2ff' : '#0e5560');
+      leds[i].setAttribute('r', on ? '4.6' : '3.4');
+    }
+
+    // discs: straight descent, diameter -> 0 at the sink; upper always in front
+    var n = discs.length, ps = [];
+    for (var j = 0; j < n; j++) ps.push(((t / DISC_PERIOD) + j / n) % 1);
+    ps.sort(function(a, c){ return c - a; });  // slot0 = largest p = lowest = back
+    for (j = 0; j < n; j++) {
+      var p = ps[j];
+      var y = lerp(Y0, Y1, p);
+      var sc = 1 - p;
+      var op = p < 0.05 ? p / 0.05 : 1;        // spawn-in only; exit is pure shrink
+      discs[j].setAttribute('transform',
+        'translate(500 ' + y.toFixed(1) + ') scale(' + sc.toFixed(4) + ')');
+      discs[j].setAttribute('opacity', op.toFixed(3));
+      var m = 0.5 + 0.5 * Math.sin(TAU * t / 5 + p * 6.283);
+      irisA[j].setAttribute('opacity', (0.38 * m).toFixed(3));
+      irisB[j].setAttribute('opacity', (0.38 * (1 - m)).toFixed(3));
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

@@ -7,7 +7,7 @@
      Viewing permitted. Reproduction, redistribution, and reuse of source code
      or assets — in whole or in part — is prohibited without written permission. -->
 <meta name="author" content="h!ro53" />
-<title>h!ro53 — LACTO-EMPYREAN v7 (tour refined)</title>
+<title>h!ro53 — LACTO-MANDALA v2 (aligned spokes / cinematic gallery)</title>
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -47,6 +47,19 @@
   #zoom{-webkit-appearance:none;appearance:none;width:150px;height:4px;border-radius:999px;background:linear-gradient(90deg,rgba(255,79,190,.7),rgba(120,235,255,.5));outline:none;pointer-events:auto;transform:rotate(270deg);transform-origin:center;cursor:pointer;}
   #zoom::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:#ffe7f6;border:2px solid rgba(255,140,220,.9);box-shadow:0 2px 8px rgba(0,0,0,.5);cursor:pointer;}
   #zoom::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#ffe7f6;border:2px solid rgba(255,140,220,.9);cursor:pointer;}
+  /* ---- シネマティック・ギャラリー（TOUR中） ---- */
+  #cinetop,#cinebot{position:fixed;left:0;right:0;height:7.5vh;background:#000;z-index:30;pointer-events:none;transition:transform .7s cubic-bezier(.4,0,.2,1);}
+  #cinetop{top:0;transform:translateY(-101%);}
+  #cinebot{bottom:0;transform:translateY(101%);}
+  #cinetop.on,#cinebot.on{transform:translateY(0);}
+  #cinefade{position:fixed;inset:0;background:#000;opacity:0;z-index:25;pointer-events:none;}
+  #cinecap{position:fixed;left:18px;bottom:calc(7.5vh + 16px);z-index:31;pointer-events:none;opacity:0;transition:opacity .5s;color:#ffe7f6;}
+  #cinecap.on{opacity:1;}
+  #cinecap i{display:block;font-style:normal;font-size:9px;letter-spacing:3px;color:rgba(255,180,225,.75);margin-bottom:4px;}
+  #cinecap b{display:block;font-size:20px;letter-spacing:6px;font-weight:700;text-shadow:0 0 14px rgba(255,90,190,.6);}
+  #cinecap s{display:block;text-decoration:none;font-size:9px;letter-spacing:4px;color:rgba(190,225,255,.8);margin-top:4px;}
+  .cinehide{opacity:0 !important;pointer-events:none !important;}
+  .zoomwrap,.hint,#viewname,#reset{transition:opacity .5s;}
 </style>
 
 <style id="h53-copyright-css">
@@ -68,7 +81,7 @@
     <div class="sub">TRANSCENDENCE · BY · DEUS EX MACHINA</div>
   </div>
   <div class="botstack">
-    <div class="hint">ドラッグ見回し · ピンチ拡大 · SWアングル切替</div>
+    <div class="hint" id="hint">ドラッグ見回し · ピンチ拡大 · SWアングル切替</div>
     <div class="ctrls">
       <button class="btn" id="reset">視点リセット</button>
       <div class="swcol">
@@ -77,10 +90,14 @@
       </div>
       <button class="btn" id="tour">TOUR</button>
     </div>
-    <div class="wm">DEUS EX MACHINA · EMPYREAN RENDER v2.0 · h!ro53</div>
+    <div class="wm">DEUS EX MACHINA · MANDALA CORE v3.1 · h!ro53</div>
   </div>
 </div>
-<div class="zoomwrap">
+<div id="cinetop"></div>
+<div id="cinebot"></div>
+<div id="cinefade"></div>
+<div id="cinecap"><i></i><b></b><s></s></div>
+<div class="zoomwrap" id="zoomwrap">
   <span class="lbl">遠 ⟷ 近</span>
   <input type="range" id="zoom" min="0" max="100" value="60">
 </div>
@@ -1057,7 +1074,7 @@
 <script>
 (function(){
 // ============================================================
-// h!ro53 — LACTO-EMPYREAN / brain-culture array — cinematic future render
+// h!ro53 — LACTO-MANDALA / 同心5輪の脳培養曼荼羅＋円筒ラック＋送電網＋ミルク供給網
 // 並行2ラック（内面間隔12m）＝中央に巨大オブジェクトを据えるための格納空間。
 // 中央: 台座＋給電リング＋係留アーム＋降下スポット照明（オブジェクト自体は未配置=空きステージ）。
 // 奥(z)/縦(y)は広大（seed周期化とフォグで端を溶かし規模を演出）。視点は静止（自動移動なし）。
@@ -1112,23 +1129,26 @@ const cyanL=new THREE.PointLight('#3fd8ff',0.5,45);  cyanL.position.set(0,16,4);
 const dirL=new THREE.DirectionalLight('#8a7fb0',0.28); dirL.position.set(0.2,1.0,0.4); scene.add(dirL);
 
 // ============================================================
-// 並行2ラック・トンネル
+// 同心円マンダラ: 外周円筒ラック（全周セグメント壁）
 // ============================================================
-const GAP=26.0, DEPTH=5.0, innerX=GAP/2;                // 格納幅26m / 奥行5m / 内面 x=±13（ギャラリー幅・送電ケーブルが映える）
+const R_WALL=42.0;
 const MOD_Z=4.0, MOD_Y=3.0;
-const PER_Z=12, REPEAT=4, COLS=PER_Z*REPEAT;            // 48列
-const ROWS=20, Y0=-24;                                  // y∈[-24,36]（床下/頭上へ延伸）
-const LOOP_Z=PER_Z*MOD_Z;                               // 48m 無限ループ周期
-const spanZ=COLS*MOD_Z;                                 // 192m 全長
-const HALF_Z=spanZ/2;
-const LAYERS=[-0.7,-1.6,-2.5,-3.4,-4.5];                // 奥行き5層（最深端-4.8>-5）
-const R_AXIS=new THREE.Vector3(0,0,1), U_AXIS=new THREE.Vector3(0,1,0);
-const wallDefs=[
-  {O:new THREE.Vector3(-innerX,0,0), N:new THREE.Vector3(1,0,0),  idx:0}, // 左壁: 内面法線+x, 奥行きは-x側
-  {O:new THREE.Vector3( innerX,0,0), N:new THREE.Vector3(-1,0,0), idx:1}  // 右壁: 内面法線-x, 奥行きは+x側
-];
-wallDefs.forEach(wd=>{ wd.M=new THREE.Matrix4().makeBasis(R_AXIS,U_AXIS,wd.N).setPosition(wd.O); });
-// local(lx=z軸位置, ly=y, depth=内面法線方向 → +通路側 / -壁内部)
+const NSEG=70;                             // 36°格子（柱・幹線・ポートが放射軸に整列）
+const COLS=1;                              // 各セグメント=1列
+const ROWS=20, Y0=-24;                     // y∈[-24,36]（床下/頭上へ延伸・フォグ溶解）
+const PER_Z=NSEG, LOOP_Z=48, spanZ=192, HALF_Z=spanZ/2; // 旧互換(UVK用)
+const LAYERS=[-0.7,-1.6,-2.5,-3.4,-4.5];
+const U_AXIS=new THREE.Vector3(0,1,0);
+const wallDefs=[];
+for(let sgi=0;sgi<NSEG;sgi++){
+  const a=(sgi+0.5)/NSEG*TAU;
+  const O=new THREE.Vector3(Math.cos(a)*R_WALL,0,Math.sin(a)*R_WALL);
+  const N=new THREE.Vector3(-Math.cos(a),0,-Math.sin(a));   // 内向き法線
+  const T=new THREE.Vector3(-Math.sin(a),0,Math.cos(a));    // 周方向接線
+  const M=new THREE.Matrix4().makeBasis(T,U_AXIS,N).setPosition(O);
+  wallDefs.push({O:O,N:N,M:M,idx:sgi,ang:a});
+}
+// local(lz=接線方向, ly=y, depth=内向き法線 → +内側 / -壁厚方向)
 
 // ---- 収集バッファ ----
 const frameMats=[], bladeMats=[], greebleMats=[], backMats=[];
@@ -1150,7 +1170,7 @@ function pickPal(mr){const c=PAL[Math.floor(mr()*PAL.length)];return [c[0]*1.6,c
 // ---- モジュール生成（周期seedで無限ループ整合） ----
 wallDefs.forEach(wd=>{
   for(let cz=0;cz<COLS;cz++)for(let ry=0;ry<ROWS;ry++){
-    const mr=mulberry32(modHash(cz,ry,wd.idx,PER_Z));
+    const mr=mulberry32(modHash(wd.idx,ry,0,NSEG));
     const lz=(cz-COLS/2)*MOD_Z+MOD_Z/2;
     const ly=Y0+(ry+0.5)*MOD_Y;
     // --- 内面: 額縁バー4辺（中央は開口→奥行きベイが覗ける） ---
@@ -1186,18 +1206,16 @@ wallDefs.forEach(wd=>{
   }
 });
 
-// ---- 構造柱（z周期16m＝ループ整合）＋垂直ネオンストリップ（mode3下降・周期seed） ----
-const PILLAR_EVERY=4; // 4モジュール=16m毎（48mループに3本→端一致）
+// ---- 構造柱（6セグメント毎）＋垂直ネオンストリップ（mode3下降） ----
+const PILLAR_EVERY=7;
 wallDefs.forEach(wd=>{
-  for(let cz=0;cz<COLS;cz+=PILLAR_EVERY){
-    const lz=(cz-COLS/2)*MOD_Z+MOD_Z/2;
-    pushBox(frameMats,wd,lz,6,0.45,0.7,ROWS*MOD_Y+40,1.3); // 全高柱（床下/頭上へ延伸: 中心y=6, 高さ100）
-    const seedBase=(cz%PER_Z)*0.081+wd.idx*0.5;
-    const cyan=((cz/PILLAR_EVERY)%4===2);
-    const scol=cyan?[0.10*1.6,0.85*1.6,1.0*1.6]:[1.0*1.6,0.16*1.6,0.52*1.6];
-    for(let s=0;s<30;s++){const sy=Y0-6+s*2.0;
-      pushLED(wd,lz,sy,0.62,0.14,0.42,scol,3,seedBase+s*0.05);}
-  }
+  if(wd.idx%PILLAR_EVERY!==3)return; // 柱を36°格子＝スポーク/幹線角に整列
+  pushBox(frameMats,wd,0,6,0.45,0.7,ROWS*MOD_Y+40,1.3);
+  const seedBase=wd.idx*0.081;
+  const cyan=((wd.idx/PILLAR_EVERY)%4===2);
+  const scol=cyan?[0.10*1.6,0.85*1.6,1.0*1.6]:[1.0*1.6,0.16*1.6,0.52*1.6];
+  for(let s=0;s<30;s++){const sy=Y0-6+s*2.0;
+    pushLED(wd,0,sy,0.62,0.14,0.42,scol,3,seedBase+s*0.05);}
 });
 
 // ---- InstancedMesh化（標準材質） ----
@@ -1253,25 +1271,26 @@ const ledIM=new THREE.InstancedMesh(ledGeo,ledMaterial,ledMats.length);
 for(let i=0;i<ledMats.length;i++)ledIM.setMatrixAt(i,ledMats[i]);
 ledIM.instanceMatrix.needsUpdate=true; ledIM.renderOrder=5; root.add(ledIM);
 
-// ---- 連続構造（z連続長尺Mesh＝ワープ継ぎ目なし）: 水平デッキ梁 / 上下コーニス ----
-wallDefs.forEach(wd=>{
-  for(let r=0;r<=ROWS;r+=3){const y=Y0+r*MOD_Y;
-    const bar=new THREE.Mesh(new THREE.BoxGeometry(spanZ,0.5,0.85),frameMat);
-    bar.position.set(wd.O.x+wd.N.x*0.28,y,0); root.add(bar);}
-  // 上端・下端コーニス（頭上/床下へ延伸端）
-  [Y0+ROWS*MOD_Y+2, Y0-2].forEach(y=>{
-    const cor=new THREE.Mesh(new THREE.BoxGeometry(spanZ,1.4,1.8),frameMat);
-    cor.position.set(wd.O.x+wd.N.x*0.5,y,0); root.add(cor);});
-});
+// ---- 連続構造: 水平デッキ環 / 上下コーニス環（円周連続） ----
+for(let r=0;r<=ROWS;r+=3){const y=Y0+r*MOD_Y;
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(R_WALL-0.28,0.32,8,140),frameMat);
+  ring.rotation.x=PI/2; ring.position.y=y; root.add(ring);}
+[Y0+ROWS*MOD_Y+2, Y0-2].forEach(y=>{
+  const cor=new THREE.Mesh(new THREE.TorusGeometry(R_WALL-0.5,0.95,10,140),frameMat);
+  cor.rotation.x=PI/2; cor.position.y=y; root.add(cor);});
 
-// ---- 通路床（x∈[-1.5,1.5]・z連続）＋光ライン ----
+// ---- 円形床＋マンダラ光環（5輪＋中心の足元リング） ----
 const floorMat=new THREE.MeshStandardMaterial({color:'#0a0810',metalness:0.65,roughness:0.4});
-const floor=new THREE.Mesh(new THREE.BoxGeometry(GAP,0.2,spanZ),floorMat);
-floor.position.set(0,-0.1,0); root.add(floor);
-// 床の縁ライン（壁際のみ・中央はステージ用に開放）
-[-innerX+0.6,innerX-0.6].forEach(x=>{const ln=new THREE.Mesh(new THREE.BoxGeometry(0.08,0.02,spanZ),
-  new THREE.MeshBasicMaterial({color:'#ff3faf',transparent:true,opacity:0.45,blending:THREE.AdditiveBlending,depthWrite:false}));
-  ln.position.set(x,0.02,0); ln.renderOrder=4; root.add(ln);});
+const floor=new THREE.Mesh(new THREE.CylinderGeometry(R_WALL-0.1,R_WALL-0.1,0.2,120),floorMat);
+floor.position.y=-0.1; root.add(floor);
+const ringLineMat=new THREE.MeshBasicMaterial({color:'#ff3faf',transparent:true,opacity:0.42,blending:THREE.AdditiveBlending,depthWrite:false});
+[2.5,7.5,13.5,19.5,25.5,31.5].forEach(rr=>{const ln=new THREE.Mesh(new THREE.TorusGeometry(rr,0.05,6,120),ringLineMat);
+  ln.rotation.x=PI/2; ln.position.y=0.03; ln.renderOrder=4; root.add(ln);});
+// 放射参道ライン（5本のスポーク軸に整列）
+for(let si=0;si<5;si++){const av_a=PI/2+si*TAU/5;
+  const av=new THREE.Mesh(new THREE.BoxGeometry(0.1,0.02,30),ringLineMat);
+  av.position.set(19*Math.cos(av_a),0.03,19*Math.sin(av_a));
+  av.rotation.y=PI/2-av_a; av.renderOrder=4; root.add(av);}
 
 // ============================================================
 // 導管網（vault-v4送電コア移植: 心拍同期パケット・ピーク色は高彩度ピンクに矯正）
@@ -1306,15 +1325,15 @@ function mkEnergyMat(phase, kOverride){
   cableMats.push(m);return m;}
 // ---- 通路端の光溜まり（無限奥へ吸い込むフォーカス光） ----
 // ---------- camera views（静止・SWでアングル切替: 中央ステージを主題に） ----------
-const target=new THREE.Vector3(0,9.5,72);
+const target=new THREE.Vector3(0,6.8,7.5);
 const VIEWS=[
-  {name:'正対',   tx:0,   ty:9.5,  tz:72,   theta:0.12, phi:1.25, radius:24,  rMin:10,  rMax:60},  // 最前ユニット全体をやや上から
-  {name:'回廊',   tx:5.8, ty:10,   tz:-26,  theta:0.0,  phi:1.47, radius:72,  rMin:10,  rMax:126}, // レーン内一点透視・各ユニットの正面(ネオン側)が連なる
-  {name:'大聖堂', tx:0,   ty:9,    tz:8,    theta:0.04, phi:1.38, radius:110, rMin:70,  rMax:132}, // 正面端の外・高所から身廊全体
-  {name:'単体',   tx:0,   ty:12.5, tz:72,   theta:0.42, phi:1.90, radius:15,  rMin:7,   rMax:32},  // 最前ユニットを正面低所からあおる
-  {name:'脳核',   tx:0,   ty:10.3, tz:72,   theta:0.09, phi:1.50, radius:7,   rMin:3.5, rMax:44},  // 最前ユニットの脳・正面激接写マクロ
-  {name:'送電網', tx:0,   ty:4.6,  tz:72,   theta:0.29, phi:1.62, radius:14,  rMin:5.5, rMax:40},  // 最前ユニット基部・ケーブル扇を正面から
-  {name:'ネオン', tx:0,   ty:18.6, tz:73.5, theta:0.05, phi:1.42, radius:9,   rMin:4.5, rMax:30}   // 最前ユニットの赤ネオンとタンク
+  {name:'正対',     tx:0,     ty:6.8, tz:7.5,  theta:3.1416,phi:1.30, radius:13, rMin:7,   rMax:22},  // ヒーローユニット正面やや上
+  {name:'円環軸',   tx:0,     ty:8,   tz:20,   theta:3.1416,phi:1.42, radius:20, rMin:16,  rMax:30},  // 中心軸から3輪の重なりを見通す
+  {name:'曼荼羅',   tx:0,     ty:4,   tz:0,    theta:0.6,   phi:0.44, radius:30, rMin:20,  rMax:34},  // 高所から同心円全景
+  {name:'脳核',     tx:0,     ty:7.69,tz:7.5,  theta:3.1416,phi:1.48, radius:5,  rMin:3.1, rMax:14},  // ヒーロー脳マクロ
+  {name:'供給網',   tx:0,     ty:19,  tz:13.5, theta:0.9,   phi:1.22, radius:7.5,rMin:4.5, rMax:13},  // 頭上ミルクリング
+  {name:'送電網',   tx:0,     ty:3.61,tz:7.5,  theta:3.1416,phi:1.60, radius:7,  rMin:4.5, rMax:11},  // 中央広場低所からケーブル網
+  {name:'外周回廊', tx:-13.68,ty:7,   tz:28.38,theta:0.451, phi:1.385,radius:8.1,rMin:5,   rMax:13}   // 最外輪と円筒ラックの間
 ];
 let curRMin=VIEWS[0].rMin, curRMax=VIEWS[0].rMax;
 let view=0, theta=VIEWS[0].theta, phi=VIEWS[0].phi, radius=VIEWS[0].radius, tween=null, nowT=0;
@@ -1356,22 +1375,36 @@ zoomEl.addEventListener('input',function(){stopTour();tween=null;radius=clamp(zo
 //   必須アングル: 冷却ファン / 回転文字LCD接写 / 脳核360°一周 / タンク&ネオン接写 / コリドー低空滑走(送電ケーブル下を潜る)
 //   各ショット内経路は事前サンプリングで干渉ゼロ検証済み。ショット間は瞬間カット。
 const TOUR=[
- {n:'大聖堂',     f:{tx:0,ty:9,tz:40,th:0.06,ph:1.30,r:62},      g:{tx:0,ty:9,tz:-140,th:0.06,ph:1.36,r:62},      dur:14.0,hold:0.8}, // 端から端まで身廊を縦断
- {n:'冷却ファン', f:{tx:0,ty:1.6,tz:72,th:0.20,ph:1.28,r:7.5},   g:{tx:0,ty:1.6,tz:72,th:0.75,ph:1.20,r:5.6},     dur:6.0, hold:1.0, fx:'fan'}, // 斜め上・ケース透過でブレード可視
- {n:'回転LCD',    f:{tx:0,ty:3.29,tz:72,th:0.55,ph:1.53,r:4.1},  g:{tx:0,ty:3.29,tz:72,th:-0.35,ph:1.53,r:4.1},   dur:6.0, hold:0.6}, // LCDバンド実高(y≈3.3)へ照準
- {n:'脳核一周',   f:{tx:0,ty:10.3,tz:72,th:0.15,ph:1.47,r:5.6},  g:{tx:0,ty:10.3,tz:72,th:0.15+TAU,ph:1.47,r:5.6},dur:12.0,hold:0.8, abs:1},
- {n:'タンク&ネオン',f:{tx:0,ty:18.5,tz:73.5,th:-0.14,ph:1.46,r:19},g:{tx:0,ty:18.6,tz:73.5,th:0.14,ph:1.41,r:15.2},dur:6.0, hold:1.2}, // 文字全体が収まる距離
- {n:'送電網',     f:{tx:0,ty:4.6,tz:72,th:0.29,ph:1.62,r:16},    g:{tx:0,ty:4.6,tz:72,th:0.18,ph:1.58,r:10},      dur:5.0, hold:0.8},
- {n:'ラック滑走', f:{tx:12.6,ty:9,tz:52,th:-0.29,ph:1.64,r:14.6},g:{tx:12.6,ty:9,tz:6,th:-0.29,ph:1.64,r:14.6},   dur:8.0, hold:0.4},
- {n:'低空滑走',   f:{tx:5.8,ty:3.12,tz:-60,th:3.1416,ph:1.75,r:8},g:{tx:5.8,ty:3.12,tz:88,th:3.1416,ph:1.75,r:8}, dur:11.0,hold:0.6}
+ {n:'曼荼羅',     f:{tx:0,ty:4,tz:0,th:0.2,ph:0.40,r:31},              g:{tx:0,ty:4,tz:0,th:1.5,ph:0.46,r:27},                dur:10.0,hold:1.0}, // 同心円を回転俯瞰
+ {n:'直径縦断',   f:{tx:3.2,ty:14.8,tz:-40,th:0.0,ph:1.32,r:7},        g:{tx:3.2,ty:14.8,tz:33,th:0.0,ph:1.32,r:7},           dur:11.0,hold:0.6}, // ユニット頂とミルク網の間を直進
+ {n:'冷却ファン', f:{tx:0,ty:1.26,tz:7.5,th:2.8,ph:1.30,r:5.0},        g:{tx:0,ty:1.26,tz:7.5,th:3.6,ph:1.20,r:3.9},          dur:6.0, hold:1.0, fx:'fan'},
+ {n:'回転LCD',    f:{tx:0,ty:2.52,tz:7.5,th:2.75,ph:1.53,r:3.35},      g:{tx:0,ty:2.52,tz:7.5,th:3.55,ph:1.53,r:3.35},        dur:6.0, hold:0.6},
+ {n:'脳核一周',   f:{tx:0,ty:7.69,tz:7.5,th:0.15,ph:1.47,r:3.4},       g:{tx:0,ty:7.69,tz:7.5,th:6.4332,ph:1.47,r:3.4},       dur:12.0,hold:0.8, abs:1},
+ {n:'タンク&ネオン',f:{tx:0,ty:13.2,tz:6.4,th:3.1416,ph:1.45,r:13},    g:{tx:0,ty:13.2,tz:6.4,th:3.1416,ph:1.40,r:11.2},      dur:6.0, hold:1.2},
+ {n:'送電網',     f:{tx:0,ty:3.61,tz:7.5,th:3.1416,ph:1.60,r:8},       g:{tx:0,ty:3.61,tz:7.5,th:3.1416,ph:1.60,r:5.2},       dur:5.0, hold:0.8},
+ {n:'供給ライン', f:{tx:-8.99,ty:19,tz:10.06,th:1.224,ph:1.406,r:7.91},g:{tx:-11.44,ty:19,tz:-7.14,th:-0.174,ph:1.406,r:7.91},dur:8.0, hold:0.6}, // ミルクリング沿い滑走
+ {n:'参道低空',   f:{tx:0,ty:2.9,tz:-28,th:3.1416,ph:1.70,r:11.3},     g:{tx:0,ty:2.9,tz:4,th:3.1416,ph:1.70,r:11.3},         dur:9.0, hold:0.8}  // 無人の放射参道を床すれすれで中心核へ
 ];
 let tourOn=false, tourSeg=0, tourPhase='move', tourT0=-1;
 const tourBtn=document.getElementById('tour');
 const viewnameEl=document.getElementById('viewname');
 function setFanFade(f){const o=1-0.88*f;ringMatsShared[0].opacity=o;ringMatsShared[1].opacity=o;fanShroudMat.opacity=o;}
-function stopTour(){if(!tourOn)return;tourOn=false;tourBtn.classList.remove('on');viewnameEl.textContent=VIEWS[view].name;setFanFade(0);}
-function startTour(){tourOn=true;tween=null;tourSeg=0;tourPhase='move';tourT0=-1;tourBtn.classList.add('on');}
+function stopTour(){if(!tourOn)return;tourOn=false;tourBtn.classList.remove('on');viewnameEl.textContent=VIEWS[view].name;setFanFade(0);cineOn(false);}
+function startTour(){tourOn=true;tween=null;tourSeg=0;tourPhase='move';tourT0=-1;tourBtn.classList.add('on');cineOn(true);}
 tourBtn.onclick=function(){if(tourOn)stopTour();else startTour();};
+// ---- シネマティック・ギャラリー演出（レターボックス/キャプション/カット間ディップ） ----
+const TOUR_EN=['MANDALA OVERLOOK','DIAMETRAL TRANSIT','COOLING PLENUM','ROTARY GLYPH BAND','CORTEX ORBIT','SIGNAGE & RESERVOIR','POWER LATTICE','MILK CIRCUIT','SACRED APPROACH'];
+const cineTop=document.getElementById('cinetop'),cineBot=document.getElementById('cinebot');
+const cineCap=document.getElementById('cinecap'),cineFade=document.getElementById('cinefade');
+const cineHideEls=['zoomwrap','hint','viewname','reset'].map(function(id){return document.getElementById(id);});
+let capSeg=-1;
+function cineOn(v){const m=v?'add':'remove';
+  cineTop.classList[m]('on');cineBot.classList[m]('on');cineCap.classList[m]('on');
+  cineHideEls.forEach(function(el){if(el&&el.classList)el.classList[m]('cinehide');});
+  if(!v){cineFade.style.opacity=0;capSeg=-1;}}
+function cineCaption(){
+  if(capSeg===tourSeg)return; capSeg=tourSeg;
+  cineCap.innerHTML='<i>GALLERY · SHOT '+String(tourSeg+1).padStart(2,'0')+' / '+TOUR.length+'</i><b>'+TOUR[tourSeg].n+'</b><s>'+TOUR_EN[tourSeg]+'</s>';}
 function tourStep(t){
   if(tourT0<0){tourT0=t;tourPhase='move';}
   const sSeg=TOUR[tourSeg], el=t-tourT0;
@@ -1387,6 +1420,11 @@ function tourStep(t){
   }
   setFanFade(sSeg.fx==='fan'?(tourPhase==='hold'?1:clamp(el/0.8,0,1)):0);
   viewnameEl.textContent='✈ '+sSeg.n;
+  cineCaption();
+  let fa=0;
+  if(tourPhase==='move'){ if(el<0.28)fa=1-el/0.28; }
+  else { const rem=sSeg.hold-el; if(rem<0.22)fa=1-Math.max(rem,0)/0.22; }
+  cineFade.style.opacity=(Math.max(0,Math.min(1,fa))*0.92).toFixed(3);
 }
 
 // ---- ビューポート適応（縦長画面は広角） ----
@@ -2021,53 +2059,134 @@ const tagPivot=new THREE.Group();tagPivot.position.set(-VAT_R-0.4,LID_TOP+0.2,1.
   return {group:G,update};
 }
 
-// ---- 10体を奥行きzに等間隔配置（床接地・原寸0.92倍・z=-72..72/間隔16m） ----
-const N_OBJ=10, LACTO_S=0.92, LACTO_LIFT=10.6, OBJ_Z0=-72, OBJ_DZ=16, lactos=[];
-for(let i=0;i<N_OBJ;i++){
-  const o=makeLacto();
-  o.group.scale.setScalar(LACTO_S);
-  o.group.position.set(0,LACTO_LIFT,OBJ_Z0+i*OBJ_DZ);
-  scene.add(o.group);
-  lactos.push(o);
+// ---- ユニット配置: 同心5輪（計25基・全ユニット正面=中心広場向き・床接地0.68倍） ----
+const ARR_R=[7.5,13.5,19.5,25.5,31.5], ARR_N=[5,5,5,5,5];  // 全輪5基＝5本の放射スポークに完全整列
+const LACTO_S=0.68, LACTO_LIFT=7.93, lactos=[], unitsArr=[];
+for(let k=0;k<5;k++){
+  const ph0=PI/2; // 全輪同位相（放射整列）
+  for(let i=0;i<ARR_N[k];i++){
+    const a=ph0+i*TAU/ARR_N[k];
+    const ux=ARR_R[k]*Math.cos(a), uz=ARR_R[k]*Math.sin(a);
+    const o=makeLacto();
+    o.group.scale.setScalar(LACTO_S);
+    o.group.position.set(ux,LACTO_LIFT,uz);
+    o.group.rotation.y=1.5*PI-a;   // 正面(+z=ネオン/タンク側)を中心広場へ
+    scene.add(o.group);
+    lactos.push(o); unitsArr.push({a:a,k:k,x:ux,z:uz});
+  }
 }
 function updateLacto(t,pb){for(let i=0;i<lactos.length;i++)lactos[i].update(t,pb);}
 
 // ============================================================
-// 送電ケーブル: 各ユニット培養槽下の制御ラック → 両壁（極太・エネルギー流動）
-//   curve始点=制御ラック / 終点=壁 とし、パルスがラック→壁へ流れる（送電方向）
+// 送電網: 周方向（同輪の隣接間）＋ラジアル（外輪→内輪）＋最外輪→外周ラック
 // ============================================================
 const cableChrome=new THREE.MeshStandardMaterial({color:'#cfd4dd',metalness:1.0,roughness:0.16,envMapIntensity:1.3});
-const CABLE_Y=-6.35*LACTO_S+LACTO_LIFT; // 制御ラックworld中腹 ≈4.76
-for(let ci=0;ci<N_OBJ;ci++){
-  const z=OBJ_Z0+ci*OBJ_DZ;
-  const rackR=2.55*LACTO_S;
-  [-1,1].forEach(sgn=>{
-    // スタイリッシュな垂れカーブ（制御ラック側面→緩やかに垂れて→壁接続）
-    const p0=new THREE.Vector3(sgn*rackR*0.95, CABLE_Y+0.3, z);
-    const p1=new THREE.Vector3(sgn*(innerX*0.30), CABLE_Y-1.8, z);
-    const p2=new THREE.Vector3(sgn*(innerX*0.66), CABLE_Y-0.5, z);
-    const p3=new THREE.Vector3(sgn*(innerX-0.2), CABLE_Y+0.9, z);
-    const curve=new THREE.CatmullRomCurve3([p0,p1,p2,p3]);
-    // 極太被覆（リブ付きメタル）
-    const hm=hullBase.clone();const mp=ribTexBase.clone();mp.needsUpdate=true;mp.repeat.set(10,1);
-    hm.map=mp;hm.bumpMap=mp;hm.bumpScale=0.35;
-    root.add(new THREE.Mesh(new THREE.TubeGeometry(curve,60,0.5,16,false),hm));
-    // エネルギー流動（ラック→壁 送電パルス）
-    const gt=new THREE.Mesh(new THREE.TubeGeometry(curve,60,0.55,16,false),mkEnergyMat((z*0.04+(sgn>0?1.7:0.0))%TAU,0.85));
-    gt.renderOrder=6; root.add(gt);
-    // 制御ラック側 接続カラー
-    const col=new THREE.Mesh(new THREE.CylinderGeometry(0.62,0.62,0.5,20),cableChrome);
-    col.position.copy(p0); col.rotation.z=PI/2; root.add(col);
-    // 壁接続ポート（プレート＋リング＋発光コア）
-    const plate=new THREE.Mesh(new THREE.CylinderGeometry(0.95,0.95,0.35,20),clampMat);
-    plate.position.set(sgn*(innerX-0.02),p3.y,z); plate.rotation.z=PI/2; root.add(plate);
-    const pring=new THREE.Mesh(new THREE.TorusGeometry(0.72,0.09,10,24),cableChrome);
-    pring.position.set(sgn*(innerX-0.16),p3.y,z); pring.rotation.y=PI/2; root.add(pring);
-    const pcore=new THREE.Mesh(new THREE.CircleGeometry(0.58,20),
-      new THREE.MeshBasicMaterial({color:'#ff5fc0',transparent:true,opacity:0.8,blending:THREE.AdditiveBlending,depthWrite:false}));
-    pcore.position.set(sgn*(innerX-0.14),p3.y,z); pcore.rotation.y=sgn>0?-PI/2:PI/2; pcore.renderOrder=7; root.add(pcore);
+const portGlowMat=new THREE.MeshBasicMaterial({color:'#ff5fc0',transparent:true,opacity:0.8,blending:THREE.AdditiveBlending,depthWrite:false});
+const CABLE_Y=-6.35*LACTO_S+LACTO_LIFT;   // 制御ラック中腹 ≈3.61
+const RACK_WR=2.55*LACTO_S;               // ラック半径(world) ≈1.73
+const Y_UP=new THREE.Vector3(0,1,0);
+function angLerp(a,b,t){return a+(((b-a+PI)%TAU+TAU)%TAU-PI)*t;}
+function powerCable(pts,phase,rHull){
+  const curve=new THREE.CatmullRomCurve3(pts);
+  const hm=hullBase.clone();const mp=ribTexBase.clone();mp.needsUpdate=true;mp.repeat.set(8,1);
+  hm.map=mp;hm.bumpMap=mp;hm.bumpScale=0.3;
+  root.add(new THREE.Mesh(new THREE.TubeGeometry(curve,48,rHull,12,false),hm));
+  const gt=new THREE.Mesh(new THREE.TubeGeometry(curve,48,rHull+0.045,12,false),mkEnergyMat(phase%TAU,0.85));
+  gt.renderOrder=6; root.add(gt);
+}
+function collarDir(p,dir){const c=new THREE.Mesh(new THREE.CylinderGeometry(0.40,0.40,0.42,16),cableChrome);
+  c.position.copy(p); c.quaternion.setFromUnitVectors(Y_UP,dir.clone().normalize()); root.add(c);}
+const byRing=[[],[],[],[],[]];
+unitsArr.forEach(u=>byRing[u.k].push(u));
+byRing.forEach(arr=>arr.sort((p,q)=>p.a-q.a));
+// --- 周方向: 同輪の隣接ユニットをラック側面同士で弧連結 ---
+byRing.forEach(function(arr,k){
+  const R=ARR_R[k], da=TAU/arr.length, trim=(RACK_WR*1.05)/R;
+  arr.forEach(function(A,i){
+    const a0=A.a+trim, a1=A.a+da-trim;
+    const pts=[];
+    for(let sN=0;sN<=4;sN++){const tN=sN/4;
+      const aa=a0+(a1-a0)*tN, sag=0.9*Math.sin(PI*tN);
+      pts.push(new THREE.Vector3(R*Math.cos(aa),CABLE_Y+0.15-sag,R*Math.sin(aa)));}
+    powerCable(pts,k*0.9,0.26);            // 輪ごと同位相＝整然とした周回波
+    collarDir(pts[0],new THREE.Vector3(-Math.sin(a0),0,Math.cos(a0)));
+    collarDir(pts[4],new THREE.Vector3(-Math.sin(a1),0,Math.cos(a1)));
+  });
+});
+// --- ラジアル: 各外輪ユニット → 角度最寄りの内輪ユニット ---
+for(let k=1;k<5;k++){
+  byRing[k].forEach(function(u,i){
+    let best=byRing[k-1][0],bd=99;
+    byRing[k-1].forEach(function(w){const d=Math.abs(((u.a-w.a+PI)%TAU+TAU)%TAU-PI);if(d<bd){bd=d;best=w;}});
+    const Ro=ARR_R[k]-RACK_WR*0.95, Ri=ARR_R[k-1]+RACK_WR*0.95;
+    const pts=[];
+    for(let sN=0;sN<=4;sN++){const tN=sN/4;
+      const rr=Ro+(Ri-Ro)*tN, aa=angLerp(u.a,best.a,tN), sag=0.7*Math.sin(PI*tN);
+      pts.push(new THREE.Vector3(rr*Math.cos(aa),CABLE_Y+0.1-sag,rr*Math.sin(aa)));}
+    powerCable(pts,1.2+k*0.55,0.28);       // 外向き伝播波（輪順に点火）
+    collarDir(pts[0],new THREE.Vector3(Math.cos(u.a),0,Math.sin(u.a)));
+    collarDir(pts[4],new THREE.Vector3(Math.cos(best.a),0,Math.sin(best.a)));
   });
 }
+// --- 最外輪 → 外周ラック（発光ポート付き・送電の終端） ---
+byRing[4].forEach(function(u,i){
+  const dir=new THREE.Vector3(Math.cos(u.a),0,Math.sin(u.a));
+  const p0=dir.clone().multiplyScalar(ARR_R[4]+RACK_WR*0.95); p0.y=CABLE_Y+0.1;
+  const p1=dir.clone().multiplyScalar(ARR_R[4]+4.2);          p1.y=CABLE_Y-0.8;
+  const p2=dir.clone().multiplyScalar(R_WALL-3.4);            p2.y=CABLE_Y+0.4;
+  const p3=dir.clone().multiplyScalar(R_WALL-1.15);           p3.y=4.7;
+  powerCable([p0,p1,p2,p3],3.95,0.30);   // 伝播波の終端
+  collarDir(p0,dir);
+  const port=new THREE.Group(); port.position.copy(dir.clone().multiplyScalar(R_WALL-1.05)); port.position.y=4.7;
+  port.lookAt(0,4.7,0); root.add(port);
+  const plate=new THREE.Mesh(new THREE.CylinderGeometry(0.8,0.8,0.32,20),clampMat); plate.rotation.x=PI/2; port.add(plate);
+  const pring=new THREE.Mesh(new THREE.TorusGeometry(0.6,0.08,10,24),cableChrome); port.add(pring);
+  const pcore=new THREE.Mesh(new THREE.CircleGeometry(0.48,20),portGlowMat); pcore.position.z=0.18; pcore.renderOrder=7; port.add(pcore);
+});
+
+// ============================================================
+// いちごミルク供給網: 頭上リング×5＋中央ハブ＋幹線3本＋壁立管＋各タンクへ降下チューブ
+// ============================================================
+const MILK_Y=19.0;
+const milkPipeMat=new THREE.MeshStandardMaterial({color:'#ffdfee',metalness:0.15,roughness:0.28,envMapIntensity:1.1});
+const milkFlowC=document.createElement('canvas');milkFlowC.width=128;milkFlowC.height=8;
+{const mg=milkFlowC.getContext('2d');mg.clearRect(0,0,128,8);mg.fillStyle='rgba(255,120,190,0.9)';
+ for(let x=0;x<128;x+=32)mg.fillRect(x,2,18,4);}
+const milkFlowTex=new THREE.CanvasTexture(milkFlowC);milkFlowTex.wrapS=milkFlowTex.wrapT=THREE.RepeatWrapping;milkFlowTex.repeat.set(26,1);
+const milkFlowMat=new THREE.MeshBasicMaterial({map:milkFlowTex,transparent:true,opacity:0.85,color:'#ff9ccf',depthWrite:false});
+[2.5,7.5,13.5,19.5,25.5,31.5].forEach(function(R){
+  const pipe=new THREE.Mesh(new THREE.TorusGeometry(R,0.34,10,140),milkPipeMat);
+  pipe.rotation.x=PI/2; pipe.position.y=MILK_Y; root.add(pipe);
+  const fl=new THREE.Mesh(new THREE.TorusGeometry(R,0.40,8,140),milkFlowMat);
+  fl.rotation.x=PI/2; fl.position.y=MILK_Y; fl.renderOrder=6; root.add(fl);
+});
+const FA=[0,1,2,3,4].map(function(i){return PI/2+PI/5+i*TAU/5;}); // 幹線=スポーク間の中間角（36°格子）
+FA.forEach(function(fa){
+  const dir=new THREE.Vector3(Math.cos(fa),0,Math.sin(fa));
+  const len=(R_WALL-1.5)-2.5;
+  const feed=new THREE.Mesh(new THREE.CylinderGeometry(0.34,0.34,len,10),milkPipeMat);
+  feed.position.copy(dir.clone().multiplyScalar(2.5+len/2)); feed.position.y=MILK_Y;
+  feed.quaternion.setFromUnitVectors(Y_UP,dir); root.add(feed);
+  const riser=new THREE.Mesh(new THREE.CylinderGeometry(0.34,0.34,12.5,10),milkPipeMat);
+  riser.position.copy(dir.clone().multiplyScalar(R_WALL-1.5)); riser.position.y=MILK_Y+6.25; root.add(riser);
+  const elbow=new THREE.Mesh(new THREE.SphereGeometry(0.42,12,10),milkPipeMat);
+  elbow.position.copy(dir.clone().multiplyScalar(R_WALL-1.5)); elbow.position.y=MILK_Y; root.add(elbow);
+});
+const TANK_TOP_W=7.1*LACTO_S+LACTO_LIFT+1.55*LACTO_S; // ≈13.81
+unitsArr.forEach(function(u){
+  const pts=[new THREE.Vector3(u.x,MILK_Y-0.30,u.z),
+             new THREE.Vector3(u.x,MILK_Y-2.40,u.z),
+             new THREE.Vector3(u.x,TANK_TOP_W+0.55,u.z),
+             new THREE.Vector3(u.x,TANK_TOP_W-0.05,u.z)];
+  const curve=new THREE.CatmullRomCurve3(pts);
+  root.add(new THREE.Mesh(new THREE.TubeGeometry(curve,16,0.13,8,false),milkPipeMat));
+  const fl=new THREE.Mesh(new THREE.TubeGeometry(curve,16,0.165,8,false),milkFlowMat);
+  fl.renderOrder=6; root.add(fl);
+  const saddle=new THREE.Mesh(new THREE.SphereGeometry(0.5,12,10),milkPipeMat);
+  saddle.position.set(u.x,MILK_Y,u.z); root.add(saddle);
+  const valve=new THREE.Mesh(new THREE.CylinderGeometry(0.24,0.30,0.5,12),cableChrome);
+  valve.position.set(u.x,TANK_TOP_W+0.2,u.z); root.add(valve);
+});
 
 // ---------- loop ----------
 const clock=new THREE.Clock();
@@ -2079,6 +2198,7 @@ function tick(){
   boostS+=(RACK_BOOST.value-boostS)*Math.min(dt*4.0,1.0);
   ledUniforms.uTime.value=t; ledUniforms.uBeat.value=pb; ledUniforms.uBoost.value=boostS;
   for(let i=0;i<cableMats.length;i++){const cu=cableMats[i].uniforms;cu.uTime.value=t;cu.uPulse.value=pb;}
+  milkFlowTex.offset.x=-t*0.35; // ミルク流動
   keyL.intensity=0.9+0.25*pb+0.5*boostS;
   updateLacto(t,pb); // 中央主役オブジェクト群の駆動
   // 遠近スライダーを現在radiusに追従
