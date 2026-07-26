@@ -56,8 +56,10 @@ header{padding:calc(40px + env(safe-area-inset-top)) 0 26px;border-bottom:1px so
 /* ---- registry ---- */
 .meta{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.22em;
   text-transform:uppercase;color:var(--chrome);padding:20px 0 10px}
-.entry{display:block;text-decoration:none;color:inherit;position:relative;
+.entry{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;
+  align-items:start;text-decoration:none;color:inherit;position:relative;
   border-bottom:1px solid var(--line);padding:20px 4px 20px 0;overflow:hidden}
+.entry>*{grid-column:1;min-width:0}
 .entry::before{content:"";position:absolute;left:-2px;top:0;bottom:0;width:2px;
   background:linear-gradient(180deg,var(--mag),var(--red));transform:scaleY(0);transform-origin:top;
   transition:transform .32s cubic-bezier(.2,.7,.2,1)}
@@ -68,6 +70,7 @@ header{padding:calc(40px + env(safe-area-inset-top)) 0 26px;border-bottom:1px so
 .name{font-family:var(--disp);font-weight:700;font-size:clamp(23px,6.4vw,34px);
   line-height:1;letter-spacing:.01em;text-transform:uppercase}
 .desc{margin:9px 0 0 64px;font-size:11.5px;line-height:1.85;color:var(--chrome);max-width:46ch}
+@media(max-width:520px){.desc,.spec{margin-left:0}.row .idx{min-width:44px}}
 .spec{margin:10px 0 0 64px;display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--milk);
   border:1px solid var(--line);border-radius:2px;padding:3px 7px;opacity:.72}
@@ -78,8 +81,9 @@ header{padding:calc(40px + env(safe-area-inset-top)) 0 26px;border-bottom:1px so
 @keyframes pulse{0%,100%{opacity:.35}45%{opacity:1}}
 
 /* ---- entry preview ---- */
-.entry .thumb{display:block;position:relative;margin:15px 0 3px 64px;max-width:392px;
-  aspect-ratio:16/9;border:1px solid var(--line);background:#000;overflow:hidden}
+.entry .thumb{grid-column:2;grid-row:1/-1;align-self:start;display:block;position:relative;
+  margin:2px 0 0;width:clamp(84px,24vw,116px);aspect-ratio:1/1;
+  border:1px solid var(--line);background:#000;overflow:hidden}
 .entry .thumb img{display:block;width:100%;height:100%;object-fit:cover;
   opacity:.66;filter:saturate(.6) contrast(1.04);
   transition:opacity .34s ease,filter .34s ease,transform .62s cubic-bezier(.2,.7,.2,1)}
@@ -90,7 +94,7 @@ header{padding:calc(40px + env(safe-area-inset-top)) 0 26px;border-bottom:1px so
     repeating-linear-gradient(0deg,rgba(0,0,0,.26) 0 1px,transparent 1px 3px),
     linear-gradient(96deg,rgba(255,47,160,.07),rgba(255,43,43,.05));
   box-shadow:inset 0 0 34px rgba(0,0,0,.62)}
-@media (max-width:520px){.entry .thumb{margin-left:0;max-width:none}}
+@media (max-width:520px){.entry .thumb{margin-left:0}}
 
 /* ---- notes ---- */
 .entry .idx{font-size:10px}
@@ -211,7 +215,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
   <p class="desc" lang="ja">正典。Y2K と TRANSCENDENCE の2モデルを切替える基幹作品。心拍0.78秒、ディスク周期2.4秒、正準パレットの全てがここに定義される。以降の全作品はこの構造を継承する。</p>
   <p class="desc" lang="en">The canon. The core work, switching between the Y2K and TRANSCENDENCE models. The 0.78-second pulse, the 2.4-second disc cycle and the whole of the canonical palette are defined here. Every work that follows inherits this structure.</p>
   <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Model switch</span></div>
-  <span class="thumb"><img src="cyberwafer-thumb.jpg" alt="Cyberwafer v25 — TRANSCENDENCE モデル" width="800" height="450" loading="lazy" decoding="async"></span>
+  <span class="thumb"><img src="cyberwafer-thumb.jpg" alt="Cyberwafer v25 — TRANSCENDENCE モデル" width="640" height="640" loading="lazy" decoding="async"></span>
 </a>
 
 <a class="entry" href="object.html">
@@ -247,6 +251,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
   <p class="desc" lang="ja">乳脳マイクロモジュール炉、単体構成。培養槽に浮かぶ皮質と灌流系を単一モジュールとして提示する。配列作品の基本単位。</p>
   <p class="desc" lang="en">The lacto-cortex micro-module reactor, in single configuration. A cortex suspended in a culture tank, presented with its perfusion system as one module. The base unit of the array works.</p>
   <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Bloom</span></div>
+      <span class="thumb"><img src="lacto-cortex-thumb.jpg" alt="Lacto-Cortex v6 — 培養槽に浮かぶ皮質" width="640" height="640" loading="lazy" decoding="async"></span>
 </a>
 
 <a class="entry" href="code-rain.html">
@@ -254,7 +259,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
   <p class="desc" lang="ja">電脳雨。降下する社名・教義・製品名のグリッドに、会長が像として顕れる。全グロー除去、クリスプなインクのみで構成された文字組の作品。</p>
   <p class="desc" lang="en">Electric rain. Within a descending grid of subsidiary names, doctrine and product lines, the Chairman appears as an image. All glow removed — a work of typesetting composed in crisp ink alone.</p>
   <div class="spec"><span class="chip live">Live</span><span class="chip">Canvas 2D</span><span class="chip">Tap to summon</span></div>
-  <span class="thumb"><img src="code-rain-thumb.jpg" alt="Code Rain v4 — 電脳雨に顕れる会長" width="800" height="450" loading="lazy" decoding="async"></span>
+  <span class="thumb"><img src="code-rain-thumb.jpg" alt="Code Rain v4 — 電脳雨に顕れる会長" width="640" height="640" loading="lazy" decoding="async"></span>
 </a>
 
 <div class="notes">
