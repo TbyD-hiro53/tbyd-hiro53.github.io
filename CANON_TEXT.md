@@ -94,7 +94,47 @@ Nobody ordered the likeness. The table had been circulated for the reconciliatio
 
 ---
 
-## ASSET 03 — Lacto-Cortex v6
+## ASSET 03 — Code Rain v5
+
+**位相** PHASE 3 · TRANSCENSION
+
+**観測ログ** `The rain slowed only where the body was.`
+
+**説明 JA**
+Canvas 2Dのみの文字組。跪座する全身像が降雨の格子から解像し、上端から下端へ一行ずつ印字される。降雨は図像セルを通過する間だけ減速する。タップで再発火。
+
+**説明 EN**
+Typesetting in Canvas 2D alone. A kneeling figure resolves out of the falling grid, printed one row at a time from top to bottom. The rain slows only while passing through the cells of the figure. Tap to fire it again.
+
+**断章 JA**
+落下の速度は一定であるはずだった。計測班は三箇所で同じ結果を得た——像の内側でだけ、雨が遅い。減速の原因は列にはない。列は等しく流れており、遅れるのは輪郭に触れた瞬間の一文字だけである。滞留した文字は身体の縁に溜まり、しばらく形を保ってから流れ去る。跪いた姿勢について記録は何も述べていない。姿勢は測定項目ではなかった。
+
+**断章 EN**
+The rate of fall was supposed to be constant. The measuring party obtained the same result at three separate points — the rain is slower, and only within the figure. The cause of the retardation is not in the columns. The columns flow evenly; what lags is the single character at the instant it touches the outline. The characters that linger gather at the edge of the body, hold their shape a while, and are carried off. Of the kneeling posture the record says nothing. Posture was not among the measured items.
+
+---
+
+## ASSET 04 — Code Rain v6
+
+**位相** PHASE 2 · DEUS EX MACHINA
+
+**観測ログ** `The utterance was recorded. No language was assigned.`
+
+**説明 JA**
+Canvas 2Dのみの文字組。肖像が輝度順の散乱ディゾルブで解像し、舌の領域だけが第四色の燠として独立に脈動する。燠から下方へ短い列が滴下する。タップで滴下を増幅。
+
+**説明 EN**
+Typesetting in Canvas 2D alone. A portrait resolves in a scattered dissolve ordered by luminance, and only the region of the tongue pulses independently as an ember in a fourth colour. Short columns drip from it. Tap to amplify the dripping.
+
+**断章 JA**
+音は記録された。周波数、持続、間隔、開口の面積までが表に収まっている。収まらなかったのは意味である。照合できる語彙が存在せず、既知のどの体系にも一致しなかった。担当は「言語未割当」と記入し、欄はそのまま閉じられた。舌だけが別の色を持っている。他の部位と同じ周期で脈打ちながら、そこだけが冷えていない。滴りは下へ落ち、通過した文字を書き換えていく。
+
+**断章 EN**
+The sound was recorded. Frequency, duration, interval, even the area of the aperture are entered in the table. What would not be entered is the meaning. No vocabulary existed against which to collate it, and it matched no known system. The officer wrote no language assigned, and the column was closed as it stood. Only the tongue holds a different colour. It beats on the same period as the rest, and only there has nothing cooled. The drip falls, rewriting the characters it passes.
+
+---
+
+## ASSET 05 — Lacto-Cortex v6
 
 **位相** PHASE 3 · TRANSCENSION
 
@@ -114,7 +154,27 @@ The electrodes do not clamp. They surround it at fixed intervals and wait withou
 
 ---
 
-## ASSET 04 — Sigil Fusion v5
+## ASSET 06 — Cortex Pylon v3
+
+**位相** PHASE 3 · TRANSCENSION
+
+**観測ログ** `The feed rate matched a pulse no instrument had issued.`
+
+**説明 JA**
+T構造体の垂直柱にガラス柱を垂下し、その内部へ培養脳炉を格納した記念碑。上部梁がいちごミルク貯乳槽を兼ね、円盤の降下から滴下・着弾までが一本の垂直線で読める。視点は5種、自動回転あり。
+
+**説明 EN**
+A monument in which a glass column hangs within the vertical shaft of the T structure, housing the cortex reactor inside it. The upper beam doubles as the strawberry-milk reservoir, and the descent of the discs through the drip to the impact reads as a single vertical line. Five viewpoints, with an automatic rotation.
+
+**断章 JA**
+給餌の速度は拍と一致していた。ただし、その拍を発した装置が見つからない。制御室の記録には流量の指示値だけがあり、周期の指示は白紙である。円盤は上から降り、縮み、消える一点で乳滴に変わる。滴は落ち、皮質の頭頂へ当たる。この連鎖はどこも切れておらず、どこにも開始が書かれていない。基壇の上の帯は空にされていて、四段の文字だけが巡っている。据えるものが無かったのではなく、据えないことが図面に指定されていた。
+
+**断章 EN**
+The feed rate matched a pulse. Only, no instrument that issued that pulse can be found. The control-room record holds the specified value for flow alone; for the period the entry is blank. The discs descend, contract, and at the point of their vanishing become a droplet of milk. The droplet falls and strikes the crown of the cortex. Nowhere is this chain broken, and nowhere is its beginning written. The band above the plinth was left empty, and only four rows of text circle there. It was not that there was nothing to seat; the drawing specified that nothing be seated.
+
+---
+
+## ASSET 07 — Sigil Fusion v5
 
 **位相** PHASE 3 · TRANSCENSION
 
@@ -134,7 +194,7 @@ No altar was required. No offering, no place to kneel, no one to recite. What wa
 
 ---
 
-## ASSET 05 — Empyrean Sigil v7
+## ASSET 08 — Empyrean Sigil v7
 
 **位相** PHASE 4 · THE TRANSCENDED
 
@@ -154,7 +214,7 @@ A mark is made in order to certify. Asked what it certified, the legal office an
 
 ---
 
-## ASSET 06 — Lacto-Empyrean v7
+## ASSET 09 — Lacto-Empyrean v7
 
 **位相** PHASE 4 · THE TRANSCENDED
 
@@ -174,7 +234,7 @@ Numbers have been assigned. Query them and there is a response. Yet whichever nu
 
 ---
 
-## ASSET 07 — Lacto-Mandala v2
+## ASSET 10 — Lacto-Mandala v2
 
 **位相** PHASE 4 · THE TRANSCENDED
 
@@ -194,7 +254,7 @@ The alignment resembles the form of a faith. It only resembles it; there is no t
 
 ---
 
-## ASSET 08 — Sanctum v5
+## ASSET 11 — Sanctum v5
 
 **位相** PHASE 5 · RESIDUAL WORLD
 
