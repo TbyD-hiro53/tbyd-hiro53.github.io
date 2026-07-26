@@ -16,17 +16,27 @@
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html,body{height:100%;overflow:hidden;background:#7fa8d0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}
   #app{position:fixed;inset:0;} canvas{display:block;}
-  .ui{position:fixed;inset:0;pointer-events:none;z-index:10;display:flex;flex-direction:column;justify-content:space-between;}
-  .top{padding:18px 20px 0;}
+  \1
+  /* --- 視認性スクリム（h53 layout fix） --- */
+  .ui::before,.ui::after{content:"";position:fixed;left:0;right:0;pointer-events:none;z-index:-1;}
+  .ui::before{top:0;height:calc(126px + env(safe-area-inset-top));
+    background:linear-gradient(180deg,rgba(4,6,12,.70),rgba(4,6,12,.22) 60%,transparent);}
+  .ui::after{bottom:0;height:calc(196px + env(safe-area-inset-bottom));
+    background:linear-gradient(0deg,rgba(4,6,12,.78),rgba(4,6,12,.26) 60%,transparent);}
+
+  .top{padding:calc(30px + env(safe-area-inset-top)) 20px 0;max-width:100%;}
   .brand{font-weight:700;font-size:15px;letter-spacing:2px;color:#fff;text-shadow:0 2px 10px rgba(0,40,90,.45);}
-  .sub{font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.85);text-shadow:0 1px 6px rgba(0,40,90,.4);margin-top:2px;}
-  .bottom{padding:0 16px calc(20px + env(safe-area-inset-bottom));display:flex;gap:9px;justify-content:center;flex-wrap:wrap;}
+  .sub{font-size:clamp(9px,2.5vw,11px);letter-spacing:clamp(1.5px,.72vw,3px);color:rgba(255,255,255,.85);text-shadow:0 1px 6px rgba(0,40,90,.4);margin-top:3px;line-height:1.5;}
+  .botstack{display:flex;flex-direction:column;align-items:center;gap:11px;
+    padding:0 14px calc(32px + env(safe-area-inset-bottom));}
+  .ctrls{display:flex;align-items:flex-end;justify-content:center;gap:16px;flex-wrap:wrap;}
+  .swcol{display:flex;flex-direction:column;align-items:center;gap:5px;}
   .btn{pointer-events:auto;font-family:inherit;font-size:12px;letter-spacing:1px;color:#10324f;
     background:rgba(255,255,255,.78);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.6);
     border-radius:999px;padding:9px 16px;cursor:pointer;transition:transform .15s,background .2s;box-shadow:0 4px 14px rgba(0,30,70,.18);}
   .btn:active{transform:translateY(1px);}
   .btn.on{background:#10324f;color:#fff;border-color:#10324f;}
-  .hint{position:fixed;bottom:74px;left:0;right:0;text-align:center;font-size:10.5px;letter-spacing:1px;color:rgba(255,255,255,.7);pointer-events:none;z-index:9;text-shadow:0 1px 6px rgba(0,40,90,.4);}
+  .hint{text-align:center;white-space:nowrap;font-size:10.5px;letter-spacing:1px;color:rgba(255,255,255,.7);pointer-events:none;z-index:9;text-shadow:0 1px 6px rgba(0,40,90,.4);}
 </style>
 
 <style id="h53-copyright-css">
@@ -47,12 +57,14 @@
     <div class="brand">hiro53</div>
     <div class="sub">TRANSCENDENCE · BY · DEUS EX MACHINA</div>
   </div>
-  <div class="bottom">
-    <button class="btn" id="bg">背景: サイバー</button>
-    <button class="btn" id="reset">視点リセット</button>
+  <div class="botstack">
+    <div class="hint">ドラッグ回転 · ピンチ拡大</div>
+    <div class="ctrls">
+      <button class="btn" id="bg">背景: サイバー</button>
+      <button class="btn" id="reset">視点リセット</button>
+    </div>
   </div>
 </div>
-<div class="hint">ドラッグで回転 · ピンチ/ホイールで拡大</div>
 
 <script>/*three.min.js*/
 /**
