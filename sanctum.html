@@ -7,14 +7,14 @@
      Viewing permitted. Reproduction, redistribution, and reuse of source code
      or assets — in whole or in part — is prohibited without written permission. -->
 <meta name="author" content="h!ro53" />
-<title>h!ro53 — transcendence plant</title>
+<title>h!ro53 — transcendence vault v4</title>
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <style>
   
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-  html,body{height:100%;overflow:hidden;background:#050409;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}
+  html,body{height:100%;overflow:hidden;background:#050409;font-family:'Helvetica Neue',sans-serif;}
   #app{position:fixed;inset:0;} canvas{display:block;}
   \1
   /* --- 視認性スクリム（h53 layout fix） --- */
@@ -33,12 +33,13 @@
   .swcol{display:flex;flex-direction:column;align-items:center;gap:5px;}
   .btn{pointer-events:auto;font-family:inherit;font-size:12px;letter-spacing:1px;color:#ffe7f6;
     background:rgba(30,20,42,.6);backdrop-filter:blur(6px);border:1px solid rgba(255,140,220,.4);
-    border-radius:999px;padding:9px 16px;cursor:pointer;transition:transform .15s,background .2s;box-shadow:0 4px 16px rgba(0,0,0,.45);}
+    border-radius:1248.8px;padding:9px 16px;cursor:pointer;transition:transform .15s,background .2s;box-shadow:0 4px 16px rgba(0,0,0,.45);}
   .btn:active{transform:translateY(1px);}
   .hint{text-align:center;white-space:nowrap;font-size:10.5px;letter-spacing:1px;color:rgba(240,210,236,.55);pointer-events:none;z-index:9;}
+  .wm{text-align:center;line-height:1.55;font-family:'Courier New',monospace;font-size:9px;letter-spacing:1px;color:rgba(150,220,230,.45);pointer-events:none;}
   .swwrap{display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none;}
   #viewname{font-size:10px;letter-spacing:2px;color:rgba(255,214,240,.85);text-shadow:0 0 8px rgba(255,110,210,.55);}
-  #sw{width:48px;height:48px;border-radius:50%;padding:0;font-weight:700;font-size:14px;pointer-events:auto;}
+  #sw{width:48px;height:48px;border-radius:62.5%;padding:0;font-weight:700;font-size:14px;pointer-events:auto;}
 </style>
 
 <style id="h53-copyright-css">
@@ -60,14 +61,19 @@
     <div class="sub">TRANSCENDENCE · BY · DEUS EX MACHINA</div>
   </div>
   <div class="botstack">
-    <div class="hint">ドラッグ回転 · ピンチ拡大 · SW視点切替</div>
+    <div class="hint">ドラッグ回転 · ピンチ拡大 · SW視点切替 · ERA階調切替</div>
     <div class="ctrls">
       <button class="btn" id="reset">視点リセット</button>
       <div class="swcol">
         <div id="viewname">全景</div>
         <button class="btn" id="sw">SW</button>
       </div>
+      <div class="swcol">
+        <div id="eraname">現行</div>
+        <button class="btn" id="era">ERA</button>
+      </div>
     </div>
+    <div class="wm">DEUS EX MACHINA VISUALIZER β0.53<br>© 2003 h!ro53 · reuse prohibited</div>
   </div>
 </div>
 
@@ -1044,6 +1050,14 @@
 <!-- TextGeometry.js: r128ではcoreに同梱のため削除 -->
 <script>
 (function(){
+// ---- ランタイムエラー可視化（デバッグ用オーバーレイ・タップで閉じる）----
+const errBox=document.createElement('div');
+errBox.style.cssText='position:fixed;left:10px;top:calc(10px + env(safe-area-inset-top));z-index:99;max-width:80vw;font:10px/1.5 "Courier New",monospace;color:#ff9b9b;background:rgba(40,0,10,.85);border:1px solid rgba(255,120,120,.5);padding:6px 8px;border-radius:3.8px;display:none;white-space:pre-wrap;';
+errBox.onclick=function(){errBox.style.display='none';};
+document.body.appendChild(errBox);
+function showErr(msg){errBox.textContent='⚠ RUNTIME ERROR（タップで閉じる）\n'+msg;errBox.style.display='block';}
+window.addEventListener('error',function(e){showErr((e.message||String(e))+'\n@ '+(e.lineno||'?')+':'+(e.colno||'?'));});
+window.addEventListener('unhandledrejection',function(e){showErr('Promise: '+((e.reason&&e.reason.message)||e.reason));});
 const PI=Math.PI,TAU=PI*2;
 const clamp=THREE.MathUtils.clamp, lerp=THREE.MathUtils.lerp;
 // ---- pump rhythm（ドクドク・最終形態④正準）: systole + echo ----
@@ -1054,7 +1068,7 @@ const renderer=new THREE.WebGLRenderer({antialias:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio,2));
 renderer.setSize(innerWidth,innerHeight);
 renderer.outputEncoding=THREE.sRGBEncoding;
-renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.toneMapping=THREE.LinearToneMapping; // Y2Kグレード: フィルミック排除・ハイライトは潔くクリップ
 renderer.toneMappingExposure=1.0;
 document.getElementById('app').appendChild(renderer.domElement);
 
@@ -1072,7 +1086,86 @@ function glowTex(rgb){const c=document.createElement('canvas');c.width=256;c.hei
   g.fillStyle=gr;g.fillRect(0,0,256,256);const t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;return t;}
 // ---------- background & atmosphere（マゼンタ寄りの深宙） ----------
 scene.background=gradTex(['#1d1430','#130d22','#0a0714','#050409']);
-scene.fog=new THREE.FogExp2('#0a0714',0.012);
+scene.fog=new THREE.FogExp2('#151210',0.0095); // 薄明の洞内気: フォグ色を持ち上げ遠景を淡く灯し・視程も延伸
+
+// ---------- 地下大空洞（寂れた石窟: 岩殻ドーム＋岩盤フロア＋鍾乳石＋瓦礫＋微塵・全プロシージャル/追加5DC） ----------
+function rockTex(px,base,lo,hi,cracks){
+  const c=document.createElement('canvas');c.width=c.height=px;const g=c.getContext('2d');
+  g.fillStyle=base;g.fillRect(0,0,px,px);
+  for(let i=0;i<1500;i++){ // 多層まだら
+    const rr=1+Math.random()*10;
+    g.fillStyle='rgba('+(Math.random()<0.5?lo:hi)+','+(0.04+Math.random()*0.10).toFixed(3)+')';
+    g.beginPath();g.ellipse(Math.random()*px,Math.random()*px,rr,rr*(0.4+Math.random()*0.9),Math.random()*PI,0,TAU);g.fill();
+  }
+  g.strokeStyle='rgba(12,10,9,0.5)';
+  for(let i=0;i<cracks;i++){ // 亀裂: ランダムウォーク
+    let x=Math.random()*px,y=Math.random()*px,a=Math.random()*TAU;
+    g.lineWidth=0.6+Math.random()*1.4;g.beginPath();g.moveTo(x,y);
+    const st=14+((Math.random()*26)|0);
+    for(let k=0;k<st;k++){a+=(Math.random()-0.5)*0.9;x+=Math.cos(a)*(3+Math.random()*7);y+=Math.sin(a)*(3+Math.random()*7);g.lineTo(x,y);}
+    g.stroke();
+  }
+  const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.encoding=THREE.sRGBEncoding;t.anisotropy=4;return t;
+}
+function rockNoise(x,y,z){
+  return Math.sin(x*0.55+z*0.31)+0.6*Math.sin(y*0.47+x*0.23)+0.45*Math.sin(z*0.62+y*0.41)+0.3*Math.sin(x*1.7+y*1.3+z*1.1);
+}
+const caveDust=(function(){
+  const baseTex=rockTex(512,'#5b5650','58,53,48','118,110,101',26);
+  // 岩殻ドーム（内向きBackSide・二重オクターブ頂点ノイズ起伏・中心(0,8)・半径85）
+  const wallMap=baseTex.clone();wallMap.needsUpdate=true;wallMap.repeat.set(8,4);
+  const wallMat=new THREE.MeshStandardMaterial({color:'#6b655e',map:wallMap,bumpMap:wallMap,bumpScale:0.55,roughness:0.97,metalness:0.0,envMapIntensity:0.12,side:THREE.BackSide});
+  const shellGeo=new THREE.SphereGeometry(85,52,34);
+  {const p=shellGeo.attributes.position,v=new THREE.Vector3();
+   for(let i=0;i<p.count;i++){v.set(p.getX(i),p.getY(i),p.getZ(i));
+     const d=v.clone().normalize(), n=rockNoise(d.x*6.0,d.y*6.0,d.z*6.0)+0.55*rockNoise(d.x*16,d.y*16,d.z*16);
+     v.multiplyScalar(1+0.016*n);p.setXYZ(i,v.x,v.y,v.z);}
+   shellGeo.computeVertexNormals();}
+  const shell=new THREE.Mesh(shellGeo,wallMat);shell.position.y=8;scene.add(shell);
+  // 岩盤フロア（y=-5.43=接地標示リング直下・外縁は起伏壁と有機的に交差しフォグで融合）
+  const floorMap=baseTex.clone();floorMap.needsUpdate=true;floorMap.repeat.set(12,12);
+  const floorMat=new THREE.MeshStandardMaterial({color:'#7a7369',map:floorMap,bumpMap:floorMap,bumpScale:0.5,roughness:0.96,metalness:0.0,envMapIntensity:0.14});
+  const caveFloor=new THREE.Mesh(new THREE.CircleGeometry(84.5,72),floorMat);
+  caveFloor.rotation.x=-PI/2;caveFloor.position.y=-5.43;scene.add(caveFloor);
+  // 鍾乳石×46（天蓋から垂下・原点=付着部・インスタンス1DC・壁内接半径79.8で浮遊回避）
+  const stalMat=new THREE.MeshStandardMaterial({color:'#5e5852',roughness:0.95,metalness:0.0,envMapIntensity:0.12,flatShading:true});
+  const stalGeo=new THREE.CylinderGeometry(1.0,0.03,1.0,7);stalGeo.translate(0,-0.5,0);
+  const NS=46, stal=new THREE.InstancedMesh(stalGeo,stalMat,NS);
+  {const dum=new THREE.Object3D();
+   for(let i=0;i<NS;i++){
+     const az=Math.random()*TAU, cy=0.25+Math.random()*0.70, sxz=Math.sqrt(1-cy*cy);
+     dum.position.set(Math.cos(az)*sxz*79.8, cy*79.8+8, Math.sin(az)*sxz*79.8);
+     const L=3+Math.random()*9, W=0.5+Math.random()*1.4;
+     dum.scale.set(W,L,W);dum.rotation.set(0,Math.random()*TAU,0);
+     dum.updateMatrix();stal.setMatrixAt(i,dum.matrix);
+   }
+   stal.instanceMatrix.needsUpdate=true;}
+  scene.add(stal);
+  // 瓦礫フィールド×72（プラント接地域 r<14 回避・壁際ほど巨礫・色相ゆらぎ・1DC）
+  const rubMat=new THREE.MeshStandardMaterial({color:'#5c564f',roughness:0.94,metalness:0.02,envMapIntensity:0.14,flatShading:true});
+  const NR=72, rub=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1,0),rubMat,NR);
+  {const dum=new THREE.Object3D();const ctmp=new THREE.Color();
+   for(let i=0;i<NR;i++){
+     const az=Math.random()*TAU, rr=14+Math.pow(Math.random(),0.8)*64;
+     const sc=(rr>60?1.6:0.4)+Math.random()*(rr>60?4.2:1.9);
+     dum.position.set(Math.cos(az)*rr,-5.43+sc*0.34,Math.sin(az)*rr);
+     dum.scale.set(sc,sc*(0.55+Math.random()*0.35),sc);
+     dum.rotation.set(Math.random()*TAU,Math.random()*TAU,Math.random()*TAU);
+     dum.updateMatrix();rub.setMatrixAt(i,dum.matrix);
+     ctmp.setHSL(0.08+Math.random()*0.02,0.06+Math.random()*0.05,0.30+Math.random()*0.10);rub.setColorAt(i,ctmp);
+   }
+   rub.instanceMatrix.needsUpdate=true;if(rub.instanceColor)rub.instanceColor.needsUpdate=true;}
+  scene.add(rub);
+  // 微塵（漂うほこり・フォグ減衰あり=洞内遠近感）
+  const N=260,pos=new Float32Array(N*3);
+  for(let i=0;i<N;i++){
+    const az=Math.random()*TAU, rr=10+Math.random()*55, h=-5+Math.random()*34;
+    pos[i*3]=Math.cos(az)*rr;pos[i*3+1]=h;pos[i*3+2]=Math.sin(az)*rr;
+  }
+  const g2=new THREE.BufferGeometry();g2.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  const p2=new THREE.Points(g2,new THREE.PointsMaterial({color:'#8a8177',size:0.38,map:glowTex('150,142,130'),transparent:true,opacity:0.30,depthWrite:false,sizeAttenuation:true}));
+  scene.add(p2);return p2;
+})();
 
 // ---------- environment（暗基調＋高輝度パネル＝ガラスのグリント源 / hemisphere光は不使用） ----------
 const pmrem=new THREE.PMREMGenerator(renderer);
@@ -1090,7 +1183,8 @@ const pmrem=new THREE.PMREMGenerator(renderer);
 })();
 
 // ---------- lights ----------
-scene.add(new THREE.AmbientLight('#b3a8d8',0.26));
+scene.add(new THREE.AmbientLight('#b3a8d8',0.42)); // 薄明: 環境光を増強
+const caveFill=new THREE.DirectionalLight('#948e96',0.30); caveFill.position.set(2,30,4); scene.add(caveFill); // 洞内フィル（上方からの微光）
 const key=new THREE.DirectionalLight('#ffe3d8',0.7);key.position.set(-8,14,10);scene.add(key);
 const rimL=new THREE.DirectionalLight('#9f8fff',0.35);rimL.position.set(9,5,-7);scene.add(rimL);
 const pM=new THREE.PointLight('#ff4fc8',1.2,45);pM.position.set(5.5,3.5,5.5);scene.add(pM);
@@ -1189,15 +1283,15 @@ neckRing.rotation.x=PI/2; neckRing.position.y=0.84; tank.add(neckRing);
 const halo=new THREE.Mesh(new THREE.TorusGeometry(1.24,0.012,8,64),
   new THREE.MeshBasicMaterial({color:'#ff9fd8',transparent:true,opacity:0.3,blending:THREE.AdditiveBlending,depthWrite:false}));
 halo.rotation.x=PI/2+0.07; halo.position.y=-0.02; halo.renderOrder=5; tank.add(halo);
-// 浮遊光文字「Extremely sweet strawberry milk」（Orbitron italic・タンク外周を周回）
+// 浮遊光文字「Extremely sweet strawberry milk」（"Avenir Next Condensed" italic・タンク外周を周回）
 const labelCanvas=document.createElement('canvas'); labelCanvas.width=2048; labelCanvas.height=320;
 const labelTex=new THREE.CanvasTexture(labelCanvas); labelTex.encoding=THREE.sRGBEncoding; labelTex.anisotropy=8;
 function drawLabel(){
   const g=labelCanvas.getContext('2d'); g.clearRect(0,0,2048,320);
   g.fillStyle='rgba(255,32,64,0.85)'; g.fillRect(0,26,2048,4); g.fillRect(0,290,2048,4);
   const st='Extremely sweet strawberry milk';
-  let fs=108; g.font='italic 700 '+fs+'px Orbitron, Arimo, sans-serif';
-  while(g.measureText(st).width>2048*0.46&&fs>30){fs-=4;g.font='italic 700 '+fs+'px Orbitron, Arimo, sans-serif';}
+  let fs=108; g.font='italic 700 '+fs+'px "Avenir Next Condensed", Helvetica, sans-serif';
+  while(g.measureText(st).width>2048*0.46&&fs>30){fs-=4;g.font='italic 700 '+fs+'px "Avenir Next Condensed", Helvetica, sans-serif';}
   g.textAlign='center'; g.textBaseline='middle';
   g.shadowColor='rgba(255,30,70,0.95)'; g.shadowBlur=26; g.fillStyle='#ff1f3e';
   g.fillText(st,2048*0.25,168); g.fillText(st,2048*0.75,168);
@@ -1206,7 +1300,7 @@ function drawLabel(){
   labelTex.needsUpdate=true;
 }
 drawLabel();
-if(document.fonts&&document.fonts.load){document.fonts.load('italic 700 100px Orbitron').then(drawLabel).catch(function(){});}
+if(document.fonts&&document.fonts.load){document.fonts.load('italic 700 100px Avenir Next Condensed').then(drawLabel).catch(function(){});}
 const label=new THREE.Mesh(new THREE.CylinderGeometry(1.45,1.45,0.52,80,1,true),
   new THREE.MeshBasicMaterial({map:labelTex,transparent:true,opacity:0.9,side:THREE.DoubleSide,blending:THREE.AdditiveBlending,depthWrite:false}));
 label.position.y=-0.12; label.renderOrder=6; tank.add(label);
@@ -1217,7 +1311,7 @@ const dripTip=new THREE.Mesh(new THREE.TorusGeometry(0.085,0.02,8,24),
   new THREE.MeshBasicMaterial({color:'#ffb2dd',transparent:true,opacity:0.1,blending:THREE.AdditiveBlending,depthWrite:false}));
 dripTip.rotation.x=PI/2; dripTip.position.y=TIP_Y+0.02; root.add(dripTip);
 // ミルク滴プール ×6（拍同期ドリップ：懸垂→重力落下→着弾・発光スプライト随伴）
-const dropMat=new THREE.MeshPhysicalMaterial({color:'#ffa8d6',roughness:0.05,metalness:0.0,clearcoat:1.0,clearcoatRoughness:0.04,sheen:new THREE.Color('#ffffff'),emissive:'#ff6fc0',emissiveIntensity:0.35,envMapIntensity:1.2});
+const dropMat=new THREE.MeshPhysicalMaterial({color:'#ffa8d6',roughness:0.05,metalness:0.0,clearcoat:1.0,clearcoatRoughness:0.04,sheen:new THREE.Color('#ffffff'),emissive:'#ff6fc0',emissiveIntensity:0.18,envMapIntensity:1.2}); // 孔通過時のBloom白閃を抑制
 const drops=[0,1,2,3,4,5].map(()=>{
   const m=new THREE.Mesh(new THREE.SphereGeometry(0.19,18,14),dropMat);
   const g=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex('255,150,214'),transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false}));
@@ -1225,10 +1319,10 @@ const drops=[0,1,2,3,4,5].map(()=>{
   m.position.set(0,TIP_Y,0); m.scale.setScalar(0.0001); root.add(m); return {m,g};
 });
 // 炉心の糖分ミスト（滴の吸収で淡く明滅）
-const energyMat=new THREE.MeshBasicMaterial({color:'#ffd4ec',transparent:true,opacity:0.06,blending:THREE.AdditiveBlending,depthWrite:false});
+const energyMat=new THREE.MeshBasicMaterial({color:'#ff5fc0',transparent:true,opacity:0.06,blending:THREE.AdditiveBlending,depthWrite:false}); // 白洗い対策: 高彩度マゼンタ化
 const energy=new THREE.Mesh(new THREE.SphereGeometry(1.45,26,18),energyMat); // 拡大脳の外周を包む給餌フレア
 energy.renderOrder=1; energy.position.y=0.15; root.add(energy);
-const feedLight=new THREE.PointLight('#ffb8dd',0.0,20); feedLight.position.set(0,1.25,0); scene.add(feedLight);
+const feedLight=new THREE.PointLight('#ff8fd0',0.0,20); feedLight.position.set(0,1.25,0); scene.add(feedLight);
 
 // ================================================================
 // ③ 脳炉心 — h!ro53会長の脳（最終形態④より移植・トーラス孔中心に浮遊）
@@ -1299,7 +1393,7 @@ const brainSkin=new THREE.MeshPhysicalMaterial({vertexColors:true,roughness:0.22
 })();
 // 頭頂パフ（滴の吸収・心拍で明滅）
 const crownPuff=new THREE.Mesh(new THREE.SphereGeometry(0.5,16,12),
-  new THREE.MeshBasicMaterial({color:'#ffd4ec',transparent:true,opacity:0.0,blending:THREE.AdditiveBlending,depthWrite:false}));
+  new THREE.MeshBasicMaterial({color:'#ff77c8',transparent:true,opacity:0.0,blending:THREE.AdditiveBlending,depthWrite:false})); // 白洗い対策: 高彩度化
 crownPuff.position.set(0,1.75,0);crownPuff.renderOrder=2;brainCore.add(crownPuff);
 // 会長脳 専用ライティング（暖色キー＋血色リム・局所減衰で炉心のみ照射）
 const brainKey=new THREE.PointLight('#ffe2cf',1.0,7,2); brainKey.position.set(1.5,1.9,1.6); scene.add(brainKey);
@@ -1393,7 +1487,7 @@ const scanRing=new THREE.Mesh(new THREE.TorusGeometry(1.90,0.025,8,64),
   new THREE.MeshBasicMaterial({color:'#8ff4ff',transparent:true,opacity:0.0,blending:THREE.AdditiveBlending,depthWrite:false}));
 scanRing.rotation.x=PI/2; rack.add(scanRing);
 const coreGlow=new THREE.Mesh(new THREE.CylinderGeometry(1.30,1.30,2.85,8,1,true),
-  new THREE.MeshBasicMaterial({color:'#ffd4ec',transparent:true,opacity:0.04,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));
+  new THREE.MeshBasicMaterial({color:'#ff9bd6',transparent:true,opacity:0.04,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide})); // ラック内コアも高彩度系へ統一
 rack.add(coreGlow);
 // 逆回転データリング×2
 function tickRing(r,y,color,count){
@@ -1450,7 +1544,7 @@ const cageGroup=new THREE.Group(); cageGroup.scale.setScalar(1.059); fusionUnit.
 const cageRings=[];
 const cageMat=new THREE.MeshStandardMaterial({color:'#9aa0b2',metalness:0.92,roughness:0.3,envMapIntensity:1.25});
 const postMat=new THREE.MeshPhysicalMaterial({color:'#2ebebd',metalness:0.9,roughness:0.18,clearcoat:1.0,clearcoatRoughness:0.12,envMapIntensity:1.55}); // ターコイズパール（参照body#0f9c9d/hi#55e8e5の中間）
-const cageGlassMat=new THREE.MeshPhysicalMaterial({color:'#f6f2fa',metalness:0.0,roughness:0.04,transmission:0.75,transparent:true,opacity:0.52,clearcoat:1.0,clearcoatRoughness:0.06,envMapIntensity:1.5,depthWrite:false});
+const cageGlassMat=new THREE.MeshPhysicalMaterial({color:'#a8abb4',metalness:0.0,roughness:0.10,transmission:0.45,transparent:true,opacity:0.72,clearcoat:1.0,clearcoatRoughness:0.08,envMapIntensity:1.3,depthWrite:false}); // スモークガラス化: 灰色着色・透過0.75→0.45・不透明度0.52→0.72
 function cageRing(radius,y,segs,h,dir){
   const segLen=(TAU*radius/segs)*0.78;
   const inst=new THREE.InstancedMesh(new THREE.BoxGeometry(segLen,h,0.16),cageGlassMat,segs);
@@ -1774,7 +1868,8 @@ gasDefs.forEach((d,i)=>{
 //   暗環境適応: Tに微発光付与・専用ポイント光でクロームのグリント確保（原典は昼光環境）
 // ================================================================
 const symbol=new THREE.Group(); symbol.position.set(0,11.86,0); symbol.scale.setScalar(0.55); root.add(symbol);
-const symTower=new THREE.Group(); symbol.add(symTower); // T+テキスト（浮遊ボブ対象）
+const symTower=new THREE.Group(); symbol.add(symTower); // T専用（浮遊ボブ対象）
+const symText=new THREE.Group(); symbol.add(symText);          // テキストリング固定台（上下ボブ非連動）
 const symDiscs=new THREE.Group(); symbol.add(symDiscs);
 // T レターフォーム（オーキッド半透明・正弦浮遊は symTower に適用）
 const tMat=new THREE.MeshPhysicalMaterial({color:0xb066ba,metalness:0.0,roughness:0.12,transparent:true,opacity:0.82,
@@ -1820,13 +1915,14 @@ function buildRowsWithFont(font){
       m.position.set(opt.radius*Math.sin(a),0,opt.radius*Math.cos(a));
       m.rotation.y=a; grp.add(m);
     });
-    grp.position.y=opt.y; symTower.add(grp); return grp;
+    grp.position.y=opt.y; symText.add(grp); return grp;
   }
   const R=1.95;
-  symRows.push({group:mk('Transcendence',   {radius:R,y:2.80,size:0.62,step:0.235}),           speed: 0.42});
-  symRows.push({group:mk('by',              {radius:R,y:2.02,size:0.62,step:0.30}),            speed:-0.60});
-  symRows.push({group:mk('deus ex machina', {radius:R,y:1.24,size:0.58,step:0.225}),           speed: 0.50});
-  symRows.push({group:mk('h!ro53',          {radius:R,y:0.40,size:0.78,step:0.30,white:true}), speed:-0.36});
+  // 行毎交互方向＋無理数比デチューン（0.4217/-0.6031/0.4973/-0.3593: 共通周期なし・決定論）
+  symRows.push({group:mk('Transcendence',   {radius:R,y:2.80,size:0.62,step:0.235}),           speed: 0.4217});
+  symRows.push({group:mk('by',              {radius:R,y:2.02,size:0.62,step:0.30}),            speed:-0.6031});
+  symRows.push({group:mk('deus ex machina', {radius:R,y:1.24,size:0.58,step:0.225}),           speed: 0.4973});
+  symRows.push({group:mk('h!ro53',          {radius:R,y:0.40,size:0.78,step:0.30,white:true}), speed:-0.3593});
 }
 (function(){
   const fl=new THREE.FontLoader();
@@ -1838,15 +1934,110 @@ function buildRowsWithFont(font){
 const symLight=new THREE.PointLight('#ffd4f0',0.9,13,2); symLight.position.set(2.6,13.6,2.6); scene.add(symLight);
 
 
+// ================================================================
+// ⑨ 極太送電幹線×3（サーバーラック基部 → 洞壁供給ポート・サイバーパンク多層構造）
+//   構成: リブ装甲外殻(Tube r0.42) + 導光チャネル殻(Tube r0.47・加算シェーダ3条) + 締結クランプ×12 + 基部フランジ + 洞壁ポート + 端部キャップ
+//   経路: 方位 0.000/2.094/4.189（柱・ブットレスから≥15°=r11で横距離2.88）床上蛇行 → r83で岩壁へ貫入
+//   ポート: 据付半径78.0 < 壁最小内径79.4 → 変位地形でも常に洞内可視（解析検証済）
+//   駆動: パケット通過周波数 = 1/PUMP_PERIOD（心拍同期=ドクドク）・輝度はpumpBeatでゲート
+// ================================================================
+const cableMats=[], cablePortRings=[];
+(function(){
+  const ribC=document.createElement('canvas');ribC.width=64;ribC.height=8;
+  {const g=ribC.getContext('2d');
+   g.fillStyle='#262b36';g.fillRect(0,0,64,8);
+   g.fillStyle='#12151d';g.fillRect(0,0,10,8);
+   g.fillStyle='#3a4152';g.fillRect(56,0,6,8);}
+  const ribTexBase=new THREE.CanvasTexture(ribC);ribTexBase.wrapS=ribTexBase.wrapT=THREE.RepeatWrapping;
+  const clampMat=new THREE.MeshStandardMaterial({color:'#232833',metalness:0.85,roughness:0.35,envMapIntensity:0.9});
+  const plateMat=new THREE.MeshStandardMaterial({color:'#1c2029',metalness:0.8,roughness:0.42,envMapIntensity:0.7});
+  const flangeMat=new THREE.MeshStandardMaterial({color:'#2a3040',metalness:0.9,roughness:0.3,envMapIntensity:1.0});
+  const hullBase=new THREE.MeshStandardMaterial({color:'#20242e',metalness:0.78,roughness:0.36,envMapIntensity:1.0});
+  function mkEnergyMat(phase){
+    const m=new THREE.ShaderMaterial({
+      uniforms:{uTime:{value:0},uPulse:{value:0},uPhase:{value:phase},uRate:{value:1/PUMP_PERIOD}},
+      transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,
+      vertexShader:'varying vec2 vUv; void main(){vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
+      fragmentShader:
+        'varying vec2 vUv; uniform float uTime; uniform float uPulse; uniform float uPhase; uniform float uRate;\n'+
+        'void main(){\n'+
+        '  float s=fract(vUv.y*3.0);\n'+
+        '  float chan=smoothstep(0.24,0.10,abs(s-0.5));\n'+                 // 3条の導光チャネル
+        '  float w=fract(vUv.x*6.0-uTime*uRate-uPhase);\n'+
+        '  float pk=pow(smoothstep(0.62,0.0,w),2.2);\n'+                    // 送電パケット（ラック→遠方）
+        '  float beat=0.55+0.75*uPulse;\n'+                                 // 心拍ゲート
+        '  float a=(0.16+1.75*pk)*chan*beat;\n'+
+        '  a*=smoothstep(0.0,0.03,vUv.x)*smoothstep(1.0,0.97,vUv.x);\n'+
+        '  vec3 col=mix(vec3(1.0,0.22,0.72),vec3(1.0,0.92,0.98),clamp(pk*1.2,0.0,1.0));\n'+
+        '  gl_FragColor=vec4(col*a,a);\n'+
+        '}'
+    });
+    cableMats.push(m);return m;
+  }
+  const up=new THREE.Vector3(0,1,0), qt=new THREE.Quaternion(), dum=new THREE.Object3D();
+  function buildCable(az,lat,phase){
+    const ca=Math.cos(az),sa=Math.sin(az),pxv=-sa,pzv=ca;
+    function P(r,y,off){return new THREE.Vector3(ca*r+pxv*off,y,sa*r+pzv*off);}
+    const pts=[P(1.78,-4.55,0),P(3.2,-4.95,lat*0.3),P(8,-4.99,lat*0.9),P(16,-4.99,-lat*0.7),
+               P(28,-4.99,lat*1.5),P(44,-4.99,-lat*1.2),P(62,-4.95,lat*0.9),P(76,-3.8,lat*0.3),P(83.0,-2.0,0)];
+    const curve=new THREE.CatmullRomCurve3(pts);
+    // 外殻（リブ装甲・パターンはmap/bump兼用）
+    const hm=hullBase.clone(); const hullMap=ribTexBase.clone();hullMap.needsUpdate=true;hullMap.repeat.set(92,1);
+    hm.map=hullMap; hm.bumpMap=hullMap; hm.bumpScale=0.35;
+    root.add(new THREE.Mesh(new THREE.TubeGeometry(curve,120,0.42,10,false),hm));
+    // 導光チャネル殻（加算・心拍同期パケット）
+    const glowT=new THREE.Mesh(new THREE.TubeGeometry(curve,120,0.47,10,false),mkEnergyMat(phase));
+    glowT.renderOrder=6; root.add(glowT);
+    // 締結クランプ×12（接線整列）
+    const NCL=12, clamps=new THREE.InstancedMesh(new THREE.CylinderGeometry(0.56,0.56,0.30,12),clampMat,NCL);
+    for(let i=0;i<NCL;i++){
+      const tt=0.06+i*(0.80/(NCL-1));
+      dum.position.copy(curve.getPointAt(tt));
+      qt.setFromUnitVectors(up,curve.getTangentAt(tt).normalize());
+      dum.quaternion.copy(qt);dum.scale.set(1,1,1);dum.updateMatrix();
+      clamps.setMatrixAt(i,dum.matrix);
+    }
+    clamps.instanceMatrix.needsUpdate=true; root.add(clamps);
+    // ラック基部フランジ
+    const fl=new THREE.Mesh(new THREE.BoxGeometry(0.8,0.8,0.55),flangeMat);
+    fl.position.set(ca*1.85,-4.55,sa*1.85); fl.lookAt(0,-4.55,0); root.add(fl);
+    // 洞壁供給ポート（据付半径78.0の通過点に接線整列・リングは心拍で呼吸）
+    let portT=0.90;
+    for(let k=140;k<=200;k++){const q=curve.getPointAt(k/200); if(Math.hypot(q.x,q.z)>=78.0){portT=k/200;break;}}
+    const pp=curve.getPointAt(portT), ptan=curve.getTangentAt(portT).normalize();
+    const plate=new THREE.Mesh(new THREE.CylinderGeometry(1.45,1.6,0.5,18),plateMat);
+    qt.setFromUnitVectors(up,ptan); plate.quaternion.copy(qt); plate.position.copy(pp); root.add(plate);
+    const pring=new THREE.Mesh(new THREE.TorusGeometry(0.86,0.055,8,40),
+      new THREE.MeshBasicMaterial({color:'#ff4fbe',transparent:true,opacity:0.5,blending:THREE.AdditiveBlending,depthWrite:false}));
+    pring.quaternion.copy(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,0,1),ptan));
+    pring.position.copy(pp).addScaledVector(ptan,-0.34);
+    pring.renderOrder=6; root.add(pring); cablePortRings.push(pring);
+    // 端部キャップ（壁バルジ地形でチューブ開口が露出しても閉塞）
+    const cap=new THREE.Mesh(new THREE.SphereGeometry(0.42,10,8),hullBase);
+    cap.position.copy(curve.getPointAt(1.0)); root.add(cap);
+  }
+  buildCable(0.000, 1,0.0);
+  buildCable(2.094,-1,2.1);
+  buildCable(4.189, 1,4.2);
+})();
+
+
+// Y2K安フレア: アナモルフィック・レンズストリーク（炉心・uBoost連動で呼吸）
+const streak=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex('255,120,220'),transparent:true,opacity:0.30,blending:THREE.AdditiveBlending,depthWrite:false,depthTest:false}));
+streak.scale.set(8.5,0.40,1); streak.position.set(0,0.15,0); streak.renderOrder=9; root.add(streak);
+const streakV=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex('190,240,255'),transparent:true,opacity:0.14,blending:THREE.AdditiveBlending,depthWrite:false,depthTest:false}));
+streakV.scale.set(0.30,4.6,1); streakV.position.set(0,0.15,0); streakV.renderOrder=9; root.add(streakV);
+
 // ---------- camera views（SW巡回: 全景/タンク/脳核/トーラス/ジンバル・ドラッグ/ピンチ併用可） ----------
 const target=new THREE.Vector3(0,2.6,0);
 const VIEWS=[
   {name:'全景',     tx:0,ty:4.8, tz:0, theta:0.55, phi:1.18, radius:30.5},
-  {name:'タンク',   tx:0,ty:6.6, tz:0, theta:0.90, phi:1.28, radius:8.5},
-  {name:'シンボル', tx:0,ty:12.1,tz:0, theta:0.50, phi:1.25, radius:8.2},
-  {name:'脳核',     tx:0,ty:0.45,tz:0, theta:0.35, phi:1.22, radius:4.3},
-  {name:'トーラス', tx:0,ty:0.15,tz:0, theta:0.75, phi:1.05, radius:12.5},
-  {name:'ジンバル', tx:0,ty:0.15,tz:0, theta:0.20, phi:1.30, radius:17.0}
+  {name:'タンク',   tx:0,ty:6.6, tz:0, theta:0.05, phi:1.28, radius:10.6},   // 柱間ギャップ方位（柱まで42°）
+  {name:'シンボル', tx:0,ty:12.1,tz:0, theta:1.58, phi:1.25, radius:10.2},   // 柱間ギャップ方位（柱まで45°）
+  {name:'脳核',     tx:0,ty:0.45,tz:0, theta:0.35, phi:1.22, radius:5.1},   // 掃引内殻4.496へのクリアランス0.28確保
+  {name:'トーラス', tx:0,ty:0.15,tz:0, theta:3.16, phi:1.05, radius:15.6},  // 柱間ギャップ方位（旧θ0.75は柱まで2°=正面被り）
+  {name:'ジンバル', tx:0,ty:0.15,tz:0, theta:0.20, phi:1.30, radius:21.2},
+  {name:'送電線',   tx:0,ty:2.0, tz:0, theta:5.7596, phi:1.62, radius:76.2}    // 送電線②(方位2.094)直上・低高度y≈-1.0の地擦り仰角ショット（頂上T正面30°オフで良好）
 ];
 let view=0, theta=VIEWS[0].theta, phi=VIEWS[0].phi, radius=VIEWS[0].radius, tween=null, nowT=0;
 function updateCam(){
@@ -1867,17 +2058,50 @@ const dom=renderer.domElement;
 dom.addEventListener('mousedown',e=>{drag=true;lx=e.clientX;ly=e.clientY;});
 addEventListener('mousemove',e=>{if(!drag)return;tween=null;theta-=(e.clientX-lx)*0.006;phi=clamp(phi-(e.clientY-ly)*0.006,0.30,1.62);lx=e.clientX;ly=e.clientY;});
 addEventListener('mouseup',()=>drag=false);
-dom.addEventListener('wheel',e=>{tween=null;radius=clamp(radius+e.deltaY*0.012,3,70);},{passive:true});
+dom.addEventListener('wheel',e=>{tween=null;radius=clamp(radius+e.deltaY*0.012,3,110);},{passive:true});
 dom.addEventListener('touchstart',e=>{if(e.touches.length===1){drag=true;lx=e.touches[0].clientX;ly=e.touches[0].clientY;}
   else if(e.touches.length===2){drag=false;pinch=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);}},{passive:true});
 dom.addEventListener('touchmove',e=>{if(e.touches.length===1&&drag){tween=null;theta-=(e.touches[0].clientX-lx)*0.006;phi=clamp(phi-(e.touches[0].clientY-ly)*0.006,0.30,1.62);lx=e.touches[0].clientX;ly=e.touches[0].clientY;}
-  else if(e.touches.length===2){tween=null;const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);radius=clamp(radius-(d-pinch)*0.03,3,70);pinch=d;}},{passive:true});
+  else if(e.touches.length===2){tween=null;const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);radius=clamp(radius-(d-pinch)*0.03,3,110);pinch=d;}},{passive:true});
 addEventListener('touchend',()=>drag=false);
-document.getElementById('reset').onclick=function(){view=0;goView(0);};
+var ERA_Y2K=false;
+// ---- ERA: Y2K RetroPass の on/off（既定は現行＝素の階調）----
+function setEra(y2k){
+  ERA_Y2K = !!y2k;
+  const nm=document.getElementById('eraname');
+  if(nm) nm.textContent = ERA_Y2K ? 'Y2K' : '現行';
+  if(!retroPass){ if(nm) nm.textContent='現行'; return; }   // RetroPass生成失敗時は現行固定
+  retroPass.enabled = ERA_Y2K;
+  retroPass.renderToScreen = ERA_Y2K;
+  if(filmPass) filmPass.renderToScreen = !ERA_Y2K;
+}
+document.getElementById('era').onclick=function(){ setEra(!ERA_Y2K); };
+
+// ---- 全景：UI占有帯を実測してモデルを空き帯に収める ----
+const FIT_MID=6.4, FIT_H=15.0, FIT_R=8.0;   // プラント本体の鉛直範囲と外周半径（大空洞は対象外）
+const FIT_R0=VIEWS[0].radius, FIT_TY0=VIEWS[0].ty;
+function fitOverview(){
+  const te=document.querySelector('.top'), be=document.querySelector('.botstack');
+  if(!te||!be) return;
+  const H=innerHeight; if(!(H>0)) return;
+  const tH=te.getBoundingClientRect().bottom+10;
+  const bH=(H-be.getBoundingClientRect().top)+10;
+  const usable=Math.max(0.42,Math.min(1,(H-tH-bH)/H));
+  const cp=Math.cos(VIEWS[0].phi), sp=Math.sin(VIEWS[0].phi);
+  const halfV=cp*FIT_H/2 + sp*FIT_R;
+  const tanH=Math.tan(camera.fov*Math.PI/360);
+  const d=Math.max(FIT_R0,(2*halfV/usable)/(2*tanH));
+  const wpp=(2*d*tanH)/H;
+  VIEWS[0].radius=d;
+  VIEWS[0].ty=FIT_MID+((tH-bH)/2)*wpp/cp;
+}
+
+document.getElementById('reset').onclick=function(){view=0;fitOverview();goView(0);
+requestAnimationFrame(function(){fitOverview();if(view===0)goView(0);});};
 document.getElementById('sw').onclick=function(){view=(view+1)%VIEWS.length;goView(view);};
 
 // ---------- post: UnrealBloom + 退色/グレイン（fallback=加算グロー） ----------
-let composer=null,bloomPass=null,filmPass=null;
+let composer=null,bloomPass=null,filmPass=null,retroPass=null;
 const FadeGrain={
   uniforms:{tDiffuse:{value:null},time:{value:0}},
   vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
@@ -1900,10 +2124,38 @@ try{
     composer.setPixelRatio(Math.min(devicePixelRatio,2));
     composer.setSize(innerWidth,innerHeight);
     composer.addPass(new THREE.RenderPass(scene,camera));
-    bloomPass=new THREE.UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),0.66,0.48,0.72);
+    bloomPass=new THREE.UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),0.60,0.48,0.78);
     composer.addPass(bloomPass);
     filmPass=new THREE.ShaderPass(FadeGrain); filmPass.renderToScreen=true;
     composer.addPass(filmPass);
+    try{
+    // Y2K RetroPass: ピクセル化→彩度/コントラスト押し→2x2 orderedディザ→ポスタライズ→走査線
+    retroPass=new THREE.ShaderPass({
+      uniforms:{tDiffuse:{value:null},uRes:{value:new THREE.Vector2(innerWidth*Math.min(devicePixelRatio,2),innerHeight*Math.min(devicePixelRatio,2))},uPix:{value:3.0},uLevels:{value:13.0}},
+      vertexShader:'varying vec2 vUv; void main(){vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
+      fragmentShader:[
+        'uniform sampler2D tDiffuse; uniform vec2 uRes; uniform float uPix; uniform float uLevels; varying vec2 vUv;',
+        'void main(){',
+        '  vec2 px=vec2(uPix)/uRes;',
+        '  vec2 uv=(floor(vUv/px)+vec2(0.5))*px;',                          // ピクセル化
+        '  vec3 c=texture2D(tDiffuse,uv).rgb;',
+        '  float l=dot(c,vec3(0.299,0.587,0.114));',
+        '  c=mix(vec3(l),c,1.28);',                                          // 彩度押し
+        '  c=(c-vec3(0.5))*1.06+vec3(0.5);',                                 // コントラスト
+        '  vec2 b=mod(floor(vUv/px),2.0);',
+        '  float dth=b.y*2.0+mod(b.x+b.y,2.0);',                             // 2x2 orderedディザ {0,1,3,2}
+        '  c+=vec3((dth/4.0-0.375)/uLevels);',
+        '  c=floor(c*uLevels)/uLevels;',                                     // ポスタライズ 13階調
+        '  float sl=mod(floor(vUv.y/px.y),2.0);',
+        '  c*=1.0-0.09*sl;',                                                 // 走査線
+        '  gl_FragColor=vec4(c,1.0);',
+        '}'].join('\n')
+    });
+    retroPass.renderToScreen=true;
+    filmPass.renderToScreen=false;
+    composer.addPass(retroPass);
+    }catch(re){ retroPass=null; console.warn('RetroPass無効化:',re); }
+  setEra(false); // グレード失敗時はFadeGrain止まりで継続
   }
 }catch(e){composer=null;}
 if(!composer){
@@ -1947,7 +2199,7 @@ function tick(){
   });
   const fp=Math.min(feedPulse*0.9,1);
   feedLight.intensity=0.3*pb+0.9*fp;
-  energyMat.opacity=Math.min(0.035+0.015*Math.sin(t*1.3)+0.03*pb+0.10*fp,0.22);
+  energyMat.opacity=Math.min(0.035+0.015*Math.sin(t*1.3)+0.03*pb+0.08*fp,0.16);
   const es=1+0.15*fp; energy.scale.set(es,es,es);
   liq.scale.y=(0.62+0.05*Math.sin(t*0.27))*1.30;
   // 液面・気泡・雫グロー（心拍と呼応）
@@ -1971,7 +2223,7 @@ function tick(){
   brainKey.intensity=0.9+0.5*pb+0.35*fp;
   brainCore.scale.setScalar(1+0.055*pb);
   brainGroup.position.y=0.15+0.04*Math.sin(t*0.6);
-  crownPuff.material.opacity=0.05*pb+0.16*fp;
+  crownPuff.material.opacity=0.04*pb+0.12*fp;
   const cps=0.5+0.4*pb+1.1*fp; crownPuff.scale.set(cps,cps,cps);
   // サーバータワー呼応：収縮期パルス走行→スキャンリングが塔を降下
   const pu=(t%PUMP_PERIOD)/PUMP_PERIOD;
@@ -1999,12 +2251,18 @@ function tick(){
   });
   // plasma: エナジーストリーム（+u順走3秒/周・uBoostフックに糖分/心拍を注入=給餌で増輝）
   plasma.rotation.y+=dt*0.05;
-  const beamBoost=0.80+0.10*Math.sin(t*1.25)+0.10*pb+0.22*fp;
+  const beamBoost=0.55+0.07*Math.sin(t*1.25)+0.07*pb+0.14*fp; // 輝度復帰（白色汚染源の除去とセット・レンジ0.48-0.83）
   for(let i=0;i<gasShaders.length;i++){const u=gasShaders[i].uniforms;u.uTime.value=t;u.uBoost.value=beamBoost;}
+  streak.material.opacity=0.16+0.55*(beamBoost-0.45); streak.scale.set(8.5+2.2*fp,0.40,1);
+  streakV.material.opacity=0.08+0.28*(beamBoost-0.45);
   // ---- シンボル・トーテム: T浮遊ボブ＋リング交互周回＋ディスク降下ループ ----
-  symTower.position.y=Math.sin(t*0.6)*0.34;
+  symTower.position.y=Math.sin(t*0.6)*0.34; // ボブはTのみ（テキストリングはsymTextで固定・回転のみ）
   for(let i=0;i<symRows.length;i++){symRows[i].group.rotation.y=t*symRows[i].speed;}
   updateDiscs(t);
+  caveDust.rotation.y+=dt*0.003; // 洞窟微塵の漂い
+  // ---- ⑨ 送電: 心拍同期パケット（ドクドク）＋壁ポート呼吸 ----
+  for(let i=0;i<cableMats.length;i++){const cu=cableMats[i].uniforms;cu.uTime.value=t;cu.uPulse.value=pb;}
+  for(let i=0;i<cablePortRings.length;i++){cablePortRings[i].material.opacity=0.30+0.45*pb;}
   // ---- camera tween ----
   if(tween){const k=clamp((t-tween.t0)/tween.dur,0,1),e=k*k*(3-2*k);
     theta=lerp(tween.f.th,tween.g.th,e);phi=lerp(tween.f.ph,tween.g.ph,e);radius=lerp(tween.f.r,tween.g.r,e);
@@ -2015,9 +2273,11 @@ function tick(){
   else renderer.render(scene,camera);
 }
 addEventListener('resize',()=>{
-  camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();
+  camera.aspect=innerWidth/innerHeight;
+  fitOverview();if(view===0)goView(0);camera.updateProjectionMatrix();
   renderer.setSize(innerWidth,innerHeight);
   if(composer)composer.setSize(innerWidth,innerHeight);
+  if(retroPass)retroPass.uniforms.uRes.value.set(innerWidth*Math.min(devicePixelRatio,2),innerHeight*Math.min(devicePixelRatio,2));
 });
 updateCam(); tick();
 })();
