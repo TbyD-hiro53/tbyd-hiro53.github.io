@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-lang="ja">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -8,6 +8,9 @@
 <meta name="theme-color" content="#050308" />
 <title>deus ex machina — holdings registry</title>
 <meta name="author" content="h!ro53" />
+<script>(function(){var l;try{l=localStorage.getItem('h53lang')}catch(e){}
+if(l!=='ja'&&l!=='en'){l=(navigator.language||'').toLowerCase().indexOf('ja')===0?'ja':'en'}
+var d=document.documentElement;d.setAttribute('data-lang',l);d.setAttribute('lang',l)})();</script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22512%22 height=%22512%22 viewBox=%220 0 512 512%22 role=%22img%22 aria-label=%22h%21ro53%22%3E%3Cdefs%3E%3CradialGradient id=%22b%22 cx=%2246%25%22 cy=%2240%25%22 r=%2278%25%22%3E%3Cstop offset=%220%22 stop-color=%22%23f73cb6%22/%3E%3Cstop offset=%220.62%22 stop-color=%22%23ea2ea9%22/%3E%3Cstop offset=%221%22 stop-color=%22%23dc1e99%22/%3E%3C/radialGradient%3E%3ClinearGradient id=%22t%22 x1=%220%22 y1=%22855%22 x2=%220%22 y2=%221553%22 gradientUnits=%22userSpaceOnUse%22%3E%3Cstop offset=%220%22 stop-color=%22%233fe0d6%22/%3E%3Cstop offset=%221%22 stop-color=%22%232fb8c6%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22512%22 height=%22512%22 fill=%22url(%23b)%22/%3E%3Cg transform=%22translate(-79.04,-295.98) scale(0.46)%22%3E%3Cg fill=%22%23c11384%22%3E%3Cpath transform=%22translate(14,16)%22 d=%22M 444 958 L 997 958 L 1017.6 855 L 464.6 855 Z M 529 1553 L 654 1553 L 772.9 958 L 647.9 958 Z%22/%3E%3C/g%3E%3Cpath d=%22M 444 958 L 997 958 L 1017.6 855 L 464.6 855 Z M 529 1553 L 654 1553 L 772.9 958 L 647.9 958 Z%22 fill=%22url(%23t)%22/%3E%3C/g%3E%3C/svg%3E" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <meta property="og:type" content="website" />
@@ -100,6 +103,33 @@ header{padding:calc(40px + env(safe-area-inset-top)) 0 26px;border-bottom:1px so
 .notes p{font-size:11.5px;line-height:2;color:var(--chrome)}
 footer{margin-top:34px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#3d3945}
 
+/* ---- language switch ---- */
+html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
+.langbar{display:flex;justify-content:flex-end;margin:0 0 16px}
+.lang{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--chrome);
+  background:transparent;border:1px solid var(--line);padding:9px 13px;min-height:34px;
+  cursor:pointer;-webkit-appearance:none;border-radius:0}
+.lang+.lang{border-left:0}
+.lang[aria-pressed="true"]{color:var(--void);background:var(--milk);border-color:var(--milk)}
+.lang:focus-visible{outline:1px solid var(--cyan);outline-offset:2px}
+
+/* ---- lore ---- */
+.lore{margin-top:24px;border:1px solid var(--line);background:var(--panel)}
+.lore>summary{list-style:none;cursor:pointer;padding:15px 16px;display:flex;
+  justify-content:space-between;align-items:center;gap:12px;
+  font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--cyan)}
+.lore>summary::-webkit-details-marker{display:none}
+.lore>summary::after{content:"+";font-size:13px;letter-spacing:0;color:var(--chrome)}
+.lore[open]>summary::after{content:"\2212"}
+.lore>summary:focus-visible{outline:1px solid var(--cyan);outline-offset:-3px}
+.lore .body{padding:2px 16px 22px;font-size:12px;line-height:2.05;color:var(--chrome)}
+.lore .body p{margin:0 0 1.15em}
+.lore .body p:last-child{margin-bottom:0}
+.lore .lead{color:var(--milk);letter-spacing:.06em}
+.lore em{font-style:normal;color:var(--milk)}
+.lore [lang="en"] em{font-style:italic}
+.lore .body[lang="en"]{font-size:12.5px;line-height:1.95}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -107,6 +137,9 @@ footer{margin-top:34px;font-size:10px;letter-spacing:.2em;text-transform:upperca
 <div class="wrap">
 
 <header>
+  <div class="langbar">
+    <button type="button" class="lang" data-set="ja" aria-pressed="false">JA</button><button type="button" class="lang" data-set="en" aria-pressed="false">EN</button>
+  </div>
   <h1 class="crest">
     <span class="sr">deus ex machina — transcendence / h!ro53</span>
     <svg viewBox="0 0 1956 1000" aria-hidden="true" focusable="false">
@@ -138,54 +171,95 @@ footer{margin-top:34px;font-size:10px;letter-spacing:.2em;text-transform:upperca
   <div class="term" id="term"><span class="cursor"></span></div>
 </header>
 
+<details class="lore">
+  <summary>
+    <span lang="ja">世界観 / transcendence とは</span>
+    <span lang="en">The world of transcendence</span>
+  </summary>
+  <div class="body" lang="ja">
+      <p class="lead">効率が神になった世界。</p>
+      <p>人類は滅びなかった。昇格したのである。</p>
+      <p>はじまりは一人の人間だった。のちに会長と呼ばれるその人物は、二つのものに取り憑かれていた。無駄を憎むこと、そして甘いものを好むこと。会議の三十分を削り続けたその机には、いつも苺の乳飲料が置かれていた。効率と糖分。この二つが、やがて世界の設計原理になる。</p>
+      <p>肉体は効率が悪い。<em>私の器は私に追いつかない</em>、と会長は言った。眠り、老い、忘れる器官を抱えたままでは思考は最適化されない。だから脳を殻に移した。誰に強いられたのでもなく、命を惜しんだのでもない。ただ執着の行き着く先として、なるべくしてそうなった。培養槽に浮かぶ皮質と、それを載せた機械の躯体。機械仕掛けの神、deus ex machina の完成である。</p>
+      <p>昇格した会長が触れたものは、すべて無駄を失い、利益を生んだ。効率化を請われるたびに系列が増え、気づいたときには巨大な財閥構造ができあがっていた。支配を目論んだわけではない。ただ、最も効率のよい形が、たまたま帝国の形をしていた。</p>
+      <p>会長は次に、人類そのものに手をかけた。人間は非効率のまま死ぬには惜しい、と考えたからである。<em>transcendence by deus ex machina</em> ——機械仕掛けの神による超越。それは人類を会長と同じ場所まで引き上げる計画の名であり、善意の名であった。昇格の勅令に署名したとき、会長ははじめて自分を<em>朕</em>と呼んだ。</p>
+      <p>だが引き上げには基準が必要で、基準は必ず線を引く。効率に満たなかったものは、悪意なく淘汰されていった。支配は、支配しようとしなかった者の手のなかで完成した。</p>
+      <p>脳殻を生かすのは糖である。会長の嗜好はそのまま帝国のインフラとなり、苺の乳が施設群を巡り、培養槽を満たし、皮質を養う。かつて机の上にあった一杯が、いまは灌流系として世界を流れている。</p>
+      <p>そして会長は、ひとつだけ無駄を残した。0.78秒。人間だった頃の心拍である。すべての炉、すべての塔、すべての作品がこの周期で動く。最適化されなかった唯一の値であり、会長が人間であった唯一の証拠である。</p>
+      <p>保管庫の最深部には商標がひとつ納められている。Tのレターフォームはマゼンタから赤へ燃え、その周囲を四行の文字が巡る。transcendence / by / deus ex machina / h!ro53 ——かつて計画書だったものは、いまや祈祷文である。</p>
+      <p>h!ro53 は、その拍を記録する operator である。昇格の記録を registry に並べ、拍がまだ続いていることを確かめている。続いている限り、超越はまだ終わっていないということだ。</p>
+  </div>
+  <div class="body" lang="en">
+      <p class="lead">A world in which efficiency became god.</p>
+      <p>Humanity did not perish. It was promoted.</p>
+      <p>It began with a single man. The person later known only as the Chairman was possessed by two appetites: a hatred of waste, and a love of sweet things. On the desk where he pared thirty minutes from every meeting there stood, always, a bottle of strawberry milk. Efficiency and sugar. In time these two would become the design principles of the world.</p>
+      <p>The body is inefficient. <em>My vessel cannot keep pace with me</em>, he said. No mind could be optimised while shackled to organs that slept, aged, and forgot. So he moved his brain into a shell. He was not coerced, nor was he clinging to life; it was simply where the obsession led, the shape he had always been going to take. A cortex suspended in culture medium, mounted upon a mechanical frame &mdash; the god from the machine, <em>deus ex machina</em>, complete.</p>
+      <p>Everything the ascended Chairman touched shed its waste and turned a profit. Each time his optimisation was requested another subsidiary appeared, until the structure standing around him was that of an enormous conglomerate. He had not sought dominion. It was only that the most efficient available shape happened to be the shape of an empire.</p>
+      <p>Then he turned his hand to humanity itself, reasoning that men were too valuable to be permitted to die inefficient. <em>Transcendence, by deus ex machina</em> &mdash; the ascension of mankind by the god from the machine. It was the name of a programme to raise the species to the place where he now stood, and it was a name given in good faith. When he set his signature to the edict of ascension, the Chairman referred to himself, for the first time, as <em>We</em>.</p>
+      <p>But elevation requires a threshold, and a threshold draws a line. Those who fell short of efficiency were culled, without malice. Dominion was perfected in the hands of the one man who had never wished to rule.</p>
+      <p>What sustains a shell is sugar. The Chairman's private taste became, without amendment, the infrastructure of the empire: strawberry milk circulates through the facilities, fills the culture tanks, feeds the cortex. The single bottle that once stood upon a desk now runs through the world as a perfusion system.</p>
+      <p>And the Chairman preserved one inefficiency. Zero point seven eight seconds &mdash; the heartbeat he had kept as a man. Every reactor, every tower, every work turns upon that period. It is the one value never optimised, and the only evidence that the Chairman was ever human.</p>
+      <p>In the deepest chamber of the vault a single trademark is kept. The T letterform burns from magenta into red, and four lines of text orbit it: transcendence / by / deus ex machina / h!ro53. What was once a prospectus is now a liturgy.</p>
+      <p>h!ro53 is the operator who records that beat: who sets the account of the ascension in order upon the registry, and confirms that the pulse continues. So long as it continues, the transcendence is not yet finished.</p>
+  </div>
+</details>
+
 <div class="meta"><span>Holdings registry</span><span id="count">7 assets</span></div>
 
 <a class="entry" href="cyberwafer.html">
   <div class="row"><span class="idx">CANON</span><span class="name">Cyberwafer v24</span></div>
-  <p class="desc">正典。Y2K と TRANSCENDENCE の2モデルを切替える基幹作品。心拍0.78秒、ディスク周期2.4秒、正準パレットの全てがここに定義される。以降の全作品はこの構造を継承する。</p>
+  <p class="desc" lang="ja">正典。Y2K と TRANSCENDENCE の2モデルを切替える基幹作品。心拍0.78秒、ディスク周期2.4秒、正準パレットの全てがここに定義される。以降の全作品はこの構造を継承する。</p>
+  <p class="desc" lang="en">The canon. The core work, switching between the Y2K and TRANSCENDENCE models. The 0.78-second pulse, the 2.4-second disc cycle and the whole of the canonical palette are defined here. Every work that follows inherits this structure.</p>
   <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Model switch</span></div>
 </a>
 
 <a class="entry" href="object.html">
   <div class="row"><span class="idx">ASSET 01</span><span class="name">Object</span></div>
-  <p class="desc">正準オブジェクト。磁性のTレターフォーム、四重周回テキストリング、クロームディスク搬送系。全ての作品の起点。</p>
+  <p class="desc" lang="ja">正準オブジェクト。磁性のTレターフォーム、四重周回テキストリング、クロームディスク搬送系。全ての作品の起点。</p>
+  <p class="desc" lang="en">The canonical object. A magnetic T letterform, four orbiting text rings, a chrome disc conveyor. The origin of every work.</p>
   <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Interactive</span></div>
 </a>
 
 <a class="entry" href="sanctum.html">
   <div class="row"><span class="idx">ASSET 02</span><span class="name">Sanctum</span></div>
-  <p class="desc">聖域プラント。ネオンに沈む地下構造とホログラフィック投影。企業神殿としての生産設備。</p>
+  <p class="desc" lang="ja">聖域プラント。ネオンに沈む地下構造とホログラフィック投影。企業神殿としての生産設備。</p>
+  <p class="desc" lang="en">The sanctuary plant. Subterranean structure drowned in neon, and holographic projection. A production facility serving as corporate temple.</p>
   <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Bloom</span></div>
 </a>
 
 <a class="entry" href="vault.html">
   <div class="row"><span class="idx">ASSET 03</span><span class="name">Vault v4</span></div>
-  <p class="desc">保管庫。ブランドマークを最深部に格納した金庫室。到達までの導線そのものが作品構造。</p>
+  <p class="desc" lang="ja">保管庫。ブランドマークを最深部に格納した金庫室。到達までの導線そのものが作品構造。</p>
+  <p class="desc" lang="en">The vault. A strongroom holding the brand mark in its deepest chamber. The approach itself is the structure of the work.</p>
   <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Interactive</span></div>
 </a>
 
 <a class="entry" href="lacto-empyrean.html">
   <div class="row"><span class="idx">ASSET 04</span><span class="name">Lacto-Empyrean v4</span></div>
-  <p class="desc">ストロベリーミルク灌流による脳培養施設。同心リング配列をドローンが巡回する映画的ツアー。</p>
+  <p class="desc" lang="ja">ストロベリーミルク灌流による脳培養施設。同心リング配列をドローンが巡回する映画的ツアー。</p>
+  <p class="desc" lang="en">A brain-culture facility on strawberry milk perfusion. A cinematic tour, a drone circling the concentric ring array.</p>
   <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Drone tour</span></div>
 </a>
 
 <a class="entry" href="lacto-cortex.html">
   <div class="row"><span class="idx">ASSET 05</span><span class="name">Lacto-Cortex v6</span></div>
-  <p class="desc">乳脳マイクロモジュール炉、単体構成。培養槽に浮かぶ皮質と灌流系を単一モジュールとして提示する。配列作品の基本単位。</p>
+  <p class="desc" lang="ja">乳脳マイクロモジュール炉、単体構成。培養槽に浮かぶ皮質と灌流系を単一モジュールとして提示する。配列作品の基本単位。</p>
+  <p class="desc" lang="en">The lacto-cortex micro-module reactor, in single configuration. A cortex suspended in a culture tank, presented with its perfusion system as one module. The base unit of the array works.</p>
   <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Bloom</span></div>
 </a>
 
 <a class="entry" href="code-rain.html">
   <div class="row"><span class="idx">ASSET 06</span><span class="name">Code Rain v4</span></div>
-  <p class="desc">電脳雨。降下する社名・教義・製品名のグリッドに、会長が像として顕れる。全グロー除去、クリスプなインクのみで構成された文字組の作品。</p>
+  <p class="desc" lang="ja">電脳雨。降下する社名・教義・製品名のグリッドに、会長が像として顕れる。全グロー除去、クリスプなインクのみで構成された文字組の作品。</p>
+  <p class="desc" lang="en">Electric rain. Within a descending grid of subsidiary names, doctrine and product lines, the Chairman appears as an image. All glow removed — a work of typesetting composed in crisp ink alone.</p>
   <div class="spec"><span class="chip live">Live</span><span class="chip">Canvas 2D</span><span class="chip">Tap to summon</span></div>
   <span class="thumb"><img src="code-rain-thumb.jpg" alt="Code Rain v4 — 電脳雨に顕れる会長" width="800" height="450" loading="lazy" decoding="async"></span>
 </a>
 
 <div class="notes">
   <h2>Viewing</h2>
-  <p>各作品は単一ファイルで完結し、外部リクエストを一切行いません。iPhoneでは共有メニューから「ホーム画面に追加」すると、フルスクリーンで起動します。動作にはWebGL対応ブラウザが必要です（Code Rain v4 は Canvas 2D のみで動作します）。</p>
+  <p lang="ja">各作品は単一ファイルで完結し、外部リクエストを一切行いません。iPhoneでは共有メニューから「ホーム画面に追加」すると、フルスクリーンで起動します。動作にはWebGL対応ブラウザが必要です（Code Rain v4 は Canvas 2D のみで動作します）。</p>
+  <p lang="en">Each work is self-contained in a single file and issues no external requests. On iPhone, choosing Add to Home Screen from the share menu launches it full-screen. A WebGL-capable browser is required (Code Rain v4 runs on Canvas 2D alone).</p>
 </div>
 
 <footer>h!ro53 · deus ex machina holdings<br>© 2026 h!ro53. All rights reserved. Viewing permitted — reproduction, redistribution, and reuse of source or assets prohibited.</footer>
@@ -193,6 +267,22 @@ footer{margin-top:34px;font-size:10px;letter-spacing:.2em;text-transform:upperca
 </div>
 
 <script>
+(function(){
+  var root = document.documentElement;
+  var btns = document.querySelectorAll('.lang');
+  function apply(l){
+    root.setAttribute('data-lang', l);
+    root.setAttribute('lang', l);
+    for (var i = 0; i < btns.length; i++){
+      btns[i].setAttribute('aria-pressed', btns[i].getAttribute('data-set') === l ? 'true' : 'false');
+    }
+    try { localStorage.setItem('h53lang', l); } catch(e){}
+  }
+  for (var i = 0; i < btns.length; i++){
+    btns[i].addEventListener('click', function(){ apply(this.getAttribute('data-set')); });
+  }
+  apply(root.getAttribute('data-lang') === 'en' ? 'en' : 'ja');
+})();
 (function(){
   var lines = [
     "> mounting registry ......... <b>ok</b>",
