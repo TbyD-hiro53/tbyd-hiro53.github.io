@@ -9,7 +9,7 @@
      Viewing permitted. Reproduction, redistribution, and reuse of source code
      or assets — in whole or in part — is prohibited without written permission. -->
 <meta name="author" content="h!ro53" />
-<title>hiro53-cyberwafer-v24 — MODEL — transcendence / deus ex machina</title>
+<title>hiro53-cyberwafer-v25 — MODEL — transcendence / deus ex machina</title>
 
 <style>
   html,body{margin:0;padding:0;background:#04060b;overflow:hidden;height:100%;-webkit-user-select:none;user-select:none;touch-action:none}
@@ -100,14 +100,14 @@
 <div class="h53-copy">© 2026 h!ro53 · deus ex machina &mdash; viewing permitted, reuse prohibited</div>
 
 <div id="uiTop">
-  <div id="hudTitle">h!ro53 // <b>CYBERWAFER</b> v24</div>
+  <div id="hudTitle">h!ro53 // <b>CYBERWAFER</b> v25</div>
   <div id="hudBrand">transcendence / by / deus ex machina / h!ro53</div>
   <div id="hudHint">drag &middot; pinch &middot; tap</div>
 </div>
 <div id="uiBot">
   <div id="eraWrap">
-    <button class="eraBtn on" id="eraB0">Y2K</button>
-    <button class="eraBtn" id="eraB1">TRANSCENDENCE</button>
+    <button class="eraBtn" id="eraB0">Y2K</button>
+    <button class="eraBtn on" id="eraB1">TRANSCENDENCE</button>
   </div>
 </div>
 <script>
@@ -212,7 +212,7 @@ var envBright = null, envDark = null;
   envBright = pmrem.fromEquirectangular(tex).texture;
   /* dark neon strip room (original deus-ex-machina grade) */
   var env = new THREE.Scene();
-  var room = new THREE.Mesh(new THREE.BoxGeometry(60, 60, 60), new THREE.MeshBasicMaterial({ color: 0x05070c, side: THREE.BackSide }));
+  var room = new THREE.Mesh(new THREE.BoxGeometry(60, 60, 60), new THREE.MeshBasicMaterial({ color: 0x1e2a3e, side: THREE.BackSide }));
   room.position.set(0, 0, 0);
   env.add(room);
   function strip(color, intensity, w, h, x, y, z, ry, rx){
@@ -222,11 +222,11 @@ var envBright = null, envDark = null;
     m.rotation.y = ry || 0; m.rotation.x = rx || 0;
     env.add(m);
   }
-  strip(0xffffff, 5.0, 24, 8,   0, 24,  0, 0, Math.PI / 2);
-  strip(0x2fb8c6, 7.0, 10, 30, -28, 4,  0,  Math.PI / 2, 0);
-  strip(0xff4fb8, 7.0, 10, 30,  28, 4,  0, -Math.PI / 2, 0);
-  strip(0x3fe0d6, 3.0, 30, 6,   0, -6, -28, 0, 0);
-  strip(0xff2d92, 2.2, 30, 4,   0, 14,  28, Math.PI, 0);
+  strip(0xffffff, 6.5, 30, 16,  0, 24,  0, 0, Math.PI / 2);   /* 天井パネル: 円盤のハイライトを広く取る */
+  strip(0x2fb8c6, 8.5, 12, 30, -28, 4,  0,  Math.PI / 2, 0);
+  strip(0xff4fb8, 8.5, 12, 30,  28, 4,  0, -Math.PI / 2, 0);
+  strip(0x3fe0d6, 4.2, 30, 8,   0, -6, -28, 0, 0);
+  strip(0xff2d92, 3.2, 30, 6,   0, 14,  28, Math.PI, 0);
   envDark = pmrem.fromScene(env, 0.04).texture;
   scene.environment = envBright;
   pmrem.dispose();
@@ -328,6 +328,7 @@ var tMat = new THREE.MeshPhysicalMaterial({
   metalness: 0.85, roughness: 0.06, clearcoat: 1.0, clearcoatRoughness: 0.02,
   transparent: true, opacity: 0.97, envMapIntensity: 1.35
 });
+var T_ENV_BASE = 1.35, WAFER_ENV_BASE = 1.15;   /* モデル別に倍率を掛ける基準値 */
 
 var waferMat = new THREE.MeshPhysicalMaterial({
   map: waferD, metalness: 1.0, roughness: 0.12,
@@ -659,9 +660,9 @@ function renderBloom(){
 var litMats = [tMat, waferMat];
 var ERA = [
   /* Y2K */
-  { pix: 0.5, lv: 22,  scan: 0.05, ca: 0,     bloom: 0,    iters: 2, flare: 1, near: true,  soft: false, dark: false, vig: 0,    exp: 1.05, tEm: 0.7, fxaa: false, ring: 0xffffff },
-  /* TRANSCENDENCE */
-  { pix: 1.0, lv: 256, scan: 0,    ca: 0.003, bloom: 1.15, iters: 3, flare: 0, near: false, soft: true,  dark: true,  vig: 0.30, exp: 1.12, tEm: 1.1, fxaa: true,  ring: 0xaaaaaa }
+  { pix: 0.5, lv: 22,  scan: 0.05, ca: 0,     bloom: 0,    iters: 2, flare: 1, near: true,  soft: false, dark: false, vig: 0,    exp: 1.05, tEm: 0.70, fxaa: false, ring: 0xffffff, emi: 1.00 },
+  /* TRANSCENDENCE — Y2K寄りに増光: 露出/T発光/環境反射を上げ、周辺減光を弱める */
+  { pix: 1.0, lv: 256, scan: 0,    ca: 0.003, bloom: 1.15, iters: 3, flare: 0, near: false, soft: true,  dark: true,  vig: 0.16, exp: 1.20, tEm: 1.35, fxaa: true,  ring: 0xdcdcdc, emi: 1.38 }
 ];
 var fxaaOn = false;
 var eraBtns = [document.getElementById('eraB0'), document.getElementById('eraB1')];
@@ -678,6 +679,8 @@ function applyEra(idx){
   flareGlobal = e.flare;
   renderer.toneMappingExposure = e.exp;
   tMat.emissiveIntensity = e.tEm;
+  tMat.envMapIntensity = T_ENV_BASE * e.emi;
+  waferMat.envMapIntensity = WAFER_ENV_BASE * e.emi;
   if (e.near !== rtNearest) rebuildLowRT(e.near);
   if (e.soft !== shadowSoft){
     shadowSoft = e.soft;
@@ -869,7 +872,7 @@ window.addEventListener('resize', function(){
 invAspect = window.innerWidth > 0 ? window.innerHeight / window.innerWidth : 1;
 
 /* ================= animation loop ================= */
-applyEra(0);
+applyEra(1);   /* 既定モデル: TRANSCENDENCE */
 fitView();
 /* 初回レイアウト確定後にもう一度実測する（iOSはツールバー分でinnerHeightが遅れて確定する） */
 requestAnimationFrame(function(){ fitView(); });
