@@ -16,7 +16,7 @@
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html,body{height:100%;overflow:hidden;background:#040308;font-family:'Helvetica Neue',sans-serif;}
   #app{position:fixed;inset:0;} canvas{display:block;}
-  \1
+  .ui{position:fixed;inset:0;pointer-events:none;z-index:10;display:flex;flex-direction:column;justify-content:space-between;}
   /* --- 視認性スクリム（h53 layout fix） --- */
   .ui::before,.ui::after{content:"";position:fixed;left:0;right:0;pointer-events:none;z-index:-1;}
   .ui::before{top:0;height:calc(126px + env(safe-area-inset-top));
