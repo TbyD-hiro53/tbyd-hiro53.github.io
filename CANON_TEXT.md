@@ -99,7 +99,21 @@ The one mark set on white. No raster anywhere; the beat is kept by vector and ar
 
 ---
 
-## ASSET 05 — Lacto-Empyrean v7
+## ASSET 05 — Empyrean Sigil v7
+
+**位相** PHASE 4 · THE TRANSCENDED
+
+**観測ログ** `The mark continued to certify an owner that could not be located.`
+
+**JA**
+社章。二重のベゼルが互いに逆へ回り、内側の細環は下から生まれて上で消える。中央のTは動かず、ネオンだけが不規則に明滅する。この標章は所有を証明し続けている。証明されるべき所有者だけが、どの台帳にも見つからない。
+
+**EN**
+The company mark. Two bezels turn against each other, and the thin inner rings are born below and vanish above. The T at the centre does not move; only its neon flickers, irregularly. The mark goes on certifying ownership. The owner it should certify is in no ledger.
+
+---
+
+## ASSET 06 — Lacto-Empyrean v7
 
 **位相** PHASE 4 · THE TRANSCENDED
 
@@ -113,7 +127,7 @@ A corridor of reactors in line. Every chamber is of the same dimension, carries 
 
 ---
 
-## ASSET 06 — Lacto-Mandala v2
+## ASSET 07 — Lacto-Mandala v2
 
 **位相** PHASE 4 · THE TRANSCENDED
 
@@ -127,7 +141,7 @@ Five concentric rings, five units to a ring, aligned exactly along five radiatin
 
 ---
 
-## ASSET 07 — Sanctum v5
+## ASSET 08 — Sanctum v5
 
 **位相** PHASE 5 · RESIDUAL WORLD
 

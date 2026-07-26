@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja" data-bg="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="theme-color" content="#0b0b0f"/>
+<!-- © 2026 h!ro53 / deus ex machina. All rights reserved.
+     Viewing permitted. Reproduction, redistribution, and reuse of source code
+     or assets — in whole or in part — is prohibited without written permission. -->
+<meta name="author" content="h!ro53"/>
+<title>h!ro53 — empyrean sigil</title>
+<style id="h53-copyright-css">
+  :root{
+    --bg:#0b0b0f; --frame:#a83a68; --rb:#8fd3d8; --rf:#4fbfc6;
+    --disc-st:#8d939e; --btn:rgba(255,231,244,.86); --btn-bd:rgba(255,130,210,.40); --btn-bg:rgba(34,18,38,.55);
+    --cr1:#9aa2b0; --cr2:#f4f6fa; --cr3:#8b93a1;
+  }
+  /* 明色テーマの値はJSがルート要素へ直接設定する（インラインが最優先で確実に効く） */
+  html,body{margin:0;height:100%;overflow:hidden;-webkit-tap-highlight-color:transparent;}
+  html{background:#0b0b0f}                      /* 初回描画のちらつき防止（静的） */
+  /* 背景はルートに任せず専用レイヤーで塗る。iOSのキャンバス伝播に依存させない */
+  .bg{position:fixed;inset:0;z-index:0;background-color:var(--bg);transition:background-color .34s ease}
+  body{background:transparent;display:flex;align-items:center;justify-content:center;
+    padding:calc(52px + env(safe-area-inset-top)) 16px calc(58px + env(safe-area-inset-bottom));}
+  .mark{position:relative;z-index:1;width:min(600px,92vmin);}
+  .mark svg{display:block;width:100%;height:auto;}
+
+  /* SVGの色はクラス経由。JSはopacityのみ触るので競合しない */
+  .frame{fill:none;stroke:var(--frame);transition:stroke .34s ease}
+  .tick{stroke:var(--frame);transition:stroke .34s ease}
+  .rb{fill:none;stroke:var(--rb);stroke-width:.92;transition:stroke .34s ease}
+  .rf{fill:none;stroke:var(--rf);stroke-width:1.09;transition:stroke .34s ease}
+  .disc{fill:url(#gChromeH);stroke:var(--disc-st);stroke-width:.70;transition:stroke .34s ease}
+  .c1{stop-color:var(--cr1)} .c2{stop-color:var(--cr2)} .c3{stop-color:var(--cr3)}
+
+  .foot{position:fixed;left:0;right:0;bottom:0;z-index:9;pointer-events:none;text-align:center;
+    padding:7px 12px calc(7px + env(safe-area-inset-bottom));z-index:9;
+    font-family:ui-monospace,"SF Mono",Menlo,"Courier New",monospace;
+    font-size:9px;line-height:1.65;letter-spacing:.06em;color:rgba(178,110,150,.78);}
+  .foot b{display:block;font-weight:400;color:rgba(150,104,132,.72)}
+
+  .bgbtn{position:fixed;z-index:12;right:14px;top:calc(14px + env(safe-area-inset-top));
+    font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:10px;letter-spacing:.18em;
+    color:var(--btn);background:var(--btn-bg);border:1px solid var(--btn-bd);border-radius:999px;
+    padding:8px 14px;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+    transition:color .34s ease,background .34s ease,border-color .34s ease,transform .15s}
+  .bgbtn:active{transform:translateY(1px)}
+  .bgbtn:focus-visible{outline:1px solid var(--rf);outline-offset:3px}
+
+  /* 目盛りリング：互いに逆回転（22.6416s/周 = 2.65rpm） */
+  #bezelOut{animation:rotccw 32.3451s linear infinite}
+  #bezelIn {animation:rotcw  32.3451s linear infinite}
+  #bezelOut,#bezelIn{transform-origin:640px 246px}
+  @keyframes rotcw {from{transform:rotate(0)} to{transform:rotate(360deg)}}
+  @keyframes rotccw{from{transform:rotate(0)} to{transform:rotate(-360deg)}}
+  @media (prefers-reduced-motion:reduce){
+    #bezelOut,#bezelIn{animation:none}
+    html,.frame,.tick,.rb,.rf,.disc,.bgbtn{transition:none}
+  }
+</style>
+</head>
+<body>
+<button class="bgbtn" id="bgbtn" type="button" aria-pressed="false">BG · DARK</button>
+
+<div class="bg" aria-hidden="true"></div>
+
+<div class="mark">
+<svg viewBox="544 150 192 192" role="img" aria-label="h!ro53 lacto-empyrean sigil">
+  <defs>
+    <linearGradient id="gChromeH" x1="0" y1="0" x2="1" y2="0">
+      <stop class="c1" offset="0"/><stop class="c2" offset="0.45"/><stop class="c3" offset="1"/>
+    </linearGradient>
+    <linearGradient id="gTee" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff37b8"/><stop offset="1" stop-color="#e01535"/>
+    </linearGradient>
+    <filter id="neonBlur" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4.2"/>
+    </filter>
+  </defs>
+
+  <!-- 外周ベゼル（反時計回り・帯幅4.5） -->
+  <circle class="frame" cx="640" cy="246" r="90.5" stroke-width="0.85"/>
+  <circle class="frame" cx="640" cy="246" r="86" stroke-width="0.40"/>
+  <g id="bezelOut"></g>
+
+  <!-- 内周ベゼル（時計回り・帯幅3.0） -->
+  <circle class="frame" cx="640" cy="246" r="81.6" stroke-width="0.85"/>
+  <circle class="frame" cx="640" cy="246" r="78.6" stroke-width="0.40"/>
+  <g id="bezelIn"></g>
+
+  <!-- 銀円盤：Tと細リングより下（先に描画＝奥） -->
+  <g id="discs"></g>
+
+  <!-- 細リング：背面 -->
+  <g id="ringsBack"></g>
+
+  <!-- T：位置固定・ネオン明滅のみ -->
+  <g id="tee">
+    <g id="teeGlow" filter="url(#neonBlur)" opacity="0.6">
+      <rect x="604.35" y="187" width="70.15" height="19.55" fill="#ff5fc8"/>
+      <rect x="630.8" y="206.55" width="18.4" height="72.45" fill="#ff5fc8"/>
+    </g>
+    <rect x="604.35" y="187" width="70.15" height="19.55" fill="#7a0f26" transform="translate(1.96,1.67)"/>
+    <rect x="630.8" y="206.55" width="18.4" height="72.45" fill="#7a0f26" transform="translate(1.96,1.67)"/>
+    <g id="teeCore">
+      <rect x="604.35" y="187" width="70.15" height="19.55" fill="url(#gTee)" stroke="#5c0a1c" stroke-width="1.1"/>
+      <rect x="630.8" y="206.55" width="18.4" height="72.45" fill="url(#gTee)" stroke="#5c0a1c" stroke-width="1.1"/>
+    </g>
+  </g>
+
+  <!-- 細リング：前面 -->
+  <g id="ringsFront"></g>
+
+</svg>
+</div>
+
+<div class="foot">h!ro53 — deus ex machina / empyrean sigil<b>© 2026 h!ro53 · viewing permitted, reuse prohibited</b></div>
+
+<script>
+(function(){
+  "use strict";
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var CX = 640, CY = 246, TAU = Math.PI * 2;
+
+  var PUMP_PERIOD = 0.78;          // canonical heartbeat
+  var DISC_PERIOD = 2.4;           // canonical conveyor period
+  var SLOW = 2;                    // 全モーションを半速に
+  var DISC_CYCLE = DISC_PERIOD * SLOW / 0.7;    // 速度を7割へ
+  var RING_CYCLE = 3.4 * SLOW / 0.8;            // 速度を8割へ
+
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function el(tag, attrs){
+    var n = document.createElementNS(SVGNS, tag), k;
+    for (k in attrs) n.setAttribute(k, attrs[k]);
+    return n;
+  }
+
+  // ---- 背景切替（既定は黒） ----
+  var THEMES = {
+    dark:  { '--bg':'#0b0b0f', '--frame':'#a83a68', '--rb':'#8fd3d8', '--rf':'#4fbfc6',
+             '--disc-st':'#8d939e', '--btn':'rgba(255,231,244,.86)', '--btn-bd':'rgba(255,130,210,.40)', '--btn-bg':'rgba(34,18,38,.55)',
+             '--cr1':'#9aa2b0', '--cr2':'#f4f6fa', '--cr3':'#8b93a1' },
+    light: { '--bg':'#ffffff', '--frame':'#8e2b53', '--rb':'#2fb8c6', '--rf':'#167a86',
+             '--disc-st':'#6b7280', '--btn':'rgba(40,20,34,.86)', '--btn-bd':'rgba(160,40,110,.34)', '--btn-bg':'rgba(255,255,255,.70)',
+             '--cr1':'#7d8694', '--cr2':'#dfe4ea', '--cr3':'#6f7784' }
+  };
+  var isLight = false;
+  var btn = document.getElementById('bgbtn');
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  function applyBg(light){
+    isLight = !!light;
+    var th = THEMES[isLight ? 'light' : 'dark'], root = document.documentElement, k;
+    for (k in th) root.style.setProperty(k, th[k]);
+    root.setAttribute('data-bg', isLight ? 'light' : 'dark');
+    btn.textContent = isLight ? 'BG · LIGHT' : 'BG · DARK';
+    btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+    if (themeMeta) themeMeta.setAttribute('content', isLight ? '#ffffff' : '#0b0b0f');
+    try { localStorage.setItem('h53bg', isLight ? 'light' : 'dark'); } catch(e){}
+  }
+  // 保存値の有無にかかわらず初期化し、ボタン表示とtheme-colorを常に同期させる
+  try { applyBg(localStorage.getItem('h53bg') === 'light'); } catch(e){ applyBg(false); }
+  btn.addEventListener('click', function(){ applyBg(!isLight); });
+
+  // ---- 目盛りの生成 ----
+  function buildTicks(host, ri, ro, count, sw){
+    for (var i = 0; i < count; i++){
+      var a = i * TAU / count;
+      host.appendChild(el('line', {
+        'class': 'tick',
+        x1: (CX + ri * Math.cos(a)).toFixed(2), y1: (CY + ri * Math.sin(a)).toFixed(2),
+        x2: (CX + ro * Math.cos(a)).toFixed(2), y2: (CY + ro * Math.sin(a)).toFixed(2),
+        'stroke-width': sw
+      }));
+    }
+  }
+  buildTicks(document.getElementById('bezelOut'), 86.9, 89.6, 72, 0.42);
+  buildTicks(document.getElementById('bezelIn'),  79.3, 80.9, 36, 0.50);
+
+  // ---- 細リング：背面楕円 + 前面弧を対で生成（下から上へ） ----
+  var RING_N = 4, RING_Y0 = 280, RING_Y1 = 208, RING_RX = 48, RING_RY = 8.4;
+  var ringsBack = document.getElementById('ringsBack');
+  var ringsFront = document.getElementById('ringsFront');
+  var ringB = [], ringF = [], i;
+  for (i = 0; i < RING_N; i++){
+    var gb = el('g', {});
+    gb.appendChild(el('ellipse', { 'class': 'rb', cx: CX, cy: RING_Y0, rx: RING_RX, ry: RING_RY }));
+    ringsBack.appendChild(gb); ringB.push(gb);
+
+    var gf = el('g', {});
+    gf.appendChild(el('path', { 'class': 'rf',
+      d: 'M' + (CX - RING_RX) + ',' + RING_Y0 + ' A' + RING_RX + ',' + RING_RY +
+         ' 0 0,0 ' + (CX + RING_RX) + ',' + RING_Y0 }));
+    ringsFront.appendChild(gf); ringF.push(gf);
+  }
+
+  // ---- 銀円盤：サイズ一定・下降しながら減衰 ----
+  var DISC_N = 4, DISC_Y0 = 285, DISC_Y1 = 308, DISC_RX = 31, DISC_RY = 6.2;
+  var discsHost = document.getElementById('discs');
+  var discs = [], j;
+  for (j = 0; j < DISC_N; j++){
+    var d = el('ellipse', { 'class': 'disc', cx: CX, cy: DISC_Y0, rx: DISC_RX, ry: DISC_RY });
+    discsHost.appendChild(d); discs.push(d);
+  }
+
+  var teeGlow = document.getElementById('teeGlow');
+  var teeCore = document.getElementById('teeCore');
+
+  function lerp(a, b, u){ return a + (b - a) * u; }
+
+  function pumpBeat(t){
+    var p = (t % PUMP_PERIOD) / PUMP_PERIOD;
+    var s1 = Math.exp(-Math.pow((p - 0.12) / 0.05, 2));
+    var s2 = 0.5 * Math.exp(-Math.pow((p - 0.33) / 0.085, 2));
+    return s1 + s2;
+  }
+
+  // 通約不能な周期の重ね合わせ＋稀な瞬断で、規則性を感じさせない明滅にする
+  function neon(t){
+    var b = pumpBeat(t);
+    var w = 0.5 + 0.5 * Math.sin(TAU * t / 1.37) * Math.sin(TAU * t / 0.53 + 1.1);
+    var s = Math.sin(TAU * t / 2.9) + Math.sin(TAU * t / 1.13) + Math.sin(TAU * t / 0.41);
+    var cut = (s < -2.2) ? 0.22 : 1;
+    return Math.max(0.16, Math.min(1, (0.52 + 0.30 * b + 0.24 * w) * cut));
+  }
+
+  function placeRing(k, p){
+    var y = lerp(RING_Y0, RING_Y1, p);
+    var dy = (y - RING_Y0).toFixed(2);
+    var o = (p < 0.18) ? p / 0.18 : ((p > 0.76) ? (1 - p) / 0.24 : 1);
+    var os = (Math.max(0, Math.min(1, o)) * 0.72).toFixed(3);
+    ringB[k].setAttribute('transform', 'translate(0 ' + dy + ')');
+    ringF[k].setAttribute('transform', 'translate(0 ' + dy + ')');
+    ringB[k].setAttribute('opacity', os);
+    ringF[k].setAttribute('opacity', os);
+  }
+
+  // 不透明を保ち、終端だけで消える。透けて重なって見えるのを避ける
+  function placeDisc(k, q){
+    var o = (q < 0.06) ? q / 0.06 : ((q > 0.84) ? (1 - q) / 0.16 : 1);
+    discs[k].setAttribute('cy', lerp(DISC_Y0, DISC_Y1, q).toFixed(2));
+    discs[k].setAttribute('opacity', Math.max(0, Math.min(1, o)).toFixed(3));
+  }
+
+  function frame(now){
+    var t = now / 1000, k;
+    for (k = 0; k < RING_N; k++) placeRing(k, ((t / RING_CYCLE) + k / RING_N) % 1);
+    // 位相を降順に並べて割り当てる。DOM順で後の要素ほど上にあり、前面に描画される
+    var dq = [];
+    for (k = 0; k < DISC_N; k++) dq.push(((t / DISC_CYCLE) + k / DISC_N) % 1);
+    dq.sort(function(a, b){ return b - a; });
+    for (k = 0; k < DISC_N; k++) placeDisc(k, dq[k]);
+
+    // Tは位置固定。明滅のみ。白背景ではグローを抑える
+    var n = neon(t), g = isLight ? 0.45 : 1;
+    teeGlow.setAttribute('opacity', ((0.20 + 0.80 * n) * g).toFixed(3));
+    teeCore.setAttribute('opacity', (0.82 + 0.18 * n).toFixed(3));
+
+    requestAnimationFrame(frame);
+  }
+
+  if (reduce){
+    for (i = 0; i < RING_N; i++) placeRing(i, i / RING_N);
+    for (j = 0; j < DISC_N; j++) placeDisc(j, (DISC_N - 1 - j) / DISC_N);
+    teeGlow.setAttribute('opacity', isLight ? 0.3 : 0.66);
+  } else {
+    requestAnimationFrame(frame);
+  }
+})();
+</script>
+</body>
+</html>
