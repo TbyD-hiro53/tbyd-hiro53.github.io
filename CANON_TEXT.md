@@ -271,3 +271,23 @@ A sanctum in a subterranean cavern. A fusion core and a brain core, with heavy p
 
 **断章 EN**
 Nothing is broken. The cooling turns, the light-guides run, the trunks reach deep into their mouths in the rock. The maintenance records are complete to the present month, and the schedule for the next is already drawn. One sheet only is wanting — the slip recording where this power is sent has not moved since the date of its last revision. The post continues to change hands, and the handover reads: as to the destination of transmission, confirm with your predecessor. The predecessor, too, had copied out the same line.
+
+---
+
+## ASSET 12 — Lacto-Massif v10
+
+**位相** PHASE 5 · RESIDUAL WORLD
+
+**観測ログ** `Output confirmed. Destination unconfirmed.`
+
+**説明 JA**
+山上に環状配置された32基の発電タワーと、中央の送電塔。各タワーは51基のユニットを17階層に収める。地表を這う送電線が中心へ集まり、頂部の指向アンテナから三色の螺旋ビームが伸びる。12カットを巡回。
+
+**説明 EN**
+Thirty-two generating towers set in rings upon a mountain, with a transmission tower at the centre. Each tower holds fifty-one units across seventeen levels. Power lines crawl along the ground to the centre, and a three-strand helical beam runs out from the directional antenna at the summit. Twelve shots in rotation.
+
+**断章 JA**
+山がもとから山であったのか、積み上げたものが山の形になったのかは、記録の上で区別がつかない。三十二の柱が輪をなし、その中心から一条が水平に伸びている。伸びた先に受け手があるという書類は存在する。受け取ったという書類は存在しない。両者は別の部署が保管しており、突き合わせの手続きは定められていない。定めなかったのではなく、定める必要が生じたことが一度もない。
+
+**断章 EN**
+Whether the mountain was a mountain from the first, or whether what was piled upon it came to take the shape of one, cannot be distinguished in the records. Thirty-two columns stand in rings, and from their centre a single line runs out level. A document exists stating that there is a recipient at the far end. No document exists stating that it was received. The two are held by separate offices, and no procedure for reconciling them has been laid down. It was not that they declined to lay one down; the need to do so has never once arisen.
