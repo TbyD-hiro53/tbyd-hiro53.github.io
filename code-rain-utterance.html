@@ -30,6 +30,173 @@ html,body{margin:0;padding:0;background:#000;width:100%;height:100%;overflow:hid
 </style>
 </head>
 <body>
+<script>
+(function(){
+  // ---- h!ro53 index return button v2 ----
+  // v1の失敗：(1) CSSの静的走査では全幅バーや左上HUDを検出できず重なった
+  //           (2) 作品側のハンドラへイベントが渡り click が成立しない場合があった
+  // v2：実行時に他要素の矩形を測って空いた隅へ置く。遷移は明示ハンドラで行う。
+  var PAD = 12;
+  var CSS = '#h53idx{position:fixed;z-index:2147483600;display:inline-flex;align-items:center;'
+    + 'gap:7px;font:9px/1 ui-monospace,"SF Mono",Menlo,"Courier New",monospace;'
+    + 'letter-spacing:.2em;text-transform:uppercase;text-decoration:none;'
+    + 'color:rgba(214,224,232,.92);background:rgba(6,9,14,.82);'
+    + 'border:1px solid rgba(127,230,240,.42);border-radius:2px;padding:9px 12px;'
+    + 'pointer-events:auto;cursor:pointer;box-shadow:0 1px 10px rgba(0,0,0,.55);'
+    + '-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);'
+    + '-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;'
+    + '-webkit-user-select:none;user-select:none;touch-action:manipulation}'
+    + '#h53idx:active{color:#fff;border-color:rgba(255,95,200,.75);background:rgba(10,14,20,.96)}'
+    + '#h53idx b{font-weight:400;opacity:.55}';
+
+  var st = document.createElement('style');
+  st.id = 'h53idxcss';
+  st.appendChild(document.createTextNode(CSS));
+  (document.head || document.documentElement).appendChild(st);
+
+  var A = document.createElement('a');
+  A.id = 'h53idx';
+  A.setAttribute('aria-label', 'registry');
+  A.innerHTML = '<b>&#8592;</b>index';
+
+  function url(){
+    try { return new URL('index.html', location.href).href; }
+    catch (e) { return 'index.html'; }
+  }
+  A.href = url();
+
+  // 遷移：click が潰される環境でも touchend で確実に飛ばす
+  var fired = 0;
+  function go(e){
+    var now = Date.now();
+    if (now - fired < 700) { if (e && e.preventDefault) e.preventDefault(); return false; }
+    fired = now;
+    if (e){ if (e.preventDefault) e.preventDefault(); if (e.stopPropagation) e.stopPropagation(); }
+    var u = url();
+    try { location.assign(u); } catch (err) { location.href = u; }
+    return false;
+  }
+  function eat(e){ if (e && e.stopPropagation) e.stopPropagation(); }
+  A.addEventListener('click', go, false);
+  try { A.addEventListener('touchend', go, { passive: false }); }
+  catch (e) { A.addEventListener('touchend', go, false); }
+  try { A.addEventListener('touchstart', eat, { passive: true }); }
+  catch (e) { A.addEventListener('touchstart', eat, false); }
+  A.addEventListener('pointerdown', eat, false);
+  A.addEventListener('mousedown', eat, false);
+
+  function attach(){
+    if (document.body && A.parentNode !== document.body) document.body.appendChild(A);
+  }
+  attach();
+
+  // セーフエリアの実寸を測る
+  var safe = { t: 0, r: 0, b: 0, l: 0 };
+  function measureSafe(){
+    if (!document.body) return;
+    var p = document.createElement('div');
+    p.style.cssText = 'position:fixed;left:0;top:0;width:0;height:0;visibility:hidden;'
+      + 'padding-top:env(safe-area-inset-top,0px);padding-right:env(safe-area-inset-right,0px);'
+      + 'padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);';
+    document.body.appendChild(p);
+    var cs = window.getComputedStyle(p);
+    safe.t = parseFloat(cs.paddingTop) || 0;
+    safe.r = parseFloat(cs.paddingRight) || 0;
+    safe.b = parseFloat(cs.paddingBottom) || 0;
+    safe.l = parseFloat(cs.paddingLeft) || 0;
+    document.body.removeChild(p);
+  }
+
+  // 画面上で実際に「何かが描かれている」要素の矩形を集める
+  function occupied(){
+    var out = [], i, j, el, cs, r, ch, ink, bg;
+    if (!document.body) return out;
+    var all = document.body.querySelectorAll('*');
+    for (i = 0; i < all.length; i++){
+      el = all[i];
+      if (el === A || el === st) continue;
+      var tn = el.tagName;
+      if (tn === 'CANVAS' || tn === 'SCRIPT' || tn === 'STYLE' || tn === 'LINK') continue;
+      cs = window.getComputedStyle(el);
+      if (!cs || cs.display === 'none' || cs.visibility === 'hidden') continue;
+      if ((parseFloat(cs.opacity) || 1) < 0.06) continue;
+      r = el.getBoundingClientRect();
+      if (r.width < 6 || r.height < 6) continue;
+      if (r.right < 0 || r.bottom < 0 || r.left > innerWidth || r.top > innerHeight) continue;
+      // 全画面の器は避けたい対象ではない
+      if (r.width > innerWidth * 0.94 && r.height > innerHeight * 0.90) continue;
+      ink = false;
+      ch = el.childNodes;
+      for (j = 0; j < ch.length; j++){
+        if (ch[j].nodeType === 3 && ch[j].nodeValue && ch[j].nodeValue.replace(/\s+/g,'')) { ink = true; break; }
+      }
+      if (!ink){
+        bg = cs.backgroundColor || '';
+        if (bg && bg.indexOf('rgba(0, 0, 0, 0)') < 0 && bg !== 'transparent') ink = true;
+        if (!ink && (parseFloat(cs.borderTopWidth) || 0) > 0) ink = true;
+        if (!ink && (parseFloat(cs.borderBottomWidth) || 0) > 0) ink = true;
+        if (!ink && tn === 'IMG') ink = true;
+      }
+      if (!ink) continue;
+      out.push(r);
+    }
+    return out;
+  }
+
+  function overlapArea(x, y, w, h, rs){
+    var s = 0, i, r, ow, oh;
+    for (i = 0; i < rs.length; i++){
+      r = rs[i];
+      ow = Math.min(x + w, r.right) - Math.max(x, r.left);
+      oh = Math.min(y + h, r.bottom) - Math.max(y, r.top);
+      if (ow > 0 && oh > 0) s += ow * oh;
+    }
+    return s;
+  }
+
+  function place(){
+    attach();
+    if (!document.body) return;
+    measureSafe();
+    A.style.left = ''; A.style.right = ''; A.style.top = ''; A.style.bottom = '';
+    A.style.top = '-999px'; A.style.left = '0px';
+    var w = A.offsetWidth || 76, h = A.offsetHeight || 30;
+    var rs = occupied();
+    // 隅は 右上 → 左上 → 右下 → 左下 の順に選好。各隅で縦に4段まで逃がす
+    var best = null, corner, step, x, y, s, pref;
+    for (corner = 0; corner < 4; corner++){
+      for (step = 0; step < 4; step++){
+        x = (corner % 2 === 0) ? (innerWidth - PAD - safe.r - w) : (PAD + safe.l);
+        y = (corner < 2) ? (PAD + safe.t + step * (h + 8))
+                         : (innerHeight - PAD - safe.b - h - step * (h + 8));
+        if (y < 0 || y + h > innerHeight) continue;
+        s = overlapArea(x, y, w, h, rs);
+        pref = corner * 3 + step;                 // 面積が同点なら選好順
+        if (!best || s < best.s - 0.5 || (Math.abs(s - best.s) <= 0.5 && pref < best.pref)){
+          best = { x: x, y: y, s: s, pref: pref, corner: corner };
+        }
+        if (s === 0 && step === 0 && corner === 0) { best = { x: x, y: y, s: 0, pref: 0, corner: 0 }; corner = 9; break; }
+      }
+    }
+    if (!best) best = { x: innerWidth - PAD - w, y: PAD, corner: 0 };
+    if (best.corner < 2){ A.style.top = best.y + 'px'; A.style.bottom = ''; }
+    else { A.style.bottom = (innerHeight - best.y - h) + 'px'; A.style.top = ''; }
+    if (best.corner % 2 === 0){ A.style.right = (PAD + safe.r) + 'px'; A.style.left = ''; }
+    else { A.style.left = (PAD + safe.l) + 'px'; A.style.right = ''; }
+  }
+
+  function boot(){ place(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+  addEventListener('load', place);
+  addEventListener('resize', place);
+  addEventListener('orientationchange', function(){ setTimeout(place, 220); });
+  setTimeout(place, 400);
+  setTimeout(place, 1400);
+  setTimeout(place, 3600);
+})();
+</script>
+
 <div class="h53-copy">&copy; 2026 h!ro53 &middot; deus ex machina &mdash; viewing permitted, reuse prohibited</div>
 <canvas id="cv"></canvas>
 <div class="hud" id="hudTL">h!ro53 // CODE RAIN v6<br>RAIN PROTOCOL &mdash; 発語</div>
@@ -478,19 +645,5 @@ requestAnimationFrame(frame);
   });
 })();
 </script>
-<style>
-#h53idx{position:fixed;z-index:2147483000;
-  top:calc(10px + env(safe-area-inset-top));right:calc(12px + env(safe-area-inset-right));
-  display:inline-flex;align-items:center;gap:7px;
-  font:9px/1 ui-monospace,"SF Mono",Menlo,"Courier New",monospace;
-  letter-spacing:.2em;text-transform:uppercase;text-decoration:none;
-  color:rgba(207,211,218,.76);background:rgba(8,10,16,.52);
-  border:1px solid rgba(127,230,240,.26);border-radius:2px;padding:8px 11px;
-  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
-  -webkit-tap-highlight-color:transparent}
-#h53idx:active{color:#fff;border-color:rgba(255,95,200,.55);background:rgba(8,10,16,.72)}
-#h53idx i{font-style:normal;opacity:.55}
-</style>
-<a id="h53idx" href="./index.html" aria-label="registry"><i>&#8592;</i>index</a>
 </body>
 </html>
