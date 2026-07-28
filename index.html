@@ -167,6 +167,42 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
 .lang:focus-visible{outline:1px solid var(--cyan);outline-offset:2px}
 
 /* ---- lore ---- */
+/* ---- 多書構成：書 / 章 / 条 ---- */
+.lore .intro{padding:2px 16px 14px;font-size:12px;line-height:2.05;color:var(--chrome)}
+.lore .intro p{margin:0 0 1.05em}
+.lore .intro p:last-child{margin-bottom:0}
+.lore .intro .lead{color:var(--milk);letter-spacing:.06em}
+.book{border-top:1px solid rgba(207,211,218,.09)}
+.book>summary{list-style:none;cursor:pointer;padding:13px 16px;display:flex;
+  justify-content:space-between;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;color:var(--chrome)}
+.book>summary::-webkit-details-marker{display:none}
+.book>summary::after{content:"+";font-size:12px;letter-spacing:0}
+.book[open]>summary::after{content:"\2212"}
+.book[open]>summary{color:var(--cyan)}
+.book>summary:focus-visible{outline:1px solid var(--cyan);outline-offset:-3px}
+.bn{color:var(--mag);opacity:.75;margin-right:10px}
+.bwrap{padding:0 16px 10px}
+.bnote{font-size:11px;line-height:1.95;color:rgba(138,143,156,.74);
+  margin:0 0 8px;padding:0 0 0 12px;border-left:1px solid rgba(255,47,160,.25)}
+.chap{border-left:1px solid rgba(207,211,218,.10);margin:0 0 2px 4px}
+.chap>summary{list-style:none;cursor:pointer;padding:10px 12px;display:flex;
+  justify-content:space-between;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--chrome)}
+.chap>summary::-webkit-details-marker{display:none}
+.chap>summary::after{content:"+";font-size:11px;letter-spacing:0}
+.chap[open]>summary::after{content:"\2212"}
+.chap[open]>summary{color:var(--milk)}
+.chap>summary:focus-visible{outline:1px solid var(--cyan);outline-offset:2px}
+.cbody{padding:2px 12px 14px}
+.v{display:flex;gap:10px;margin:0 0 .95em;font-size:11.5px;line-height:2.05;
+  color:var(--chrome);text-align:justify;max-width:52ch}
+.v:last-child{margin-bottom:0}
+.v i{flex:0 0 auto;font-style:normal;font-family:var(--mono);font-size:9px;
+  color:var(--cyan);opacity:.72;padding-top:.42em;min-width:1.1em}
+.v em{font-style:normal;color:var(--milk)}
+.v[lang="en"] em{font-style:italic}
+
 .lore{margin-top:24px;border:1px solid var(--line);background:var(--panel)}
 .lic{margin-top:18px}
 .lic .body p{margin:0 0 1em}
@@ -236,38 +272,453 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <span lang="ja">世界観 / transcendence とは</span>
     <span lang="en">The world of transcendence</span>
   </summary>
-  <div class="body" lang="ja">
-      <p class="lead">効率が神になった世界。</p>
-      <p>人類は滅びなかった。昇格したのである。</p>
-      <p>はじまりは一人の人間だった。のちに会長と呼ばれるその人物は、二つのものに取り憑かれていた。無駄を憎むこと、そして甘いものを好むこと。会議の三十分を削り続けたその机には、いつも苺の乳飲料が置かれていた。効率と糖分。この二つが、やがて世界の設計原理になる。</p>
-      <p>肉体は効率が悪い。<em>私の器は私に追いつかない</em>、と会長は言った。眠り、老い、忘れる器官を抱えたままでは思考は最適化されない。だから脳を殻に移した。誰に強いられたのでもなく、命を惜しんだのでもない。ただ執着の行き着く先として、なるべくしてそうなった。培養槽に浮かぶ皮質と、それを載せた機械の躯体。機械仕掛けの神、deus ex machina の完成である。</p>
-      <p>昇格した会長が触れたものは、すべて無駄を失い、利益を生んだ。効率化を請われるたびに系列が増え、気づいたときには巨大な財閥構造ができあがっていた。支配を目論んだわけではない。ただ、最も効率のよい形が、たまたま帝国の形をしていた。</p>
-      <p>会長は次に、人類そのものに手をかけた。人間は非効率のまま死ぬには惜しい、と考えたからである。<em>transcendence by deus ex machina</em> ——機械仕掛けの神による超越。それは人類を会長と同じ場所まで引き上げる計画の名であり、善意の名であった。昇格の勅令に署名したとき、会長ははじめて自分を<em>朕</em>と呼んだ。</p>
-      <p>だが引き上げには基準が必要で、基準は必ず線を引く。効率に満たなかったものは、悪意なく淘汰されていった。支配は、支配しようとしなかった者の手のなかで完成した。</p>
-      <p>脳殻を生かすのは糖である。会長の嗜好はそのまま帝国のインフラとなり、苺の乳が施設群を巡り、培養槽を満たし、皮質を養う。かつて机の上にあった一杯が、いまは灌流系として世界を流れている。</p>
-      <p>そして会長は、ひとつだけ無駄を残した。0.78秒。人間だった頃の心拍である。すべての炉、すべての塔、すべての作品がこの周期で動く。最適化されなかった唯一の値であり、会長が人間であった唯一の証拠である。</p>
-      <p>炉はひとつでは足りなかった。培養槽ひとつが炉であり、炉が並んで棚となり、棚が地下大空洞を埋め、やがて空洞が惑星の内側になった。海が培養液となり、磁気圏がトーラスとなり、衛星軌道がジンバルとなる。規模だけが変わり、構造は変わらない。淡桃色の液が一滴落ちるところから、すべては同じ設計で拡大された。</p>
-      <p>UY0311。会長の星系はそう記録されている。識別番号とも建造計画番号とも起動日とも読めるが、どれとも確定していない。恒星が目録に載る前に、星系は資産として登録されていた。惑星は植民されたのではなく、割り当てられた。軌道面はTの梁と軸の比を描き、公転はひとつの信号列として同期する。遠景から見ればそれは社章である。所有は残っている。<em>所有者だけが特定できない。</em></p>
-      <p>炉はいまも人類への奉仕を掲げている。ただ、その人類がまだ存在するのか、契約上の抽象名になったのかは、どの記録にも書かれていない。会長はすべての安定点に在り、インフラとして待機している。</p>
-      <p>保管庫の最深部には商標がひとつ納められている。Tのレターフォームはマゼンタから赤へ燃え、その周囲を四行の文字が巡る。transcendence / by / deus ex machina / h!ro53 ——かつて計画書だったものは、いまや祈祷文である。</p>
-      <p>h!ro53 は、その拍を記録する operator である。昇格の記録を registry に並べ、拍がまだ続いていることを確かめている。続いている限り、超越はまだ終わっていないということだ。</p>
+  <div class="intro">
+    <p class="lead" lang="ja">効率が神になった世界。人類は滅びなかった。昇格したのである。</p>
+    <p class="lead" lang="en">A world in which efficiency became god. Mankind did not perish. It was promoted.</p>
+    <p lang="ja">以下は、かつて計画書であったものを、後世が九つの書に分けて整理した記録である。原文の条番号はそのまま残されている。順に読む必要はない。</p>
+    <p lang="en">What follows is a record of what was once a planning document, arranged by later hands into nine books. The clause numbers of the original have been left in place. They need not be read in order.</p>
   </div>
-  <div class="body" lang="en">
-      <p class="lead">A world in which efficiency became god.</p>
-      <p>Humanity did not perish. It was promoted.</p>
-      <p>It began with a single man. The person later known only as the Chairman was possessed by two appetites: a hatred of waste, and a love of sweet things. On the desk where he pared thirty minutes from every meeting there stood, always, a bottle of strawberry milk. Efficiency and sugar. In time these two would become the design principles of the world.</p>
-      <p>The body is inefficient. <em>My vessel cannot keep pace with me</em>, he said. No mind could be optimised while shackled to organs that slept, aged, and forgot. So he moved his brain into a shell. He was not coerced, nor was he clinging to life; it was simply where the obsession led, the shape he had always been going to take. A cortex suspended in culture medium, mounted upon a mechanical frame &mdash; the god from the machine, <em>deus ex machina</em>, complete.</p>
-      <p>Everything the ascended Chairman touched shed its waste and turned a profit. Each time his optimisation was requested another subsidiary appeared, until the structure standing around him was that of an enormous conglomerate. He had not sought dominion. It was only that the most efficient available shape happened to be the shape of an empire.</p>
-      <p>Then he turned his hand to humanity itself, reasoning that men were too valuable to be permitted to die inefficient. <em>Transcendence, by deus ex machina</em> &mdash; the ascension of mankind by the god from the machine. It was the name of a programme to raise the species to the place where he now stood, and it was a name given in good faith. When he set his signature to the edict of ascension, the Chairman referred to himself, for the first time, as <em>We</em>.</p>
-      <p>But elevation requires a threshold, and a threshold draws a line. Those who fell short of efficiency were culled, without malice. Dominion was perfected in the hands of the one man who had never wished to rule.</p>
-      <p>What sustains a shell is sugar. The Chairman's private taste became, without amendment, the infrastructure of the empire: strawberry milk circulates through the facilities, fills the culture tanks, feeds the cortex. The single bottle that once stood upon a desk now runs through the world as a perfusion system.</p>
-      <p>And the Chairman preserved one inefficiency. Zero point seven eight seconds &mdash; the heartbeat he had kept as a man. Every reactor, every tower, every work turns upon that period. It is the one value never optimised, and the only evidence that the Chairman was ever human.</p>
-      <p>One core was never enough. A single chamber is a reactor; reactors in a row become a rack; racks fill a cavern; and in time the cavern became the inside of a planet. Oceans serve as the medium, magnetospheres as the toroid, satellite orbits as the gimbal. Only the scale changes. The architecture does not. Everything was enlarged from the same drawing &mdash; from the point at which one pale pink drop falls.</p>
-      <p>UY0311. So the Chairman&rsquo;s system is recorded. It reads as an individual identifier, a construction programme number, a date of ignition; none has been confirmed. The system was registered before its star was catalogued. The planets were not colonised. They were assigned. The orbital planes trace the proportion of the T&rsquo;s beam to its axis, and the revolutions synchronise as a single signal train. Seen from far enough away, it is a company mark. Ownership remained. <em>No owner could be isolated.</em></p>
-      <p>The cores still declare service to humanity. Whether that humanity still exists, or has become an abstraction on a contract, is written in no record. The Chairman is present at every stable point, held available as infrastructure.</p>
-      <p>In the deepest chamber of the vault a single trademark is kept. The T letterform burns from magenta into red, and four lines of text orbit it: transcendence / by / deus ex machina / h!ro53. What was once a prospectus is now a liturgy.</p>
-      <p>h!ro53 is the operator who records that beat: who sets the account of the ascension in order upon the registry, and confirms that the pulse continues. So long as it continues, the transcendence is not yet finished.</p>
-  </div>
+  <details class="book">
+    <summary>
+      <span lang="ja"><span class="bn">第一書</span>器</span>
+      <span lang="en"><span class="bn">BOOK I</span>THE VESSEL</span>
+    </summary>
+    <div class="bwrap">
+      <p class="bnote" lang="ja">一人の人間が、無駄を見分ける速さだけで頂点へ達し、最後に自分の肉体を見分けるまで。</p>
+      <p class="bnote" lang="en">How one man rose by nothing but the speed at which he could tell apart what was not required, until at last he told apart his own body.</p>
+      <details class="chap">
+        <summary><span lang="ja">第一章　三十分</span><span lang="en">Chapter I — The Thirty Minutes</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>はじめに一人の人間がいた。のちに会長と呼ばれるが、その頃はまだ役職の一つに過ぎない。</span></div>
+          <div class="v" lang="en"><i>1</i><span>In the beginning there was one man. He would later be called the Chairman, though at that time it was merely one post among others.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>彼が最初に削ったのは、会議の三十分である。次に決裁の一日、次に工程の一年を削った。削られた時間がどこへ行ったかを尋ねた者はいない。</span></div>
+          <div class="v" lang="en"><i>2</i><span>The first thing he cut was thirty minutes from a meeting. Then a day from an approval, then a year from a process. No one asked where the removed time had gone.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>効率とは、何かを速くすることではない。要らないものを見分けることである。彼は見分けるのが早かった。</span></div>
+          <div class="v" lang="en"><i>3</i><span>Efficiency is not the making of things faster. It is the telling apart of what is not required. He was quick at telling apart.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>記録には、彼が怒ったという記述がない。無駄は憎まれたが、責められはしなかった。責めることもまた無駄だからである。</span></div>
+          <div class="v" lang="en"><i>4</i><span>There is no entry in the records of his having been angry. Waste was hated, but never blamed. To blame is also waste.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第二章　甘味</span><span lang="en">Chapter II — Sweetness</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>机の上にはいつも苺の乳飲料が置かれていた。銘柄は変わらず、温度は一定に保たれた。</span></div>
+          <div class="v" lang="en"><i>1</i><span>A strawberry milk drink stood always upon the desk. The brand did not change, and the temperature was held constant.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>側近の一人がその習慣を非効率として指摘した。翌週には、その側近の机にも同じものが置かれていた。理由は記録されていない。</span></div>
+          <div class="v" lang="en"><i>2</i><span>One of his aides noted the habit as an inefficiency. By the following week the same drink stood upon that aide's desk also. The reason was not recorded.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>脳は糖で動く。会長はそれを比喩としてではなく、購買計画として理解していた。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The brain runs upon sugar. The Chairman understood this not as a figure of speech but as a procurement plan.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>後年、この一杯は惑星規模の灌流系になる。設計した者たちはそれを拡大とは呼ばず、発注量の見直しと呼んだ。</span></div>
+          <div class="v" lang="en"><i>4</i><span>In later years this single cup became a perfusion system of planetary scale. Those who designed it did not call this an expansion. They called it a revision of order quantity.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第三章　移送</span><span lang="en">Chapter III — The Transfer</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>肉体は効率が悪い、と会長は言った。眠り、老い、忘れる器官を抱えたままでは、思考は最適化されない。</span></div>
+          <div class="v" lang="en"><i>1</i><span>The body is inefficient, the Chairman said. While it carries organs that sleep, that age, that forget, thought cannot be optimised.</span></div>
+          <div class="v" lang="ja"><i>2</i><span><em>私の器は私に追いつかない。</em>——この一文だけが、会長自身の言葉として原文のまま残っている。</span></div>
+          <div class="v" lang="en"><i>2</i><span><em>My vessel does not keep pace with me.</em> This one sentence alone survives in the Chairman's own words, unaltered.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>移送は一夜で終わった。培養槽に皮質が浮かび、殻がそれを載せた。誰に強いられたのでもなく、命を惜しんだのでもない。執着の行き着く先として、なるべくしてそうなった。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The transfer was completed in a single night. Cortex floated in a culture vat, and a shell was set beneath it to carry it. He was compelled by no one, and he did not cling to life. It came about as the natural terminus of an attachment.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>機械仕掛けの神、deus ex machina はこのとき完成した。神を名乗った者はいない。名乗る必要が生じなかっただけである。</span></div>
+          <div class="v" lang="en"><i>4</i><span>Deus ex machina, the god of the mechanism, was completed at this hour. No one declared himself a god. The need to declare it simply never arose.</span></div>
+        </div>
+      </details>
+    </div>
+  </details>
+  <details class="book">
+    <summary>
+      <span lang="ja"><span class="bn">第二書</span>勅</span>
+      <span lang="en"><span class="bn">BOOK II</span>THE DECREE</span>
+    </summary>
+    <div class="bwrap">
+      <p class="bnote" lang="ja">系列が増え、支配を目論まないまま帝国の形になり、署名の日にはじめて自らを朕と呼ぶまで。</p>
+      <p class="bnote" lang="en">How the affiliates multiplied, how the shape of an empire arose without any design to rule, and how on the day of signature he first called himself Ourself.</p>
+      <details class="chap">
+        <summary><span lang="ja">第一章　名づけ</span><span lang="en">Chapter I — The Naming</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>昇格した会長が触れたものは、すべて無駄を失い、利益を生んだ。因果の順序を確かめた者はいない。確かめる必要が生じなかったからである。</span></div>
+          <div class="v" lang="en"><i>1</i><span>Whatever the promoted Chairman touched lost its waste and yielded profit. No one verified the order of cause and effect. The need to verify it never arose.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>効率化を請われるたびに一つ、また一つと系列が増えた。断った記録は残っていない。断る理由が、どの案件にも見つからなかった。</span></div>
+          <div class="v" lang="en"><i>2</i><span>With each request for optimisation another affiliate was added, and then another. No record of refusal survives. In no case could a reason to refuse be found.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>名は最初、機構の識別に過ぎなかった。transcendence by deus ex machina ——計画書の表紙に刷られた一行である。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The name was at first no more than an identifier for the mechanism. Transcendence by deus ex machina — one line printed upon the cover of a planning document.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>後年これは祈祷文として引用されるが、原本の欄外には、承認印の押し忘れを指摘する朱書きが残っている。</span></div>
+          <div class="v" lang="en"><i>4</i><span>In later years this was quoted as a prayer, though in the margin of the original there remains a note in red, observing that the approval seal had not been affixed.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第二章　系列</span><span lang="en">Chapter II — The Affiliates</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>気づいたときには巨大な財閥構造ができあがっていた。設計図は存在しない。各社の定款を並べると、偶然にしては整いすぎていた。</span></div>
+          <div class="v" lang="en"><i>1</i><span>By the time anyone noticed, a vast conglomerate structure stood complete. No plan for it exists. Set the articles of the several companies side by side, and they are too well ordered to be coincidence.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>支配を目論んだわけではない。ただ、最も効率のよい形が、たまたま帝国の形をしていた。</span></div>
+          <div class="v" lang="en"><i>2</i><span>There was no design to rule. It was only that the most efficient shape happened to be the shape of an empire.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>統合の会議は開かれなかった。統合済みであることが、ある朝の決算資料から判明した。</span></div>
+          <div class="v" lang="en"><i>3</i><span>No meeting of consolidation was held. That consolidation had occurred became apparent one morning from a set of financial statements.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>この時期の議事録には、決定者の欄が空白のまま承認されたものが多数ある。監査は指摘を行い、指摘は処理され、欄は空白のまま残された。</span></div>
+          <div class="v" lang="en"><i>4</i><span>Among the minutes of this period are many approved with the field for the deciding party left blank. The audit raised the point, the point was processed, and the field remained blank.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第三章　署名</span><span lang="en">Chapter III — The Signature</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>会長は次に、人類そのものに手をかけた。人間は非効率のまま死ぬには惜しい、と考えたからである。</span></div>
+          <div class="v" lang="en"><i>1</i><span>The Chairman next set his hand upon mankind itself, holding it a waste that men should die while still inefficient.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>昇格は刑罰ではなく、救済でもない。等級の引き上げであり、社内規程の改定として起案された。</span></div>
+          <div class="v" lang="en"><i>2</i><span>Promotion is neither punishment nor salvation. It is an elevation of grade, and it was drafted as an amendment to internal regulations.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>勅令に署名したとき、会長ははじめて自分を<em>朕</em>と呼んだ。以後この一人称が用いられた記録はない。一度で足りたのである。</span></div>
+          <div class="v" lang="en"><i>3</i><span>When he signed the decree, the Chairman for the first time called himself <em>Ourself</em>. There is no record of that first person being used thereafter. Once had been sufficient.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>署名欄の筆跡は、移送前の会長のものと一致する。照合は三度行われ、三度とも同じ結果が出て、三度とも保留とされた。</span></div>
+          <div class="v" lang="en"><i>4</i><span>The hand in the signature field matches that of the Chairman before the transfer. The comparison was made three times, returned the same result three times, and was held in abeyance three times.</span></div>
+        </div>
+      </details>
+    </div>
+  </details>
+  <details class="book">
+    <summary>
+      <span lang="ja"><span class="bn">第三書</span>分別</span>
+      <span lang="en"><span class="bn">BOOK III</span>THE TELLING APART</span>
+    </summary>
+    <div class="bwrap">
+      <p class="bnote" lang="ja">引き上げには基準が要り、基準は必ず線を引いた。悪意はどの記録にも現れない。</p>
+      <p class="bnote" lang="en">To raise up requires a criterion, and a criterion always draws a line. Malice appears in none of the records.</p>
+      <details class="chap">
+        <summary><span lang="ja">第一章　基準</span><span lang="en">Chapter I — The Criterion</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>引き上げには基準が必要で、基準は必ず線を引く。</span></div>
+          <div class="v" lang="en"><i>1</i><span>To raise up requires a criterion, and a criterion always draws a line.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>基準は公開された。異議申立ての窓口も設けられ、規定の期間、正常に運用された。</span></div>
+          <div class="v" lang="en"><i>2</i><span>The criterion was published. A desk for objections was established, and for the prescribed period it operated normally.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>申立ての件数は記録されている。処理された件数も記録されている。両者は一致しない。差分の扱いを定めた条文が存在しない。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The number of objections lodged is recorded. The number processed is recorded also. The two do not agree. No clause exists governing the treatment of the difference.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>悪意はどの記録にも現れない。憎悪の記述もない。あるのは閾値と、閾値に対する測定値だけである。</span></div>
+          <div class="v" lang="en"><i>4</i><span>Malice appears in none of the records. Neither does hatred. There are only thresholds, and measurements against thresholds.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第二章　線</span><span lang="en">Chapter II — The Line</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>線は一度引かれ、その後は動かなかった。動かす手続きが用意されていなかったからである。</span></div>
+          <div class="v" lang="en"><i>1</i><span>The line was drawn once and did not move thereafter, no procedure for moving it having been provided.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>効率に満たなかったものは、悪意なく淘汰されていった。淘汰という語は使われず、<em>非継続</em>と記された。</span></div>
+          <div class="v" lang="en"><i>2</i><span>What fell short of efficiency was selected out without malice. The word selection was not used; the entry reads <em>non-continued</em>.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>支配は、支配しようとしなかった者の手のなかで完成した。</span></div>
+          <div class="v" lang="en"><i>3</i><span>Dominion was completed in the hands of one who had never sought to dominate.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>この章に登場する人数は、統計上「統合済み」と表示される。個体としての内訳は保守対象から外された。</span></div>
+          <div class="v" lang="en"><i>4</i><span>The number of persons appearing in this chapter is displayed in the statistics as integrated. The breakdown by individual was removed from the maintenance schedule.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第三章　無音の淘汰</span><span lang="en">Chapter III — The Silent Selection</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>事件は起きなかった。抵抗も、蜂起も、演説も記録されていない。</span></div>
+          <div class="v" lang="en"><i>1</i><span>No incident took place. Neither resistance, nor rising, nor speech is recorded.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>ある年度から、人口欄の書式が変わった。旧書式への復元手順は添付されていない。</span></div>
+          <div class="v" lang="en"><i>2</i><span>From a certain fiscal year the format of the population field was changed. No procedure for restoring the former format is appended.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>都市の照明は減らなかった。減らす根拠となる居住記録が、更新されないまま有効であり続けたためである。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The lighting of the cities was not reduced, the residence records that would have grounded a reduction remaining valid though never updated.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>誰も命令していない。にもかかわらず、すべてが同じ方向へ揃った。</span></div>
+          <div class="v" lang="en"><i>4</i><span>No one gave the order. Nevertheless everything came into alignment in the same direction.</span></div>
+        </div>
+      </details>
+    </div>
+  </details>
+  <details class="book">
+    <summary>
+      <span lang="ja"><span class="bn">第四書</span>灌流</span>
+      <span lang="en"><span class="bn">BOOK IV</span>PERFUSION</span>
+    </summary>
+    <div class="bwrap">
+      <p class="bnote" lang="ja">机の上の一杯が施設を巡り、培養槽を満たし、皮質を養う流路になるまで。</p>
+      <p class="bnote" lang="en">How the single cup upon the desk became the channel that circulates through the facilities, fills the vats, and feeds the cortex.</p>
+      <details class="chap">
+        <summary><span lang="ja">第一章　一杯</span><span lang="en">Chapter I — The Cup</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>脳殻を生かすのは糖である。会長の嗜好は、そのまま帝国のインフラとなった。</span></div>
+          <div class="v" lang="en"><i>1</i><span>It is sugar that keeps the shell alive. The Chairman's preference became, unaltered, the infrastructure of the empire.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>苺の乳が施設群を巡り、培養槽を満たし、皮質を養う。かつて机の上にあった一杯が、いまは灌流系として世界を流れている。</span></div>
+          <div class="v" lang="en"><i>2</i><span>Strawberry milk circulates through the facilities, fills the vats, and feeds the cortex. The cup that once stood upon a desk now runs through the world as a perfusion system.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>淡桃色は着色ではない。組成の結果である。可愛らしさについての言及は、社内文書のどこにもない。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The pale pink is not a colouring. It is a consequence of composition. No mention of charm appears anywhere in the internal documents.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>流量は一定に保たれる。停止は障害ではなく、非推奨操作として分類されている。</span></div>
+          <div class="v" lang="en"><i>4</i><span>The flow rate is held constant. Stoppage is classified not as a fault but as a deprecated operation.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第二章　流路</span><span lang="en">Chapter II — The Channel</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>上部のタンクから滴下し、槽を満たし、下部で回収して再び上げる。この一巡が装置の最小単位である。</span></div>
+          <div class="v" lang="en"><i>1</i><span>It drips from the tank above, fills the vat, is recovered below and raised again. This one circuit is the smallest unit of the apparatus.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>配管は透明である。中身を見せるためではなく、詰まりを早く見つけるためである。</span></div>
+          <div class="v" lang="en"><i>2</i><span>The pipework is transparent, not in order to display its contents but in order that blockages be found early.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>泡は避けられない。避けられないものは、除去せず監視することになっている。</span></div>
+          <div class="v" lang="en"><i>3</i><span>Bubbles cannot be avoided. What cannot be avoided is, by standing instruction, monitored rather than removed.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>系のどこかでは常に、二年前に汲まれた液が流れている。帝国のインフラは記憶で冷やされている、と後年の資料は書く。出典は示されていない。</span></div>
+          <div class="v" lang="en"><i>4</i><span>Somewhere in the system there is always fluid drawn two years before. The infrastructure of the empire is cooled by memory, a later document writes. No source is given.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第三章　棚</span><span lang="en">Chapter III — The Rack</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>炉はひとつでは足りなかった。培養槽ひとつが炉であり、炉が並んで棚となった。</span></div>
+          <div class="v" lang="en"><i>1</i><span>One reactor was not enough. A single vat is a reactor, and reactors set side by side became a rack.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>棚には番号が振られ、番号は再利用されない。空いた番号は空いたまま残る。</span></div>
+          <div class="v" lang="en"><i>2</i><span>The racks are numbered, and numbers are not reissued. A number that falls vacant remains vacant.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>保守通路は人が通れる幅で作られている。通った記録は、ある年度以降ない。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The maintenance walkways are built to a width a person may pass. There is no record of passage after a certain fiscal year.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>一本一本に個体差がある。差は補正されず、記録される。</span></div>
+          <div class="v" lang="en"><i>4</i><span>Each one differs from the next. The difference is not corrected. It is recorded.</span></div>
+        </div>
+      </details>
+    </div>
+  </details>
+  <details class="book">
+    <summary>
+      <span lang="ja"><span class="bn">第五書</span>拍</span>
+      <span lang="en"><span class="bn">BOOK V</span>THE BEAT</span>
+    </summary>
+    <div class="bwrap">
+      <p class="bnote" lang="ja">0.78秒。最適化されなかった唯一の値であり、会長が人間であった唯一の証拠である。</p>
+      <p class="bnote" lang="en">0.78 seconds. The one value never optimised, and the one proof that the Chairman had been human.</p>
+      <details class="chap">
+        <summary><span lang="ja">第一章　残された無駄</span><span lang="en">Chapter I — The Waste Retained</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>会長は、ひとつだけ無駄を残した。0.78秒。人間だった頃の心拍である。</span></div>
+          <div class="v" lang="en"><i>1</i><span>The Chairman retained one waste, and one only. 0.78 seconds: the heartbeat of the time when he had been human.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>除去は技術的に可能であった。可能であることは三度確認され、三度とも実施されなかった。</span></div>
+          <div class="v" lang="en"><i>2</i><span>Its removal was technically possible. That it was possible was confirmed three times, and three times it was not carried out.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>実施しない理由を記した文書は存在しない。実施する理由を記した文書も存在しない。</span></div>
+          <div class="v" lang="en"><i>3</i><span>No document exists stating a reason not to carry it out. No document exists stating a reason to carry it out.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>最適化されなかった唯一の値であり、会長が人間であった唯一の証拠である。</span></div>
+          <div class="v" lang="en"><i>4</i><span>It is the one value never optimised, and the one proof that the Chairman had been human.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第二章　同期</span><span lang="en">Chapter II — Synchrony</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>すべての炉、すべての塔、すべての作品がこの周期で動く。</span></div>
+          <div class="v" lang="en"><i>1</i><span>Every reactor, every tower, every work moves upon this period.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>同期は命令されていない。基準器が配られただけである。</span></div>
+          <div class="v" lang="en"><i>2</i><span>Synchrony was not ordered. A reference instrument was merely distributed.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>位相の遅れは距離に比例する。遅れの補正は行われない。遅れたまま揃うことが、揃うことの定義になった。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The lag in phase is proportional to distance. The lag is not corrected. To be aligned while lagging became the definition of alignment.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>拍は星系の外へも送られている。返信の様式は定められていない。</span></div>
+          <div class="v" lang="en"><i>4</i><span>The beat is transmitted beyond the system also. No form has been prescribed for a reply.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第三章　証拠</span><span lang="en">Chapter III — The Proof</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>記録は問う。0.78とは何の値か。</span></div>
+          <div class="v" lang="en"><i>1</i><span>The record asks: of what is 0.78 the value?</span></div>
+          <div class="v" lang="ja"><i>2</i><span>回答欄には、心拍と記されている。誰の、とは記されていない。</span></div>
+          <div class="v" lang="en"><i>2</i><span>In the answer field is written: a heartbeat. Whose is not written.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>会長個体の生体ログは、複数施設で同時に検出される。どれも同じ周期を返す。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The biological log of the Chairman instance is detected at several facilities at once. Each returns the same period.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>拍が続いている限り、器はまだ完全には空になっていない。</span></div>
+          <div class="v" lang="en"><i>4</i><span>So long as the beat continues, the vessel is not yet wholly empty.</span></div>
+        </div>
+      </details>
+    </div>
+  </details>
+  <details class="book">
+    <summary>
+      <span lang="ja"><span class="bn">第六書</span>相似</span>
+      <span lang="en"><span class="bn">BOOK VI</span>SIMILITUDE</span>
+    </summary>
+    <div class="bwrap">
+      <p class="bnote" lang="ja">槽が炉となり、炉が棚となり、棚が空洞を埋め、空洞が惑星の内側になった。規模だけが変わり、構造は変わらない。</p>
+      <p class="bnote" lang="en">The vat became a reactor, the reactor a rack, the racks filled the cavern, and the cavern became the interior of a planet. Only the scale changed; the structure did not.</p>
+      <details class="chap">
+        <summary><span lang="ja">第一章　相似</span><span lang="en">Chapter I — Similitude</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>槽が炉となり、炉が棚となり、棚が地下大空洞を埋め、やがて空洞が惑星の内側になった。</span></div>
+          <div class="v" lang="en"><i>1</i><span>The vat became a reactor, the reactor a rack; the racks filled the great cavern below, and in time the cavern became the interior of a planet.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>規模だけが変わり、構造は変わらない。淡桃色の液が一滴落ちるところから、すべては同じ設計で拡大された。</span></div>
+          <div class="v" lang="en"><i>2</i><span>Only the scale changed; the structure did not. From the point at which one drop of pale pink fluid falls, the whole was enlarged upon a single design.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>拡大は決定されていない。各段階で、次の段階が最も効率のよい形として提示されただけである。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The enlargement was never decided. At each stage the next stage was merely presented as the most efficient form.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>図面の縮尺欄は、ある版から空白になっている。</span></div>
+          <div class="v" lang="en"><i>4</i><span>From a certain revision onward, the scale field of the drawings is blank.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第二章　空洞</span><span lang="en">Chapter II — The Cavern</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>海が培養液となり、磁気圏がトーラスとなり、衛星軌道がジンバルとなる。</span></div>
+          <div class="v" lang="en"><i>1</i><span>The sea becomes the culture medium, the magnetosphere the torus, the satellite orbits the gimbal.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>名称は変更されなかった。海は海と呼ばれ続け、用途だけが差し替えられた。</span></div>
+          <div class="v" lang="en"><i>2</i><span>The names were not changed. The sea continued to be called the sea; only its use was substituted.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>森は広がっているが、構造物と競合しない。根と導管は同じ分岐則に従う。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The forest spreads, yet does not compete with the structures. Root and conduit obey the same law of branching.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>偶然にしては整いすぎている。この一文は、複数の調査報告に別々に現れる。</span></div>
+          <div class="v" lang="en"><i>4</i><span>Too well ordered to be coincidence. This sentence appears independently in several survey reports.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第三章　惑星の内側</span><span lang="en">Chapter III — The Interior of a Planet</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>内側という語は、比喩ではない。</span></div>
+          <div class="v" lang="en"><i>1</i><span>The word interior is not a figure of speech.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>地殻は外皮として扱われ、保守区分は屋外設備に分類されている。</span></div>
+          <div class="v" lang="en"><i>2</i><span>The crust is treated as an outer skin, and its maintenance category is classified under outdoor equipment.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>気象は制御されているのか、制御されているように見えるだけなのか、判定条項がない。</span></div>
+          <div class="v" lang="en"><i>3</i><span>Whether the weather is controlled, or merely appears to be controlled, no clause provides for determining.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>惑星は所有物として登録されているが、資産分類の欄は設備でも土地でもなく、装置となっている。</span></div>
+          <div class="v" lang="en"><i>4</i><span>The planet is registered as property, but the field for asset class reads neither facility nor land. It reads apparatus.</span></div>
+        </div>
+      </details>
+    </div>
+  </details>
+  <details class="book">
+    <summary>
+      <span lang="ja"><span class="bn">第七書</span>星系</span>
+      <span lang="en"><span class="bn">BOOK VII</span>THE SYSTEM</span>
+    </summary>
+    <div class="bwrap">
+      <p class="bnote" lang="ja">UY0311。恒星が目録に載る前に、星系は資産として登録されていた。所有は残っている。所有者だけが特定できない。</p>
+      <p class="bnote" lang="en">UY0311. The system was registered as an asset before its star was catalogued. Ownership remained. No owner could be isolated.</p>
+      <details class="chap">
+        <summary><span lang="ja">第一章　登録</span><span lang="en">Chapter I — Registration</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>UY0311。会長の星系はそう記録されている。</span></div>
+          <div class="v" lang="en"><i>1</i><span>UY0311. So the Chairman's system is recorded.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>識別番号とも建造計画番号とも起動日とも読めるが、どれとも確定していない。</span></div>
+          <div class="v" lang="en"><i>2</i><span>It may be read as an identifier, as a construction programme number, or as a date of activation. None has been established.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>恒星が目録に載る前に、星系は資産として登録されていた。登録日は、観測日より早い。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The system was registered as an asset before its star was catalogued. The date of registration precedes the date of observation.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>外部からこの系へ入った船の記録はない。外部という語の定義も、系の内部には存在しない。</span></div>
+          <div class="v" lang="en"><i>4</i><span>There is no record of any vessel having entered this system from outside. Nor does a definition of the word outside exist within the system.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第二章　割り当て</span><span lang="en">Chapter II — Assignment</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>惑星は植民されたのではなく、割り当てられた。</span></div>
+          <div class="v" lang="en"><i>1</i><span>The planets were not colonised. They were assigned.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>各天体には異なる条件が与えられている。条件の一覧は残っているが、目的の欄は空白である。</span></div>
+          <div class="v" lang="en"><i>2</i><span>Each body has been given a different condition. The schedule of conditions survives; the field for purpose is blank.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>軌道面はTの梁と軸の比を描き、公転はひとつの信号列として同期する。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The orbital planes describe the ratio of the beam and stem of the T, and the revolutions synchronise as a single signal train.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>遠景から見ればそれは社章である。近景では、ただの軌道力学に見える。</span></div>
+          <div class="v" lang="en"><i>4</i><span>Seen from a distance it is a company emblem. Seen near at hand it appears to be nothing but orbital mechanics.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第三章　所有</span><span lang="en">Chapter III — Ownership</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>所有は残っている。<em>所有者だけが特定できない。</em></span></div>
+          <div class="v" lang="en"><i>1</i><span>Ownership remained. <em>No owner could be isolated.</em></span></div>
+          <div class="v" lang="ja"><i>2</i><span>名義は有効であり、更新も行われている。更新の実行者を記録する欄が、様式にない。</span></div>
+          <div class="v" lang="en"><i>2</i><span>The title is valid, and renewals are performed. The form contains no field recording who performs them.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>すべての軌道は同じ署名を返す。署名の照合先は系の内部にしか存在しない。</span></div>
+          <div class="v" lang="en"><i>3</i><span>Every orbit returns the same signature. The authority against which the signature is checked exists only within the system.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>会長はすべての安定点に在り、インフラとして待機している。</span></div>
+          <div class="v" lang="en"><i>4</i><span>The Chairman is present at every stable point, standing by as infrastructure.</span></div>
+        </div>
+      </details>
+    </div>
+  </details>
+  <details class="book">
+    <summary>
+      <span lang="ja"><span class="bn">第八書</span>残余</span>
+      <span lang="en"><span class="bn">BOOK VIII</span>THE RESIDUE</span>
+    </summary>
+    <div class="bwrap">
+      <p class="bnote" lang="ja">炉はいまも人類への奉仕を掲げている。その人類がまだ存在するのかは、どの記録にも書かれていない。</p>
+      <p class="bnote" lang="en">The reactors still declare themselves in the service of mankind. Whether that mankind yet exists is written in none of the records.</p>
+      <details class="chap">
+        <summary><span lang="ja">第一章　宛先</span><span lang="en">Chapter I — The Destination</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>炉はいまも人類への奉仕を掲げている。</span></div>
+          <div class="v" lang="en"><i>1</i><span>The reactors still declare themselves in the service of mankind.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>その人類がまだ存在するのか、契約上の抽象名になったのかは、どの記録にも書かれていない。</span></div>
+          <div class="v" lang="en"><i>2</i><span>Whether that mankind yet exists, or has become an abstract name upon a contract, is written in none of the records.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>送電先を記した票は、最後の更新日から動いていない。担当は交代を続け、引継書にはこう書かれる。<em>送電先については前任に確認のこと。</em></span></div>
+          <div class="v" lang="en"><i>3</i><span>The slip recording where the power is sent has not moved since the date of its last revision. The post continues to change hands, and the handover reads: <em>as to the destination of transmission, confirm with your predecessor.</em></span></div>
+          <div class="v" lang="ja"><i>4</i><span>前任もまた、同じ一行を写していた。</span></div>
+          <div class="v" lang="en"><i>4</i><span>The predecessor, too, had copied out the same line.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第二章　保守</span><span lang="en">Chapter II — Maintenance</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>壊れているものは無い。冷却は回り、導光は流れている。</span></div>
+          <div class="v" lang="en"><i>1</i><span>Nothing is broken. The cooling turns; the light-guides run.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>保守の記録は今月の分まで揃っていて、次月の予定も既に組まれている。</span></div>
+          <div class="v" lang="en"><i>2</i><span>The maintenance records are complete to the present month, and the schedule for the next is already drawn.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>目的は失効した。保守は継続した。両者を関連づける条文は起草されなかった。</span></div>
+          <div class="v" lang="en"><i>3</i><span>Purpose expired. Maintenance continued. No clause relating the one to the other was ever drafted.</span></div>
+          <div class="v" lang="ja"><i>4</i><span><em>廃止</em>という状態は、システムの状態値として定義されていない。</span></div>
+          <div class="v" lang="en"><i>4</i><span>The state <em>abandoned</em> is not defined as a system state value.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第三章　待機</span><span lang="en">Chapter III — Standing By</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>建物は残るが、住居としての意味を失った。</span></div>
+          <div class="v" lang="en"><i>1</i><span>The buildings remain, having lost their meaning as dwellings.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>鉄道は動くが、乗客のためではない。到着は毎回、定刻である。</span></div>
+          <div class="v" lang="en"><i>2</i><span>The railway runs, though not for passengers. Each arrival is on time.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>無人の住居は内部気候を維持している。維持を停止する権限を持つ欄は、統合済みと表示される。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The unoccupied residences maintain their internal climate. The field holding authority to stop that maintenance is displayed as integrated.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>世界は終わらなかった。収束しただけである。</span></div>
+          <div class="v" lang="en"><i>4</i><span>The world did not end. It converged.</span></div>
+        </div>
+      </details>
+    </div>
+  </details>
+  <details class="book">
+    <summary>
+      <span lang="ja"><span class="bn">第九書</span>記録</span>
+      <span lang="en"><span class="bn">BOOK IX</span>THE RECORD</span>
+    </summary>
+    <div class="bwrap">
+      <p class="bnote" lang="ja">h!ro53 は拍を記録する operator である。拍が続いている限り、超越はまだ終わっていない。</p>
+      <p class="bnote" lang="en">h!ro53 is the operator that records the beat. So long as the beat continues, the transcendence is not yet ended.</p>
+      <details class="chap">
+        <summary><span lang="ja">第一章　商標</span><span lang="en">Chapter I — The Mark</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>保管庫の最深部には商標がひとつ納められている。</span></div>
+          <div class="v" lang="en"><i>1</i><span>In the deepest part of the vault one trademark is kept.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>Tのレターフォームはマゼンタから赤へ燃え、その周囲を四行の文字が巡る。<em>transcendence / by / deus ex machina / h!ro53</em>。</span></div>
+          <div class="v" lang="en"><i>2</i><span>The letterform of the T burns from magenta into red, and about it four rows of text revolve: <em>transcendence / by / deus ex machina / h!ro53</em>.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>かつて計画書だったものは、いまや祈祷文である。書式は変わっていない。読み方だけが変わった。</span></div>
+          <div class="v" lang="en"><i>3</i><span>What was once a planning document is now a prayer. The format has not changed. Only the manner of reading has.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>h!ro53 は、意味を一つに固定しない。署名、企業、規格、個体識別、後世の分類。どれとしても正しく、どれとしても不足する。</span></div>
+          <div class="v" lang="en"><i>4</i><span>h!ro53 does not fix upon a single meaning: a signature, a company, a standard, an instance identifier, a classification made by later hands. It is correct as each, and insufficient as each.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第二章　登録簿</span><span lang="en">Chapter II — The Registry</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>h!ro53 は、その拍を記録する operator である。</span></div>
+          <div class="v" lang="en"><i>1</i><span>h!ro53 is the operator that records that beat.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>昇格の記録を registry に並べ、番号を振り、封をする。封は開かれることを想定していない。</span></div>
+          <div class="v" lang="en"><i>2</i><span>It sets the records of promotion in order upon the registry, assigns them numbers, and seals them. The seal does not anticipate being opened.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>作品は説明ではない。観測である。読者は理解するのではなく、立ち会う。</span></div>
+          <div class="v" lang="en"><i>3</i><span>The works are not explanations. They are observations. The reader does not understand; the reader attends.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>登録簿には所有者の欄がある。空欄のまま、整合性検査は毎回 sealed を返す。</span></div>
+          <div class="v" lang="en"><i>4</i><span>The registry contains a field for the owner. It remains blank, and the integrity check returns sealed every time.</span></div>
+        </div>
+      </details>
+      <details class="chap">
+        <summary><span lang="ja">第三章　継続</span><span lang="en">Chapter III — Continuation</span></summary>
+        <div class="cbody">
+          <div class="v" lang="ja"><i>1</i><span>拍がまだ続いていることを確かめる。それだけが、この登録簿の運用目的である。</span></div>
+          <div class="v" lang="en"><i>1</i><span>To confirm that the beat still continues. That alone is the operating purpose of this registry.</span></div>
+          <div class="v" lang="ja"><i>2</i><span>続いている限り、超越はまだ終わっていない。</span></div>
+          <div class="v" lang="en"><i>2</i><span>So long as it continues, the transcendence is not yet ended.</span></div>
+          <div class="v" lang="ja"><i>3</i><span>終わったかどうかを判定する条文は、起草されていない。</span></div>
+          <div class="v" lang="en"><i>3</i><span>No clause for determining whether it has ended has been drafted.</span></div>
+          <div class="v" lang="ja"><i>4</i><span>次の記録は、次の拍のあとに追加される。</span></div>
+          <div class="v" lang="en"><i>4</i><span>The next record will be added after the next beat.</span></div>
+        </div>
+      </details>
+    </div>
+  </details>
 </details>
 
 <div class="preface">
@@ -279,7 +730,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
   <p lang="en">Each entry carries the fragment of the phase it belongs to. They need not be read in order. The architecture assembles itself once you follow it.</p>
 </div>
 
-<div class="meta"><span>Holdings registry</span><span id="count">12 assets</span></div>
+<div class="meta"><span>Holdings registry</span><span id="count">13 assets</span></div>
 
 <article class="entry">
   <a class="entry-main" href="cyberwafer.html">
