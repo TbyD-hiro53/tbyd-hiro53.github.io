@@ -291,3 +291,33 @@ Thirty-two generating towers set in rings upon a mountain, with a transmission t
 
 **断章 EN**
 Thirty-two columns stand in rings, and the one at their centre alone stands twice their height. The dish upon its summit holds one bearing and does not move. Whether the mountain was a mountain from the first, or whether what was piled upon it came to take the shape of one, cannot be distinguished in the records. A document exists stating that there is a recipient at the far end. No document exists stating that it was received. The two are held by separate offices. Reconciliation stands deferred without term, on the ground of a distance of four light years.
+
+---
+
+## ASSET 13 — Lacto-Caloris v1
+
+**位相** PHASE 6 · UY0311
+
+**観測ログ** `Radiated. Nothing received it.`
+
+**説明 JA**
+真空環境専用の演算装置。18段72基の演算トレイを中央帯の培養脳が統率し、神経幹が背面区画を縦に走る。大電力の熱は輻射でしか捨てられず、頂部の薄板30枚が負荷に応じて螺旋を描いて展開する。電波暗室に1基。DEPLOYで開閉、RAILで自由視点。
+
+**説明 EN**
+A computing engine for vacuum alone. Seventy-two trays across eighteen levels are marshalled by the cultured brain in the central band, its nerve trunks running vertically through the rear raceway. Heat from the great draw can be shed only by radiation, so thirty thin plates at the crown unfurl into a helix as the load demands. One unit in an anechoic chamber. DEPLOY opens and stows it; RAIL frees the view.
+
+**断章 JA**
+この機械は大気のない場所でしか働かない。受けた電力のほとんどは熱になり、熱は伝わる先を持たない。だから板が開く。負荷が上がるほど深く螺旋を描き、下がれば畳まれて筒の中へ戻る。開閉の記録は残されているが、読む者の欄は空のままである。中央の帯では脳が七十二の盤を数え続けている。数えることが仕事なのか、数え終わることが仕事なのかは、仕様書のどこにも書かれていない。
+
+**断章 EN**
+This machine works only where there is no air. Most of the power it receives becomes heat, and the heat has nowhere to pass. So the plates open. The heavier the load, the deeper the helix they draw; when it falls they fold and return into the drum. A record of each opening is kept, though the column for its reader has been left blank. In the central band the brain goes on counting seventy-two boards. Whether the work is the counting, or the having counted, is written nowhere in the specification.
+
+**主要諸元**
+- 外径 1.24 m ／ 全高 3.09 m（収納）・4.18 m（全開）
+- 演算トレイ 18段 × 4 = 72基（実物 NVL72 のGPU数に同じ）
+- 培養脳 大脳・小脳・橋の三部。中央帯は実物のスイッチトレイ帯にあたる位置
+- 神経幹 6条。隔壁を貫き背面のカートリッジから全18段へ分岐
+- 放熱 薄板30枚。収納6.7 m² → 全開52.5 m²（450Kで110 kW）
+- 前面240° 演算面 ／ 背面120° 電力・冷媒・神経幹の区画
+- 三色 #ff05a8 / #f2dbe9 / #00ddc8 を外面648点と放熱板の縁に
+- 電波暗室 内径14 × 高さ9 m。吸収体4,020個
