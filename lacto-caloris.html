@@ -1358,7 +1358,7 @@ var TEX_BAND=(function(){
 //   内径14 × 高さ9 m。壁と天井をくさび形の吸収体で埋める
 //   床の中央に目盛入りのターンテーブル。照明は径6の環が一本だけ
 // ================================================================
-var CH_R=7.0, CH_H=9.0, WEDGE_W=0.35, WEDGE_L=0.90, LOGO_A=1.90;
+var CH_R=21.0, CH_H=27.0, WEDGE_W=1.05, WEDGE_L=2.70, LOGO_A=1.90;   // 3倍
 var TEX_LOGO=(function(){
   var t=new THREE.Texture();
   var im=new Image();
@@ -1381,8 +1381,8 @@ var backL=new THREE.DirectionalLight('#a4b8c8',0.16);
 backL.position.set(-2.6,6.8,2.8);scene.add(backL);
 var topL=new THREE.DirectionalLight('#e8f2f8',0.40);
 topL.position.set(0,12.0,0);scene.add(topL);
-var logoL=new THREE.PointLight('#ff5fbe',2.8,7.5,2);
-logoL.position.set(Math.cos(LOGO_A)*(CH_R-1.7),4.0,Math.sin(LOGO_A)*(CH_R-1.7));scene.add(logoL);
+var logoL=new THREE.PointLight('#ff5fbe',6.0,22.0,2);
+logoL.position.set(Math.cos(LOGO_A)*(CH_R-5.1),12.0,Math.sin(LOGO_A)*(CH_R-5.1));scene.add(logoL);
 
 // ================================================================
 // 材質
@@ -1576,51 +1576,51 @@ function radRot(a){return -a;}       // 第1寸法＝半径方向
 (function buildChamber(){
   var F=[],D=[],T=[],i,j,a,r,x,z;
   // 床
-  var floor=new THREE.Mesh(new THREE.CircleGeometry(CH_R,72),
+  var floor=new THREE.Mesh(new THREE.CircleGeometry(CH_R+0.30,96),
     sm({color:'#1c1e22',metalness:0.30,roughness:0.52,envMapIntensity:0.30}));
   floor.rotation.x=-PI/2;scene.add(floor);
   // ターンテーブル（径3.0）と目盛
-  D.push(xf(new THREE.CylinderGeometry(1.50,1.50,0.045,72),0,0.022,0));
-  F.push(xf(new THREE.TorusGeometry(1.50,0.010,6,80),0,0.045,0,PI/2));
-  F.push(xf(new THREE.TorusGeometry(1.36,0.006,5,72),0,0.046,0,PI/2));
+  D.push(xf(new THREE.CylinderGeometry(1.80,1.80,0.055,80),0,0.027,0));
+  F.push(xf(new THREE.TorusGeometry(1.80,0.012,6,88),0,0.055,0,PI/2));
+  F.push(xf(new THREE.TorusGeometry(1.63,0.007,5,80),0,0.056,0,PI/2));
   for(i=0;i<360;i++){
     a=i/360*TAU;
-    var big=(i%10===0), tl=big?0.115:0.055;
-    T.push(xf(new THREE.BoxGeometry(tl,0.004,big?0.014:0.008),
-      Math.cos(a)*(1.50-tl*0.5-0.02),0.047,Math.sin(a)*(1.50-tl*0.5-0.02),0,radRot(a),0));
+    var big=(i%10===0), tl=big?0.140:0.066;
+    T.push(xf(new THREE.BoxGeometry(tl,0.005,big?0.017:0.010),
+      Math.cos(a)*(1.80-tl*0.5-0.024),0.058,Math.sin(a)*(1.80-tl*0.5-0.024),0,radRot(a),0));
   }
   addMerged(T,matFrame);
   // 壁と天井の躯体
   var shellMat=sm({color:'#0c0d10',metalness:0.24,roughness:0.78,envMapIntensity:0.10,side:THREE.DoubleSide});
-  var wall=new THREE.Mesh(new THREE.CylinderGeometry(CH_R+0.10,CH_R+0.10,CH_H,72,1,true),shellMat);
+  var wall=new THREE.Mesh(new THREE.CylinderGeometry(CH_R+0.30,CH_R+0.30,CH_H,96,1,true),shellMat);
   wall.position.y=CH_H*0.5;scene.add(wall);
-  var ceil=new THREE.Mesh(new THREE.CircleGeometry(CH_R+0.10,72),shellMat);
+  var ceil=new THREE.Mesh(new THREE.CircleGeometry(CH_R+0.30,96),shellMat);
   ceil.rotation.x=PI/2;ceil.position.y=CH_H;scene.add(ceil);
   // ---- 吸収体のくさび ----
-  var slots=[],nw=Math.round(TAU*CH_R/WEDGE_W),rows=Math.floor((CH_H-0.30)/WEDGE_W);
+  var slots=[],nw=Math.round(TAU*CH_R/WEDGE_W),rows=Math.floor((CH_H-0.90)/WEDGE_W);
   for(i=0;i<nw;i++){
     a=i/nw*TAU;
     for(j=0;j<rows;j++){
-      slots.push({x:Math.cos(a)*CH_R,y:0.18+j*WEDGE_W+WEDGE_W*0.5,z:Math.sin(a)*CH_R,
+      slots.push({x:Math.cos(a)*CH_R,y:0.54+j*WEDGE_W+WEDGE_W*0.5,z:Math.sin(a)*CH_R,
                   ax:0,ay:-a,az:PI*0.5});
     }
   }
-  r=0.45;
-  while(r<CH_R-0.30){
+  r=1.35;
+  while(r<CH_R-0.90){
     var n2=Math.max(6,Math.round(TAU*r/WEDGE_W));
     for(i=0;i<n2;i++){
       a=i/n2*TAU;
-      if(r>2.72&&r<3.28)continue;                 // 照明環の帯は空ける
+      if(r>8.16&&r<9.84)continue;                 // 照明環の帯は空ける
       slots.push({x:Math.cos(a)*r,y:CH_H,z:Math.sin(a)*r,ax:PI,ay:a,az:0});
     }
     r+=WEDGE_W;
   }
   // 商標の窓の位置は空ける
-  var LW=3.6,LH=3.6,LY=4.0;
+  var LW=10.8,LH=10.8,LY=12.0;
   slots=slots.filter(function(s2){
     if(Math.abs(s2.y-CH_H)<0.001)return true;
     var aa=Math.atan2(s2.z,s2.x), d=Math.atan2(Math.sin(aa-LOGO_A),Math.cos(aa-LOGO_A));
-    return !(Math.abs(d)<(LW*0.5+0.12)/CH_R && Math.abs(s2.y-LY)<LH*0.5+0.12);
+    return !(Math.abs(d)<(LW*0.5+0.36)/CH_R && Math.abs(s2.y-LY)<LH*0.5+0.36);
   });
   var wg=new THREE.ConeGeometry(WEDGE_W*0.707,WEDGE_L,4);
   wg.translate(0,WEDGE_L*0.5,0);
@@ -1640,21 +1640,22 @@ function radRot(a){return -a;}       // 第1寸法＝半径方向
   if(wedgeMesh.instanceColor)wedgeMesh.instanceColor.needsUpdate=true;
   scene.add(wedgeMesh);
   // ---- 照明環（径6.0・高さ7.5）----
-  ringLight=new THREE.Mesh(new THREE.TorusGeometry(3.0,0.085,10,96),
+  ringLight=new THREE.Mesh(new THREE.TorusGeometry(9.0,0.24,10,128),
     new THREE.MeshBasicMaterial({color:'#eef6fb'}));
-  ringLight.position.y=7.5;ringLight.rotation.x=PI/2;scene.add(ringLight);
-  F.push(xf(new THREE.TorusGeometry(3.0,0.130,8,80),0,7.62,0,PI/2));
+  ringLight.position.y=22.5;ringLight.rotation.x=PI/2;scene.add(ringLight);
+  F.push(xf(new THREE.TorusGeometry(9.0,0.38,8,100),0,22.86,0,PI/2));
   for(i=0;i<8;i++){
     a=i/8*TAU+0.2;
-    F.push(tube(new THREE.Vector3(Math.cos(a)*3.0,7.62,Math.sin(a)*3.0),
-                new THREE.Vector3(Math.cos(a)*3.0,CH_H-0.05,Math.sin(a)*3.0),0.022,7));
+    F.push(tube(new THREE.Vector3(Math.cos(a)*9.0,22.86,Math.sin(a)*9.0),
+                new THREE.Vector3(Math.cos(a)*9.0,CH_H-0.15,Math.sin(a)*9.0),0.066,7));
   }
-  var rg=new THREE.Mesh(new THREE.TorusGeometry(3.0,0.30,8,80),
+  var rg=new THREE.Mesh(new THREE.TorusGeometry(9.0,0.90,8,100),
     new THREE.MeshBasicMaterial({color:'#cfe4f2',transparent:true,opacity:0.10,
       blending:THREE.AdditiveBlending,depthWrite:false}));
-  rg.position.y=7.5;rg.rotation.x=PI/2;rg.renderOrder=6;scene.add(rg);
+  rg.position.y=22.5;rg.rotation.x=PI/2;rg.renderOrder=6;scene.add(rg);
   // ---- 商標：壁の凹みにモニターを嵌める ----
   logoMat=new THREE.ShaderMaterial({
+    side:THREE.DoubleSide,
     uniforms:{tMap:{value:TEX_LOGO},uT:{value:0},uAmt:{value:1.0}},
     vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
     fragmentShader:[
@@ -1685,25 +1686,25 @@ function radRot(a){return -a;}       // 第1寸法＝半径方向
      '}'].join('\n')
   });
   var lg=new THREE.Mesh(new THREE.PlaneGeometry(LW,LH),logoMat);
-  lg.position.set(Math.cos(LOGO_A)*(CH_R-0.06),LY,Math.sin(LOGO_A)*(CH_R-0.06));
-  lg.rotation.y=-LOGO_A+PI/2;scene.add(lg);
+  lg.position.set(Math.cos(LOGO_A)*(CH_R-0.18),LY,Math.sin(LOGO_A)*(CH_R-0.18));
+  lg.rotation.y=-LOGO_A-PI/2;scene.add(lg);   // 法線を室内へ（+π/2 では室外を向く）
   // 凹みの箱と縁
   var rec=[];
-  rec.push(xf(new THREE.BoxGeometry(LW+0.24,LH+0.24,0.10),
-    Math.cos(LOGO_A)*(CH_R+0.02),LY,Math.sin(LOGO_A)*(CH_R+0.02),0,tanRot(LOGO_A),0));
+  rec.push(xf(new THREE.BoxGeometry(LW+0.72,LH+0.72,0.30),
+    Math.cos(LOGO_A)*(CH_R+0.06),LY,Math.sin(LOGO_A)*(CH_R+0.06),0,tanRot(LOGO_A),0));
   for(i=-1;i<=1;i+=2){
-    rec.push(xf(new THREE.BoxGeometry(LW+0.24,0.10,0.30),
-      Math.cos(LOGO_A)*(CH_R-0.13),LY+i*(LH*0.5+0.05),Math.sin(LOGO_A)*(CH_R-0.13),0,tanRot(LOGO_A),0));
-    rec.push(xf(new THREE.BoxGeometry(0.10,LH+0.24,0.30),
-      Math.cos(LOGO_A)*(CH_R-0.13)-Math.sin(LOGO_A)*i*(LW*0.5+0.05),LY,
-      Math.sin(LOGO_A)*(CH_R-0.13)+Math.cos(LOGO_A)*i*(LW*0.5+0.05),0,tanRot(LOGO_A),0));
+    rec.push(xf(new THREE.BoxGeometry(LW+0.72,0.30,0.90),
+      Math.cos(LOGO_A)*(CH_R-0.39),LY+i*(LH*0.5+0.15),Math.sin(LOGO_A)*(CH_R-0.39),0,tanRot(LOGO_A),0));
+    rec.push(xf(new THREE.BoxGeometry(0.30,LH+0.72,0.90),
+      Math.cos(LOGO_A)*(CH_R-0.39)-Math.sin(LOGO_A)*i*(LW*0.5+0.15),LY,
+      Math.sin(LOGO_A)*(CH_R-0.39)+Math.cos(LOGO_A)*i*(LW*0.5+0.15),0,tanRot(LOGO_A),0));
   }
   addMerged(rec,matFrame);
   var lgl=new THREE.Mesh(new THREE.PlaneGeometry(LW*1.28,LH*1.28),
     new THREE.MeshBasicMaterial({map:TEX_GLOW_P,transparent:true,opacity:0.18,
       blending:THREE.AdditiveBlending,depthWrite:false}));
-  lgl.position.set(Math.cos(LOGO_A)*(CH_R-0.10),LY,Math.sin(LOGO_A)*(CH_R-0.10));
-  lgl.rotation.y=-LOGO_A+PI/2;lgl.renderOrder=6;scene.add(lgl);
+  lgl.position.set(Math.cos(LOGO_A)*(CH_R-0.30),LY,Math.sin(LOGO_A)*(CH_R-0.30));
+  lgl.rotation.y=-LOGO_A-PI/2;lgl.renderOrder=6;scene.add(lgl);
   addMerged(D,sm({color:'#232630',metalness:0.62,roughness:0.30,envMapIntensity:0.55}));
   addMerged(F,matFrame);
 })();
@@ -2481,14 +2482,14 @@ var SP_A=REAR_C, MD_A=FRONT_C;
 var SHOTS=[
   // 試験槽。円い部屋が円い機械を囲む
   {n:'chamber',t0: 0.0,t1:14.0,
-   a:{th:LOGO_A-0.95,ph:1.428,r:5.20,tx:0,ty:2.60,tz:0},
-   b:{th:LOGO_A-0.16,ph:1.498,r:3.90,tx:0,ty:2.00,tz:0}},
+   a:{th:LOGO_A-1.15,ph:1.386,r:15.00,tx:0,ty:5.20,tz:0},
+   b:{th:LOGO_A-0.12,ph:1.492,r: 7.50,tx:0,ty:2.20,tz:0}},
   {n:'unit',   t0:14.0,t1:24.0,
-   a:{th:MD_A+0.34,ph:1.396,r:4.60,tx:0,ty:1.72,tz:0},
-   b:{th:MD_A-0.08,ph:1.472,r:4.05,tx:0,ty:1.62,tz:0}},
+   a:{th:MD_A+0.34,ph:1.396,r:7.40,tx:0,ty:1.86,tz:0},
+   b:{th:MD_A-0.08,ph:1.472,r:6.20,tx:0,ty:1.66,tz:0}},
   {n:'orbit',  t0:24.0,t1:38.0,
-   a:{th:MD_A+0.62,ph:1.352,r:4.35,tx:0,ty:1.86,tz:0},
-   b:{th:MD_A-0.86,ph:1.446,r:4.90,tx:0,ty:2.02,tz:0}},
+   a:{th:MD_A+0.62,ph:1.330,r:6.80,tx:0,ty:2.00,tz:0},
+   b:{th:MD_A-0.98,ph:1.442,r:8.20,tx:0,ty:2.20,tz:0}},
   {n:'vat',    t0:38.0,t1:48.0,
    a:{th:MD_A+0.30,ph:1.535,r:1.86,tx:0,ty:VAT_MID,tz:0},
    b:{th:MD_A-0.14,ph:1.500,r:1.48,tx:0,ty:VAT_MID+0.02,tz:0}},

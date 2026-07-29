@@ -301,10 +301,10 @@ Thirty-two columns stand in rings, and the one at their centre alone stands twic
 **観測ログ** `Radiated. Nothing received it.`
 
 **説明 JA**
-真空環境専用の演算装置。18段72基の演算トレイを中央帯の培養脳が統率し、神経幹が背面区画を縦に走る。大電力の熱は輻射でしか捨てられず、頂部の薄板30枚が負荷に応じて螺旋を描いて展開する。電波暗室に1基。DEPLOYで開閉、RAILで自由視点。
+真空環境専用の演算装置。18段72基の演算トレイを中央帯の培養脳が統率し、神経幹が背面区画を縦に走る。大電力の熱は輻射でしか捨てられず、頂部の薄板30枚が負荷に応じて螺旋を描いて展開する。内径42 mの電波暗室に1基。DEPLOYで開閉、RAILで自由視点。
 
 **説明 EN**
-A computing engine for vacuum alone. Seventy-two trays across eighteen levels are marshalled by the cultured brain in the central band, its nerve trunks running vertically through the rear raceway. Heat from the great draw can be shed only by radiation, so thirty thin plates at the crown unfurl into a helix as the load demands. One unit in an anechoic chamber. DEPLOY opens and stows it; RAIL frees the view.
+A computing engine for vacuum alone. Seventy-two trays across eighteen levels are marshalled by the cultured brain in the central band, its nerve trunks running vertically through the rear raceway. Heat from the great draw can be shed only by radiation, so thirty thin plates at the crown unfurl into a helix as the load demands. One unit in an anechoic chamber forty-two metres across. DEPLOY opens and stows it; RAIL frees the view.
 
 **断章 JA**
 この機械は大気のない場所でしか働かない。受けた電力のほとんどは熱になり、熱は伝わる先を持たない。だから板が開く。負荷が上がるほど深く螺旋を描き、下がれば畳まれて筒の中へ戻る。開閉の記録は残されているが、読む者の欄は空のままである。中央の帯では脳が七十二の盤を数え続けている。数えることが仕事なのか、数え終わることが仕事なのかは、仕様書のどこにも書かれていない。
@@ -320,4 +320,4 @@ This machine works only where there is no air. Most of the power it receives bec
 - 放熱 薄板30枚。収納6.7 m² → 全開52.5 m²（450Kで110 kW）
 - 前面240° 演算面 ／ 背面120° 電力・冷媒・神経幹の区画
 - 三色 #ff05a8 / #f2dbe9 / #00ddc8 を外面648点と放熱板の縁に
-- 電波暗室 内径14 × 高さ9 m。吸収体4,020個
+- 電波暗室 内径42 × 高さ27 m。吸収体4,020個（くさび 底辺1.05 × 長さ2.70）
