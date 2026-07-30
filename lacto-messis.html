@@ -7,7 +7,7 @@
      Viewing permitted. Reproduction, redistribution, and reuse of source code
      or assets — in whole or in part — is prohibited without written permission. -->
 <meta name="author" content="h!ro53" />
-<title>LACTO-CALORIS — deus ex machina / h!ro53</title>
+<title>LACTO-MESSIS — deus ex machina / h!ro53</title>
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -34,10 +34,6 @@
     padding:9px 14px;border-radius:2px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
   .btn:active{border-color:rgba(255,95,200,.6);color:#fff}
   .btn.on{border-color:rgba(255,95,200,.62);color:rgba(255,175,225,.95)}
-.dev{display:none;font:8px/1.6 ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.06em;
-    color:rgba(63,224,214,.72);background:rgba(6,10,16,.72);border:1px solid rgba(63,224,214,.22);
-    border-radius:2px;padding:5px 8px;pointer-events:none;white-space:pre;text-align:left}
-  .dev.on{display:block}
   .wm{font:8px/1.5 ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.24em;
     color:rgba(207,211,218,.18);text-transform:uppercase}
 </style>
@@ -224,15 +220,13 @@
 
 <div id="bg"></div>
 <div id="app"></div>
-<div class="hud"><span id="ttl">LACTO-CALORIS</span><b id="rd">—</b></div>
+<div class="hud"><span id="ttl">LACTO-MESSIS</span><b id="rd">—</b></div>
 <div class="stack">
   <div class="bar"><i id="pg"></i></div>
   <div class="row">
     <button class="btn" id="sw">next shot</button>
     <button class="btn" id="dp">deploy</button>
-    <button class="btn" id="fr">free</button>
   </div>
-  <div class="dev" id="dev"></div>
   <div class="wm">h!ro53 · deus ex machina</div>
 </div>
 
@@ -1218,57 +1212,54 @@ window.addEventListener('unhandledrejection',function(e){showErr('Promise: '+((e
 
 var PI=Math.PI, TAU=PI*2;
 var clamp=THREE.MathUtils.clamp, lerp=THREE.MathUtils.lerp;
-var PUMP_PERIOD=0.78, LOOP=62.4;   // 0.78×80 = 2.4×26。展開の全行程を1カットで追うため倍にした
+var PUMP_PERIOD=0.78, LOOP=62.4;   // 0.78×80 = 2.4×26
 function pumpBeat(t){var p=(t%PUMP_PERIOD)/PUMP_PERIOD;
   return Math.exp(-p*6.0)+0.45*Math.exp(-Math.pow((p-0.30)/0.10,2));}
-var _seed=0.42117;
+var _seed=0.15147;
 function rnd(){_seed=(_seed*9301+49297)%233280;return _seed/233280;}   // 整数で保持する。小数にすると剰余が効かず不動点に落ちる
 
 // ================================================================
-// 寸法　1単位 = 1 m
+// 寸法　1単位 = 1 m　（ここだけ直せば全体が追従する）
 // ================================================================
-// 単一の円筒。Lacto-Cortex と同じく、全構成要素をひとつの躯体へ積層する
-// 実物の GB200 NVL72 の骨格を翻訳：
-//   18段の演算トレイ ／ 中央のスイッチ帯 → 培養槽 ／ 背面バックプレーン → 神経幹
-//   電源棚とバスバー ／ 冷媒マニフォールドとコールドプレート ／ 頂部のCDU
-var R_UNIT  = 0.62;                 // 円筒の外半径
-var PL_R    = R_UNIT+0.10, PL_H = 0.20;
-var PWR_B   = 0.02,  PWR_T = 0.30;  // 給電棚とバスバーの帯
-var N_SHELF = 6;
-var TR_P    = 0.078;                // トレイのピッチ
-var LO_B    = 0.34,  N_LO = 8;      // 下段の演算トレイ
-var VAT_B   = 1.00,  VAT_H = 0.62;  // 中央帯＝培養槽（実物のスイッチ帯にあたる）
-var VAT_MID = VAT_B+VAT_H*0.5;
-var UP_B    = 1.66,  N_UP = 10;     // 上段の演算トレイ
-var N_TRAY  = N_LO+N_UP;            // 18段（実物と同数）
-var N_MOD   = 4;                    // 1トレイあたりの演算モジュール（18×4 = 72 …実物のGPU数と同数）
-// 前面240°＝演算面 ／ 背面120°＝配管区画
-var REAR_W  = TAU/3, REAR_C = PI;
-var REAR_S  = REAR_C-REAR_W*0.5;
-var FRONT_W = TAU-REAR_W, FRONT_C = 0.0;
-var FRONT_S = FRONT_C-FRONT_W*0.5;
-var R_REC   = 0.50;                 // 背面区画の底
-// 演算トレイは「カード」ではなく奥行きのある「トレイ」。外面0.614 → 内面0.26
-// 実物の1RU演算トレイ（幅0.6に対し奥行0.75〜0.9）と同じ比を外径1.24に当てた
-var MOD_OUT = 0.614, MOD_IN = 0.260;
-var SHAFT_R = 0.200;                  // 中央の縦シャフト（トレイ帯の芯）
-var CDU_B   = 2.48,  CDU_H = 0.15;
-var RAD_B   = 2.67,  RAD_H = 0.42, RAD_W = 1.16;
-// 放熱：薄板30枚がそのまま展開機構になる。負荷に応じて上へ伸び、螺旋に捩れる
-//   収納 差し渡し0.64・高さ0.26（円筒の半分の幅）→ 展開 2.82・1.39、52.5 m²
-//   隣接板は同じ半径で常に段ピッチぶん離れる。収納+0.003 展開+0.042 の余裕
-var N_FIN   = 30, FIN_T = 0.006, FIN_W = 0.70, FIN_R0 = 0.16;
-var FIN_LR  = 0.16, FIN_LD = 1.25;      // 収納/展開の長さ
-var FIN_PR  = 0.009, FIN_PD = 0.048;    // 収納/展開の段ピッチ
-var FIN_TR  = 1.0,  FIN_TD = 3.2;       // 収納/展開の総回転数
-var FIN_B   = 2.68, FIN_TILT = 0.085, FIN_TT = 0.006;
-var N_SPINE = 6;                    // 神経幹（背面バックプレーンにあたる）
-var FT_Y    = VAT_MID;              // 貫通部の高さ
-var BRAIN_S = 0.14;
-var IN_A    = PI*0.5; // ハーネスの引込み方位
+var TOW_H     = 15.00;   // タワー高
+var TOW_R0    = 0.55;    // 基部の半径
+var TOW_R1    = 0.31;    // 頂部の半径
+var FND_R     = 1.80;    // 基礎の半径
+var FND_H     = 0.90;    // 基礎の高さ
+var N_SET     = 14;      // ハーネスの本数（＝演算ラックのセット数）
+var PER_SET   = 3;       // 1セットあたりのラック台数＝束ねる本数
+var R_PORT    = 1.90;    // 取出口の半径
+var CAB_R     = 0.085;   // ケーブル半径
+var BUN_R     = 0.135;   // 3本の外接半径
+// 42基（3基×14束）の据付半径。束は分岐するたび細る
+var DROP      = [9.0,15.0,21.0];   // 中央へ寄せた。全開の翼1.41でも触れない最小域
+// ユニットは束から横へ 2.05 m。方位を固定すると外側ほど分岐が伸びるので、
+// 横のずれを固定して分岐の長さを揃える（どの半径でも 2.23 m）
+var UNIT_OFS  = 2.05;
+function unitAng(a0,r){return a0+UNIT_OFS/r;}
+var PORT_OFS  = 1.00;    // ユニットの軸から引込み口までの距離（背面側）
+var LEAVE_OFS = 1.45;    // 束を離れる半径（差込点の手前）
+var RUN_LEN   = DROP[2];
+var R_SAT     = 6000.0;  // 衛星の半径（m）
+var TWIST     = 6.0;     // 撚りピッチ（m/回転）
+var AP_R      = 3.20;    // 受信開口の半径
+var AP_F      = 2.10;    // 焦点距離
+var AP_D      = AP_R*AP_R/(4*AP_F);   // 開口の深さ 1.22
+var PIVOT_Y   = TOW_H;   // 首振りの中心
+var AZ=-1.62, EL=0.128;               // 到来方位（既存作から継承）
+var IN_DIR=new THREE.Vector3(Math.cos(AZ)*Math.cos(EL),Math.sin(EL),Math.sin(AZ)*Math.cos(EL)).normalize();
+var VERTEX=new THREE.Vector3(0,PIVOT_Y,0);
+var FOC=VERTEX.clone().addScaledVector(IN_DIR,AP_F-0.35);
+var BACK=Math.atan2(-IN_DIR.z,-IN_DIR.x);
 
-// 局所の地表
-function groundAt(r,a){ return 0; }
+// 地表（局所。曲率はこの尺度では効かないので起伏だけ）
+function groundAt(r,a){
+  if(r<FND_R+0.6)return 0;
+  var w=clamp((r-(FND_R+0.6))/6.0,0,1); w=w*w*(3-2*w);
+  var cur=Math.sqrt(Math.max(0,R_SAT*R_SAT-r*r))-R_SAT;    // 衛星の曲率
+  return (cur+Math.sin(a*4.3+r*0.21)*0.16+Math.sin(a*9.1+r*0.44)*0.075
+         +Math.sin(a*17+r*1.02)*0.028)*w;
+}
 
 // ================================================================
 // レンダラ
@@ -1281,7 +1272,7 @@ renderer.toneMapping=THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure=1.05;
 document.getElementById('app').appendChild(renderer.domElement);
 var scene=new THREE.Scene();
-var camera=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,0.02,3000);
+var camera=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,0.05,4000);
 
 // ================================================================
 // テクスチャ
@@ -1292,7 +1283,7 @@ function glowTex(rgb){var c=document.createElement('canvas');c.width=128;c.heigh
   gr.addColorStop(1,'rgba('+rgb+',0)');
   g.fillStyle=gr;g.fillRect(0,0,128,128);
   var t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;return t;}
-var TEX_GLOW_P=glowTex('255,110,214');
+var TEX_GLOW_C=glowTex('150,240,255'), TEX_GLOW_P=glowTex('255,110,214');
 function stripeTex(stops,rep,vert){
   var W=vert?4:1024,H=vert?1024:4;
   var c=document.createElement('canvas');c.width=W;c.height=H;
@@ -1306,209 +1297,196 @@ function stripeTex(stops,rep,vert){
   t.minFilter=THREE.LinearFilter;t.generateMipmaps=false;t.anisotropy=8;
   return t;
 }
-// 給電：引込みから上へ
-var TEX_FEED=stripeTex([[0,'rgba(255,95,200,0.05)'],[0.38,'rgba(255,95,200,0.07)'],
-  [0.50,'rgba(255,200,240,0.95)'],[0.62,'rgba(255,95,200,0.28)'],[1,'rgba(255,95,200,0.05)']],5,true);
-// 統率信号：中央ハブから各ラックへ
-var TEX_ORCH=stripeTex([[0,'rgba(255,110,190,0)'],[0.36,'rgba(255,110,190,0.08)'],
-  [0.50,'rgba(255,225,242,1)'],[0.60,'rgba(255,110,190,0.34)'],[1,'rgba(255,110,190,0)']],4,false);
-// ラジエータの温度勾配
-// 編組被覆
+// ビームの縞と脈
+var TEX_STRIPE=stripeTex([[0,'rgba(255,255,255,0.06)'],[0.34,'rgba(255,255,255,0.10)'],
+  [0.46,'rgba(255,255,255,0.55)'],[0.50,'rgba(255,255,255,1.00)'],
+  [0.53,'rgba(255,255,255,0.62)'],[0.78,'rgba(255,255,255,0.16)'],[1,'rgba(255,255,255,0.06)']],7,false);
+var TEX_SURGE=stripeTex([[0,'rgba(255,255,255,0)'],[0.40,'rgba(255,255,255,0)'],
+  [0.475,'rgba(255,255,255,0.85)'],[0.50,'rgba(255,255,255,1)'],
+  [0.545,'rgba(255,255,255,0.50)'],[0.68,'rgba(255,255,255,0.08)'],[1,'rgba(255,255,255,0)']],1,false);
+// 幹線を外へ走る脈（受けた電力がラックへ出ていく）
+var TEX_RUN=stripeTex([[0,'rgba(255,80,190,0)'],[0.40,'rgba(255,80,190,0.06)'],
+  [0.50,'rgba(255,205,240,1)'],[0.57,'rgba(255,95,200,0.42)'],
+  [0.74,'rgba(120,235,240,0.16)'],[1,'rgba(255,80,190,0)']],8,false);
+// 塔を下る
+var TEX_DOWN=stripeTex([[0,'rgba(255,95,200,0.04)'],[0.42,'rgba(255,95,200,0.06)'],
+  [0.50,'rgba(255,205,240,0.95)'],[0.60,'rgba(190,240,248,0.34)'],[1,'rgba(255,95,200,0.04)']],5,true);
+// 集光
+var TEX_DRAW=stripeTex([[0,'rgba(190,240,255,0.02)'],[0.40,'rgba(200,245,255,0.10)'],
+  [0.52,'rgba(255,240,252,0.85)'],[0.60,'rgba(255,150,220,0.28)'],[1,'rgba(190,240,255,0.02)']],4,true);
+// 編組被覆（ターコイズ×シルバー）
 var TEX_BRAID=(function(){
   var W=256,H=64,c=document.createElement('canvas');c.width=W;c.height=H;
   var g=c.getContext('2d'),i;
   g.fillStyle='#141a1e';g.fillRect(0,0,W,H);
-  for(i=-H;i<W+H;i+=11){g.strokeStyle='#cfd6dd';g.lineWidth=4.6;g.beginPath();g.moveTo(i,0);g.lineTo(i+H,H);g.stroke();}
-  for(i=-H;i<W+H;i+=11){g.strokeStyle='#2fb8c6';g.lineWidth=4.6;g.beginPath();g.moveTo(i,H);g.lineTo(i+H,0);g.stroke();}
+  for(i=-H;i<W+H;i+=11){g.strokeStyle='#cfd6dd';g.lineWidth=4.6;
+    g.beginPath();g.moveTo(i,0);g.lineTo(i+H,H);g.stroke();}
+  for(i=-H;i<W+H;i+=11){g.strokeStyle='#2fb8c6';g.lineWidth=4.6;
+    g.beginPath();g.moveTo(i,H);g.lineTo(i+H,0);g.stroke();}
   g.globalAlpha=0.22;g.fillStyle='#000';
   for(i=0;i<H;i+=3)g.fillRect(0,i,W,1);
   g.globalAlpha=1;
   var t=new THREE.CanvasTexture(c);
   t.wrapS=THREE.RepeatWrapping;t.wrapT=THREE.RepeatWrapping;
-  t.encoding=THREE.sRGBEncoding;t.repeat.set(24,1);t.anisotropy=8;
+  t.encoding=THREE.sRGBEncoding;t.repeat.set(40,1);t.anisotropy=8;
   return t;
 })();
-// 中央柱の周回表示（演算特化仕様の等級を刻む）
-var TEX_BAND=(function(){
-  var W=2048,H=192,c=document.createElement('canvas');c.width=W;c.height=H;
-  var g=c.getContext('2d');
-  function paint(){
-    g.fillStyle='#0a0d14';g.fillRect(0,0,W,H);
-    g.fillStyle='rgba(63,224,214,0.12)';g.fillRect(0,H-5,W,3);
-    g.fillStyle='rgba(255,110,200,0.10)';g.fillRect(0,2,W,3);
-    g.textBaseline='middle';
-    var S='LACTO CORTEX · ORCHESTRATION SPEC · 効率電脳神皇帝',i;
-    g.font='700 86px "Avenir Next Condensed","Hiragino Sans",sans-serif';
-    var unit=g.measureText(S+'     ').width;
-    var reps=Math.max(1,Math.round(W/unit)),step=W/reps;
-    g.shadowColor='rgba(255,110,200,0.75)';g.shadowBlur=22;g.fillStyle='#ff6fc8';
-    for(i=0;i<reps;i++)g.fillText(S,i*step,H*0.5);
-    g.shadowBlur=0;
+
+// ================================================================
+// 空と照明
+// ================================================================
+var STAR_DIR=new THREE.Vector3(Math.cos(-1.15),0.30,Math.sin(-1.15)).normalize();
+var PLANET_DIR=new THREE.Vector3(Math.cos(1.95),0.42,Math.sin(1.95)).normalize();
+var skyGroup=new THREE.Group();scene.add(skyGroup);
+(function buildSky(){
+  var W=2048,H=1024,c=document.createElement('canvas');c.width=W;c.height=H;
+  var g=c.getContext('2d'),i,x,y,r;
+  g.fillStyle='#020306';g.fillRect(0,0,W,H);
+  for(i=0;i<2600;i++){
+    x=rnd()*W;y=rnd()*H;r=rnd();
+    var s=r<0.86?0.7+rnd()*0.7:(r<0.98?1.4+rnd()*0.9:2.2+rnd()*1.2);
+    g.globalAlpha=0.35+rnd()*0.65;
+    g.fillStyle=rnd()<0.14?'#ffd9ec':(rnd()<0.3?'#cfe6ff':'#ffffff');
+    g.beginPath();g.arc(x,y,s,0,TAU);g.fill();
   }
-  paint();
-  var t=new THREE.CanvasTexture(c);
-  t.wrapS=THREE.RepeatWrapping;t.encoding=THREE.sRGBEncoding;t.anisotropy=8;
-  if(document.fonts&&document.fonts.load)
-    document.fonts.load('700 86px "Avenir Next Condensed"').then(function(){paint();t.needsUpdate=true;}).catch(function(){});
-  return t;
+  g.globalAlpha=1;
+  var t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;t.anisotropy=4;
+  var dome=new THREE.Mesh(new THREE.SphereGeometry(1600,64,32),
+    new THREE.MeshBasicMaterial({map:t,side:THREE.BackSide,fog:false,depthWrite:false}));
+  dome.renderOrder=-10;dome.frustumCulled=false;skyGroup.add(dome);
+  var PD=1200,PR=210;
+  var pc=document.createElement('canvas');pc.width=1024;pc.height=512;
+  var q=pc.getContext('2d');
+  var pg=q.createLinearGradient(0,0,0,512);
+  pg.addColorStop(0,'#1b2038');pg.addColorStop(0.22,'#2b3050');pg.addColorStop(0.50,'#3a3352');
+  pg.addColorStop(0.74,'#241f38');pg.addColorStop(1,'#141828');
+  q.fillStyle=pg;q.fillRect(0,0,1024,512);
+  for(i=0;i<26;i++){
+    var by=rnd()*512,bh=3+rnd()*22;
+    q.globalAlpha=0.05+rnd()*0.13;q.fillStyle=rnd()<0.3?'#6f5c8e':'#3c4a70';
+    q.fillRect(0,by,1024,bh);
+  }
+  q.globalAlpha=1;
+  var pt=new THREE.CanvasTexture(pc);pt.encoding=THREE.sRGBEncoding;pt.anisotropy=4;
+  var planet=new THREE.Mesh(new THREE.SphereGeometry(PR,64,40),
+    new THREE.MeshStandardMaterial({map:pt,metalness:0.05,roughness:0.92,envMapIntensity:0.1}));
+  planet.position.copy(PLANET_DIR).multiplyScalar(PD);skyGroup.add(planet);
+  var star=new THREE.Mesh(new THREE.SphereGeometry(5,20,14),new THREE.MeshBasicMaterial({color:'#ffffff'}));
+  star.position.copy(STAR_DIR).multiplyScalar(1450);skyGroup.add(star);
+  var flare=new THREE.Sprite(new THREE.SpriteMaterial({map:TEX_GLOW_C,transparent:true,
+    opacity:0.85,blending:THREE.AdditiveBlending,depthWrite:false}));
+  flare.scale.set(130,130,1);flare.position.copy(star.position);skyGroup.add(flare);
 })();
-
-// ================================================================
-// h!ro53 帝国 研究棟 ── 電波暗室（試験槽）
-//   内径14 × 高さ9 m。壁と天井をくさび形の吸収体で埋める
-//   床の中央に目盛入りのターンテーブル。照明は径6の環が一本だけ
-// ================================================================
-var CH_R=21.0, CH_H=27.0, WEDGE_W=1.05, WEDGE_L=2.70, LOGO_A=1.90;   // 3倍
-var TEX_LOGO=(function(){
-  var t=new THREE.Texture();
-  var im=new Image();
-  im.onload=function(){t.image=im;t.needsUpdate=true;};
-  im.src='data:image/jpeg;base64,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';
-  t.encoding=THREE.sRGBEncoding;t.anisotropy=8;
-  return t;
-})();
-var ceilPanels=null, logoMat=null, ringLight=null, wedgeMesh=null;
-
-// ---- 照明：環がひとつだけ。暗室なので反射は最小限 ----
-scene.add(new THREE.AmbientLight('#93a8b8',0.20));
-var keyL=new THREE.DirectionalLight('#e8f2f8',0.66);
-keyL.position.set(2.4,10.0,1.8);scene.add(keyL);
-var fillL=new THREE.DirectionalLight('#c4d4e2',0.30);
-fillL.position.set(-2.2,8.4,-2.6);scene.add(fillL);
-var fillL2=new THREE.DirectionalLight('#b4c6d6',0.20);
-fillL2.position.set(2.8,7.6,-2.4);scene.add(fillL2);
-var backL=new THREE.DirectionalLight('#a4b8c8',0.16);
-backL.position.set(-2.6,6.8,2.8);scene.add(backL);
-var topL=new THREE.DirectionalLight('#e8f2f8',0.40);
-topL.position.set(0,12.0,0);scene.add(topL);
-var logoL=new THREE.PointLight('#ff5fbe',6.0,22.0,2);
-logoL.position.set(Math.cos(LOGO_A)*(CH_R-5.1),12.0,Math.sin(LOGO_A)*(CH_R-5.1));scene.add(logoL);
+// 上空に主光源を置く。真空なので拡散は無いが、場が読めないと意味がない
+// 一様に明るくすると全部が均されて板が消える。上からの主光を強く、
+// 面の向きで明暗が割れるように振る。埋め光は最小限に留める
+scene.add(new THREE.AmbientLight('#1b2534',0.24));
+var keyL=new THREE.DirectionalLight('#f2f8ff',2.05);
+keyL.position.set(24,140,34);scene.add(keyL);            // 主光：斜め上から
+var topL=new THREE.DirectionalLight('#e4eef8',0.70);
+topL.position.set(-6,160,-10);scene.add(topL);           // 天頂寄り
+var starL=new THREE.DirectionalLight('#e8f6ff',0.42);
+starL.position.copy(STAR_DIR).multiplyScalar(600);scene.add(starL);
+var fillL=new THREE.DirectionalLight('#ff8fd0',0.26);
+fillL.position.copy(PLANET_DIR).multiplyScalar(600);scene.add(fillL);
+var backL=new THREE.DirectionalLight('#8fc8dc',0.62);
+backL.position.set(-30,26,-42);scene.add(backL);         // 低い逆光：薄板の縁を拾う
+var flood=[];
 
 // ================================================================
 // 材質
 // ================================================================
 function sm(o){return new THREE.MeshStandardMaterial(o);}
-var matShell =sm({color:'#333a49',metalness:0.86,roughness:0.33,envMapIntensity:0.95});
-var matFrame =sm({color:'#d2d8e2',metalness:0.94,roughness:0.15,envMapIntensity:1.20});
-var matBladeI=sm({color:'#b7c0cd',metalness:0.68,roughness:0.36,envMapIntensity:1.05});
-// ベースボード：暗い基板にターコイズの配線と実装ランド
+var matMast =sm({color:'#242833',metalness:0.88,roughness:0.36,envMapIntensity:0.5});
+var TRI_P    =['#ff05a8','#f2dbe9','#00ddc8'];
+var matDeck  =sm({color:'#2b313c',metalness:0.80,roughness:0.38,envMapIntensity:0.70});
+var matMark  =new THREE.MeshBasicMaterial({color:'#cfd3da',transparent:true,opacity:0.42,
+  blending:THREE.AdditiveBlending,depthWrite:false});
+var matNodeE =new THREE.MeshBasicMaterial({color:'#3fe0d6',transparent:true,opacity:0.40,
+  blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide});
+var matChrome=sm({color:'#c8ced8',metalness:0.95,roughness:0.19,envMapIntensity:0.7});
+var matDark =sm({color:'#12141b',metalness:0.7,roughness:0.60,envMapIntensity:0.3});
+var matDish =sm({color:'#aeb6c2',metalness:0.97,roughness:0.13,envMapIntensity:0.9,side:THREE.DoubleSide});
+var matBraid=sm({map:TEX_BRAID,metalness:0.62,roughness:0.40,envMapIntensity:0.9,
+  emissive:'#0d3a3c',emissiveIntensity:0.20});
+var matRunF =new THREE.MeshBasicMaterial({color:'#ffffff',map:TEX_RUN,transparent:true,
+  opacity:0.78,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide});
+var matDown =new THREE.MeshBasicMaterial({map:TEX_DOWN,transparent:true,opacity:0.8,
+  blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide});
+var matDraw =new THREE.MeshBasicMaterial({map:TEX_DRAW,transparent:true,opacity:0.5,
+  blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide,fog:false});
+var matThroat=new THREE.MeshBasicMaterial({color:'#ffe6f6'});
+var matRim  =new THREE.MeshBasicMaterial({color:'#3fe0d6',transparent:true,opacity:0.55,
+  blending:THREE.AdditiveBlending,depthWrite:false});
+var matPortE=new THREE.MeshBasicMaterial({color:'#ff6fc8',transparent:true,opacity:0.5,
+  blending:THREE.AdditiveBlending,depthWrite:false});
+var matRego =sm({vertexColors:true,metalness:0.06,roughness:0.94,envMapIntensity:0.1,
+  side:THREE.DoubleSide});
+var matUnit  =sm({color:'#333a49',metalness:0.86,roughness:0.33,envMapIntensity:0.95});
+var matUnitG =new THREE.MeshBasicMaterial({color:'#3fe0d6',transparent:true,opacity:0.62,
+  blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide});
+var matUnitB =new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true,transparent:true,opacity:0.85,
+  blending:THREE.AdditiveBlending,depthWrite:false});
+// 薄い板は面で光を拾わないと消える。明度を上げ、わずかな自発光で底を作る
 var TEX_PCB=(function(){
-  var W=768,H=768,c=document.createElement('canvas');c.width=W;c.height=H;
+  var W=512,c=document.createElement('canvas');c.width=W;c.height=W;
   var g=c.getContext('2d'),i,j;
-  g.fillStyle='#0a1016';g.fillRect(0,0,W,H);
+  g.fillStyle='#0a1016';g.fillRect(0,0,W,W);
   g.fillStyle='#0d151c';
-  for(i=0;i<W;i+=96)for(j=0;j<H;j+=96)g.fillRect(i+4,j+4,88,88);
-  // 配線：直交と45度
+  for(i=0;i<W;i+=64)for(j=0;j<W;j+=64)g.fillRect(i+3,j+3,58,58);
   g.lineCap='round';
-  for(i=0;i<520;i++){
-    var x0=Math.floor(rnd()*W/8)*8, y0=Math.floor(rnd()*H/8)*8;
-    var len=24+rnd()*180, dir=Math.floor(rnd()*4);
-    g.strokeStyle=rnd()<0.72?'rgba(63,224,214,0.30)':'rgba(207,211,218,0.20)';
-    g.lineWidth=rnd()<0.8?1.2:2.4;
-    g.beginPath();g.moveTo(x0,y0);
-    if(dir===0)g.lineTo(x0+len,y0);
-    else if(dir===1)g.lineTo(x0,y0+len);
-    else if(dir===2)g.lineTo(x0+len*0.7,y0+len*0.7);
-    else g.lineTo(x0+len*0.7,y0-len*0.7);
+  for(i=0;i<380;i++){
+    var x0=Math.floor(rnd()*W/8)*8,y0=Math.floor(rnd()*W/8)*8,len=18+rnd()*130,dir=Math.floor(rnd()*4);
+    g.strokeStyle=rnd()<0.72?'rgba(63,224,214,0.32)':'rgba(207,211,218,0.22)';
+    g.lineWidth=rnd()<0.8?1.1:2.2;g.beginPath();g.moveTo(x0,y0);
+    if(dir===0)g.lineTo(x0+len,y0);else if(dir===1)g.lineTo(x0,y0+len);
+    else if(dir===2)g.lineTo(x0+len*0.7,y0+len*0.7);else g.lineTo(x0+len*0.7,y0-len*0.7);
     g.stroke();
   }
-  // ランドとビア
-  for(i=0;i<900;i++){
-    var px=rnd()*W,py=rnd()*H;
-    g.fillStyle=rnd()<0.6?'rgba(180,190,200,0.30)':'rgba(63,224,214,0.26)';
-    g.beginPath();g.arc(px,py,0.9+rnd()*1.8,0,TAU);g.fill();
+  for(i=0;i<620;i++){
+    g.fillStyle=rnd()<0.6?'rgba(180,190,200,0.32)':'rgba(63,224,214,0.28)';
+    g.beginPath();g.arc(rnd()*W,rnd()*W,0.8+rnd()*1.6,0,TAU);g.fill();
   }
-  // 実装領域の枠
-  g.strokeStyle='rgba(255,95,200,0.16)';g.lineWidth=1.6;
-  for(i=0;i<26;i++){
-    var bx=rnd()*(W-140),by=rnd()*(H-90);
-    g.strokeRect(bx,by,40+rnd()*100,26+rnd()*60);
-  }
+  g.strokeStyle='rgba(255,95,200,0.18)';g.lineWidth=1.4;
+  for(i=0;i<18;i++)g.strokeRect(rnd()*(W-100),rnd()*(W-64),30+rnd()*70,20+rnd()*44);
   var t=new THREE.CanvasTexture(c);
   t.wrapS=THREE.RepeatWrapping;t.wrapT=THREE.RepeatWrapping;
-  t.encoding=THREE.sRGBEncoding;t.anisotropy=8;
-  return t;
+  t.encoding=THREE.sRGBEncoding;t.anisotropy=8;return t;
 })();
-// 板の縁：三色。本体は艶を抑えた面のまま、縁だけが色を持つ
-var matFinE =new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true});
-var matFinEG=new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true,transparent:true,opacity:0.42,
-  blending:THREE.AdditiveBlending,depthWrite:false});
-var matPCB  =sm({map:TEX_PCB,color:'#8fa4b2',metalness:0.30,roughness:0.62,envMapIntensity:0.45,
+var matPCB   =sm({map:TEX_PCB,color:'#8fa4b2',metalness:0.30,roughness:0.62,envMapIntensity:0.45,
   emissive:'#0b2b30',emissiveIntensity:0.30,side:THREE.DoubleSide});
-var matComp =sm({color:'#1b2028',metalness:0.55,roughness:0.52,envMapIntensity:0.40});
-var matPlate=sm({color:'#c8ceda',metalness:0.95,roughness:0.16,envMapIntensity:1.20});
-var matLedI  =new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true});
-// h!ro53 の三色（Trail Torus 由来の不可侵三色）
-var TRI=['#ff05a8','#f2dbe9','#00ddc8'];
-var matTri=[
-  new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true}),
-  new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true}),
-  new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true})
-];
-var matTriG=[
-  new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true,transparent:true,opacity:0.5,
-    blending:THREE.AdditiveBlending,depthWrite:false}),
-  new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true,transparent:true,opacity:0.5,
-    blending:THREE.AdditiveBlending,depthWrite:false}),
-  new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true,transparent:true,opacity:0.5,
-    blending:THREE.AdditiveBlending,depthWrite:false})
-];
-var matBand  =new THREE.MeshBasicMaterial({map:TEX_BAND});
-// 放熱翼：高輻射率の面。艶を抑える
-var matRad   =sm({color:'#333947',metalness:0.30,roughness:0.80,envMapIntensity:0.30,
-  side:THREE.DoubleSide});
-var TEX_FINH=(function(){
-  var c=document.createElement('canvas');c.width=256;c.height=8;
-  var g=c.getContext('2d'),gr=g.createLinearGradient(0,0,256,0);
-  gr.addColorStop(0.00,'rgba(255,92,180,0.55)');
-  gr.addColorStop(0.18,'rgba(228,88,162,0.30)');
-  gr.addColorStop(0.52,'rgba(128,74,120,0.11)');
-  gr.addColorStop(1.00,'rgba(40,44,60,0.02)');
-  g.fillStyle=gr;g.fillRect(0,0,256,8);
-  var t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;return t;
-})();
-var matRadH  =new THREE.MeshBasicMaterial({map:TEX_FINH,transparent:true,opacity:0.45,
-  blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide});
-// 冷媒配管：外殻は金属、中身は流れる脈
-var matCoolS =sm({color:'#b9c2ce',metalness:0.92,roughness:0.20,envMapIntensity:1.1});
-var TEX_COOL=(function(){
-  var c=document.createElement('canvas');c.width=512;c.height=4;
-  var g=c.getContext('2d'),gr=g.createLinearGradient(0,0,512,0);
-  gr.addColorStop(0.00,'rgba(255,95,200,0.05)');
-  gr.addColorStop(0.38,'rgba(255,95,200,0.08)');
-  gr.addColorStop(0.50,'rgba(255,205,240,0.95)');
-  gr.addColorStop(0.60,'rgba(255,95,200,0.30)');
-  gr.addColorStop(1.00,'rgba(255,95,200,0.05)');
-  g.fillStyle=gr;g.fillRect(0,0,512,4);
+var matComp  =sm({color:'#1b2028',metalness:0.55,roughness:0.52,envMapIntensity:0.40});
+var matPlate =sm({color:'#c8ceda',metalness:0.95,roughness:0.16,envMapIntensity:1.20});
+var matLedH  =new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true});
+var TEX_BAND=(function(){
+  var W=1536,H=144,c=document.createElement('canvas');c.width=W;c.height=H;
+  var g=c.getContext('2d');
+  g.fillStyle='#0a0d12';g.fillRect(0,0,W,H);
+  g.font='700 86px ui-monospace,monospace';g.textBaseline='middle';
+  var txt='LACTO CORTEX \u00b7 ORCHESTRATION SPEC \u00b7 ';
+  g.fillStyle='#ff2d92';
+  var x=0;while(x<W){g.fillText(txt,x,H*0.52);x+=g.measureText(txt).width;}
+  g.fillStyle='rgba(0,221,200,0.30)';
+  for(var i=0;i<W;i+=6)g.fillRect(i,0,2,H);
   var t=new THREE.CanvasTexture(c);
-  t.wrapS=THREE.RepeatWrapping;t.wrapT=THREE.RepeatWrapping;
-  t.encoding=THREE.sRGBEncoding;t.repeat.set(6,1);
-  t.minFilter=THREE.LinearFilter;t.generateMipmaps=false;
-  return t;
+  t.wrapS=THREE.RepeatWrapping;t.encoding=THREE.sRGBEncoding;t.anisotropy=8;return t;
 })();
-var matCoolF =new THREE.MeshBasicMaterial({map:TEX_COOL,transparent:true,opacity:0.42,
-  blending:THREE.AdditiveBlending,depthWrite:false});
-var matGlassF=new THREE.MeshPhysicalMaterial({color:'#f4eefa',metalness:0,roughness:0.045,
-  transmission:0.88,transparent:true,opacity:0.11,clearcoat:1.0,clearcoatRoughness:0.04,
-  envMapIntensity:1.0,depthWrite:false});
-var matGlassB=new THREE.MeshBasicMaterial({color:'#ffc9ec',transparent:true,opacity:0.05,
-  blending:THREE.AdditiveBlending,side:THREE.BackSide,depthWrite:false});
-var matMilk  =sm({color:'#ffb0da',metalness:0,roughness:0.16,envMapIntensity:0.6,
-  emissive:'#ff5fc0',emissiveIntensity:0.18});
-var matFeed  =new THREE.MeshBasicMaterial({map:TEX_FEED,transparent:true,opacity:0.8,
-  blending:THREE.AdditiveBlending,depthWrite:false});
-var matOrch  =new THREE.MeshBasicMaterial({color:'#ffd9ea',map:TEX_ORCH,transparent:true,
-  opacity:0.88,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide});
-var matBraid =sm({map:TEX_BRAID,metalness:0.62,roughness:0.40,envMapIntensity:0.9,
-  emissive:'#0d3a3c',emissiveIntensity:0.18});
-var matChan  =new THREE.MeshBasicMaterial({color:'#3fe0d6',transparent:true,opacity:0.42,
-  blending:THREE.AdditiveBlending,depthWrite:false});
-var matNerve =new THREE.MeshStandardMaterial({color:'#f0c2d4',metalness:0.0,roughness:0.34,
-  envMapIntensity:0.7,emissive:'#a83258',emissiveIntensity:0.38});
-var matBay   =new THREE.MeshBasicMaterial({color:'#3fe0d6',transparent:true,opacity:0.34,
-  blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide});
-var matNode  =new THREE.MeshBasicMaterial({color:'#3fe0d6',transparent:true,opacity:0.6,
-  blending:THREE.AdditiveBlending,depthWrite:false});
+var matBand  =new THREE.MeshBasicMaterial({map:TEX_BAND,side:THREE.DoubleSide});
+var matUnitF =new THREE.MeshPhysicalMaterial({color:'#eef2fa',metalness:0,roughness:0.06,
+  transmission:0.86,transparent:true,opacity:0.13,clearcoat:1.0,envMapIntensity:0.9,depthWrite:false});
+var matFinU  =sm({color:'#5b6577',metalness:0.22,roughness:0.62,envMapIntensity:0.30,
+  emissive:'#141c26',emissiveIntensity:0.55,side:THREE.DoubleSide});
+var matFinUE =new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true,
+  transparent:true,opacity:0.95});
+var matTriGU=[new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true,transparent:true,
+    opacity:0.5,blending:THREE.AdditiveBlending,depthWrite:false}),
+  new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true,transparent:true,
+    opacity:0.5,blending:THREE.AdditiveBlending,depthWrite:false}),
+  new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true,transparent:true,
+    opacity:0.5,blending:THREE.AdditiveBlending,depthWrite:false})];
+var matTriU  =[new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true}),
+               new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true}),
+               new THREE.MeshBasicMaterial({color:'#ffffff',vertexColors:true})];
 
 // ================================================================
 // 幾何ユーティリティ
@@ -1520,14 +1498,8 @@ function prep(g){
     h.setAttribute('uv',new THREE.BufferAttribute(new Float32Array(n*2),2));}
   return h;
 }
-function addMerged(list,mat,order){
-  if(!list||!list.length)return null;              // 空の配列でメッシュを作らない
-  var m=new THREE.Mesh(mergeGeos(list),mat);
-  if(order!==undefined)m.renderOrder=order;
-  scene.add(m);return m;
-}
-// r128 では setColorAt は material.vertexColors=true でしか効かない。
-// その場合 color 属性が無いと (0,0,0) になるので 1.0 で埋めて持たせる
+// r128 では setColorAt は material.vertexColors=true でしか効かず、
+// その場合 color 属性が無いと (0,0,0) になる。1.0 で埋めた属性を必ず持たせる
 function withColor(g){
   if(!g.attributes.color){
     var n=g.attributes.position.count, c=new Float32Array(n*3);
@@ -1570,958 +1542,1031 @@ function tube(p0,p1,rad,seg){
   var q=new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,1,0),dir);
   return g.applyMatrix4(new THREE.Matrix4().compose(mid,q,new THREE.Vector3(1,1,1)));
 }
-function modAngle(m){return FRONT_C+(m+0.5-N_MOD*0.5)*(FRONT_W/N_MOD);}
-function spineAngle(k){return REAR_C+(k-(N_SPINE-1)*0.5)*(REAR_W*0.58/N_SPINE);}
-function trayY(i){return i<N_LO ? LO_B+i*TR_P+TR_P*0.5 : UP_B+(i-N_LO)*TR_P+TR_P*0.5;}
 
 // ================================================================
-// 向きの規約（ここを間違えると箱が半径方向へ伸びる）
-//   Y軸まわりθ回転： ローカルX →(cosθ,0,-sinθ) ／ ローカルZ →(sinθ,0,cosθ)
-//   幅を接線方向に取りたい箱 … θ = PI/2 - a
-//   長さを半径方向に取りたい箱 … θ = -a
+// タワー（15 m）と基礎
 // ================================================================
-function tanRot(a){return PI/2-a;}   // 第1寸法＝接線方向
-function radRot(a){return -a;}       // 第1寸法＝半径方向
-
-(function buildChamber(){
-  var F=[],D=[],T=[],i,j,a,r,x,z;
-  // 床
-  var floor=new THREE.Mesh(new THREE.CircleGeometry(CH_R+0.30,96),
-    sm({color:'#1c1e22',metalness:0.30,roughness:0.52,envMapIntensity:0.30}));
-  floor.rotation.x=-PI/2;scene.add(floor);
-  // ターンテーブル（径3.0）と目盛
-  D.push(xf(new THREE.CylinderGeometry(1.80,1.80,0.055,80),0,0.027,0));
-  F.push(xf(new THREE.TorusGeometry(1.80,0.012,6,88),0,0.055,0,PI/2));
-  F.push(xf(new THREE.TorusGeometry(1.63,0.007,5,80),0,0.056,0,PI/2));
-  for(i=0;i<360;i++){
-    a=i/360*TAU;
-    var big=(i%10===0), tl=big?0.140:0.066;
-    T.push(xf(new THREE.BoxGeometry(tl,0.005,big?0.017:0.010),
-      Math.cos(a)*(1.80-tl*0.5-0.024),0.058,Math.sin(a)*(1.80-tl*0.5-0.024),0,radRot(a),0));
+var downMesh=null;
+(function buildTower(){
+  var L=[],F=[],i,k,a,y,rr,seg=18;
+  for(i=0;i<seg;i++){
+    y=i/seg*TOW_H;
+    rr=TOW_R0+(TOW_R1-TOW_R0)*Math.pow(i/seg,0.85);
+    L.push(xf(new THREE.CylinderGeometry(rr,rr,TOW_H/seg+0.03,10),0,y+TOW_H/(2*seg),0));
+    if(i%3===0)F.push(xf(new THREE.TorusGeometry(rr+0.045,0.03,6,20),0,y,0,PI/2));
   }
-  addMerged(T,matFrame);
-  // 壁と天井の躯体
-  var shellMat=sm({color:'#0c0d10',metalness:0.24,roughness:0.78,envMapIntensity:0.10,side:THREE.DoubleSide});
-  var wall=new THREE.Mesh(new THREE.CylinderGeometry(CH_R+0.30,CH_R+0.30,CH_H,96,1,true),shellMat);
-  wall.position.y=CH_H*0.5;scene.add(wall);
-  var ceil=new THREE.Mesh(new THREE.CircleGeometry(CH_R+0.30,96),shellMat);
-  ceil.rotation.x=PI/2;ceil.position.y=CH_H;scene.add(ceil);
-  // ---- 吸収体のくさび ----
-  var slots=[],nw=Math.round(TAU*CH_R/WEDGE_W),rows=Math.floor((CH_H-0.90)/WEDGE_W);
-  for(i=0;i<nw;i++){
-    a=i/nw*TAU;
-    for(j=0;j<rows;j++){
-      slots.push({x:Math.cos(a)*CH_R,y:0.54+j*WEDGE_W+WEDGE_W*0.5,z:Math.sin(a)*CH_R,
-                  ax:0,ay:-a,az:PI*0.5});
-    }
+  // 内部の縦通材
+  for(k=0;k<3;k++){
+    a=k/3*TAU+0.3;
+    L.push(xf(new THREE.CylinderGeometry(0.045,0.045,TOW_H,6),
+      Math.cos(a)*TOW_R0*0.62,TOW_H*0.5,Math.sin(a)*TOW_R0*0.62));
   }
-  r=1.35;
-  while(r<CH_R-0.90){
-    var n2=Math.max(6,Math.round(TAU*r/WEDGE_W));
-    for(i=0;i<n2;i++){
-      a=i/n2*TAU;
-      if(r>8.16&&r<9.84)continue;                 // 照明環の帯は空ける
-      slots.push({x:Math.cos(a)*r,y:CH_H,z:Math.sin(a)*r,ax:PI,ay:a,az:0});
-    }
-    r+=WEDGE_W;
+  // 昇降段（1 m ごと）
+  for(i=1;i*1.0<TOW_H-0.6;i++){
+    y=i*1.0;
+    rr=TOW_R0+(TOW_R1-TOW_R0)*Math.pow(y/TOW_H,0.85);
+    F.push(xf(new THREE.BoxGeometry(0.34,0.03,0.05),rr+0.17,y,0,0,(i%2)*PI,0));
   }
-  // 商標の窓の位置は空ける
-  var LW=10.8,LH=10.8,LY=12.0;
-  slots=slots.filter(function(s2){
-    if(Math.abs(s2.y-CH_H)<0.001)return true;
-    var aa=Math.atan2(s2.z,s2.x), d=Math.atan2(Math.sin(aa-LOGO_A),Math.cos(aa-LOGO_A));
-    return !(Math.abs(d)<(LW*0.5+0.36)/CH_R && Math.abs(s2.y-LY)<LH*0.5+0.36);
-  });
-  var wg=new THREE.ConeGeometry(WEDGE_W*0.707,WEDGE_L,4);
-  wg.translate(0,WEDGE_L*0.5,0);
-  wedgeMesh=new THREE.InstancedMesh(wg,
-    sm({color:'#0e1014',metalness:0.05,roughness:0.95,envMapIntensity:0.06}),slots.length);
-  wedgeMesh.instanceMatrix.setUsage(THREE.StaticDrawUsage);wedgeMesh.frustumCulled=false;
-  var d2=new THREE.Object3D(),n3;
-  for(n3=0;n3<slots.length;n3++){
-    var s3=slots[n3];
-    d2.position.set(s3.x,s3.y,s3.z);
-    d2.rotation.set(s3.ax,s3.ay,s3.az);
-    d2.scale.set(1,1,1);d2.updateMatrix();
-    wedgeMesh.setMatrixAt(n3,d2.matrix);
-    wedgeMesh.setColorAt(n3,new THREE.Color(1,1,1));
-  }
-  wedgeMesh.instanceMatrix.needsUpdate=true;
-  if(wedgeMesh.instanceColor)wedgeMesh.instanceColor.needsUpdate=true;
-  scene.add(wedgeMesh);
-  // ---- 照明環（径6.0・高さ7.5）----
-  ringLight=new THREE.Mesh(new THREE.TorusGeometry(9.0,0.24,10,128),
-    new THREE.MeshBasicMaterial({color:'#eef6fb'}));
-  ringLight.position.y=22.5;ringLight.rotation.x=PI/2;scene.add(ringLight);
-  F.push(xf(new THREE.TorusGeometry(9.0,0.38,8,100),0,22.86,0,PI/2));
-  for(i=0;i<8;i++){
-    a=i/8*TAU+0.2;
-    F.push(tube(new THREE.Vector3(Math.cos(a)*9.0,22.86,Math.sin(a)*9.0),
-                new THREE.Vector3(Math.cos(a)*9.0,CH_H-0.15,Math.sin(a)*9.0),0.066,7));
-  }
-  var rg=new THREE.Mesh(new THREE.TorusGeometry(9.0,0.90,8,100),
-    new THREE.MeshBasicMaterial({color:'#cfe4f2',transparent:true,opacity:0.10,
-      blending:THREE.AdditiveBlending,depthWrite:false}));
-  rg.position.y=22.5;rg.rotation.x=PI/2;rg.renderOrder=6;scene.add(rg);
-  // ---- 商標：壁の凹みにモニターを嵌める ----
-  logoMat=new THREE.ShaderMaterial({
-    side:THREE.DoubleSide,
-    uniforms:{tMap:{value:TEX_LOGO},uT:{value:0},uAmt:{value:1.0}},
-    vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
-    fragmentShader:[
-     'uniform sampler2D tMap;uniform float uT;uniform float uAmt;varying vec2 vUv;',
-     'float h11(float x){return fract(sin(x*127.1)*43758.5453);}',
-     'float h21(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
-     'void main(){',
-     '  vec2 uv=vUv;',
-     '  float band=floor(uv.y*26.0);',
-     '  float burst=step(0.86,h11(floor(uT*7.0)));',
-     '  float tear=(h11(band+floor(uT*17.0))-0.5)*0.10*(0.12+burst);',
-     '  float roll=step(0.5,fract(uv.y*1.0-uT*0.23));',
-     '  uv.x+=tear*uAmt;',
-     '  float sp=0.0035+0.0075*burst;',
-     '  float r=texture2D(tMap,uv+vec2( sp,0.0)).r;',
-     '  float g=texture2D(tMap,uv).g;',
-     '  float b=texture2D(tMap,uv-vec2( sp,0.0)).b;',
-     '  vec3 c=vec3(r,g,b);',
-     '  c*=0.86+0.14*sin(uv.y*900.0);',
-     '  c*=0.90+0.10*sin(uT*61.0)+0.06*sin(uT*7.3);',
-     '  c+=vec3(h21(uv*vec2(640.0,360.0)+uT)-0.5)*0.10;',
-     '  c=mix(c,c*vec3(1.25,0.72,1.05),roll*0.16*(0.25+burst));',
-     '  float drop=step(0.985,h11(floor(uT*11.0)+band*0.37));',
-     '  c=mix(c,vec3(0.02,0.01,0.03),drop*0.85);',
-     '  float edge=smoothstep(0.0,0.02,uv.x)*smoothstep(1.0,0.98,uv.x)',
-     '            *smoothstep(0.0,0.02,uv.y)*smoothstep(1.0,0.98,uv.y);',
-     '  gl_FragColor=vec4(c*edge,1.0);',
-     '}'].join('\n')
-  });
-  var lg=new THREE.Mesh(new THREE.PlaneGeometry(LW,LH),logoMat);
-  lg.position.set(Math.cos(LOGO_A)*(CH_R-0.18),LY,Math.sin(LOGO_A)*(CH_R-0.18));
-  lg.rotation.y=-LOGO_A-PI/2;scene.add(lg);   // 法線を室内へ（+π/2 では室外を向く）
-  // 凹みの箱と縁
-  var rec=[];
-  rec.push(xf(new THREE.BoxGeometry(LW+0.72,LH+0.72,0.30),
-    Math.cos(LOGO_A)*(CH_R+0.06),LY,Math.sin(LOGO_A)*(CH_R+0.06),0,tanRot(LOGO_A),0));
-  for(i=-1;i<=1;i+=2){
-    rec.push(xf(new THREE.BoxGeometry(LW+0.72,0.30,0.90),
-      Math.cos(LOGO_A)*(CH_R-0.39),LY+i*(LH*0.5+0.15),Math.sin(LOGO_A)*(CH_R-0.39),0,tanRot(LOGO_A),0));
-    rec.push(xf(new THREE.BoxGeometry(0.30,LH+0.72,0.90),
-      Math.cos(LOGO_A)*(CH_R-0.39)-Math.sin(LOGO_A)*i*(LW*0.5+0.15),LY,
-      Math.sin(LOGO_A)*(CH_R-0.39)+Math.cos(LOGO_A)*i*(LW*0.5+0.15),0,tanRot(LOGO_A),0));
-  }
-  addMerged(rec,matFrame);
-  var lgl=new THREE.Mesh(new THREE.PlaneGeometry(LW*1.28,LH*1.28),
-    new THREE.MeshBasicMaterial({map:TEX_GLOW_P,transparent:true,opacity:0.18,
-      blending:THREE.AdditiveBlending,depthWrite:false}));
-  lgl.position.set(Math.cos(LOGO_A)*(CH_R-0.30),LY,Math.sin(LOGO_A)*(CH_R-0.30));
-  lgl.rotation.y=-LOGO_A-PI/2;lgl.renderOrder=6;scene.add(lgl);
-  addMerged(D,sm({color:'#232630',metalness:0.62,roughness:0.30,envMapIntensity:0.55}));
-  addMerged(F,matFrame);
-})();
-
-// ================================================================
-// 基礎・給電棚（ハーネスの引込み先）
-// ================================================================
-(function buildBase(){
-  var S=[],F=[],CH=[],k,a,y;
-  // 床上に置く脚。表土に埋める造作は屋内では持たない
-  S.push(xf(new THREE.CylinderGeometry(R_UNIT+0.012,R_UNIT+0.020,0.020,48),0,0.010,0));
-  F.push(xf(new THREE.TorusGeometry(R_UNIT+0.020,0.006,6,52),0,0.020,0,PI/2));
+  // 基礎
+  L.push(xf(new THREE.CylinderGeometry(FND_R,FND_R+0.18,FND_H,28),0,-FND_H*0.5,0));
+  F.push(xf(new THREE.TorusGeometry(FND_R,0.05,6,40),0,-0.06,0,PI/2));
+  F.push(xf(new THREE.CylinderGeometry(TOW_R0+0.22,TOW_R0+0.30,0.24,16),0,0.10,0));
   for(k=0;k<6;k++){
-    a=k/6*TAU+PI/6;
-    F.push(xf(new THREE.CylinderGeometry(0.052,0.058,0.012,16),
-      Math.cos(a)*(R_UNIT-0.05),0.006,Math.sin(a)*(R_UNIT-0.05)));
-    F.push(xf(new THREE.CylinderGeometry(0.020,0.020,0.030,10),
-      Math.cos(a)*(R_UNIT-0.05),0.020,Math.sin(a)*(R_UNIT-0.05)));
-    F.push(xf(new THREE.CylinderGeometry(0.032,0.032,0.014,12),
-      Math.cos(a)*(R_UNIT-0.05),0.040,Math.sin(a)*(R_UNIT-0.05)));
-    CH.push(xf(new THREE.TorusGeometry(0.060,0.004,4,18),
-      Math.cos(a)*(R_UNIT-0.05),0.013,Math.sin(a)*(R_UNIT-0.05),PI/2));
+    a=k/6*TAU+0.2;
+    F.push(xf(new THREE.BoxGeometry(0.10,0.34,0.55),
+      Math.cos(a)*(TOW_R0+0.44),0.16,Math.sin(a)*(TOW_R0+0.44),0,-a,0));
   }
-  var chm=addMerged(CH,matChan,4);
-  var sh=(PWR_T-PWR_B)/N_SHELF;
-  for(k=0;k<N_SHELF;k++){
-    y=PWR_B+k*sh+sh*0.5;
-    S.push(xf(new THREE.CylinderGeometry(R_UNIT,R_UNIT,sh*0.80,44,1,true,FRONT_S,FRONT_W),0,y,0));
-    var tg=new THREE.TorusGeometry(R_UNIT-0.004,0.005,5,48,FRONT_W);
-    F.push(xf(tg,0,y+sh*0.42,0,PI/2,0,0).rotateY(-FRONT_S));
-    for(a=0;a<2;a++){
-      var ha=FRONT_C+(a-0.5)*1.15;
-      F.push(xf(new THREE.BoxGeometry(0.11,0.012,0.014),
-        Math.cos(ha)*(R_UNIT-0.012),y,Math.sin(ha)*(R_UNIT-0.012),0,tanRot(ha),0));
-    }
-  }
-  S.push(xf(new THREE.CylinderGeometry(R_UNIT*0.99,R_UNIT*0.99,0.03,44),0,PWR_T+0.015,0));
-  // 裾の輪（全周）と、上のデッキ
-  S.push(xf(new THREE.CylinderGeometry(R_UNIT,R_UNIT,PWR_B-0.020,48,1,true),0,0.020+(PWR_B-0.020)*0.5,0));
-  F.push(xf(new THREE.TorusGeometry(R_UNIT+0.004,0.008,6,52),0,0.012,0,PI/2));
-  S.push(xf(new THREE.CylinderGeometry(R_UNIT,R_UNIT,LO_B-PWR_T-0.03,48,1,true),0,(PWR_T+0.03+LO_B)*0.5,0));
-  F.push(xf(new THREE.TorusGeometry(R_UNIT+0.004,0.008,6,52),0,LO_B-0.008,0,PI/2));
-  // 背面120°の機械室：受電端子・遮断器・灌流ポンプ・冷媒溜め
-  var MR=[],MF=[],MP=[],mk2,ma;
-  MR.push(xf(new THREE.CylinderGeometry(R_UNIT,R_UNIT,PWR_T-PWR_B,30,1,true,REAR_S,REAR_W),0,(PWR_B+PWR_T)*0.5,0));
-  MR.push(xf(new THREE.CylinderGeometry(R_REC-0.01,R_REC-0.01,PWR_T-PWR_B,22,1,true,REAR_S,REAR_W),0,(PWR_B+PWR_T)*0.5,0));
-  for(mk2=-1;mk2<=1;mk2+=2){
-    ma=REAR_C+mk2*REAR_W*0.5;
-    MR.push(xf(new THREE.BoxGeometry(R_UNIT-R_REC+0.01,PWR_T-PWR_B,0.012),
-      Math.cos(ma)*(R_REC+R_UNIT)*0.5,(PWR_B+PWR_T)*0.5,Math.sin(ma)*(R_REC+R_UNIT)*0.5,0,radRot(ma),0));
-  }
-  // 受電端子と遮断器（引込みの真上）
-  MF.push(xf(new THREE.BoxGeometry(0.16,0.13,0.09),
-    Math.cos(REAR_C)*(R_UNIT-0.07),0.11,Math.sin(REAR_C)*(R_UNIT-0.07),0,tanRot(REAR_C),0));
-  for(mk2=0;mk2<3;mk2++){
-    ma=REAR_C+(mk2-1)*0.16;
-    MF.push(xf(new THREE.BoxGeometry(0.032,0.075,0.040),
-      Math.cos(ma)*(R_UNIT-0.15),0.20,Math.sin(ma)*(R_UNIT-0.15),0,tanRot(ma),0));
-    MF.push(xf(new THREE.BoxGeometry(0.020,0.010,0.014),
-      Math.cos(ma)*(R_UNIT-0.128),0.235,Math.sin(ma)*(R_UNIT-0.128),0,tanRot(ma),0));
-  }
-  // 灌流ポンプ2基と冷媒溜め
-  for(mk2=-1;mk2<=1;mk2+=2){
-    ma=REAR_C+mk2*0.42;
-    MF.push(xf(new THREE.CylinderGeometry(0.048,0.048,0.11,14),Math.cos(ma)*0.40,0.12,Math.sin(ma)*0.40));
-    MF.push(xf(new THREE.CylinderGeometry(0.056,0.056,0.014,14),Math.cos(ma)*0.40,0.185,Math.sin(ma)*0.40));
-    MP.push(xf(new THREE.CylinderGeometry(0.030,0.030,0.10,12),Math.cos(ma)*0.40,0.115,Math.sin(ma)*0.40));
-    MF.push(tube(new THREE.Vector3(Math.cos(ma)*0.40,0.19,Math.sin(ma)*0.40),
-                 new THREE.Vector3(Math.cos(ma)*0.40,PWR_T+0.02,Math.sin(ma)*0.40),0.013,8));
-  }
-  MF.push(xf(new THREE.CylinderGeometry(0.085,0.085,0.15,18,1,true),Math.cos(REAR_C)*0.28,0.115,Math.sin(REAR_C)*0.28));
-  MF.push(xf(new THREE.TorusGeometry(0.088,0.007,6,20),Math.cos(REAR_C)*0.28,0.19,Math.sin(REAR_C)*0.28,PI/2));
-  MP.push(xf(new THREE.CylinderGeometry(0.070,0.070,0.11,16),Math.cos(REAR_C)*0.28,0.095,Math.sin(REAR_C)*0.28));
-  S=S.concat(MR);F=F.concat(MF);
-  addMerged(MP,matMilk);
-  var ix=Math.cos(REAR_C)*(R_UNIT-0.02), iz=Math.sin(REAR_C)*(R_UNIT-0.02);
-  S.push(xf(new THREE.BoxGeometry(0.26,0.20,0.10),ix,0.14,iz,0,tanRot(REAR_C),0));
-  F.push(xf(new THREE.TorusGeometry(0.070,0.010,6,16),
-    Math.cos(REAR_C)*(R_UNIT+0.030),0.14,Math.sin(REAR_C)*(R_UNIT+0.030),0,tanRot(REAR_C),PI/2));
-  scene.add(new THREE.Mesh(mergeGeos(S),matShell));
-  scene.add(new THREE.Mesh(mergeGeos(F),matFrame));
-  // 引込みは基壇のすぐ外で床へ落とす（作品は円筒だけ）
-  var cp=[];
-  for(k=0;k<=10;k++){
-    var t=k/10, rr=(R_UNIT+0.04)+0.34*t;
-    cp.push(new THREE.Vector3(Math.cos(REAR_C)*rr, lerp(0.14,0.062,t*t), Math.sin(REAR_C)*rr));
-  }
-  scene.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(cp),40,0.082,10,false),matBraid));
-  // 床の受け口。ケーブルはここで床下へ落ちる
-  var px=Math.cos(REAR_C)*(R_UNIT+0.38), pz=Math.sin(REAR_C)*(R_UNIT+0.38);
-  var pt2=[];
-  pt2.push(xf(new THREE.CylinderGeometry(0.17,0.17,0.026,26),px,0.013,pz));
-  pt2.push(xf(new THREE.TorusGeometry(0.17,0.010,6,28),px,0.026,pz,PI/2));
-  pt2.push(xf(new THREE.CylinderGeometry(0.095,0.095,0.075,16),px,0.045,pz));
-  pt2.push(xf(new THREE.TorusGeometry(0.100,0.008,5,16),px,0.082,pz,PI/2));
-  for(k=0;k<6;k++){
-    var pa3=k/6*TAU;
-    pt2.push(xf(new THREE.BoxGeometry(0.05,0.010,0.030),
-      px+Math.cos(pa3)*0.140,0.028,pz+Math.sin(pa3)*0.140,0,tanRot(pa3),0));
-  }
-  addMerged(pt2,matFrame);
+  scene.add(new THREE.Mesh(mergeGeos(L),matMast));
+  scene.add(new THREE.Mesh(mergeGeos(F),matChrome));
+  // 塔を下る送電
+  downMesh=new THREE.Mesh(
+    xf(new THREE.CylinderGeometry(TOW_R1*0.72,TOW_R0*0.80,TOW_H-0.6,16,1,true),0,TOW_H*0.5,0),matDown);
+  downMesh.renderOrder=7;scene.add(downMesh);
 })();
 
 // ================================================================
-// 演算トレイ 18段 × 4モジュール = 72台
-// モジュールは平板ではなく円筒に沿う曲面セクタ。外面から一切出ない
+// 受信ヘッド（タワー先端）
 // ================================================================
-var modMesh=null, ledMesh=null, bayGlow=null, N_MODT=0, mdPhase=[], mdBase=[];
-var pcbMesh=null, compMesh=null, plateMesh=null;
-var triMesh=[], triHalo=[], triPhase=[];
-(function buildTrays(){
-  var S=[],F=[],BK=[],slots=[],i,m,a,y;
-  var SEC2=0;
-  var SEC=FRONT_W/N_MOD;                 // 1モジュールの割り当て角 60°
-  var HALF=SEC*0.5-0.062;                // 隙間を広げ、奥のプレナムを見せる
-  for(i=0;i<N_TRAY;i++){
-    y=trayY(i);
-    // 背板（モジュールの内側）
-    S.push(xf(new THREE.CylinderGeometry(MOD_IN-0.014,MOD_IN-0.014,TR_P*0.92,28,1,true,FRONT_S,FRONT_W),0,y,0));
-    for(m=0;m<N_MOD;m++){
-      a=modAngle(m);
-      slots.push({a:a,y:y});
-      BK.push(xf(new THREE.CylinderGeometry(MOD_IN-0.008,MOD_IN-0.008,TR_P*0.58,10,1,true,-HALF,HALF*2),
-        0,y,0,0,-a,0));
-      // 隙間の奥に立つスリット。奥行きが読める
-      BK.push(xf(new THREE.BoxGeometry(MOD_OUT-MOD_IN-0.02,TR_P*0.80,0.004),
-        Math.cos(a+SEC*0.5)*(MOD_IN+MOD_OUT)*0.5,y,Math.sin(a+SEC*0.5)*(MOD_IN+MOD_OUT)*0.5,
-        0,radRot(a+SEC*0.5),0));
-    }
-    // モジュール境界の柱（半径方向に立てる）
-    for(m=0;m<=N_MOD;m++){
-      a=FRONT_C+(m-N_MOD*0.5)*SEC;
-      F.push(xf(new THREE.BoxGeometry(MOD_OUT-MOD_IN+0.010,TR_P*0.94,0.022),
-        Math.cos(a)*(MOD_IN+MOD_OUT)*0.5,y,Math.sin(a)*(MOD_IN+MOD_OUT)*0.5,0,radRot(a),0));
-    }
-  }
-  // 段の区切り（前面の弧に沿う）
-  for(i=0;i<=N_TRAY;i++){
-    var yy=i<=N_LO ? LO_B+i*TR_P : UP_B+(i-N_LO)*TR_P;
-    var tg=new THREE.TorusGeometry(MOD_OUT-0.004,0.0034,4,52,FRONT_W);
-    F.push(xf(tg,0,yy,0,PI/2,0,0).rotateY(-FRONT_S));
-  }
-  // 中央の縦シャフト。トレイ帯の芯を通り、灌流の往還を抱く（槽の上下で切る）
-  var SH=[],seg;
-  [[PWR_T+0.02,VAT_B-0.03],[VAT_B+VAT_H+0.03,CDU_B-0.02]].forEach(function(sg){
-    var y0=sg[0],y1=sg[1];
-    // 塞いだ柱にする。中は見せない（灌流は背面の区画に一本化した）
-    SH.push(xf(new THREE.CylinderGeometry(SHAFT_R,SHAFT_R,y1-y0,22),0,(y0+y1)*0.5,0));
-    F.push(xf(new THREE.TorusGeometry(SHAFT_R+0.006,0.008,6,24),0,y0+0.02,0,PI/2));
-    F.push(xf(new THREE.TorusGeometry(SHAFT_R+0.006,0.008,6,24),0,y1-0.02,0,PI/2));
-    for(var q3=0;q3<6;q3++){
-      var qa=q3/6*TAU+0.2;
-      F.push(xf(new THREE.BoxGeometry(0.016,y1-y0-0.08,0.020),
-        Math.cos(qa)*(SHAFT_R+0.004),(y0+y1)*0.5,Math.sin(qa)*(SHAFT_R+0.004),0,tanRot(qa),0));
-    }
-    // 端の口金
-    F.push(xf(new THREE.CylinderGeometry(SHAFT_R+0.014,SHAFT_R+0.014,0.026,22),0,y0+0.013,0));
-    F.push(xf(new THREE.CylinderGeometry(SHAFT_R+0.014,SHAFT_R+0.014,0.026,22),0,y1-0.013,0));
-  });
-  scene.add(new THREE.Mesh(mergeGeos(SH),matShell));
-  // ---- 前面の境界3本を通る管理系。背面が電力・冷媒・神経幹、前面は管理と接続 ----
-  var CL=[],CG=[],cb,ca,cy0=PWR_T+0.03,cy1=CDU_B-0.02;
-  for(cb=-1;cb<=1;cb++){
-    ca=FRONT_C+cb*SEC;
-    // 構造柱（外面の内側）
-    F.push(xf(new THREE.BoxGeometry(0.052,cy1-cy0,0.034),
-      Math.cos(ca)*(R_UNIT-0.030),(cy0+cy1)*0.5,Math.sin(ca)*(R_UNIT-0.030),0,tanRot(ca),0));
-    // 管理配線 3条（梯子状の受けに載る）
-    for(i=-1;i<=1;i++){
-      CL.push(xf(new THREE.CylinderGeometry(0.0085,0.0085,cy1-cy0,7),
-        Math.cos(ca)*(R_UNIT-0.072)-Math.sin(ca)*i*0.019,(cy0+cy1)*0.5,
-        Math.sin(ca)*(R_UNIT-0.072)+Math.cos(ca)*i*0.019));
-    }
-    // 段ごとの受けと分岐端子
-    for(i=0;i<N_TRAY;i++){
-      y=trayY(i);
-      F.push(xf(new THREE.BoxGeometry(0.030,0.006,0.070),
-        Math.cos(ca)*(R_UNIT-0.058),y-TR_P*0.30,Math.sin(ca)*(R_UNIT-0.058),0,tanRot(ca),0));
-      F.push(xf(new THREE.BoxGeometry(0.024,0.020,0.026),
-        Math.cos(ca)*(R_UNIT-0.032),y+TR_P*0.10,Math.sin(ca)*(R_UNIT-0.032),0,tanRot(ca),0));
-      CG.push(xf(new THREE.BoxGeometry(0.014,0.0045,0.014),
-        Math.cos(ca)*(R_UNIT-0.018),y+TR_P*0.10,Math.sin(ca)*(R_UNIT-0.018),0,tanRot(ca),0));
-    }
-    // 末端：下は機械室のデッキへ、上はCDUへ入る
-    F.push(xf(new THREE.BoxGeometry(0.060,0.040,0.076),
-      Math.cos(ca)*(R_UNIT-0.052),cy0+0.020,Math.sin(ca)*(R_UNIT-0.052),0,tanRot(ca),0));
-    F.push(xf(new THREE.BoxGeometry(0.060,0.040,0.076),
-      Math.cos(ca)*(R_UNIT-0.052),cy1-0.020,Math.sin(ca)*(R_UNIT-0.052),0,tanRot(ca),0));
-  }
-  addMerged(CL,matBraid);
-  var cgm=addMerged(CG,matNode,5);
-  scene.add(new THREE.Mesh(mergeGeos(S),matShell));
-  scene.add(new THREE.Mesh(mergeGeos(F),matFrame));
-  bayGlow=new THREE.Mesh(mergeGeos(BK),matBay);bayGlow.renderOrder=3;scene.add(bayGlow);
+var dishGroup=null,rimGlow=null,drawCone=null,throat=null,headLight=null;
+(function buildHead(){
+  dishGroup=new THREE.Group();
+  dishGroup.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),IN_DIR);
+  dishGroup.position.copy(VERTEX);scene.add(dishGroup);
 
-  N_MODT=slots.length;
-  // ---- モジュール1台：方位0を中心に曲面セクタで組み、インスタンスで回す ----
-  var mb=[],f2,fa,gd;
-  mb.push(new THREE.CylinderGeometry(MOD_OUT,MOD_OUT,TR_P*0.74,16,1,true,-HALF,HALF*2));
-  mb.push(new THREE.CylinderGeometry(MOD_IN,MOD_IN,TR_P*0.74,12,1,true,-HALF,HALF*2));
-  for(f2=-1;f2<=1;f2+=2){                       // 側板：外面から内面まで通す
-    fa=f2*HALF;
-    mb.push(xf(new THREE.BoxGeometry(MOD_OUT-MOD_IN,TR_P*0.74,0.006),
-      Math.cos(fa)*(MOD_IN+MOD_OUT)*0.5,0,Math.sin(fa)*(MOD_IN+MOD_OUT)*0.5,0,radRot(fa),0));
+  var pts=[],i,k,a;
+  for(i=0;i<=22;i++){var r=AP_R*i/22;pts.push(new THREE.Vector2(r,r*r/(4*AP_F)));}
+  dishGroup.add(new THREE.Mesh(new THREE.LatheGeometry(pts,56),matDish));
+
+  var S=[];
+  S.push(xf(new THREE.TorusGeometry(AP_R,0.045,8,64),0,AP_D,0,PI/2));
+  for(k=1;k<=2;k++){var r2=AP_R*k/3;S.push(xf(new THREE.TorusGeometry(r2,0.022,6,44),0,r2*r2/(4*AP_F),0,PI/2));}
+  for(k=0;k<12;k++){
+    a=k/12*TAU;
+    S.push(tube(new THREE.Vector3(0,-0.03,0),new THREE.Vector3(Math.cos(a)*AP_R,AP_D-0.03,Math.sin(a)*AP_R),0.016,5));
   }
-  for(f2=-1;f2<=1;f2+=2){                       // 天板・底板（楔の全面）
-    mb.push(xf(new THREE.RingGeometry(MOD_IN,MOD_OUT,14,1,-HALF,HALF*2),0,f2*TR_P*0.37,0,PI/2,0,0));
+  S.push(xf(new THREE.CylinderGeometry(AP_R*0.28,AP_R*0.36,0.22,20),0,-0.14,0));
+  // 焦点の受信ヘッドと放熱フィン
+  S.push(xf(new THREE.CylinderGeometry(0.24,0.34,0.52,18),0,AP_F+0.06,0));
+  S.push(xf(new THREE.CylinderGeometry(0.36,0.36,0.05,18),0,AP_F-0.22,0));
+  for(k=0;k<8;k++){
+    a=k/8*TAU;
+    S.push(xf(new THREE.BoxGeometry(0.04,0.34,0.17),Math.cos(a)*0.40,AP_F+0.10,Math.sin(a)*0.40,0,-a,0));
   }
-  mb.push(new THREE.CylinderGeometry(MOD_IN+0.020,MOD_IN+0.020,TR_P*0.56,12,1,true,-HALF*0.94,HALF*1.88));
-  // ---- ベースボード（楔一面の大型基板）----
-  var pcb=[];
-  pcb.push(xf(new THREE.RingGeometry(MOD_IN+0.022,MOD_OUT-0.014,18,1,-HALF*0.95,HALF*1.90),
-    0,-0.0182,0,PI/2,0,0));
-  var pcbg=mergeGeos(pcb);
-  // ---- 実装部品 ----
-  var cm=[],pl=[],rr3,ag;
-  function put(arr,rr,ag,w,h,d,yy){
-    arr.push(xf(new THREE.BoxGeometry(w,h,d),
-      Math.cos(ag)*rr,yy,Math.sin(ag)*rr,0,radRot(ag),0));
+  for(k=0;k<3;k++){
+    a=k/3*TAU+0.5;
+    S.push(tube(new THREE.Vector3(Math.cos(a)*(AP_R-0.20),AP_D,Math.sin(a)*(AP_R-0.20)),
+                new THREE.Vector3(Math.cos(a)*0.30,AP_F-0.10,Math.sin(a)*0.30),0.028,6));
   }
-  // 主コールドプレート（演算ダイの上）と副プレート
-  put(pl,0.452,0,0.120,0.0205,0.130,-0.0063);
-  put(pl,0.322,0,0.070,0.0140,0.092,-0.0095);
-  // プレートの継手と枝管
-  for(f2=-1;f2<=1;f2+=2){
-    pl.push(xf(new THREE.CylinderGeometry(0.0055,0.0055,0.140,8),
-      Math.cos(f2*0.055)*0.386,0.0010,Math.sin(f2*0.055)*0.386,0,radRot(f2*0.055),PI/2));
+  dishGroup.add(new THREE.Mesh(mergeGeos(S),matChrome));
+
+  rimGlow=new THREE.Mesh(new THREE.TorusGeometry(AP_R+0.05,0.035,6,64),matRim);
+  rimGlow.rotation.x=PI/2;rimGlow.position.set(0,AP_D,0);
+  rimGlow.renderOrder=6;dishGroup.add(rimGlow);
+
+  var cone=new THREE.CylinderGeometry(0.10,AP_R,AP_F-AP_D,56,1,true);
+  cone.translate(0,AP_D+(AP_F-AP_D)*0.5,0);
+  drawCone=new THREE.Mesh(cone,matDraw);drawCone.renderOrder=9;dishGroup.add(drawCone);
+
+  throat=new THREE.Mesh(new THREE.SphereGeometry(0.17,20,14),matThroat);
+  throat.position.set(0,AP_F-0.30,0);throat.renderOrder=10;dishGroup.add(throat);
+
+  headLight=new THREE.PointLight('#ffd9f2',1.6,26,2);
+  headLight.position.copy(FOC);scene.add(headLight);
+
+  // ヨーク：到来方向の水平投影に直交する軸
+  var hz=new THREE.Vector3(IN_DIR.x,0,IN_DIR.z).normalize();
+  var side=new THREE.Vector3(-hz.z,0,hz.x),Y=[],base=TOW_H-0.85;
+  for(k=-1;k<=1;k+=2){
+    Y.push(tube(new THREE.Vector3(side.x*0.42*k,base,side.z*0.42*k),
+                VERTEX.clone().addScaledVector(side,0.42*k).addScaledVector(IN_DIR,-0.16),0.055,10));
   }
-  // HBM 積層 8基（ダイの周囲）
-  for(f2=0;f2<8;f2++){
-    ag=(f2<4? -1:1)*(0.075+0.052*((f2%4)>1?1:0));
-    rr3=0.452+((f2%2)?0.052:-0.052);
-    put(cm,rr3,ag,0.030,0.0125,0.024,-0.0103);
-  }
-  // VRM 段（前縁）
-  for(f2=0;f2<6;f2++){
-    ag=(-HALF*0.62)+(f2/5)*(HALF*1.24);
-    put(cm,0.566,ag,0.036,0.0085,0.030,-0.0122);
-  }
-  // 背面コネクタ（ブラインドメイト）
-  put(cm,0.292,0,0.020,0.0180,0.190,-0.0090);
-  for(f2=-1;f2<=1;f2+=2)put(cm,0.302,f2*0.30,0.016,0.0120,0.034,-0.0105);
-  var cmg=mergeGeos(cm), plg=mergeGeos(pl);
-  // 前面のコールドプレート櫛（外面の内側に収める）
-  for(f2=0;f2<9;f2++){
-    fa=(-HALF+0.02)+(f2/8)*(HALF*2-0.04);
-    mb.push(xf(new THREE.BoxGeometry(0.018,TR_P*0.48,0.007),
-      Math.cos(fa)*(MOD_OUT-0.009),0,Math.sin(fa)*(MOD_OUT-0.009),0,radRot(fa),0));
-  }
-  // 取っ手2本
-  for(f2=-1;f2<=1;f2+=2){
-    fa=f2*HALF*0.62;
-    mb.push(xf(new THREE.BoxGeometry(0.014,0.010,0.070),
-      Math.cos(fa)*(MOD_OUT-0.008),-TR_P*0.20,Math.sin(fa)*(MOD_OUT-0.008),0,radRot(fa),0));
-  }
-  var gm=mergeGeos(mb);
-  var gl=xf(new THREE.CylinderGeometry(MOD_OUT-0.004,MOD_OUT-0.004,0.0055,14,1,true,-HALF*0.86,HALF*1.72),
-    0,TR_P*0.25,0);
-  function mk(geo,mat,order){
-    var im=new THREE.InstancedMesh(withColor(geo),mat,N_MODT),n;
-    im.instanceMatrix.setUsage(THREE.StaticDrawUsage);im.frustumCulled=false;
-    for(n=0;n<N_MODT;n++)im.setColorAt(n,new THREE.Color(1,1,1));
-    if(im.instanceColor)im.instanceColor.needsUpdate=true;
-    if(order!==undefined)im.renderOrder=order;
-    return im;
-  }
-  modMesh=mk(gm,matBladeI);ledMesh=mk(gl,matLedI,4);
-  pcbMesh=mk(pcbg,matPCB);compMesh=mk(cmg,matComp);plateMesh=mk(plg,matPlate);
-  // 三色の状態灯：左端に3個。色ごとに別のインスタンスにする
-  // 三色：左端の状態灯を大きくし、面の下端に全幅の三色帯を通す
-  var LW=0.032, LG=0.015, L0=-HALF+0.070;
-  var SW=(HALF*1.86)/3;                       // 帯1本の張り角
-  for(var tk=0;tk<3;tk++){
-    var la=L0+tk*(LW+LG);
-    var s0=-HALF*0.93+tk*SW;
-    var tb=[];
-    // 状態灯（大）
-    tb.push(xf(new THREE.CylinderGeometry(MOD_OUT+0.0015,MOD_OUT+0.0015,0.019,7,1,true,la-LW*0.5,LW),
-      0,-TR_P*0.14,0));
-    // 面の下端を走る三色帯
-    tb.push(xf(new THREE.CylinderGeometry(MOD_OUT+0.0015,MOD_OUT+0.0015,0.0105,9,1,true,s0+0.008,SW-0.016),
-      0,-TR_P*0.315,0));
-    // 上端の細い刻み
-    tb.push(xf(new THREE.CylinderGeometry(MOD_OUT+0.0015,MOD_OUT+0.0015,0.0050,7,1,true,s0+SW*0.30,SW*0.40),
-      0,TR_P*0.335,0));
-    var hb=[];
-    hb.push(xf(new THREE.CylinderGeometry(MOD_OUT+0.006,MOD_OUT+0.006,0.040,7,1,true,la-LW*0.95,LW*1.9),
-      0,-TR_P*0.14,0));
-    hb.push(xf(new THREE.CylinderGeometry(MOD_OUT+0.005,MOD_OUT+0.005,0.026,9,1,true,s0+0.004,SW-0.008),
-      0,-TR_P*0.315,0));
-    triMesh.push(mk(mergeGeos(tb),matTri[tk],5));
-    triHalo.push(mk(mergeGeos(hb),matTriG[tk],6));
-    triPhase.push([]);
-  }
-  var d=new THREE.Object3D(),n,tj;
-  for(n=0;n<N_MODT;n++){
-    var sl=slots[n];
-    d.position.set(0,sl.y,0);d.rotation.set(0,sl.a,0);d.scale.set(1,1,1);d.updateMatrix();
-    modMesh.setMatrixAt(n,d.matrix);ledMesh.setMatrixAt(n,d.matrix);
-    pcbMesh.setMatrixAt(n,d.matrix);compMesh.setMatrixAt(n,d.matrix);plateMesh.setMatrixAt(n,d.matrix);
-    for(tj=0;tj<3;tj++){
-      triMesh[tj].setMatrixAt(n,d.matrix);triHalo[tj].setMatrixAt(n,d.matrix);
-      triPhase[tj].push(rnd()*TAU);
-    }
-    mdPhase.push(rnd()*TAU);mdBase.push(0.34+rnd()*0.66);
-  }
-  modMesh.instanceMatrix.needsUpdate=true;ledMesh.instanceMatrix.needsUpdate=true;
-  pcbMesh.instanceMatrix.needsUpdate=true;compMesh.instanceMatrix.needsUpdate=true;
-  plateMesh.instanceMatrix.needsUpdate=true;
-  scene.add(modMesh);scene.add(ledMesh);
-  scene.add(pcbMesh);scene.add(compMesh);scene.add(plateMesh);
-  for(tj=0;tj<3;tj++){
-    triMesh[tj].instanceMatrix.needsUpdate=true;triHalo[tj].instanceMatrix.needsUpdate=true;
-    scene.add(triMesh[tj]);scene.add(triHalo[tj]);
-  }
+  Y.push(tube(VERTEX.clone().addScaledVector(side,0.52).addScaledVector(IN_DIR,-0.16),
+              VERTEX.clone().addScaledVector(side,-0.52).addScaledVector(IN_DIR,-0.16),0.04,10));
+  Y.push(xf(new THREE.CylinderGeometry(TOW_R1+0.06,TOW_R1+0.10,0.22,14),0,base-0.12,0));
+  scene.add(new THREE.Mesh(mergeGeos(Y),matChrome));
 })();
 
 // ================================================================
-// 中央帯：培養槽と脳（実物のスイッチトレイ帯にあたる位置）
-// 脳はミルクに浸っているので、頭頂の受け口（給餌着弾点）は置かない
+// 土台 ── 14角形の甲板
+//   この場は14束から成る。円ではなく14角形にすれば、
+//   頂点が束の軸に、辺の中点が束の間に一致する。形が機能から出る
+//   放射梁14が配電を担い、環梁3が42基の荷を受ける
 // ================================================================
-(function buildVatBand(){
-  var F=[],PK=[],k,a,i;
-  F.push(xf(new THREE.CylinderGeometry(R_UNIT-0.002,R_UNIT-0.002,0.042,40,1,true,FRONT_S,FRONT_W),0,VAT_B-0.021,0));
-  F.push(xf(new THREE.CylinderGeometry(R_UNIT-0.002,R_UNIT-0.002,0.042,40,1,true,FRONT_S,FRONT_W),0,VAT_B+VAT_H+0.021,0));
-  // 背面の隔壁と、断面をふさぐ側板2枚
-  // 隔壁は両面。片面だと槽の内側から裏が消えて背後が見通せる
-  var bh=new THREE.Mesh(xf(new THREE.CylinderGeometry(R_REC-0.004,R_REC-0.004,VAT_H+0.09,30,1,true,REAR_S,REAR_W),0,VAT_MID,0),
-    sm({color:'#c6ccd6',metalness:0.94,roughness:0.16,envMapIntensity:1.1,side:THREE.DoubleSide}));
-  scene.add(bh);
-  for(k=-1;k<=1;k+=2){
-    a=REAR_C+k*REAR_W*0.5;
-    F.push(xf(new THREE.BoxGeometry(R_UNIT-R_REC,VAT_H,0.014),
-      Math.cos(a)*(R_REC+R_UNIT)*0.5,VAT_MID,Math.sin(a)*(R_REC+R_UNIT)*0.5,0,radRot(a),0));
-  }
-  for(k=0;k<2;k++){
-    var tg2=new THREE.TorusGeometry(R_UNIT-0.008,0.0065,6,48,FRONT_W);
-    F.push(xf(tg2,0,k===0?VAT_B+0.010:VAT_B+VAT_H-0.010,0,PI/2,0,0).rotateY(-FRONT_S));
-  }
-  for(k=0;k<5;k++){
-    a=FRONT_C+(k-2)*(FRONT_W/5);     // 前面240°の内側だけ
-    F.push(xf(new THREE.CylinderGeometry(0.012,0.012,VAT_H,6),
-      Math.cos(a)*(R_UNIT-0.020),VAT_MID,Math.sin(a)*(R_UNIT-0.020)));
-  }
-  for(i=0;i<3;i++){
-    var ey=VAT_MID-0.15+i*0.15;
-    F.push(xf(new THREE.TorusGeometry(0.300,0.0055,5,36),0,ey,0,PI/2));
-    for(k=0;k<10;k++){
-      a=k/10*TAU+i*0.11;
-      F.push(xf(new THREE.CylinderGeometry(0.005,0.005,0.045,5),
-        Math.cos(a)*0.300,ey,Math.sin(a)*0.300,PI/2,0,radRot(a)));
-    }
-  }
-  // 槽の背面120°は隔壁（配管区画の底が兼ねる）。ガラスは前面240°だけ
-  var vg=xf(new THREE.CylinderGeometry(R_UNIT,R_UNIT,VAT_H,44,1,true,FRONT_S,FRONT_W),0,VAT_MID,0);
-  var back=new THREE.Mesh(vg,matGlassB);back.renderOrder=3;scene.add(back);
-  var front=new THREE.Mesh(vg.clone(),matGlassF);front.renderOrder=8;scene.add(front);
-  // 液体は充填しない。背面側の加算色味と浮遊物で表す（公開版と同じ扱い）
-  var tint=new THREE.Mesh(xf(new THREE.CylinderGeometry(R_UNIT-0.010,R_UNIT-0.010,VAT_H*0.96,40,1,true,FRONT_S,FRONT_W),0,VAT_MID,0),
-    new THREE.MeshBasicMaterial({color:'#ffb8dd',transparent:true,opacity:0.11,
-      blending:THREE.AdditiveBlending,side:THREE.BackSide,depthWrite:false}));
-  tint.renderOrder=2;scene.add(tint);
-  var NB=260,bp=new Float32Array(NB*3),bs=[],bi2;
-  for(bi2=0;bi2<NB;bi2++){
-    var ba=FRONT_S+rnd()*FRONT_W, brr=Math.sqrt(rnd())*(R_REC-0.045);
-    bp[bi2*3]=Math.cos(ba)*brr;
-    bp[bi2*3+1]=VAT_B+0.03+rnd()*(VAT_H-0.06);
-    bp[bi2*3+2]=Math.sin(ba)*brr;
-    bs.push(0.16+rnd()*0.30);
-  }
-  var bg=new THREE.BufferGeometry();
-  bg.setAttribute('position',new THREE.BufferAttribute(bp,3));
-  vatBubbles=new THREE.Points(bg,new THREE.PointsMaterial({size:0.019,map:TEX_GLOW_P,
-    transparent:true,opacity:0.7,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true}));
-  vatBubbles.renderOrder=5;scene.add(vatBubbles);
-  window.__H53_BSPD=bs;
+var N_DK   = N_SET;
+var R_IN   = 2.60;                     // 中央の開口。塔の基礎(1.80)と縁を切る
+var R_V    = 25.50;                    // 頂点までの半径
+var AP     = R_V*Math.cos(PI/N_DK);    // 辺の中点まで 24.86
+var DK_Y   = 1.10;                     // 甲板の天端
+var DK_T   = 0.09;                     // 甲板の厚み
+var GR_D   = 0.55;                     // 梁の高さ
+var A_DK   = 0.11;                     // 頂点の基準方位（束と一致）
+var RINGS  = DROP;                     // 環梁＝据付の半径（ユニットと同一）
+var U_OFS  = UNIT_OFS;                 // 据付点の横ずれ（ユニットと同一）
+var N_BL   = N_DK*18;                  // 柵の羽根
+var BL_H   = 1.40, BL_W=0.10, BL_T=0.022, BL_TILT=0.105;
+var POST_H = 2.10;
+var PAD_T  = 0.055;                    // 据付座の厚み
+var SET_Y  = DK_Y+PAD_T;               // ユニットの据付面 = 1.155
+var nodePad=[], bladeMesh=null, postTri=[], markMesh=null, dkLed=null;
 
-  function gyriField(x,y,z){
-    var w1=Math.sin(y*2.7+z*1.9)+0.6*Math.sin(z*4.1+x*1.3);
-    var w2=Math.sin(x*2.9+y*2.1)+0.6*Math.sin(y*4.7+z*1.7);
-    var w3=Math.sin(z*3.3+x*2.5)+0.6*Math.sin(x*5.1+y*1.9);
-    return (Math.sin(x*5.2+w1*1.9)+Math.sin(y*5.8+w2*1.9)+Math.sin(z*4.9+w3*1.9))/3;
+function vtx(i){var a=A_DK+i/N_DK*TAU;return new THREE.Vector2(Math.cos(a)*R_V,Math.sin(a)*R_V);}
+// 14角形の内側かどうか（辺の内側判定）
+function inPoly(x,z){
+  var i,ok=true;
+  for(i=0;i<N_DK;i++){
+    var a=A_DK+(i+0.5)/N_DK*TAU;        // 辺の外向き法線
+    if(x*Math.cos(a)+z*Math.sin(a)>AP)ok=false;
   }
-  function buildBrainPart(seg,kind){
-    var geo=new THREE.SphereGeometry(1,seg,Math.floor(seg*0.72));
-    var p=geo.attributes.position,v=new THREE.Vector3();
-    var col=new Float32Array(p.count*3);
-    var cRidge=new THREE.Color(kind==='cerebrum'?'#f2b0c6':'#e29aac');
-    var cValley=new THREE.Color(kind==='cerebrum'?'#a83a68':'#93315a');
-    var tmp=new THREE.Color(),i2;
-    for(i2=0;i2<p.count;i2++){
-      v.set(p.getX(i2),p.getY(i2),p.getZ(i2));
-      var dd=v.clone().normalize(),shade,rr2;
-      if(kind==='cerebrum'){
-        var bb=Math.abs(gyriField(dd.x*1.05,dd.y*1.15,dd.z));
-        var ridge=1-Math.pow(bb,1.6);
-        rr2=0.90+0.135*ridge+0.014*Math.sin(dd.x*17)*Math.sin(dd.y*15+2)*Math.sin(dd.z*16);
-        if(Math.abs(dd.x)<0.10)rr2-=0.20*(1-Math.abs(dd.x)/0.10);
-        shade=ridge;
-      }else{
-        var band=0.5+0.5*Math.sin(dd.y*30+Math.sin(dd.x*6.0)*1.2);
-        rr2=0.95+0.05*Math.pow(band,0.7)+0.01*Math.sin(dd.z*22);
-        shade=band;
-      }
-      v.copy(dd).multiplyScalar(rr2);p.setXYZ(i2,v.x,v.y,v.z);
-      tmp.copy(cValley).lerp(cRidge,0.15+0.85*shade);
-      tmp.multiplyScalar(0.84+0.20*clamp(dd.y*0.5+0.5,0,1));
-      col[i2*3]=tmp.r;col[i2*3+1]=tmp.g;col[i2*3+2]=tmp.b;
+  return ok;
+}
+
+(function buildPlatform(){
+  var S=[],F=[],CH=[],LD=[],MK=[],i,j,k,a,r,x,z,y;
+
+  // ---- 甲板：14の扇に分け、多孔の板を張る ----
+  for(i=0;i<N_DK;i++){
+    var a0=A_DK+i/N_DK*TAU, a1=A_DK+(i+1)/N_DK*TAU;
+    // 扇の板（頂点2つと中心を結ぶ三角形の帯を、環ごとに分けて張る）
+    var edges=[0.0].concat(RINGS).concat([1e9]);
+    var rlist=[R_IN,RINGS[0],RINGS[1],RINGS[2]];
+    for(j=0;j<rlist.length;j++){
+      var rin=rlist[j], rout=(j+1<rlist.length)?rlist[j+1]:R_V;
+      var seg=new THREE.RingGeometry(rin,rout,7,1,a0,TAU/N_DK);
+      S.push(xf(seg,0,DK_Y,0,PI/2,0,0));
     }
-    geo.setAttribute('color',new THREE.BufferAttribute(col,3));
-    geo.computeVertexNormals();return geo;
   }
-  var brainSkin=new THREE.MeshPhysicalMaterial({vertexColors:true,roughness:0.24,metalness:0,
-    clearcoat:1.0,clearcoatRoughness:0.14,envMapIntensity:1.1,
-    sheen:new THREE.Color('#ffd9e6'),emissive:'#7a2038',emissiveIntensity:0.28});
-  brainGroup=new THREE.Group();
-  brainGroup.position.set(0,VAT_MID+0.012,0);
-  brainGroup.scale.setScalar(BRAIN_S);
-  scene.add(brainGroup);
-  brainCore=new THREE.Group();brainGroup.add(brainCore);
-  var cerebrum=new THREE.Mesh(buildBrainPart(96,'cerebrum'),brainSkin);
-  cerebrum.scale.set(1.85,1.55,1.7);cerebrum.renderOrder=4;brainCore.add(cerebrum);
-  var cere=new THREE.Mesh(buildBrainPart(56,'cerebellum'),brainSkin);
-  cere.scale.set(0.95,0.55,0.72);cere.position.set(0,-1.15,-0.92);cere.rotation.x=0.3;
-  cere.renderOrder=4;brainCore.add(cere);
-  var pons=new THREE.Mesh(new THREE.SphereGeometry(0.42,20,14),brainSkin);
-  pons.scale.set(1.1,0.8,0.9);pons.position.set(0,-1.4,-0.25);pons.renderOrder=4;brainCore.add(pons);
-  crownPuff=new THREE.Mesh(new THREE.SphereGeometry(0.55,16,12),
-    new THREE.MeshBasicMaterial({color:'#ff6fc8',transparent:true,opacity:0.0,
-      blending:THREE.AdditiveBlending,depthWrite:false}));
-  crownPuff.position.set(0,1.72,0);crownPuff.renderOrder=2;brainCore.add(crownPuff);
-  var bk=new THREE.PointLight('#ffe2ee',2.1,2.4,2);
-  bk.position.set(Math.cos(FRONT_C)*0.86,VAT_MID+0.34,Math.sin(FRONT_C)*0.30);scene.add(bk);
-  var br=new THREE.PointLight('#7fe6f0',1.20,2.1,2);
-  br.position.set(Math.cos(FRONT_C+2.0)*0.80,VAT_MID-0.14,Math.sin(FRONT_C+2.0)*0.80);scene.add(br);
-  var bf=new THREE.PointLight('#ff5fce',0.80,1.1,2);
-  bf.position.set(0,VAT_B+0.10,0);scene.add(bf);
-  scene.add(new THREE.Mesh(mergeGeos(F),matFrame));
-  addMerged(PK,matMilk);
-  coreFlare=new THREE.Sprite(new THREE.SpriteMaterial({map:TEX_GLOW_P,transparent:true,
-    opacity:0.45,blending:THREE.AdditiveBlending,depthWrite:false}));
-  coreFlare.scale.set(1.9,1.9,1);coreFlare.position.set(0,VAT_MID,0);scene.add(coreFlare);
+  // 甲板の抜き（多孔）— 環と放射の格子で表現する
+  for(i=0;i<N_DK*3;i++){
+    a=A_DK+i/(N_DK*3)*TAU;
+    F.push(xf(new THREE.BoxGeometry(R_V-R_IN-0.1,0.012,0.030),
+      Math.cos(a)*((R_V+R_IN+0.1)*0.5),DK_Y+0.008,Math.sin(a)*((R_V+R_IN+0.1)*0.5),0,-a,0));
+  }
+  for(j=0;j<24;j++){
+    r=R_IN+0.5+j*(R_V-R_IN-0.7)/23;
+    F.push(xf(new THREE.TorusGeometry(r,0.008,4,Math.max(24,Math.round(r*3))),0,DK_Y+0.008,0,PI/2));
+  }
+
+  // ---- 放射梁 14本（束の真下）----
+  for(i=0;i<N_DK;i++){
+    a=A_DK+i/N_DK*TAU;
+    var L=R_V-R_IN-0.2;
+    S.push(xf(new THREE.BoxGeometry(L,GR_D,0.26),
+      Math.cos(a)*(R_IN+0.2+L*0.5),DK_Y-DK_T-GR_D*0.5,Math.sin(a)*(R_IN+0.2+L*0.5),0,-a,0));
+    // ウェブの抜き穴
+    for(j=0;j<16;j++){
+      r=R_IN+0.9+j*(L-1.6)/15;
+      F.push(xf(new THREE.TorusGeometry(0.135,0.016,5,14),
+        Math.cos(a)*r,DK_Y-DK_T-GR_D*0.5,Math.sin(a)*r,0,PI/2-a,PI/2));
+    }
+    // フランジ
+    for(k=-1;k<=1;k+=2)
+      F.push(xf(new THREE.BoxGeometry(L,0.024,0.34),
+        Math.cos(a)*(R_IN+0.2+L*0.5),DK_Y-DK_T+k*(-GR_D*0.5+0.012)-GR_D*0.5+GR_D*0.5*(1+k)*0,
+        Math.sin(a)*(R_IN+0.2+L*0.5),0,-a,0));
+  }
+  // ---- 環梁 3本＋外周梁 ----
+  RINGS.concat([AP]).forEach(function(rr){
+    S.push(xf(new THREE.CylinderGeometry(rr+0.11,rr+0.11,GR_D,Math.max(28,Math.round(rr*2.6)),1,true),
+      0,DK_Y-DK_T-GR_D*0.5,0));
+    S.push(xf(new THREE.CylinderGeometry(rr-0.11,rr-0.11,GR_D,Math.max(28,Math.round(rr*2.6)),1,true),
+      0,DK_Y-DK_T-GR_D*0.5,0));
+    for(var kk=-1;kk<=1;kk+=2)
+      F.push(xf(new THREE.TorusGeometry(rr,0.020,5,Math.max(30,Math.round(rr*3))),
+        0,DK_Y-DK_T+kk*0.012-GR_D*(kk<0?1:0)+ (kk<0?0.024:0),0,PI/2));
+  });
+  // ---- 脚 70本：交点42＋外周14＋中央14 ----
+  function leg(px,pz,rad){
+    var gy=groundAt(Math.hypot(px,pz),Math.atan2(pz,px));
+    var h=DK_Y-DK_T-GR_D-gy;
+    S.push(xf(new THREE.CylinderGeometry(rad,rad*1.14,h,10),px,gy+h*0.5,pz));
+    F.push(xf(new THREE.CylinderGeometry(rad*1.9,rad*2.1,0.05,12),px,gy+0.025,pz));
+    F.push(xf(new THREE.TorusGeometry(rad*1.35,0.014,5,12),px,gy+h-0.04,pz));
+  }
+  for(i=0;i<N_DK;i++){
+    a=A_DK+i/N_DK*TAU;
+    for(j=0;j<RINGS.length;j++){
+      var ua=a+U_OFS/RINGS[j];
+      leg(Math.cos(ua)*RINGS[j],Math.sin(ua)*RINGS[j],0.075);
+    }
+    leg(Math.cos(a)*(AP-0.4),Math.sin(a)*(AP-0.4),0.090);
+    leg(Math.cos(a+PI/N_DK)*5.4,Math.sin(a+PI/N_DK)*5.4,0.065);
+  }
+  // ---- 42の据付節点：環梁の上、束から横 2.05 m ----
+  for(i=0;i<N_DK;i++){
+    a=A_DK+i/N_DK*TAU;
+    for(j=0;j<RINGS.length;j++){
+      r=RINGS[j];var ua=a+U_OFS/r;
+      x=Math.cos(ua)*r;z=Math.sin(ua)*r;
+      F.push(xf(new THREE.CylinderGeometry(0.78,0.82,0.055,26),x,DK_Y+0.028,z));
+      F.push(xf(new THREE.TorusGeometry(0.78,0.012,5,30),x,DK_Y+0.055,z,PI/2));
+      for(k=0;k<6;k++){
+        var pa=k/6*TAU+0.2;
+        F.push(xf(new THREE.CylinderGeometry(0.030,0.030,0.040,8),
+          x+Math.cos(pa)*0.62,DK_Y+0.075,z+Math.sin(pa)*0.62));
+      }
+      // 環梁から放射梁へ渡す短い横梁
+      var bx=Math.cos(a)*r, bz=Math.sin(a)*r;
+      S.push(xf(new THREE.BoxGeometry(Math.hypot(x-bx,z-bz),0.20,0.11,1),
+        (x+bx)*0.5,DK_Y-DK_T-0.11,(z+bz)*0.5,0,-Math.atan2(z-bz,x-bx),0));
+      LD.push(xf(new THREE.CylinderGeometry(0.795,0.795,0.010,26,1,true),x,DK_Y+0.048,z));
+      nodePad.push(new THREE.Vector3(x,DK_Y,z));
+    }
+  }
+
+  // ---- 柵：手すりではなく櫛。塵と迷光を止め、方位の基準を持つ ----
+  var bg=[];
+  bg.push(xf(new THREE.BoxGeometry(BL_T,BL_H,BL_W),0,BL_H*0.5,0));
+  bg.push(xf(new THREE.BoxGeometry(BL_T*1.7,0.030,BL_W*1.25),0,BL_H-0.015,0));
+  bladeMesh=new THREE.InstancedMesh(withColor(mergeGeos(bg)),
+    sm({color:'#3a4250',metalness:0.72,roughness:0.42,envMapIntensity:0.55}),N_BL);
+  bladeMesh.instanceMatrix.setUsage(THREE.StaticDrawUsage);bladeMesh.frustumCulled=false;
+  var d=new THREE.Object3D();
+  for(i=0;i<N_BL;i++){
+    var side=Math.floor(i/(N_BL/N_DK)), f=(i%(N_BL/N_DK)+0.5)/(N_BL/N_DK);
+    var p0=vtx(side), p1=vtx(side+1);
+    x=p0.x+(p1.x-p0.x)*f; z=p0.y+(p1.y-p0.y)*f;
+    var na=A_DK+(side+0.5)/N_DK*TAU;
+    d.position.set(x,DK_Y,z);
+    d.rotation.set(0,-na,0);
+    d.rotateZ(BL_TILT);
+    d.scale.set(1,1,1);d.updateMatrix();
+    bladeMesh.setMatrixAt(i,d.matrix);
+    bladeMesh.setColorAt(i,new THREE.Color(1,1,1));
+  }
+  bladeMesh.instanceMatrix.needsUpdate=true;
+  if(bladeMesh.instanceColor)bladeMesh.instanceColor.needsUpdate=true;
+  scene.add(bladeMesh);
+  // 羽根を受ける下弦と、辺ごとの縁
+  for(i=0;i<N_DK;i++){
+    var p0=vtx(i),p1=vtx(i+1);
+    var mx=(p0.x+p1.x)*0.5,mz=(p0.y+p1.y)*0.5,len=p0.distanceTo(p1);
+    var na=A_DK+(i+0.5)/N_DK*TAU;
+    F.push(xf(new THREE.BoxGeometry(0.09,0.07,len),mx,DK_Y+0.035,mz,0,-na,0));
+    F.push(xf(new THREE.BoxGeometry(0.05,0.04,len),
+      mx-Math.cos(na)*0.10,DK_Y+BL_H*0.62,mz-Math.sin(na)*0.10,0,-na,0));
+    S.push(xf(new THREE.BoxGeometry(0.16,DK_T+0.10,len),mx,DK_Y-DK_T*0.5,mz,0,-na,0));
+    // 方位の目盛（辺ごとに26本、10°ごとに長く）
+    for(j=0;j<26;j++){
+      var f2=(j+0.5)/26;
+      var tx=p0.x+(p1.x-p0.x)*f2, tz=p0.y+(p1.y-p0.y)*f2;
+      var deg=(Math.atan2(tz,tx)*180/PI+360)%360;
+      var big=(Math.round(deg)%10===0)||j%13===0;
+      MK.push(xf(new THREE.BoxGeometry(big?0.34:0.16,0.006,0.020),
+        tx-Math.cos(na)*(big?0.19:0.10),DK_Y+0.072,tz-Math.sin(na)*(big?0.19:0.10),0,-na,0));
+    }
+  }
+  // ---- 頂点14箇所の柱。三色を持つ ----
+  for(i=0;i<N_DK;i++){
+    var p=vtx(i);
+    F.push(xf(new THREE.CylinderGeometry(0.075,0.090,POST_H,12),p.x,DK_Y+POST_H*0.5,p.y));
+    F.push(xf(new THREE.CylinderGeometry(0.115,0.115,0.035,14),p.x,DK_Y+POST_H,p.y));
+    F.push(xf(new THREE.TorusGeometry(0.105,0.012,5,14),p.x,DK_Y+0.05,p.y,PI/2));
+    for(k=0;k<3;k++)
+      F.push(xf(new THREE.BoxGeometry(0.19,0.022,0.030),p.x,DK_Y+0.42+k*0.30,p.y,0,
+        -(A_DK+i/N_DK*TAU),0));
+  }
+  var TR=[[],[],[]];
+  for(i=0;i<N_DK;i++){
+    var p=vtx(i), pa2=A_DK+i/N_DK*TAU;
+    for(k=0;k<3;k++)
+      TR[k].push(xf(new THREE.BoxGeometry(0.021,0.115,0.048),
+        p.x-Math.cos(pa2)*0.082,DK_Y+POST_H-0.19-k*0.155,p.y-Math.sin(pa2)*0.082,0,-pa2,0));
+  }
+  for(k=0;k<3;k++){
+    var tm=new THREE.Mesh(mergeGeos(TR[k]),
+      new THREE.MeshBasicMaterial({color:TRI_P[k]}));
+    tm.renderOrder=6;scene.add(tm);postTri.push(tm);
+  }
+  // 甲板と表土のあいだの縁。ここで作業機が乗り降りする
+  var ra2=A_DK+PI/N_DK*1.0;
+  for(k=0;k<4;k++){
+    var rr2=AP+0.35+k*0.55, hh2=DK_Y-DK_T-(k+1)*(DK_Y/4.4);
+    S.push(xf(new THREE.BoxGeometry(0.62,0.10,3.10),
+      Math.cos(ra2)*rr2,hh2,Math.sin(ra2)*rr2,0,-ra2,0));
+    F.push(xf(new THREE.BoxGeometry(0.06,0.05,3.10),
+      Math.cos(ra2)*(rr2+0.28),hh2+0.075,Math.sin(ra2)*(rr2+0.28),0,-ra2,0));
+  }
+  scene.add(new THREE.Mesh(mergeGeos(S),matDeck));
+  scene.add(new THREE.Mesh(mergeGeos(F),matChrome));
+  markMesh=new THREE.Mesh(mergeGeos(MK),matMark);markMesh.renderOrder=5;scene.add(markMesh);
+  dkLed=new THREE.Mesh(mergeGeos(LD),matNodeE);dkLed.renderOrder=5;scene.add(dkLed);
 })();
 
 // ================================================================
-// 背面120°の配管区画。制御線は 脳→貫通部→カートリッジ→各段端子 を
-// 途切れずに繋ぐ。すべて外面0.620の内側
+// 配電ハーネス：14束 × 3本。束は据付半径ごとに1本を落とし、細っていく
+//   3本 → 14 m で1本目が離脱 → 2本 → 26 m → 1本 → 38 m で終端
+//   離脱した線は床の受け口へ落ち、ユニットの背面から取り込まれる
 // ================================================================
-var orchMesh=null, nerveMesh=null, hubNode=null, feedMesh=null, radHot=null;
-var finMesh=null, finHot=null, finPipe=null, finFlow=null, finTip=null, finRoot=null, finFeed=null,
-    finEdge=null, finEdgeG=null,
-    mastMesh=null, mastPipe=null, deployNow=0;
-var depTarget=0, depRaw=0, DEP_SEC=6.5;   // 展開にかける秒数
-var triRing=[];
-var rayLight=[], vatBubbles=null;
-var LINE_CHK=[];
-(function buildRaceway(){
-  var S=[],F=[],WET=[],DRY=[],GL=[],PK=[],FZ=[],k,i,a,y;
-  var YB=PWR_T+0.02, YT=UP_B+N_UP*TR_P+0.05;
-  var R_CART=R_REC+0.055;                 // カートリッジの走る半径
-  // 区画の底と側壁（側壁は半径方向に立てる）
-  var rw=new THREE.Mesh(xf(new THREE.CylinderGeometry(R_REC,R_REC,YT-YB,36,1,true,REAR_S,REAR_W),0,(YB+YT)*0.5,0),
-    sm({color:'#333a49',metalness:0.86,roughness:0.33,envMapIntensity:0.95,side:THREE.DoubleSide}));
-  scene.add(rw);
-  for(k=-1;k<=1;k+=2){
-    a=REAR_C+k*REAR_W*0.5;
-    S.push(xf(new THREE.BoxGeometry(R_UNIT-R_REC,YT-YB,0.012),
-      Math.cos(a)*(R_REC+R_UNIT)*0.5,(YB+YT)*0.5,Math.sin(a)*(R_REC+R_UNIT)*0.5,0,radRot(a),0));
-    F.push(xf(new THREE.BoxGeometry(0.022,YT-YB,0.026),
-      Math.cos(a)*(R_UNIT-0.014),(YB+YT)*0.5,Math.sin(a)*(R_UNIT-0.014),0,tanRot(a),0));
+var runFlow=null, unitMesh=null, unitGlow=null, brainMesh=null;
+var finMesh=null, finEdge=null, glassMesh=null, triU=[], UNIT_M=[], N_UNIT=0;
+var heroBrain=null, heroTri=[], heroGroup=null, heroIdx=0;
+var heroMod=[], heroModG=[], heroLed=null;
+var UNIT_TRUE=[], HIDE_M=new THREE.Matrix4().makeTranslation(0,-999,0);
+var N_FINU=18, FINU_R0=0.16, FINU_LR=0.16, FINU_LD=1.25;
+var FINU_PR=0.009, FINU_PD=0.048, FINU_TR=1.0, FINU_TD=3.2, FINU_B=2.68, FINU_TILT=0.085;
+var FRONT_C2=0.0, FRONT_W2=TAU-TAU/3, FRONT_S2=FRONT_C2-FRONT_W2*0.5;
+var REAR_W2=TAU/3, REAR_C2=PI, REAR_S2=REAR_C2-REAR_W2*0.5;
+var TRI_U=['#ff05a8','#f2dbe9','#00ddc8'];
+var depTarget=0, depRaw=0, deployNow=0, DEP_SEC=6.5, lastDT=0.016;
+(function buildHarness(){
+  var BD=[],FL=[],PT=[],PE=[],CL=[],UP=[],s,k,j,i;
+  var SEG=90;
+  // 束の芯線（取出口 → 最外の据付点）
+  function centre(a0,ph,t){
+    var win=Math.sin(t*PI);
+    var aa=a0+Math.sin(t*PI*1.9+ph)*0.030*win;
+    var rr=R_PORT+(RUN_LEN-R_PORT)*t;
+    var y=DK_Y+BUN_R+CAB_R+0.02+Math.sin(t*5.5+ph)*0.05*win;
+    if(t===0)y=DK_Y+0.42;
+    return new THREE.Vector3(Math.cos(aa)*rr,y,Math.sin(aa)*rr);
   }
-  // ---- 制御線：脳 → 背面隔壁の貫通 → カートリッジ → 各段の端子 ----
-  // 隔壁が湿と乾の境。区画は隔壁の外側を素直に通るので、槽の中を配管が横切らない
-  var BR_X=1.85*BRAIN_S, BR_Z=1.70*BRAIN_S;
-  var CY_LO=VAT_B-0.050, CY_UP=VAT_B+VAT_H+0.050;
-  for(k=0;k<N_SPINE;k++){
-    a=spineAngle(k);
-    var dn=(k%2===0)?-1:1;
-    var pA=new THREE.Vector3(Math.cos(a)*BR_X*0.86, VAT_MID+dn*0.05, Math.sin(a)*BR_Z*0.86);
-    var pB=new THREE.Vector3(Math.cos(a)*(BR_X+0.12), VAT_MID+dn*0.03, Math.sin(a)*(BR_Z+0.12));
-    var pC=new THREE.Vector3(Math.cos(a)*(R_REC-0.030), VAT_MID, Math.sin(a)*(R_REC-0.030));
-    WET.push(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([pA,pB,pC]),18,0.0130,8,false));
-    // 隔壁の貫通金具（内外を実体で跨ぐ）
-    F.push(xf(new THREE.CylinderGeometry(0.023,0.023,0.070,12),
-      Math.cos(a)*R_REC,VAT_MID,Math.sin(a)*R_REC,PI/2,0,radRot(a)));
-    F.push(xf(new THREE.TorusGeometry(0.030,0.006,5,16),
-      Math.cos(a)*(R_REC+0.030),VAT_MID,Math.sin(a)*(R_REC+0.030),0,tanRot(a),PI/2));
-    // 隔壁の外 → カートリッジの端（上下へ振り分ける）
-    var pD=new THREE.Vector3(Math.cos(a)*(R_REC+0.032), VAT_MID, Math.sin(a)*(R_REC+0.032));
-    var pE=new THREE.Vector3(Math.cos(REAR_C)*R_CART, (dn<0?CY_LO:CY_UP), Math.sin(REAR_C)*R_CART);
-    var pM=new THREE.Vector3(
-      Math.cos((a+REAR_C)*0.5)*(R_CART+0.010), VAT_MID+dn*(VAT_H*0.36),
-      Math.sin((a+REAR_C)*0.5)*(R_CART+0.010));
-    var cv2=new THREE.CatmullRomCurve3([pD,pM,pE]);
-    DRY.push(new THREE.TubeGeometry(cv2,24,0.0135,8,false));
-    GL.push(new THREE.TubeGeometry(cv2,24,0.0190,8,false));
-    LINE_CHK.push([pA,pC,pD,pE]);
-  }
-  // ③ カートリッジ：上下2枚。②の合流点から各段へ縦に走る
-  var CA=REAR_W*0.42;                     // カートリッジの張り角
-  [[CY_LO,YB],[CY_UP,YT]].forEach(function(seg){
-    var y0=Math.min(seg[0],seg[1]), y1=Math.max(seg[0],seg[1]);
-    S.push(xf(new THREE.CylinderGeometry(R_CART+0.013,R_CART+0.013,y1-y0,16,1,true,REAR_C-CA*0.5,CA),
-      0,(y0+y1)*0.5,0));
-    S.push(xf(new THREE.CylinderGeometry(R_CART-0.013,R_CART-0.013,y1-y0,16,1,true,REAR_C-CA*0.5,CA),
-      0,(y0+y1)*0.5,0));
-    FZ.push(xf(new THREE.CylinderGeometry(R_CART+0.017,R_CART+0.017,y1-y0,16,1,true,
-      REAR_C-CA*0.47,CA*0.94),0,(y0+y1)*0.5,0));
-  });
-  // ④ カートリッジ → 各段の端子（短い分岐で必ず繋ぐ）
-  for(i=0;i<N_TRAY;i++){
-    y=trayY(i);
-    var q0=new THREE.Vector3(Math.cos(REAR_C)*(R_CART+0.013),y,Math.sin(REAR_C)*(R_CART+0.013));
-    var q1=new THREE.Vector3(Math.cos(REAR_C)*(R_CART+0.030),y,Math.sin(REAR_C)*(R_CART+0.030));
-    DRY.push(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([q0,q1]),6,0.010,7,false));
-    F.push(xf(new THREE.CylinderGeometry(R_CART+0.040,R_CART+0.040,TR_P*0.44,14,1,true,
-      REAR_C-CA*0.43,CA*0.86),0,y,0));
-    GL.push(xf(new THREE.CylinderGeometry(R_CART+0.048,R_CART+0.048,0.005,14,1,true,
-      REAR_C-CA*0.38,CA*0.76),0,y,0));
-    // バスバーと冷媒の段接続
-    for(k=-1;k<=1;k+=2){
-      a=REAR_C+k*REAR_W*0.28;
-      F.push(xf(new THREE.BoxGeometry(0.014,0.012,0.022),
-        Math.cos(a)*(R_REC+0.046),y,Math.sin(a)*(R_REC+0.046),0,tanRot(a),0));
-      a=REAR_C+k*REAR_W*0.42;
-      F.push(xf(new THREE.CylinderGeometry(0.009,0.009,0.044,8),
-        Math.cos(a)*(R_REC+0.056),y,Math.sin(a)*(R_REC+0.056),PI/2,0,radRot(a)));
-      F.push(xf(new THREE.TorusGeometry(0.012,0.0035,4,12),
-        Math.cos(a)*(R_REC+0.078),y,Math.sin(a)*(R_REC+0.078),0,tanRot(a),PI/2));
+  for(s=0;s<N_SET;s++){
+    var a0=s/N_SET*TAU+0.11, ph=rnd()*TAU;
+    var cpts=[];
+    for(i=0;i<=18;i++)cpts.push(centre(a0,ph,i/18));
+    var core=new THREE.CatmullRomCurve3(cpts);
+    var up=new THREE.Vector3(0,1,0);
+    for(k=0;k<PER_SET;k++){
+      // 束の中の位置：先に落ちる線ほど外側に置く
+      var orad=BUN_R*(PER_SET-1-k)/(PER_SET-1);
+      var leave=DROP[k]-LEAVE_OFS;                       // 束を離れる半径
+      var tL=clamp((leave-R_PORT)/(RUN_LEN-R_PORT),0,1);
+      var pp=[],t,P,T,E1,E2,L,ang,rad;
+      var nSeg=Math.max(12,Math.round(SEG*tL));
+      for(i=0;i<=nSeg;i++){
+        t=tL*i/nSeg;
+        P=core.getPoint(t);T=core.getTangent(t).normalize();
+        E1=new THREE.Vector3().crossVectors(T,up).normalize();
+        E2=new THREE.Vector3().crossVectors(T,E1).normalize();
+        L=t*(RUN_LEN-R_PORT);
+        ang=k/PER_SET*TAU+L/TWIST*TAU;
+        rad=orad*(t<0.006?t/0.006:1);
+        pp.push(P.clone().addScaledVector(E1,Math.cos(ang)*rad).addScaledVector(E2,Math.sin(ang)*rad));
+      }
+      // 束を離れ、横へ寄ってから床の受け口へ落ちる
+      var last=pp[pp.length-1];
+      // 分岐：半径を単調に増やしながら弧で横へ寄り、最後は軸に沿って差し込む
+      var ua=unitAng(a0,DROP[k]), da2=ua-a0;
+      var uy2=SET_Y;
+      var rA=DROP[k]-0.66, rL=DROP[k]-LEAVE_OFS;
+      function bp(rr,fa,hh){
+        var aa2=a0+da2*fa;
+        return new THREE.Vector3(Math.cos(aa2)*rr,DK_Y+hh,Math.sin(aa2)*rr);
+      }
+      pp.push(bp(rL+0.16,0.30,0.180));
+      pp.push(bp(rA-0.55,0.72,0.130));
+      pp.push(bp(rA-0.32,1.00,0.148));
+      pp.push(new THREE.Vector3(Math.cos(ua)*rA,uy2+0.155,Math.sin(ua)*rA));
+      var cv=new THREE.CatmullRomCurve3(pp);
+      BD.push(new THREE.TubeGeometry(cv,nSeg+14,CAB_R,8,false));
+      FL.push(new THREE.TubeGeometry(cv,nSeg+14,CAB_R*1.45,8,false));
+      // 差込アダプタ（線の終端はこの中に入る）
+      PT.push(xf(new THREE.CylinderGeometry(0.062,0.062,0.090,14),
+        Math.cos(ua)*(DROP[k]-0.655),uy2+0.155,Math.sin(ua)*(DROP[k]-0.655),PI/2,0,-ua));
+      PT.push(xf(new THREE.TorusGeometry(0.072,0.010,6,18),
+        Math.cos(ua)*(DROP[k]-0.700),uy2+0.155,Math.sin(ua)*(DROP[k]-0.700),0,PI/2-ua,PI/2));
+      PT.push(xf(new THREE.BoxGeometry(0.24,0.19,0.075),
+        Math.cos(ua)*(DROP[k]-0.585),uy2+0.155,Math.sin(ua)*(DROP[k]-0.585),0,PI/2-ua,0));
+      PE.push(xf(new THREE.TorusGeometry(0.078,0.007,5,18),
+        Math.cos(ua)*(DROP[k]-0.740),uy2+0.155,Math.sin(ua)*(DROP[k]-0.740),0,PI/2-ua,PI/2));
+      // ユニットの据付点
+      UP.push({x:Math.cos(ua)*DROP[k],y:SET_Y,z:Math.sin(ua)*DROP[k],rot:ua+PI});
+    }
+    // 取出口の金具
+    var qx=Math.cos(a0)*R_PORT, qz=Math.sin(a0)*R_PORT;
+    PT.push(xf(new THREE.CylinderGeometry(0.20,0.24,0.46,14),qx,DK_Y+0.23,qz));
+    PT.push(xf(new THREE.TorusGeometry(0.21,0.03,6,18),qx,DK_Y+0.44,qz,PI/2));
+    PT.push(tube(new THREE.Vector3(Math.cos(a0)*(TOW_R0+0.18),DK_Y+0.30,Math.sin(a0)*(TOW_R0+0.18)),
+                 new THREE.Vector3(qx,DK_Y+0.36,qz),0.05,8));
+    PE.push(xf(new THREE.TorusGeometry(0.235,0.022,6,20),qx,DK_Y+0.40,qz,PI/2));
+    // 締結クランプ（4 m ごと・最初の離脱点まで）
+    for(j=1;j*4.0<DROP[0]-LEAVE_OFS-R_PORT;j++){
+      var t2=(j*4.0)/(RUN_LEN-R_PORT);
+      var C=core.getPoint(t2), T2=core.getTangent(t2).normalize();
+      var q=new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,1,0),T2);
+      var cg=new THREE.TorusGeometry(BUN_R+CAB_R+0.02,0.022,5,16);
+      cg.applyMatrix4(new THREE.Matrix4().makeRotationX(PI/2));
+      cg.applyMatrix4(new THREE.Matrix4().makeRotationFromQuaternion(q));
+      cg.translate(C.x,C.y,C.z);
+      CL.push(cg);
     }
   }
-  // バスバー2条・冷媒立管2条・灌流2条
-  for(k=-1;k<=1;k+=2){
-    a=REAR_C+k*REAR_W*0.28;
-    F.push(xf(new THREE.BoxGeometry(0.026,YT-YB,0.013),
-      Math.cos(a)*(R_REC+0.028),(YB+YT)*0.5,Math.sin(a)*(R_REC+0.028),0,tanRot(a),0));
-    a=REAR_C+k*REAR_W*0.42;
-    F.push(xf(new THREE.CylinderGeometry(0.020,0.020,YT-YB,12,1,true),
-      Math.cos(a)*(R_REC+0.034),(YB+YT)*0.5,Math.sin(a)*(R_REC+0.034)));
-    PK.push(xf(new THREE.CylinderGeometry(0.013,0.013,YT-YB,10),
-      Math.cos(a)*(R_REC+0.034),(YB+YT)*0.5,Math.sin(a)*(R_REC+0.034)));
-    a=REAR_C+k*REAR_W*0.47;
-    F.push(xf(new THREE.CylinderGeometry(0.015,0.015,VAT_B-PWR_T,10,1,true),
-      Math.cos(a)*(R_REC+0.026),PWR_T+(VAT_B-PWR_T)*0.5,Math.sin(a)*(R_REC+0.026)));
-    PK.push(xf(new THREE.CylinderGeometry(0.010,0.010,VAT_B-PWR_T,8),
-      Math.cos(a)*(R_REC+0.026),PWR_T+(VAT_B-PWR_T)*0.5,Math.sin(a)*(R_REC+0.026)));
-  }
-  // ---- 空いていた4帯を埋める。内側2帯は管理配線の縦ダクト、外側2帯は梯子形ラック ----
-  var RC=[],RG=[];
-  // 縦ダクトは ±29.4°。カートリッジ端 ±25.2° の外側へ逃がす（旧 ±18.6° は貫通していた）
-  [[REAR_W*0.245,'duct'],[-REAR_W*0.245,'duct'],
-   [REAR_W*0.350,'ladder'],[-REAR_W*0.350,'ladder']].forEach(function(sp){
-    var aa=REAR_C+sp[0], kind=sp[1], sd2;
-    if(kind==='duct'){
-      F.push(xf(new THREE.BoxGeometry(0.042,YT-YB,0.062),
-        Math.cos(aa)*(R_REC+0.040),(YB+YT)*0.5,Math.sin(aa)*(R_REC+0.040),0,tanRot(aa),0));
-      for(var i2=0;i2<N_TRAY;i2++){
-        var y2=trayY(i2);
-        F.push(xf(new THREE.BoxGeometry(0.020,0.016,0.026),
-          Math.cos(aa)*(R_REC+0.074),y2,Math.sin(aa)*(R_REC+0.074),0,tanRot(aa),0));
-        RG.push(xf(new THREE.BoxGeometry(0.012,0.004,0.012),
-          Math.cos(aa)*(R_REC+0.086),y2,Math.sin(aa)*(R_REC+0.086),0,tanRot(aa),0));
-      }
-      F.push(xf(new THREE.BoxGeometry(0.058,0.050,0.078),
-        Math.cos(aa)*(R_REC+0.044),YB+0.026,Math.sin(aa)*(R_REC+0.044),0,tanRot(aa),0));
-      F.push(xf(new THREE.BoxGeometry(0.058,0.050,0.078),
-        Math.cos(aa)*(R_REC+0.044),YT-0.026,Math.sin(aa)*(R_REC+0.044),0,tanRot(aa),0));
-    }else{
-      for(sd2=-1;sd2<=1;sd2+=2){
-        F.push(xf(new THREE.BoxGeometry(0.016,YT-YB,0.014),
-          Math.cos(aa)*(R_REC+0.036)-Math.sin(aa)*sd2*0.040,(YB+YT)*0.5,
-          Math.sin(aa)*(R_REC+0.036)+Math.cos(aa)*sd2*0.040,0,tanRot(aa),0));
-      }
-      for(var j2=0;j2<N_TRAY*2;j2++){
-        var y3=YB+0.06+j2*((YT-YB-0.12)/(N_TRAY*2-1));
-        F.push(xf(new THREE.BoxGeometry(0.086,0.008,0.010),
-          Math.cos(aa)*(R_REC+0.036),y3,Math.sin(aa)*(R_REC+0.036),0,tanRot(aa),0));
-      }
-      for(sd2=-1;sd2<=1;sd2+=2){
-        RC.push(xf(new THREE.CylinderGeometry(0.011,0.011,YT-YB-0.10,7),
-          Math.cos(aa)*(R_REC+0.050)-Math.sin(aa)*sd2*0.020,(YB+YT)*0.5,
-          Math.sin(aa)*(R_REC+0.050)+Math.cos(aa)*sd2*0.020));
-      }
-      F.push(xf(new THREE.BoxGeometry(0.100,0.044,0.052),
-        Math.cos(aa)*(R_REC+0.042),YB+0.024,Math.sin(aa)*(R_REC+0.042),0,tanRot(aa),0));
-      F.push(xf(new THREE.BoxGeometry(0.100,0.044,0.052),
-        Math.cos(aa)*(R_REC+0.042),YT-0.024,Math.sin(aa)*(R_REC+0.042),0,tanRot(aa),0));
-    }
-  });
-  // 前面との境の細片（±120°）に隅柱と受け
-  for(k=-1;k<=1;k+=2){
-    var ea=REAR_C+k*(REAR_W*0.5-0.031);
-    F.push(xf(new THREE.BoxGeometry(0.030,YT-YB,0.030),
-      Math.cos(ea)*(R_UNIT-0.048),(YB+YT)*0.5,Math.sin(ea)*(R_UNIT-0.048),0,tanRot(ea),0));
-    for(i=0;i<N_TRAY;i+=2){
-      y=trayY(i);
-      F.push(xf(new THREE.BoxGeometry(0.070,0.010,0.018),
-        Math.cos(ea)*(R_UNIT-0.078),y,Math.sin(ea)*(R_UNIT-0.078),0,radRot(ea),0));
-    }
-  }
-  addMerged(RC,matBraid);
-  addMerged(RG,matNode,5);
-  scene.add(new THREE.Mesh(mergeGeos(S),matShell));
-  scene.add(new THREE.Mesh(mergeGeos(F),matFrame));
-  addMerged(PK,matMilk);
-  nerveMesh=new THREE.Mesh(mergeGeos(WET),matNerve);
-  nerveMesh.renderOrder=5;scene.add(nerveMesh);
-  scene.add(new THREE.Mesh(mergeGeos(DRY),matNerve));   // 槽の内外で材質を変えない
-  orchMesh=new THREE.Mesh(mergeGeos(GL),matOrch);
-  orchMesh.renderOrder=7;scene.add(orchMesh);
-  feedMesh=new THREE.Mesh(mergeGeos(FZ),matFeed);
-  feedMesh.renderOrder=7;scene.add(feedMesh);
-  [0.62,1.34,2.10].forEach(function(ly){
-    var L=new THREE.PointLight('#9fe8f2',0.95,0.85,2);
-    L.position.set(Math.cos(REAR_C)*(R_CART-0.055),ly,Math.sin(REAR_C)*(R_CART-0.055));
-    scene.add(L);rayLight.push(L);
-  });
-  [0.55,0.90,1.85,2.25].forEach(function(ly){
-    var L=new THREE.PointLight('#7fe0e8',0.70,0.80,2);
-    L.position.set(Math.cos(FRONT_C)*0.24,ly,Math.sin(FRONT_C)*0.24);
-    scene.add(L);rayLight.push(L);
-  });
-  hubNode=new THREE.Mesh(new THREE.TorusGeometry(R_REC+0.030,0.007,8,48),matNode);
-  hubNode.position.set(0,VAT_MID,0);hubNode.rotation.x=PI/2;
-  hubNode.renderOrder=6;scene.add(hubNode);
-})();
+  scene.add(new THREE.Mesh(mergeGeos(BD),matBraid));
+  runFlow=new THREE.Mesh(mergeGeos(FL),matRunF);
+  runFlow.renderOrder=6;scene.add(runFlow);
+  scene.add(new THREE.Mesh(mergeGeos(PT.concat(CL)),matChrome));
+  var pe=new THREE.Mesh(mergeGeos(PE),matPortE);pe.renderOrder=5;scene.add(pe);
 
-// ================================================================
-// 頂部：CDU と積層放熱冠
-// ================================================================
-(function buildCrown(){
-  var S=[],F=[],P=[],H=[],i,a;
-  S.push(xf(new THREE.CylinderGeometry(R_UNIT,R_UNIT,CDU_H,48,1,true),0,CDU_B+CDU_H*0.5,0));
-  S.push(xf(new THREE.CylinderGeometry(R_UNIT*0.99,R_UNIT*0.99,0.03,48),0,CDU_B+CDU_H,0));
-  F.push(xf(new THREE.TorusGeometry(R_UNIT-0.004,0.0055,6,56),0,CDU_B,0,PI/2));
-  F.push(xf(new THREE.TorusGeometry(R_UNIT-0.004,0.0055,6,56),0,CDU_B+CDU_H,0,PI/2));
-  for(i=0;i<6;i++){
-    a=FRONT_C+(i-2.5)*0.30;
-    F.push(xf(new THREE.BoxGeometry(0.09,CDU_H*0.5,0.012),
-      Math.cos(a)*(R_UNIT-0.010),CDU_B+CDU_H*0.5,Math.sin(a)*(R_UNIT-0.010),0,tanRot(a),0));
+  // ---- 演算ユニット 42基 ----
+  // 筐体・三色の状態灯・培養脳・文字帯・開閉する放熱板を持つ
+  var ub=[],ug=[],uv=[],uf=[],q4,ya4,aa4;
+  var MO=0.614, MI=0.528, SEC4=FRONT_W2/4, HALF4=SEC4*0.5-0.062;
+  // 裾と給電棚
+  ub.push(xf(new THREE.CylinderGeometry(0.632,0.640,0.020,20),0,0.010,0));
+  ub.push(xf(new THREE.CylinderGeometry(0.62,0.62,0.28,20,1,true),0,0.16,0));
+  for(q4=0;q4<4;q4++)
+    ub.push(xf(new THREE.TorusGeometry(0.624,0.005,3,14),0,0.05+q4*0.062,0,PI/2));
+  ub.push(xf(new THREE.CylinderGeometry(0.614,0.614,0.04,20),0,0.32,0));
+  // 前面240°：4枚の演算モジュール面と見切り
+  [[0.34,0.624],[1.66,0.780]].forEach(function(zz){
+    var y0=zz[0], hh=zz[1];
+    for(q4=0;q4<4;q4++){
+      aa4=FRONT_C2+(q4+0.5-2)*SEC4;
+      ub.push(xf(new THREE.CylinderGeometry(MO,MO,hh-0.02,10,1,true,aa4-HALF4,HALF4*2),0,y0+hh*0.5,0));
+      ub.push(xf(new THREE.CylinderGeometry(MI,MI,hh-0.02,6,1,true,aa4-HALF4,HALF4*2),0,y0+hh*0.5,0));
+    }
+    for(q4=0;q4<=4;q4++){
+      aa4=FRONT_C2+(q4-2)*SEC4;
+      ub.push(xf(new THREE.BoxGeometry(MO-MI,hh,0.026),
+        Math.cos(aa4)*(MI+MO)*0.5,y0+hh*0.5,Math.sin(aa4)*(MI+MO)*0.5,0,-aa4,0));
+    }
+  });
+  // 背面120°：窪んだ配管区画と神経カートリッジ
+  ub.push(xf(new THREE.CylinderGeometry(0.50,0.50,2.16,9,1,true,REAR_S2,REAR_W2),0,1.42,0));
+  for(q4=-1;q4<=1;q4+=2){
+    aa4=REAR_C2+q4*REAR_W2*0.5;
+    ub.push(xf(new THREE.BoxGeometry(0.12,2.16,0.012),
+      Math.cos(aa4)*0.56,1.42,Math.sin(aa4)*0.56,0,-aa4,0));
   }
-  // ---- 展開する薄板30枚 ----
-  // 板は中央のマストに段ごとに取り付く。冷媒はマストを通って各段の根元へ
-  // 冷媒はマストから各板へ入り、先端で折り返して戻る
-  // 直管2条：Xに沿うので板の伸縮をそのまま受けてよい
-  var fc=[],ci;
-  for(ci=-1;ci<=1;ci+=2){
-    fc.push(xf(new THREE.CylinderGeometry(0.0072,0.0072,0.93,8),0.505,FIN_TT*1.1,ci*FIN_W*0.30,0,0,PI/2));
+  ub.push(xf(new THREE.CylinderGeometry(0.568,0.568,0.62,8,1,true,REAR_C2-0.44,0.88),0,0.64,0));
+  ub.push(xf(new THREE.CylinderGeometry(0.568,0.568,0.78,8,1,true,REAR_C2-0.44,0.88),0,2.05,0));
+  // 18段の区切り環（前面のみ）
+  for(q4=0;q4<=18;q4++){
+    ya4=(q4<=8?0.34+q4*0.078:1.66+(q4-8)*0.078);
+    ub.push(xf(new THREE.TorusGeometry(0.608,0.0045,3,12,FRONT_W2),0,ya4,0,PI/2,0,0).rotateY(-FRONT_S2));
   }
-  var fcg=mergeGeos(fc);
-  // 先端の返しと根元の継手：倍率を掛けない別インスタンスにする
-  var ft=[],pts=[];
-  for(ci=0;ci<=12;ci++){
-    var aa=-PI*0.5+PI*(ci/12);
-    pts.push(new THREE.Vector3(Math.cos(aa)*0.035,FIN_TT*1.1,Math.sin(aa)*FIN_W*0.30));
+  // 培養槽：前面のガラスと背面の隔壁、上下のフランジ
+  ub.push(xf(new THREE.CylinderGeometry(0.50,0.50,0.62,12,1,true,REAR_S2,REAR_W2),0,1.31,0));
+  for(q4=-1;q4<=1;q4+=2)
+    ub.push(xf(new THREE.CylinderGeometry(0.618,0.618,0.042,20,1,true,FRONT_S2,FRONT_W2),0,1.31+q4*0.331,0));
+  for(q4=0;q4<2;q4++)
+    ub.push(xf(new THREE.TorusGeometry(0.300,0.006,3,14),0,1.19+q4*0.24,0,PI/2));
+  // CDU と収納した放熱塔・マスト
+  ub.push(xf(new THREE.CylinderGeometry(0.62,0.62,0.15,20,1,true),0,2.555,0));
+  ub.push(xf(new THREE.CylinderGeometry(0.614,0.614,0.03,20),0,2.63,0));
+  ub.push(xf(new THREE.CylinderGeometry(0.21,0.21,0.09,12),0,2.68,0));
+  ub.push(xf(new THREE.CylinderGeometry(0.125,0.100,0.36,10,1,true),0,2.86,0));
+  // 段の発光（前面240°）と文字帯
+  for(q4=0;q4<18;q4++){
+    ya4=(q4<8?0.34+q4*0.078:1.66+(q4-8)*0.078)+0.039;
+    ug.push(xf(new THREE.CylinderGeometry(0.622,0.622,0.034,12,1,true,FRONT_S2,FRONT_W2),0,ya4,0));
   }
-  ft.push(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts),16,0.0072,7,false));
-  var ftg=mergeGeos(ft);
-  var fr=[];
-  for(ci=-1;ci<=1;ci+=2){
-    fr.push(xf(new THREE.CylinderGeometry(0.0115,0.0115,0.040,10),0,FIN_TT*1.1,ci*FIN_W*0.30,0,0,PI/2));
-    fr.push(xf(new THREE.TorusGeometry(0.0135,0.0035,5,12),0.020,FIN_TT*1.1,ci*FIN_W*0.30,0,0,PI/2));
-  }
-  var frg=mergeGeos(fr);
-  // マストから根元継手へ渡す分岐。倍率を掛けないので常に両端が繋がる
-  var fd=[],dj;
-  for(dj=-1;dj<=1;dj+=2){
-    fd.push(xf(new THREE.CylinderGeometry(0.0095,0.0095,0.205,8),0.1125,FIN_TT*1.1,dj*FIN_W*0.30,0,0,PI/2));
-    fd.push(xf(new THREE.CylinderGeometry(0.0095,0.0095,FIN_W*0.60,8),0.045,FIN_TT*1.1,0,0,0,0));
-  }
-  var fdg=mergeGeos(fd);
-  var fb=[];
-  fb.push(xf(new THREE.BoxGeometry(1,FIN_TT,FIN_W),0.5,0,0));
-  fb.push(xf(new THREE.BoxGeometry(0.030,FIN_TT*2.2,FIN_W*0.98),0.985,0,0));   // 先端の縁
-  fb.push(xf(new THREE.CylinderGeometry(0.024,0.024,FIN_W*0.72,10),0,0,0,PI/2,0,0)); // 根元の継手
-  var fgm=mergeGeos(fb);
-  var fpl=xf(new THREE.BoxGeometry(1,FIN_TT*0.5,FIN_W*0.96),0.5,0,0);
-  function mkf(g2,m2,o2){
-    var im=new THREE.InstancedMesh(withColor(g2),m2,N_FIN),n2;
+  ug.push(xf(new THREE.CylinderGeometry(0.624,0.624,0.11,14,1,true),0,1.012,0));
+  ug.push(xf(new THREE.CylinderGeometry(0.520,0.520,0.30,10,1,true,REAR_C2-0.40,0.80),0,1.31,0));
+  // 培養槽の前面ガラス
+  uf.push(xf(new THREE.CylinderGeometry(0.62,0.62,0.62,11,1,true,FRONT_S2,FRONT_W2),0,1.31,0));
+  // 培養脳
+  uv.push(xf(new THREE.SphereGeometry(0.255,12,8),0,1.325,0,0,0,0,1.0,0.80,0.94));
+  var ubg=mergeGeos(ub), ugg=mergeGeos(ug), uvg=mergeGeos(uv), ufg=mergeGeos(uf);
+  function mku(g2,m2,cnt,o2){
+    var im=new THREE.InstancedMesh(withColor(g2),m2,cnt),n2;
     im.instanceMatrix.setUsage(THREE.DynamicDrawUsage);im.frustumCulled=false;
-    for(n2=0;n2<N_FIN;n2++)im.setColorAt(n2,new THREE.Color(1,1,1));
+    for(n2=0;n2<cnt;n2++)im.setColorAt(n2,new THREE.Color(1,1,1));
     if(im.instanceColor)im.instanceColor.needsUpdate=true;
     if(o2!==undefined)im.renderOrder=o2;
     return im;
   }
-  finMesh=mkf(fgm,matRad);finHot=mkf(fpl,matRadH,5);
-  // 板の縁を三色で。30枚を3本の色が10周ずつ螺旋で追う
-  var fe=[];
-  fe.push(xf(new THREE.BoxGeometry(0.020,FIN_TT*1.9,FIN_W*0.99),1.008,0,0));      // 先端の縁（クロームの外へ）
+  N_UNIT=UP.length;
+  unitMesh=mku(ubg,matUnit,N_UNIT);
+  glassMesh=mku(ufg,matUnitF,N_UNIT,8);
+  unitGlow=mku(ugg,matUnitG,N_UNIT,5);
+  brainMesh=mku(uvg,matUnitB,N_UNIT,4);
+  var d=new THREE.Object3D();
+  for(i=0;i<N_UNIT;i++){
+    d.position.set(UP[i].x,UP[i].y,UP[i].z);
+    d.rotation.set(0,UP[i].rot,0);d.scale.set(1,1,1);d.updateMatrix();
+    UNIT_TRUE.push(d.matrix.clone());UNIT_M.push(d.matrix.clone());
+    var mm2=(i===0)?HIDE_M:d.matrix;
+    unitMesh.setMatrixAt(i,mm2);unitGlow.setMatrixAt(i,mm2);
+    brainMesh.setMatrixAt(i,mm2);glassMesh.setMatrixAt(i,mm2);
+  }
+  unitMesh.instanceMatrix.needsUpdate=true;unitGlow.instanceMatrix.needsUpdate=true;
+  brainMesh.instanceMatrix.needsUpdate=true;glassMesh.instanceMatrix.needsUpdate=true;
+  scene.add(unitMesh);scene.add(unitGlow);scene.add(brainMesh);scene.add(glassMesh);
+  // ---- 三色の状態灯：1基あたり3個、色ごとに別インスタンス ----
+  for(var tk=0;tk<3;tk++){
+    var la=FRONT_C2+(tk-1)*0.34;
+    var lgm=xf(new THREE.CylinderGeometry(0.6255,0.6255,0.030,7,1,true,la-0.115,0.23),0,0.90,0);
+    var lg2=xf(new THREE.CylinderGeometry(0.6255,0.6255,0.030,7,1,true,la-0.115,0.23),0,2.10,0);
+    var mg=mergeGeos([lgm,lg2]);
+    var m3=mku(mg,matTriU[tk],N_UNIT,6);
+    for(i=0;i<N_UNIT;i++)m3.setMatrixAt(i,UNIT_M[i]);
+    m3.instanceMatrix.needsUpdate=true;scene.add(m3);triU.push(m3);
+  }
+  // ---- 放熱板：1基18枚。開閉する ----
+  var fb=[],fe2=[];
+  fb.push(xf(new THREE.BoxGeometry(1,0.012,0.70),0.5,0,0));
+  fe2.push(xf(new THREE.BoxGeometry(0.030,0.020,0.71),1.010,0,0));          // 先端
   for(var ek=-1;ek<=1;ek+=2)
-    fe.push(xf(new THREE.BoxGeometry(0.94,FIN_TT*2.2,0.014),0.495,0,ek*FIN_W*0.497)); // 側縁
-  var feg=mergeGeos(fe);
-  finEdge=mkf(feg,matFinE,5);
-  finEdgeG=mkf(feg.clone(),matFinEG,6);
-  scene.add(finEdge);scene.add(finEdgeG);
+    fe2.push(xf(new THREE.BoxGeometry(0.97,0.018,0.020),0.50,0,ek*0.355));  // 側縁
+  var fgm=mergeGeos(fb), fem=mergeGeos(fe2);
+  finMesh=mku(fgm,matFinU,N_UNIT*N_FINU,4);
+  finEdge=mku(fem,matFinUE,N_UNIT*N_FINU,6);
+  scene.add(finMesh);scene.add(finEdge);
   (function(){
-    var c2=new THREE.Color(),ei;
-    for(ei=0;ei<N_FIN;ei++){
-      c2.set(TRI[ei%3]);
-      finEdge.setColorAt(ei,c2);finEdgeG.setColorAt(ei,c2);
+    var c2=new THREE.Color(),q;
+    for(q=0;q<N_UNIT*N_FINU;q++){
+      c2.set(TRI_U[(q%N_FINU)%3]);
+      finEdge.setColorAt(q,c2);
     }
-    finEdge.instanceColor.needsUpdate=true;finEdgeG.instanceColor.needsUpdate=true;
+    finEdge.instanceColor.needsUpdate=true;
   })();
-  finPipe=mkf(fcg,matCoolS,4);finFlow=mkf(fcg.clone(),matCoolF,6);
-  finTip=mkf(ftg,matCoolS,4);finRoot=mkf(frg,matCoolS,4);finFeed=mkf(fdg,matCoolS,4);
-  scene.add(finMesh);scene.add(finHot);scene.add(finPipe);scene.add(finFlow);
-  scene.add(finTip);scene.add(finRoot);scene.add(finFeed);
-  // テレスコピックのマスト。冷媒の往きと還りが2条、内部を通る
-  mastMesh=new THREE.Mesh(new THREE.CylinderGeometry(FIN_R0*0.62,FIN_R0*0.78,1,14,1,true),matFrame);
-  mastMesh.position.set(0,FIN_B,0);scene.add(mastMesh);
-  var mp=[];
-  for(i=-1;i<=1;i+=2)mp.push(xf(new THREE.CylinderGeometry(0.011,0.011,1,8),i*FIN_R0*0.42,0.5,0));
-  var mpg=mergeGeos(mp);
-  mastPipe=new THREE.Mesh(mpg,matCoolF);
-  mastPipe.position.set(0,FIN_B,0);mastPipe.renderOrder=6;scene.add(mastPipe);
-  // CDU から立ち上がる往還
-  for(i=-1;i<=1;i+=2){
-    F.push(xf(new THREE.CylinderGeometry(0.014,0.014,FIN_B-CDU_B-CDU_H,8),
-      i*FIN_R0*0.42,CDU_B+CDU_H+(FIN_B-CDU_B-CDU_H)*0.5,0));
+})();
+
+// ================================================================
+// 到来ビーム：四光年の彼方から届き、皿の面に着地する
+// 三条（マゼンタ／真珠／ターコイズ）が螺旋を描き、心拍で脈打つ
+// ================================================================
+var beamGroup=null, beamMats=[], surgeMats=[], landRing=null;
+(function buildBeam(){
+  var LEN=520, TURNS=22, HR=2.10, SEG=360, R_LAND=AP_R*0.62, NF=3;
+  var ORG=VERTEX.clone().addScaledVector(IN_DIR,LEN);
+  beamGroup=new THREE.Group();
+  beamGroup.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),IN_DIR.clone().negate());
+  beamGroup.position.copy(ORG);scene.add(beamGroup);
+  var DEFS=[{c:'#ff05a8',core:'#ffd9f2'},{c:'#f2dbe9',core:'#ffffff'},{c:'#00ddc8',core:'#dffffa'}];
+  // 1色を3本の素線に撚る。遠目には三条、寄ると9本が見える
+  function helix(d,f,rr,ph2){
+    var P=[],i,u,ang,rad,y,w;
+    for(i=0;i<=SEG;i++){
+      u=i/SEG;
+      ang=u*TURNS*TAU+d*TAU/3+f*0.30+ph2;
+      w=clamp((u-0.87)/0.13,0,1); w=w*w*(3-2*w);
+      var sub=0.115*Math.cos(u*TURNS*TAU*3.0+f*TAU/NF);
+      rad=(rr+sub)*(1-w)+R_LAND*w;
+      y=u*LEN-w*(rad*rad/(4*AP_F));
+      P.push(new THREE.Vector3(Math.cos(ang)*rad,y,Math.sin(ang)*rad));
+    }
+    return new THREE.CatmullRomCurve3(P);
   }
-  // 基部の集合管
-  F.push(xf(new THREE.CylinderGeometry(FIN_R0+0.05,FIN_R0+0.09,0.070,26),0,FIN_B-0.040,0));
-  F.push(xf(new THREE.TorusGeometry(FIN_R0+0.055,0.008,6,30),0,FIN_B-0.005,0,PI/2));
-  for(i=0;i<4;i++){
-    a=i/4*TAU+0.3;
-    F.push(tube(new THREE.Vector3(Math.cos(a)*(FIN_R0+0.03),CDU_B+CDU_H,Math.sin(a)*(FIN_R0+0.03)),
-                new THREE.Vector3(Math.cos(a)*(FIN_R0+0.06),FIN_B-0.06,Math.sin(a)*(FIN_R0+0.06)),0.013,7));
+  var d,f,m,mat;
+  for(d=0;d<3;d++){
+    for(f=0;f<NF;f++){
+      var cv=helix(d,f,HR,0);
+      // 芯
+      mat=new THREE.MeshBasicMaterial({color:DEFS[d].core,map:TEX_STRIPE,transparent:true,
+        opacity:0.92,blending:THREE.AdditiveBlending,depthWrite:false,fog:false});
+      beamMats.push(mat);
+      m=new THREE.Mesh(new THREE.TubeGeometry(cv,SEG,0.055,5,false),mat);
+      m.renderOrder=12;m.frustumCulled=false;beamGroup.add(m);
+      // 暈
+      mat=new THREE.MeshBasicMaterial({color:DEFS[d].c,map:TEX_STRIPE,transparent:true,
+        opacity:0.30,blending:THREE.AdditiveBlending,depthWrite:false,fog:false});
+      beamMats.push(mat);
+      m=new THREE.Mesh(new THREE.TubeGeometry(cv,SEG,0.185,5,false),mat);
+      m.renderOrder=12;m.frustumCulled=false;beamGroup.add(m);
+    }
+    // 走る脈
+    mat=new THREE.MeshBasicMaterial({color:'#ffffff',map:TEX_SURGE,transparent:true,opacity:0,
+      blending:THREE.AdditiveBlending,depthWrite:false,fog:false});
+    surgeMats.push(mat);
+    m=new THREE.Mesh(new THREE.TubeGeometry(helix(d,1,HR,0),SEG,0.135,5,false),mat);
+    m.renderOrder=13;m.frustumCulled=false;beamGroup.add(m);
   }
-  for(i=-1;i<=1;i+=2){
-    a=REAR_C+i*REAR_W*0.42;
-    F.push(tube(new THREE.Vector3(Math.cos(a)*(R_REC+0.034),UP_B+N_UP*TR_P+0.05,Math.sin(a)*(R_REC+0.034)),
-                new THREE.Vector3(Math.cos(a)*(R_REC+0.034),CDU_B+0.02,Math.sin(a)*(R_REC+0.034)),0.018,10));
+  // 軸の芯柱と外周の暈
+  var core=[];
+  for(var i2=0;i2<=SEG;i2++){
+    var u2=i2/SEG, w2=clamp((u2-0.87)/0.13,0,1); w2=w2*w2*(3-2*w2);
+    core.push(new THREE.Vector3(0,u2*LEN-w2*0.02,0));
   }
-  scene.add(new THREE.Mesh(mergeGeos(S),matShell));
-  scene.add(new THREE.Mesh(mergeGeos(F),matFrame));
-  addMerged(P,matRad);
-  // CDU の縁に三色の細い環
+  mat=new THREE.MeshBasicMaterial({color:'#ffffff',map:TEX_STRIPE,transparent:true,opacity:0.42,
+    blending:THREE.AdditiveBlending,depthWrite:false,fog:false});
+  beamMats.push(mat);
+  m=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(core),SEG,0.075,6,false),mat);
+  m.renderOrder=12;m.frustumCulled=false;beamGroup.add(m);
+  mat=new THREE.MeshBasicMaterial({color:'#cfe4f2',transparent:true,opacity:0.055,
+    blending:THREE.AdditiveBlending,depthWrite:false,fog:false,side:THREE.DoubleSide});
+  beamMats.push(mat);
+  m=new THREE.Mesh(new THREE.CylinderGeometry(HR*1.55,HR*1.55,LEN,20,1,true),mat);
+  m.position.y=LEN*0.5;m.renderOrder=11;m.frustumCulled=false;beamGroup.add(m);
+  landRing=new THREE.Mesh(new THREE.TorusGeometry(R_LAND,0.085,8,64),
+    new THREE.MeshBasicMaterial({color:'#ffd9f2',transparent:true,opacity:0.5,
+      blending:THREE.AdditiveBlending,depthWrite:false}));
+  landRing.rotation.x=PI/2;landRing.position.set(0,R_LAND*R_LAND/(4*AP_F),0);
+  landRing.renderOrder=11;dishGroup.add(landRing);
+})();
+
+// ================================================================
+// 主役の1基（束0の最内、半径9.0）だけ作り込む
+//   42基すべてを完全形にすると 777万三角形。近づくのはここだけなので
+//   この1基に18段×4面のカード列・培養脳・背面区画・冷媒配管を入れる
+// ================================================================
+var heroFin=null, heroEdge=null, HERO_M=null;
+(function buildHero(){
+  var HR2=DROP[0], HA=0.11+UNIT_OFS/HR2;
+  var hx=Math.cos(HA)*HR2, hz=Math.sin(HA)*HR2, hy=SET_Y;
+  var G=new THREE.Group();
+  G.position.set(hx,hy,hz);G.rotation.y=HA+PI;scene.add(G);heroGroup=G;
+  HERO_M=new THREE.Matrix4().copy(G.matrixWorld);G.updateMatrixWorld(true);HERO_M.copy(G.matrixWorld);
+  var MO=0.614, MI=0.528, SEC5=FRONT_W2/4, HF=SEC5*0.5-0.062;
+  var S1=[],F1=[],GL1=[],PK1=[],i,j,k,a,y;
+  // 裾・給電棚・機械室
+  S1.push(xf(new THREE.CylinderGeometry(0.632,0.640,0.020,26),0,0.010,0));
+  for(k=0;k<6;k++){
+    y=0.02+k*0.047+0.024;
+    S1.push(xf(new THREE.CylinderGeometry(0.62,0.62,0.038,26,1,true,FRONT_S2,FRONT_W2),0,y,0));
+    F1.push(xf(new THREE.TorusGeometry(0.616,0.004,4,26,FRONT_W2),0,y+0.020,0,PI/2,0,0).rotateY(-FRONT_S2));
+  }
+  S1.push(xf(new THREE.CylinderGeometry(0.62,0.62,0.28,26,1,true,REAR_S2,REAR_W2),0,0.16,0));
+  S1.push(xf(new THREE.CylinderGeometry(0.614,0.614,0.030,26),0,0.315,0));
+  // 18段 × 4面のモジュールとカード列
+  for(i=0;i<18;i++){
+    y=(i<8?0.34+i*0.078:1.66+(i-8)*0.078)+0.039;
+    for(k=0;k<4;k++){
+      a=FRONT_C2+(k+0.5-2)*SEC5;
+      S1.push(xf(new THREE.CylinderGeometry(MO,MO,0.058,10,1,true,a-HF,HF*2),0,y,0));
+      S1.push(xf(new THREE.CylinderGeometry(MI,MI,0.058,8,1,true,a-HF,HF*2),0,y,0));
+      for(j=-1;j<=1;j+=2)
+        F1.push(xf(new THREE.BoxGeometry(MO-MI,0.058,0.006),
+          Math.cos(a+j*HF)*(MI+MO)*0.5,y,Math.sin(a+j*HF)*(MI+MO)*0.5,0,-(a+j*HF),0));
+      // カード列（6枚）
+      for(j=0;j<6;j++){
+        var ca=(a-HF+0.026)+(j/5)*(HF*2-0.052);
+        S1.push(xf(new THREE.BoxGeometry(0.014,0.030,0.055),
+          Math.cos(ca)*(MO-0.024),y,Math.sin(ca)*(MO-0.024),0,-ca,0));
+        GL1.push(xf(new THREE.BoxGeometry(0.010,0.004,0.030),
+          Math.cos(ca)*(MO-0.004),y-0.013,Math.sin(ca)*(MO-0.004),0,-ca,0));
+      }
+      GL1.push(xf(new THREE.CylinderGeometry(MO+0.002,MO+0.002,0.006,8,1,true,a-HF*0.8,HF*1.6),0,y+0.020,0));
+    }
+    F1.push(xf(new THREE.TorusGeometry(0.608,0.0045,4,26,FRONT_W2),0,y-0.039,0,PI/2,0,0).rotateY(-FRONT_S2));
+  }
+  for(k=0;k<=4;k++){
+    a=FRONT_C2+(k-2)*SEC5;
+    F1.push(xf(new THREE.BoxGeometry(MO-MI+0.008,0.62,0.024),
+      Math.cos(a)*(MI+MO)*0.5,0.65,Math.sin(a)*(MI+MO)*0.5,0,-a,0));
+    F1.push(xf(new THREE.BoxGeometry(MO-MI+0.008,0.78,0.024),
+      Math.cos(a)*(MI+MO)*0.5,2.05,Math.sin(a)*(MI+MO)*0.5,0,-a,0));
+    F1.push(xf(new THREE.BoxGeometry(0.048,2.14,0.032),
+      Math.cos(a)*0.590,1.42,Math.sin(a)*0.590,0,PI/2-a,0));
+  }
+  // 背面の配管区画
+  S1.push(xf(new THREE.CylinderGeometry(0.50,0.50,2.16,16,1,true,REAR_S2,REAR_W2),0,1.42,0));
+  for(k=-1;k<=1;k+=2){
+    a=REAR_C2+k*REAR_W2*0.5;
+    S1.push(xf(new THREE.BoxGeometry(0.12,2.16,0.012),Math.cos(a)*0.56,1.42,Math.sin(a)*0.56,0,-a,0));
+  }
+  [[0.34,0.95],[1.67,2.44]].forEach(function(sg){
+    var y0=sg[0],y1=sg[1];
+    S1.push(xf(new THREE.CylinderGeometry(0.568,0.568,y1-y0,10,1,true,REAR_C2-0.44,0.88),0,(y0+y1)*0.5,0));
+    S1.push(xf(new THREE.CylinderGeometry(0.542,0.542,y1-y0,10,1,true,REAR_C2-0.44,0.88),0,(y0+y1)*0.5,0));
+  });
+  for(k=-1;k<=1;k+=2){
+    a=REAR_C2+k*REAR_W2*0.28;
+    F1.push(xf(new THREE.BoxGeometry(0.026,2.14,0.013),Math.cos(a)*0.528,1.42,Math.sin(a)*0.528,0,PI/2-a,0));
+    a=REAR_C2+k*REAR_W2*0.42;
+    F1.push(xf(new THREE.CylinderGeometry(0.020,0.020,2.14,10,1,true),Math.cos(a)*0.534,1.42,Math.sin(a)*0.534));
+    PK1.push(xf(new THREE.CylinderGeometry(0.013,0.013,2.14,8),Math.cos(a)*0.534,1.42,Math.sin(a)*0.534));
+  }
+  for(i=0;i<18;i++){
+    y=(i<8?0.34+i*0.078:1.66+(i-8)*0.078)+0.039;
+    F1.push(xf(new THREE.CylinderGeometry(0.595,0.595,0.034,8,1,true,REAR_C2-0.38,0.76),0,y,0));
+    GL1.push(xf(new THREE.CylinderGeometry(0.603,0.603,0.005,8,1,true,REAR_C2-0.32,0.64),0,y,0));
+  }
+  // 培養槽
+  for(k=-1;k<=1;k+=2)
+    F1.push(xf(new THREE.CylinderGeometry(0.618,0.618,0.042,26,1,true,FRONT_S2,FRONT_W2),0,1.31+k*0.331,0));
   for(i=0;i<3;i++){
-    var rr=new THREE.Mesh(new THREE.TorusGeometry(R_UNIT-0.006,0.0032,5,64),matTriG[i]);
-    rr.position.set(0,CDU_B+0.028+i*0.032,0);rr.rotation.x=PI/2;
-    rr.renderOrder=6;scene.add(rr);triRing.push(rr);
+    var ey=1.16+i*0.15;
+    F1.push(xf(new THREE.TorusGeometry(0.300,0.0055,5,30),0,ey,0,PI/2));
+    for(k=0;k<10;k++){
+      a=k/10*TAU+i*0.11;
+      F1.push(xf(new THREE.CylinderGeometry(0.005,0.005,0.045,5),
+        Math.cos(a)*0.300,ey,Math.sin(a)*0.300,PI/2,0,-a));
+    }
   }
-  radHot=addMerged(H,matRadH,5);
-  // 回転文字モニター：高さを倍にし、槽の下端フランジに載せる
-  // 回転文字ディスプレイは全周。背面の区画の上を横切る帯として通す
-  var band=new THREE.Mesh(new THREE.CylinderGeometry(R_UNIT+0.003,R_UNIT+0.003,0.116,72,1,true),matBand);
-  band.position.set(0,VAT_B+0.012,0);band.renderOrder=6;scene.add(band);
-  var bandG=new THREE.Mesh(new THREE.CylinderGeometry(R_UNIT+0.008,R_UNIT+0.008,0.130,72,1,true),
-    new THREE.MeshBasicMaterial({color:'#ff5fbe',transparent:true,opacity:0.16,
-      blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));
-  bandG.position.set(0,VAT_B+0.012,0);bandG.renderOrder=7;scene.add(bandG);
-  window.__H53_BANDG=bandG;
-  for(i=-1;i<=1;i+=2){
-    var e=new THREE.Mesh(new THREE.TorusGeometry(R_UNIT+0.006,0.0040,5,72),matFrame);
-    e.position.set(0,VAT_B+0.012+i*0.060,0);e.rotation.x=PI/2;scene.add(e);
+  var vg2=xf(new THREE.CylinderGeometry(0.62,0.62,0.62,26,1,true,FRONT_S2,FRONT_W2),0,1.31,0);
+  var gf=new THREE.Mesh(vg2,matUnitF);gf.renderOrder=8;G.add(gf);
+  // 培養脳（皺つき）
+  function gy(x,y2,z){
+    var w1=Math.sin(y2*2.7+z*1.9)+0.6*Math.sin(z*4.1+x*1.3);
+    var w2=Math.sin(x*2.9+y2*2.1)+0.6*Math.sin(y2*4.7+z*1.7);
+    var w3=Math.sin(z*3.3+x*2.5)+0.6*Math.sin(x*5.1+y2*1.9);
+    return (Math.sin(x*5.2+w1*1.9)+Math.sin(y2*5.8+w2*1.9)+Math.sin(z*4.9+w3*1.9))/3;
   }
-  // 帯を支える受け座（背面の区画の上を跨ぐぶん）
-  var bs=[];
-  for(i=0;i<6;i++){
-    var ba2=REAR_C+(i-2.5)*(REAR_W/6);
-    bs.push(xf(new THREE.BoxGeometry(0.030,0.130,0.028),
-      Math.cos(ba2)*(R_UNIT-0.012),VAT_B+0.012,Math.sin(ba2)*(R_UNIT-0.012),0,tanRot(ba2),0));
+  var bg2=new THREE.SphereGeometry(1,44,32),bp=bg2.attributes.position,bv=new THREE.Vector3();
+  var bc2=new Float32Array(bp.count*3),cR=new THREE.Color('#f2b0c6'),cV=new THREE.Color('#a83a68'),tm=new THREE.Color();
+  for(i=0;i<bp.count;i++){
+    bv.set(bp.getX(i),bp.getY(i),bp.getZ(i));
+    var dd=bv.clone().normalize();
+    var bb=Math.abs(gy(dd.x*1.05,dd.y*1.15,dd.z));
+    var ridge=1-Math.pow(bb,1.6);
+    var rr2=0.90+0.135*ridge+0.014*Math.sin(dd.x*17)*Math.sin(dd.y*15+2)*Math.sin(dd.z*16);
+    if(Math.abs(dd.x)<0.10)rr2-=0.20*(1-Math.abs(dd.x)/0.10);
+    bv.copy(dd).multiplyScalar(rr2);bp.setXYZ(i,bv.x,bv.y,bv.z);
+    tm.copy(cV).lerp(cR,0.15+0.85*ridge);
+    tm.multiplyScalar(0.84+0.20*clamp(dd.y*0.5+0.5,0,1));
+    bc2[i*3]=tm.r;bc2[i*3+1]=tm.g;bc2[i*3+2]=tm.b;
   }
-  addMerged(bs,matFrame);
+  bg2.setAttribute('color',new THREE.BufferAttribute(bc2,3));bg2.computeVertexNormals();
+  heroBrain=new THREE.Mesh(xf(bg2,0,0,0,0,0,0,0.196,0.160,0.182),
+    new THREE.MeshPhysicalMaterial({vertexColors:true,roughness:0.24,metalness:0,clearcoat:1.0,
+      clearcoatRoughness:0.14,envMapIntensity:1.1,emissive:'#7a2038',emissiveIntensity:0.30}));
+  heroBrain.position.set(0,1.322,0);   // 位置はメッシュ側。拍動は中心で起きる
+  heroBrain.renderOrder=4;G.add(heroBrain);
+  // CDU と放熱の基部
+  S1.push(xf(new THREE.CylinderGeometry(0.62,0.62,0.15,26,1,true),0,2.555,0));
+  S1.push(xf(new THREE.CylinderGeometry(0.614,0.614,0.03,26),0,2.63,0));
+  F1.push(xf(new THREE.CylinderGeometry(0.21,0.21,0.09,16),0,2.68,0));
+  // 三色の状態灯
+  var TL=[[],[],[]];
+  for(k=0;k<3;k++)for(i=0;i<2;i++){
+    a=FRONT_C2+(k-1)*0.34;
+    TL[k].push(xf(new THREE.CylinderGeometry(0.6255,0.6255,0.030,7,1,true,a-0.115,0.23),0,0.90+i*1.20,0));
+  }
+  // ---- 72基のモジュールをインスタンスで作る（群の局所座標に置く）----
+  var MOD=[],mp,mq;
+  for(mp=0;mp<18;mp++){
+    var my=(mp<8?0.34+mp*0.078:1.66+(mp-8)*0.078)+0.039;
+    for(mq=0;mq<4;mq++)MOD.push({y:my,a:FRONT_C2+(mq+0.5-2)*SEC5});
+  }
+  var NM=MOD.length;
+  function mkm(g2,m2,o2){
+    var im=new THREE.InstancedMesh(withColor(g2),m2,NM),n2;
+    im.instanceMatrix.setUsage(THREE.StaticDrawUsage);im.frustumCulled=false;
+    for(n2=0;n2<NM;n2++)im.setColorAt(n2,new THREE.Color(1,1,1));
+    if(im.instanceColor)im.instanceColor.needsUpdate=true;
+    if(o2!==undefined)im.renderOrder=o2;
+    G.add(im);return im;
+  }
+  // 基板と実装（モジュールの局所：方位0・高さ0に作り、行列で配る）
+  function put2(arr,rr,ag,w,h,dp3,yy){
+    arr.push(xf(new THREE.BoxGeometry(w,h,dp3),Math.cos(ag)*rr,yy,Math.sin(ag)*rr,0,-ag,0));
+  }
+  var pcb=[xf(new THREE.RingGeometry(MI+0.020,MO-0.012,12,1,-HF*0.95,HF*1.90),0,-0.0182,0,PI/2,0,0)];
+  var cmp=[],plt=[],led=[],mk3;
+  put2(plt,0.452,0,0.120,0.0205,0.130,-0.0063);
+  put2(plt,0.322,0,0.070,0.0140,0.092,-0.0095);
+  for(mk3=0;mk3<8;mk3++){
+    var hg2=(mk3<4?-1:1)*(0.075+0.052*((mk3%4)>1?1:0));
+    put2(cmp,0.452+((mk3%2)?0.052:-0.052),hg2,0.030,0.0125,0.024,-0.0103);
+  }
+  for(mk3=0;mk3<6;mk3++)put2(cmp,0.566,(-HF*0.62)+(mk3/5)*(HF*1.24),0.036,0.0085,0.030,-0.0122);
+  put2(cmp,0.292,0,0.020,0.0180,0.190,-0.0090);
+  led.push(xf(new THREE.CylinderGeometry(MO+0.002,MO+0.002,0.008,8,1,true,-HF*0.86,HF*1.72),0,0.0195,0));
+  for(mk3=0;mk3<6;mk3++)
+    led.push(xf(new THREE.BoxGeometry(0.010,0.005,0.026),
+      Math.cos((-HF+0.026)+(mk3/5)*(HF*2-0.052))*(MO-0.004),-0.013,
+      Math.sin((-HF+0.026)+(mk3/5)*(HF*2-0.052))*(MO-0.004),0,-((-HF+0.026)+(mk3/5)*(HF*2-0.052)),0));
+  var mshell=[xf(new THREE.CylinderGeometry(MO,MO,0.058,10,1,true,-HF,HF*2),0,0,0),
+              xf(new THREE.CylinderGeometry(MI,MI,0.058,8,1,true,-HF,HF*2),0,0,0)];
+  for(mk3=-1;mk3<=1;mk3+=2)
+    mshell.push(xf(new THREE.BoxGeometry(MO-MI,0.058,0.006),
+      Math.cos(mk3*HF)*(MI+MO)*0.5,0,Math.sin(mk3*HF)*(MI+MO)*0.5,0,-mk3*HF,0));
+  var iMesh=[mkm(mergeGeos(mshell),matUnit),mkm(mergeGeos(pcb),matPCB),
+             mkm(mergeGeos(cmp),matComp),mkm(mergeGeos(plt),matPlate),
+             mkm(mergeGeos(led),matLedH,5)];
+  // 三色の状態灯（モジュールごと）
+  var LWm=0.030,LGm=0.014,L0m=-HF+0.062,SWm=(HF*1.86)/3;
+  for(mk3=0;mk3<3;mk3++){
+    var lam=L0m+mk3*(LWm+LGm), s0m=-HF*0.93+mk3*SWm, tb2=[],hb2=[];
+    tb2.push(xf(new THREE.CylinderGeometry(MO+0.0015,MO+0.0015,0.017,7,1,true,lam-LWm*0.5,LWm),0,-0.011,0));
+    tb2.push(xf(new THREE.CylinderGeometry(MO+0.0015,MO+0.0015,0.0095,9,1,true,s0m+0.007,SWm-0.014),0,-0.0246,0));
+    hb2.push(xf(new THREE.CylinderGeometry(MO+0.006,MO+0.006,0.036,7,1,true,lam-LWm*0.95,LWm*1.9),0,-0.011,0));
+    hb2.push(xf(new THREE.CylinderGeometry(MO+0.005,MO+0.005,0.024,9,1,true,s0m+0.004,SWm-0.008),0,-0.0246,0));
+    heroMod.push(mkm(mergeGeos(tb2),matTriU[mk3],6));
+    heroModG.push(mkm(mergeGeos(hb2),matTriGU[mk3],7));
+  }
+  var dm=new THREE.Object3D(),ii2,jj2;
+  for(ii2=0;ii2<NM;ii2++){
+    dm.position.set(0,MOD[ii2].y,0);dm.rotation.set(0,MOD[ii2].a,0);
+    dm.scale.set(1,1,1);dm.updateMatrix();
+    for(jj2=0;jj2<iMesh.length;jj2++)iMesh[jj2].setMatrixAt(ii2,dm.matrix);
+    for(jj2=0;jj2<3;jj2++){heroMod[jj2].setMatrixAt(ii2,dm.matrix);heroModG[jj2].setMatrixAt(ii2,dm.matrix);}
+  }
+  for(jj2=0;jj2<iMesh.length;jj2++)iMesh[jj2].instanceMatrix.needsUpdate=true;
+  for(jj2=0;jj2<3;jj2++){heroMod[jj2].instanceMatrix.needsUpdate=true;heroModG[jj2].instanceMatrix.needsUpdate=true;}
+  heroLed=iMesh[4];
+  // 回転する文字帯
+  var bandM=new THREE.Mesh(new THREE.CylinderGeometry(0.623,0.623,0.116,48,1,true),matBand);
+  bandM.position.set(0,1.012,0);G.add(bandM);
+  for(mk3=-1;mk3<=1;mk3+=2)
+    F1.push(xf(new THREE.TorusGeometry(0.626,0.0040,5,48),0,1.012+mk3*0.060,0,PI/2));
+  G.add(new THREE.Mesh(mergeGeos(S1),matUnit));
+  G.add(new THREE.Mesh(mergeGeos(F1),matChrome));
+  var gg=new THREE.Mesh(mergeGeos(GL1),matUnitG);gg.renderOrder=5;G.add(gg);
+  G.add(new THREE.Mesh(mergeGeos(PK1),matPortE));
+  for(k=0;k<3;k++){
+    var tm2=new THREE.Mesh(mergeGeos(TL[k]),matTriU[k]);tm2.renderOrder=6;G.add(tm2);heroTri.push(tm2);
+  }
+  // 放熱板30枚（配管つき）。他の41基と同じ開閉に追随する
+  var hb=[],he=[];
+  hb.push(xf(new THREE.BoxGeometry(1,0.006,0.70),0.5,0,0));
+  hb.push(xf(new THREE.CylinderGeometry(0.024,0.024,0.56,8),0,0,0,PI/2,0,0));
+  for(k=-1;k<=1;k+=2)
+    hb.push(xf(new THREE.CylinderGeometry(0.0072,0.0072,0.93,7),0.505,0.007,k*0.21,0,0,PI/2));
+  he.push(xf(new THREE.BoxGeometry(0.020,0.011,0.693),1.008,0,0));
+  for(k=-1;k<=1;k+=2)he.push(xf(new THREE.BoxGeometry(0.94,0.013,0.014),0.495,0,k*0.348));
+  heroFin=new THREE.InstancedMesh(withColor(mergeGeos(hb)),matFinU,30);
+  heroEdge=new THREE.InstancedMesh(withColor(mergeGeos(he)),matFinUE,30);
+  [heroFin,heroEdge].forEach(function(im){
+    im.instanceMatrix.setUsage(THREE.DynamicDrawUsage);im.frustumCulled=false;
+    for(var n=0;n<30;n++)im.setColorAt(n,new THREE.Color(1,1,1));
+    if(im.instanceColor)im.instanceColor.needsUpdate=true;
+  });
+  heroEdge.renderOrder=6;
+  var ec2=new THREE.Color();
+  for(i=0;i<30;i++){ec2.set(TRI_U[i%3]);heroEdge.setColorAt(i,ec2);}
+  heroEdge.instanceColor.needsUpdate=true;
+  scene.add(heroFin);scene.add(heroEdge);
 })();
 
 // ================================================================
 // 地表
 // ================================================================
+(function buildGround(){
+  var NR=72,NA=112,PATCH=90.0,i,j,r,a,y,pos=[],idx=[],col=[];
+  var cHi=new THREE.Color('#2a2733'),cLo=new THREE.Color('#0d0d14');
+  for(i=0;i<=NR;i++){
+    r=Math.pow(i/NR,1.4)*PATCH;
+    for(j=0;j<=NA;j++){
+      a=j/NA*TAU;y=groundAt(r,a);
+      pos.push(Math.cos(a)*r,y,Math.sin(a)*r);
+      var t=clamp(1-r/PATCH,0,1);
+      var c=cLo.clone().lerp(cHi,0.25+0.75*t*t);
+      col.push(c.r,c.g,c.b);
+    }
+  }
+  for(i=0;i<NR;i++)for(j=0;j<NA;j++){
+    var A=i*(NA+1)+j,B=A+1,C=A+NA+1,D=C+1;
+    idx.push(A,B,C,B,D,C);   // 上を向く巻き。逆だと片面なので上から透ける
+  }
+  var g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+  g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));
+  g.setIndex(idx);g.computeVertexNormals();
+  scene.add(new THREE.Mesh(g,matRego));
+})();
+
+// ================================================================
+// 遠景 ── 同じ局が複数、地平に沈みながら並ぶ
+//   衛星が丸いので遠い局は下から順に隠れる。手前は甲板まで、奥は皿だけ
+//   ビームは四光年先の同じ源から来るので、全ての局で平行になる
+// ================================================================
+var NEAR_R=90.0;                       // 手前の表土の外縁（受信部の描画範囲）
+var FAR_R2=820.0;
+var FARS=[
+  // 乱立：黄金角で散らした12局。122〜450 m、最小間隔163 m
+  {d:122, a:+0.62},{d:148, a:+3.02},{d:176, a:-0.86},{d:205, a:+1.54},
+  {d:236, a:-2.35},{d:268, a:+0.05},{d:301, a:+2.45},{d:334, a:-1.43},
+  {d:366, a:+0.97},{d:396, a:-2.91},{d:424, a:-0.51},{d:450, a:+1.89}
+];
+var farBeamMats=[], farEmit=null;
+(function buildFarField(){
+  var NR=32,NA=104,i,j,pos=[],col=[],idx=[];
+  var cA=new THREE.Color('#191820'),cB=new THREE.Color('#3b3844'),c=new THREE.Color();
+  for(i=0;i<=NR;i++){
+    var u=i/NR, r=NEAR_R*0.94+Math.pow(u,1.35)*(FAR_R2-NEAR_R*0.94);
+    for(j=0;j<=NA;j++){
+      var a=j/NA*TAU;
+      var y=Math.sqrt(Math.max(0,R_SAT*R_SAT-r*r))-R_SAT
+            +Math.sin(a*3.1+r*0.0121)*0.95+Math.sin(a*7.3-r*0.0264)*0.42;
+      pos.push(Math.cos(a)*r,y,Math.sin(a)*r);
+      var n2=0.5+0.5*Math.sin(a*17+r*0.21)*Math.sin(r*0.09-a*5);
+      c.copy(cA).lerp(cB,clamp(0.18+0.38*n2-0.16*u,0,1));
+      col.push(c.r,c.g,c.b);
+    }
+  }
+  for(i=0;i<NR;i++)for(j=0;j<NA;j++){
+    var A=i*(NA+1)+j,B=A+1,C=A+NA+1,D=C+1;
+    idx.push(A,B,C,B,D,C);
+  }
+  var fg=new THREE.BufferGeometry();
+  fg.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+  fg.setAttribute('color',new THREE.Float32BufferAttribute(col,3));
+  fg.setIndex(idx);fg.computeVertexNormals();
+  scene.add(new THREE.Mesh(fg,matRego));
+
+  var FS=[],FE=[],k;
+  FARS.forEach(function(f){
+    f.x=Math.cos(f.a)*f.d; f.z=Math.sin(f.a)*f.d;
+    f.y=Math.sqrt(Math.max(0,R_SAT*R_SAT-f.d*f.d))-R_SAT;
+    var px=f.x,pz=f.z,py=f.y,g=[],e=[],i2,jj;
+    g.push(xf(new THREE.CylinderGeometry(AP,AP,0.5,20,1,true),px,py+0.3,pz));
+    g.push(xf(new THREE.TorusGeometry(AP,0.26,4,22),px,py+DK_Y,pz,PI/2));
+    g.push(xf(new THREE.TorusGeometry(R_V*0.99,0.14,4,20),px,py+DK_Y+1.3,pz,PI/2));
+    g.push(xf(new THREE.CylinderGeometry(0.30,1.05,TOW_H,7,1,true),px,py+DK_Y+TOW_H*0.5,pz));
+    g.push(xf(new THREE.CylinderGeometry(1.30,1.30,0.40,8),px,py+DK_Y+0.2,pz));
+    // 冠の凸は +Y。−IN_DIR へ回すと凹面が到来方向を向く（受信の顔）
+    var dq=new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,1,0),IN_DIR.clone().negate());
+    var dg=new THREE.SphereGeometry(AP_R,12,6,0,TAU,0,0.62);
+    dg.applyMatrix4(new THREE.Matrix4().makeRotationFromQuaternion(dq));
+    dg.translate(px,py+DK_Y+TOW_H,pz);
+    g.push(dg);
+    for(i2=0;i2<N_SET;i2++){
+      var aa=A_DK+i2/N_SET*TAU;
+      for(jj=0;jj<RINGS.length;jj++){
+        var rr2=RINGS[jj], ua=aa+U_OFS/rr2;
+        var ux=px+Math.cos(ua)*rr2, uz=pz+Math.sin(ua)*rr2;
+        g.push(xf(new THREE.CylinderGeometry(0.62,0.62,3.05,5,1,true),ux,py+DK_Y+1.53,uz));
+        e.push(xf(new THREE.CylinderGeometry(0.64,0.64,0.30,5,1,true),ux,py+DK_Y+2.60,uz));
+      }
+    }
+    FS.push(mergeGeos(g));FE.push(mergeGeos(e));
+  });
+  scene.add(new THREE.Mesh(mergeGeos(FS),
+    sm({color:'#2a2f39',metalness:0.62,roughness:0.52,envMapIntensity:0.30})));
+  farEmit=new THREE.Mesh(mergeGeos(FE),
+    new THREE.MeshBasicMaterial({color:'#3fe0d6',transparent:true,opacity:0.34,
+      blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));
+  farEmit.renderOrder=5;scene.add(farEmit);
+
+  // 全局のビームは平行なので、色ごとに全局ぶんを1つのメッシュへ焼く
+  var DEFS2=['#ff05a8','#f2dbe9','#00ddc8'];
+  var ROT=new THREE.Matrix4().makeRotationFromQuaternion(
+    new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,1,0),IN_DIR));
+  var TUBES=[[],[],[]],HAZE=[];
+  FARS.forEach(function(f){
+    var oy=f.y+DK_Y+TOW_H,k,i3;
+    for(k=0;k<3;k++){
+      var P=[],LEN2=430,TN=16;
+      for(i3=0;i3<=80;i3++){
+        var u3=i3/80;                                   // u=0 が彼方、u=1 が皿
+        var an=u3*TN*TAU+k*TAU/3;
+        var w3=clamp((u3-0.90)/0.10,0,1);               // 皿の直前で着地半径へ絞る
+        var rad=2.10*(1-w3)+AP_R*0.62*w3;
+        P.push(new THREE.Vector3(Math.cos(an)*rad,(1-u3)*LEN2,Math.sin(an)*rad));
+      }
+      var tg=new THREE.TubeGeometry(new THREE.CatmullRomCurve3(P),80,0.16,4,false);
+      tg.applyMatrix4(ROT);tg.translate(f.x,oy,f.z);
+      TUBES[k].push(tg);
+    }
+    var hg=new THREE.CylinderGeometry(3.0,3.0,430,10,1,true);
+    hg.translate(0,215,0);hg.applyMatrix4(ROT);hg.translate(f.x,oy,f.z);
+    HAZE.push(hg);
+  });
+  var k4;
+  for(k4=0;k4<3;k4++){
+    var mt=new THREE.MeshBasicMaterial({color:DEFS2[k4],map:TEX_STRIPE,transparent:true,
+      opacity:0.52,blending:THREE.AdditiveBlending,depthWrite:false,fog:false});
+    farBeamMats.push(mt);
+    var mm=new THREE.Mesh(mergeGeos(TUBES[k4]),mt);
+    mm.renderOrder=12;mm.frustumCulled=false;scene.add(mm);
+  }
+  var hzm=new THREE.MeshBasicMaterial({color:'#cfe4f2',transparent:true,opacity:0.045,
+    blending:THREE.AdditiveBlending,depthWrite:false,fog:false,side:THREE.DoubleSide});
+  farBeamMats.push(hzm);
+  var hzM=new THREE.Mesh(mergeGeos(HAZE),hzm);
+  hzM.renderOrder=11;hzM.frustumCulled=false;scene.add(hzM);
+})();
 
 // ================================================================
 // 視点：31.2秒・4カット
 // ================================================================
-var SP_A=REAR_C, MD_A=FRONT_C;
+var A0=0.11, DA0=A0+UNIT_OFS/DROP[0], AH=A0+TAU/N_SET*0.5;
+var U0R=DROP[0], PORT_R=DROP[0]-0.66;
+function beamAt(d){return VERTEX.clone().addScaledVector(IN_DIR,d);}
+var BQ1=beamAt(26.0), BQ2=beamAt(13.0), BQ3=beamAt(3.2);
 var SHOTS=[
-  // 試験槽。円い部屋が円い機械を囲む
-  {n:'chamber',t0: 0.0,t1:14.0,
-   a:{th:LOGO_A-1.15,ph:1.386,r:15.00,tx:0,ty:5.20,tz:0},
-   b:{th:LOGO_A-0.12,ph:1.492,r: 7.50,tx:0,ty:2.20,tz:0}},
-  {n:'unit',   t0:14.0,t1:24.0,
-   a:{th:MD_A+0.34,ph:1.396,r:7.40,tx:0,ty:1.86,tz:0},
-   b:{th:MD_A-0.08,ph:1.472,r:6.20,tx:0,ty:1.66,tz:0}},
-  {n:'orbit',  t0:24.0,t1:38.0,
-   a:{th:MD_A+0.62,ph:1.330,r:6.80,tx:0,ty:2.00,tz:0},
-   b:{th:MD_A-0.98,ph:1.442,r:8.20,tx:0,ty:2.20,tz:0}},
-  {n:'vat',    t0:38.0,t1:48.0,
-   a:{th:MD_A+0.30,ph:1.535,r:1.86,tx:0,ty:VAT_MID,tz:0},
-   b:{th:MD_A-0.14,ph:1.500,r:1.48,tx:0,ty:VAT_MID+0.02,tz:0}},
-  {n:'tray',   t0:48.0,t1:56.0,
-   a:{th:MD_A+0.42,ph:1.560,r:1.15,tx:Math.cos(MD_A)*R_UNIT*0.5,ty:trayY(2),tz:Math.sin(MD_A)*R_UNIT*0.5},
-   b:{th:MD_A-0.20,ph:1.470,r:0.94,tx:Math.cos(MD_A)*R_UNIT*0.5,ty:trayY(6),tz:Math.sin(MD_A)*R_UNIT*0.5}},
-  {n:'rear',   t0:56.0,t1:62.4,
-   a:{th:SP_A+0.40,ph:1.470,r:1.62,tx:Math.cos(SP_A)*R_UNIT*0.4,ty:VAT_MID-0.10,tz:Math.sin(SP_A)*R_UNIT*0.4},
-   b:{th:SP_A-0.22,ph:1.430,r:1.30,tx:Math.cos(SP_A)*R_UNIT*0.4,ty:VAT_MID+0.30,tz:Math.sin(SP_A)*R_UNIT*0.4}}
+  // 軌道からの落下。129°回り込みながら高度53→8.6 mへ急降下し、敷地が迫る
+  {n:'drop',   t0: 0.0,t1:10.0,
+   a:{th:A0+3.60,ph:0.60,r:50.0,tx:0,ty:12.0,tz:0},
+   m:{th:A0+2.30,ph:0.98,r:32.0,tx:0,ty: 7.0,tz:0},
+   b:{th:A0+1.35,ph:1.30,r:19.0,tx:0,ty: 3.4,tz:0}},
+  // 環15と21の空隙を高さ2.8 mで疾走。−172°、展開した翼の下を潜る
+  {n:'weave',  t0:10.0,t1:20.0,
+   a:{th:A0-0.40,ph:1.545,r:18.6,tx:0,ty:2.30,tz:0},
+   b:{th:A0-3.40,ph:1.556,r:18.4,tx:0,ty:2.60,tz:0}},
+  // ビーム軸を129°螺旋しながら降りる。三条が皿へ吸い込まれる所まで
+  {n:'beam',   t0:20.0,t1:31.0,
+   a:{th:AZ+0.30,ph:1.12,r:24.0,tx:BQ1.x,ty:BQ1.y,tz:BQ1.z},
+   m:{th:AZ+1.50,ph:1.30,r:17.0,tx:BQ2.x,ty:BQ2.y,tz:BQ2.z},
+   b:{th:AZ+2.55,ph:1.47,r:12.5,tx:BQ3.x,ty:BQ3.y+0.3,tz:BQ3.z}},
+  // 塔を132°巻き上がる。基部2.5 m→皿の上17.9 m
+  {n:'tower',  t0:31.0,t1:40.0,
+   a:{th:AZ+2.60,ph:1.552,r:6.2,tx:0,ty: 2.4,tz:0},
+   m:{th:AZ+3.70,ph:1.340,r:6.6,tx:0,ty: 8.0,tz:0},
+   b:{th:AZ+4.90,ph:1.020,r:7.8,tx:0,ty:13.8,tz:0}},
+  // 乱立。目標そのものが敷地を横切って飛び、平行なビームの列を138°で薙ぐ
+  {n:'fleet',  t0:40.0,t1:51.0,
+   a:{th:FARS[2].a+PI,ph:1.500,r:42.0,
+      tx:Math.cos(FARS[2].a)*70,ty:5.0,tz:Math.sin(FARS[2].a)*70},
+   b:{th:FARS[3].a+PI,ph:1.460,r:40.0,
+      tx:Math.cos(FARS[3].a)*70,ty:6.0,tz:Math.sin(FARS[3].a)*70}},
+  // 主役の1基。地表すれすれから89°回り込みつつ舐め上げる
+  {n:'unit',   t0:51.0,t1:62.4,
+   a:{th:DA0+PI-0.90,ph:1.555,r:4.2,tx:Math.cos(DA0)*U0R,ty:SET_Y+0.9,tz:Math.sin(DA0)*U0R},
+   b:{th:DA0+PI+0.65,ph:1.318,r:3.3,tx:Math.cos(DA0)*U0R,ty:SET_Y+1.5,tz:Math.sin(DA0)*U0R}}
 ];
 var theta=SHOTS[0].a.th, phi=SHOTS[0].a.ph, radius=SHOTS[0].a.r, nowT=0, shotOfs=0, curShot=-1;
-var target=new THREE.Vector3(0,1.42,0);
+var target=new THREE.Vector3(0,7.6,0);
 function shotAt(tt){var i;for(i=0;i<SHOTS.length;i++)if(tt>=SHOTS[i].t0&&tt<SHOTS[i].t1)return i;return SHOTS.length-1;}
 function applyRail(tt){
   var si=shotAt(tt),S=SHOTS[si];
   var u=clamp((tt-S.t0)/(S.t1-S.t0),0,1),e=u*u*(3-2*u);
-  theta=lerp(S.a.th,S.b.th,e);phi=lerp(S.a.ph,S.b.ph,e);radius=lerp(S.a.r,S.b.r,e);
-  target.set(lerp(S.a.tx,S.b.tx,e),lerp(S.a.ty,S.b.ty,e),lerp(S.a.tz,S.b.tz,e));
+  // 中間キー m があれば2次ベジェで掬い上げる（急降下や螺旋の弧を作る）
+  var bz=function(ka,km,kb){var w=1-e;return w*w*ka+2*w*e*km+e*e*kb;};
+  if(S.m){
+    theta=bz(S.a.th,S.m.th,S.b.th);phi=bz(S.a.ph,S.m.ph,S.b.ph);radius=bz(S.a.r,S.m.r,S.b.r);
+    target.set(bz(S.a.tx,S.m.tx,S.b.tx),bz(S.a.ty,S.m.ty,S.b.ty),bz(S.a.tz,S.m.tz,S.b.tz));
+  }else{
+    theta=lerp(S.a.th,S.b.th,e);phi=lerp(S.a.ph,S.b.ph,e);radius=lerp(S.a.r,S.b.r,e);
+    target.set(lerp(S.a.tx,S.b.tx,e),lerp(S.a.ty,S.b.ty,e),lerp(S.a.tz,S.b.tz,e));
+  }
   if(si!==curShot){
     curShot=si;
     var ttl=document.getElementById('ttl');
-    if(ttl)ttl.textContent='LACTO-CALORIS · '+S.n.toUpperCase();
+    if(ttl)ttl.textContent='LACTO-MESSIS · '+S.n.toUpperCase();
   }
   var pg=document.getElementById('pg');
   if(pg)pg.style.width=(tt/LOOP*132).toFixed(1)+'px';
@@ -2534,7 +2579,6 @@ function updateCam(){
     target.z+radius*sp*Math.sin(theta));
   camera.lookAt(target);
 }
-// ---------------- 放熱の展開／収納（カットとは独立） ----------------
 (function(){
   var b=document.getElementById('dp');
   b.onclick=function(){
@@ -2543,77 +2587,11 @@ function updateCam(){
     b.className=depTarget>0.5?'btn on':'btn';
   };
 })();
-
 document.getElementById('sw').onclick=function(){
   var si=shotAt((nowT+shotOfs)%LOOP);
   var nx=SHOTS[(si+1)%SHOTS.length].t0;
   shotOfs=(nx-nowT%LOOP+LOOP)%LOOP;
 };
-
-// ---------------- 開発用の自由視点 ----------------
-// 1本指=旋回 / 2本指=つまみ拡縮と平行移動 / ホイール=拡縮 / shift+ドラッグ=平行移動
-var freeCam=false;
-var devBox=document.getElementById('dev'), frBtn=document.getElementById('fr');
-frBtn.onclick=function(){
-  freeCam=!freeCam;
-  frBtn.textContent=freeCam?'rail':'free';
-  devBox.className=freeCam?'dev on':'dev';
-};
-(function(){
-  var el=renderer.domElement;
-  var drag=false,lx=0,ly=0,pd=0,pmx=0,pmy=0,pan=false;
-  function orbit(dx,dy){
-    theta+=dx*0.0060;   // 指の向きと画面の動きを一致させる
-    phi=clamp(phi-dy*0.0060,0.06,PI-0.06);
-  }
-  function doPan(dx,dy){
-    var f=radius*0.0016;
-    var rt=new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld,0);
-    var up=new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld,1);
-    target.addScaledVector(rt,-dx*f).addScaledVector(up,dy*f);
-  }
-  function zoom(f){ radius=clamp(radius*f,0.06,60); }
-  el.addEventListener('touchstart',function(e){
-    if(!freeCam)return;
-    if(e.touches.length===1){drag=true;pan=false;lx=e.touches[0].clientX;ly=e.touches[0].clientY;}
-    else if(e.touches.length===2){
-      drag=false;pan=true;
-      var a=e.touches[0],b=e.touches[1];
-      pd=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);
-      pmx=(a.clientX+b.clientX)*0.5;pmy=(a.clientY+b.clientY)*0.5;
-    }
-  },{passive:true});
-  el.addEventListener('touchmove',function(e){
-    if(!freeCam)return;
-    if(e.cancelable)e.preventDefault();
-    if(drag&&e.touches.length===1){
-      orbit(e.touches[0].clientX-lx,e.touches[0].clientY-ly);
-      lx=e.touches[0].clientX;ly=e.touches[0].clientY;
-    }else if(pan&&e.touches.length===2){
-      var a=e.touches[0],b=e.touches[1];
-      var d=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);
-      var mx=(a.clientX+b.clientX)*0.5,my=(a.clientY+b.clientY)*0.5;
-      if(pd>0)zoom(pd/d);
-      doPan(mx-pmx,my-pmy);
-      pd=d;pmx=mx;pmy=my;
-    }
-  },{passive:false});
-  el.addEventListener('touchend',function(){drag=false;pan=false;pd=0;},{passive:true});
-  el.addEventListener('mousedown',function(e){
-    if(!freeCam)return;drag=true;pan=e.shiftKey;lx=e.clientX;ly=e.clientY;
-  });
-  addEventListener('mousemove',function(e){
-    if(!freeCam||!drag)return;
-    if(pan)doPan(e.clientX-lx,e.clientY-ly); else orbit(e.clientX-lx,e.clientY-ly);
-    lx=e.clientX;ly=e.clientY;
-  });
-  addEventListener('mouseup',function(){drag=false;});
-  el.addEventListener('wheel',function(e){
-    if(!freeCam)return;
-    if(e.cancelable)e.preventDefault();
-    zoom(e.deltaY>0?1.08:1/1.08);
-  },{passive:false});
-})();
 
 // ================================================================
 // ポスト
@@ -2688,168 +2666,198 @@ try{
 }catch(err){composer=null;showErr('post init: '+err.message);}
 
 // ================================================================
-// アニメーション：給電が上り、中央が拍を出し、6列へ配られる
+// アニメーション：焦点 → 塔 → 取出口 → 14本の幹線、と拍が降りる
 // ================================================================
 var clock=new THREE.Clock();
-var fpAcc=0,fpN=0,lastT=0,lastDT=0,_c=new THREE.Color();
+var fpAcc=0,fpN=0,lastT=0;
 function tick(){
   requestAnimationFrame(tick);
   var t=clock.getElapsedTime();nowT=t;
   var tt=(t+shotOfs)%LOOP;
   var pb=pumpBeat(t);
-  var pCore=pumpBeat(t-0.04), pFT=pumpBeat(t-0.08), pRack=pumpBeat(t-0.14);
-  lastDT=t-lastT;
+  var pHead=pumpBeat(t-0.04),pDown=pumpBeat(t-0.09),pPort=pumpBeat(t-0.15),pRun=pumpBeat(t-0.21);
 
-  if(!freeCam)applyRail(tt);
-  updateCam();
-  // 屋内なので天球は無い
+  applyRail(tt);updateCam();
+  skyGroup.position.copy(camera.position);
 
-  TEX_FEED.offset.y=(-t/PUMP_PERIOD)%1;          // 給電は上へ
-  TEX_ORCH.offset.x=-(t/(PUMP_PERIOD*1.5))%1;    // 統率信号は中央から外へ
-  TEX_BAND.offset.x=(-t*0.038)%1;
-
-  if(brainCore){
-    var s=1+0.055*pCore;
-    brainCore.scale.set(s,s,s);
-    brainCore.children[0].material.emissiveIntensity=0.24+0.30*pCore;
+  TEX_DRAW.offset.y=(t/PUMP_PERIOD)%1;
+  TEX_STRIPE.offset.x=-(t*0.36)%1;
+  TEX_SURGE.offset.x=-(t/PUMP_PERIOD)%1;
+  var bi2,bs2=1.0+0.085*pb;
+  for(bi2=0;bi2<beamMats.length;bi2++){
+    if(beamMats[bi2].userData.o0===undefined)beamMats[bi2].userData.o0=beamMats[bi2].opacity;
+    beamMats[bi2].opacity=beamMats[bi2].userData.o0*(0.72+0.46*pb);
   }
-  if(crownPuff)crownPuff.material.opacity=0.10+0.36*pCore;
-  if(vatBubbles){
-    var bpa=vatBubbles.geometry.attributes.position, bsp=window.__H53_BSPD, bq;
-    for(bq=0;bq<bpa.count;bq++){
-      var by=bpa.getY(bq)+bsp[bq]*0.0016*(0.6+0.9*pCore);
-      if(by>VAT_B+VAT_H-0.03)by=VAT_B+0.03;
-      bpa.setY(bq,by);
+  for(bi2=0;bi2<surgeMats.length;bi2++)surgeMats[bi2].opacity=0.55+0.75*pb;
+  if(beamGroup)beamGroup.scale.set(bs2,1,bs2);
+  if(landRing)landRing.material.opacity=0.34+0.46*pb;
+  TEX_DOWN.offset.y=(t/PUMP_PERIOD)%1;
+  TEX_RUN.offset.x=-(t/(PUMP_PERIOD*2))%1;      // 中心から外へ
+  if(rimGlow)rimGlow.material.opacity=0.36+0.32*pb;
+  if(drawCone)drawCone.material.opacity=0.34+0.34*pHead;
+  if(throat){var s=1+0.16*pHead;throat.scale.set(s,s,s);}
+  if(headLight)headLight.intensity=1.2+1.8*pHead;
+  if(downMesh)downMesh.material.opacity=0.60+0.30*pDown;
+  matPortE.opacity=0.34+0.34*pPort;
+  matRunF.opacity=0.56+0.34*pRun;
+  // ---- 主役を、カメラに最も近い1基へ移す ----
+  if(heroGroup&&UNIT_TRUE.length){
+    // 判定はカメラ位置ではなく「注視点」で行う。
+    // 注視点はカットの切れ目で跳ぶので、差し替えもそこで起き、寄る途中では変わらない。
+    // 自由視点では注視点が手で動くぶんだけ追随する。
+    var px3=target.x, pz3=target.z;
+    var bi=0,bd=1e18,hi;
+    for(hi=0;hi<N_UNIT;hi++){
+      var ux3=UNIT_TRUE[hi].elements[12], uz3=UNIT_TRUE[hi].elements[14];
+      var dd2=(px3-ux3)*(px3-ux3)+(pz3-uz3)*(pz3-uz3);
+      if(dd2<bd){bd=dd2;bi=hi;}
     }
-    bpa.needsUpdate=true;
-    vatBubbles.material.opacity=0.52+0.30*pCore;
-  }
-  for(var li=0;li<rayLight.length;li++)
-    rayLight[li].intensity=(li<3?0.80:0.58)+(li<3?0.42:0.30)*pRack;
-  // 三色の状態灯：色ごとに位相をずらし、個体差も持たせる
-  if(triMesh.length){
-    var tq,tn2,tv,tc=new THREE.Color();
-    for(tq=0;tq<3;tq++){
-      var pt=pumpBeat(t-0.06*tq);
-      for(tn2=0;tn2<N_MODT;tn2++){
-        tv=(0.30+0.70*(0.5+0.5*Math.sin(t*(1.3+0.4*tq)+triPhase[tq][tn2])))*(0.62+0.62*pt);
-        tc.set(TRI[tq]).multiplyScalar(0.62+1.05*tv);
-        triMesh[tq].setColorAt(tn2,tc);
-        triHalo[tq].setColorAt(tn2,tc);
-      }
-      if(triMesh[tq].instanceColor)triMesh[tq].instanceColor.needsUpdate=true;
-      if(triHalo[tq].instanceColor)triHalo[tq].instanceColor.needsUpdate=true;
-      matTriG[tq].opacity=0.34+0.42*pt;
-      if(triRing[tq])triRing[tq].material.opacity=0.26+0.30*pt;
+    var cd=(px3-UNIT_TRUE[heroIdx].elements[12])*(px3-UNIT_TRUE[heroIdx].elements[12])
+          +(pz3-UNIT_TRUE[heroIdx].elements[14])*(pz3-UNIT_TRUE[heroIdx].elements[14]);
+    if(bi!==heroIdx&&bd<cd*0.90){
+      unitMesh.setMatrixAt(heroIdx,UNIT_TRUE[heroIdx]);
+      unitGlow.setMatrixAt(heroIdx,UNIT_TRUE[heroIdx]);
+      brainMesh.setMatrixAt(heroIdx,UNIT_TRUE[heroIdx]);
+      glassMesh.setMatrixAt(heroIdx,UNIT_TRUE[heroIdx]);
+      unitMesh.setMatrixAt(bi,HIDE_M);unitGlow.setMatrixAt(bi,HIDE_M);
+      brainMesh.setMatrixAt(bi,HIDE_M);glassMesh.setMatrixAt(bi,HIDE_M);
+      unitMesh.instanceMatrix.needsUpdate=true;unitGlow.instanceMatrix.needsUpdate=true;
+      brainMesh.instanceMatrix.needsUpdate=true;glassMesh.instanceMatrix.needsUpdate=true;
+      heroIdx=bi;
+      var e2=UNIT_TRUE[bi].elements;
+      heroGroup.position.set(e2[12],e2[13],e2[14]);
+      heroGroup.rotation.y=Math.atan2(-e2[8],e2[10]);
+      heroGroup.updateMatrixWorld(true);
+      HERO_M.copy(heroGroup.matrixWorld);
     }
   }
-  if(window.__H53_BANDG)window.__H53_BANDG.material.opacity=0.11+0.16*pCore;
-  if(ringLight)ringLight.material.color.setRGB(0.90+0.06*pb,0.945+0.05*pb,0.975+0.04*pb);
-  if(logoMat){logoMat.uniforms.uT.value=t;logoMat.uniforms.uAmt.value=0.85+0.6*pb;}
-  if(logoL)logoL.intensity=2.6+1.6*pb+0.5*Math.sin(t*23.0);
-  // ---- 放熱の展開：負荷に追随。u=0.03 で開き 0.33 で全開 0.63 で収まる ----
+  // ---- 42基の放熱板：カットとは無関係にボタンで開閉 ----
   if(finMesh){
-    // 展開はカットと無関係。ボタンで指示された目標へ一定速度で寄る
-    var dstep=(lastDT>0&&lastDT<0.5?lastDT:0.016)/DEP_SEC;
-    if(depRaw<depTarget)depRaw=Math.min(depTarget,depRaw+dstep);
-    else if(depRaw>depTarget)depRaw=Math.max(depTarget,depRaw-dstep);
-    deployNow=0.5-0.5*Math.cos(PI*depRaw);   // 両端で滑らかに止まる
-    var dp=deployNow;
-    var fl=FIN_LR+(FIN_LD-FIN_LR)*dp;
-    var fp=FIN_PR+(FIN_PD-FIN_PR)*dp;
-    var ft2=(FIN_TR+(FIN_TD-FIN_TR)*dp)*TAU/N_FIN;
-    var MY=new THREE.Matrix4(),MT=new THREE.Matrix4(),MZ=new THREE.Matrix4(),MS=new THREE.Matrix4();
-    var MY2=new THREE.Matrix4();
-    var pe=FIN_TILT*(0.25+0.75*dp);   // 板の傾き
-    var fi;
-    for(fi=0;fi<N_FIN;fi++){
-      MY.makeRotationY(-(fi*ft2+dp*0.35));
-      MT.makeTranslation(FIN_R0,FIN_B+fi*fp,0);
-      MZ.makeRotationZ(pe);
-      MS.makeScale(fl,1,1);
-      MY.multiply(MT).multiply(MZ).multiply(MS);
-      finMesh.setMatrixAt(fi,MY);finHot.setMatrixAt(fi,MY);
-      finPipe.setMatrixAt(fi,MY);finFlow.setMatrixAt(fi,MY);
-      finEdge.setMatrixAt(fi,MY);finEdgeG.setMatrixAt(fi,MY);
-      // 返しと継手は倍率を掛けない。板の傾きぶん cos/sin を掛けた実際の端点へ置く
-      var ce=Math.cos(pe), se=Math.sin(pe);
-      MT.makeTranslation(FIN_R0+fl*0.985*ce,FIN_B+fi*fp+fl*0.985*se,0);
-      MY2.makeRotationY(-(fi*ft2+dp*0.35));MY2.multiply(MT).multiply(MZ);
-      finTip.setMatrixAt(fi,MY2);
-      MT.makeTranslation(FIN_R0+fl*0.020*ce,FIN_B+fi*fp+fl*0.020*se,0);
-      MY2.makeRotationY(-(fi*ft2+dp*0.35));MY2.multiply(MT).multiply(MZ);
-      finRoot.setMatrixAt(fi,MY2);
-      // 分岐はマストの管（半径0.067）から根元継手までを常に覆う
-      MT.makeTranslation(FIN_R0*0.25,FIN_B+fi*fp,0);
-      MY2.makeRotationY(-(fi*ft2+dp*0.35));MY2.multiply(MT);
-      finFeed.setMatrixAt(fi,MY2);
+    var ds=lastDT/DEP_SEC;
+    if(depRaw<depTarget)depRaw=Math.min(depTarget,depRaw+ds);
+    else if(depRaw>depTarget)depRaw=Math.max(depTarget,depRaw-ds);
+    deployNow=0.5-0.5*Math.cos(PI*depRaw);
+    var dp2=deployNow;
+    var fl2=FINU_LR+(FINU_LD-FINU_LR)*dp2;
+    var fp2=FINU_PR+(FINU_PD-FINU_PR)*dp2;
+    var ft3=(FINU_TR+(FINU_TD-FINU_TR)*dp2)*TAU/N_FINU*(30/N_FINU);
+    var pe3=FINU_TILT*(0.25+0.75*dp2);
+    var MA=new THREE.Matrix4(),MB=new THREE.Matrix4(),MC=new THREE.Matrix4(),MD2=new THREE.Matrix4();
+    var ui,fi2,idx=0;
+    for(ui=0;ui<N_UNIT;ui++){
+      for(fi2=0;fi2<N_FINU;fi2++){
+        if(ui===heroIdx){ MA.makeScale(0.0001,0.0001,0.0001);
+          finMesh.setMatrixAt(idx,MA);finEdge.setMatrixAt(idx,MA);idx++;continue; }
+        MA.makeRotationY(-(fi2*ft3+dp2*0.35));
+        MB.makeTranslation(FINU_R0,FINU_B+fi2*fp2*(30/N_FINU),0);
+        MC.makeRotationZ(pe3);
+        MD2.makeScale(fl2,1,1);
+        MA.multiply(MB).multiply(MC).multiply(MD2);
+        MA.premultiply(UNIT_M[ui]);
+        finMesh.setMatrixAt(idx,MA);finEdge.setMatrixAt(idx,MA);
+        idx++;
+      }
     }
-    finMesh.instanceMatrix.needsUpdate=true;finHot.instanceMatrix.needsUpdate=true;
-    finPipe.instanceMatrix.needsUpdate=true;finFlow.instanceMatrix.needsUpdate=true;
-    finEdge.instanceMatrix.needsUpdate=true;finEdgeG.instanceMatrix.needsUpdate=true;
-    finTip.instanceMatrix.needsUpdate=true;finRoot.instanceMatrix.needsUpdate=true;
-    finFeed.instanceMatrix.needsUpdate=true;
-    matRadH.opacity=(0.14+0.42*dp)*(0.78+0.34*pRack);
-    // 縁の三色：展開すると強まり、色ごとに位相をずらして脈打つ
-    var ec=new THREE.Color(),ej;
-    for(ej=0;ej<N_FIN;ej++){
-      var pe2=pumpBeat(t-0.06*(ej%3));
-      var ev=(0.34+0.66*dp)*(0.55+0.75*pe2)*(0.72+0.28*Math.sin(t*1.4+ej*0.8));
-      ec.set(TRI[ej%3]).multiplyScalar(0.40+1.15*ev);
-      finEdge.setColorAt(ej,ec);finEdgeG.setColorAt(ej,ec);
+    finMesh.instanceMatrix.needsUpdate=true;finEdge.instanceMatrix.needsUpdate=true;
+    if(heroFin){
+      var hf=FINU_LR+(FINU_LD-FINU_LR)*dp2, hp=FINU_PR+(FINU_PD-FINU_PR)*dp2;
+      var ht=(FINU_TR+(FINU_TD-FINU_TR)*dp2)*TAU/30;
+      for(fi2=0;fi2<30;fi2++){
+        MA.makeRotationY(-(fi2*ht+dp2*0.35));
+        MB.makeTranslation(FINU_R0,FINU_B+fi2*hp,0);
+        MC.makeRotationZ(pe3);MD2.makeScale(hf,1,1);
+        MA.multiply(MB).multiply(MC).multiply(MD2);
+        MA.premultiply(HERO_M);
+        heroFin.setMatrixAt(fi2,MA);heroEdge.setMatrixAt(fi2,MA);
+      }
+      heroFin.instanceMatrix.needsUpdate=true;heroEdge.instanceMatrix.needsUpdate=true;
     }
-    finEdge.instanceColor.needsUpdate=true;finEdgeG.instanceColor.needsUpdate=true;
-    matFinEG.opacity=(0.14+0.36*dp)*(0.74+0.42*pRack);
-    var mh=(N_FIN-1)*fp+0.10;
-    mastMesh.scale.set(1,mh,1);mastMesh.position.y=FIN_B-0.05+mh*0.5;
-    mastPipe.scale.set(1,mh,1);mastPipe.position.y=FIN_B-0.05;
   }
-  if(coreFlare){
-    coreFlare.material.opacity=0.30+0.34*pCore;
-    coreFlare.scale.set(1.38+0.34*pCore,1.38+0.34*pCore,1);
-  }
-  matMilk.emissiveIntensity=0.14+0.14*pCore;
-  matFeed.opacity=0.70+0.30*pb;
-  if(hubNode)hubNode.material.opacity=0.38+0.34*pFT;
-  matOrch.opacity=0.62+0.36*pFT;
-  matNerve.emissiveIntensity=0.16+0.26*pCore;
-  matChan.opacity=0.30+0.20*pCore;
-  matRadH.opacity=0.50+0.24*pRack;
-  TEX_COOL.offset.x=-(t/(PUMP_PERIOD*1.5))%1;
-  matCoolF.opacity=0.30+0.26*pRack;
-  matBay.opacity=0.26+0.20*pRack;
-  matPCB.emissiveIntensity=0.22+0.20*pRack;
-  matBraid.emissiveIntensity=0.14+0.12*pb;
-
-  // ブレード1枚ごとの個体差。統率の波が遅れて届く
-  if(ledMesh&&ledMesh.instanceColor){
-    var j,w,v2;
-    for(j=0;j<N_MODT;j++){
-      w=0.5+0.5*Math.sin(t*1.9+mdPhase[j]);
-      v2=mdBase[j]*(0.40+0.60*w)*(0.70+0.55*pRack);
-      _c.setRGB(v2*0.24,v2,v2*0.95);
-      ledMesh.setColorAt(j,_c);
+  // 三色の状態灯と脳
+  if(triU.length){
+    var tc2=new THREE.Color(),tq,tn3;
+    for(tq=0;tq<3;tq++){
+      var pt2=pumpBeat(t-0.06*tq);
+      for(tn3=0;tn3<N_UNIT;tn3++){
+        var tv2=(0.36+0.64*(0.5+0.5*Math.sin(t*(1.3+0.4*tq)+tn3*0.7)))*(0.62+0.66*pt2);
+        tc2.set(TRI_U[tq]).multiplyScalar(0.50+1.05*tv2);
+        triU[tq].setColorAt(tn3,tc2);
+      }
+      triU[tq].instanceColor.needsUpdate=true;
     }
-    ledMesh.instanceColor.needsUpdate=true;
   }
+  if(heroBrain){
+    var hs=1+0.055*pumpBeat(t-0.04);
+    heroBrain.scale.set(hs,hs,hs);   // 倍率はジオメトリに入っているので拍だけ
+    heroBrain.material.emissiveIntensity=0.24+0.30*pumpBeat(t-0.04);
+  }
+  if(heroMod.length){
+    var mc=new THREE.Color(),mq2,mn2,NM2=heroMod[0].count;
+    for(mq2=0;mq2<3;mq2++){
+      var mp2=pumpBeat(t-0.06*mq2);
+      for(mn2=0;mn2<NM2;mn2++){
+        var mv=(0.34+0.66*(0.5+0.5*Math.sin(t*(1.25+0.35*mq2)+mn2*0.83)))*(0.62+0.70*mp2);
+        mc.set(TRI_U[mq2]).multiplyScalar(0.58+1.12*mv);
+        heroMod[mq2].setColorAt(mn2,mc);heroModG[mq2].setColorAt(mn2,mc);
+      }
+      heroMod[mq2].instanceColor.needsUpdate=true;heroModG[mq2].instanceColor.needsUpdate=true;
+      matTriGU[mq2].opacity=0.30+0.40*mp2;
+    }
+  }
+  if(heroLed){
+    var lc=new THREE.Color(),ln2,NL=heroLed.count;
+    for(ln2=0;ln2<NL;ln2++){
+      var lv=0.42+0.58*(0.5+0.5*Math.sin(t*1.7+ln2*1.31))*(0.55+0.75*pRun);
+      lc.setRGB(lv*0.28,lv,lv*0.94);heroLed.setColorAt(ln2,lc);
+    }
+    heroLed.instanceColor.needsUpdate=true;
+  }
+  if(matPCB)matPCB.emissiveIntensity=0.22+0.20*pRun;
+  if(TEX_BAND)TEX_BAND.offset.x=-(t*0.055)%1;
+  if(heroTri.length){
+    var hc=new THREE.Color(),hq;
+    for(hq=0;hq<3;hq++){
+      var hp2=pumpBeat(t-0.06*hq);
+      hc.set(TRI_U[hq]).multiplyScalar(0.60+1.10*(0.55+0.45*Math.sin(t*(1.3+0.4*hq)))*(0.62+0.66*hp2));
+      heroTri[hq].material.color.copy(hc);
+    }
+  }
+  if(brainMesh){
+    var bc=new THREE.Color(),bq;
+    for(bq=0;bq<N_UNIT;bq++){
+      var bv=0.55+0.55*pumpBeat(t-0.04)*(0.7+0.3*Math.sin(t*1.1+bq*0.9));
+      bc.setRGB(bv,bv*0.46,bv*0.78);
+      brainMesh.setColorAt(bq,bc);
+    }
+    brainMesh.instanceColor.needsUpdate=true;
+  }
+  matUnitG.opacity=0.50+0.26*pRun;
+  if(dkLed)dkLed.material.opacity=0.28+0.32*pumpBeat(t-0.06);
+  if(farEmit)farEmit.material.opacity=0.26+0.26*pumpBeat(t-0.34);
+  var fb2;
+  for(fb2=0;fb2<farBeamMats.length;fb2++){
+    if(farBeamMats[fb2].userData.o0===undefined)farBeamMats[fb2].userData.o0=farBeamMats[fb2].opacity;
+    farBeamMats[fb2].opacity=farBeamMats[fb2].userData.o0*(0.70+0.50*pumpBeat(t-0.34));
+  }
+  if(markMesh)markMesh.material.opacity=0.32+0.20*pumpBeat(t-0.14);
+  var pk2,pc2=new THREE.Color();
+  for(pk2=0;pk2<postTri.length;pk2++){
+    var pq2=pumpBeat(t-0.24-0.06*pk2);
+    pc2.set(TRI_P[pk2]).multiplyScalar(0.58+1.06*(0.52+0.48*Math.sin(t*(1.2+0.35*pk2)))*(0.62+0.66*pq2));
+    postTri[pk2].material.color.copy(pc2);
+  }
+  matBraid.emissiveIntensity=0.16+0.14*pRun;
   renderer.toneMappingExposure=1.03+0.05*pb;
 
-  var dt=lastDT;lastT=t;
+  var dt=t-lastT;lastT=t;lastDT=(dt>0&&dt<0.5)?dt:0.016;
   if(dt>0&&dt<0.5){fpAcc+=dt;fpN++;}
   if(fpN>=72){
     var avg=fpAcc/fpN;fpAcc=0;fpN=0;
     if(avg>0.030&&SS>1.001){SS=1.0;applySS();}
   }
-  if(freeCam&&devBox){
-    devBox.textContent=
-      'th '+theta.toFixed(3)+'   ph '+phi.toFixed(3)+'   r '+radius.toFixed(3)+'\n'+
-      'tx '+target.x.toFixed(3)+'  ty '+target.y.toFixed(3)+'  tz '+target.z.toFixed(3)+'\n'+
-      'cam '+camera.position.x.toFixed(2)+' '+camera.position.y.toFixed(2)+' '+camera.position.z.toFixed(2);
-  }
   var rd=document.getElementById('rd');
-  if(rd)rd.textContent=N_MODT+' modules / 1 cortex / radiator '+
-    (N_FIN*(FIN_LR+(FIN_LD-FIN_LR)*deployNow)*FIN_W*2).toFixed(1)+' m2 ('+
-    (deployNow*100).toFixed(0)+'%) / '+(depTarget>0.5?'DEPLOYING':'STOWED');
+  if(rd)rd.textContent=(1+FARS.length)+' stations / '+(N_SET*PER_SET)+' units each / deck r'+
+    R_V.toFixed(1)+'m / radiator '+(deployNow*100).toFixed(0)+'%';
 
   if(gradePass)gradePass.uniforms.uTime.value=t;
   if(composer)composer.render();else renderer.render(scene,camera);

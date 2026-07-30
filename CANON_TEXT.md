@@ -321,3 +321,34 @@ This machine works only where there is no air. Most of the power it receives bec
 - 前面240° 演算面 ／ 背面120° 電力・冷媒・神経幹の区画
 - 三色 #ff05a8 / #f2dbe9 / #00ddc8 を外面648点と放熱板の縁に
 - 電波暗室 内径42 × 高さ27 m。吸収体4,020個（くさび 底辺1.05 × 長さ2.70）
+
+---
+
+## ASSET 14 — Lacto-Messis v1
+
+**位相** PHASE 6 · UY0311
+
+**観測ログ** `One source, thirteen mouths.`
+
+**説明 JA**
+三重星の衛星UY0311に築かれた受電の敷地。15 mの塔が四光年の彼方から届く三条の螺旋を皿で受け、14角形の甲板の上で42基の演算装置——中央帯の培養脳が72盤を統率するLacto-Caloris同型——へ配られる。地平には同型の局が12、平行なビームの列を立てる。DEPLOYで42基の放熱板が一斉に展開、RAILで自由視点。
+
+**説明 EN**
+A power-reception site on UY0311, a moon under three suns. The 15-metre tower catches three helical strands arriving from four light years away; across the fourteen-sided deck the power is distributed to forty-two computing units, each marshalled by the cultured brain in its central band. Twelve sister stations crowd the horizon, their beams standing in parallel. DEPLOY unfurls all forty-two radiators at once; RAIL frees the view.
+
+**断章 JA**
+この平原に季節はない。実りは四光年の彼方で刈られ、光の速さで届く。十三の局が同じ一条を分け合い、皿は俯かず、いつも同じ高さの空を向いている。甲板の上では四十二の頭脳が配当を数えている。数え終わる前に次の収穫が着く。だから記録には、完了の欄がない。
+
+**断章 EN**
+There are no seasons on this plain. The harvest is reaped four light years away and arrives at the speed of light. Thirteen stations share a single row; the dishes never bow, holding always the same height of sky. On the deck, forty-two minds count the yield. The next harvest lands before the counting ends — which is why the record keeps no column for completion.
+
+**主要諸元**
+- 受電塔 高さ15 m ／ 皿 径6.4 m（F=2.10）。到来ビーム 3色×3素線=9条＋脈3＋芯柱、22周
+- 甲板 14角形（頂点半径25.5 m・天端1.10 m）／ 放射梁14・環梁3・脚70本
+- 演算ユニット 42基（Lacto-Caloris 同型）。据付半径9/15/21 m、束から横2.05 m
+- 配電 14束×3本。束は分岐ごとに細り、床穴なしで背面アダプタへ差込
+- 柵 櫛252枚・頂点柱14本（三色42箇所）／ 方位目盛364本
+- 遠景 同型局12（122〜450 m・最小間隔163 m）。全ビーム平行（仰角7.3°・方位−93°）
+- 地形 月質の荒野 半径140→820 m。クレーター90・岩塊900、三重星の影と遮蔽を頂点焼込み
+- 空 恒星6,400・天の川（銀河面の傾き62°）。白色星2＋赤色星1、環境光0.10
+- 三色 #ff05a8 / #f2dbe9 / #00ddc8 ／ 拍0.78 s・6カット62.4 s
