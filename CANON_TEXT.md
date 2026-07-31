@@ -274,23 +274,30 @@ The cavern was not excavated. A body of rock, selected for the convenience of co
 
 ---
 
-## ASSET 12 — Lacto-Massif v10
+## ASSET 12 — Lacto-Massif v11
 
 **位相** PHASE 5 · RESIDUAL WORLD
 
 **観測ログ** `Output confirmed. Destination unconfirmed.`
 
 **説明 JA**
-山上に環状配置された32基の発電タワーと、中央の送電塔。各タワーは51基のユニットを17階層に収める。地表を這う送電線が中心へ集まり、頂部の指向アンテナから三色の螺旋ビームが伸びる。12カットを巡回。
+山上に環状配置された32基の発電タワーと、中央の送電塔。各タワーは51基のユニットを17階層に収める。地表を這う送電線が中心へ集まり、頂部の指向アンテナから三色の螺旋ビームが伸びる。霧の奥には同じ設計の発電所が8基、1〜1.7 kmの距離に乱立し、すべてのビームが同じ方角へ平行に伸びる。12カットを巡回。
 
 **説明 EN**
-Thirty-two generating towers set in rings upon a mountain, with a transmission tower at the centre. Each tower holds fifty-one units across seventeen levels. Power lines crawl along the ground to the centre, and a three-strand helical beam runs out from the directional antenna at the summit. Twelve shots in rotation.
+Thirty-two generating towers set in rings upon a mountain, with a transmission tower at the centre. Each tower holds fifty-one units across seventeen levels. Power lines crawl along the ground to the centre, and a three-strand helical beam runs out from the directional antenna at the summit. Eight further plants of the same design crowd the haze between one and one point seven kilometres away, every beam running parallel on the same bearing. Twelve shots in rotation.
 
 **断章 JA**
 三十二の柱が輪をなし、中心の一本だけが倍の高さで立っている。頂の皿は同じ方角を向いたまま動かない。山がもとから山であったのか、積み上げたものが山の形になったのかは、記録の上で区別がつかない。伸びた先に受け手があるという書類は存在する。受け取ったという書類は存在しない。両者は別の部署が保管している。突き合わせは、四光年の距離を理由に無期限で延期されている。
 
 **断章 EN**
 Thirty-two columns stand in rings, and the one at their centre alone stands twice their height. The dish upon its summit holds one bearing and does not move. Whether the mountain was a mountain from the first, or whether what was piled upon it came to take the shape of one, cannot be distinguished in the records. A document exists stating that there is a recipient at the far end. No document exists stating that it was received. The two are held by separate offices. Reconciliation stands deferred without term, on the ground of a distance of four light years.
+
+**v11 追補（遠景の乱立）**
+- 遠景の発電所 8基（山の中心から1,080〜1,680 m・最小間隔761 m）
+- 山・タワー・発光・マスト・ビームはすべて本体と同一の定義を参照（`RINGS` 6/11/15＝32基、`PITCH`、`CEN_H` 620 m、`matFieldE`／`matFieldT`、`BEAM_DIR`）。倍率のみ 0.98
+- 全基のビームは `BEAM_DIR`（方位−35.5°・仰角6.6°）に平行。色ごとに1メッシュへ焼き +3描画コール
+- 霧 FogExp2 0.0011 により 1,080 mで30%、1,680 mで16%まで減衰
+- 同時に骨格3件を修正：乱数の不動点、`mergeGeos` の頂点色落ち、山メッシュの巻き（法線が下向きで上から透けていた）
 
 ---
 
