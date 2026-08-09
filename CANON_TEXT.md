@@ -74,7 +74,40 @@ Four rows of text revolve without pause, each row set against the next so that i
 
 ---
 
-## ASSET 02 — Code Rain v4
+## ASSET 02 — Cellwafer v1
+
+**位相** PHASE 1 · THE FIRST T
+
+**観測ログ** `The count did not change when the shape did.`
+
+**説明 JA**
+基幹作品 Cyberwafer を、三色六面の素子ひとつだけで組み直した3Dピクセル版。T構造体・四重の周回文字環・降下ウエハーのすべてが同じ素子でできており、見える色は素子の姿勢だけで決まる。収束ボタンで全体が一個の立方体へ畳まれ、六面に銘が現れる。ドラッグで回転、ピンチで拡大。
+
+**説明 EN**
+The core work Cyberwafer rebuilt from one component alone — a single cube, three colours across six faces. The T structure, the four rings of circling text and the descending wafers are all made of that same element, and the colour that shows is decided by its attitude and nothing else. CONVERGE folds the whole into one cube bearing the mark upon all six faces. Drag to rotate, pinch to zoom.
+
+**断章 JA**
+部材は一種類しかない。三十ミリ角の立方体で、面には何も刻まれていない。銘は素子の側になく、並べ方の側にある。だから解体しても文言は失われず、組み直すまで読めないだけである。ある年度、棚卸しが二度行われた。一度目は塔の形で、二度目は立方体の形で数えられている。総数は一致した。形が変わっても数が変わらないことを、監査は異常として起票した。起票は受理され、処理済と記された。何が処理されたのかは記されていない。以後この項目は、形状ではなく個数で管理されている。稜に一列だけ色の違う素子が並ぶのは、装飾ではない。一個の素子は、直交する二つの面へ同じ色を出せない。
+
+**断章 EN**
+There is but one kind of member: a cube of thirty millimetres, and nothing is engraved upon its faces. The mark does not lie with the element. It lies with the arrangement. Dismantle it and no wording is lost; it merely cannot be read until it is set up again. In a certain fiscal year the stocktaking was performed twice, counted once in the form of a tower and once in the form of a cube. The totals agreed. That the number did not change when the shape did was raised by the audit as an anomaly. The raising was accepted, and the matter recorded as processed. What was processed is not recorded. Thereafter the item has been managed by count and not by form. That a single row of differing colour runs along each edge is not ornament. One element cannot show the same colour upon two perpendicular faces.
+
+**主要諸元**
+- 素子 30 mm角・角丸R3 mm・ステッカー24 mm（比0.80）・隙間2 mm。実物からの実測トレース
+- 総数 2,937（T構造体 1,785 ／ 文字環 416 ／ 降下ウエハー 736）
+- 色 ±X マゼンタ・±Y ターコイズ・±Z ペール。見える色は姿勢のみで決まり、素子に第四の色は存在しない
+- T構造体 27 × 31 素子・奥行5素子。縦軸と横棒はともに線幅7素子
+- 文字環 4条。小文字は6行（アセンダ1・x-height 5）、h!ro53 のみ7行の太字で一段外周（半径2.072、他は1.826）
+- 降下ウエハー 正方リング。SLOT_S を連続補間しつつ常に格子へ丸め、縮むごとに8素子ずつ脱落する。頂部の供給板のみ一段大きい
+- 収束 22³ の外殻2,648を完全充填。各面の外周1素子は継ぎ目で、図像色は地色の撹乱順列（X→ターコイズ ／ Y→ペール ／ Z→マゼンタ）。稜で必ず異なる二色、角で異なる三色が揃う
+- 銘 h! / 53 / ro を六面へ。線幅は全面6素子で統一。iso原図からの実測トレース
+- 振動 0.13 秒ごとに12素子を選び、2.34 秒後に戻す。常時7%前後が別の姿勢を取る
+- 拍 0.78 s ／ ディスク周期 2.4 s（区間 2.38）／ 環速度 0.42・0.60・0.50・0.36（交互）
+- 上下動はT構造体のみ。振幅0.18・周期8.0 s
+
+---
+
+## ASSET 03 — Code Rain v4
 
 **位相** PHASE 2 · DEUS EX MACHINA
 
@@ -94,7 +127,7 @@ What falls is a stock reconciliation table. No one ordered an image. In none of 
 
 ---
 
-## ASSET 03 — Code Rain v5
+## ASSET 04 — Code Rain v5
 
 **位相** PHASE 3 · TRANSCENSION
 
@@ -114,7 +147,7 @@ Only within the kneeling figure does the rain run slow. The survey party obtaine
 
 ---
 
-## ASSET 04 — Code Rain v6
+## ASSET 05 — Code Rain v6
 
 **位相** PHASE 2 · DEUS EX MACHINA
 
@@ -134,7 +167,7 @@ The tongue alone holds a different colour. It beats upon the same period as the 
 
 ---
 
-## ASSET 05 — Lacto-Cortex v6
+## ASSET 06 — Lacto-Cortex v6
 
 **位相** PHASE 3 · TRANSCENSION
 
@@ -154,7 +187,7 @@ The electrodes do not clamp. They stand about it at a fixed interval and wait wi
 
 ---
 
-## ASSET 06 — Cortex Pylon v3
+## ASSET 07 — Cortex Pylon v3
 
 **位相** PHASE 3 · TRANSCENSION
 
@@ -174,7 +207,7 @@ The discs descend, contract, and at the point of vanishing become a drop of milk
 
 ---
 
-## ASSET 07 — Sigil Fusion v5
+## ASSET 08 — Sigil Fusion v5
 
 **位相** PHASE 3 · TRANSCENSION
 
@@ -194,7 +227,7 @@ Three rings revolve at differing rates, tuned so as to hold no period in common.
 
 ---
 
-## ASSET 08 — Empyrean Sigil v7
+## ASSET 09 — Empyrean Sigil v7
 
 **位相** PHASE 4 · THE TRANSCENDED
 
@@ -214,7 +247,7 @@ The outer and inner graduations revolve against one another, and whichever is ta
 
 ---
 
-## ASSET 09 — Lacto-Empyrean v7
+## ASSET 10 — Lacto-Empyrean v7
 
 **位相** PHASE 4 · THE TRANSCENDED
 
@@ -234,7 +267,7 @@ The lettering upon the sign may be read as exceedingly sweet. Numbers are assign
 
 ---
 
-## ASSET 10 — Lacto-Mandala v2
+## ASSET 11 — Lacto-Mandala v2
 
 **位相** PHASE 4 · THE TRANSCENDED
 
@@ -254,7 +287,7 @@ Five to the rings. Five to what is seated upon each. Five, again, to the lines t
 
 ---
 
-## ASSET 11 — Sanctum v5
+## ASSET 12 — Sanctum v5
 
 **位相** PHASE 5 · RESIDUAL WORLD
 
@@ -274,7 +307,7 @@ The cavern was not excavated. A body of rock, selected for the convenience of co
 
 ---
 
-## ASSET 12 — Lacto-Massif v11
+## ASSET 13 — Lacto-Massif v11
 
 **位相** PHASE 5 · RESIDUAL WORLD
 
@@ -301,7 +334,7 @@ Thirty-two columns stand in rings, and the one at their centre alone stands twic
 
 ---
 
-## ASSET 13 — Lacto-Caloris v1
+## ASSET 14 — Lacto-Caloris v1
 
 **位相** PHASE 6 · UY0311
 
@@ -331,7 +364,7 @@ This machine works only where there is no air. Most of the power it receives bec
 
 ---
 
-## ASSET 14 — Lacto-Messis v1
+## ASSET 15 — Lacto-Messis v1
 
 **位相** PHASE 6 · UY0311
 
