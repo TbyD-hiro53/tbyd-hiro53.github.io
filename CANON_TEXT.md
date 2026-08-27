@@ -392,3 +392,32 @@ There are no seasons on this plain. The harvest is reaped four light years away 
 - 地形 月質の荒野 半径140→820 m。クレーター90・岩塊900、三重星の影と遮蔽を頂点焼込み
 - 空 恒星6,400・天の川（銀河面の傾き62°）。白色星2＋赤色星1、環境光0.10
 - 三色 #ff05a8 / #f2dbe9 / #00ddc8 ／ 拍0.78 s・6カット62.4 s
+
+
+## ASSET 16 — Binary Dusk v1
+
+**位相** PHASE 6–8 · UY0311
+
+**観測ログ** `The suns set in order. The distance was not on file.`
+
+**説明 JA**
+根の惑星の水際。日は二つあり、大きいほうが先に沈む。離れているのか触れているのか、空では決められない二本の光の道が、水の上でだけ混ざる。62.4秒で夜を渡り、朝がもう一度来る。距離を記す欄は、ない。SKIPで位相送り、DRIFTで緩い視点移動。
+
+**説明 EN**
+The waterline of the planet of roots. There are two suns, and the larger sets first. Whether they stand apart or touch cannot be settled from the sky; the two roads of light merge only on the water. In 62.4 seconds the night is crossed and morning comes again. There is no field in which to record the distance. SKIP advances the phase; DRIFT loosens the view.
+
+**断章 JA**
+この水際に構造物はない。保守の対象がないため、記録もない。日は二つで、大きいほうが先に沈み、小さいほうが少し遅れて続く。順序は毎回同じである。二つの間隔を測った記録は、どの台帳にもない。測らなかったのか、測れなかったのかを区別する欄も、ない。夜のあいだ、沈んだ場所だけが水の中で明るい。理由は記載されていない。
+
+**断章 EN**
+There is no structure at this waterline. Nothing here is maintained, so nothing is recorded. The suns are two: the larger sets first, the smaller follows a little behind, and the order is the same every time. No ledger holds a measurement of the interval between them. There is no column, either, for telling whether it was not measured or could not be. Through the night, only the place where they went down stays bright beneath the water. No reason is on file.
+
+**主要諸元**
+- 舞台 根の惑星（UY0311・第四天体）の水際。構造物 0・人物 0
+- 日 2件 大小 不一致（視半径比1.89・視距離6000 m相当・方位差3.6°）。離れているか触れているかは記さない
+- 高度 800·sin(2πt/62.4+φ) m。t=0で大が四割沈み。沈む順 先とあと（小の遅れ 3.90 s＝打ち5拍）
+- 没 大2.7 s→小5.5 s ／ 夜 23.9 s ／ 昇 大29.4 s→小34.4 s ／ 頂 47.2 s（＋800 m・仰角7.6°）
+- 波・明滅の時間位相はすべて一巡62.4 sの整数分割（26巡・40・13・80拍）。ループは完全に閉じる
+- 残照 地の線の下・マゼンタ。沈んだ側だけが水の中で明るい／夜空 恒星は手続き生成・赤いほうの一つ
+- 操作 SKIP＝位相を四分の一送る／DRIFT＝視点の緩い漂い
+- 三色 #ff05a8 / #f2dbe9 / #00ddc8 ／ 拍0.78 s・巡2.4 s・一巡62.4 s
