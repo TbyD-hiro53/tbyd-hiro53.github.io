@@ -394,30 +394,32 @@ There are no seasons on this plain. The harvest is reaped four light years away 
 - 三色 #ff05a8 / #f2dbe9 / #00ddc8 ／ 拍0.78 s・6カット62.4 s
 
 
-## ASSET 16 — Binary Dusk v1
+## ASSET 16 — Binary Dusk v2
 
 **位相** PHASE 6–8 · UY0311
 
 **観測ログ** `The suns set in order. The distance was not on file.`
 
 **説明 JA**
-根の惑星の水際。日は二つあり、大きいほうが先に沈む。離れているのか触れているのか、空では決められない二本の光の道が、水の上でだけ混ざる。62.4秒で夜を渡り、朝がもう一度来る。距離を記す欄は、ない。SKIPで位相送り、DRIFTで緩い視点移動。
+根の惑星、分館の巨大樹。枝の上からの眺め。眼下に四方の根と丸い外周の壁、森の先の平らな土に、低い建物が同じ間隔で並ぶ。日は二つあり、大きいほうが先に土へ触れて、欠けて、なくなる。62.4秒で夜を渡り、朝がもう一度来る。距離を記す欄は、ない。SKIPで位相送り、DRIFTで緩い視点移動。
 
 **説明 EN**
-The waterline of the planet of roots. There are two suns, and the larger sets first. Whether they stand apart or touch cannot be settled from the sky; the two roads of light merge only on the water. In 62.4 seconds the night is crossed and morning comes again. There is no field in which to record the distance. SKIP advances the phase; DRIFT loosens the view.
+From a branch of the vast library tree on the planet of roots. Below, the roots run out in four directions inside the round outer wall; beyond the forest, low buildings stand in even rows on the flat land. There are two suns, and the larger touches the land first, wanes, and is gone. In 62.4 seconds the night is crossed and morning comes again. There is no field in which to record the distance. SKIP advances the phase; DRIFT loosens the view.
 
 **断章 JA**
-この水際に構造物はない。保守の対象がないため、記録もない。日は二つで、大きいほうが先に沈み、小さいほうが少し遅れて続く。順序は毎回同じである。二つの間隔を測った記録は、どの台帳にもない。測らなかったのか、測れなかったのかを区別する欄も、ない。夜のあいだ、沈んだ場所だけが水の中で明るい。理由は記載されていない。
+枝の上から見えるものは、過ぎたものばかりである。線が一本、まっすぐ土の上へ伸び、根の道は四方へ出て、外周の壁は、ここからだと丸い。遠くの平らな土の上に、光が低く下りる。丸いものが、二つある。片方が大きく、片方が小さい。離れているのか、触れているのかは、ここからでは決められない。大きいほうが先に土へ触れて、欠けて、なくなる。小さいほうが、少し遅れて続く。夜の森では、幹がそれぞれの拍で青緑を透かす。揃っていないことに、意味の欄はない。
 
 **断章 EN**
-There is no structure at this waterline. Nothing here is maintained, so nothing is recorded. The suns are two: the larger sets first, the smaller follows a little behind, and the order is the same every time. No ledger holds a measurement of the interval between them. There is no column, either, for telling whether it was not measured or could not be. Through the night, only the place where they went down stays bright beneath the water. No reason is on file.
+What can be seen from the branch is only what has been passed. A single line runs straight across the land; the root-paths go out in four directions; from here the outer wall is round. Over the distant flat ground the light comes down low. There are two round things, one large, one small. Whether they stand apart or touch cannot be settled from here. The larger touches the land first, wanes, and is gone; the smaller follows a little behind. Through the night the trunks of the forest let a blue-green light through, each to its own beat. For their failing to align, there is no column of meaning.
 
 **主要諸元**
-- 舞台 根の惑星（UY0311・第四天体）の水際。構造物 0・人物 0
-- 日 2件 大小 不一致（視半径比1.89・視距離6000 m相当・方位差3.6°）。離れているか触れているかは記さない
-- 高度 800·sin(2πt/62.4+φ) m。t=0で大が四割沈み。沈む順 先とあと（小の遅れ 3.90 s＝打ち5拍）
-- 没 大2.7 s→小5.5 s ／ 夜 23.9 s ／ 昇 大29.4 s→小34.4 s ／ 頂 47.2 s（＋800 m・仰角7.6°）
-- 波・明滅の時間位相はすべて一巡62.4 sの整数分割（26巡・40・13・80拍）。ループは完全に閉じる
-- 残照 地の線の下・マゼンタ。沈んだ側だけが水の中で明るい／夜空 恒星は手続き生成・赤いほうの一つ
-- 操作 SKIP＝位相を四分の一送る／DRIFT＝視点の緩い漂い
+- 視点 分館の巨大樹・枝の上（高さ260 m相当）。人物 0（観測者の位置のみ）
+- 眼下 根は四方へ・あいだの道は細い／外周区の壁 半径800 m・ここからだと丸い
+- 森 冠の塊のむら。夜は幹が青緑 #00ddc8 を透かす——周期62.4/k s（k=75〜85）で揃わず、0.78 sへ緩く寄る
+- 遠景 平らな土。低い建物 236×168 m格子の同間隔／線が一本まっすぐ（x=+300）／川の合流 三つ・同角度（34°間隔）
+- 日 2件 大小 不一致（視半径比1.89・方位差3.6°）。離れているか触れているかは記さない
+- 高度 800·sin(2πt/62.4+φ)。t=0で大が四割沈み（土へ触れる）。小の遅れ 3.90 s＝打ち5拍
+- 没 大2.7 s→小5.5 s ／ 夜 23.9 s ／ 昇 大29.4 s→小34.4 s ／ 頂 47.2 s。一巡62.4 sで完全に閉じる
+- 残照 地の線の下・マゼンタ #ff05a8。沈んだ側の土だけが明るい／夜空 恒星は手続き生成・赤いほうの一つ
+- 操作 SKIP＝位相を四分の一送る／DRIFT＝枝の上の緩い揺れ
 - 三色 #ff05a8 / #f2dbe9 / #00ddc8 ／ 拍0.78 s・巡2.4 s・一巡62.4 s

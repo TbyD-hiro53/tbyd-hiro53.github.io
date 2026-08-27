@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta name="description" content="根の惑星の水際。日は二つあり、大きいほうが先に沈む。離れているのか触れているのか、空では決められない二本の光の道が、水の上でだけ混ざる。62.4秒で夜を渡り、朝がもう一度来る。距離を記す欄は、ない。">
+<meta name="description" content="根の惑星、分館の巨大樹。枝の上からの眺め。眼下に四方の根と丸い外周の壁、森の先の平らな土に、低い建物が同じ間隔で並ぶ。日は二つあり、大きいほうが先に土へ触れて、欠けて、なくなる。62.4秒で夜を渡り、朝がもう一度来る。距離を記す欄は、ない。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="deus ex machina — holdings registry">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="Binary Dusk v1 — h!ro53 / deus ex machina">
-<meta property="og:description" content="根の惑星の水際。日は二つあり、大きいほうが先に沈む。離れているのか触れているのか、空では決められない二本の光の道が、水の上でだけ混ざる。62.4秒で夜を渡り、朝がもう一度来る。距離を記す欄は、ない。">
+<meta property="og:title" content="Binary Dusk v2 — h!ro53 / deus ex machina">
+<meta property="og:description" content="根の惑星、分館の巨大樹。枝の上からの眺め。眼下に四方の根と丸い外周の壁、森の先の平らな土に、低い建物が同じ間隔で並ぶ。日は二つあり、大きいほうが先に土へ触れて、欠けて、なくなる。62.4秒で夜を渡り、朝がもう一度来る。距離を記す欄は、ない。">
 <meta property="og:url" content="https://tbyd-hiro53.github.io/binary-dusk.html">
 <meta property="og:image" content="https://tbyd-hiro53.github.io/binary-dusk-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Binary Dusk v1">
+<meta property="og:image:alt" content="Binary Dusk v2">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Binary Dusk v1 — h!ro53 / deus ex machina">
-<meta name="twitter:description" content="根の惑星の水際。日は二つあり、大きいほうが先に沈む。離れているのか触れているのか、空では決められない二本の光の道が、水の上でだけ混ざる。62.4秒で夜を渡り、朝がもう一度来る。距離を記す欄は、ない。">
+<meta name="twitter:title" content="Binary Dusk v2 — h!ro53 / deus ex machina">
+<meta name="twitter:description" content="根の惑星、分館の巨大樹。枝の上からの眺め。眼下に四方の根と丸い外周の壁、森の先の平らな土に、低い建物が同じ間隔で並ぶ。日は二つあり、大きいほうが先に土へ触れて、欠けて、なくなる。62.4秒で夜を渡り、朝がもう一度来る。距離を記す欄は、ない。">
 <meta name="twitter:image" content="https://tbyd-hiro53.github.io/binary-dusk-og.jpg">
 <link rel="canonical" href="https://tbyd-hiro53.github.io/binary-dusk.html">
 <meta charset="utf-8" />
@@ -1236,20 +1236,15 @@ function pumpBeat(t){var p=(t%PUMP_PERIOD)/PUMP_PERIOD;
   return Math.exp(-p*6.0)+0.45*Math.exp(-Math.pow((p-0.30)/0.10,2));}
 
 // ================================================================
-// 幾何（事前検算済み）　1単位=1m相当
-//   日：距離6000の空幕上。大R=178・小R=94（比1.89＝装丁118:62）
-//   高度：alt = 800·sin(W·t + PH0)。t=0で大が四割沈み（中心+35.6）・下降中
-//   小は3.90秒（打ち5拍）遅れて同じ弧を追う——沈む順 先とあと
-//   没：大2.7s→小5.5s／夜23.9s／昇：大29.4s→小34.4s／頂47.2s(+800)
+// 幾何（篇26・枝の上からの再現）
+//   視点：分館の巨大樹の枝の上・高さ140。眼下に根と丸い外周壁、
+//   森の先に平らな土。日は土へ触れて欠ける。
+//   日：距離6000の空幕上。大R=178・小R=94（比1.89）・方位差3.6°
+//   高度 800·sin(W·t+PH0)。t=0で大が四割沈み。小の遅れ3.90s＝打ち5拍
 // ================================================================
-var SUN_D   = 6000.0;
-var R_L     = 178.0, R_S = 94.0;
-var SUN_XL  = -190.0, SUN_XS = 190.0;      // 方位差 3.6°——離れているか触れているか
-var ALT_A   = 800.0;
-var PH0     = PI - Math.asin(0.2*R_L/ALT_A);   // 3.0970776
-var LAG     = 3.90;                        // 打ちの五拍
-var CAM_Y   = 6.0;
-
+var SUN_D=6000.0, R_L=178.0, R_S=94.0;
+var ALT_A=800.0, PH0=PI-Math.asin(0.2*R_L/ALT_A), LAG=3.90;
+var CAM_Y=260.0;
 function altL(t){return ALT_A*Math.sin(W*t+PH0);}
 function altS(t){return ALT_A*Math.sin(W*(t-LAG)+PH0);}
 
@@ -1266,27 +1261,26 @@ var scene=new THREE.Scene();
 scene.background=new THREE.Color(0x020306);
 var camera=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,1,26000);
 camera.position.set(0,CAM_Y,0);
-camera.lookAt(0,CAM_Y-4,-600);
+camera.lookAt(0,CAM_Y-106,-600);
 
 // ---------------------------------------------------------------- 共有GLSL
-// 空の色・日の円盤・星は空幕と水面の両方で参照する（水は反射として）
 var SKY_GLSL=[
 'const float SUN_D=6000.0;',
 'uniform float uAltL,uAltS,uDusk,uDark,uPulse;',
 'uniform vec3 uColL,uColS;',
-'vec3 skyGrad(float y,float x){',                       // y: 地平線から上の高さ(m)　x: 横(m)
+'vec3 skyGrad(float y,float x){',
 '  float h=clamp(y/5200.0,0.0,1.0);',
-'  vec3 zenD=vec3(0.040,0.062,0.130);',                 // 群青
+'  vec3 zenD=vec3(0.040,0.062,0.130);',
 '  vec3 zenN=vec3(0.006,0.009,0.018);',
-'  vec3 horD=vec3(0.30,0.245,0.295);',                  // 淡白色の地平
+'  vec3 horD=vec3(0.30,0.245,0.295);',
 '  vec3 horN=vec3(0.022,0.043,0.066);',
 '  vec3 zen=mix(zenN,zenD,uDusk);',
 '  vec3 hor=mix(horN,horD,uDusk);',
 '  vec3 c=mix(hor,zen,pow(h,0.62));',
-'  float sx=(x-0.0)/2400.0;',                           // 日の沈んだ側の帯（残照・空側は控えめ）
+'  float sx=(x-0.0)/2400.0;',
 '  float band=exp(-y/520.0)*exp(-sx*sx)*(0.30+0.06*uPulse);',
 '  c+=vec3(1.0,0.02,0.66)*band*uDark*0.28;',
-'  c+=vec3(0.0,0.87,0.78)*exp(-y/2600.0)*0.012*uDark;', // 夜の青緑のごく薄い層
+'  c+=vec3(0.0,0.87,0.78)*exp(-y/2600.0)*0.012*uDark;',
 '  return c;}',
 'float discMask(vec2 p,vec2 c,float r){',
 '  float d=length(p-c);return smoothstep(r,r*0.965,d);}',
@@ -1294,7 +1288,7 @@ var SKY_GLSL=[
 '  vec3 acc=vec3(0.0);',
 '  vec2 cL=vec2(-190.0,uAltL), cS=vec2(190.0,uAltS);',
 '  float dL=length(p-cL), dS=length(p-cS);',
-'  float loL=clamp(1.0-(uAltL+178.0)/300.0,0.0,1.0);',  // 低いほど暖色へ寄る
+'  float loL=clamp(1.0-(uAltL+178.0)/300.0,0.0,1.0);',
 '  float loS=clamp(1.0-(uAltS+94.0)/300.0,0.0,1.0);',
 '  vec3 tintL=mix(uColL,vec3(1.0,0.45,0.72),loL*0.35);',
 '  vec3 tintS=mix(uColS,vec3(1.0,0.50,0.70),loS*0.30);',
@@ -1321,8 +1315,8 @@ var skyMat=new THREE.ShaderMaterial({
   depthWrite:false,
   uniforms:{
     uAltL:{value:0},uAltS:{value:0},uDusk:{value:1},uDark:{value:0},uPulse:{value:0},
-    uColL:{value:new THREE.Color(0.95,0.86,0.90)},   // 淡白色 #f2dbe9
-    uColS:{value:new THREE.Color(0.90,0.71,0.78)}    // うすい桃
+    uColL:{value:new THREE.Color(0.95,0.86,0.90)},
+    uColS:{value:new THREE.Color(0.90,0.71,0.78)}
   },
   vertexShader:[
     'varying vec2 vP;',
@@ -1333,7 +1327,7 @@ var skyMat=new THREE.ShaderMaterial({
     'varying vec2 vP;',
     SKY_GLSL,
     'void main(){',
-    '  vec2 p=vec2(vP.x,vP.y+4500.0);',                 // 幕はy中心4500に置くので戻す
+    '  vec2 p=vec2(vP.x,vP.y+4500.0);',
     '  vec3 c=skyGrad(p.y,p.x*0.5);',
     '  c+=suns(p);',
     '  c+=stars(p);',
@@ -1344,85 +1338,182 @@ var sky=new THREE.Mesh(new THREE.PlaneGeometry(30000,9000,1,1),skyMat);
 sky.position.set(0,4500,-SUN_D);
 scene.add(sky);
 
-// ---------------------------------------------------------------- 水面
-// 波の時間位相はすべて一巡62.4秒の整数倍（26=2.4s／40=1.56s／13=4.8s／80=0.78s）
-var waterMat=new THREE.ShaderMaterial({
+// ---------------------------------------------------------------- 地面（根・外周壁・森・平らな土）
+var groundMat=new THREE.ShaderMaterial({
   uniforms:{
     uT:{value:0},uAltL:{value:0},uAltS:{value:0},uDusk:{value:1},uDark:{value:0},
-    uPulse:{value:0},uCam:{value:new THREE.Vector3(0,CAM_Y,0)},
+    uPulse:{value:0},
     uColL:{value:new THREE.Color(0.95,0.86,0.90)},
     uColS:{value:new THREE.Color(0.90,0.71,0.78)}
   },
   vertexShader:[
     'varying vec3 vW;',
     'void main(){',
-    '  vec4 wp=modelMatrix*vec4(position,1.0);',        // 面は動かさない。波は法線だけが持つ
+    '  vec4 wp=modelMatrix*vec4(position,1.0);',
     '  vW=wp.xyz;',
     '  gl_Position=projectionMatrix*viewMatrix*wp;}'
   ].join('\n'),
   fragmentShader:[
     'varying vec3 vW;',
-    'uniform float uT;uniform vec3 uCam;',
+    'uniform float uT;',
     SKY_GLSL,
     'const float TAU=6.2831853;',
-    'vec3 waterNrm(vec2 xz,float t){',
-    '  float dx=0.0,dz=0.0;',
-    '  dz+=2.2*0.012*cos((xz.y*0.012+xz.x*0.004) + t*(TAU*26.0/62.4));',
-    '  dx+=2.2*0.004*cos((xz.y*0.012+xz.x*0.004) + t*(TAU*26.0/62.4));',
-    '  dx+=1.7*0.017*cos((xz.y*0.031+xz.x*0.017)+t*(TAU*40.0/62.4)+1.7);',
-    '  dz+=1.7*0.031*cos((xz.y*0.031+xz.x*0.017)+t*(TAU*40.0/62.4)+1.7);',
-    '  dx+=2.3*0.009*cos((xz.x*0.009-xz.y*0.006)+t*(TAU*13.0/62.4)+4.1);',
-    '  dz-=2.3*0.006*cos((xz.x*0.009-xz.y*0.006)+t*(TAU*13.0/62.4)+4.1);',
-    '  float nearw=smoothstep(2600.0,500.0,-xz.y);',             // 細波は手前だけ
-    '  dz+=0.85*0.11*cos(xz.y*0.11 + t*(TAU*80.0/62.4)+2.3)*nearw;', // 打ちの細波
-    '  dx+=0.55*0.13*cos((xz.x*0.13+xz.y*0.05)+t*(TAU*52.0/62.4)+5.0)*nearw;',
-    '  float distFade=1.0/(1.0+(-xz.y)*0.00085);',               // 遠方は鏡面へ寄せる
-    '  return normalize(vec3(-dx*distFade,1.0,-dz*distFade));}',
+    'float vnoise(vec2 p){',
+    '  vec2 i=floor(p), f=fract(p); f=f*f*(3.0-2.0*f);',
+    '  float a=hash21(i), b=hash21(i+vec2(1,0)), c2=hash21(i+vec2(0,1)), d=hash21(i+vec2(1,1));',
+    '  return mix(mix(a,b,f.x),mix(c2,d,f.x),f.y);}',
     'void main(){',
-    '  vec3 V=normalize(vW-uCam);',
-    '  vec3 n=waterNrm(vW.xz,uT);',
-    '  vec3 R=reflect(V,n);',
-    '  float up=max(R.y,0.001);',
-    '  vec3 c=skyGrad(up*4200.0,vW.x+R.x*1500.0)*0.42;', // 空の映り
-    '  float fr=pow(1.0-max(dot(-V,n),0.0),3.0);',
-    '  c=mix(vec3(0.008,0.024,0.038)*(0.30+0.70*uDusk),c,0.26+0.60*fr);',
-    // ---- 光の道　空では別、水の上でだけ混ざる
-    '  vec3 sunL=normalize(vec3(-190.0,uAltL,-SUN_D)-vW);',
-    '  vec3 sunS=normalize(vec3( 190.0,uAltS,-SUN_D)-vW);',
-    '  float visL=clamp((uAltL+178.0)/230.0,0.0,1.0);',
-    '  float visS=clamp((uAltS+ 94.0)/140.0,0.0,1.0);',
-    '  float gL=pow(max(dot(R,sunL),0.0),650.0);',
-    '  float gS=pow(max(dot(R,sunS),0.0),700.0);',
-    '  float lowL=1.0+3.0*clamp(1.0-uAltL/700.0,0.0,1.0);',  // 低いほど道は長い
-    '  float lowS=1.0+3.0*clamp(1.0-uAltS/700.0,0.0,1.0);',
-    '  float hiL=1.0-0.62*clamp(uAltL/820.0,0.0,1.0);',      // 高いときは眩しさを畳む
-    '  float hiS=1.0-0.62*clamp(uAltS/820.0,0.0,1.0);',
-    // 道の芯：遠くでは日の真下に細く、近くではカメラへ寄って重なる（水の上でだけ混ざる）
-    '  float k=clamp(-vW.z/6000.0,0.0,1.0);',
-    '  float hw=46.0+0.045*(-vW.z);',
-    '  float rxL=mix(uCam.x,-190.0,k), rxS=mix(uCam.x,190.0,k);',
-    '  float envL=exp(-pow((vW.x-rxL)/hw,2.0));',
-    '  float envS=exp(-pow((vW.x-rxS)/hw,2.0));',
-    '  float nearFade=0.22+0.78*smoothstep(140.0,1200.0,-vW.z);', // 手前は静かに
-    '  c+=uColL*gL*visL*0.92*lowL*hiL*envL*nearFade;',
-    '  c+=uColS*gS*visS*0.82*lowS*hiS*envS*nearFade;',
-    // ---- 残照　沈んだところだけが、地の線の下で明るい
+    '  vec2 P=vW.xz;',
+    '  vec2 base=vec2(0.0,-320.0);',                    // 巨樹の立つ位置（真下は画面外）
+    '  float r=length(P-base);',
+    '  float th=atan(P.y-base.y,P.x-base.x);',
+    // ---- 素地（下は暗く、遠い土だけが夕の明るさを受ける）
+    '  vec3 soil =mix(vec3(0.013,0.018,0.027),vec3(0.128,0.106,0.118),uDusk);',   // 平らな土
+    '  vec3 canop=mix(vec3(0.005,0.009,0.011),vec3(0.038,0.056,0.050),uDusk);',   // 森冠
+    '  vec3 rootc=mix(vec3(0.004,0.007,0.009),vec3(0.017,0.017,0.021),uDusk);',   // 根の面
+    '  float dcam=length(vW.xz-vec2(0.0,0.0));',
+    '  float far1=smoothstep(450.0,2300.0,dcam);',       // 遠いほど模様を寝かせる
+    '  float n=0.55*vnoise(P*0.0062)+0.45*vnoise(P*0.019)*(1.0-far1*0.7);',
+    // ---- 帯の重み
+    '  float wPlain=smoothstep(3000.0,3550.0,r);',
+    '  float wRoot =1.0-smoothstep(700.0,880.0,r);',
+    '  float wForest=(1.0-wPlain)*(1.0-wRoot);',
+    '  vec3 c=soil*wPlain+canop*wForest+rootc*wRoot;',
+    '  float namp=(0.62*wForest+0.22*wPlain+0.13*wRoot)*(1.0-0.55*far1);',
+    '  c*=0.72+0.85*(n-0.5)*namp+0.20*n*0.3;',
+    // ---- 根は四方へ。あいだの道は細い
+    '  float bn=0.4+0.6*vnoise(P*0.031);',
+    '  float lobes=pow(abs(cos(th*2.0+0.3*vnoise(P*0.012))),0.38);',
+    '  float paths=smoothstep(0.055,0.010,abs(sin(th*2.0)))*0.6*bn*(0.25+0.75*far1);',
+    '  c=mix(c,c*(0.66+0.50*lobes*bn)+vec3(0.014,0.017,0.019)*paths*uDusk,wRoot);',
+    // ---- 外周区の壁は、ここからだと丸い
+    '  float wall=smoothstep(18.0,5.0,abs(r-800.0));',
+    '  c+=vec3(0.068,0.061,0.070)*wall*uDusk;',
+    '  c+=vec3(0.0,0.075,0.068)*wall*uDark*0.30;',
+    // ---- 夜の森：幹が、それぞれの拍で青緑を透かす（揃っていない）
+    '  vec2 g=floor(P/140.0); vec2 f=fract(P/140.0);',
+    '  float h1=hash21(g*1.13);',
+    '  vec2 tp=vec2(hash21(g+3.7),hash21(g+8.1));',
+    '  float td=length(f-tp);',
+    '  float kk=75.0+floor(h1*11.0);',                  // 周期 62.4/k ≈ 0.73〜0.83 s
+    '  float blink=0.5+0.5*sin(TAU*kk*uT/62.4+h1*39.0);',
+    '  float trunk=smoothstep(0.09,0.0,td)*step(0.55,h1);',
+    '  c+=vec3(0.0,0.87,0.78)*trunk*blink*wForest*(0.012+0.55*uDark*uDark);',
+    // ---- 平らな土：低い建物が同じ間隔で並ぶ
+    '  float bz=wPlain*smoothstep(-4100.0,-4600.0,vW.z);',
+    '  vec2 bg=fract(vec2(P.x/236.0,vW.z/168.0));',
+    '  float blk=step(bg.x,0.30)*step(bg.y,0.32);',
+    '  c=mix(c,c*0.58,blk*bz*0.9);',
+    // ---- 線が一本、まっすぐ
+    '  float rail=smoothstep(8.0,2.2,abs(P.x-300.0))*wPlain;',
+    '  c+=vec3(0.052,0.048,0.055)*rail*uDusk;',
+    '  c+=vec3(0.0,0.045,0.042)*rail*uDark*0.4;',
+    // ---- 川の合流。三つとも、同じ角度
+    '  vec2 C=vec2(-980.0,-5050.0);',
+    '  vec2 q=P-C;',
+    '  float rv=0.0;',
+    '  float wob=(vnoise(P*0.0035)-0.5)*120.0;',          // 自然の乱れ
+    '  for(int i=0;i<3;i++){',
+    '    float a=radians(58.0+34.0*float(i));',
+    '    vec2 d=vec2(cos(a),sin(a));',
+    '    float s=dot(q,d);',
+    '    float pd=abs(q.x*d.y-q.y*d.x+wob);',
+    '    rv+=smoothstep(26.0,8.0,pd)*step(0.0,s)*step(s,3000.0);}',
+    '  rv=clamp(rv,0.0,1.0)*wPlain;',
+    '  vec3 rTint=mix(vec3(0.008,0.024,0.032),uColL*0.26,uDusk*clamp(1.0-uAltL/600.0,0.0,1.0));',
+    '  c=mix(c,rTint,rv*0.42);',
+    '  c+=vec3(0.0,0.87,0.78)*rv*uDark*0.018;',
+    // ---- 残照は、日の沈んだ側の土に低く残る
     '  float sinkL=clamp(-uAltL/650.0,0.0,1.0)*clamp(1.0+(uAltL+650.0)/650.0,0.0,1.0);',
-    '  float gw=exp(-abs(vW.x+190.0)/560.0);',
-    '  float band=exp(-(6050.0+vW.z)/1400.0);',
-    '  c+=vec3(1.0,0.02,0.66)*sinkL*gw*band*(0.34+0.05*uPulse);',
+    '  float gw=exp(-abs(P.x+190.0)/560.0);',
+    '  float band=exp(-(6050.0+vW.z)/1200.0);',
+    '  c+=vec3(1.0,0.02,0.66)*sinkL*gw*band*(0.30+0.05*uPulse);',
     '  float sinkS=clamp(-uAltS/420.0,0.0,1.0)*clamp(1.0+(uAltS+520.0)/520.0,0.0,1.0);',
-    '  c+=vec3(0.98,0.55,0.72)*sinkS*exp(-abs(vW.x-190.0)/380.0)*band*0.16;',
-    // ---- 夜のごく薄い青緑のきらめき
-    '  float sp=pow(max(dot(R,normalize(vec3(0.0,1.0,-0.3))),0.0),24.0);',
-    '  c+=vec3(0.0,0.87,0.78)*sp*uDark*0.028;',
+    '  c+=vec3(0.98,0.55,0.72)*sinkS*exp(-abs(P.x-190.0)/380.0)*band*0.14;',
+    // ---- 遠方の靄（空へ溶ける）
+    '  vec3 hz=skyGrad(30.0,P.x*0.5);',
+    '  c=mix(c,hz,smoothstep(-3000.0,-6050.0,vW.z)*0.60);',
     '  gl_FragColor=vec4(c,1.0);}'
   ].join('\n')
 });
-var water=new THREE.Mesh(new THREE.PlaneGeometry(30000,6300,2,2),waterMat);
-water.rotation.x=-PI/2;
-water.position.set(0,0,-2950);   // z: +200 〜 -6100
-scene.add(water);
+var ground=new THREE.Mesh(new THREE.PlaneGeometry(30000,6300,2,2),groundMat);
+ground.rotation.x=-PI/2;
+ground.position.set(0,0,-2950);   // z: +200 〜 -6100
+scene.add(ground);
+
+// ---------------------------------------------------------------- 枝（座っている側。面＝葉の板が先に並ぶ）
+var branchMat=new THREE.ShaderMaterial({
+  uniforms:{uDusk:{value:1},uDark:{value:0},uPulse:{value:0}},
+  vertexShader:[
+    'varying vec3 vN;varying vec3 vWp;',
+    'void main(){',
+    '  vN=normalize(mat3(modelMatrix)*normal);',
+    '  vec4 wp=modelMatrix*vec4(position,1.0);vWp=wp.xyz;',
+    '  gl_Position=projectionMatrix*viewMatrix*wp;}'
+  ].join('\n'),
+  fragmentShader:[
+    'varying vec3 vN;varying vec3 vWp;',
+    'uniform float uDusk,uDark,uPulse;',
+    'float bh(vec2 q){return fract(sin(dot(q,vec2(127.1,311.7)))*43758.5453);}',
+    'void main(){',
+    '  vec3 base=mix(vec3(0.004,0.006,0.008),vec3(0.016,0.014,0.016),uDusk);',
+    '  float up=clamp(vN.y,0.0,1.0);',
+    '  float bark=0.90+0.20*bh(floor(vec2(vWp.x*0.35+vWp.z*0.35,vWp.y*0.8)));', // 樹皮のむら
+    '  vec3 c=base*(0.40+0.72*up)*bark;',                 // ほぼ剪影。上面だけ夕を受ける
+    '  vec3 Vv=normalize(vWp-cameraPosition);',
+    '  float rim=pow(1.0-abs(dot(vN,Vv)),3.2);',          // 縁だけが、かすかに透ける
+    '  c+=vec3(0.0,0.87,0.78)*rim*(0.011+0.026*uDark)*(0.75+0.25*uPulse);',
+    '  gl_FragColor=vec4(c,1.0);}'
+  ].join('\n')
+});
+var branchPts=[];   // 曲線を作る前に、点は全て積む
+branchPts.push(new THREE.Vector3( 150, 212,  60));
+branchPts.push(new THREE.Vector3(  60, 206, -140));
+branchPts.push(new THREE.Vector3( -55, 198, -380));
+branchPts.push(new THREE.Vector3(-200, 186, -700));
+branchPts.push(new THREE.Vector3(-350, 176,-1100));
+branchPts.push(new THREE.Vector3(-490, 170,-1540));
+var branchCurve=new THREE.CatmullRomCurve3(branchPts);
+var branch=new THREE.Mesh(new THREE.TubeGeometry(branchCurve,72,9.0,10,false),branchMat);
+scene.add(branch);
+// 脇枝
+var subPts=[];
+subPts.push(new THREE.Vector3(-200,186,-700));
+subPts.push(new THREE.Vector3(-340,196,-880));
+subPts.push(new THREE.Vector3(-475,204,-1080));
+var subCurve=new THREE.CatmullRomCurve3(subPts);
+var sub=new THREE.Mesh(new THREE.TubeGeometry(subCurve,24,4.2,8,false),branchMat);
+scene.add(sub);
+// 面（葉の板）：枝の先に並ぶ
+var leafMat=new THREE.ShaderMaterial({
+  side:THREE.DoubleSide,
+  uniforms:{uDusk:{value:1},uDark:{value:0},uPulse:{value:0}},
+  vertexShader:[
+    'varying vec2 vUv2;',
+    'void main(){vUv2=uv;',
+    ' gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}'
+  ].join('\n'),
+  fragmentShader:[
+    'varying vec2 vUv2;',
+    'uniform float uDusk,uDark,uPulse;',
+    'void main(){',
+    '  float rr=length(vUv2-0.5)*2.0;',
+    '  vec3 c=mix(vec3(0.008,0.013,0.013),vec3(0.062,0.057,0.061),uDusk);',
+    '  c*=0.70+0.30*(1.0-rr);',
+    '  float edge=smoothstep(0.72,1.0,rr);',
+    '  c+=vec3(0.0,0.87,0.78)*edge*(0.028+0.050*uDark)*(0.75+0.25*uPulse);',
+    '  gl_FragColor=vec4(c,1.0);}'
+  ].join('\n')
+});
+var LEAF=[[-395,208,-960,34],[-475,212,-1080,40],[-545,202,-1200,30],
+          [-445,176,-1580,44],[-550,172,-1780,36],[-630,178,-1970,32]];
+var li;
+for(li=0;li<LEAF.length;li++){
+  var lf=new THREE.Mesh(new THREE.CircleGeometry(LEAF[li][3],26),leafMat);
+  lf.position.set(LEAF[li][0],LEAF[li][1],LEAF[li][2]);
+  lf.rotation.set(-PI/2+0.22*Math.sin(li*2.1),0.3*li,0);
+  scene.add(lf);
+}
 
 // ---------------------------------------------------------------- 後処理
 var composer=null,gradePass=null,bloomPass=null;
@@ -1441,11 +1532,11 @@ try{
       'void main(){',
       '  vec3 c=texture2D(tDiffuse,vUv).rgb;',
       '  vec2 q=vUv-0.5;',
-      '  c*=1.0-0.32*dot(q,q)*2.2;',                    // 周辺減光
-      '  c=(c*(2.51*c+0.03))/(c*(2.43*c+0.59)+0.14);',  // ACES近似
+      '  c*=1.0-0.32*dot(q,q)*2.2;',
+      '  c=(c*(2.51*c+0.03))/(c*(2.43*c+0.59)+0.14);',
       '  c=pow(max(c,0.0),vec3(1.0/2.2));',
       '  float g=fract(sin(dot(vUv*uRes+vec2(uTime*37.0,uTime*17.0),vec2(12.9898,78.233)))*43758.5453);',
-      '  c+=(g-0.5)*0.022;',                            // 粒（バンディング止め）
+      '  c+=(g-0.5)*0.022;',
       '  gl_FragColor=vec4(c,1.0);}'
     ].join('\n')
   };
@@ -1456,7 +1547,7 @@ try{
 
 // ---------------------------------------------------------------- 進行
 var t0=performance.now()/1000, seekOfs=0, driftOn=false;
-var lastT=0;
+var lastT=0, CAM_TILT=-106;
 function phaseName(t,aL,aS){
   if(aL<=-R_L&&aS<=-R_S)return 'night';
   return (Math.cos(W*t+PH0)<0)?'dusk':'dawn';
@@ -1477,14 +1568,17 @@ function tick(){
   skyMat.uniforms.uAltL.value=aL;   skyMat.uniforms.uAltS.value=aS;
   skyMat.uniforms.uDusk.value=dusk; skyMat.uniforms.uDark.value=dark;
   skyMat.uniforms.uPulse.value=pb;
-  waterMat.uniforms.uT.value=t;
-  waterMat.uniforms.uAltL.value=aL; waterMat.uniforms.uAltS.value=aS;
-  waterMat.uniforms.uDusk.value=dusk; waterMat.uniforms.uDark.value=dark;
-  waterMat.uniforms.uPulse.value=pb;
-  if(driftOn){camera.position.set(34*Math.sin(W*t),CAM_Y,0);}
+  groundMat.uniforms.uT.value=t;
+  groundMat.uniforms.uAltL.value=aL; groundMat.uniforms.uAltS.value=aS;
+  groundMat.uniforms.uDusk.value=dusk; groundMat.uniforms.uDark.value=dark;
+  groundMat.uniforms.uPulse.value=pb;
+  branchMat.uniforms.uDusk.value=dusk; branchMat.uniforms.uDark.value=dark;
+  branchMat.uniforms.uPulse.value=pb;
+  leafMat.uniforms.uDusk.value=dusk; leafMat.uniforms.uDark.value=dark;
+  leafMat.uniforms.uPulse.value=pb;
+  if(driftOn){camera.position.set(26*Math.sin(W*t),CAM_Y+5*Math.sin(W*2*t),0);}
   else{camera.position.set(0,CAM_Y,0);}
-  camera.lookAt(camera.position.x,CAM_Y-4,-600);
-  waterMat.uniforms.uCam.value.copy(camera.position);
+  camera.lookAt(camera.position.x,CAM_Y+CAM_TILT,-600);
   if(bloomPass)bloomPass.strength=0.34+0.12*dark+0.02*pb;
   if(gradePass)gradePass.uniforms.uTime.value=t;
   if(pg)pg.style.width=(t/LOOP*100).toFixed(2)+'%';
@@ -1511,6 +1605,7 @@ addEventListener('resize',function(){
 // 検証・収録用フック（外部要求なし・動作に不関与）
 window.__h53_seek=function(t){seekOfs=t-((performance.now()/1000-t0)%LOOP);};
 window.__h53_fov=function(f){camera.fov=f;camera.updateProjectionMatrix();};
+window.__h53_tilt=function(dy){CAM_TILT=dy;};
 window.__h53_info=function(){return {tri:renderer.info.render.triangles,
   calls:renderer.info.render.calls,t:lastT,altL:altL(lastT),altS:altS(lastT)};};
 
