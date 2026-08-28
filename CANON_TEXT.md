@@ -394,32 +394,34 @@ There are no seasons on this plain. The harvest is reaped four light years away 
 - 三色 #ff05a8 / #f2dbe9 / #00ddc8 ／ 拍0.78 s・6カット62.4 s
 
 
-## ASSET 16 — Binary Dusk v2
+## ASSET 16 — Binary Dusk v7
 
 **位相** PHASE 6–8 · UY0311
 
 **観測ログ** `The suns set in order. The distance was not on file.`
 
 **説明 JA**
-根の惑星、分館の巨大樹。枝の上からの眺め。眼下に四方の根と丸い外周の壁、森の先の平らな土に、低い建物が同じ間隔で並ぶ。日は二つあり、大きいほうが先に土へ触れて、欠けて、なくなる。62.4秒で夜を渡り、朝がもう一度来る。距離を記す欄は、ない。SKIPで位相送り、DRIFTで緩い視点移動。
+根の惑星、分館の巨大樹。差し渡し10mの枝の上からの眺め。日は二つ——ピンクの白と、ターコイズの白——で、大気は地球と同じ黄昏の橙に染まる。森を割ってまっすぐ地平へ続く線路と、空を映す水路。誰も乗らない列車が15.6秒ごとに駅を通過し、森では空の円盤が2.4秒で一巡する。左の遠くには海。SUNSETを押すと三分で日が沈み、二度と戻らない。
 
 **説明 EN**
-From a branch of the vast library tree on the planet of roots. Below, the roots run out in four directions inside the round outer wall; beyond the forest, low buildings stand in even rows on the flat land. There are two suns, and the larger touches the land first, wanes, and is gone. In 62.4 seconds the night is crossed and morning comes again. There is no field in which to record the distance. SKIP advances the phase; DRIFT loosens the view.
+From a bough ten metres across, high on the vast library tree of the planet of roots. There are two suns — one pink-white, one turquoise-white — and the air scatters the same beautiful orange as an earthly dusk. A railway runs dead straight through the forest to the horizon beside a canal that mirrors the sky; an empty train passes the stations every 15.6 seconds, and in the forest the bare discs turn once every 2.4 seconds. Far to the left, the sea. Press SUNSET and the suns go down in three minutes, never to return.
 
 **断章 JA**
-枝の上から見えるものは、過ぎたものばかりである。線が一本、まっすぐ土の上へ伸び、根の道は四方へ出て、外周の壁は、ここからだと丸い。遠くの平らな土の上に、光が低く下りる。丸いものが、二つある。片方が大きく、片方が小さい。離れているのか、触れているのかは、ここからでは決められない。大きいほうが先に土へ触れて、欠けて、なくなる。小さいほうが、少し遅れて続く。夜の森では、幹がそれぞれの拍で青緑を透かす。揃っていないことに、意味の欄はない。
+枝の上から見えるものは、運ばれていくものばかりである。線路は森を割ってまっすぐ土へ伸び、水路が並んで空の色を運ぶ。列車は空のまま駅を通過する。旅客という区分は終了し、線路だけが存続している。森では円盤が、何も載せずに回り続ける。左の遠くで、川は三つとも同じ角度で合流し、海に混ざって向きを失う。日は二つ。大きいほうが先に土へ触れて、欠けて、なくなる。順序はいつも同じで、距離を記す欄は、ない。
 
 **断章 EN**
-What can be seen from the branch is only what has been passed. A single line runs straight across the land; the root-paths go out in four directions; from here the outer wall is round. Over the distant flat ground the light comes down low. There are two round things, one large, one small. Whether they stand apart or touch cannot be settled from here. The larger touches the land first, wanes, and is gone; the smaller follows a little behind. Through the night the trunks of the forest let a blue-green light through, each to its own beat. For their failing to align, there is no column of meaning.
+What can be seen from the bough is only what is being carried. The railway runs dead straight through the forest to the flat land, and beside it a canal carries the colour of the sky. The trains pass the stations empty; the category of passenger has ended, and only the line persists. In the forest the discs go on turning with nothing on them. Far to the left the three rivers meet at one same angle and lose their direction in the sea. The suns are two: the larger touches the land first, wanes, and is gone. The order is always the same, and there is no field in which to record the distance.
 
 **主要諸元**
-- 視点 分館の巨大樹・枝の上（高さ260 m相当）。人物 0（観測者の位置のみ）
-- 眼下 根は四方へ・あいだの道は細い／外周区の壁 半径800 m・ここからだと丸い
-- 森 冠の塊のむら。夜は幹が青緑 #00ddc8 を透かす——周期62.4/k s（k=75〜85）で揃わず、0.78 sへ緩く寄る
-- 遠景 平らな土。低い建物 236×168 m格子の同間隔／線が一本まっすぐ（x=+300）／川の合流 三つ・同角度（34°間隔）
-- 日 2件 大小 不一致（視半径比1.89・方位差3.6°）。離れているか触れているかは記さない
-- 高度 800·sin(2πt/62.4+φ)。t=0で大が四割沈み（土へ触れる）。小の遅れ 3.90 s＝打ち5拍
-- 没 大2.7 s→小5.5 s ／ 夜 23.9 s ／ 昇 大29.4 s→小34.4 s ／ 頂 47.2 s。一巡62.4 sで完全に閉じる
-- 残照 地の線の下・マゼンタ #ff05a8。沈んだ側の土だけが明るい／夜空 恒星は手続き生成・赤いほうの一つ
-- 操作 SKIP＝位相を四分の一送る／DRIFT＝枝の上の緩い揺れ
-- 三色 #ff05a8 / #f2dbe9 / #00ddc8 ／ 拍0.78 s・巡2.4 s・一巡62.4 s
+- 視点 分館の巨大樹・差し渡し10 mの枝の上（完全固定・眼高は頂面+約2 m相当）
+- 巨枝 幹(620,-1600)からほぼ水平に視界を横切る。畝16条・節輪5・下面に維管束の管3
+- 日 2件 大小 不一致（R200/106・比1.887・方位差3.6°）。大＝ピンク白・小＝ターコイズ白。
+  散乱は地球と同じ黄昏の橙。離れているか触れているかは記さない
+- 既定 静止（大が四割沈み）。SUNSETで日没——2.589単位/s。大の没93 s・小180 s（＝三分）。
+  沈んだら戻らず、恒久の夜（残照 #ff05a8 は地の線の下に残る）
+- 線路 二条・森を割る回廊・駅3（柱等間隔・給養点の灯・使う者はいない）。
+  空の列車3両が15.6 s（62.4の1/4）毎に通過する——区分「旅客」運用終了・線路は存続
+- 水路 線路に並走し空の色を映す／海 左遠方の鏡面・川3本が同角度で合流して注ぐ
+- 円盤 森に5基・2.4 sで一巡・何も載せない／面 枝先に等間隔の列×2（小枝と茎で支持・一箇所だけ間が広い）
+- 夜 恒星は手続き生成・赤いほうの一つ・幹の透け（周期62.4/k s・0.78 sへ緩く寄る）
+- 三色 #ff05a8 / #f2dbe9 / #00ddc8 ／ 拍0.78 s・巡2.4 s・便15.6 s
