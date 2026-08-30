@@ -612,7 +612,7 @@ var H53 = (function () {
   // 遡行の変位。ORIGIN のあいだだけ負になる。先頭には届かない
   var SEEK = 0;
   function pulseCount() { return Math.floor((Date.now() - EPOCH_MS) / (PUMP * 1000)) + SEEK; }
-  function setSeek(n) { SEEK = n; }
+  function setSeek(n) { SEEK = n; lastRow = -1; }
   function groupDigits(n) {
     var s = String(n), o = '', c = 0, i;
     for (i = s.length - 1; i >= 0; i--) { o = s.charAt(i) + o; c++; if (c % 3 === 0 && i > 0) o = ' ' + o; }
@@ -622,7 +622,7 @@ var H53 = (function () {
   // ─────────────────────────── 乱数（骨格バグ台帳 ①）
   var _seed = 77053;
   function rnd() { _seed = (_seed * 9301 + 49297) % 233280; return _seed / 233280; }
-  function rseed(s) { _seed = s; }
+  function rseed(s) { _seed = ((s % 233280) + 233280) % 233280; }
 
   // ─────────────────────────── 構造文字
   function drawGlyph(ctx, x, y, size, col, lw, sd) {
@@ -677,13 +677,16 @@ var H53 = (function () {
     g.font = '600 30px "Hiragino Sans", "Noto Sans CJK JP", sans-serif';
     g.textAlign = 'left'; g.fillText('未決', pad, y);
     glyphRun(g, pad + 92, y - 17, 33, 5, 'rgba(242,219,233,0.62)', 1.9, 40311);
-    g.fillStyle = 'rgba(242,219,233,0.42)';
+    // 遡行中は欄名を差し替え、数字を明滅させる。
+    // 遡る速さは変えない——先頭に届かないことが主題だからである
+    var bk = SEEK < 0 ? Math.floor(Date.now() / 190) % 2 : -1;
+    g.fillStyle = bk === 1 ? 'rgba(255,5,168,0.88)' : 'rgba(242,219,233,0.42)';
     g.font = '500 21px "Hiragino Sans", "Noto Sans CJK JP", sans-serif';
-    g.fillText('所要', pad, y + 40);
-    g.fillStyle = CSS_MAG;
+    g.fillText(bk < 0 ? '所要' : '遡行', pad, y + 40);
+    g.fillStyle = bk === 0 ? 'rgba(255,5,168,0.32)' : CSS_MAG;
     g.font = '600 32px "DejaVu Sans Mono", Menlo, monospace';
     g.textAlign = 'right'; g.fillText(groupDigits(pulseCount()), W - pad, y + 41);
-    g.strokeStyle = 'rgba(255,5,168,0.30)';
+    g.strokeStyle = bk === 1 ? 'rgba(255,5,168,0.74)' : 'rgba(255,5,168,0.30)';
     g.beginPath(); g.moveTo(pad, y + 66); g.lineTo(W - pad, y + 66); g.stroke();
 
     // 承認。一件ごとに一行ずつ送る
