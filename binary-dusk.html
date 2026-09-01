@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta name="description" content="根の惑星、分館の巨大樹。差し渡し10mの枝の上からの眺め。日は二つ——ピンクの白と、ターコイズの白——で、大気は地球と同じ黄昏の橙に染まる。森を割ってまっすぐ地平へ続く線路と、空を映す水路。誰も乗らない列車が15.6秒ごとに駅を通過し、森では空の円盤が2.4秒で一巡する。左の遠くには海。SUNSETを押すと三分で日が沈み、二度と戻らない。">
+<meta name="description" content="根の惑星、分館の巨大樹。差し渡し10mの枝の上からの眺め。日は二つ——ピンクの白と、ターコイズの白——で、大気は地球と同じ黄昏の橙に染まる。線路は森を割って延び、奥の右手へ曲がってまた森へ入る。誰も乗らない列車が15.6秒ごとに一つきりの駅を通過し、左の奥では海が沈む日を映して粒立って光る。SUNSETを押すと三分で日が沈み、二度と戻らない。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="deus ex machina — holdings registry">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="Binary Dusk v7 — h!ro53 / deus ex machina">
-<meta property="og:description" content="根の惑星、分館の巨大樹。差し渡し10mの枝の上からの眺め。日は二つ——ピンクの白と、ターコイズの白——で、大気は地球と同じ黄昏の橙に染まる。森を割ってまっすぐ地平へ続く線路と、空を映す水路。誰も乗らない列車が15.6秒ごとに駅を通過し、森では空の円盤が2.4秒で一巡する。左の遠くには海。SUNSETを押すと三分で日が沈み、二度と戻らない。">
+<meta property="og:title" content="Binary Dusk v9 — h!ro53 / deus ex machina">
+<meta property="og:description" content="根の惑星、分館の巨大樹。差し渡し10mの枝の上からの眺め。日は二つ——ピンクの白と、ターコイズの白——で、大気は地球と同じ黄昏の橙に染まる。線路は森を割って延び、奥の右手へ曲がってまた森へ入る。誰も乗らない列車が15.6秒ごとに一つきりの駅を通過し、左の奥では海が沈む日を映して粒立って光る。SUNSETを押すと三分で日が沈み、二度と戻らない。">
 <meta property="og:url" content="https://tbyd-hiro53.github.io/binary-dusk.html">
 <meta property="og:image" content="https://tbyd-hiro53.github.io/binary-dusk-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Binary Dusk v7">
+<meta property="og:image:alt" content="Binary Dusk v9">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Binary Dusk v7 — h!ro53 / deus ex machina">
-<meta name="twitter:description" content="根の惑星、分館の巨大樹。差し渡し10mの枝の上からの眺め。日は二つ——ピンクの白と、ターコイズの白——で、大気は地球と同じ黄昏の橙に染まる。森を割ってまっすぐ地平へ続く線路と、空を映す水路。誰も乗らない列車が15.6秒ごとに駅を通過し、森では空の円盤が2.4秒で一巡する。左の遠くには海。SUNSETを押すと三分で日が沈み、二度と戻らない。">
+<meta name="twitter:title" content="Binary Dusk v9 — h!ro53 / deus ex machina">
+<meta name="twitter:description" content="根の惑星、分館の巨大樹。差し渡し10mの枝の上からの眺め。日は二つ——ピンクの白と、ターコイズの白——で、大気は地球と同じ黄昏の橙に染まる。線路は森を割って延び、奥の右手へ曲がってまた森へ入る。誰も乗らない列車が15.6秒ごとに一つきりの駅を通過し、左の奥では海が沈む日を映して粒立って光る。SUNSETを押すと三分で日が沈み、二度と戻らない。">
 <meta name="twitter:image" content="https://tbyd-hiro53.github.io/binary-dusk-og.jpg">
 <link rel="canonical" href="https://tbyd-hiro53.github.io/binary-dusk.html">
 <meta charset="utf-8" />
@@ -1273,57 +1273,75 @@ function applyLook(){
 }
 applyLook();
 
+// [部品] 空 v8 — SKY_GLSL（hash21/skyGrad/discMask/suns/stars）＋ skyMat ＋ sky
 // ---------------------------------------------------------------- 共有GLSL
 var SKY_GLSL=[
 'const float SUN_D=6000.0;',
 'uniform float uAltL,uAltS,uDusk,uDark,uPulse;',
 'uniform vec3 uColL,uColS;',
+'float hash21(vec2 q){return fract(sin(dot(q,vec2(127.1,311.7)))*43758.5453);}',
 'vec3 skyGrad(float y,float x){',
-'  float h=clamp(y/5200.0,0.0,1.0);',
-'  vec3 zenD=vec3(0.026,0.046,0.110);',
-'  vec3 zenN=vec3(0.006,0.009,0.018);',
-'  vec3 horD=vec3(0.560,0.268,0.108);',                 // 黄昏の橙
-'  vec3 midD=vec3(0.300,0.160,0.150);',                 // 橙→薄紅
-'  vec3 horN=vec3(0.022,0.043,0.066);',
-'  vec3 zen=mix(zenN,zenD,uDusk);',
-'  vec3 hor=mix(horN,horD,uDusk);',
-'  vec3 mid2=mix(zenN*1.4,midD,uDusk);',
-'  vec3 c=mix(mix(hor,mid2,smoothstep(0.0,0.42,h)),zen,pow(h,0.58));',
-'  float sx=(x+95.0)/2400.0;',
-'  c+=vec3(1.0,0.46,0.16)*exp(-y/430.0)*exp(-sx*sx*0.5)*uDusk*0.30;',
-'  float band=exp(-y/520.0)*exp(-sx*sx)*(0.30+0.06*uPulse);',
-'  c+=vec3(1.0,0.02,0.66)*band*uDark*0.28;',
+'  float h=clamp(y/5600.0,0.0,1.0);',
+'  vec3 c0=mix(vec3(0.020,0.040,0.062),vec3(0.600,0.240,0.072),uDusk);',   // 地平: 濃い橙（v9: 僅かに飽和）
+'  vec3 c1=mix(vec3(0.014,0.028,0.050),vec3(0.665,0.320,0.120),uDusk);',   // 橙の帯（v9: 僅かに飽和）
+'  vec3 c2=mix(vec3(0.010,0.019,0.038),vec3(0.462,0.262,0.238),uDusk);',   // 薄紅
+'  vec3 c3=mix(vec3(0.007,0.012,0.026),vec3(0.170,0.148,0.238),uDusk);',   // 紅→青の渡り
+'  vec3 c4=mix(vec3(0.005,0.008,0.018),vec3(0.022,0.042,0.118),uDusk);',   // 天頂: 群青
+'  vec3 c=mix(c0,c1,smoothstep(0.0,0.13,h));',
+'  c=mix(c,c2,smoothstep(0.09,0.34,h));',
+'  c=mix(c,c3,smoothstep(0.27,0.60,h));',
+'  c=mix(c,c4,smoothstep(0.50,1.0,h));',
+'  float sxL=(x+95.0)/2400.0, sxS=(x-95.0)/2400.0;',
+'  float lowL=exp(-max(uAltL,0.0)/1600.0), lowS=exp(-max(uAltS,0.0)/1600.0);',
+'  float dk=1.0-uDark;',
+// ミー散乱風: 日の周囲だけ地平の明るさが持ち上がる（低いほど強い・夜は退く）
+'  c+=vec3(1.0,0.42,0.135)*exp(-y/470.0)*exp(-sxL*sxL*0.62)*uDusk*dk*(0.22+0.11*lowL);',
+'  c+=vec3(1.0,0.50,0.185)*exp(-y/390.0)*exp(-sxS*sxS*0.95)*uDusk*dk*(0.09+0.06*lowS);',
+'  float pk=(y-940.0)/760.0;',                                             // 橙帯の上の薄紅層
+'  c+=vec3(0.92,0.52,0.50)*exp(-pk*pk)*exp(-sxL*sxL*0.30)*uDusk*dk*0.085;',
+// 夜: マゼンタ残照帯（沈んだ側 x≈-95中心・二層・地平低く）
+'  float bnd=exp(-y/330.0)*exp(-sxL*sxL*1.5)*0.34+exp(-y/820.0)*exp(-sxL*sxL*0.5)*0.14;',
+'  c+=vec3(1.0,0.02,0.66)*bnd*uDark*(0.26+0.035*uPulse);',
 '  c+=vec3(0.0,0.87,0.78)*exp(-y/2600.0)*0.012*uDark;',
+'  c+=(hash21(mod(vec2(x,y),vec2(289.0,283.0)))-0.5)*0.0078;',             // 微小ディザ ±1/255
 '  return c;}',
 'float discMask(vec2 p,vec2 c,float r){',
-'  float d=length(p-c);return smoothstep(r,r*0.97,d);}',
+'  float d=length(p-c);return smoothstep(r,r*0.955,d);}',
 'vec3 suns(vec2 p){',
 '  vec3 acc=vec3(0.0);',
 '  vec2 cL=vec2(-190.0,uAltL), cS=vec2(190.0,uAltS);',
 '  float dL=length(p-cL), dS=length(p-cS);',
 '  float loL=clamp(1.0-(uAltL+200.0)/330.0,0.0,1.0);',
 '  float loS=clamp(1.0-(uAltS+106.0)/330.0,0.0,1.0);',
-'  vec3 halo=vec3(1.0,0.50,0.18);',                     // 散乱は橙
-'  vec3 haloL=mix(uColL,halo,0.30+0.55*loL);',
-'  vec3 haloS=mix(uColS,halo,0.26+0.50*loS);',
-// 主役。芯は二色（ピンク白／ターコイズ白）・暈は黄昏の橙
-'  acc+=uColL*discMask(p,cL,200.0)*1.02;',
-'  acc+=vec3(1.0)*discMask(p,cL,118.0)*0.34;',
-'  acc+=haloL*(exp(-dL/300.0)*0.40+exp(-dL/1100.0)*0.075);',
-'  acc+=uColS*discMask(p,cS,106.0)*0.90;',
-'  acc+=vec3(1.0)*discMask(p,cS,58.0)*0.28;',
-'  acc+=haloS*(exp(-dS/200.0)*0.28+exp(-dS/900.0)*0.055);',
+'  vec3 halo=vec3(1.0,0.47,0.155);',                                       // 暈は黄昏の橙（v9: 僅かに飽和）
+'  vec3 haloL=mix(uColL,halo,0.32+0.55*loL);',
+'  vec3 haloS=mix(uColS,halo,0.27+0.50*loS);',
+'  float mL=discMask(p,cL,200.0), mS=discMask(p,cS,106.0);',
+'  float qL=clamp(dL/200.0,0.0,1.0); qL*=qL;',
+'  float qS=clamp(dS/106.0,0.0,1.0); qS*=qS;',
+'  float lmL=1.0-0.13*qL-0.05*qL*qL;',                                     // limb darkening（縁でわずかに減光）
+'  float lmS=1.0-0.12*qS-0.04*qS*qS;',
+'  vec3 coreL=mix(uColL,vec3(1.0,0.60,0.30),0.16*loL);',                   // 大気減光: 低いと沈み・暖まる
+'  vec3 coreS=mix(uColS,vec3(0.85,0.75,0.45),0.12*loS);',
+'  acc+=coreL*mL*lmL*(0.92-0.26*loL);',                                    // 芯は白飛びさせず色で読ませる
+'  acc+=vec3(1.0)*discMask(p,cL,128.0)*0.085*(1.0-0.55*loL);',
+'  acc+=haloL*(exp(-dL/320.0)*0.34+exp(-dL/1150.0)*0.070)*(1.0-0.80*mL);', // 暈二層・盤内は抑制
+'  acc+=coreS*mS*lmS*(0.88-0.22*loS);',
+'  acc+=vec3(1.0)*discMask(p,cS,62.0)*0.075*(1.0-0.55*loS);',
+'  acc+=haloS*(exp(-dS/210.0)*0.24+exp(-dS/950.0)*0.052)*(1.0-0.80*mS);',
 '  return acc;}',
-'float hash21(vec2 q){return fract(sin(dot(q,vec2(127.1,311.7)))*43758.5453);}',
 'vec3 stars(vec2 p){',
 '  vec2 g=floor(p/38.0); vec2 f=fract(p/38.0);',
 '  float h=hash21(g);',
 '  vec2 sp=vec2(hash21(g+7.3),hash21(g+2.9));',
 '  float d=length(f-sp);',
-'  float m=smoothstep(0.055,0.0,d)*step(0.90,h);',
-'  float tw=0.72+0.28*sin(6.2831853*uPulse*0.5+h*41.0);',
-'  vec3 c=vec3(0.62,0.72,0.80)*m*tw;',
-'  vec2 rp=vec2(2350.0,3550.0);',                        // 赤いほうの一つ（数えない）
+'  float sz=0.026+0.022*hash21(g+4.7);',                                   // 星は微小・大きさに揺らぎ
+'  float m=smoothstep(sz,0.0,d)*step(0.90,h);',
+'  float tw=0.74+0.26*sin(6.2831853*uPulse*0.5+h*41.0);',                  // 瞬きは0.78s系のみ
+'  vec3 stc=mix(vec3(0.55,0.66,0.80),vec3(0.76,0.74,0.68),step(0.965,h));',
+'  vec3 c=stc*m*tw*(0.70+0.30*hash21(g+9.1));',
+'  c*=smoothstep(140.0,760.0,p.y);',                                       // 地平ぎわでは大気に沈む
+'  vec2 rp=vec2(2350.0,3550.0);',                                          // 赤いほうの一つ（数えない）
 '  float rd=length(p-rp);',
 '  c+=vec3(0.85,0.24,0.16)*smoothstep(9.0,0.0,rd)*0.85;',
 '  return c*uDark;}'
@@ -1334,8 +1352,8 @@ var skyMat=new THREE.ShaderMaterial({
   depthWrite:false,
   uniforms:{
     uAltL:{value:0},uAltS:{value:0},uDusk:{value:1},uDark:{value:0},uPulse:{value:0},
-    uColL:{value:new THREE.Color(1.00,0.78,0.88)},
-    uColS:{value:new THREE.Color(0.70,0.98,0.93)}
+    uColL:{value:new THREE.Color(1.00,0.72,0.86)},
+    uColS:{value:new THREE.Color(0.58,0.98,0.92)}
   },
   vertexShader:[
     'varying vec2 vP;',
@@ -1357,13 +1375,13 @@ var sky=new THREE.Mesh(new THREE.PlaneGeometry(30000,9000,1,1),skyMat);
 sky.position.set(0,4500,-SUN_D);
 scene.add(sky);
 
-// ---------------------------------------------------------------- 地面
+// ---------------------------------------------------------------- 地面（v9）
 var groundMat=new THREE.ShaderMaterial({
   uniforms:{
     uT:{value:0},uAltL:{value:0},uAltS:{value:0},uDusk:{value:1},uDark:{value:0},
     uPulse:{value:0},
-    uColL:{value:new THREE.Color(1.00,0.78,0.88)},
-    uColS:{value:new THREE.Color(0.70,0.98,0.93)}
+    uColL:{value:new THREE.Color(1.00,0.72,0.86)},
+    uColS:{value:new THREE.Color(0.58,0.98,0.92)}
   },
   vertexShader:[
     'varying vec3 vW;',
@@ -1381,9 +1399,18 @@ var groundMat=new THREE.ShaderMaterial({
     '  vec2 i=floor(p), f=fract(p); f=f*f*(3.0-2.0*f);',
     '  float a=hash21(i), b=hash21(i+vec2(1,0)), c2=hash21(i+vec2(0,1)), d=hash21(i+vec2(1,1));',
     '  return mix(mix(a,b,f.x),mix(c2,d,f.x),f.y);}',
+    'float worley(vec2 p){',                              // セルノイズ（樹冠の粒）
+    '  vec2 ip=floor(p), fp=fract(p);',
+    '  float dm=8.0;',
+    '  for(int jy=-1;jy<=1;jy++){',
+    '    for(int jx=-1;jx<=1;jx++){',
+    '      vec2 o=vec2(float(jx),float(jy));',
+    '      vec2 v=o+vec2(hash21(ip+o),hash21(ip+o+19.19))-fp;',
+    '      dm=min(dm,dot(v,v));}}',
+    '  return sqrt(dm);}',
     'void main(){',
     '  vec2 P=vW.xz;',
-    '  vec2 base=vec2(620.0,-1600.0);',                 // 幹の立つ位置
+    '  vec2 base=vec2(620.0,-1600.0);',                   // 幹の立つ位置
     '  float r=length(P-base);',
     '  float th=atan(P.y-base.y,P.x-base.x);',
     '  vec3 soil =mix(vec3(0.013,0.018,0.027),vec3(0.128,0.106,0.118),uDusk);',
@@ -1391,6 +1418,14 @@ var groundMat=new THREE.ShaderMaterial({
     '  vec3 rootc=mix(vec3(0.004,0.007,0.009),vec3(0.017,0.017,0.021),uDusk);',
     '  float dcam=length(vW.xz);',
     '  float far1=smoothstep(450.0,2300.0,dcam);',
+    '  vec3 hz=skyGrad(30.0,P.x*0.5);',                   // 靄の色（前倒しで一度だけ）
+    '  float visL=clamp((uAltL+200.0)/260.0,0.0,1.0);',
+    '  float visS=clamp((uAltS+106.0)/160.0,0.0,1.0);',
+    '  float lowL=clamp(1.0-uAltL/520.0,0.0,1.0);',
+    '  float lowS=clamp(1.0-uAltS/520.0,0.0,1.0);',
+    '  vec3 warmL=mix(uColL,vec3(1.0,0.50,0.18),0.55);',
+    '  vec3 warmS=mix(uColS,vec3(1.0,0.55,0.22),0.45);',
+    '  float band=exp(-(6050.0+vW.z)/1200.0);',           // 低い日の光の帯
     '  float n=0.55*vnoise(P*0.0062)+0.45*vnoise(P*0.019)*(1.0-far1*0.7);',
     '  float wPlain=smoothstep(2700.0,3250.0,r);',
     '  float wRoot =1.0-smoothstep(700.0,880.0,r);',
@@ -1398,6 +1433,19 @@ var groundMat=new THREE.ShaderMaterial({
     '  vec3 c=soil*wPlain+canop*wForest+rootc*wRoot;',
     '  float namp=(0.62*wForest+0.22*wPlain+0.13*wRoot)*(1.0-0.55*far1);',
     '  c*=0.72+0.85*(n-0.5)*namp+0.20*n*0.3;',
+    // 森冠の粒立ち：小さな丸い塊が敷き詰まる。遠くはフェードしてモアレを抑える
+    '  float granF=wForest*(1.0-far1*0.92);',
+    '  float wd=1.0;',
+    '  if(granF>0.004){wd=worley(P*0.030);}',
+    '  float crown=clamp(1.0-wd*wd,0.0,1.0);',            // 樹冠ひとつぶんの丸み
+    '  float mot=0.72+0.56*hash21(floor(P*0.030)+5.7);',  // 個体差
+    '  float mound=vnoise(P*0.0045);',                    // 冠の大うねり
+    '  vec3 cano2=c*(0.78+0.46*crown*mot)*(0.88+0.26*mound);',
+    '  c=mix(c,cano2,granF);',
+    '  float duskSide=smoothstep(-3100.0,-200.0,vW.z);',  // 手前（夕光側）ほど明るい
+    '  c*=1.0+0.11*duskSide*wForest*(0.3+0.7*uDusk);',
+    '  c+=vec3(0.055,0.030,0.012)*duskSide*wForest*uDusk*0.30;',
+    '  c=mix(c,hz*0.50,wForest*smoothstep(1300.0,3000.0,dcam)*0.20);', // 森の奥は靄に沈む
     // 根は四方へ。あいだの道は細い
     '  float bn=0.4+0.6*vnoise(P*0.031);',
     '  float lobes=pow(abs(cos(th*2.0+0.3*vnoise(P*0.012))),0.38);',
@@ -1416,72 +1464,159 @@ var groundMat=new THREE.ShaderMaterial({
     '  float blink=0.5+0.5*sin(TAU*kk*uT/62.4+h1*39.0);',
     '  float trunk=smoothstep(0.09,0.0,td)*step(0.55,h1);',
     '  c+=vec3(0.0,0.87,0.78)*trunk*blink*wForest*(0.012+0.55*uDark*uDark);',
-    // 平らな土：低い建物が同じ間隔で並ぶ
-    '  float bz=wPlain*smoothstep(-4300.0,-4800.0,vW.z);',
+    // 平らな土：低い橙の光を受ける帯状の起伏（遠くと際ではフェード）
+    '  float rphase=vW.z*0.045+vnoise(P*0.0031)*6.5;',
+    '  float rlit=max(cos(rphase),0.0);',                 // 日を向く斜面
+    '  float rshade=max(-cos(rphase),0.0);',
+    '  float rfade=wPlain*(1.0-far1*0.55)*(1.0-smoothstep(-4600.0,-5800.0,vW.z));',
+    '  c+=vec3(1.0,0.50,0.18)*rlit*(0.15+0.85*band)*rfade*uDusk*0.065;',
+    '  c*=1.0-0.05*rshade*rfade;',
+    '  float rgrain=vnoise(P*0.052);',
+    '  c*=0.97+0.06*rgrain*wPlain*(1.0-far1*0.7);',
+    // 汀線：(-2700,-2900)-(-750,-6100)。符号付き距離（正=陸／負=海）。縁はわずかに揺れる
+    '  float sdSh=(1950.0*(P.y+2900.0)+3200.0*(P.x+2700.0))/3747.3;',
+    '  float sdw=sdSh+(vnoise(P*0.0043)-0.5)*95.0;',
+    '  float wSea=smoothstep(30.0,-30.0,sdw);',
+    // 平らな土：低い建物が同じ間隔で並ぶ。影側は暗く、光側の縁だけ薄く橙（陸側のみ）
+    '  float bz=wPlain*smoothstep(-4300.0,-4800.0,vW.z)*smoothstep(10.0,90.0,sdw);',
     '  vec2 bg=fract(vec2(P.x/236.0,vW.z/168.0));',
     '  float blk=step(bg.x,0.30)*step(bg.y,0.32);',
-    '  c=mix(c,c*0.58,blk*bz*0.9);',
-    // 線路と、並走する水路。森には回廊が通る
-    '  float corr=smoothstep(150.0,60.0,abs(P.x-330.0))*smoothstep(-1900.0,-2500.0,vW.z);',
-    '  c=mix(c,soil*0.72,corr*wForest*0.85);',                       // 回廊は森を割る
-    '  float railZone=smoothstep(-2050.0,-2400.0,vW.z);',
-    '  float rail=smoothstep(8.0,2.4,abs(P.x-300.0))*railZone;',
-    '  float rail2=smoothstep(8.0,2.4,abs(P.x-322.0))*railZone;',    // 二条
+    '  float bshade=0.42+0.42*smoothstep(0.32,0.04,bg.y);', // 手前=影側が暗い
+    '  c=mix(c,c*bshade,blk*bz*0.9);',
+    '  float bsh=step(bg.x,0.30)*step(0.32,bg.y)*smoothstep(0.62,0.34,bg.y);',
+    '  c*=1.0-0.26*bsh*bz*uDusk;',                        // 手前へ落ちる影
+    '  float brim=blk*smoothstep(0.10,0.0,bg.y);',
+    '  c+=warmL*brim*bz*uDusk*(0.35+0.65*visL)*0.085;',   // 光側の縁
+    // RAIL PATH：直線A（x=300, z=-2050..-3400）＋二次ベジェB（C=(300,-4600)→(2250,-4400)）
+    // bestSd=進行方向左（区間Aで+x）を正とする横符号距離。bestT=B内の進行度（Aでは0）
+    '  float bestD=1.0e5; float bestSd=1.0e3; float bestT=0.0;',
+    '  if(P.x>120.0 && P.x<2450.0 && P.y<-1880.0 && P.y>-4650.0){',
+    '    vec2 a0=vec2(300.0,-2050.0); vec2 a1=vec2(300.0,-3400.0);',
+    '    vec2 ea=a1-a0; float ha=clamp(dot(P-a0,ea)/dot(ea,ea),0.0,1.0);',
+    '    vec2 dfa=P-a0-ea*ha;',
+    '    bestD=length(dfa); bestSd=P.x-300.0; bestT=0.0;',
+    '    vec2 bp=a1;',
+    '    for(int i=1;i<=20;i++){',                        // ベジェは20点サンプリングの折れ線
+    '      float tt=float(i)/20.0;',
+    '      vec2 bq=vec2(300.0+1950.0*tt*tt,-3400.0-2400.0*tt+1400.0*tt*tt);',
+    '      vec2 eb=bq-bp; float lb=dot(eb,eb);',
+    '      float hb=clamp(dot(P-bp,eb)/lb,0.0,1.0);',
+    '      vec2 dfb=P-bp-eb*hb; float db=dot(dfb,dfb);',
+    '      if(db<bestD*bestD){',
+    '        bestD=sqrt(db);',
+    '        vec2 tb=eb*inversesqrt(lb);',
+    '        bestSd=tb.x*dfb.y-tb.y*dfb.x;',
+    '        bestT=(float(i)-1.0+hb)/20.0;}',
+    '      bp=bq;}}',
+    '  float gA=smoothstep(-2050.0,-2400.0,vW.z);',       // 始端は根の際でそっと現れる
+    '  float intoB=smoothstep(0.015,0.10,bestT);',
+    // Bでは森がレールを呑む（wForestに応じて減衰）。終端は列車の消える位置と揃えて完全に消す
+    '  float fadeB=(1.0-0.94*wForest*intoB)*(1.0-smoothstep(0.74,0.94,bestT));',
+    '  float railF=gA*fadeB;',
+    // 回廊（森を割る帯）は区間Aのみ。曲がり口の手前で閉じ、その先は樹冠が覆う
+    '  float corr=smoothstep(150.0,60.0,abs(P.x-330.0))*smoothstep(-1900.0,-2500.0,vW.z)*(1.0-smoothstep(-3240.0,-3430.0,vW.z));',
+    '  c=mix(c,soil*0.72,corr*wForest*0.85);',
+    // 駅はひとつ（z=-2650）。そのぶんだけ地面がわずかに開き、明るむ
+    '  float plat=smoothstep(150.0,55.0,abs(vW.z+2650.0))*smoothstep(105.0,45.0,abs(P.x-330.0));',
+    '  c=mix(c,soil*0.86,plat*wForest*0.45);',
+    '  c+=vec3(0.040,0.036,0.040)*plat*uDusk*0.5;',
+    // 線路は二条。経路の横符号距離 0 / +22 に敷かれる
+    '  float rail=smoothstep(8.0,2.4,abs(bestSd))*railF;',
+    '  float rail2=smoothstep(8.0,2.4,abs(bestSd-22.0))*railF;',
     '  c+=vec3(0.055,0.050,0.056)*(rail+rail2)*uDusk;',
     '  c+=vec3(0.0,0.045,0.042)*(rail+rail2)*uDark*0.4;',
-    // 水路（線路に沿って一本。黒く、速い。日暮れの空を映す）
-    '  float can=smoothstep(13.0,5.0,abs(P.x-392.0))*railZone;',
-    '  float cshim=0.80+0.20*sin(vW.z*0.11+uT*(TAU*80.0/62.4));',
+    // 水路（進行方向左+92。黒く、速い。日暮れの空を映し、縁は掘り込まれて暗い。森とともに消える）
+    '  float cd=abs(bestSd-92.0);',
+    '  float can=smoothstep(13.0,5.0,cd)*railF;',
+    '  float cshim=0.78+0.15*sin(vW.z*0.11+uT*(TAU*80.0/62.4))',   // z方向へ流れる
+    '            +0.07*sin(vW.z*0.27+P.x*0.8+uT*(TAU*160.0/62.4));',
     '  vec3 canCol=skyGrad(40.0,P.x*0.5)*0.62*cshim;',
     '  c=mix(c,canCol,can*0.85);',
+    '  float canRim=smoothstep(16.0,11.0,cd)*smoothstep(7.0,10.0,cd)*railF;',
+    '  c*=1.0-0.38*canRim;',                              // 水際の締まり
     '  c+=vec3(0.0,0.87,0.78)*can*uDark*0.018;',
-    // 日の見え方
-    '  float visL=clamp((uAltL+200.0)/260.0,0.0,1.0);',
-    '  float visS=clamp((uAltS+106.0)/160.0,0.0,1.0);',
-    '  float lowL=clamp(1.0-uAltL/520.0,0.0,1.0);',
-    '  float lowS=clamp(1.0-uAltS/520.0,0.0,1.0);',
-    '  vec3 warmL=mix(uColL,vec3(1.0,0.50,0.18),0.55);',
-    '  vec3 warmS=mix(uColS,vec3(1.0,0.55,0.22),0.45);',
     // 光の帯：低い日が土をまっすぐ照らす
-    '  float band=exp(-(6050.0+vW.z)/1200.0);',
     '  float laneL=exp(-pow((P.x+190.0)/640.0,2.0))*band*visL*lowL;',
     '  float laneS=exp(-pow((P.x-190.0)/460.0,2.0))*band*visS*lowS;',
     '  c+=warmL*laneL*0.42*(1.0-wRoot);',
     '  c+=warmS*laneS*0.24*(1.0-wRoot);',
     '  c+=vec3(0.62,0.30,0.11)*exp(-(6050.0+vW.z)/620.0)*uDusk*0.13;',
-    // 川の合流。三つとも、同じ角度。水は空と日を映す
+    // 川の合流。三つとも、同じ角度。合流点C=(-2350,-4750)は汀のすぐ先、三本とも汀線へ注ぐ
     '  vec2 C=vec2(-2350.0,-4750.0);',
     '  vec2 q=P-C;',
     '  float rv=0.0;',
     '  float wob=(vnoise(P*0.0035)-0.5)*120.0;',
     '  for(int i=0;i<3;i++){',
-    '    float a=radians(58.0+34.0*float(i));',
+    '    float a=radians(24.0+34.0*float(i));',
     '    vec2 d=vec2(cos(a),sin(a));',
     '    float s=dot(q,d);',
     '    float pd=abs(q.x*d.y-q.y*d.x+wob);',
-    '    rv+=smoothstep(30.0,9.0,pd)*step(-60.0,s)*step(s,3050.0);}',
-    '  rv=clamp(rv,0.0,1.0)*wPlain;',
+    '    float rw=34.0-20.0*clamp(s/3050.0,0.0,1.0);',    // テーパー
+    '    rv+=smoothstep(rw,rw*0.28,pd)*step(-60.0,s)*step(s,3050.0);}',
+    '  rv=clamp(rv,0.0,1.0)*wPlain*smoothstep(-26.0,26.0,sdw);',   // 河口は汀線で水面に沈む
     '  float shim=0.82+0.18*sin(P.y*0.13+uT*(TAU*80.0/62.4)+P.x*0.021);',
     '  vec3 rSky=skyGrad(70.0,P.x*0.5)*0.90;',
     '  vec3 rGlint=warmL*exp(-pow((P.x+190.0)/300.0,2.0))*visL*lowL*1.35',
     '           +warmS*exp(-pow((P.x-190.0)/220.0,2.0))*visS*lowS*0.85;',
+    '  float spark=pow(0.5+0.5*sin(P.x*0.047+P.y*0.031+uT*(TAU*40.0/62.4)),6.0);',
+    '  rGlint+=vec3(1.0,0.50,0.18)*spark*(0.06+0.34*band)*uDusk;',  // 夕の橙のglint
     '  c=mix(c,(rSky+rGlint)*shim,rv*0.85);',
-    '  c+=vec3(0.0,0.87,0.78)*rv*uDark*0.014;',
+    '  c+=vec3(0.0,0.87,0.78)*rv*uDark*(0.016+0.006*uPulse);',      // 夜は青緑の微光
     // 残照：沈んだ側の土に低く残る（消えない）
     '  float sinkL=clamp(-uAltL/650.0,0.0,1.0);',
     '  float gw=exp(-abs(P.x+190.0)/560.0);',
     '  c+=vec3(1.0,0.02,0.66)*sinkL*gw*band*(0.30+0.05*uPulse);',
     '  float sinkS=clamp(-uAltS/420.0,0.0,1.0);',
     '  c+=vec3(0.98,0.55,0.72)*sinkS*exp(-abs(P.x-190.0)/380.0)*band*0.14;',
-    // 海：左の遠くに、広さだけがある（空と残照を映す）
-    '  float seaM=smoothstep(-2250.0,-2850.0,P.x)*smoothstep(-3250.0,-3950.0,vW.z);',
+    // 海：汀線の西側いったい。暗い水が地となり、そのうえに大きい日への光の帯だけが立つ
+    '  float fres=0.30+0.26*smoothstep(-2700.0,-5900.0,vW.z);',     // 映りは低め＝素の水を残す
     '  float sshim=0.86+0.14*sin(P.x*0.045+vW.z*0.06+uT*(TAU*26.0/62.4));',
-    '  vec3 seaCol=skyGrad(55.0,P.x*0.5)*1.06*sshim;',
+    '  vec3 mir=skyGrad(55.0,P.x*0.5)*vec3(0.40,0.72,0.86)*0.90;', // 空の映りは冷たく減衰
+    '  vec3 seaCol=mix(vec3(0.008,0.032,0.040)*(0.25+0.75*uDusk),mir,fres)*sshim;',
+    '  float azP=atan(P.x+10.0,-(vW.z+150.0));',          // 視点からの方位
+    '  float dAz=azP+0.0308;',                            // 大きい日（x=-190）の方位との差
+    '  float wedge=exp(-dAz*dAz*83.0);',                  // 日の側へ寄る緩い勾配（面は持ち上げない）
+    '  float core=exp(-(azP+0.155)*(azP+0.155)*434.0);',  // 帯の芯：水平線ぎわの水面上だけ高輝度
+    '  float bandFar=smoothstep(-4900.0,-5800.0,vW.z);',
+    '  float laneW=exp(-dAz*dAz*11.0);',                  // 夜のマゼンタ残照の帯（不変）
+    '  float sstreak=0.72+0.28*sin(P.x*0.021+vW.z*0.012+uT*(TAU*13.0/62.4));',
+    '  vec3 roadCol=mix(vec3(1.0,0.50,0.18),uColL,0.30+0.40*visL);',
+    '  float roadI=(wedge*0.55*band+core*0.85*bandFar)*visL*lowL*uDusk;',
+    '  seaCol+=roadCol*roadI*(0.62+0.38*sstreak);',
+    // セルグリッタ：0.78s(k=80)の瞬き×2.4s(k=26)のうねり。粒は小さく硬く、密度は中庸。決定的
+    '  float farG=smoothstep(-3600.0,-5600.0,vW.z);',
+    '  vec2 g1=floor(P*0.052); vec2 f1=fract(P*0.052);',
+    '  float gh=hash21(g1+31.7);',
+    '  vec2 spp=vec2(hash21(g1+7.3),hash21(g1+13.9));',
+    '  float tw=0.5+0.5*sin(TAU*80.0*uT/62.4+gh*47.0);',
+    '  float en=0.5+0.5*sin(TAU*26.0*uT/62.4+gh*23.0);',
+    '  float gN=smoothstep(0.11,0.015,length(f1-spp))*step(0.55,gh)*tw*tw*tw*tw*tw*(0.12+0.88*en*en);',
+    '  vec2 g2=floor(P*0.0135); vec2 f2=fract(P*0.0135);',
+    '  float gh2=hash21(g2+57.1);',
+    '  vec2 sp2=vec2(hash21(g2+3.3),hash21(g2+9.7));',
+    '  float tw2=0.5+0.5*sin(TAU*80.0*uT/62.4+gh2*51.0);',
+    '  float en2=0.5+0.5*sin(TAU*26.0*uT/62.4+gh2*29.0);',
+    '  float gF=smoothstep(0.10,0.015,length(f2-sp2))*step(0.52,gh2)*tw2*tw2*tw2*tw2*tw2*(0.12+0.88*en2*en2);',
+    '  float glitG=exp(-(azP+0.14)*(azP+0.14)*59.0);',    // 粒の分布も日の側へ寄る
+    '  float glit=(gN*(1.0-farG)+gF*farG)*glitG*(0.25+0.75*band)*visL*lowL;',
+    '  seaCol+=roadCol*glit*1.45*uDusk;',
+    // 夜：マゼンタ残照の映りへ滑らかに引き継ぐ（visL/lowLが閉じ、sinkLが開く）
+    '  float sglow=exp(-abs(P.x+190.0)/2600.0);',
+    '  seaCol+=vec3(1.0,0.02,0.66)*sinkL*uDark*sglow*sstreak*(0.11+0.022*uPulse);',
+    '  seaCol+=vec3(1.0,0.02,0.66)*sinkL*uDark*laneW*(0.045+0.020*en);',
     '  seaCol+=vec3(0.0,0.87,0.78)*uDark*0.012;',
-    '  c=mix(c,seaCol,seaM*0.92);',
-    // 遠方の靄
-    '  vec3 hz=skyGrad(30.0,P.x*0.5);',
-    '  c=mix(c,hz,smoothstep(-3000.0,-6050.0,vW.z)*0.60);',
+    '  c=mix(c,seaCol,wSea*0.95);',
+    // 汀線ぎわ：夕は細い濡れた明縁（1.5〜2px相当）が一本、陸側は湿って一段沈む。夜の縁は不変
+    '  float rimSea=smoothstep(52.0,6.0,abs(sdw+22.0));',            // 夜用（不変）
+    '  float rimDry=smoothstep(30.0,4.0,abs(sdw-14.0));',            // 夜用（不変）
+    '  float rimWet=smoothstep(14.0,2.0,abs(sdw+8.0));',
+    '  float rimDamp=smoothstep(26.0,6.0,abs(sdw-16.0));',
+    '  c+=(skyGrad(46.0,P.x*0.5)*0.45+roadCol*0.55)*rimWet*uDusk*(0.10+0.26*wedge*visL*lowL);',
+    '  c*=1.0-0.12*rimDamp*uDusk;',
+    '  c+=vec3(0.02,0.09,0.085)*(rimSea*0.7+rimDry*0.3)*uDark*0.30;',
+    // 遠方の靄と、際のディザ微量（夕の海上だけ靄を減らし、水を橙に沈めない。夜は従来どおり）
+    '  c=mix(c,hz,smoothstep(-3000.0,-6050.0,vW.z)*0.60*(1.0-0.45*wSea*uDusk));',
+    '  c+=vec3((hash21(P*0.713)-0.5)*0.006);',
     '  gl_FragColor=vec4(c,1.0);}'
   ].join('\n')
 });
@@ -1490,7 +1625,7 @@ ground.rotation.x=-PI/2;
 ground.position.set(0,0,-2950);
 scene.add(ground);
 
-// ---------------------------------------------------------------- 樹皮（統合された自然：整いかけた畝）
+// ---------------------------------------------------------------- 樹皮＋巨樹 v8（統合された自然：彫りの深い畝）
 var barkMats=[];
 function mkBark(len,circ,flutes){
   var m=new THREE.ShaderMaterial({
@@ -1514,72 +1649,114 @@ function mkBark(len,circ,flutes){
       '  return mix(mix(bh(i),bh(i+vec2(1,0)),f.x),mix(bh(i+vec2(0,1)),bh(i+vec2(1,1)),f.x),f.y);}',
       'void main(){',
       '  float u=vUv.x*uLen;',
-      // 畝：等間隔の縦条。ごくわずかにだけ乱す（整えられたにしては、乱れている）
-      '  float drift=(bn2(vec2(u*0.0016,vUv.y*2.0))-0.5)*0.22;',
+      // 畝の座標系：等間隔のまま、二重のごく緩い蛇行だけを許す
+      '  float drift=(bn2(vec2(u*0.0013,vUv.y*1.7))-0.5)*0.20',
+      '             +(bn2(vec2(u*0.0058,vUv.y*3.3))-0.5)*0.05;',
       '  float fx=vUv.y*uFl+drift;',
-      '  float fl=fract(fx);',
       '  float fid=floor(fx);',
-      '  float prof=abs(fl-0.5)*2.0;',                    // 0=畝の芯 1=谷
-      '  float ridge=1.0-smoothstep(0.55,0.97,prof);',    // 畝の面
-      '  float valley=smoothstep(0.80,0.99,prof);',       // 谷（継ぎ目）
-      // 畝ごとの個体差と、長手のごく浅い木理
+      '  float fl=fract(fx);',
+      // 畝ごとの幅・芯の個体差。両端（谷）は固定＝等間隔感は崩れない
+      '  float wob=bh(vec2(fid,5.7))-0.5;',
+      '  float fl2=fl+0.048*wob*sin(6.2831853*fl);',
+      '  float prof=abs(fl2-0.5)*2.0;',
+      // 断面：頂の平場／丸い肩／締まった谷
+      '  float h=1.0-smoothstep(0.34,0.82,prof);',
+      '  h*=1.0-0.05*prof*prof;',
+      '  float crease=smoothstep(0.865,0.985,prof);',
+      '  float sh=smoothstep(0.20,0.50,prof)*(1.0-smoothstep(0.62,0.90,prof));',
+      // 木理：畝に沿って流れる長手の細筋（2スケール）
+      '  float cw=fx*(uCirc/uFl);',
+      '  float grain=(0.88+0.12*bn2(vec2(u*0.055,cw*0.50)))',
+      '             *(0.93+0.07*bn2(vec2(u*0.21,cw*1.55)));',
       '  float per=0.90+0.20*bh(vec2(fid,7.3));',
-      '  float stria=0.92+0.08*bn2(vec2(u*0.9,vUv.y*uCirc*0.5));',
-      '  float grain=0.94+0.06*bn2(vec2(u*4.0,vUv.y*uCirc*2.0));',
-      '  vec3 baseD=vec3(0.021,0.018,0.017);',
-      '  vec3 baseL=vec3(0.105,0.088,0.072);',
-      '  vec3 alb=mix(baseD,baseL,ridge)*per*stria*grain;',
-      // 節の帯：一定間隔の浅い環（規格の痕）
-      '  float ring=smoothstep(0.055,0.0,abs(fract(u/230.0)-0.5)*2.0-0.90);',
-      '  alb*=1.0-0.28*ring;',
-      // 照明
-      '  float amb=0.20+0.55*clamp(vN.y,0.0,1.0);',
+      '  vec3 baseD=vec3(0.020,0.017,0.016);',
+      '  vec3 baseL=vec3(0.106,0.088,0.071);',
+      '  vec3 alb=mix(baseD,baseL,h)*per*grain;',
+      // v9 近景ディテール（dcam<900 のみ・遠方は不変）：二次溝／周方向の細皺／微粒
+      '  float dcam=distance(vWp,cameraPosition);',
+      '  float nf=1.0-smoothstep(520.0,900.0,dcam);',
+      '  float nf2=1.0-smoothstep(150.0,560.0,dcam);',
+      '  float sg=abs(fract(fl2*3.0+0.5)-0.5)*2.0;',
+      '  float sgl=smoothstep(0.90,0.985,sg)*h;',
+      '  float mcx=abs(fract(u/9.0+bh(vec2(fid,9.1)))-0.5)*2.0;',
+      '  float mc=smoothstep(0.85,0.97,mcx)*smoothstep(0.45,0.80,bn2(vec2(u*0.045,fid*2.3)));',
+      '  float spk=bn2(vec2(u*1.9,cw*5.2));',
+      '  alb*=1.0+0.10*nf2*(spk-0.5)-nf*(0.16*sgl+0.12*mc);',
+      '  sh*=1.0-0.45*nf*sgl;',
+      // 節の帯：浅い段差。縁は約1.5単位でシャープに落ちる（規格の痕）
+      '  float db=(0.5-abs(fract(u/230.0)-0.5))*230.0;',
+      '  float band=1.0-smoothstep(8.2,9.7,db);',
+      '  float lip=smoothstep(9.7,11.5,db)*(1.0-smoothstep(11.5,16.0,db));',
+      '  alb*=1.0-0.24*band;',
+      '  sh*=1.0-0.55*band;',
+      // 照明：空光は上面と畝の頂へ、夕光（-z の橙）は肩だけを拾う
+      '  float amb=(0.20+0.55*clamp(vN.y,0.0,1.0))*(0.55+0.45*h)*(1.0-0.10*band);',
       '  vec3 sunDir=normalize(vec3(-0.05,0.02,-1.0));',
       '  float sunlt=pow(clamp(dot(vN,sunDir),0.0,1.0),1.3);',
-      '  vec3 c=alb*amb*mix(0.15,1.0,uDusk);',
-      '  c+=alb*vec3(1.0,0.58,0.30)*sunlt*uDusk*1.35;',
-      '  c*=1.0-0.62*valley;',                            // 谷は影
-      // 谷の底＝維管束の継ぎ目。かすかに透け、0.78 sで脈打つ
-      '  float seam=smoothstep(0.93,0.995,prof);',
-      '  float alive=smoothstep(0.35,0.85,bn2(vec2(fid*3.1,u*0.011)));',
-      '  c+=vec3(0.0,0.87,0.78)*seam*alive*(0.012+0.075*uDark)*(0.45+0.55*uPulse);',
+      '  vec3 c=alb*amb*mix(0.15,1.55,uDusk);',
+      '  c+=alb*vec3(0.55,0.65,0.85)*clamp(vN.y,0.0,1.0)*0.30*uDusk*h;',
+      '  c+=alb*vec3(1.0,0.58,0.30)*sunlt*uDusk*(1.15+0.55*sh);',
+      '  c+=alb*vec3(1.0,0.58,0.30)*sunlt*uDusk*lip*1.10;',
+      '  c*=1.0-0.70*crease;',
+      // 谷底の維管束：夜にだけ、まばらに透けて0.78 sで脈打つ
+      '  float seam=smoothstep(0.945,0.995,prof);',
+      '  float alive=smoothstep(0.55,0.90,bn2(vec2(fid*3.1,u*0.011)))',
+      '             *smoothstep(0.30,0.75,bn2(vec2(u*0.0021,fid*1.7)));',
+      '  c+=vec3(0.0,0.867,0.784)*seam*alive*(0.068*uDark)*(0.40+0.60*uPulse);',
       '  vec3 Vv=normalize(vWp-cameraPosition);',
-      '  c+=vec3(0.0,0.87,0.78)*pow(1.0-abs(dot(vN,Vv)),3.4)*(0.004+0.012*uDark);',
+      '  c+=vec3(0.0,0.867,0.784)*pow(1.0-abs(dot(vN,Vv)),3.6)*(0.003+0.010*uDark);',
       '  gl_FragColor=vec4(c,1.0);}'
     ].join('\n')
   });
   barkMats.push(m);
   return m;
 }
-// 節輪（枝の継ぎ目に嵌まる環）と管（維管束が規格に合流した跡）
+// 節輪と管：硬化した樹皮。上面が夕光を受け、下面は暗い
 var nodeMat=new THREE.ShaderMaterial({
   uniforms:{uDusk:{value:1},uDark:{value:0},uPulse:{value:0}},
   vertexShader:[
-    'varying vec3 vN2;',
-    'void main(){vN2=normalize(mat3(modelMatrix)*normal);',
-    ' gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}'
+    'varying vec3 vN2;varying vec2 vU2;varying vec3 vWp2;',
+    'void main(){vN2=normalize(mat3(modelMatrix)*normal);vU2=uv;',
+    ' vec4 wp2=modelMatrix*vec4(position,1.0);vWp2=wp2.xyz;',
+    ' gl_Position=projectionMatrix*viewMatrix*wp2;}'
   ].join('\n'),
   fragmentShader:[
-    'varying vec3 vN2;',
+    'varying vec3 vN2;varying vec2 vU2;varying vec3 vWp2;',
     'uniform float uDusk,uDark,uPulse;',
+    'float nh(vec2 q){return fract(sin(dot(q,vec2(269.5,183.3)))*43758.5453);}',
+    'float nn2(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.0-2.0*f);',
+    ' return mix(mix(nh(i),nh(i+vec2(1,0)),f.x),mix(nh(i+vec2(0,1)),nh(i+vec2(1,1)),f.x),f.y);}',
     'void main(){',
     '  float up=clamp(vN2.y,0.0,1.0);',
-    '  vec3 c=vec3(0.030,0.028,0.030)*(0.25+0.85*up)*uDusk;',
-    '  c+=vec3(1.0,0.58,0.30)*pow(clamp(dot(vN2,normalize(vec3(-0.05,0.02,-1.0))),0.0,1.0),1.4)*uDusk*0.10;',
-    '  c+=vec3(0.0,0.87,0.78)*(0.006+0.032*uDark)*(0.40+0.60*uPulse);',
+    '  float dn=clamp(-vN2.y,0.0,1.0);',
+    '  float pl=0.90+0.10*nn2(vec2(vU2.x*46.0,vU2.y*3.0));',
+    '  float rib=0.94+0.06*(abs(fract(vU2.x*46.0)-0.5)*2.0);',
+    '  vec3 alb=vec3(0.052,0.044,0.037)*pl*rib;',
+    // v9 近景のみ：節輪の面取り感（10面の帯＋稜線。遠方は不変）
+    '  float dc2=distance(vWp2,cameraPosition);',
+    '  float nf3=1.0-smoothstep(480.0,880.0,dc2);',
+    '  float ft=fract(vU2.y*10.0);',
+    '  float bev=smoothstep(0.90,1.0,abs(ft-0.5)*2.0);',
+    '  alb*=1.0+nf3*(0.06*(ft-0.5)-0.10*bev);',
+    '  vec3 c=alb*(0.20+0.85*up)*mix(0.15,1.0,uDusk);',
+    '  c*=1.0-0.45*dn;',
+    '  vec3 sd=normalize(vec3(-0.05,0.02,-1.0));',
+    '  float sl=pow(clamp(dot(vN2,sd),0.0,1.0),1.6);',
+    '  c+=alb*vec3(1.0,0.58,0.30)*sl*(0.35+0.65*up)*uDusk*1.60;',
+    '  c+=vec3(0.0,0.867,0.784)*(0.005+0.026*uDark)*(0.40+0.60*uPulse);',
     '  gl_FragColor=vec4(c,1.0);}'
   ].join('\n')
 });
 barkMats.push(nodeMat);
 function nodeRing(curve,tt,rad){
   var p=curve.getPointAt(tt), tg=curve.getTangentAt(tt);
-  var ring=new THREE.Mesh(new THREE.TorusGeometry(rad,rad*0.085,10,26),nodeMat);
+  var ring=new THREE.Mesh(new THREE.TorusGeometry(rad,rad*0.082,10,26),nodeMat);
   ring.position.set(p.x,p.y,p.z);
   ring.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),tg.normalize());
   scene.add(ring);
 }
 function veinPipes(curve,rad,n,segs){
-  var k,s,pts;
+  var k,s,r,pts,cv,pipe;
   for(k=0;k<n;k++){
     pts=[];
     for(s=0;s<=segs;s++){
@@ -1588,9 +1765,27 @@ function veinPipes(curve,rad,n,segs){
                                  p2.y-rad-5.0-2.0*Math.abs(k-1),
                                  p2.z));
     }
-    var cv=new THREE.CatmullRomCurve3(pts);
-    var pipe=new THREE.Mesh(new THREE.TubeGeometry(cv,segs,2.6,8,false),nodeMat);
+    cv=new THREE.CatmullRomCurve3(pts);
+    pipe=new THREE.Mesh(new THREE.TubeGeometry(cv,segs,2.6,8,false),nodeMat);
     scene.add(pipe);
+    // 継ぎ目のロゼット：等間隔の小さな締め輪（規格の痕）
+    for(r=0;r<3;r++){
+      var t2=0.25+0.25*r;
+      var p3=cv.getPointAt(t2), tg2=cv.getTangentAt(t2);
+      var ros=new THREE.Mesh(new THREE.TorusGeometry(3.4,1.0,8,14),nodeMat);
+      ros.position.set(p3.x,p3.y,p3.z);
+      ros.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),tg2.normalize());
+      scene.add(ros);
+    }
+    // v9: 管を留める帯金具。細いトーラス、ロゼットと互い違いの等間隔
+    for(r=0;r<4;r++){
+      var t4=0.125+0.25*r;
+      var p4=cv.getPointAt(t4), tg4=cv.getTangentAt(t4);
+      var clp=new THREE.Mesh(new THREE.TorusGeometry(3.2,0.55,6,10),nodeMat);
+      clp.position.set(p4.x,p4.y,p4.z);
+      clp.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),tg4.normalize());
+      scene.add(clp);
+    }
   }
 }
 // ---------------------------------------------------------------- 巨樹（幹・枝）
@@ -1607,11 +1802,11 @@ branchPts.push(new THREE.Vector3(  20, 204, -240));
 branchPts.push(new THREE.Vector3(-140, 198,   60));
 branchPts.push(new THREE.Vector3(-320, 194,  340));
 var branchCurve=new THREE.CatmullRomCurve3(branchPts);
-var branch=new THREE.Mesh(new THREE.TubeGeometry(branchCurve,110,58.0,24,false),mkBark(2300,364,16));
+var branch=new THREE.Mesh(new THREE.TubeGeometry(branchCurve,120,58.0,28,false),mkBark(2300,364,16));
 scene.add(branch);
 nodeRing(branchCurve,0.14,61.0);nodeRing(branchCurve,0.34,61.0);
 nodeRing(branchCurve,0.54,61.0);nodeRing(branchCurve,0.74,61.0);nodeRing(branchCurve,0.92,61.0);
-veinPipes(branchCurve,58.0,3,70);
+veinPipes(branchCurve,58.0,3,84);
 // 先の枝A：日のほうへ細る
 var forkA=[];
 forkA.push(new THREE.Vector3( 100, 210, -430));
@@ -1619,7 +1814,7 @@ forkA.push(new THREE.Vector3( -80, 194, -760));
 forkA.push(new THREE.Vector3(-260, 184,-1120));
 forkA.push(new THREE.Vector3(-420, 178,-1560));
 var forkACurve=new THREE.CatmullRomCurve3(forkA);
-var fkA=new THREE.Mesh(new THREE.TubeGeometry(forkACurve,48,20.0,16,false),mkBark(1300,126,10));
+var fkA=new THREE.Mesh(new THREE.TubeGeometry(forkACurve,52,20.0,18,false),mkBark(1300,126,10));
 scene.add(fkA);
 nodeRing(forkACurve,0.22,21.6);nodeRing(forkACurve,0.55,21.6);nodeRing(forkACurve,0.85,21.6);
 // 先の枝B：上へ茂る
@@ -1629,37 +1824,102 @@ forkB.push(new THREE.Vector3(  80, 300, -780));
 forkB.push(new THREE.Vector3( -60, 392, -940));
 forkB.push(new THREE.Vector3(-190, 452,-1100));
 var forkBCurve=new THREE.CatmullRomCurve3(forkB);
-var fkB=new THREE.Mesh(new THREE.TubeGeometry(forkBCurve,40,15.0,14,false),mkBark(900,94,9));
+var fkB=new THREE.Mesh(new THREE.TubeGeometry(forkBCurve,44,15.0,16,false),mkBark(900,94,9));
 scene.add(fkB);
 nodeRing(forkBCurve,0.30,16.4);nodeRing(forkBCurve,0.68,16.4);
+// ---------------------------------------------------------------- v9 近景：主枝上面の芽節（低い瘤）
+// 専用の暗色材質：樹皮の谷〜中間調。夕は橙をわずかに受け、夜はほぼ剪影
+var bt9BudMat=new THREE.ShaderMaterial({
+  uniforms:{uDusk:{value:1},uDark:{value:0},uPulse:{value:0}},
+  vertexShader:[
+    'varying vec3 vN3;',
+    'void main(){vN3=normalize(mat3(modelMatrix)*normal);',
+    ' gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}'
+  ].join('\n'),
+  fragmentShader:[
+    'varying vec3 vN3;',
+    'uniform float uDusk,uDark,uPulse;',
+    'void main(){',
+    '  float up=clamp(vN3.y,0.0,1.0);',
+    '  vec3 alb=vec3(0.050,0.042,0.036);',
+    '  vec3 c=alb*(0.16+0.38*up)*mix(0.15,1.0,uDusk);',
+    '  float sl=pow(clamp(dot(vN3,normalize(vec3(-0.05,0.02,-1.0))),0.0,1.0),1.6);',
+    '  c+=alb*vec3(1.0,0.58,0.30)*sl*uDusk*0.55;',
+    '  gl_FragColor=vec4(c,1.0);}'
+  ].join('\n')
+});
+barkMats.push(bt9BudMat);
+// 等間隔 t=0.35+0.07k の6席、k=3 だけ欠け。乱数は欠け席でも消費して並びを保つ
+function bt9Buds(){
+  var s=53,k,t,j1,j2,j3,p,rad,g,m;
+  function r9(){s=(s*9301+49297)%233280;return s/233280;}
+  for(k=0;k<6;k++){
+    t=0.35+0.07*k;
+    j1=r9();j2=r9();j3=r9();
+    if(k===3)continue;
+    p=branchCurve.getPointAt(t);
+    rad=3.6*(0.92+0.16*j1);
+    g=new THREE.IcosahedronGeometry(rad,1);   // 低ポリ・平滑化なしの面構成
+    g.scale(1.0,0.44+0.14*j2,1.0);            // y≈0.5 の低い瘤。倍率はジオメトリに焼く（台帳5）
+    g.computeVertexNormals();
+    m=new THREE.Mesh(g,bt9BudMat);
+    m.position.set(p.x,p.y+58.0-rad*0.30,p.z);// 上面センター接地・めり込み0.3R
+    m.rotation.y=j3*6.2831853;
+    scene.add(m);
+  }
+}
+bt9Buds();
 // 幹上部の腕（クラウン）
 
+// 部品: 面（光る板）＋空の円盤搬送系 — binary-dusk v8
 // ---------------------------------------------------------------- 面（枝の先に、等間隔で並ぶ光る板）
+// 三層: 外周の暗い座 → 細い明枠 → 淡い面グラデーション＋中心の小さな芯（軟クリップで白飛びなし）
+// fid=板ごとの決定的ID。呼吸(0.78s)の応答閾値・明度・色温度を板ごとに僅かにずらす。裏面は暗い板
 var panelMat=new THREE.ShaderMaterial({
   side:THREE.DoubleSide,
   uniforms:{uDusk:{value:1},uDark:{value:0},uPulse:{value:0}},
   vertexShader:[
+    'attribute float fid;',
     'varying vec2 vUv3;',
-    'void main(){vUv3=uv;',
+    'varying float vFid;',
+    'void main(){vUv3=uv;vFid=fid;',
     ' gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}'
   ].join('\n'),
   fragmentShader:[
     'varying vec2 vUv3;',
+    'varying float vFid;',
     'uniform float uDusk,uDark,uPulse;',
     'void main(){',
-    '  vec2 q=abs(vUv3-0.5)*2.0;',
-    '  vec2 b=max(q-vec2(0.72,0.60),0.0);',
-    '  float d=length(b);',
-    '  if(d>0.34) discard;',
-    '  float core=1.0-smoothstep(0.0,0.30,d);',
-    '  float frame=smoothstep(0.24,0.30,d);',
-    '  vec3 glow=vec3(0.95,0.88,0.90);',
-    '  float amp=0.30+0.70*uDark;',
-    '  vec3 c=glow*core*amp*(0.90+0.10*uPulse);',
-    '  c+=vec3(0.0,0.87,0.78)*frame*(0.030+0.14*uDark);',
+    '  vec2 q0=(vUv3-0.5)*2.0;',
+    '  vec2 b=abs(q0)-vec2(0.66,0.54);',
+    '  float sd=length(max(b,0.0))+min(max(b.x,b.y),0.0)-0.30;',
+    '  if(sd>0.0) discard;',
+    '  float frame=1.0-smoothstep(0.016,0.050,abs(sd+0.075));',
+    '  vec3 teal=vec3(0.0,0.867,0.784);',
+    '  vec3 pale=vec3(0.949,0.859,0.914);',
+    '  vec3 frameCol=mix(pale,teal,0.30);',
+    '  if(!gl_FrontFacing){',
+    '    vec3 cb=vec3(0.030,0.033,0.038)*(0.30+0.70*uDusk);',
+    '    cb+=frameCol*frame*(0.012+0.020*uDark);',
+    '    gl_FragColor=vec4(cb,1.0);return;}',
+    '  float h1=fract(sin(vFid*127.1)*43758.5453);',
+    '  float h2=fract(sin(vFid*269.5)*43758.5453);',
+    '  float lvl=0.82+0.36*h1;',
+    '  float bth=0.10+0.60*fract(vFid*0.61803399);',
+    '  float breath=1.0+(0.020+0.038*uDark)*smoothstep(bth,bth+0.50,uPulse);',
+    '  float body=1.0-smoothstep(-0.24,-0.10,sd);',
+    '  float rr=length(q0*vec2(1.0,1.30));',
+    '  float core=1.0-smoothstep(0.02,0.24,rr);core*=core;',
+    '  float grad=0.78+0.22*(0.5+0.5*q0.y);',
+    '  vec3 glow=mix(vec3(0.962,0.848,0.892),vec3(0.886,0.899,0.918),h2);',
+    '  vec3 c=vec3(0.024,0.027,0.031)*(0.35+0.65*uDusk);',
+    '  c+=glow*(body*grad*(0.075+0.60*uDark)+core*(0.10+0.62*uDark))*lvl*breath;',
+    '  c+=frameCol*frame*(0.045+0.42*uDark)*(0.80+0.20*lvl);',
+    '  c=1.0-exp(-c);',
     '  gl_FragColor=vec4(c,1.0);}'
   ].join('\n')
 });
+var pr_fid=0,pr_s=7;
 function panelRow(x,y,z,dx,dy,dz,w,n,gapAt){
   var kk,off=0;
   var endK=n-1+((gapAt>=0&&gapAt<n)?0.55:0.0);
@@ -1671,11 +1931,18 @@ function panelRow(x,y,z,dx,dy,dz,w,n,gapAt){
   scene.add(twig);
   for(kk=0;kk<n;kk++){
     if(kk===gapAt)off+=0.55;
-    var pn=new THREE.Mesh(new THREE.PlaneGeometry(w,w*0.78),panelMat);
+    var pg=new THREE.PlaneGeometry(w,w*0.78);
+    var fa=new Float32Array(pg.attributes.position.count);
+    for(var fk=0;fk<fa.length;fk++)fa[fk]=pr_fid;
+    pg.setAttribute('fid',new THREE.BufferAttribute(fa,1));
+    pr_fid++;
+    var pn=new THREE.Mesh(pg,panelMat);
     pn.position.set(x+dx*(kk+off),y+dy*(kk+off)+w*0.10,z+dz*(kk+off));
-    pn.rotation.set(-0.9,0.35,0);
+    pr_s=(pr_s*9301+49297)%233280;var j1=pr_s/233280-0.5;
+    pr_s=(pr_s*9301+49297)%233280;var j2=pr_s/233280-0.5;
+    pn.rotation.set(-0.9+j1*0.03,0.35+j2*0.03,0);
     scene.add(pn);
-    var stem=new THREE.Mesh(new THREE.CylinderGeometry(w*0.030,w*0.038,w*0.30,6),nodeMat);
+    var stem=new THREE.Mesh(new THREE.CylinderGeometry(w*0.030,w*0.038,w*0.30,8),nodeMat);
     stem.position.set(x+dx*(kk+off),y+dy*(kk+off)-w*0.05,z+dz*(kk+off));
     scene.add(stem);
   }
@@ -1683,6 +1950,8 @@ function panelRow(x,y,z,dx,dy,dz,w,n,gapAt){
 panelRow(-430,182,-1580, -40,-2,-52, 26,4,2);
 panelRow(-200,452,-1120, -36, 8,-46, 22,3,9);
 // ---------------------------------------------------------------- 空の円盤搬送系（2.4 sで一巡。何も載せない）
+// 側面=暗い金属。上面=同心円の溝3本＋三本スポーク＋小さなハブ（三回対称に留め、回転が読める）
+// 縁リングは夕はほぼ見えず、夜に青緑#00ddc8がかすかに走る（三回対称のむらを持つ）
 var discMat=new THREE.MeshBasicMaterial({color:0x0b0f12});
 var discRimMat=new THREE.ShaderMaterial({
   uniforms:{uDusk:{value:1},uDark:{value:0}},
@@ -1690,12 +1959,31 @@ var discRimMat=new THREE.ShaderMaterial({
   fragmentShader:[
     'varying vec2 vUv4;uniform float uDusk,uDark;',
     'void main(){',
-    '  float rr=length(vUv4-0.5)*2.0;',
-    '  float rim=smoothstep(0.78,0.92,rr)*(1.0-smoothstep(0.95,1.0,rr));',
-    '  vec3 c=vec3(0.05,0.05,0.055)*uDusk*0.8;',
-    '  c+=vec3(0.0,0.87,0.78)*rim*(0.018+0.22*uDark);',
-    '  float spoke=step(0.96,sin(atan(vUv4.y-0.5,vUv4.x-0.5)*3.0)*0.5+0.5)*step(rr,0.9);',
-    '  c+=vec3(0.0,0.87,0.78)*spoke*(0.02+0.10*uDark);',
+    '  vec2 p=(vUv4-0.5)*2.0;',
+    '  float rr=length(p);',
+    '  float ang=atan(p.y,p.x+0.0001);',
+    '  float c3=cos(ang*3.0);',
+    '  float shade=0.80+0.30*smoothstep(0.10,0.72,rr)-0.22*smoothstep(0.86,1.0,rr);',
+    '  vec3 c=vec3(0.043,0.048,0.054)*shade*(0.30+0.70*uDusk)+vec3(0.0155,0.0110,0.0135)*shade;',
+    '  float g1=1.0-smoothstep(0.010,0.030,abs(rr-0.40));',
+    '  float g2=1.0-smoothstep(0.010,0.030,abs(rr-0.62));',
+    '  float g3=1.0-smoothstep(0.010,0.030,abs(rr-0.82));',
+    '  c*=1.0-0.55*max(g1,max(g2,g3));',
+    '  float e1=1.0-smoothstep(0.004,0.020,abs(rr-0.372));',
+    '  float e2=1.0-smoothstep(0.004,0.020,abs(rr-0.592));',
+    '  float e3=1.0-smoothstep(0.004,0.020,abs(rr-0.792));',
+    '  c+=vec3(0.95,0.88,0.92)*max(e1,max(e2,e3))*0.030*uDusk;',
+    '  float sp=smoothstep(0.78,0.96,c3*0.5+0.5);',
+    '  sp*=smoothstep(0.10,0.16,rr)*(1.0-smoothstep(0.70,0.78,rr));',
+    '  c+=vec3(0.055,0.060,0.066)*sp*(0.25+0.75*uDusk);',
+    '  c+=vec3(0.0,0.867,0.784)*sp*(0.006+0.045*uDark);',
+    '  float hub=1.0-smoothstep(0.085,0.125,rr);',
+    '  c+=vec3(0.050,0.055,0.062)*hub*(0.25+0.75*uDusk);',
+    '  c*=1.0-0.45*(1.0-smoothstep(0.008,0.024,abs(rr-0.145)));',
+    '  c+=vec3(1.0,0.0196,0.658)*(0.008*uDark)*smoothstep(0.45,0.95,rr);',
+    '  float rim=smoothstep(0.905,0.955,rr)*(1.0-smoothstep(0.985,1.0,rr));',
+    '  c+=vec3(0.0,0.867,0.784)*rim*(0.72+0.28*cos(ang*3.0+2.4))*(0.005+0.150*uDark);',
+    '  c*=1.0-0.45*smoothstep(0.975,1.0,rr);',
     '  gl_FragColor=vec4(c,1.0);}'
   ].join('\n'),
   side:THREE.DoubleSide
@@ -1705,85 +1993,167 @@ var DISCS=[[ -420,46,-1120,64],[ -840,52,-1660,80],[ 60,44,-2130,70],
 var discs=[];
 for(i=0;i<DISCS.length;i++){
   var g=new THREE.Group();
-  var body=new THREE.Mesh(new THREE.CylinderGeometry(DISCS[i][3],DISCS[i][3],7,26),discMat);
-  var top=new THREE.Mesh(new THREE.CircleGeometry(DISCS[i][3]*1.0,26),discRimMat);
+  var body=new THREE.Mesh(new THREE.CylinderGeometry(DISCS[i][3],DISCS[i][3],7,40),discMat);
+  var top=new THREE.Mesh(new THREE.CircleGeometry(DISCS[i][3]*1.0,48),discRimMat);
   top.rotation.x=-PI/2; top.position.y=4.0;
   g.add(body); g.add(top);
   g.position.set(DISCS[i][0],DISCS[i][1],DISCS[i][2]);
   scene.add(g); discs.push(g);
 }
 
-// ---------------------------------------------------------------- 遠景の巨樹（施設は、樹）
-
-// ---------------------------------------------------------------- 駅（柱が等間隔・使う者はいない）と 空の列車
+// ---------------------------------------------------------------- 駅（基壇・柱6本・薄庇・黄色い線・給養口）と 空の三両編成
 var stnMat=new THREE.ShaderMaterial({
   uniforms:{uDusk:{value:1},uDark:{value:0}},
   vertexShader:[
-    'varying vec3 vN5;',
+    'varying vec3 vN5;varying vec3 vP5;',
     'void main(){vN5=normalize(mat3(modelMatrix)*normal);',
-    ' gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}'
+    ' vec4 wp=modelMatrix*vec4(position,1.0);vP5=wp.xyz;',
+    ' gl_Position=projectionMatrix*viewMatrix*wp;}'
   ].join('\n'),
   fragmentShader:[
-    'varying vec3 vN5;',
+    'varying vec3 vN5;varying vec3 vP5;',
     'uniform float uDusk,uDark;',
     'void main(){',
     '  float up=clamp(vN5.y,0.0,1.0);',
-    '  vec3 c=vec3(0.25,0.225,0.24)*(0.22+0.78*up)*uDusk;',        // 淡白色の低い建屋
-    '  c+=vec3(1.0,0.58,0.30)*pow(clamp(dot(vN5,normalize(vec3(-0.05,0.02,-1.0))),0.0,1.0),1.5)*uDusk*0.22;',
-    '  c+=vec3(0.010,0.016,0.018)*uDark;',
+    '  float dn=clamp(-vN5.y,0.0,1.0);',
+    '  vec3 c=vec3(0.26,0.235,0.25)*(0.20+0.80*up)*uDusk;',            // 淡白色の躯体
+    '  c*=0.70+0.30*clamp(vP5.y*0.07,0.0,1.0);',                       // 接地部ほど暗く（基壇の重さ）
+    '  c*=1.0-0.62*dn*smoothstep(20.0,40.0,vP5.y);',                   // 庇の下面は暗く（陰の気配・動的影なし）
+    '  c*=1.0-0.26*up*smoothstep(14.8,15.6,vP5.y)*(1.0-smoothstep(16.6,17.4,vP5.y));', // 庇下のホーム面は空を失い沈む
+    '  c*=1.0+0.16*up*smoothstep(24.0,44.0,vP5.y);',                   // 庇上面だけ空を受けて浮く
+    '  c+=vec3(1.0,0.55,0.28)*pow(clamp(dot(vN5,normalize(vec3(-0.06,0.05,-1.0))),0.0,1.0),2.0)*uDusk*0.26;',
+    '  float yl=step(0.55,up)*smoothstep(15.4,15.9,vP5.y)*(1.0-smoothstep(16.4,17.0,vP5.y))',
+    '        *smoothstep(287.0,287.5,vP5.x)*(1.0-smoothstep(289.2,289.7,vP5.x));',
+    '  c=mix(c,vec3(0.78,0.63,0.23)*(0.32*uDusk+0.12*uDark),yl);',     // 黄色い線 夜も消えない程度に淡く
+    '  c+=vec3(0.012,0.020,0.022)*uDark*(0.35+0.65*up);',
     '  gl_FragColor=vec4(c,1.0);}'
   ].join('\n')
 });
+var stnLampMat=new THREE.ShaderMaterial({                              // 給養点の口 uniformはstnMatと共有
+  uniforms:{uDusk:stnMat.uniforms.uDusk,uDark:stnMat.uniforms.uDark},
+  vertexShader:[
+    'void main(){gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}'
+  ].join('\n'),
+  fragmentShader:[
+    'uniform float uDusk,uDark;',
+    'void main(){',
+    '  vec3 c=vec3(0.95,0.86,0.91)*(0.06*uDusk+0.38*uDark);',          // 夜に淡白色で灯る
+    '  c+=vec3(1.0,0.60,0.30)*0.04*uDusk;',
+    '  gl_FragColor=vec4(c,1.0);}'
+  ].join('\n')
+});
+var stnGeo=(function(){
+  var o={},s=new THREE.Shape();
+  s.moveTo(-16,-0.5);s.lineTo(16,-0.5);s.lineTo(16,2.2);s.lineTo(15,3.4); // 基壇断面 足元は地面に0.5沈める
+  s.lineTo(15,14);s.lineTo(13,16);s.lineTo(-13,16);s.lineTo(-15,14);     // 上端は面取り
+  s.lineTo(-15,3.4);s.lineTo(-16,2.2);
+  o.plat=new THREE.ExtrudeGeometry(s,{steps:1,depth:120,bevelEnabled:false});
+  o.roof=new THREE.BoxGeometry(32,1.8,124);                              // 薄い庇 わずかに張り出す
+  o.col=new THREE.CylinderGeometry(1.6,1.6,28,8,1,true);
+  o.box=new THREE.BoxGeometry(3.4,3.6,1.6);
+  var r=0.55,w=1.0,h=1.3,p=new THREE.Shape();                            // 小さな角丸パネル
+  p.moveTo(-w+r,-h);p.lineTo(w-r,-h);p.quadraticCurveTo(w,-h,w,-h+r);
+  p.lineTo(w,h-r);p.quadraticCurveTo(w,h,w-r,h);
+  p.lineTo(-w+r,h);p.quadraticCurveTo(-w,h,-w,h-r);
+  p.lineTo(-w,-h+r);p.quadraticCurveTo(-w,-h,-w+r,-h);
+  o.lamp=new THREE.ShapeGeometry(p,3);
+  return o;
+})();
 function station(z){
-  var g=new THREE.Group();
-  var plat=new THREE.Mesh(new THREE.BoxGeometry(30,18,120),stnMat);
-  plat.position.set(258,9,0); g.add(plat);
-  var roof=new THREE.Mesh(new THREE.BoxGeometry(34,2.4,120),stnMat);
-  roof.position.set(258,46,0); g.add(roof);
-  var pi;
-  for(pi=0;pi<5;pi++){                                   // 柱は等間隔
-    var col=new THREE.Mesh(new THREE.CylinderGeometry(1.7,1.7,34,8),stnMat);
-    col.position.set(258,28,-48+pi*24); g.add(col);
+  var g=new THREE.Group(),i,m;
+  m=new THREE.Mesh(stnGeo.plat,stnMat);m.position.set(277,0,-60);g.add(m); // 基壇 縁x290 面取り292 列車側面293.5に接する
+  m=new THREE.Mesh(stnGeo.roof,stnMat);m.position.set(277,44.5,0);g.add(m);
+  for(i=0;i<6;i++){                                                       // 柱は等間隔に端まで続く
+    m=new THREE.Mesh(stnGeo.col,stnMat);m.position.set(276,30,-55+i*22);g.add(m);
   }
-  var lamp=new THREE.Mesh(new THREE.CircleGeometry(2.6,10),panelMat);   // 給養点の口
-  lamp.position.set(272,16,52); lamp.rotation.y=0.25; g.add(lamp);
+  m=new THREE.Mesh(stnGeo.box,stnMat);m.position.set(287,8,60.0);g.add(m); // 給養点の低い口
+  m=new THREE.Mesh(stnGeo.lamp,stnLampMat);m.position.set(287,8,62.0);g.add(m);
   g.position.set(0,0,z);
   scene.add(g);
 }
-station(-2650);
-station(-3900);
-station(-5150);
+station(-2650);                                                          // v9: 駅はこの1つだけ（旧-3900/-5150は廃止）
 // 空の列車：三両。止まらずに通過する（篇17「区分・旅客は運用終了。線路は存続」）
 var trainMat=new THREE.ShaderMaterial({
   uniforms:{uDusk:{value:1},uDark:{value:0}},
   vertexShader:[
-    'varying vec3 vN6;varying vec3 vP6;',
-    'void main(){vN6=normalize(mat3(modelMatrix)*normal);',
+    'varying vec3 vN6;varying vec3 vP6;varying vec3 vL6;',
+    'void main(){vN6=normalize(mat3(modelMatrix)*normal);vL6=position;',
     ' vec4 wp=modelMatrix*vec4(position,1.0);vP6=wp.xyz;',
     ' gl_Position=projectionMatrix*viewMatrix*wp;}'
   ].join('\n'),
   fragmentShader:[
-    'varying vec3 vN6;varying vec3 vP6;',
+    'varying vec3 vN6;varying vec3 vP6;varying vec3 vL6;',
     'uniform float uDusk,uDark;',
     'void main(){',
     '  float up=clamp(vN6.y,0.0,1.0);',
-    '  vec3 c=vec3(0.26,0.24,0.255)*(0.25+0.75*up)*uDusk;',
-    '  c+=vec3(1.0,0.58,0.30)*pow(clamp(dot(vN6,normalize(vec3(-0.05,0.02,-1.0))),0.0,1.0),1.5)*uDusk*0.30;',
-    // 窓の帯：誰も乗っていない・薄い灯り
-    '  float wb=smoothstep(1.6,0.4,abs(fract(vP6.y*0.16)-0.5)*6.0);',
-    '  c+=vec3(0.95,0.88,0.90)*wb*(0.03+0.20*uDark);',
+    '  float dn=clamp(-vN6.y,0.0,1.0);',
+    '  vec3 c=vec3(0.27,0.25,0.265)*(0.22+0.78*up)*uDusk;',            // 規格品の淡白色
+    '  c*=0.55+0.45*clamp((vP6.y-3.0)*0.11,0.0,1.0);',                 // 裾を沈める
+    '  c*=1.0-0.45*dn;',
+    '  c+=vec3(1.0,0.56,0.28)*pow(clamp(dot(vN6,normalize(vec3(-0.06,0.05,-1.0))),0.0,1.0),1.6)*uDusk*0.26;',
+    // 窓の帯：誰も乗っていない薄い灯り。夜に少し強まる。柱はローカルzで等間隔
+    '  float sd=step(0.6,abs(vN6.x));',
+    '  float wy=smoothstep(13.9,14.6,vP6.y)*(1.0-smoothstep(16.2,16.9,vP6.y));',
+    '  float wz=1.0-smoothstep(0.30,0.38,abs(fract(vL6.z*0.18182)-0.5));',
+    '  c+=vec3(0.93,0.87,0.90)*sd*wy*wz*(0.035*uDusk+0.185*uDark);',
+    '  c+=vec3(0.012,0.018,0.021)*uDark*(0.30+0.70*up);',
+    '  gl_FragColor=vec4(c,1.0);}'
+  ].join('\n')
+});
+var trainGapMat=new THREE.ShaderMaterial({                             // 連結部の暗い間隙 uniformはtrainMatと共有
+  uniforms:{uDusk:trainMat.uniforms.uDusk,uDark:trainMat.uniforms.uDark},
+  vertexShader:[
+    'void main(){gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}'
+  ].join('\n'),
+  fragmentShader:[
+    'uniform float uDusk,uDark;',
+    'void main(){',
+    '  vec3 c=vec3(0.032,0.030,0.033)*uDusk+vec3(0.005,0.007,0.008)*uDark;',
     '  gl_FragColor=vec4(c,1.0);}'
   ].join('\n')
 });
 var train=new THREE.Group();
-var tc;
-for(tc=0;tc<3;tc++){
-  var car=new THREE.Mesh(new THREE.BoxGeometry(13,14,44),trainMat);
-  car.position.set(0,0,-tc*49);
-  train.add(car);
-}
+(function(){
+  var bs=new THREE.Shape();                                            // 車体断面 肩と裾に面取り
+  bs.moveTo(-5.2,-14);bs.lineTo(5.2,-14);bs.lineTo(6.5,-11);bs.lineTo(6.5,1.4);
+  bs.lineTo(5.2,3.2);bs.lineTo(-5.2,3.2);bs.lineTo(-6.5,1.4);bs.lineTo(-6.5,-11);
+  var body=new THREE.ExtrudeGeometry(bs,{steps:1,depth:44,bevelEnabled:false});
+  var bev=new THREE.BoxGeometry(10.4,0.5,2.6);                         // 鼻先の面取り 両端同形の規格品
+  var shoeA=new THREE.BoxGeometry(1.4,0.9,3.4);                        // 導電シュー基部
+  var shoeB=new THREE.BoxGeometry(0.55,0.55,4.6);                      // 接触子 線路上の何かに触れている
+  var gap=new THREE.BoxGeometry(9,11,5.4);
+  var k,z0,m;
+  for(k=0;k<3;k++){
+    z0=-k*49;
+    m=new THREE.Mesh(body,trainMat);m.position.set(0,0,z0-22);train.add(m);
+    m=new THREE.Mesh(bev,trainMat);m.position.set(0,2.21,z0+20.89);m.rotation.x=0.70;train.add(m);
+    m=new THREE.Mesh(bev,trainMat);m.position.set(0,2.21,z0-20.89);m.rotation.x=-0.70;train.add(m);
+    m=new THREE.Mesh(shoeA,trainMat);m.position.set(0,3.5,z0);train.add(m);
+    m=new THREE.Mesh(shoeB,trainMat);m.position.set(0,4.2,z0);train.add(m);
+    if(k<2){m=new THREE.Mesh(gap,trainGapMat);m.position.set(0,-5.6,z0-24.5);train.add(m);}
+  }
+})();
 train.position.set(300,17,-2600);
 scene.add(train);
+// RAIL PATH（CONTRACT-v9 共有ジオメトリ）: A直線 x=300 z=-2050→-3400（s 0..0.42）
+// B二次ベジェ P0(300,-3400) C(300,-4600) P2(2250,-4400)（s 0.42..1.0）。y=17は現行の列車高
+function railPoint(s){
+  var pos=new THREE.Vector3(),tan=new THREE.Vector3(),t,u;
+  if(s<0)s=0;if(s>1)s=1;
+  if(s<0.42){
+    t=s/0.42;
+    pos.set(300,17,-2050-1350*t);
+    tan.set(0,0,-1);                                                     // A末端の向きはBの始端接線(0,0,-1)と連続
+  }else{
+    t=(s-0.42)/0.58;u=1.0-t;
+    pos.set(u*u*300+2.0*u*t*300+t*t*2250,17,u*u*-3400+2.0*u*t*-4600+t*t*-4400);
+    tan.set(2.0*t*1950,0,u*-2400+t*400).normalize();                     // B'(t)=2u(C-P0)+2t(P2-C)=(3900t, -2400u+400t)
+  }
+  return {pos:pos,tan:tan};
+}
+train.userData.path=railPoint;                                           // tick側が s を与え position/quaternion を当てる
+train.userData.hideBeyond=0.94;                                          // s>0.94 で森に入り非表示
+
 // ---------------------------------------------------------------- 後処理
 var composer=null,gradePass=null,bloomPass=null;
 try{
@@ -1816,6 +2186,7 @@ try{
 
 // ---------------------------------------------------------------- 進行
 var t0=performance.now()/1000, seekOfs=0;
+var _tv9=new THREE.Vector3(0,0,-1);
 var lastT=0, lastNow=performance.now()/1000;
 function phaseName(aL,aS){
   if(aL<=-R_L&&aS<=-R_S)return 'night — permanent';
@@ -1858,8 +2229,13 @@ function tick(){
   stnMat.uniforms.uDusk.value=dusk; stnMat.uniforms.uDark.value=dark;
   trainMat.uniforms.uDusk.value=dusk; trainMat.uniforms.uDark.value=dark;
   var tt=(t%15.6)/15.6;                                   // 一便＝15.6 s（62.4の四分の一）
-  train.position.z=-2350-3900*tt;
-  train.visible=(tt>0.02&&tt<0.98);
+  if(train.userData.path){
+    var rp9=train.userData.path(tt<1?tt:1);
+    train.position.set(rp9.pos.x,rp9.pos.y,rp9.pos.z);
+    _tv9.set(0,0,-1);
+    train.quaternion.setFromUnitVectors(_tv9,rp9.tan);
+    train.visible=(tt>0.02&&tt<(train.userData.hideBeyond||0.94));
+  }
   var di;
   for(di=0;di<discs.length;di++){
     discs[di].rotation.y=(t*(TAU/DISC_PERIOD))*((di%2===0)?1.0:-1.0);   // 二・四秒に一巡

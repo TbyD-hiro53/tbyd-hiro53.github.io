@@ -394,80 +394,35 @@ There are no seasons on this plain. The harvest is reaped four light years away 
 - 三色 #ff05a8 / #f2dbe9 / #00ddc8 ／ 拍0.78 s・6カット62.4 s
 
 
-## ASSET 16 — Binary Dusk v7
+## ASSET 16 — Binary Dusk v9
 
 **位相** PHASE 6–8 · UY0311
 
 **観測ログ** `The suns set in order. The distance was not on file.`
 
 **説明 JA**
-根の惑星、分館の巨大樹。差し渡し10mの枝の上からの眺め。日は二つ——ピンクの白と、ターコイズの白——で、大気は地球と同じ黄昏の橙に染まる。森を割ってまっすぐ地平へ続く線路と、空を映す水路。誰も乗らない列車が15.6秒ごとに駅を通過し、森では空の円盤が2.4秒で一巡する。左の遠くには海。SUNSETを押すと三分で日が沈み、二度と戻らない。
+根の惑星、分館の巨大樹。差し渡し10mの枝の上からの眺め。日は二つ——ピンクの白と、ターコイズの白——で、大気は地球と同じ黄昏の橙に染まる。線路は森を割って延び、奥の右手へ曲がってまた森へ入る。誰も乗らない列車が15.6秒ごとに一つきりの駅を通過し、森では空の円盤が2.4秒で一巡する。左の奥では海が沈む日を映して粒立って光る。SUNSETを押すと三分で日が沈み、二度と戻らない。
 
 **説明 EN**
-From a bough ten metres across, high on the vast library tree of the planet of roots. There are two suns — one pink-white, one turquoise-white — and the air scatters the same beautiful orange as an earthly dusk. A railway runs dead straight through the forest to the horizon beside a canal that mirrors the sky; an empty train passes the stations every 15.6 seconds, and in the forest the bare discs turn once every 2.4 seconds. Far to the left, the sea. Press SUNSET and the suns go down in three minutes, never to return.
+From a bough ten metres across, high on the vast library tree of the planet of roots. There are two suns — one pink-white, one turquoise-white — and the air scatters the same beautiful orange as an earthly dusk. The railway runs through the forest, bends away to the right and re-enters the trees; an empty train passes the single station every 15.6 seconds, and the bare discs turn once every 2.4 seconds. Far to the left the sea catches the setting suns and glitters. Press SUNSET and the suns go down in three minutes, never to return.
 
 **断章 JA**
-枝の上から見えるものは、運ばれていくものばかりである。線路は森を割ってまっすぐ土へ伸び、水路が並んで空の色を運ぶ。列車は空のまま駅を通過する。旅客という区分は終了し、線路だけが存続している。森では円盤が、何も載せずに回り続ける。左の遠くで、川は三つとも同じ角度で合流し、海に混ざって向きを失う。日は二つ。大きいほうが先に土へ触れて、欠けて、なくなる。順序はいつも同じで、距離を記す欄は、ない。
+枝の上から見えるものは、運ばれていくものばかりである。線路は森を割って土へ延び、奥で右へ曲がって、また森へ入る。列車は空のまま、一つきりの駅を通過する。旅客という区分は終了し、線路だけが存続している。森では円盤が、何も載せずに回り続ける。左の奥で、川は三つとも同じ角度で合流し、海に混ざって向きを失う。海は沈む日を映して、粒立って光る。日は二つ。大きいほうが先に土へ触れて、欠けて、なくなる。順序はいつも同じで、距離を記す欄は、ない。
 
 **断章 EN**
-What can be seen from the bough is only what is being carried. The railway runs dead straight through the forest to the flat land, and beside it a canal carries the colour of the sky. The trains pass the stations empty; the category of passenger has ended, and only the line persists. In the forest the discs go on turning with nothing on them. Far to the left the three rivers meet at one same angle and lose their direction in the sea. The suns are two: the larger touches the land first, wanes, and is gone. The order is always the same, and there is no field in which to record the distance.
+What can be seen from the bough is only what is being carried. The railway runs through the forest to the flat land, bends to the right in the distance, and enters the trees again. The trains pass the single station empty; the category of passenger has ended, and only the line persists. In the forest the discs go on turning with nothing on them. Far to the left the three rivers meet at one same angle and lose their direction in the sea, and the sea returns the setting suns as a grain of light. The suns are two: the larger touches the land first, wanes, and is gone. The order is always the same, and there is no field in which to record the distance.
 
 **主要諸元**
 - 視点 分館の巨大樹・差し渡し10 mの枝の上（完全固定・眼高は頂面+約2 m相当）
-- 巨枝 幹(620,-1600)からほぼ水平に視界を横切る。畝16条・節輪5・下面に維管束の管3
-- 日 2件 大小 不一致（R200/106・比1.887・方位差3.6°）。大＝ピンク白・小＝ターコイズ白。
-  散乱は地球と同じ黄昏の橙。離れているか触れているかは記さない
-- 既定 静止（大が四割沈み）。SUNSETで日没——2.589単位/s。大の没93 s・小180 s（＝三分）。
-  沈んだら戻らず、恒久の夜（残照 #ff05a8 は地の線の下に残る）
-- 線路 二条・森を割る回廊・駅3（柱等間隔・給養点の灯・使う者はいない）。
-  空の列車3両が15.6 s（62.4の1/4）毎に通過する——区分「旅客」運用終了・線路は存続
-- 水路 線路に並走し空の色を映す／海 左遠方の鏡面・川3本が同角度で合流して注ぐ
-- 円盤 森に5基・2.4 sで一巡・何も載せない／面 枝先に等間隔の列×2（小枝と茎で支持・一箇所だけ間が広い）
-- 夜 恒星は手続き生成・赤いほうの一つ・幹の透け（周期62.4/k s・0.78 sへ緩く寄る）
+- 巨枝 幹(620,-1600)からほぼ水平に視界を横切る。畝16条・節輪・管3＋帯金具・芽節5（一箇所欠け）
+  近景（<900）のみ二次溝・細皺・粒のディテールが立つ
+- 日 2件 大小 不一致（R200/106・比1.887・方位差3.6°）。大＝ピンク白(1.00,0.72,0.86)・
+  小＝ターコイズ白(0.58,0.98,0.92)。散乱は黄昏の橙（限界減光・二層の暈）
+- 既定 静止（大が四割沈み）。SUNSETで日没——三分で夜。戻らない（残照 #ff05a8 は残る）
+- 線路 直線（x=300・回廊）から二次ベジェ P0(300,-3400) C(300,-4600) P2(2250,-4400) で
+  右手奥へ曲がり、森の外帯へ入って消える。駅は z=-2650 の一つだけ（柱等間隔・黄色い線・給養口）
+- 列車 空の3両。15.6 s毎に経路 s∈[0,1] を走り、s>0.94 で森に入って非表示（区分「旅客」運用終了）
+- 海 汀線 (-2700,-2900)–(-750,-6100) の西側。日への光の帯＋セルグリッタ＋汀の明縁。
+  夜はマゼンタ残照を映す／川3本（扇角24°/58°/92°・34°等間隔）は合流して海へ注ぐ
+- 円盤 森に5基・2.4 sで一巡・何も載せない／面 枝先に等間隔の列×2（小枝と茎・一箇所だけ間が広い）
 - 三色 #ff05a8 / #f2dbe9 / #00ddc8 ／ 拍0.78 s・巡2.4 s・便15.6 s
-
----
-
-## ASSET 17 — The Vacant Seat v2
-
-**位相** PHASE UNRESOLVED · THE ORIGIN
-
-**観測ログ** `The seat was maintained. No occupant was on file.`
-
-**説明 JA**
-星系座標の原点に、事務所が一棟だけ建っている。その突き当たりの会長室に入る。机の向こうの椅子は空で、使われた古び方も、使われなかった古び方もしていない。決裁は〇・七八秒に一件ずつ流れ、最上段の未決だけが流れず、承認までの所要拍が積もり続ける。立てる場所は机の前と椅子の斜め背後の二つ。足は動かず、首だけが動く。物に触れると、説明ではなく、その物の観測記録が返る。ORIGINで履歴を遡る。
-
-**説明 EN**
-At the origin of the system’s co-ordinates stands a single office building. One enters the chairman’s room at the end of its corridor. The chair beyond the desk is empty, aged neither as a chair that was used nor as a chair that was not. One item is approved every 0.78 seconds; the pending item at the top does not move, and its accrual goes on. There are two places to stand: before the desk, and behind the chair. The feet do not move; only the head turns. Touch a thing and it returns, in place of an explanation, its own record of observation. ORIGIN seeks back through the history.
-
-**断章 JA**
-原点には、事務所が一棟しかない。地面に相当するものは平らで、空に星はなく、六つの方向にだけ、遠さの等しくないはずの光が等しく見える。廊下の突き当たりの部屋に机があり、その向こうに椅子がある。椅子は空である。座面の窪みも、肘掛けの摩耗も、床の擦れもない。埃も、退色も、乾きもない。使われた椅子の古び方も、使われなかった椅子の古び方もせず、保守された椅子の、保守のされ方だけをしている。部屋は拍で満ちている。音ではない。空気の圧が、浅く満ちて、引く。計器は全方位から等しい強さで頂が来ると示し、発生源の欄には該当なしと出る。送り手はいない。保持だけがある。机の上では決裁が流れ、最上段の一件だけが流れない。承認までの所要が、最古の受付拍から、いまも一拍ずつ積もっている。総件数の欄には、数字の代わりに一語が入っている。継続。天井の器具だけが、室を等しく照らしている。
-
-**断章 EN**
-At the origin there is one office building and nothing else. What stands for ground is flat; there are no stars, and in six directions alone six lights appear at an equal remove, though their remove cannot be equal. In the room at the end of the corridor there is a desk, and beyond the desk a chair. The chair is empty. There is no hollow in the seat, no wear upon the arms, no scuffing of the floor. Neither is there dust, nor fading, nor any drying out. It has not aged as a chair that was used, nor as a chair that was not; it has aged only in the manner of a chair that has been maintained. The room is full of the beat. It is not a sound. The pressure of the air fills shallowly and draws back. The instrument reports that the peak arrives from every quarter with equal strength, and against the source it returns: none applicable. There is no sender. There is only the holding. Upon the desk the decrees run, and the one item at the top does not run. The time to approval has been accruing from the oldest receipt, one pulse at a time, and accrues still. In the field for the total, in place of a figure, there is a single word. Continuing. Only the fitting in the ceiling lights the room, and it lights every part of it alike.
-
-**主要諸元**
-- 出自 第一作『残留指数五十三 / RESIDUAL INDEX 53』篇11 空席 / THE VACANT SEAT（＋篇12 観測ログ三）
-- 立ち場所 二つ。机の前（眼高 1.30 m）／椅子の斜め背後（眼高 1.62 m）。位置は固定で、向きだけが動く
-- 画角 水平 34.7° を保つ。縦へ長い画面では垂直を 68° まで開き、俯角を戻して下端を保つ
-- 部屋 5.20 × 6.40 × 2.80 m。天井と床は苺乳の桃。窓の外は原点の暗さで、硝子に室内が薄く映る
-- 光源 一。天井中央の同心四段（1.76 m 角）。室を等しく照らす
-- 机 1800 × 800 × 720 mm。天板と脚だけ。幕板も引出しもない
-- 椅子 572 × 1241 × 638 mm。一枚の殻。稜の丸みは全部材で等しい R8
-- 表示板 二行。`CHAIRMAN INSTANCE: UNRESOLVED` ／ 会長　実体：未解決。解決される予定の欄はどこにもない
-- 決裁 〇・七八秒に一件、承認が流れる。最上段の未決だけが流れない
-- 未決 内容の欄は構造文字。形は見えるが意味は来ない。読めない字ではなく、まだ読まれない字である
-- 所要拍 最古の受付拍からの加算を実時刻から引く。開くたび値が違い、〇・七八秒ごとに一つ増える
-- 総件数 数字ではなく「継続」の一語
-- メトロノーム 毎分七十七に固定。目盛りは動かせない。振子は拍で振れる（振れ 一四・〇度）
-- 観測記録 七つ。椅子・表示板・決裁端末・メトロノーム・机・窓・会長室。触れた物だけが返す
-- ORIGIN 決裁の履歴を遡る。遡る速さは上がり続けるが、先頭は来ない（62.4秒で復帰）
-- 三色 #ff05a8 未決 ／ #f2dbe9 表示板・器具 ／ #00ddc8 承認・振子
-- 描画 三角形 248,212・描画コール 81〜90・光源 6・外部リクエスト 0
-
-**v1 からの差分**
-- 視点 一（完全固定）→ 二（位置固定・向き自在）
-- 光源 机上の二つ → 天井の器具一基。天井と床を苺乳の桃に
-- 拍 室を満たす空気の圧（画角・霧の呼吸）を廃止。拍は器械と決裁にだけ残る
-- メトロノーム 静止 → 拍で稼動
-- 追加 物に触れると観測記録が返る（七項目）
