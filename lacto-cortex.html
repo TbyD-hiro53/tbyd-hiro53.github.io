@@ -1397,12 +1397,29 @@ const bubbleMap=bubbleTex();
 // ① 制御ラック（シリンダー下部延長・シルバー/ターコイズ）＋巨大冷却ファン
 // ================================================================
 const RACK_TOP=VAT_BOT, RACK_BOT=-8.5, RACK_R=VAT_R, RACK_MID=(VAT_BOT+(-8.5))/2, RACK_H=VAT_BOT-(-8.5);
+// Service aperture is bounded between the two fixed turquoise rings.
+const SERVICE_TOP=RACK_TOP-0.62,SERVICE_BOT=RACK_BOT+1.14;
+const SERVICE_H=SERVICE_TOP-SERVICE_BOT,SERVICE_MID=(SERVICE_TOP+SERVICE_BOT)/2;
 let fanBlades=null, lcdBand=null, fanRings=[];
 (function(){
   const d=new THREE.Object3D();
   // 本体シリンダー（培養槽から連続）
   const rearAngle=Math.acos(1.75/RACK_R);
-  const body=new THREE.Mesh(new THREE.CylinderGeometry(RACK_R,RACK_R,RACK_H,128,1,true,PI+rearAngle,TAU-2*rearAngle),silver);body.position.y=RACK_MID;body.name='rack-open-rear-shell';body.userData.floorCaster=true;root.add(body);
+  const body=new THREE.Mesh(new THREE.CylinderGeometry(RACK_R,RACK_R,SERVICE_H,128,1,true,PI+rearAngle,TAU-2*rearAngle),silver);body.position.y=SERVICE_MID;body.name='rack-open-rear-shell';body.userData.floorCaster=true;root.add(body);
+  // Complete circular bands support the flange and LCD above/below the aperture.
+  for(const [top,bottom,name] of [[RACK_TOP,SERVICE_TOP,'rack-upper-shell'],[SERVICE_BOT,RACK_BOT,'rack-lower-shell']]){
+    const band=new THREE.Mesh(new THREE.CylinderGeometry(RACK_R,RACK_R,top-bottom,128,1,true),silver);
+    band.position.y=(top+bottom)/2;band.name=name;band.userData.floorCaster=true;root.add(band);
+  }
+  // Horizontal returns close the space between the flat panel and the circular housing.
+  const returnShape=new THREE.Shape();
+  for(let i=0;i<=64;i++){const a=PI-rearAngle+2*rearAngle*i/64;const x=RACK_R*Math.sin(a),z=RACK_R*Math.cos(a);if(i===0)returnShape.moveTo(x,-z);else returnShape.lineTo(x,-z);}
+  returnShape.closePath();
+  for(const [y,upper] of [[SERVICE_TOP,true],[SERVICE_BOT,false]]){
+    const g=new THREE.ShapeGeometry(returnShape,64);g.rotateX(-PI/2);
+    if(upper){const idx=g.index;for(let i=0;i<idx.count;i+=3){const a=idx.getX(i);idx.setX(i,idx.getX(i+2));idx.setX(i+2,a);}g.computeVertexNormals();}
+    const cap=new THREE.Mesh(g,silver);cap.position.y=y;cap.name=upper?'service-upper-return':'service-lower-return';root.add(cap);
+  }
   // 天板フランジ（培養槽受け）
   const topFl=new THREE.Mesh(turnedCylinder(RACK_R+0.12,RACK_R,0.3),chrome);topFl.position.y=RACK_TOP-0.32;root.add(topFl);
   // 制御ベイ×8（ターコイズパネル＋計器＋LED）
@@ -1959,9 +1976,9 @@ function boltZ(x,y,z,r=0.036){const b=buildingMesh(new THREE.CylinderGeometry(r,
 // A planar rear service wall closes the cut-away rear arc of the rack.
 const rackBackZ=-1.75,rackHalfWidth=Math.sqrt(RACK_R*RACK_R-rackBackZ*rackBackZ);
 const portOffsets=[-1.2,0,1.2];
-const reactorPlate=buildingMesh(plateWithHoles(rackHalfWidth*2,RACK_H,portOffsets.map(x=>({x,y:PORT_Y-RACK_MID,r:0.405})),0.14),turquoise,'reactor-service-backplane');reactorPlate.position.set(0,RACK_MID,rackBackZ-0.14);
-for(const side of [-1,1]){const rail=buildingMesh(new THREE.BoxGeometry(0.15,RACK_H,0.25),structuralSteel,'service-backplane-mount');rail.position.set(side*(rackHalfWidth-0.075),RACK_MID,rackBackZ+0.09);}
-for(const x of [-rackHalfWidth+0.11,rackHalfWidth-0.11])for(const y of [RACK_BOT+0.18,RACK_TOP-0.4,PORT_Y-0.7,PORT_Y+0.7])boltZ(x,y,rackBackZ-0.19);
+const reactorPlate=buildingMesh(plateWithHoles(rackHalfWidth*2,SERVICE_H,portOffsets.map(x=>({x,y:PORT_Y-SERVICE_MID,r:0.405})),0.14),turquoise,'reactor-service-backplane');reactorPlate.position.set(0,SERVICE_MID,rackBackZ);
+for(const side of [-1,1]){const rail=buildingMesh(new THREE.BoxGeometry(0.15,SERVICE_H-0.12,0.20),structuralSteel,'service-backplane-mount');rail.position.set(side*(rackHalfWidth-0.10),SERVICE_MID,rackBackZ+0.24);}
+for(const x of [-rackHalfWidth+0.11,rackHalfWidth-0.11])for(const y of [SERVICE_BOT+0.16,SERVICE_TOP-0.16,PORT_Y])boltZ(x,y,rackBackZ-0.035);
 
 // Wall penetration: concrete opening -> steel liner -> bolted plate -> three glands.
 const wallFaceZ=SERVICE_Z+0.14;
@@ -1985,8 +2002,8 @@ function gland(x,y,faceZ,direction,prefix){
 }
 function V(x,y,z){return new THREE.Vector3(x,y,z);}
 portOffsets.forEach((offset,index)=>{
-  const startZ=rackBackZ-0.14-1.05;
-  gland(offset,PORT_Y,rackBackZ-0.14,-1,'reactor-port-'+index);
+  const startZ=rackBackZ-1.05;
+  gland(offset,PORT_Y,rackBackZ,-1,'reactor-port-'+index);
   gland(WALL_PORT_X+offset,WALL_PORT_Y,wallFaceZ,1,'wall-port-'+index);
   servicePorts.push(V(offset,PORT_Y,startZ));wallPorts.push(V(WALL_PORT_X+offset,WALL_PORT_Y,SERVICE_Z));
   const down=new THREE.CubicBezierCurve3(V(offset,PORT_Y,startZ),V(offset,PORT_Y,-7.5),V(offset+1.2,CABLE_FLOOR_Y,-7.8),V(offset+3,CABLE_FLOOR_Y,-11));
