@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta name="description" content="乳脳マイクロモジュール炉の単体構成。上部タンクから淡桃色の灌流液が滴り、透明槽の皮質を養う。SWで視点を巡回、ピンチで拡大。配列作品の基本単位。">
+<meta name="description" content="配列作品の基本単位である乳脳マイクロモジュール炉を、コンクリートドームと縞鋼板の床を持つ開発棟に配置し、上部タンクの淡桃色の液が透明槽の皮質を養う。3本の極太ケーブルが背面接続盤から壁の貫通口へ続き、ドラッグで回転、ピンチで拡大、SWで8視点を巡回できる。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="deus ex machina — holdings registry">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="Lacto-Cortex v8 — h!ro53 / deus ex machina">
-<meta property="og:description" content="乳脳マイクロモジュール炉の単体構成。上部タンクから淡桃色の灌流液が滴り、透明槽の皮質を養う。SWで視点を巡回、ピンチで拡大。配列作品の基本単位。">
+<meta property="og:title" content="Lacto-Cortex v9 — h!ro53 / deus ex machina">
+<meta property="og:description" content="配列作品の基本単位である乳脳マイクロモジュール炉を、コンクリートドームと縞鋼板の床を持つ開発棟に配置し、上部タンクの淡桃色の液が透明槽の皮質を養う。3本の極太ケーブルが背面接続盤から壁の貫通口へ続き、ドラッグで回転、ピンチで拡大、SWで8視点を巡回できる。">
 <meta property="og:url" content="https://tbyd-hiro53.github.io/lacto-cortex.html">
 <meta property="og:image" content="https://tbyd-hiro53.github.io/lacto-cortex-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Lacto-Cortex v8">
+<meta property="og:image:alt" content="Lacto-Cortex">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lacto-Cortex v8 — h!ro53 / deus ex machina">
-<meta name="twitter:description" content="乳脳マイクロモジュール炉の単体構成。上部タンクから淡桃色の灌流液が滴り、透明槽の皮質を養う。SWで視点を巡回、ピンチで拡大。配列作品の基本単位。">
+<meta name="twitter:title" content="Lacto-Cortex v9 — h!ro53 / deus ex machina">
+<meta name="twitter:description" content="配列作品の基本単位である乳脳マイクロモジュール炉を、コンクリートドームと縞鋼板の床を持つ開発棟に配置し、上部タンクの淡桃色の液が透明槽の皮質を養う。3本の極太ケーブルが背面接続盤から壁の貫通口へ続き、ドラッグで回転、ピンチで拡大、SWで8視点を巡回できる。">
 <meta name="twitter:image" content="https://tbyd-hiro53.github.io/lacto-cortex-og.jpg">
 <link rel="canonical" href="https://tbyd-hiro53.github.io/lacto-cortex.html">
 <meta charset="UTF-8" />
@@ -1256,7 +1256,7 @@ renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 document.getElementById('app').appendChild(renderer.domElement);
 
 const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,0.5,120);
+const camera=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,0.5,180);
 
 // ---------- helpers ----------
 function gradTex(stops){const c=document.createElement('canvas');c.width=8;c.height=256;const g=c.getContext('2d');
@@ -1401,14 +1401,16 @@ let fanBlades=null, lcdBand=null, fanRings=[];
 (function(){
   const d=new THREE.Object3D();
   // 本体シリンダー（培養槽から連続）
-  const body=new THREE.Mesh(turnedCylinder(RACK_R,RACK_R,RACK_H),silver);body.position.y=RACK_MID;root.add(body);
+  const rearAngle=Math.acos(1.75/RACK_R);
+  const body=new THREE.Mesh(new THREE.CylinderGeometry(RACK_R,RACK_R,RACK_H,128,1,true,PI+rearAngle,TAU-2*rearAngle),silver);body.position.y=RACK_MID;body.name='rack-open-rear-shell';body.userData.floorCaster=true;root.add(body);
   // 天板フランジ（培養槽受け）
   const topFl=new THREE.Mesh(turnedCylinder(RACK_R+0.12,RACK_R,0.3),chrome);topFl.position.y=RACK_TOP-0.32;root.add(topFl);
   // 制御ベイ×8（ターコイズパネル＋計器＋LED）
   const bayN=8, bayLen=TAU/bayN*0.72;
   for(let i=0;i<bayN;i++){
     const a0=i/bayN*TAU;
-    const panel=new THREE.Mesh(new THREE.CylinderGeometry(RACK_R+0.015,RACK_R+0.015,2.5,24,1,true,a0-bayLen/2,bayLen),turquoise);
+    if(i>=5)continue; // Rear three bays are the dedicated perforated service panel.
+    const panel=new THREE.Mesh(new THREE.CylinderGeometry(RACK_R+0.015,RACK_R+0.015,2.5,24,1,true,PI/2-a0-bayLen/2,bayLen),turquoise);
     panel.position.y=RACK_MID+0.35;root.add(panel);
     const cx=Math.cos(a0), cz=Math.sin(a0);
     const gauge=new THREE.Mesh(new THREE.TorusGeometry(0.2,0.04,10,24),chrome);
@@ -1421,7 +1423,7 @@ let fanBlades=null, lcdBand=null, fanRings=[];
   // 水平ターコイズ帯×2
   [RACK_TOP-0.5,RACK_BOT+1.02].forEach(y=>{const r=new THREE.Mesh(new THREE.TorusGeometry(RACK_R+0.03,0.06,20,144),turquoise);r.rotation.x=PI/2;r.position.y=y;root.add(r);});
   // 通気スリット（下部）
-  for(let i=0;i<bayN;i++){const a=i/bayN*TAU;for(let k=0;k<3;k++){
+  for(let i=0;i<5;i++){const a=i/bayN*TAU;for(let k=0;k<3;k++){
     const slit=new THREE.Mesh(new THREE.BoxGeometry(0.9,0.05,0.03),darkMetal2);
     slit.position.set(Math.cos(a)*(RACK_R+0.02),RACK_BOT+1.3+k*0.16,Math.sin(a)*(RACK_R+0.02));slit.lookAt(Math.cos(a)*10,slit.position.y,Math.sin(a)*10);root.add(slit);}}
   // 外周LCD（液晶）— 参照フォント調（丸トレース/ワイヤー）／回転表示
@@ -1841,16 +1843,199 @@ const tagPivot=new THREE.Group();tagPivot.position.set(-VAT_R-0.4,LID_TOP+0.2,1.
 })();
 
 // ================================================================
+// Development building. World units share the reactor's original coordinate system.
+const FLOOR_Y=-11.5,ROOM_R=52,WALL_TOP=11.5,ROOF_H=26,SERVICE_Z=-40;
+const CABLE_R=0.36,CABLE_FLOOR_Y=FLOOR_Y+0.035+CABLE_R,PORT_Y=-6.05;
+const WALL_PORT_Y=FLOOR_Y+2.3,WALL_PORT_X=10.8;
+const building=new THREE.Group();building.name='development-building';scene.add(building);
+const cableRoutes=[],servicePorts=[],wallPorts=[];
+function buildingMesh(g,m,name){const o=new THREE.Mesh(g,m);o.name=name||'';building.add(o);return o;}
+const structuralSteel=new THREE.MeshStandardMaterial({color:'#6c7781',metalness:0.95,roughness:0.28,envMapIntensity:1});
+const rubber=new THREE.MeshStandardMaterial({color:'#14181b',metalness:0,roughness:0.42,envMapIntensity:0.7});
+const darkSeal=new THREE.MeshStandardMaterial({color:'#090c0d',metalness:0,roughness:0.72});
+
+// A periodic steel plate texture: raised diagonal lozenges, plate joints and countersunk screws.
+// Low-contrast surface variation is local to the material, never a screen grain pass.
+function checkerPlateMaps(){
+  const N=512,tile=4,pitch=0.5,heights=new Float32Array(N*N);
+  const c=document.createElement('canvas');c.width=c.height=N;const g=c.getContext('2d');const img=g.createImageData(N,N);
+  for(let y=0;y<N;y++)for(let x=0;x<N;x++){
+    const u=(x+0.5)*tile/N,v=(y+0.5)*tile/N,ix=Math.floor(u/pitch),iy=Math.floor(v/pitch);
+    const a=((ix+iy)%2===0?1:-1)*PI/4,dx=u-(ix+0.5)*pitch,dy=v-(iy+0.5)*pitch;
+    const along=Math.abs(dx*Math.cos(a)+dy*Math.sin(a)),across=Math.abs(-dx*Math.sin(a)+dy*Math.cos(a));
+    const ridge=clamp(Math.min((0.20-along)/0.025,(0.048-across)/0.014),0,1);
+    const seam=Math.min(u,v,tile-u,tile-v)<0.012;
+    const bolt=Math.min(...[0.11,3.89].flatMap(bx=>[0.11,3.89].map(by=>Math.hypot(u-bx,v-by))));
+    heights[y*N+x]=ridge*0.022-(seam?0.015:0)-(bolt<0.031?0.01:0);
+    let shade=1+0.015*Math.sin(u*19+Math.sin(v*4))+0.012*Math.sin(v*53);
+    if(seam)shade*=0.48;if(bolt<0.031)shade*=0.48;else if(bolt<0.044)shade*=1.2;
+    const k=(y*N+x)*4;img.data[k]=78*shade;img.data[k+1]=88*shade;img.data[k+2]=96*shade;img.data[k+3]=255;
+  }
+  g.putImageData(img,0,0);
+  const nc=document.createElement('canvas');nc.width=nc.height=N;const ng=nc.getContext('2d'),ni=ng.createImageData(N,N),step=tile/N;
+  for(let y=0;y<N;y++)for(let x=0;x<N;x++){
+    const dx=(heights[y*N+(x+1)%N]-heights[y*N+(x+N-1)%N])/(2*step);
+    const dy=(heights[((y+1)%N)*N+x]-heights[((y+N-1)%N)*N+x])/(2*step);
+    const inv=1/Math.sqrt(dx*dx+dy*dy+1),k=(y*N+x)*4;
+    ni.data[k]=(-dx*inv*0.5+0.5)*255;ni.data[k+1]=(dy*inv*0.5+0.5)*255;ni.data[k+2]=(inv*0.5+0.5)*255;ni.data[k+3]=255;
+  }
+  ng.putImageData(ni,0,0);
+  function texture(canvas,color){const t=new THREE.CanvasTexture(canvas);if(color)t.encoding=THREE.sRGBEncoding;t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(ROOM_R*2/tile,ROOM_R*2/tile);t.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());return t;}
+  return {map:texture(c,true),normalMap:texture(nc,false)};
+}
+const steelMaps=checkerPlateMaps();
+floor.geometry.dispose();floor.geometry=new THREE.CircleGeometry(ROOM_R,192);
+floor.material.dispose();floor.material=new THREE.MeshStandardMaterial({color:'#ffffff',map:steelMaps.map,normalMap:steelMaps.normalMap,normalScale:new THREE.Vector2(0.85,0.85),metalness:0.9,roughness:0.4,envMapIntensity:0.85});
+floor.name='checker-plate-floor';
+
+// Actual raised steel treads near the reactor complement the distant normal map.
+const treadShape=new THREE.Shape();treadShape.moveTo(-0.19,0);treadShape.lineTo(-0.155,-0.036);treadShape.lineTo(0.155,-0.036);treadShape.lineTo(0.19,0);treadShape.lineTo(0.155,0.036);treadShape.lineTo(-0.155,0.036);treadShape.closePath();
+const treadGeo=new THREE.ExtrudeGeometry(treadShape,{depth:0.012,bevelEnabled:true,bevelThickness:0.006,bevelSize:0.005,bevelSegments:1,steps:1});
+treadGeo.rotateX(-PI/2);
+const treadPositions=[];
+for(let ix=-36;ix<36;ix++)for(let iz=-36;iz<36;iz++){
+  const x=(ix+0.5)*0.5,z=(iz+0.5)*0.5;
+  if(x*x+z*z>18*18)continue;
+  if(Math.abs(Math.abs(x)-1.98)<0.25&&Math.abs(Math.abs(z)-1.98)<0.25)continue;
+  treadPositions.push({x,z,a:(ix+iz)%2===0?PI/4:-PI/4});
+}
+const treads=new THREE.InstancedMesh(treadGeo,new THREE.MeshStandardMaterial({color:'#606c75',metalness:0.95,roughness:0.34,envMapIntensity:0.85}),treadPositions.length);
+treads.name='raised-steel-treads';const treadDummy=new THREE.Object3D();
+treadPositions.forEach((p,i)=>{treadDummy.position.set(p.x,FLOOR_Y+0.012,p.z);treadDummy.rotation.y=p.a;treadDummy.updateMatrix();treads.setMatrixAt(i,treadDummy.matrix);});building.add(treads);
+
+function concreteMap(){
+  const c=document.createElement('canvas');c.width=c.height=512;const g=c.getContext('2d'),d=g.createImageData(512,512);
+  for(let y=0;y<512;y++)for(let x=0;x<512;x++){
+    const variation=3*Math.sin(x*TAU/512)*Math.cos(y*TAU/512)+1.7*Math.sin(x*TAU/128+y*TAU/256)+0.8*Math.cos(y*TAU/32);
+    const k=(y*512+x)*4;d.data[k]=127+variation;d.data[k+1]=128+variation;d.data[k+2]=125+variation;d.data[k+3]=255;
+  }
+  g.putImageData(d,0,0);g.strokeStyle='rgba(40,43,42,0.25)';g.lineWidth=2;g.strokeRect(1,1,510,510);
+  for(const x of [80,432])for(const y of [80,432]){g.fillStyle='rgba(48,49,47,0.32)';g.beginPath();g.arc(x,y,3.5,0,TAU);g.fill();}
+  const t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;t.wrapS=t.wrapT=THREE.RepeatWrapping;t.anisotropy=4;return t;
+}
+const concreteTexture=concreteMap();concreteTexture.repeat.set(TAU*ROOM_R/8,(WALL_TOP-FLOOR_Y)/6);
+const concrete=new THREE.MeshStandardMaterial({color:'#d2d1cd',map:concreteTexture,metalness:0,roughness:0.94,side:THREE.BackSide,envMapIntensity:0.2});
+const wall=buildingMesh(new THREE.CylinderGeometry(ROOM_R,ROOM_R,WALL_TOP-FLOOR_Y,192,1,true),concrete,'circular-concrete-wall');wall.position.y=(WALL_TOP+FLOOR_Y)/2;
+const domeTex=concreteTexture.clone();domeTex.repeat.set(32,8);domeTex.needsUpdate=true;
+const domeMat=concrete.clone();domeMat.map=domeTex;
+const dome=buildingMesh(new THREE.SphereGeometry(ROOM_R,144,64,0,TAU,0,PI/2),domeMat,'concrete-dome');dome.scale.y=ROOF_H/ROOM_R;dome.position.y=WALL_TOP;
+
+// The service bulkhead meets the curved roof and has a real rectangular opening.
+const chord=Math.sqrt(ROOM_R*ROOM_R-SERVICE_Z*SERVICE_Z),opening={x:WALL_PORT_X,y:WALL_PORT_Y,w:4.4,h:2.0};
+const bulkShape=new THREE.Shape();bulkShape.moveTo(-chord,FLOOR_Y);bulkShape.lineTo(chord,FLOOR_Y);bulkShape.lineTo(chord,WALL_TOP);
+for(let i=1;i<=96;i++){const x=chord-i*2*chord/96;const y=WALL_TOP+ROOF_H*Math.sqrt(Math.max(0,1-(x*x+SERVICE_Z*SERVICE_Z)/(ROOM_R*ROOM_R)));bulkShape.lineTo(x,y);}bulkShape.closePath();
+const openingPath=new THREE.Path();openingPath.moveTo(opening.x-opening.w/2,opening.y-opening.h/2);openingPath.lineTo(opening.x-opening.w/2,opening.y+opening.h/2);openingPath.lineTo(opening.x+opening.w/2,opening.y+opening.h/2);openingPath.lineTo(opening.x+opening.w/2,opening.y-opening.h/2);openingPath.closePath();bulkShape.holes.push(openingPath);
+const bulkGeo=new THREE.ExtrudeGeometry(bulkShape,{depth:0.9,bevelEnabled:false,curveSegments:32});
+// Architectural UVs in world units, independent of the curved shell mapping.
+const bp=bulkGeo.attributes.position,bu=bulkGeo.attributes.uv;for(let i=0;i<bp.count;i++)bu.setXY(i,bp.getX(i)/8,bp.getY(i)/6);
+const bulkTex=concreteTexture.clone();bulkTex.repeat.set(1,1);bulkTex.needsUpdate=true;const bulkMat=concrete.clone();bulkMat.map=bulkTex;bulkMat.side=THREE.FrontSide;
+const bulkhead=buildingMesh(bulkGeo,bulkMat,'service-bulkhead-with-opening');bulkhead.position.z=SERVICE_Z-0.9;bulkhead.userData.opening=opening;
+
+// Sparse, functional ceiling fixtures give the empty room scale.
+const fixtureMat=new THREE.MeshBasicMaterial({color:'#fff3da',toneMapped:false});
+for(const p of [[-15,29,8],[15,29,8],[-18,26,-20],[18,26,-20]]){
+  const roofY=WALL_TOP+ROOF_H*Math.sqrt(1-(p[0]*p[0]+p[2]*p[2])/(ROOM_R*ROOM_R));
+  const body=buildingMesh(new THREE.BoxGeometry(7,0.24,1.15),structuralSteel,'ceiling-fixture');body.position.set(p[0],roofY-1.2,p[2]);
+  const diffuser=buildingMesh(new THREE.PlaneGeometry(6.6,0.8),fixtureMat,'ceiling-light');diffuser.rotation.x=PI/2;diffuser.position.set(p[0],roofY-1.33,p[2]);
+  for(const dx of [-2.6,2.6]){const anchorY=WALL_TOP+ROOF_H*Math.sqrt(1-((p[0]+dx)*(p[0]+dx)+p[2]*p[2])/(ROOM_R*ROOM_R));const lowerY=roofY-1.08;const rod=buildingMesh(new THREE.CylinderGeometry(0.035,0.035,anchorY-lowerY,8),structuralSteel,'fixture-anchor');rod.position.set(p[0]+dx,(anchorY+lowerY)/2,p[2]);}
+  const light=new THREE.PointLight('#f2efdf',1.3,110,2);light.position.set(p[0],roofY-1.7,p[2]);building.add(light);
+}
+scene.background=new THREE.Color('#282b2c');scene.fog=new THREE.FogExp2('#343b40',0.004);
+keyDir.position.set(-14,24,14);keyDir.intensity=1.15;
+Object.assign(keyDir.shadow.camera,{left:-48,right:48,top:48,bottom:-48,near:0.5,far:140});keyDir.shadow.camera.updateProjectionMatrix();
+
+function plateWithHoles(w,h,holes,depth){
+  const sh=new THREE.Shape();sh.moveTo(-w/2,-h/2);sh.lineTo(w/2,-h/2);sh.lineTo(w/2,h/2);sh.lineTo(-w/2,h/2);sh.closePath();
+  holes.forEach(hole=>{const p=new THREE.Path();p.absarc(hole.x,hole.y,hole.r,0,TAU,true);sh.holes.push(p);});
+  return new THREE.ExtrudeGeometry(sh,{depth:depth,bevelEnabled:false,curveSegments:48});
+}
+function annulus(outer,inner,depth,material,name){
+  const sh=new THREE.Shape();sh.absarc(0,0,outer,0,TAU,false);const hole=new THREE.Path();hole.absarc(0,0,inner,0,TAU,true);sh.holes.push(hole);
+  return buildingMesh(new THREE.ExtrudeGeometry(sh,{depth:depth,bevelEnabled:false,curveSegments:40}),material,name);
+}
+function axialSleeve(r0,r1,len,mat,x,y,z,name){const m=buildingMesh(new THREE.CylinderGeometry(r0,r1,len,40,1,true),mat,name);m.rotation.x=PI/2;m.position.set(x,y,z);return m;}
+function boltZ(x,y,z,r=0.036){const b=buildingMesh(new THREE.CylinderGeometry(r,r,0.065,6),silver,'connector-bolt');b.rotation.x=PI/2;b.position.set(x,y,z);return b;}
+
+// A planar rear service wall closes the cut-away rear arc of the rack.
+const rackBackZ=-1.75,rackHalfWidth=Math.sqrt(RACK_R*RACK_R-rackBackZ*rackBackZ);
+const portOffsets=[-1.2,0,1.2];
+const reactorPlate=buildingMesh(plateWithHoles(rackHalfWidth*2,RACK_H,portOffsets.map(x=>({x,y:PORT_Y-RACK_MID,r:0.405})),0.14),turquoise,'reactor-service-backplane');reactorPlate.position.set(0,RACK_MID,rackBackZ-0.14);
+for(const side of [-1,1]){const rail=buildingMesh(new THREE.BoxGeometry(0.15,RACK_H,0.25),structuralSteel,'service-backplane-mount');rail.position.set(side*(rackHalfWidth-0.075),RACK_MID,rackBackZ+0.09);}
+for(const x of [-rackHalfWidth+0.11,rackHalfWidth-0.11])for(const y of [RACK_BOT+0.18,RACK_TOP-0.4,PORT_Y-0.7,PORT_Y+0.7])boltZ(x,y,rackBackZ-0.19);
+
+// Wall penetration: concrete opening -> steel liner -> bolted plate -> three glands.
+const wallFaceZ=SERVICE_Z+0.14;
+const wallPlate=buildingMesh(plateWithHoles(4.9,2.5,portOffsets.map(x=>({x,y:0,r:0.405})),0.14),structuralSteel,'wall-penetration-plate');wallPlate.position.set(WALL_PORT_X,WALL_PORT_Y,SERVICE_Z);
+for(const sx of [-1,1])for(const sy of [-1,1])boltZ(WALL_PORT_X+sx*2.25,WALL_PORT_Y+sy*1.05,wallFaceZ+0.035,0.065);
+for(const side of [-1,1]){
+  const jamb=buildingMesh(new THREE.BoxGeometry(0.09,opening.h,2.9),structuralSteel,'opening-liner');jamb.position.set(WALL_PORT_X+side*(opening.w/2-0.045),WALL_PORT_Y,SERVICE_Z-1.45);
+  const sill=buildingMesh(new THREE.BoxGeometry(opening.w,0.09,2.9),structuralSteel,'opening-liner');sill.position.set(WALL_PORT_X,WALL_PORT_Y+side*(opening.h/2-0.045),SERVICE_Z-1.45);
+}
+
+function gland(x,y,faceZ,direction,prefix){
+  // direction points out from the equipment face into the room.
+  const flange=annulus(0.555,0.405,0.12,structuralSteel,prefix+'-flange');flange.position.set(x,y,direction>0?faceZ:faceZ-0.12);
+  const lipZ=faceZ+direction*0.16;
+  for(let k=0;k<6;k++){const a=k/6*TAU;boltZ(x+Math.cos(a)*0.49,y+Math.sin(a)*0.49,lipZ,0.033);}
+  axialSleeve(0.46,0.46,0.34,chrome,x,y,faceZ+direction*0.28,prefix+'-coupling');
+  axialSleeve(direction>0?0.40:0.46,direction>0?0.46:0.40,0.67,rubber,x,y,faceZ+direction*0.77,prefix+'-strain-relief');
+  for(let k=0;k<5;k++){const ring=buildingMesh(new THREE.TorusGeometry(0.395+(4-k)*0.011,0.014,8,40),rubber,prefix+'-boot-rib');ring.position.set(x,y,faceZ+direction*(0.52+k*0.12));}
+  const seal=annulus(0.405,0.357,0.07,darkSeal,prefix+'-seal');seal.position.set(x,y,faceZ+direction*0.07);
+  const bootSeal=annulus(0.401,0.355,0.035,rubber,prefix+'-boot-seal');bootSeal.position.set(x,y,direction>0?faceZ+1.08:faceZ-1.115);
+}
+function V(x,y,z){return new THREE.Vector3(x,y,z);}
+portOffsets.forEach((offset,index)=>{
+  const startZ=rackBackZ-0.14-1.05;
+  gland(offset,PORT_Y,rackBackZ-0.14,-1,'reactor-port-'+index);
+  gland(WALL_PORT_X+offset,WALL_PORT_Y,wallFaceZ,1,'wall-port-'+index);
+  servicePorts.push(V(offset,PORT_Y,startZ));wallPorts.push(V(WALL_PORT_X+offset,WALL_PORT_Y,SERVICE_Z));
+  const down=new THREE.CubicBezierCurve3(V(offset,PORT_Y,startZ),V(offset,PORT_Y,-7.5),V(offset+1.2,CABLE_FLOOR_Y,-7.8),V(offset+3,CABLE_FLOOR_Y,-11));
+  const ground=new THREE.CubicBezierCurve3(V(offset+3,CABLE_FLOOR_Y,-11),V(offset+6,CABLE_FLOOR_Y,-16.333333),V(offset+10.8,CABLE_FLOOR_Y,-24),V(offset+10.8,CABLE_FLOOR_Y,-32));
+  const rise=new THREE.CubicBezierCurve3(V(offset+10.8,CABLE_FLOOR_Y,-32),V(offset+10.8,CABLE_FLOOR_Y,-35),V(offset+10.8,WALL_PORT_Y,-36.2),V(offset+10.8,WALL_PORT_Y,-38.2));
+  const tail=new THREE.LineCurve3(V(offset+10.8,WALL_PORT_Y,-38.2),V(offset+10.8,WALL_PORT_Y,SERVICE_Z-2.5));
+  const path=new THREE.CurvePath();[down,ground,rise,tail].forEach(c=>path.add(c));
+  const cable=buildingMesh(new THREE.TubeGeometry(path,220,CABLE_R,20,false),rubber,'power-cable-'+index);cable.userData.floorCaster=true;
+  cableRoutes.push({path,down,ground,rise,tail,radius:CABLE_R,index});
+  // Saddle cleats have feet outside the cable footprint, anchored to the plate floor.
+  for(const t of [0.25,0.65]){
+    const p=ground.getPoint(t),dir=ground.getTangent(t),cleat=new THREE.Group();cleat.name='floor-cable-cleat';cleat.position.copy(p);cleat.rotation.y=Math.atan2(dir.x,dir.z);building.add(cleat);
+    const bow=new THREE.Mesh(new THREE.TorusGeometry(0.405,0.045,12,40,PI),structuralSteel);cleat.add(bow);
+    for(const side of [-1,1]){
+      const post=new THREE.Mesh(new THREE.BoxGeometry(0.09,0.32,0.28),structuralSteel);post.position.set(side*0.405,-0.16,0);cleat.add(post);
+      const foot=new THREE.Mesh(new THREE.BoxGeometry(0.26,0.08,0.52),structuralSteel);foot.position.set(side*0.50,-CABLE_R+0.04,0);cleat.add(foot);
+      for(const z of [-0.16,0.16]){const screw=new THREE.Mesh(new THREE.CylinderGeometry(0.035,0.035,0.045,6),chrome);screw.position.set(side*0.54,-CABLE_R+0.095,z);cleat.add(screw);}
+    }
+  }
+});
+
+// Reflection capture sees the building's concrete, floor and ceiling lights.
+function captureBuildingEnvironment(){
+  const capture=new THREE.Scene();capture.background=new THREE.Color('#33383b').convertSRGBToLinear();
+  capture.add(building.clone(true));const f=floor.clone();f.receiveShadow=false;capture.add(f);
+  const k=keyDir.clone();k.castShadow=false;capture.add(k);capture.add(new THREE.HemisphereLight('#e7edf2','#343a40',0.4));
+  const generator=new THREE.PMREMGenerator(renderer),previous=scene.environment;
+  scene.environment=generator.fromScene(capture,0.025,0.5,180).texture;generator.dispose();if(previous)previous.dispose();
+}
+function constrainBuildingCamera(){
+  const p=camera.position;p.y=clamp(p.y,FLOOR_Y+1,WALL_TOP+ROOF_H-2);p.z=Math.max(p.z,SERVICE_Z+3);
+  const domeHeight=Math.max(0,(p.y-WALL_TOP)/ROOF_H);
+  const limit=(ROOM_R-2)*Math.sqrt(Math.max(0.04,1-domeHeight*domeHeight));
+  const horizontal=Math.hypot(p.x,p.z);if(horizontal>limit){p.x*=limit/horizontal;p.z*=limit/horizontal;}
+}
+
+
 // カメラ制御（球面オービット＋視点プリセット）
 // ================================================================
 const target=new THREE.Vector3(0,-1.0,0);
 const VIEWS=[
-  {name:'全景',     tx:0,ty:-1.0, tz:0, theta:0.5,  phi:1.14, radius:30.0},
+  {name:'全景',     tx:1.5,ty:-3.5, tz:-9, theta:0.08, phi:1.25, radius:56.0},
   {name:'滴下',     tx:0,ty:2.5,  tz:0, theta:0.12, phi:1.30, radius:8.0},
   {name:'脳核',     tx:0,ty:-0.3, tz:0, theta:0.45, phi:1.30, radius:6.4},
   {name:'制御ラック',tx:0,ty:-6.3, tz:0, theta:0.7,  phi:1.34, radius:9.0},
   {name:'冷却ファン',tx:0,ty:-9.6, tz:0, theta:0.4,  phi:1.46, radius:11.0},
-  {name:'タンク',   tx:0,ty:7.2,  tz:0, theta:0.14, phi:1.30, radius:10.5}
+  {name:'タンク',   tx:0,ty:7.2,  tz:0, theta:0.14, phi:1.30, radius:10.5},
+  {name:'開発棟',tx:4,ty:3,tz:-13,theta:0.16,phi:1.64,radius:54},
+  {name:'接続部',tx:10.8,ty:-8.6,tz:-38.5,theta:0.35,phi:1.13,radius:11}
 ];
 // ---- UI占有領域を実測し、全景の距離と注視点を自動調整（文字/ボタンとモデルの重なり回避）----
 const MODEL_TOP=9.35, MODEL_BOT=-11.5;
@@ -1864,18 +2049,18 @@ function fitOverview(){
   const usable=clamp((innerHeight-tH-bH)/innerHeight,0.42,1.0);
   const sp=Math.sin(VIEWS[0].phi);
   const need=Math.max(MODEL_H*sp/usable,9.8/Math.max(camera.aspect,0.2));                       // 必要可視高（world単位）
-  const r=need/(2*Math.tan(camera.fov*PI/360));
+  const r=need/(2*Math.tan(camera.fov*PI/360))+9*Math.sin(VIEWS[0].phi);
   const wpp=need/innerHeight;                          // world/px
   const shift=(tH-bH)/2;                               // 帯中心 − 画面中心（px）
   VIEWS[0].radius=Math.max(OV_R0,r);
-  VIEWS[0].ty=MODEL_MID+shift*wpp/sp;
+  VIEWS[0].ty=MODEL_MID+shift*wpp/sp-1.55;
 }
 
 let view=0, theta=VIEWS[0].theta, phi=VIEWS[0].phi, radius=VIEWS[0].radius, tween=null, nowT=0;
 function updateCam(){
   const sp=Math.sin(phi),cp=Math.cos(phi);
   camera.position.set(target.x+radius*sp*Math.sin(theta),target.y+radius*cp,target.z+radius*sp*Math.cos(theta));
-  camera.lookAt(target);
+  constrainBuildingCamera();camera.lookAt(target);
 }
 function goView(i,dur){
   const v=VIEWS[i];
@@ -1888,12 +2073,12 @@ function goView(i,dur){
 let drag=false,lx=0,ly=0,pinch=0;
 const dom=renderer.domElement;
 dom.addEventListener('mousedown',e=>{drag=true;lx=e.clientX;ly=e.clientY;});
-addEventListener('mousemove',e=>{if(!drag)return;tween=null;theta-=(e.clientX-lx)*0.006;phi=clamp(phi-(e.clientY-ly)*0.006,0.30,1.55);lx=e.clientX;ly=e.clientY;});
+addEventListener('mousemove',e=>{if(!drag)return;tween=null;theta-=(e.clientX-lx)*0.006;phi=clamp(phi-(e.clientY-ly)*0.006,0.30,1.80);lx=e.clientX;ly=e.clientY;});
 addEventListener('mouseup',()=>drag=false);
 dom.addEventListener('wheel',e=>{tween=null;radius=clamp(radius+e.deltaY*0.012,4,62);},{passive:true});
 dom.addEventListener('touchstart',e=>{if(e.touches.length===1){drag=true;lx=e.touches[0].clientX;ly=e.touches[0].clientY;}
   else if(e.touches.length===2){drag=false;pinch=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);}},{passive:true});
-dom.addEventListener('touchmove',e=>{if(e.touches.length===1&&drag){tween=null;theta-=(e.touches[0].clientX-lx)*0.006;phi=clamp(phi-(e.touches[0].clientY-ly)*0.006,0.30,1.55);lx=e.touches[0].clientX;ly=e.touches[0].clientY;}
+dom.addEventListener('touchmove',e=>{if(e.touches.length===1&&drag){tween=null;theta-=(e.touches[0].clientX-lx)*0.006;phi=clamp(phi-(e.touches[0].clientY-ly)*0.006,0.30,1.80);lx=e.touches[0].clientX;ly=e.touches[0].clientY;}
   else if(e.touches.length===2){tween=null;const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);radius=clamp(radius-(d-pinch)*0.03,4,62);pinch=d;}},{passive:true});
 addEventListener('touchend',()=>drag=false);
 document.getElementById('reset').onclick=function(){view=0;goView(0);};
@@ -1914,10 +2099,12 @@ scene.traverse(o=>{
     const mainSolid=g&&(g.type==='LatheGeometry'||
       (g.type==='CylinderGeometry'&&params&&!params.openEnded&&Math.max(params.radiusTop,params.radiusBottom)>0.3)||
       (g.type==='SphereGeometry'&&params&&params.radius>=0.4));
-    o.castShadow=o!==floor&&!o.isInstancedMesh&&solid&&!!mainSolid;
+    o.castShadow=o!==floor&&!o.isInstancedMesh&&solid&&(!!mainSolid||o.userData.floorCaster===true);
+    if(o.name==='concrete-dome'||o.name==='circular-concrete-wall')o.castShadow=false;
   }
 });
 scene.fog.color.convertSRGBToLinear();
+captureBuildingEnvironment();
 // Smooth studio output: restrained bloom, edge antialiasing, one sRGB conversion.
 // ================================================================
 let composer=null,bloomPass=null,gradePass=null;

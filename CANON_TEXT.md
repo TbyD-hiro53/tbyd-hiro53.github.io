@@ -167,17 +167,17 @@ The tongue alone holds a different colour. It beats upon the same period as the 
 
 ---
 
-## ASSET 06 — Lacto-Cortex v8
+## ASSET 06 — Lacto-Cortex v9
 
 **位相** PHASE 3 · TRANSCENSION
 
 **観測ログ** `The nutrient cycle continued after cognition was redistributed.`
 
 **説明 JA**
-乳脳マイクロモジュール炉の単体構成。上部タンクから淡桃色の灌流液が滴り、透明槽の皮質を養う。SWで視点を巡回、ピンチで拡大。配列作品の基本単位。
+配列作品の基本単位である乳脳マイクロモジュール炉を、コンクリートドームと縞鋼板の床を持つ開発棟に配置し、上部タンクの淡桃色の液が透明槽の皮質を養う。3本の極太ケーブルが背面接続盤から壁の貫通口へ続き、ドラッグで回転、ピンチで拡大、SWで8視点を巡回できる。
 
 **説明 EN**
-A single-unit configuration of the lacto-cortex micro-module reactor. Pale pink medium drips from the tank above to feed the cortex in its transparent chamber. SW cycles the viewpoints; pinch to zoom. The base unit of the array works.
+The lacto-cortex reactor, the base unit of the array works, stands inside a bare concrete development dome on a checker-plate floor while pale pink medium drips from its upper tank to feed the cortex in its transparent chamber. Three heavy cables connect its rear service panel to a wall penetration; drag to rotate, pinch to zoom, and use SW to cycle eight viewpoints.
 
 **断章 JA**
 電極は締めつけない。一定の間隔で囲み、触れずに待つだけである。設計者は接触を避けた理由を記していない。灌流は止まったことがなく、糖度は初期値のまま保たれている。観測できるのは循環だけで、その内側で何が続いているかは出力に現れない。台帳には稼働とある。稼働と記入した担当は、その月のうちに別の等級へ移された。

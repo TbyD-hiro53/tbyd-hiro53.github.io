@@ -1,8 +1,8 @@
-"""Update the Empyrean study card and Lacto-Cortex title from CANON_TEXT.md.
+"""Update the Empyrean study card and Lacto-Cortex entry from CANON_TEXT.md.
 
 The original full-site builder was not present in the repository. This
-bounded replacement updates the study card and asset 06 version label;
-existing asset prose is preserved.
+bounded replacement updates the study card and asset 06 title/descriptions;
+existing narrative and other assets are preserved.
 Run with Python 3 from the repository root. No third-party dependencies.
 """
 from pathlib import Path
@@ -56,8 +56,17 @@ asset, n = re.subn(r'(<span class="name">)Lacto-Cortex v\d+(</span>)',
                    lambda m: m[1] + html.escape(lacto_title[1]) + m[2], asset)
 if n != 1:
     raise ValueError('Expected exactly one Lacto-Cortex entry title')
+lacto_section = canon.split('## ASSET 06 — ', 1)[1].split('\n## ', 1)[0]
+for lang, field_name in [('ja', '説明 JA'), ('en', '説明 EN')]:
+    value = re.search(r'\*\*' + re.escape(field_name) + r'\*\*\s*\n([^\n]+)', lacto_section)
+    if not value:
+        raise ValueError('Missing Lacto-Cortex description: ' + lang)
+    asset, n = re.subn(r'(<p class="desc" lang="' + lang + r'">)[^<]*(</p>)',
+                      lambda m: m[1] + html.escape(value[1]) + m[2], asset)
+    if n != 1:
+        raise ValueError('Expected one Lacto-Cortex description: ' + lang)
 # The existing thumbnail remains an earlier illustration of the asset.
 asset = re.sub(r'alt="Lacto-Cortex v\d+ —', 'alt="Lacto-Cortex —', asset)
 source = source[:asset_start] + asset + source[asset_end:]
 path.write_text(source, encoding='utf-8')
-print('Updated study card and Lacto-Cortex title; preserved asset prose.')
+print('Updated canonical study and Lacto-Cortex fields; preserved narrative.')
