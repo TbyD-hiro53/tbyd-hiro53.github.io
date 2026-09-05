@@ -5,15 +5,15 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="deus ex machina — holdings registry">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="Lacto-Cortex v6 — h!ro53 / deus ex machina">
+<meta property="og:title" content="Lacto-Cortex v7 — h!ro53 / deus ex machina">
 <meta property="og:description" content="乳脳マイクロモジュール炉の単体構成。上部タンクから淡桃色の灌流液が滴り、透明槽の皮質を養う。SWで視点を巡回、ピンチで拡大。配列作品の基本単位。">
 <meta property="og:url" content="https://tbyd-hiro53.github.io/lacto-cortex.html">
 <meta property="og:image" content="https://tbyd-hiro53.github.io/lacto-cortex-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Lacto-Cortex v6">
+<meta property="og:image:alt" content="Lacto-Cortex v7">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lacto-Cortex v6 — h!ro53 / deus ex machina">
+<meta name="twitter:title" content="Lacto-Cortex v7 — h!ro53 / deus ex machina">
 <meta name="twitter:description" content="乳脳マイクロモジュール炉の単体構成。上部タンクから淡桃色の灌流液が滴り、透明槽の皮質を養う。SWで視点を巡回、ピンチで拡大。配列作品の基本単位。">
 <meta name="twitter:image" content="https://tbyd-hiro53.github.io/lacto-cortex-og.jpg">
 <link rel="canonical" href="https://tbyd-hiro53.github.io/lacto-cortex.html">
@@ -1249,8 +1249,10 @@ const renderer=new THREE.WebGLRenderer({antialias:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio,2));
 renderer.setSize(innerWidth,innerHeight);
 renderer.outputEncoding=THREE.sRGBEncoding;
-renderer.toneMapping=THREE.LinearToneMapping; // Y2Kグレード: ハイライトは潔くクリップ
-renderer.toneMappingExposure=1.03;
+renderer.toneMapping=THREE.ACESFilmicToneMapping; // Preserve highlight roll-off on polished surfaces
+renderer.toneMappingExposure=1.08;
+renderer.shadowMap.enabled=true;
+renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 document.getElementById('app').appendChild(renderer.domElement);
 
 const scene=new THREE.Scene();
@@ -1288,53 +1290,82 @@ function strawberry(g,x,y,s){
 }
 
 // ---------- 背景・大気（サーバー壁は排除／マゼンタ寄りの静謐スタジオ） ----------
-scene.background=gradTex(['#231436','#180d26','#0c0716','#050308']);
-scene.fog=new THREE.FogExp2('#160a1c',0.010);
+scene.background=gradTex(['#1c1724','#100d18','#090710','#050308']);
+scene.fog=new THREE.FogExp2('#100c17',0.006);
 
 // 反射する暗床
-const floorMat=new THREE.MeshStandardMaterial({color:'#0c0710',metalness:0.86,roughness:0.34,envMapIntensity:0.6});
+const floorMat=new THREE.MeshStandardMaterial({color:'#17131d',metalness:0.25,roughness:0.48,envMapIntensity:0.6});
 const floor=new THREE.Mesh(new THREE.CircleGeometry(46,64),floorMat);
-floor.rotation.x=-PI/2;floor.position.y=-11.5;scene.add(floor);
+floor.rotation.x=-PI/2;floor.position.y=-11.5;floor.receiveShadow=true;scene.add(floor);
 
 // ---------- PMREM 環境（クローム・ガラスの映り込み源） ----------
 const pmrem=new THREE.PMREMGenerator(renderer);
 (function(){
   const s=new THREE.Scene();
   s.add(new THREE.Mesh(new THREE.SphereGeometry(60,32,16),
-    new THREE.MeshBasicMaterial({map:gradTex(['#33204e','#20143a','#100a22','#070512']),side:THREE.BackSide})));
+    new THREE.MeshBasicMaterial({map:gradTex(['#70717a','#393942','#1f2029','#111219']),side:THREE.BackSide})));
   function panel(col,w,h,x,y,z){const p=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:col}));
     p.position.set(x,y,z);p.lookAt(0,0,0);s.add(p);}
-  panel('#ff5fce',22,26,-16,10,10);
-  panel('#ff86d8',10,34,17,5,-9);
-  panel('#ffffff',26,7,2,26,-10);
-  panel('#ffd6ef',6,34,20,9,8);
-  panel('#c95fff',14,20,-14,-6,-12);
+  panel('#fff5ef',12,28,-14,10,12);
+  panel('#effaff',5,30,18,4,7);
+  panel('#ffffff',22,9,2,26,-8);
+  panel('#f79cbd',4,22,-15,3,-12);
+  panel('#80d8dd',3,24,14,-2,-13);
   scene.environment=pmrem.fromScene(s,0,0.1,100).texture;
+  s.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material){if(o.material.map)o.material.map.dispose();o.material.dispose();}});
+  pmrem.dispose();
 })();
 
 // ---------- lights ----------
-scene.add(new THREE.AmbientLight('#a98ccf',0.4));
-const keyDir=new THREE.DirectionalLight('#ffe3f2',0.55);keyDir.position.set(6,12,8);scene.add(keyDir);
-const rimA=new THREE.PointLight('#ff4fb0',0.7,40,2);rimA.position.set(-9,3,-6);scene.add(rimA);
-const rimB=new THREE.PointLight('#7f6bff',0.5,40,2);rimB.position.set(9,-1,6);scene.add(rimB);
+scene.add(new THREE.HemisphereLight('#eaf2ff','#342739',0.38));
+const keyDir=new THREE.DirectionalLight('#fff2e9',1.1);keyDir.position.set(-8,15,10);scene.add(keyDir);
+keyDir.castShadow=true;
+keyDir.shadow.mapSize.set(2048,2048);
+Object.assign(keyDir.shadow.camera,{left:-15,right:15,top:17,bottom:-17,near:0.5,far:55});
+keyDir.shadow.camera.updateProjectionMatrix();
+keyDir.shadow.bias=-0.00015;keyDir.shadow.normalBias=0.025;
+keyDir.shadow.radius=2;
+const fillDir=new THREE.DirectionalLight('#e1f5ff',0.36);fillDir.position.set(8,3,7);scene.add(fillDir);
+const rimA=new THREE.PointLight('#ffa4c7',0.38,40,2);rimA.position.set(-9,3,-6);scene.add(rimA);
+const rimB=new THREE.PointLight('#79e1e7',0.4,40,2);rimB.position.set(9,-1,6);scene.add(rimB);
 
 // ---------- 共通マテリアル ----------
-const chrome=new THREE.MeshStandardMaterial({color:'#d2d6de',metalness:1.0,roughness:0.08,envMapIntensity:1.5});
-const silver=new THREE.MeshStandardMaterial({color:'#c4c9d2',metalness:0.96,roughness:0.17,envMapIntensity:1.45});
-const darkMetal=new THREE.MeshStandardMaterial({color:'#23262f',metalness:0.85,roughness:0.42,envMapIntensity:1.0});
-const darkMetal2=new THREE.MeshStandardMaterial({color:'#191c24',metalness:0.8,roughness:0.5,envMapIntensity:0.85,flatShading:true});
+const chrome=new THREE.MeshStandardMaterial({color:'#e2e6ea',metalness:1.0,roughness:0.12,envMapIntensity:1.2});
+const silver=new THREE.MeshStandardMaterial({color:'#bcc4ce',metalness:0.96,roughness:0.29,envMapIntensity:1.05});
+const darkMetal=new THREE.MeshStandardMaterial({color:'#353842',metalness:0.72,roughness:0.34,envMapIntensity:0.95});
+const darkMetal2=new THREE.MeshStandardMaterial({color:'#232630',metalness:0.65,roughness:0.45,envMapIntensity:0.85});
 // いちごミルク（ミルキー高艶）
-const milkMat=new THREE.MeshPhysicalMaterial({color:'#ffb0da',roughness:0.07,metalness:0.0,clearcoat:1.0,clearcoatRoughness:0.05,sheen:new THREE.Color('#fff2f8'),emissive:'#ff5fc0',emissiveIntensity:0.13,envMapIntensity:0.9});
+const milkMat=new THREE.MeshPhysicalMaterial({color:'#f3aac8',roughness:0.23,metalness:0.0,clearcoat:0.5,clearcoatRoughness:0.12,emissive:'#ff85b9',emissiveIntensity:0.005,envMapIntensity:0.8});
 // ガラス（2層レシピ：BackSide内膜＋FrontSide本体）
-function glassBack(tint){return new THREE.MeshBasicMaterial({color:tint,transparent:true,opacity:0.06,side:THREE.BackSide,depthWrite:false});}
-function glassFront(){return new THREE.MeshPhysicalMaterial({color:'#f4eefa',metalness:0.0,roughness:0.045,transmission:0.72,transparent:true,opacity:0.26,clearcoat:1.0,clearcoatRoughness:0.05,envMapIntensity:1.5,depthWrite:false});}
+function glassBack(tint){return new THREE.MeshBasicMaterial({color:tint,transparent:true,opacity:0.018,side:THREE.BackSide,depthWrite:false});}
+function glassFront(){return new THREE.MeshPhysicalMaterial({color:'#f5fbff',metalness:0.0,roughness:0.035,transmission:0.72,ior:1.46,transparent:true,opacity:0.38,clearcoat:0.35,clearcoatRoughness:0.06,envMapIntensity:0.8,depthWrite:false});}
 // ターコイズ（真珠光沢・機構アクセント）
-const turquoise=new THREE.MeshPhysicalMaterial({color:'#2ec6c4',metalness:0.9,roughness:0.2,clearcoat:1.0,clearcoatRoughness:0.12,envMapIntensity:1.4,emissive:'#0c3a3a',emissiveIntensity:0.16});
+const turquoise=new THREE.MeshPhysicalMaterial({color:'#22c5bf',metalness:0.3,roughness:0.28,clearcoat:0.65,clearcoatRoughness:0.15,envMapIntensity:1.0,emissive:'#167772',emissiveIntensity:0.025});
 // 脳ハーネス: 単色2種（わずかにターコイズがかったグレー／シルバー・同本数）
 const harnessGray=new THREE.MeshStandardMaterial({color:'#a2b6b4',metalness:0.5,roughness:0.4,envMapIntensity:1.15,emissive:'#0d1a1a',emissiveIntensity:0.1});
 const harnessSilver=new THREE.MeshStandardMaterial({color:'#cbd0d8',metalness:0.72,roughness:0.3,envMapIntensity:1.3,emissive:'#12161c',emissiveIntensity:0.08});
 
 const root=new THREE.Group();scene.add(root);
+function turnedCylinder(rt,rb,h,bevel=0.045){
+  const b=Math.min(bevel,h*0.22,Math.min(rt,rb)*0.1),pts=[];
+  pts.push(new THREE.Vector2(0,-h/2),new THREE.Vector2(rb-b,-h/2));
+  for(let i=1;i<=5;i++){const a=-PI/2+i*PI/10;pts.push(new THREE.Vector2(rb-b+b*Math.cos(a),-h/2+b+b*Math.sin(a)));}
+  pts.push(new THREE.Vector2(rt,h/2-b));
+  for(let i=1;i<=5;i++){const a=i*PI/10;pts.push(new THREE.Vector2(rt-b+b*Math.cos(a),h/2-b+b*Math.sin(a)));}
+  pts.push(new THREE.Vector2(0,h/2));
+  return new THREE.LatheGeometry(pts,112);
+}
+function bubbleTex(){
+  const c=document.createElement('canvas');c.width=c.height=128;const g=c.getContext('2d');
+  const gr=g.createRadialGradient(64,64,0,64,64,60);
+  gr.addColorStop(0,'rgba(235,245,255,0.01)');gr.addColorStop(0.72,'rgba(235,245,255,0.02)');
+  gr.addColorStop(0.89,'rgba(235,245,255,0.35)');gr.addColorStop(1,'rgba(235,245,255,0)');
+  g.fillStyle=gr;g.fillRect(0,0,128,128);
+  const hi=g.createRadialGradient(43,38,1,43,38,17);hi.addColorStop(0,'rgba(255,255,255,0.8)');hi.addColorStop(1,'rgba(255,255,255,0)');
+  g.fillStyle=hi;g.fillRect(0,0,128,128);
+  const t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;return t;
+}
+const bubbleMap=bubbleTex();
 
 // ================================================================
 // ① 制御ラック（シリンダー下部延長・シルバー/ターコイズ）＋巨大冷却ファン
@@ -1344,9 +1375,9 @@ let fanBlades=null, lcdBand=null, fanRings=[];
 (function(){
   const d=new THREE.Object3D();
   // 本体シリンダー（培養槽から連続）
-  const body=new THREE.Mesh(new THREE.CylinderGeometry(RACK_R,RACK_R,RACK_H,72),silver);body.position.y=RACK_MID;root.add(body);
+  const body=new THREE.Mesh(turnedCylinder(RACK_R,RACK_R,RACK_H),silver);body.position.y=RACK_MID;root.add(body);
   // 天板フランジ（培養槽受け）
-  const topFl=new THREE.Mesh(new THREE.CylinderGeometry(RACK_R+0.12,RACK_R,0.3,72),chrome);topFl.position.y=RACK_TOP-0.02;root.add(topFl);
+  const topFl=new THREE.Mesh(turnedCylinder(RACK_R+0.12,RACK_R,0.3),chrome);topFl.position.y=RACK_TOP-0.02;root.add(topFl);
   // 制御ベイ×8（ターコイズパネル＋計器＋LED）
   const bayN=8, bayLen=TAU/bayN*0.72;
   for(let i=0;i<bayN;i++){
@@ -1487,14 +1518,17 @@ let fanBlades=null, lcdBand=null, fanRings=[];
 // ================================================================
 const vatH=VAT_TOP-VAT_BOT, vatMidY=(VAT_TOP+VAT_BOT)/2;
 (function(){
-  const vg=new THREE.CylinderGeometry(VAT_R,VAT_R,vatH,72,1,true);
-  const back=new THREE.Mesh(vg,glassBack('#ffc9ec'));back.position.y=vatMidY;back.renderOrder=3;root.add(back);
+  const vg=new THREE.CylinderGeometry(VAT_R,VAT_R,vatH,128,1,true);
+  const back=new THREE.Mesh(vg,glassBack('#ffc9ec'));back.position.y=vatMidY;back.scale.set(0.985,1,0.985);back.renderOrder=3;root.add(back);
   const front=new THREE.Mesh(vg,glassFront());front.position.y=vatMidY;front.renderOrder=7;root.add(front);
   // 上下クロームカラー
   [VAT_TOP,VAT_BOT].forEach(y=>{
-    const collar=new THREE.Mesh(new THREE.CylinderGeometry(VAT_R+0.08,VAT_R+0.08,0.34,72),chrome);collar.position.y=y;root.add(collar);
+    const collar=new THREE.Mesh(turnedCylinder(VAT_R+0.08,VAT_R+0.08,0.34,0.04),chrome);collar.position.y=y;root.add(collar);
     const ring=new THREE.Mesh(new THREE.TorusGeometry(VAT_R+0.10,0.05,10,72),chrome);ring.rotation.x=PI/2;ring.position.y=y;root.add(ring);
   });
+  // Seals sit underneath the steel collars; no extra enclosure around the glass.
+  const sealMat=new THREE.MeshStandardMaterial({color:'#26252e',roughness:0.65,metalness:0});
+  [VAT_TOP-0.16,VAT_BOT+0.16].forEach(y=>{const seal=new THREE.Mesh(new THREE.TorusGeometry(VAT_R+0.005,0.035,12,112),sealMat);seal.rotation.x=PI/2;seal.position.y=y;root.add(seal);});
   // 縦支柱×3（クロームロッド）
   const strutMat=new THREE.MeshStandardMaterial({color:'#aeb4c0',metalness:0.9,roughness:0.3,envMapIntensity:1.2});
   for(let i=0;i<3;i++){const a=i/3*TAU+0.5;
@@ -1506,7 +1540,7 @@ const vatH=VAT_TOP-VAT_BOT, vatMidY=(VAT_TOP+VAT_BOT)/2;
 const VBUB=54, vbSeed=[], vbPos=new Float32Array(VBUB*3);
 for(let i=0;i<VBUB;i++)vbSeed.push({r:0.3+Math.random()*(VAT_R-0.6),a:Math.random()*TAU,s:0.4+Math.random()*0.8,p:Math.random(),o:0.35+Math.random()*0.45});
 const vbGeo=new THREE.BufferGeometry();vbGeo.setAttribute('position',new THREE.BufferAttribute(vbPos,3));
-const vatBubbles=new THREE.Points(vbGeo,new THREE.PointsMaterial({size:0.14,map:glowTex('255,205,238'),transparent:true,opacity:0.8,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true}));
+const vatBubbles=new THREE.Points(vbGeo,new THREE.PointsMaterial({size:0.105,map:bubbleMap,transparent:true,opacity:0.48,blending:THREE.NormalBlending,depthWrite:false,sizeAttenuation:true}));
 vatBubbles.renderOrder=5;root.add(vatBubbles);
 
 // 基部からの発光カラム（脳を貫く給餌フレア・高彩度マゼンタ）
@@ -1532,16 +1566,16 @@ function buildBrainPart(seg,kind){
   const geo=new THREE.SphereGeometry(1,seg,Math.floor(seg*0.72));
   const p=geo.attributes.position,v=new THREE.Vector3();
   const col=new Float32Array(p.count*3);
-  const cRidge=new THREE.Color(kind==='cerebrum'?'#f2b0c6':'#e29aac'); // 参照の桃色化
-  const cValley=new THREE.Color(kind==='cerebrum'?'#a83a68':'#93315a');
+  const cRidge=new THREE.Color(kind==='cerebrum'?'#eda5ba':'#da95ab').convertSRGBToLinear(); // 参照の桃色化
+  const cValley=new THREE.Color(kind==='cerebrum'?'#b96b88':'#ae6784').convertSRGBToLinear();
   const tmp=new THREE.Color();
   for(let i=0;i<p.count;i++){
     v.set(p.getX(i),p.getY(i),p.getZ(i));const d=v.clone().normalize();
     let shade,r;
     if(kind==='cerebrum'){
       const b=Math.abs(gyriField(d.x*1.05,d.y*1.15,d.z));
-      const ridge=1-Math.pow(b,1.6);
-      r=0.90+0.135*ridge+0.014*Math.sin(d.x*17)*Math.sin(d.y*15+2)*Math.sin(d.z*16);
+      const ridge=1-Math.exp(-Math.pow(b/0.17,2));
+      r=0.90+0.135*ridge+0.004*Math.sin(d.x*17)*Math.sin(d.y*15+2)*Math.sin(d.z*16);
       if(Math.abs(d.x)<0.10) r-=0.20*(1-Math.abs(d.x)/0.10);
       shade=ridge;
     }else{
@@ -1555,16 +1589,22 @@ function buildBrainPart(seg,kind){
     col[i*3]=tmp.r;col[i*3+1]=tmp.g;col[i*3+2]=tmp.b;
   }
   geo.setAttribute('color',new THREE.BufferAttribute(col,3));
-  geo.computeVertexNormals();return geo;
+  geo.computeVertexNormals();
+  // Average duplicate pole/seam normals without changing the closed shape.
+  const groups=new Map(),n=geo.attributes.normal;
+  for(let i=0;i<p.count;i++){const k=[p.getX(i),p.getY(i),p.getZ(i)].map(x=>Math.round(x*1e5)).join(',');if(!groups.has(k))groups.set(k,[]);groups.get(k).push(i);}
+  groups.forEach(ids=>{if(ids.length<2)return;v.set(0,0,0);ids.forEach(i=>v.add(new THREE.Vector3(n.getX(i),n.getY(i),n.getZ(i))));v.normalize();ids.forEach(i=>n.setXYZ(i,v.x,v.y,v.z));});
+  return geo;
 }
-const brainSkin=new THREE.MeshPhysicalMaterial({vertexColors:true,roughness:0.24,metalness:0,clearcoat:1.0,clearcoatRoughness:0.14,envMapIntensity:1.1,sheen:new THREE.Color('#ffd9e6'),emissive:'#7a2038',emissiveIntensity:0.28});
+const brainSkin=new THREE.MeshPhysicalMaterial({vertexColors:true,roughness:0.34,metalness:0,clearcoat:0.38,clearcoatRoughness:0.12,envMapIntensity:0.85,sheen:new THREE.Color('#b96580').convertSRGBToLinear(),emissive:'#a7486a',emissiveIntensity:0.025});
 const fitMat=new THREE.MeshStandardMaterial({color:'#cfd3da',metalness:1.0,roughness:0.07,envMapIntensity:1.5});
 (function(){
-  const cerebrum=new THREE.Mesh(buildBrainPart(96,'cerebrum'),brainSkin);
+  const cerebrum=new THREE.Mesh(buildBrainPart(160,'cerebrum'),brainSkin);
   cerebrum.scale.set(1.85,1.55,1.7);brainCore.add(cerebrum);
-  const cere=new THREE.Mesh(buildBrainPart(56,'cerebellum'),brainSkin);
+  const cere=new THREE.Mesh(buildBrainPart(88,'cerebellum'),brainSkin);
   cere.scale.set(0.95,0.55,0.72);cere.position.set(0,-1.15,-0.92);cere.rotation.x=0.3;brainCore.add(cere);
-  const pons=new THREE.Mesh(new THREE.SphereGeometry(0.42,20,14),brainSkin);
+  const ponsSkin=brainSkin.clone();ponsSkin.vertexColors=false;ponsSkin.color.set('#d99bae');
+  const pons=new THREE.Mesh(new THREE.SphereGeometry(0.42,40,28),ponsSkin);
   pons.scale.set(1.1,0.8,0.9);pons.position.set(0,-1.4,-0.25);brainCore.add(pons);
   // 頭頂フィッティング（給餌着弾点）
   const fit=new THREE.Mesh(new THREE.CylinderGeometry(0.16,0.24,0.4,18),fitMat);
@@ -1597,7 +1637,7 @@ const collarMat=new THREE.MeshStandardMaterial({color:'#c8ccd4',metalness:1.0,ro
     const pa=a+0.12;
     const p3=new THREE.Vector3(Math.cos(pa)*(VAT_R-0.5),VAT_BOT+0.45,Math.sin(pa)*(VAT_R-0.5));
     const curve=new THREE.CatmullRomCurve3([bWorld,p1,p2,p3]);
-    const tube=new THREE.Mesh(new THREE.TubeGeometry(curve,40,0.085,8,false),(i%2===0?harnessGray:harnessSilver));
+    const tube=new THREE.Mesh(new THREE.TubeGeometry(curve,64,0.085,16,false),(i%2===0?harnessGray:harnessSilver));
     tube.renderOrder=4;root.add(tube);
     // 端部コラー
     const c0=new THREE.Mesh(new THREE.SphereGeometry(0.12,10,8),collarMat);c0.position.copy(bWorld);root.add(c0);
@@ -1647,7 +1687,7 @@ const D_SWELL=0.42, D_FALL=0.5, DROP_H=DTIP_Y-DABS_Y;
 const dropMat=new THREE.MeshPhysicalMaterial({color:'#ffa8d6',roughness:0.05,metalness:0.0,clearcoat:1.0,clearcoatRoughness:0.04,sheen:new THREE.Color('#ffd7ee'),emissive:'#ff5fc0',emissiveIntensity:0.2,envMapIntensity:1.2});
 const drops=[];
 (function(){for(let i=0;i<DROP_N;i++){
-  const m=new THREE.Mesh(new THREE.SphereGeometry(0.16,16,12),dropMat);
+  const m=new THREE.Mesh(new THREE.SphereGeometry(0.16,28,20),dropMat);
   const gl=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex('255,150,214'),transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false}));
   gl.scale.set(1.7,1.7,1);m.add(gl);
   m.position.set(0,DTIP_Y,0);m.scale.setScalar(0.0001);root.add(m);
@@ -1661,15 +1701,23 @@ splash.scale.set(2.3,2.3,1);root.add(splash);
 // ================================================================
 const tank=new THREE.Group();tank.position.set(0,TANK_Y,0);tank.rotation.z=0.03;root.add(tank);
 const tankBubbles=(function(){
-  // ミルク本体（横シリンダー）
-  const milkGeo=new THREE.CylinderGeometry(TANK_R*0.9,TANK_R*0.9,TANK_HALF*2*0.96,40);
-  const milk=new THREE.Mesh(milkGeo,milkMat);milk.rotation.z=PI/2;tank.add(milk);
+  // A partial, closed volume exposes a real horizontal liquid surface and headspace.
+  const fluidR=TANK_R*0.94,level=fluidR*0.54,angle=Math.asin(level/fluidR);
+  const section=new THREE.Shape();
+  section.absarc(0,0,fluidR,PI-angle,TAU+angle,false);section.closePath();
+  const milkGeo=new THREE.ExtrudeGeometry(section,{depth:TANK_HALF*2*0.96,steps:1,curveSegments:96,bevelEnabled:false});
+  milkGeo.translate(0,0,-TANK_HALF*0.96);milkGeo.rotateY(PI/2);
+  const milk=new THREE.Mesh(milkGeo,milkMat);tank.add(milk);
+  // The wetting line has a rounded edge, visible against the air above the milk.
+  const wetMat=milkMat.clone();wetMat.roughness=0.13;wetMat.clearcoat=0.75;
+  const halfWidth=Math.sqrt(fluidR*fluidR-level*level);
+  [-1,1].forEach(sign=>{const edge=new THREE.Mesh(new THREE.CylinderGeometry(0.012,0.012,TANK_HALF*1.92,12),wetMat);edge.rotation.z=PI/2;edge.position.set(0,level,sign*halfWidth);tank.add(edge);});
   // ガラス外装（2層）＋ドーム端キャップ
-  const glassGeo=new THREE.CylinderGeometry(TANK_R,TANK_R,TANK_HALF*2,48,1,true);
-  const gBack=new THREE.Mesh(glassGeo,glassBack('#ffc4ea'));gBack.rotation.z=PI/2;gBack.renderOrder=3;tank.add(gBack);
+  const glassGeo=new THREE.CylinderGeometry(TANK_R,TANK_R,TANK_HALF*2,112,1,true);
+  const gBack=new THREE.Mesh(glassGeo,glassBack('#ffc4ea'));gBack.rotation.z=PI/2;gBack.scale.set(0.98,1,0.98);gBack.renderOrder=3;tank.add(gBack);
   const gFront=new THREE.Mesh(glassGeo,glassFront());gFront.rotation.z=PI/2;gFront.renderOrder=7;tank.add(gFront);
   [-1,1].forEach(sgn=>{
-    const dome=new THREE.Mesh(new THREE.SphereGeometry(TANK_R,32,18,0,TAU,0,PI/2),glassFront());
+    const dome=new THREE.Mesh(new THREE.SphereGeometry(TANK_R,64,36,0,TAU,0,PI/2),glassFront());
     dome.rotation.z=-sgn*PI/2;dome.position.x=sgn*TANK_HALF;dome.renderOrder=7;tank.add(dome);
     // クローム端リング＋リベット蓋
     const ring=new THREE.Mesh(new THREE.TorusGeometry(TANK_R+0.02,0.06,10,48),chrome);ring.rotation.y=PI/2;ring.position.x=sgn*TANK_HALF;tank.add(ring);
@@ -1684,7 +1732,7 @@ const tankBubbles=(function(){
   const N=26,seed=[],pos=new Float32Array(N*3);
   for(let i=0;i<N;i++)seed.push({x:(Math.random()-0.5)*TANK_HALF*1.7,r:0.15+Math.random()*(TANK_R*0.7),a:Math.random()*TAU,s:0.5+Math.random()*0.9,p:Math.random()});
   const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
-  const pts=new THREE.Points(geo,new THREE.PointsMaterial({size:0.13,map:glowTex('255,232,246'),transparent:true,opacity:0.75,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true}));
+  const pts=new THREE.Points(geo,new THREE.PointsMaterial({size:0.075,map:bubbleMap,transparent:true,opacity:0.45,blending:THREE.NormalBlending,depthWrite:false,sizeAttenuation:true}));
   pts.renderOrder=6;tank.add(pts);
   return {pts,seed,pos,geo};
 })();
@@ -1776,7 +1824,7 @@ const VIEWS=[
   {name:'タンク',   tx:0,ty:7.2,  tz:0, theta:0.14, phi:1.30, radius:10.5}
 ];
 // ---- UI占有領域を実測し、全景の距離と注視点を自動調整（文字/ボタンとモデルの重なり回避）----
-const MODEL_TOP=TANK_Y+TANK_R, MODEL_BOT=RACK_BOT-2.3;
+const MODEL_TOP=9.35, MODEL_BOT=-11.5;
 const MODEL_MID=(MODEL_TOP+MODEL_BOT)/2, MODEL_H=MODEL_TOP-MODEL_BOT;
 const OV_R0=VIEWS[0].radius, OV_TY0=VIEWS[0].ty;
 function fitOverview(){
@@ -1786,7 +1834,7 @@ function fitOverview(){
   const bH=(innerHeight-be.getBoundingClientRect().top)+10;
   const usable=clamp((innerHeight-tH-bH)/innerHeight,0.42,1.0);
   const sp=Math.sin(VIEWS[0].phi);
-  const need=MODEL_H*sp/usable;                       // 必要可視高（world単位）
+  const need=Math.max(MODEL_H*sp/usable,9.8/Math.max(camera.aspect,0.2));                       // 必要可視高（world単位）
   const r=need/(2*Math.tan(camera.fov*PI/360));
   const wpp=need/innerHeight;                          // world/px
   const shift=(tH-bH)/2;                               // 帯中心 − 画面中心（px）
@@ -1823,32 +1871,57 @@ document.getElementById('reset').onclick=function(){view=0;goView(0);};
 document.getElementById('sw').onclick=function(){view=(view+1)%VIEWS.length;goView(view);};
 
 // ================================================================
-// ポスト（UnrealBloom + Y2Kグレード・失敗時は素描画フォールバック）
+// Material colors are authored in sRGB; r128 requires explicit linearization.
+const convertedMaterials=new Set();
+scene.traverse(o=>{
+  if(o.isLight){o.color.convertSRGBToLinear();if(o.groundColor)o.groundColor.convertSRGBToLinear();}
+  if(!o.material)return;
+  const ms=Array.isArray(o.material)?o.material:[o.material];
+  ms.forEach(m=>{if(convertedMaterials.has(m))return;convertedMaterials.add(m);if(m.color)m.color.convertSRGBToLinear();if(m.emissive)m.emissive.convertSRGBToLinear();});
+  if(o.isMesh){
+    o.receiveShadow=ms.every(m=>!m.transparent&&m.isMeshStandardMaterial);
+    const p=o.geometry&&o.geometry.attributes.position;
+    o.castShadow=o!==floor&&o.receiveShadow&&!!p&&p.count>60;
+  }
+});
+scene.fog.color.convertSRGBToLinear();
+// Smooth studio output: restrained bloom, edge antialiasing, one sRGB conversion.
 // ================================================================
 let composer=null,bloomPass=null,gradePass=null;
 const GradeShader={
-  uniforms:{tDiffuse:{value:null},uTime:{value:0},uRes:{value:new THREE.Vector2(1,1)}},
+  uniforms:{tDiffuse:{value:null},uRes:{value:new THREE.Vector2(1,1)}},
   vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
-  fragmentShader:[
-    'uniform sampler2D tDiffuse;uniform float uTime;uniform vec2 uRes;varying vec2 vUv;',
-    'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}',
-    'void main(){',
-    ' vec3 c=texture2D(tDiffuse,vUv).rgb;',
-    ' float sl=0.94+0.06*sin(vUv.y*uRes.y*1.5);c*=sl;',        // 走査線
-    ' c=floor(c*22.0)/22.0;',                                   // ポスタライズ
-    ' float g=hash(vUv*uRes+uTime)*0.055-0.0275;c+=g;',        // グレイン
-    ' vec2 q=vUv-0.5;float vig=smoothstep(0.95,0.32,length(q));c*=mix(0.68,1.0,vig);', // ビネット
-    ' gl_FragColor=vec4(c,1.0);',
-    '}'
-  ].join('\n')
+  fragmentShader:`
+    uniform sampler2D tDiffuse;uniform vec2 uRes;varying vec2 vUv;
+    vec3 toSRGB(vec3 c){return mix(12.92*c,1.055*pow(max(c,vec3(0.0)),vec3(1.0/2.4))-0.055,step(vec3(0.0031308),c));}
+    void main(){
+      vec2 px=1.0/uRes;
+      vec3 nw=texture2D(tDiffuse,vUv+vec2(-1.0,-1.0)*px).rgb;
+      vec3 ne=texture2D(tDiffuse,vUv+vec2(1.0,-1.0)*px).rgb;
+      vec3 sw=texture2D(tDiffuse,vUv+vec2(-1.0,1.0)*px).rgb;
+      vec3 se=texture2D(tDiffuse,vUv+vec2(1.0,1.0)*px).rgb;
+      vec3 m=texture2D(tDiffuse,vUv).rgb,luma=vec3(0.299,0.587,0.114);
+      float lnw=dot(nw,luma),lne=dot(ne,luma),lsw=dot(sw,luma),lse=dot(se,luma),lm=dot(m,luma);
+      float lo=min(lm,min(min(lnw,lne),min(lsw,lse))),hi=max(lm,max(max(lnw,lne),max(lsw,lse)));
+      vec3 c=m;
+      if(hi-lo>max(0.015,hi*0.10)){
+        vec2 dir=vec2(-((lnw+lne)-(lsw+lse)),(lnw+lsw)-(lne+lse));
+        float reduce=max((lnw+lne+lsw+lse)*0.03125,0.0078125);
+        dir=clamp(dir/(min(abs(dir.x),abs(dir.y))+reduce),vec2(-6.0),vec2(6.0))*px;
+        vec3 a=0.5*(texture2D(tDiffuse,vUv-dir/6.0).rgb+texture2D(tDiffuse,vUv+dir/6.0).rgb);
+        vec3 b=a*0.5+0.25*(texture2D(tDiffuse,vUv-dir*0.5).rgb+texture2D(tDiffuse,vUv+dir*0.5).rgb);
+        float lb=dot(b,luma);c=(lb<lo||lb>hi)?a:b;
+      }
+      gl_FragColor=vec4(toSRGB(max(c,vec3(0.0))),1.0);
+    }`
 };
 try{
   composer=new THREE.EffectComposer(renderer);
   composer.addPass(new THREE.RenderPass(scene,camera));
-  bloomPass=new THREE.UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),0.78,0.5,0.66);
+  bloomPass=new THREE.UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),0.24,0.35,0.86);
   composer.addPass(bloomPass);
   gradePass=new THREE.ShaderPass(GradeShader);
-  gradePass.uniforms.uRes.value.set(innerWidth,innerHeight);
+  gradePass.uniforms.uRes.value.set(innerWidth*renderer.getPixelRatio(),innerHeight*renderer.getPixelRatio());
   gradePass.renderToScreen=true;
   composer.addPass(gradePass);
 }catch(err){composer=null;showErr('post init: '+err.message);}
@@ -1856,10 +1929,10 @@ try{
 // ================================================================
 // アニメーション
 // ================================================================
-const clock=new THREE.Clock();
+const clock=new THREE.Clock();let lastFrameTime=0;
 function tick(){
   requestAnimationFrame(tick);
-  const t=clock.getElapsedTime();nowT=t;
+  const t=clock.getElapsedTime();nowT=t;const dt=Math.min(0.1,Math.max(0,t-lastFrameTime));lastFrameTime=t;
   const pb=pumpBeat(t);
 
   // カメラtween
@@ -1873,21 +1946,21 @@ function tick(){
 
   // 脳の拍動
   brainCore.scale.setScalar(1+0.055*pb);
-  brainSkin.emissiveIntensity=0.26+0.24*pb;
-  brainKey.intensity=0.9+0.5*pb;
+  brainSkin.emissiveIntensity=0.018+0.014*pb;
+  brainKey.intensity=0.55+0.12*pb;
   brainGroup.position.y=BRAIN_Y+0.05*Math.sin(t*0.6);
   brainGroup.rotation.y=0.06*Math.sin(t*0.3);
-  crownPuff.material.opacity=0.15+0.35*Math.max(0,pb-0.3);
+  crownPuff.material.opacity=0.015+0.055*Math.max(0,pb-0.3);
 
   // 基部フレア・給餌カラム
-  coreLight.intensity=1.1+1.6*pb;
-  columnMat.opacity=0.08+0.12*pb;
-  coreFlare.material.opacity=0.4+0.4*pb;
+  coreLight.intensity=0.32+0.3*pb;
+  columnMat.opacity=0.012+0.02*pb;
+  coreFlare.material.opacity=0.12+0.12*pb;
   coreFlare.scale.setScalar(3.4+0.6*pb);
 
   // ノズル・ミルク
-  for(let i=0;i<nozzleGlow.length;i++)nozzleGlow[i].emissiveIntensity=0.35+0.3*pb;
-  milkMat.emissiveIntensity=0.11+0.08*pb;
+  for(let i=0;i<nozzleGlow.length;i++)nozzleGlow[i].emissiveIntensity=0.06+0.05*pb;
+  milkMat.emissiveIntensity=0.005;
 
   // 冷却ファン回転
   if(fanBlades)fanBlades.rotation.y=t*2.6;
@@ -1899,19 +1972,19 @@ function tick(){
   // 赤ネオン（壊れた蛍光灯フリッカー）
   const nf=neonFlicker(t);
   if(neonMat)neonMat.opacity=nf;
-  if(neonLight)neonLight.intensity=0.15+2.4*nf;
+  if(neonLight)neonLight.intensity=0.12+0.75*nf;
 
   // いちごミルク滴下
   let splashPulse=0;
   for(let di=0;di<drops.length;di++){const d=drops[di];
     const tt=(((t-d.off)%DRIP_CYCLE)+DRIP_CYCLE)%DRIP_CYCLE;
     if(tt<D_SWELL){const k=tt/D_SWELL;d.m.position.set(0,DTIP_Y,0);d.m.scale.setScalar(0.4+0.6*k);d.g.material.opacity=0.15*k;}
-    else if(tt<D_SWELL+D_FALL){const f=(tt-D_SWELL)/D_FALL;const y=DTIP_Y-DROP_H*f*f;d.m.position.set(0,y,0);d.m.scale.setScalar(1.0);d.g.material.opacity=0.15+0.5*f;if(f>0.93)splashPulse=1.0;}
+    else if(tt<D_SWELL+D_FALL){const f=(tt-D_SWELL)/D_FALL;const y=DTIP_Y-DROP_H*f*f;d.m.position.set(0,y,0);d.m.scale.setScalar(1.0);d.g.material.opacity=0.04+0.08*f;if(f>0.93)splashPulse=1.0;}
     else{d.m.scale.setScalar(0.0001);d.g.material.opacity=0;}
   }
   const crownWorldY=brainGroup.position.y+1.85*0.86;
   splash.position.set(0,crownWorldY,0);
-  splash.material.opacity=Math.max(splash.material.opacity*0.85,splashPulse*0.7);
+  splash.material.opacity=Math.max(splash.material.opacity*Math.exp(-9.75*dt),splashPulse*0.22);
 
   // 培養液気泡（螺旋上昇）
   for(let i=0;i<VBUB;i++){const s=vbSeed[i];const yy=((t*s.s*0.3+s.p)%1);
@@ -1922,10 +1995,11 @@ function tick(){
   // タンク気泡
   const tb=tankBubbles;
   for(let i=0;i<tb.seed.length;i++){const s=tb.seed[i];const rise=((t*s.s*0.35+s.p)%1);
-    const rr=s.r*(0.85+0.15*Math.sin(t*0.7+i));const ang=s.a+t*0.4;
-    tb.pos[i*3]=s.x;tb.pos[i*3+1]=Math.cos(ang)*rr;tb.pos[i*3+2]=Math.sin(ang)*rr;
-    // xに沿ってゆっくり漂流
-    s.x+=0.002*Math.sin(t*0.3+i);if(s.x>TANK_HALF*0.85)s.x=-TANK_HALF*0.85;}
+    const rr=TANK_R*0.94,yy=-rr+0.10+rise*(rr*1.54-0.12);
+    const width=Math.sqrt(Math.max(0,rr*rr-yy*yy))*0.8;
+    tb.pos[i*3]=s.x+0.045*Math.sin(t*0.3+i);tb.pos[i*3+1]=yy;tb.pos[i*3+2]=Math.sin(s.a)*width;
+    // Rising bubbles stay inside the liquid volume; no frame-dependent drift.
+  }
   tb.geo.attributes.position.needsUpdate=true;
 
   // タンクの微揺れ・タグの揺れ
@@ -1934,8 +2008,7 @@ function tick(){
   tagPivot.rotation.z=0.14*Math.sin(t*1.2);
   tagPivot.rotation.x=0.06*Math.sin(t*0.9+0.5);
 
-  renderer.toneMappingExposure=1.02+0.05*pb;
-  if(gradePass)gradePass.uniforms.uTime.value=t;
+  renderer.toneMappingExposure=1.08;
   if(composer)composer.render();else renderer.render(scene,camera);
 }
 fitOverview();goView(0,0.01);tick();
@@ -1946,10 +2019,10 @@ addEventListener('resize',()=>{
   fitOverview();if(view===0)goView(0,0.01);
   renderer.setSize(innerWidth,innerHeight);
   if(composer)composer.setSize(innerWidth,innerHeight);
-  if(bloomPass)bloomPass.setSize(innerWidth,innerHeight);
-  if(gradePass)gradePass.uniforms.uRes.value.set(innerWidth,innerHeight);
+  if(gradePass)gradePass.uniforms.uRes.value.set(innerWidth*renderer.getPixelRatio(),innerHeight*renderer.getPixelRatio());
 });
 })();
 </script>
 </body>
 </html>
+

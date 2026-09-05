@@ -1,7 +1,8 @@
-"""Add/update the Empyrean Sigil study card from CANON_TEXT.md.
+"""Update the Empyrean study card and Lacto-Cortex title from CANON_TEXT.md.
 
 The original full-site builder was not present in the repository. This
-bounded replacement updates only this study card; existing prose is preserved.
+bounded replacement updates the study card and asset 06 version label;
+existing asset prose is preserved.
 Run with Python 3 from the repository root. No third-party dependencies.
 """
 from pathlib import Path
@@ -40,7 +41,23 @@ else:
     target = source.index('href="empyrean-sigil.html"')
     position = source.index('</article>', target) + len('</article>')
     source = source[:position] + '\n' + card + source[position:]
-source = source.replace('id="count">18 assets', 'id="count">18 assets + 1 study')
+source, n = re.subn(r'(id="count">)18 assets(?: \+ 1 study)*(</span>)',
+                    r'\g<1>18 assets + 1 study\2', source)
+if n != 1:
+    raise ValueError('Expected exactly one holdings count')
 source = source.replace('シリーズ 18 点。', 'シリーズ 18 点と独立Study 1 点。')
+lacto_title = re.search(r'^## ASSET 06 — (Lacto-Cortex v\d+)\s*$', canon, re.M)
+if not lacto_title:
+    raise ValueError('Missing canonical Lacto-Cortex title')
+asset_start = source.index('href="lacto-cortex.html"')
+asset_end = source.index('</article>', asset_start)
+asset = source[asset_start:asset_end]
+asset, n = re.subn(r'(<span class="name">)Lacto-Cortex v\d+(</span>)',
+                   lambda m: m[1] + html.escape(lacto_title[1]) + m[2], asset)
+if n != 1:
+    raise ValueError('Expected exactly one Lacto-Cortex entry title')
+# The existing thumbnail remains an earlier illustration of the asset.
+asset = re.sub(r'alt="Lacto-Cortex v\d+ —', 'alt="Lacto-Cortex —', asset)
+source = source[:asset_start] + asset + source[asset_end:]
 path.write_text(source, encoding='utf-8')
-print('Updated one study card; preserved existing asset entries.')
+print('Updated study card and Lacto-Cortex title; preserved asset prose.')
