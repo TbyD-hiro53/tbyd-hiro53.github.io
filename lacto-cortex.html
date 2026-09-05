@@ -5,15 +5,15 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="deus ex machina — holdings registry">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="Lacto-Cortex v7 — h!ro53 / deus ex machina">
+<meta property="og:title" content="Lacto-Cortex v8 — h!ro53 / deus ex machina">
 <meta property="og:description" content="乳脳マイクロモジュール炉の単体構成。上部タンクから淡桃色の灌流液が滴り、透明槽の皮質を養う。SWで視点を巡回、ピンチで拡大。配列作品の基本単位。">
 <meta property="og:url" content="https://tbyd-hiro53.github.io/lacto-cortex.html">
 <meta property="og:image" content="https://tbyd-hiro53.github.io/lacto-cortex-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Lacto-Cortex v7">
+<meta property="og:image:alt" content="Lacto-Cortex v8">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lacto-Cortex v7 — h!ro53 / deus ex machina">
+<meta name="twitter:title" content="Lacto-Cortex v8 — h!ro53 / deus ex machina">
 <meta name="twitter:description" content="乳脳マイクロモジュール炉の単体構成。上部タンクから淡桃色の灌流液が滴り、透明槽の皮質を養う。SWで視点を巡回、ピンチで拡大。配列作品の基本単位。">
 <meta name="twitter:image" content="https://tbyd-hiro53.github.io/lacto-cortex-og.jpg">
 <link rel="canonical" href="https://tbyd-hiro53.github.io/lacto-cortex.html">
@@ -1256,7 +1256,7 @@ renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 document.getElementById('app').appendChild(renderer.domElement);
 
 const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,0.1,300);
+const camera=new THREE.PerspectiveCamera(42,innerWidth/innerHeight,0.5,120);
 
 // ---------- helpers ----------
 function gradTex(stops){const c=document.createElement('canvas');c.width=8;c.height=256;const g=c.getContext('2d');
@@ -1336,11 +1336,37 @@ const darkMetal=new THREE.MeshStandardMaterial({color:'#353842',metalness:0.72,r
 const darkMetal2=new THREE.MeshStandardMaterial({color:'#232630',metalness:0.65,roughness:0.45,envMapIntensity:0.85});
 // いちごミルク（ミルキー高艶）
 const milkMat=new THREE.MeshPhysicalMaterial({color:'#f3aac8',roughness:0.23,metalness:0.0,clearcoat:0.5,clearcoatRoughness:0.12,emissive:'#ff85b9',emissiveIntensity:0.005,envMapIntensity:0.8});
-// ガラス（2層レシピ：BackSide内膜＋FrontSide本体）
-function glassBack(tint){return new THREE.MeshBasicMaterial({color:tint,transparent:true,opacity:0.018,side:THREE.BackSide,depthWrite:false});}
-function glassFront(){return new THREE.MeshPhysicalMaterial({color:'#f5fbff',metalness:0.0,roughness:0.035,transmission:0.72,ior:1.46,transparent:true,opacity:0.38,clearcoat:0.35,clearcoatRoughness:0.06,envMapIntensity:0.8,depthWrite:false});}
-// ターコイズ（真珠光沢・機構アクセント）
-const turquoise=new THREE.MeshPhysicalMaterial({color:'#22c5bf',metalness:0.3,roughness:0.28,clearcoat:0.65,clearcoatRoughness:0.15,envMapIntensity:1.0,emissive:'#167772',emissiveIntensity:0.025});
+// Clear glass: specular reflection over unblurred, untinted background transmission.
+// This is a thin-surface approximation; it does not claim volumetric refraction.
+function clearGlass(side,weight){
+  const m=new THREE.MeshPhysicalMaterial({
+    color:'#000000',metalness:0,roughness:0.012,ior:1.46,
+    clearcoat:0,transmission:0,transparent:true,opacity:1,
+    envMapIntensity:1.0,side:side,depthWrite:false,fog:false,
+    blending:THREE.CustomBlending,blendEquation:THREE.AddEquation,
+    blendSrc:THREE.OneFactor,blendDst:THREE.OneMinusSrcAlphaFactor,
+    blendEquationAlpha:THREE.AddEquation,blendSrcAlpha:THREE.OneFactor,
+    blendDstAlpha:THREE.OneMinusSrcAlphaFactor
+  });
+  m.name='clear-optical-glass';
+  m.userData.opticalWeight=weight;
+  m.onBeforeCompile=function(shader){
+    const output='gl_FragColor = vec4( outgoingLight, diffuseColor.a );';
+    if(!shader.fragmentShader.includes(output))throw new Error('Clear glass shader output is unavailable');
+    shader.fragmentShader=shader.fragmentShader.replace(output,`
+      float glassNV=clamp(abs(dot(normal,normalize(vViewPosition))),0.0,1.0);
+      float glassF=0.0349653+0.9650347*pow(1.0-glassNV,5.0);
+      vec3 glassReflection=reflectedLight.directSpecular+reflectedLight.indirectSpecular;
+      gl_FragColor=vec4(glassReflection*${weight.toFixed(3)},glassF*${weight.toFixed(3)});
+    `);
+  };
+  m.customProgramCacheKey=function(){return 'lacto-clear-glass-v8-'+weight;};
+  return m;
+}
+function glassBack(){return clearGlass(THREE.BackSide,0.30);}
+function glassFront(){return clearGlass(THREE.FrontSide,1.0);}
+// ターコイズ（色付き導体金属・機構アクセント）
+const turquoise=new THREE.MeshPhysicalMaterial({color:'#13bec4',metalness:1.0,roughness:0.16,clearcoat:0.0,envMapIntensity:1.15,emissive:'#000000',emissiveIntensity:0.0});
 // 脳ハーネス: 単色2種（わずかにターコイズがかったグレー／シルバー・同本数）
 const harnessGray=new THREE.MeshStandardMaterial({color:'#a2b6b4',metalness:0.5,roughness:0.4,envMapIntensity:1.15,emissive:'#0d1a1a',emissiveIntensity:0.1});
 const harnessSilver=new THREE.MeshStandardMaterial({color:'#cbd0d8',metalness:0.72,roughness:0.3,envMapIntensity:1.3,emissive:'#12161c',emissiveIntensity:0.08});
@@ -1377,7 +1403,7 @@ let fanBlades=null, lcdBand=null, fanRings=[];
   // 本体シリンダー（培養槽から連続）
   const body=new THREE.Mesh(turnedCylinder(RACK_R,RACK_R,RACK_H),silver);body.position.y=RACK_MID;root.add(body);
   // 天板フランジ（培養槽受け）
-  const topFl=new THREE.Mesh(turnedCylinder(RACK_R+0.12,RACK_R,0.3),chrome);topFl.position.y=RACK_TOP-0.02;root.add(topFl);
+  const topFl=new THREE.Mesh(turnedCylinder(RACK_R+0.12,RACK_R,0.3),chrome);topFl.position.y=RACK_TOP-0.32;root.add(topFl);
   // 制御ベイ×8（ターコイズパネル＋計器＋LED）
   const bayN=8, bayLen=TAU/bayN*0.72;
   for(let i=0;i<bayN;i++){
@@ -1393,7 +1419,7 @@ let fanBlades=null, lcdBand=null, fanRings=[];
       led.position.set(cx*(RACK_R+0.05),RACK_MID-0.2-k*0.22,cz*(RACK_R+0.05));led.lookAt(cx*10,led.position.y,cz*10);root.add(led);}
   }
   // 水平ターコイズ帯×2
-  [RACK_TOP-0.5,RACK_BOT+0.9].forEach(y=>{const r=new THREE.Mesh(new THREE.TorusGeometry(RACK_R+0.03,0.06,10,80),turquoise);r.rotation.x=PI/2;r.position.y=y;root.add(r);});
+  [RACK_TOP-0.5,RACK_BOT+1.02].forEach(y=>{const r=new THREE.Mesh(new THREE.TorusGeometry(RACK_R+0.03,0.06,20,144),turquoise);r.rotation.x=PI/2;r.position.y=y;root.add(r);});
   // 通気スリット（下部）
   for(let i=0;i<bayN;i++){const a=i/bayN*TAU;for(let k=0;k<3;k++){
     const slit=new THREE.Mesh(new THREE.BoxGeometry(0.9,0.05,0.03),darkMetal2);
@@ -1434,7 +1460,7 @@ let fanBlades=null, lcdBand=null, fanRings=[];
     new THREE.MeshBasicMaterial({map:lt2}));
   lcdBand.position.y=RACK_BOT+0.55;root.add(lcdBand);
   // LCDベゼル（上下クロームリング・固定）
-  [RACK_BOT+0.55+0.31,RACK_BOT+0.55-0.31].forEach(y=>{const fr=new THREE.Mesh(new THREE.TorusGeometry(RACK_R+0.06,0.035,10,120),chrome);fr.rotation.x=PI/2;fr.position.y=y;root.add(fr);});
+  [RACK_BOT+0.55+0.31,RACK_BOT+0.55-0.31].forEach(y=>{const fr=new THREE.Mesh(new THREE.TorusGeometry(RACK_R+0.06,0.035,20,160),chrome);fr.rotation.x=PI/2;fr.position.y=y;root.add(fr);});
   if(document.fonts&&document.fonts.load){document.fonts.load('bold 150px "Hiragino Sans"').then(repaintLCD).catch(function(){});}
   // リベット環（天地）
   [RACK_TOP-0.18,RACK_BOT+0.18].forEach(y=>{const rn=40;const riv=new THREE.InstancedMesh(new THREE.SphereGeometry(0.05,8,6),chrome,rn);
@@ -1482,14 +1508,17 @@ let fanBlades=null, lcdBand=null, fanRings=[];
     {txt:'h!ro53',                           italic:false, glowFill:'#eaf2ff', coreFill:'#ffffff', glow:'rgba(210,230,255,0.85)', spd:-LCD_SPD*0.3}
   ];
   for(let k=0;k<RING_N;k++){
-    const ry=FAN_TOP-RING_H*0.5-k*RING_H;
-    const ring=new THREE.Mesh(new THREE.CylinderGeometry(RING_R,RING_R,RING_H,120,1,true),new THREE.MeshBasicMaterial({map:ringTex(fanRows[k].txt,fanRows[k])}));
+    // Keep each rotating display clear of the rounded end rings and its neighbour.
+    const rowTop=FAN_TOP-k*RING_H-(k===0?0.13:0.015);
+    const rowBottom=FAN_TOP-(k+1)*RING_H+(k===RING_N-1?0.13:0.015);
+    const ry=(rowTop+rowBottom)/2;
+    const ring=new THREE.Mesh(new THREE.CylinderGeometry(RING_R,RING_R,rowTop-rowBottom,160,1,true),new THREE.MeshBasicMaterial({map:ringTex(fanRows[k].txt,fanRows[k])}));
     ring.position.y=ry;root.add(ring);fanRings.push({m:ring,spd:fanRows[k].spd});
   }
   // Orbitron反映後に再描画
   if(document.fonts&&document.fonts.load){document.fonts.load('italic 700 100px Avenir Next Condensed').then(function(){for(let k=0;k<RING_N;k++){fanRings[k].m.material.map=ringTex(fanRows[k].txt,fanRows[k]);fanRings[k].m.material.needsUpdate=true;}}).catch(function(){});}
   const shroudIn=new THREE.Mesh(new THREE.CylinderGeometry(FAN_R-0.12,FAN_R-0.12,2.0,80,1,true),darkMetal2);shroudIn.position.y=FAN_MID;root.add(shroudIn);
-  [FAN_TOP,FAN_BOT].forEach(y=>{const r=new THREE.Mesh(new THREE.TorusGeometry(FAN_R,0.12,14,90),turquoise);r.rotation.x=PI/2;r.position.y=y;root.add(r);});
+  [FAN_TOP,FAN_BOT].forEach(y=>{const r=new THREE.Mesh(new THREE.TorusGeometry(FAN_R,0.12,24,160),turquoise);r.rotation.x=PI/2;r.position.y=y;root.add(r);});
   // ハブ
   const hub=new THREE.Mesh(new THREE.CylinderGeometry(0.55,0.72,0.7,28),turquoise);hub.position.y=FAN_MID;root.add(hub);
   const hubCap=new THREE.Mesh(new THREE.SphereGeometry(0.55,20,14,0,TAU,0,PI/2),chrome);hubCap.position.y=FAN_MID+0.35;root.add(hubCap);
@@ -1505,7 +1534,7 @@ let fanBlades=null, lcdBand=null, fanRings=[];
   // 保護グリル（下面：同心リング＋放射スポーク）
   const grillY=FAN_BOT-0.02;
   for(let k=1;k<=3;k++){const r=new THREE.Mesh(new THREE.TorusGeometry(FAN_R*k/3.2,0.04,8,80),silver);r.rotation.x=PI/2;r.position.y=grillY;root.add(r);}
-  for(let i=0;i<8;i++){const a=i/8*TAU;const spoke=new THREE.Mesh(new THREE.BoxGeometry(0.05,0.05,FAN_R*2),silver);spoke.position.y=grillY;spoke.rotation.y=a;root.add(spoke);}
+  for(let i=0;i<4;i++){const a=i*PI/4;const spoke=new THREE.Mesh(new THREE.BoxGeometry(0.05,0.05,FAN_R*2),silver);spoke.position.y=grillY;spoke.rotation.y=a;root.add(spoke);}
   // 脚×4
   for(let i=0;i<4;i++){const a=i/4*TAU+PI/4;const leg=new THREE.Mesh(new THREE.CylinderGeometry(0.14,0.18,0.7,12),silver);
     leg.position.set(Math.cos(a)*(FAN_R-0.4),FAN_BOT-0.35,Math.sin(a)*(FAN_R-0.4));root.add(leg);}
@@ -1524,7 +1553,7 @@ const vatH=VAT_TOP-VAT_BOT, vatMidY=(VAT_TOP+VAT_BOT)/2;
   // 上下クロームカラー
   [VAT_TOP,VAT_BOT].forEach(y=>{
     const collar=new THREE.Mesh(turnedCylinder(VAT_R+0.08,VAT_R+0.08,0.34,0.04),chrome);collar.position.y=y;root.add(collar);
-    const ring=new THREE.Mesh(new THREE.TorusGeometry(VAT_R+0.10,0.05,10,72),chrome);ring.rotation.x=PI/2;ring.position.y=y;root.add(ring);
+    const ring=new THREE.Mesh(new THREE.TorusGeometry(VAT_R+0.10,0.05,20,144),chrome);ring.rotation.x=PI/2;ring.position.y=y;root.add(ring);
   });
   // Seals sit underneath the steel collars; no extra enclosure around the glass.
   const sealMat=new THREE.MeshStandardMaterial({color:'#26252e',roughness:0.65,metalness:0});
@@ -1699,7 +1728,7 @@ splash.scale.set(2.3,2.3,1);root.add(splash);
 // ================================================================
 // ⑥ 横向きミルクタンク（ガラスカプセル＋いちごミルク＋気泡）
 // ================================================================
-const tank=new THREE.Group();tank.position.set(0,TANK_Y,0);tank.rotation.z=0.03;root.add(tank);
+const tank=new THREE.Group();tank.position.set(0,TANK_Y,0);tank.rotation.set(0,0,0);root.add(tank);
 const tankBubbles=(function(){
   // A partial, closed volume exposes a real horizontal liquid surface and headspace.
   const fluidR=TANK_R*0.94,level=fluidR*0.54,angle=Math.asin(level/fluidR);
@@ -1879,9 +1908,13 @@ scene.traverse(o=>{
   const ms=Array.isArray(o.material)?o.material:[o.material];
   ms.forEach(m=>{if(convertedMaterials.has(m))return;convertedMaterials.add(m);if(m.color)m.color.convertSRGBToLinear();if(m.emissive)m.emissive.convertSRGBToLinear();});
   if(o.isMesh){
-    o.receiveShadow=ms.every(m=>!m.transparent&&m.isMeshStandardMaterial);
-    const p=o.geometry&&o.geometry.attributes.position;
-    o.castShadow=o!==floor&&o.receiveShadow&&!!p&&p.count>60;
+    o.receiveShadow=o===floor;
+    const g=o.geometry,params=g&&g.parameters;
+    const solid=ms.every(m=>!m.transparent&&m.isMeshStandardMaterial);
+    const mainSolid=g&&(g.type==='LatheGeometry'||
+      (g.type==='CylinderGeometry'&&params&&!params.openEnded&&Math.max(params.radiusTop,params.radiusBottom)>0.3)||
+      (g.type==='SphereGeometry'&&params&&params.radius>=0.4));
+    o.castShadow=o!==floor&&!o.isInstancedMesh&&solid&&!!mainSolid;
   }
 });
 scene.fog.color.convertSRGBToLinear();
@@ -1916,7 +1949,12 @@ const GradeShader={
     }`
 };
 try{
-  composer=new THREE.EffectComposer(renderer);
+  const sceneTarget=new THREE.WebGLRenderTarget(innerWidth,innerHeight,{
+    minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,
+    format:THREE.RGBAFormat,depthBuffer:true,stencilBuffer:true
+  });
+  composer=new THREE.EffectComposer(renderer,sceneTarget);
+  composer.setPixelRatio(renderer.getPixelRatio());
   composer.addPass(new THREE.RenderPass(scene,camera));
   bloomPass=new THREE.UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),0.24,0.35,0.86);
   composer.addPass(bloomPass);
@@ -2002,9 +2040,8 @@ function tick(){
   }
   tb.geo.attributes.position.needsUpdate=true;
 
-  // タンクの微揺れ・タグの揺れ
-  tank.rotation.z=0.03+0.012*Math.sin(t*0.37);
-  tank.rotation.x=0.010*Math.sin(t*0.29+1.0);
+  // The fixed tank is level; only the hanging label sways.
+  tank.rotation.set(0,0,0);
   tagPivot.rotation.z=0.14*Math.sin(t*1.2);
   tagPivot.rotation.x=0.06*Math.sin(t*0.9+0.5);
 

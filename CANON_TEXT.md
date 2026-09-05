@@ -167,7 +167,7 @@ The tongue alone holds a different colour. It beats upon the same period as the 
 
 ---
 
-## ASSET 06 — Lacto-Cortex v7
+## ASSET 06 — Lacto-Cortex v8
 
 **位相** PHASE 3 · TRANSCENSION
 
