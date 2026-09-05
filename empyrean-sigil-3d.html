@@ -7,7 +7,7 @@
 <meta name="author" content="h!ro53">
 <meta name="description" content="Empyrean Sigilの独立3D作品。開放された二重の輪と目盛り、上昇する細環、下降する銀盤。ドラッグで回転、ピンチで拡大、タップで心拍。">
 <link rel="canonical" href="https://tbyd-hiro53.github.io/empyrean-sigil-3d.html">
-<title>Empyrean Sigil 3D v2 — h!ro53 / deus ex machina</title>
+<title>Empyrean Sigil 3D v3 — h!ro53 / deus ex machina</title>
 <!-- © 2026 h!ro53 / deus ex machina. Viewing permitted; reuse prohibited. -->
 <style>
 *{box-sizing:border-box}html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#04060b;color:#cfd3da;-webkit-user-select:none;user-select:none}
@@ -18,15 +18,19 @@
 #hudTitle{font-size:11px;line-height:1.3;color:#3fe0d6;text-shadow:0 0 8px #2fb8c650;margin:0;font-weight:400}#hudTitle b{color:#ff5fc8;font-weight:600;text-shadow:0 0 8px #ff4fb850}
 #hudBrand{font-size:9px;line-height:1.6;letter-spacing:.10em;opacity:.62}
 #hudHint{align-self:flex-end;font-size:9px;line-height:1.3;color:#2fb8c6;opacity:.6}
-#h53idx{position:fixed;right:12px;top:calc(84px + env(safe-area-inset-top));z-index:20;padding:9px 12px;border:1px solid #7fe6f06b;border-radius:2px;background:#06090ed1;color:#d6e0e8;text-decoration:none;font:9px/1 ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.2em;touch-action:manipulation;-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px)}#h53idx b{font-weight:400;opacity:.55}#h53idx:active{border-color:#ff5fc8;color:#fff}
+#h53idx{position:fixed;right:12px;top:calc(126px + env(safe-area-inset-top));z-index:20;padding:9px 12px;border:1px solid #7fe6f06b;border-radius:2px;background:#06090ed1;color:#d6e0e8;text-decoration:none;font:9px/1 ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.2em;touch-action:manipulation;-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px)}#h53idx b{font-weight:400;opacity:.55}#h53idx:active{border-color:#ff5fc8;color:#fff}
 .h53-copy{position:fixed;bottom:0;left:0;right:0;z-index:10;pointer-events:none;padding:6px 10px calc(6px + env(safe-area-inset-bottom));font:9px/1.4 ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.04em;color:#ffdadb6b;text-align:center;background:linear-gradient(0deg,#0006,transparent)}
 #status{position:fixed;inset:0;z-index:30;display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:center;background:#04060b;font:14px/1.8 system-ui;padding:32px;text-align:center}#status[hidden]{display:none}#status button{font:inherit;color:#3fe0d6;background:#060a12;border:1px solid #2fb8c6;padding:10px 18px;border-radius:3px;cursor:pointer}
-@media(max-height:420px){#hudBrand{display:none}#h53idx{top:calc(48px + env(safe-area-inset-top))}.h53-copy{font-size:8px}}
+#bgbtn{position:fixed;right:12px;top:calc(78px + env(safe-area-inset-top));z-index:20;min-height:40px;padding:9px 16px;border:1px solid #ff82d266;border-radius:22px;background:#2212268c;color:#ffe7f4db;font:11px/1.2 ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.18em;cursor:pointer;touch-action:manipulation}#bgbtn:focus-visible,#h53idx:focus-visible{outline:2px solid #3fe0d6;outline-offset:3px}
+body.light{background:#fff;color:#302631}body.light #uiTop:before{background:linear-gradient(180deg,#ffffffdb,#ffffff40 65%,transparent)}body.light #hudTitle,body.light #hudHint{color:#167a86;text-shadow:none}body.light #hudTitle b{color:#a41459;text-shadow:none}body.light #hudBrand{color:#433846;opacity:.72}body.light #bgbtn{color:#281422db;border-color:#a0286e57;background:#ffffffb3}body.light #h53idx{color:#25434a;background:#ffffffe6;border-color:#167a8670}body.light .h53-copy{color:#805168b3;background:linear-gradient(0deg,#ffffffb3,transparent)}body.light #status{color:#302631;background:#fff}
+@media(max-width:350px){#hudTitle{font-size:10px;letter-spacing:.08em}#hudBrand{font-size:8px;letter-spacing:.03em}}
+@media(max-height:420px){#hudBrand{display:none}#bgbtn{top:calc(42px + env(safe-area-inset-top))}#h53idx{top:calc(90px + env(safe-area-inset-top))}.h53-copy{font-size:8px}}
 </style>
 </head>
 <body>
 <canvas id="art" tabindex="0" aria-label="Empyrean Sigil 3D。ドラッグで回転、ピンチで拡大、タップで心拍。矢印キーで回転、プラスとマイナスで拡大縮小、スペースで一時停止。"></canvas>
-<div id="uiTop"><h1 id="hudTitle">h!ro53 // <b>EMPYREAN SIGIL</b> 3D v2</h1><div id="hudBrand">transcendence / by / deus ex machina / h!ro53</div><div id="hudHint">drag · pinch · tap</div></div>
+<div id="uiTop"><h1 id="hudTitle">h!ro53 // <b>EMPYREAN SIGIL</b> 3D v3</h1><div id="hudBrand">transcendence / by / deus ex machina / h!ro53</div><div id="hudHint">drag · pinch · tap</div></div>
+<button id="bgbtn" type="button" aria-pressed="false" aria-label="明るい背景に切り替える">BG · DARK</button>
 <a id="h53idx" href="index.html" aria-label="作品一覧へ戻る"><b>←</b> INDEX</a>
 <div class="h53-copy">© 2026 h!ro53 · deus ex machina — viewing permitted, reuse prohibited</div>
 <div id="status" role="status"><span id="statusText">読み込み中</span><button id="retry" hidden>再読み込み</button></div>
@@ -54,7 +58,7 @@ var scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(35,1,.1,120),worl
 // A smooth, high-dynamic-range strip-light studio. No grain, dither or low-resolution intermediate pass.
 var studio=new THREE.Scene();
 studio.add(new THREE.Mesh(new THREE.BoxGeometry(60,60,60),new THREE.MeshBasicMaterial({color:0x1e293c,side:THREE.BackSide})));
-function panel(color,power,w,h,x,y,z,ry,rx){var m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:color,side:THREE.DoubleSide}));m.material.color.multiplyScalar(power);m.position.set(x,y,z);m.rotation.set(rx||0,ry||0,0);studio.add(m);}
+function panel(color,power,w,h,x,y,z,ry,rx,target){var m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:color,side:THREE.DoubleSide}));m.material.color.multiplyScalar(power);m.position.set(x,y,z);m.rotation.set(rx||0,ry||0,0);(target||studio).add(m);}
 panel(0xffffff,6,30,18,0,25,0,0,Math.PI/2);
 panel(0xe5eeff,4,10,28,-17,5,24,-.5,0);
 panel(0xffffff,3.5,4,25,14,2,25,.5,0);
@@ -62,10 +66,17 @@ panel(0x2fb8c6,5,12,30,-28,3,0,Math.PI/2,0);
 panel(0xff4fb8,5,12,30,28,3,0,-Math.PI/2,0);
 panel(0x3fe0d6,3,30,8,0,-8,-28,0,0);
 panel(0xffffff,3,28,3,0,-24,8,0,Math.PI/2);
-try{var pmrem=new THREE.PMREMGenerator(renderer);var environment=pmrem.fromScene(studio,.025);scene.environment=environment.texture;pmrem.dispose();studio.traverse(function(o){if(o.isMesh){o.geometry.dispose();o.material.dispose();}});}catch(e){failed('反射の描画を開始できませんでした。ページを再読み込みしてください。');return;}
-scene.add(new THREE.HemisphereLight(0xc5dcff,0x19081a,.65));
-function light(color,power,x,y,z){var l=new THREE.DirectionalLight(color,power);l.position.set(x,y,z);scene.add(l);}
-light(0xffffff,2.0,-4,6,8);light(0x66eee3,1.1,5,2,-4);light(0xff5ab7,.55,-5,-1,2);
+var lightStudio=new THREE.Scene();
+lightStudio.add(new THREE.Mesh(new THREE.BoxGeometry(60,60,60),new THREE.MeshBasicMaterial({color:0x8796ac,side:THREE.BackSide})));
+panel(0xffffff,3.5,30,20,0,25,0,0,Math.PI/2,lightStudio);
+panel(0xffffff,2.5,12,30,-24,4,15,.8,0,lightStudio);
+panel(0x080b13,1,8,32,17,2,24,-.5,0,lightStudio);
+panel(0x121725,1,30,14,0,-24,0,0,Math.PI/2,lightStudio);
+panel(0xcad8e9,1.5,20,16,0,6,-28,0,0,lightStudio);
+try{var pmrem=new THREE.PMREMGenerator(renderer);var environment=pmrem.fromScene(studio,.025),lightEnvironment=pmrem.fromScene(lightStudio,.04);scene.environment=environment.texture;pmrem.dispose();[studio,lightStudio].forEach(function(room){room.traverse(function(o){if(o.isMesh){o.geometry.dispose();o.material.dispose();}});});}catch(e){failed('反射の描画を開始できませんでした。ページを再読み込みしてください。');return;}
+var hemisphere=new THREE.HemisphereLight(0xc5dcff,0x19081a,.4);scene.add(hemisphere);
+function light(color,power,x,y,z){var l=new THREE.DirectionalLight(color,power);l.position.set(x,y,z);scene.add(l);return l;}
+var keyLight=light(0xffffff,.85,-4,6,8),rimLight=light(0x66eee3,.7,5,2,-4),fillLight=light(0xff5ab7,.3,-5,-1,2);
 function physical(color,metal,rough){return new THREE.MeshPhysicalMaterial({color:color,metalness:metal,roughness:rough,clearcoat:1,clearcoatRoughness:.035,envMapIntensity:1.3});}
 // The original bezels are open wire circles plus radial ticks, never a filled annulus.
 var bezelMat=physical(0xa83a68,.82,.12);
@@ -79,8 +90,17 @@ var sx=function(x){return(x-640)/25;},sy=function(y){return(246-y)/25;};
 var shape=new THREE.Shape();[[604.35,187],[674.5,187],[674.5,206.55],[649.2,206.55],[649.2,279],[630.8,279],[630.8,206.55],[604.35,206.55]].forEach(function(p,i){if(!i)shape.moveTo(sx(p[0]),sy(p[1]));else shape.lineTo(sx(p[0]),sy(p[1]));});shape.closePath();
 var tg=new THREE.ExtrudeGeometry(shape,{depth:.43,steps:1,bevelEnabled:true,bevelSegments:8,bevelSize:.035,bevelThickness:.035,curveSegments:1});tg.translate(0,0,-.215);
 var pos=tg.attributes.position,colors=new Float32Array(pos.count*3),pink=new THREE.Color('#ff37b8').convertSRGBToLinear(),red=new THREE.Color('#e01535').convertSRGBToLinear(),co=new THREE.Color();for(var k=0;k<pos.count;k++){var u=THREE.MathUtils.clamp((pos.getY(k)+1.32)/3.68,0,1);co.copy(red).lerp(pink,u);colors[k*3]=co.r;colors[k*3+1]=co.g;colors[k*3+2]=co.b;}tg.setAttribute('color',new THREE.BufferAttribute(colors,3));
-var teeMat=new THREE.MeshPhysicalMaterial({vertexColors:true,metalness:.78,roughness:.065,clearcoat:1,clearcoatRoughness:.025,envMapIntensity:1.5,emissive:0xffffff,emissiveIntensity:.23});
-teeMat.onBeforeCompile=function(shader){shader.fragmentShader=shader.fragmentShader.replace('#include <emissivemap_fragment>','#include <emissivemap_fragment>\n#ifdef USE_COLOR\ntotalEmissiveRadiance *= vColor.rgb;\n#endif');};
+// Keep the original two independent magenta-to-red gradients at fragment precision.
+// Coloured enamel retains its hue; the side and wafer materials still use filmic HDR highlights.
+var faceUniforms={pink:{value:new THREE.Color('#ff37b8').convertSRGBToLinear()},red:{value:new THREE.Color('#e01535').convertSRGBToLinear()}};
+var teeMat=new THREE.MeshPhysicalMaterial({metalness:.24,roughness:.16,clearcoat:.5,clearcoatRoughness:.065,envMapIntensity:.32,emissive:0xffffff,emissiveIntensity:.65,toneMapped:false});
+teeMat.onBeforeCompile=function(shader){
+ shader.uniforms.sigilPink=faceUniforms.pink;shader.uniforms.sigilRed=faceUniforms.red;
+ shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nvarying float sigilY;').replace('#include <begin_vertex>','#include <begin_vertex>\nsigilY = position.y;');
+ shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nvarying float sigilY;\nuniform vec3 sigilPink;\nuniform vec3 sigilRed;');
+ shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\nfloat sigilU = sigilY >= 1.578 ? clamp((sigilY-1.578)/0.782,0.0,1.0) : clamp((sigilY+1.32)/2.898,0.0,1.0);\nvec3 sigilColour = mix(sigilRed,sigilPink,sigilU);\ndiffuseColor.rgb *= sigilColour;');
+ shader.fragmentShader=shader.fragmentShader.replace('#include <emissivemap_fragment>','#include <emissivemap_fragment>\ntotalEmissiveRadiance *= sigilColour;');
+};
 var sideMat=physical(0xd6c7d4,.95,.085);var tee=new THREE.Mesh(tg,[teeMat,sideMat]);tee.name='enamel-and-polished-edge-T';world.add(tee);
 // Rounded silver wafer edges; continuous normals and dense circular tessellation.
 var profile=[new THREE.Vector2(0,-.032),new THREE.Vector2(1.205,-.032),new THREE.Vector2(1.222,-.029),new THREE.Vector2(1.235,-.020),new THREE.Vector2(1.24,-.010),new THREE.Vector2(1.24,.010),new THREE.Vector2(1.235,.020),new THREE.Vector2(1.222,.029),new THREE.Vector2(1.205,.032),new THREE.Vector2(0,.032)];
@@ -91,14 +111,38 @@ var rm=physical(0x53c6cd,.6,.12);rm.emissive.set(0x29bbc7);rm.emissiveIntensity=
 var ring=new THREE.Mesh(ringGeo,rm);ring.rotation.x=Math.PI/2;ring.name='ascending-ring-'+i;world.add(ring);rings.push(ring);
 var dm=silverMat.clone();dm.transparent=true;var disc=new THREE.Mesh(discGeo,dm);disc.name='descending-silver-disc-'+i;world.add(disc);discs.push(disc);
 }
-// A continuous studio backdrop: no pixel grain and no competing decorative geometry.
-var bgc=document.createElement('canvas');bgc.width=1024;bgc.height=1024;var bgx=bgc.getContext('2d'),bg=bgx.createRadialGradient(480,440,20,512,490,620);bg.addColorStop(0,'#11192a');bg.addColorStop(.52,'#080c16');bg.addColorStop(1,'#04060b');bgx.fillStyle=bg;bgx.fillRect(0,0,1024,1024);var bt=new THREE.CanvasTexture(bgc);bt.encoding=THREE.sRGBEncoding;scene.background=bt;
+// Background and material palettes switch together; environment maps are built only once.
+function backdrop(stops){var c=document.createElement('canvas');c.width=1024;c.height=1024;var ctx=c.getContext('2d'),g=ctx.createRadialGradient(480,440,20,512,490,620);stops.forEach(function(v){g.addColorStop(v[0],v[1]);});ctx.fillStyle=g;ctx.fillRect(0,0,1024,1024);var tex=new THREE.CanvasTexture(c);tex.encoding=THREE.sRGBEncoding;return tex;}
+var backgrounds={dark:backdrop([[0,'#121019'],[.52,'#0c0b11'],[1,'#0b0b0f']]),light:backdrop([[0,'#ffffff'],[.65,'#ffffff'],[1,'#f2f4f8']])};
+var mode='dark',palette,themeButton=document.getElementById('bgbtn');
+var palettes={
+ dark:{frame:'#bd3c77',frameEmission:.22,frameMetal:.42,frameEnv:.4,ring:'#4fbfc6',ringEmission:.38,ringEnv:.38,side:'#930e43',sideMetal:.7,sideEnv:.65,silver:'#c8d0dc',silverEnv:1.15,faceEnv:.32,faceEmission:.64,beat:.24,ringOpacity:.94,exposure:1.05,key:.85,ambient:.38,rim:.7,fill:.25},
+ light:{frame:'#8e2b53',frameEmission:.035,frameMetal:.3,frameEnv:.26,ring:'#167a86',ringEmission:.035,ringEnv:.25,side:'#700c2d',sideMetal:.55,sideEnv:.6,silver:'#858f9f',silverEnv:.95,faceEnv:.23,faceEmission:.48,beat:.16,ringOpacity:.98,exposure:.98,key:.72,ambient:.42,rim:.25,fill:.1}
+};
+function setColour(target,value){target.set(value).convertSRGBToLinear();}
+function applyTheme(next,persist){
+ mode=next==='light'?'light':'dark';palette=palettes[mode];
+ document.body.classList.toggle('light',mode==='light');
+ document.documentElement.setAttribute('data-bg',mode);
+ themeButton.textContent='BG · '+mode.toUpperCase();themeButton.setAttribute('aria-pressed',String(mode==='light'));themeButton.setAttribute('aria-label',mode==='light'?'暗い背景に切り替える':'明るい背景に切り替える');
+ var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute('content',mode==='light'?'#ffffff':'#0b0b0f');
+ scene.background=backgrounds[mode];scene.environment=mode==='light'?lightEnvironment.texture:environment.texture;renderer.toneMappingExposure=palette.exposure;
+ setColour(bezelMat.color,palette.frame);setColour(bezelMat.emissive,palette.frame);bezelMat.emissiveIntensity=palette.frameEmission;bezelMat.metalness=palette.frameMetal;bezelMat.envMapIntensity=palette.frameEnv;bezelMat.clearcoat=.4;bezelMat.toneMapped=false;
+ setColour(sideMat.color,palette.side);sideMat.metalness=palette.sideMetal;sideMat.envMapIntensity=palette.sideEnv;
+ teeMat.envMapIntensity=palette.faceEnv;
+ rings.forEach(function(r){setColour(r.material.color,palette.ring);setColour(r.material.emissive,palette.ring);r.material.emissiveIntensity=palette.ringEmission;r.material.envMapIntensity=palette.ringEnv;r.material.metalness=.18;r.material.clearcoat=.3;r.material.roughness=.2;r.material.toneMapped=false;});
+ discs.forEach(function(d){setColour(d.material.color,palette.silver);d.material.envMapIntensity=palette.silverEnv;});
+ keyLight.intensity=palette.key;hemisphere.intensity=palette.ambient;rimLight.intensity=palette.rim;fillLight.intensity=palette.fill;
+ if(persist!==false)try{localStorage.setItem('h53bg',mode);}catch(e){}
+}
+var savedMode='dark';try{savedMode=localStorage.getItem('h53bg')||'dark';}catch(e){}applyTheme(savedMode,false);
+themeButton.addEventListener('click',function(){applyTheme(mode==='dark'?'light':'dark');motion(time);});
 var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches,paused=reduced,time=2.4,last=0,yaw=.46,pitch=.22,zoom=1,targetYaw=yaw,targetPitch=pitch,targetZoom=1,baseDistance=15,lookY=0,tapAge=20,lastInput=0,contextLost=false;
 function pulse(t){var p=(t%C.PUMP_PERIOD)/C.PUMP_PERIOD;return Math.exp(-Math.pow((p-.12)/.05,2))+.5*Math.exp(-Math.pow((p-.33)/.085,2));}
 function neon(t){var w=.5+.5*Math.sin(2*Math.PI*t/1.37)*Math.sin(2*Math.PI*t/.53+1.1),s=Math.sin(2*Math.PI*t/2.9)+Math.sin(2*Math.PI*t/1.13)+Math.sin(2*Math.PI*t/.41);return Math.max(.16,Math.min(1,(.52+.3*pulse(t)+.24*w)*(s < -2.2?.22:1)));}
 function ramp(p,a,b){return Math.max(0,Math.min(1,p<a?p/a:p>b?(1-p)/(1-b):1));}
-function motion(t){outer.rotation.z=t/C.BEZEL_PERIOD*Math.PI*2;inner.rotation.z=-t/C.BEZEL_PERIOD*Math.PI*2;for(var i=0;i<4;i++){var p=(t/C.RING_CYCLE+i/4)%1;rings[i].position.y=-1.36+2.88*p;rings[i].material.opacity=.86*ramp(p,.18,.76);rings[i].visible=rings[i].material.opacity>.001;var q=(t/C.DISC_CYCLE+i/4)%1;discs[i].position.y=-1.56-.92*q;discs[i].material.opacity=ramp(q,.06,.84);discs[i].visible=discs[i].material.opacity>.001;discs[i].material.depthWrite=discs[i].material.opacity>.98;}
-teeMat.emissiveIntensity=.2+.34*neon(t)+.45*pulse(tapAge)*Math.exp(-2*tapAge);}
+function motion(t){outer.rotation.z=t/C.BEZEL_PERIOD*Math.PI*2;inner.rotation.z=-t/C.BEZEL_PERIOD*Math.PI*2;for(var i=0;i<4;i++){var p=(t/C.RING_CYCLE+i/4)%1;rings[i].position.y=-1.36+2.88*p;rings[i].material.opacity=palette.ringOpacity*ramp(p,.18,.76);rings[i].visible=rings[i].material.opacity>.001;var q=(t/C.DISC_CYCLE+i/4)%1;discs[i].position.y=-1.56-.92*q;discs[i].material.opacity=ramp(q,.06,.84);discs[i].visible=discs[i].material.opacity>.001;discs[i].material.depthWrite=discs[i].material.opacity>.98;}
+teeMat.emissiveIntensity=palette.faceEmission+palette.beat*neon(t)+.2*pulse(tapAge)*Math.exp(-2*tapAge);}
 function resize(){var w=window.innerWidth,h=window.innerHeight;renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2.5,Math.sqrt(3600000/(w*h))));renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();var top=document.getElementById('uiTop').getBoundingClientRect().bottom+16,bottom=h-document.querySelector('.h53-copy').getBoundingClientRect().top+14,usable=Math.max(.3,(h-top-bottom)/h),tan=Math.tan(camera.fov*Math.PI/360);baseDistance=Math.max(3.87/(tan*usable),3.87/(tan*camera.aspect*.94));lookY=(top-bottom)/2*(2*baseDistance*tan/h);}
 function updateCamera(){var d=baseDistance/zoom;camera.position.set(d*Math.cos(pitch)*Math.sin(yaw),lookY+d*Math.sin(pitch),d*Math.cos(pitch)*Math.cos(yaw));camera.lookAt(0,lookY,0);camera.updateMatrixWorld();}
 function frame(now){requestAnimationFrame(frame);var dt=last?Math.max(0,(now-last)/1000):0;last=now;if(document.hidden||contextLost)return;if(!paused){time+=dt;tapAge+=dt;}var s=1-Math.exp(-Math.min(dt,.1)*12);if(!paused&&pointers.size===0&&time-lastInput>6)targetYaw+=dt*.022;yaw+=(targetYaw-yaw)*s;pitch+=(targetPitch-pitch)*s;zoom+=(targetZoom-zoom)*s;motion(time);updateCamera();renderer.render(scene,camera);}
@@ -111,7 +155,7 @@ canvas.addEventListener('wheel',function(e){e.preventDefault();targetZoom=THREE.
 canvas.addEventListener('keydown',function(e){var used=true;if(e.key==='ArrowLeft')targetYaw-=.12;else if(e.key==='ArrowRight')targetYaw+=.12;else if(e.key==='ArrowUp')targetPitch=THREE.MathUtils.clamp(targetPitch+.1,-1.12,1.12);else if(e.key==='ArrowDown')targetPitch=THREE.MathUtils.clamp(targetPitch-.1,-1.12,1.12);else if(e.key==='+'||e.key==='=')targetZoom=Math.min(3,targetZoom*1.1);else if(e.key==='-')targetZoom=Math.max(.65,targetZoom/1.1);else if(e.key===' ')paused=!paused;else if(e.key==='Home'){targetYaw=.46;targetPitch=.22;targetZoom=1;}else used=false;if(used){e.preventDefault();lastInput=time;}});
 canvas.addEventListener('webglcontextlost',function(e){e.preventDefault();contextLost=true;failed('描画が中断されました。ページを再読み込みしてください。');});canvas.addEventListener('webglcontextrestored',function(){location.reload();});document.addEventListener('visibilitychange',function(){last=0;pointers.clear();pinch=0;});window.addEventListener('resize',resize);window.addEventListener('orientationchange',function(){setTimeout(resize,250);});
 try{resize();motion(time);updateCamera();renderer.compile(scene,camera);if(renderer.info.programs.some(function(p){return p.diagnostics&&p.diagnostics.runnable===false;}))throw new Error('Shader compilation failed');renderer.render(scene,camera);status.hidden=true;}catch(e){failed('3D描画を開始できませんでした。ページを再読み込みしてください。');return;}
-window.__SIGIL__={version:2,constants:C,scene:scene,world:world,camera:camera,renderer:renderer,rings:rings,discs:discs,tee:tee,outer:outer,inner:inner,getState:function(){return{time:time,paused:paused,yaw:yaw,pitch:pitch,zoom:zoom,pointerCount:pointers.size};}};
+window.__SIGIL__={version:3,constants:C,scene:scene,world:world,camera:camera,renderer:renderer,rings:rings,discs:discs,tee:tee,outer:outer,inner:inner,getState:function(){return{mode:mode,time:time,paused:paused,yaw:yaw,pitch:pitch,zoom:zoom,pointerCount:pointers.size};}};
 requestAnimationFrame(frame);
 })();
 </script>
