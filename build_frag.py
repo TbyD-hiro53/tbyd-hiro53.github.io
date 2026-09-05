@@ -22,11 +22,11 @@ end = '<!-- EMPYREAN_3D_STUDY_END -->'
 card = f'''{start}
 <article class="entry">
   <a class="entry-main" href="empyrean-sigil-3d.html">
-    <div class="row"><span class="idx">STUDY</span><span class="name">Empyrean Sigil 3D / 01</span></div>
+    <div class="row"><span class="idx">STUDY</span><span class="name">Empyrean Sigil 3D</span></div>
     <p class="desc" lang="ja">{field('説明 JA')}</p>
     <p class="desc" lang="en">{field('説明 EN')}</p>
-    <div class="spec"><span class="chip live">Live</span><span class="chip">3D study</span><span class="chip">Compatibility</span></div>
-    <span class="thumb"><img src="empyrean-sigil-3d-thumb.png" alt="Empyrean Sigil 3D — 立体構造のプレビュー" width="1000" height="1000" loading="lazy" decoding="async"></span>
+    <div class="spec"><span class="chip live">Live</span><span class="chip">3D study</span><span class="chip">WebGL</span></div>
+    <span class="thumb"><img src="empyrean-sigil-3d-thumb.png?v=2" alt="Empyrean Sigil 3D — 立体構造のプレビュー" width="1000" height="1000" loading="lazy" decoding="async"></span>
   </a>
 </article>
 {end}'''

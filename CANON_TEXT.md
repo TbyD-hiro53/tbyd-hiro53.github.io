@@ -465,10 +465,13 @@ At the origin there is one office building and nothing else. What stands for gro
 **公開パス** `empyrean-sigil-3d.html`
 
 **説明 JA**
-Empyrean Sigilを立体化した独立Study。二重ベゼルの逆回転、細環の上昇、銀盤の下降を保ち、ドラッグで回転、ピンチで拡大できる。互換表示では反射を簡略化している。
+Empyrean Sigilを立体化した独立Study。二重の輪と目盛りが逆方向に回転し、細環が上昇、鏡面の銀盤が下降する。全画面で鑑賞し、ドラッグで回転、ピンチで拡大、タップで心拍を与える。
 
 **説明 EN**
-An independent three-dimensional study of Empyrean Sigil, preserving the counter-rotating bezels, ascending rings and descending silver discs. Drag to rotate and pinch to zoom; the compatibility renderer uses simplified reflections.
+An independent three-dimensional study of Empyrean Sigil. Open circular rails and radial ticks counter-rotate around ascending rings and descending polished silver discs. A full-viewport artwork: drag to rotate, pinch to zoom and tap to pulse.
 
 **運用記録**
 2026-09-05。旧作empyrean-sigil.htmlは無変更。正式題・位相・新規断章は未設定のため、既存ASSET番号を変更せずSTUDYとして併記。直前の会話内互換版を公開対象とし、実表示未確認の高反射WebGL初稿とは区別する。新規カードはbuild_frag.pyの追加専用処理から生成する。
+
+**v2 更新記録**
+2026-09-05。全画面構成と操作案内をCyberwaferに統一。簡易描画の固定を解除し、WebGLの物理ベース材質・鏡面反射・アンチエイリアスを使用。回転ベゼルの円環面を除去し、二本の輪と独立目盛りを一体で回転させる開放構造へ修正。原典の回転周期、細環と銀盤の運動は維持。
