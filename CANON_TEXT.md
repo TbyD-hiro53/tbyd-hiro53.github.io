@@ -457,3 +457,18 @@ The chairman’s room at the end of the corridor, in the single office building 
 At the origin there is one office building and nothing else. What stands for ground is flat; there are no stars, and in six directions alone six lights appear at an equal remove, though their remove cannot be equal. In the room at the end of the corridor there is a desk, and beyond the desk a chair. The chair is empty. There is no hollow in the seat, no wear upon the arms, no scuffing of the floor. Neither is there dust, nor fading, nor any drying out. It has not aged as a chair that was used, nor as a chair that was not; it has aged only in the manner of a chair that has been maintained. The room is full of the beat. It is not a sound. The pressure of the air fills shallowly and draws back. The instrument reports that the peak arrives from every quarter with equal strength, and against the source it returns: none applicable. There is no sender. There is only the holding. Upon the desk the decrees run, and the one item at the top does not run. The time to approval has been accruing from the oldest receipt, one pulse at a time, and accrues still. In the field for the total, in place of a figure, there is a single word. Continuing. Only the fitting in the ceiling lights the room, and it lights every part of it alike.
 
 <!-- v11整備時：v9同梱index.htmlの既存ASSET 17本文を無改変で転記。新規作品追加ではない。 -->
+
+---
+
+## STUDY — Empyrean Sigil 3D / 01
+
+**公開パス** `empyrean-sigil-3d.html`
+
+**説明 JA**
+Empyrean Sigilを立体化した独立Study。二重ベゼルの逆回転、細環の上昇、銀盤の下降を保ち、ドラッグで回転、ピンチで拡大できる。互換表示では反射を簡略化している。
+
+**説明 EN**
+An independent three-dimensional study of Empyrean Sigil, preserving the counter-rotating bezels, ascending rings and descending silver discs. Drag to rotate and pinch to zoom; the compatibility renderer uses simplified reflections.
+
+**運用記録**
+2026-09-05。旧作empyrean-sigil.htmlは無変更。正式題・位相・新規断章は未設定のため、既存ASSET番号を変更せずSTUDYとして併記。直前の会話内互換版を公開対象とし、実表示未確認の高反射WebGL初稿とは区別する。新規カードはbuild_frag.pyの追加専用処理から生成する。
