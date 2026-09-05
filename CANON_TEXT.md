@@ -460,6 +460,67 @@ At the origin there is one office building and nothing else. What stands for gro
 
 ---
 
+## ASSET 18 — The Preservation Hall
+
+**位相** PHASE UNRESOLVED · THE INDIVIDUAL
+
+**観測ログ** `Every submission was accepted. None was received.`
+
+**説明 JA**
+第三作『個』で二人が目覚めた保存棟。起床から百六十日前後、二人はいない。七十二の架が十二段の雛壇に並び、開いているのは二つ。壁の端末には計測記録が流れ、二の行だけが〇・七八秒ごとに書き換わって常に較差外。根が壁から出て天井へ抜け、開いた戸の外に森。立てる場所は架の脇、端末の前、戸の三つ。首だけが動く。物に触れると観測記録が返る。
+
+**説明 EN**
+The preservation hall of THE INDIVIDUAL, where the two awoke. Some hundred and sixty days after waking; the two are absent. Seventy-two pods stand on twelve rising tiers, and two of them are open. On the wall terminal the measurement record runs; only its second line rewrites itself every 0.78 seconds, and it is always out of tolerance. A root comes out of the wall and passes through the ceiling, and beyond the open door there is a forest. Three places to stand: beside a pod, before the terminal, and at the door. Only the head turns. Touch a thing and it returns its record of observation.
+
+**断章 JA**
+架は横に六、縦に十二。七十二。開いているのは二つで、蓋は枕側の軸で退いて、立ったまま戻らない。七十は閉じたままで、曇った蓋の下に、うすい桃色の層が色までは見えて、形にはならない。壁の一部が他より滑らかで、そこに計測の記録が流れている。基準は〇・七八。較差は上下に〇・〇一。二の行だけが拍ごとに書き換わり、いつも較差の外にある。いちばん下に、送信。その下に、申請。押されたものは全部受理され、届いたものは一つもない。根が壁から出て、天井へ抜けている。割って入っているのではない。面の一部である。戸は初日から鍵が無く、二十九日目から開いたままで、外へ二十歩の先に根の道が始まる。前庭の隅に、合わない補装が六つと、切った髪の小さな山。百の包の山は、三日前に尽きている。
+
+**断章 EN**
+The pods are six across and twelve deep. Seventy-two. Two are open; their lids have withdrawn on the axis at the pillow end and stand there, and do not return. Seventy remain closed, and beneath the clouded lids a thin pink layer can be seen as far as its colour, and no farther. One part of the wall is smoother than the rest, and there the measurement record runs. The base is 0.78. The tolerance is 0.01 either way. Only the second line rewrites itself with each pulse, and it is always outside the tolerance. At the bottom: send. Beneath it: apply. Everything sent was accepted; nothing was received. A root comes out of the wall and passes through the ceiling. It did not break in. It is part of the surface. The door has been unlocked from the first day and open since the twenty-ninth, and twenty paces out the root road begins. In the corner of the forecourt lie six shells that fit no one, and a small heap of cut hair. The pile of a hundred packets ran out three days ago.
+
+**主要諸元**
+- 棟 内法 10.8 × 39.6 × 9.6。長辺の壁厚 1.10。前庭 4.0 m は平ら。十二段が奥へ上がる（蹴上 0.42・踏面 2.96）
+- 架 外寸 2.24 × 0.92 × 0.64。六列（ピッチ 1.60）× 十二段 = 七十二。開放二つ（蓋は 78° で立つ）、閉止七十（曇り硝子）
+- 端末 段 3・面 0.42 × 0.60。基準 〇・七八／較差 ±〇・〇一。二の行だけが拍ごとに書き換わり常に較差外。包の口・水の口が並ぶ
+- 根 主根 径 0.60 が壁 y=5.2 から出て天井 9.6 へ抜け、細い根が面へ溶ける。天井は面そのものが光る。開口 2.40 × 1.60
+- 立ち場所 三つ。架の脇（眼高 段の床 +0.32）／端末の前（+1.55）／戸（座った高さ 1.10）。位置固定・向き自在
+- 外 戸から根の道まで二十歩。幹は光を透かし、色は青緑に近く青緑ではない。円盤が二・四秒で一巡
+- 拍 0.78 s（床の面の明るさが浅く息をする）／2.4 s ／三色 #ff05a8 / #f2dbe9 / #00ddc8
+- 実測 三角形 451,836（縦）・描画 55・外部リクエスト 0
+
+---
+
+## ASSET 19 — The Confluence
+
+**位相** PHASE UNRESOLVED · THE BLANK
+
+**観測ログ** `Two, until the near water. One, after it.`
+
+**説明 JA**
+第九区、水路の合流点。四方から入った水は広さに混ざって向きを失い、日は二つ——ピンクの白とターコイズの白——が、大きいほうが水に触れかけたところで止まっている。水の上には光の道が二本、岸の近くで一本に混ざる。時間は動かない。動くのは円盤と波と、〇・七八秒の拍だけ。立てる場所は岸の道、円盤の真下、記録所の床の切れ目の三つ。首だけが動く。物に触れると観測記録が返る。
+
+**説明 EN**
+The confluence of the Ninth District. Water enters from four sides, mixes into the breadth and loses its direction; the two suns — one pink-white, one turquoise-white — are held at the moment the larger touches the water. Two paths of light lie on the surface and become one near the shore. Time does not move; only the discs, the waves and the 0.78-second pulse do. Three places to stand: the shore path, beneath a disc, and the gap in the floor of the record house. Only the head turns. Touch a thing and it returns its record of observation.
+
+**断章 JA**
+水は四方から入ってくる。入るところには向きがあり、速さがあり、縁との境がある。切れ目を越えると、向きが薄れ、速さがほどけ、境がなくなる。どこまでが水路の水だったのかを追える距離は、思っていたより短い。入ったあとは、見えない。水の上を円いものが回っている。等間隔で、同じ速さで、どれも何も載せていない。回る音はなく、水の音だけが下にある。日は二つ、並んで、片方が大きく、片方が小さい。降りるにつれて水の上に光の道が二本できて、二本は岸の近くで一本に混ざる。日のほうは離れたまま、光のほうだけが混ざっている。大きいほうが水に触れて、欠けかけたところで、この帯の夕方は止まっている。暗くなる速さを記す欄は、ここにはない。
+
+**断章 EN**
+Water enters from four sides. Where it enters it has a direction, a speed and an edge. Past the break the direction thins, the speed comes undone and the edge is gone. The distance over which the water of a channel can still be followed is shorter than one supposes. After it has entered, it cannot be seen. Over the water round things turn, at equal intervals and at one speed, and none of them carries anything. There is no sound of turning; only the sound of the water lies beneath. The suns are two, side by side, one large and one small. As they come down, two paths of light form on the water, and near the shore the two become one. The suns stay apart; only the light mixes. The larger has touched the water and begun to wane, and there the evening of this belt has stopped. There is no field here in which to record how fast it grows dark.
+
+**主要諸元**
+- 視点 三つ。岸の道 (0, 2.70, +9.0)／円盤の真下 (−30, 2.70, −18.0)／記録所の床の切れ目 (20, 2.15, −3.2)。位置固定・向き自在
+- 日 2件 大小。大 視半径 2.40°・下端が水平線の 0.60° 下（欠けている）／小 視半径 1.50°・方位差 4.3°・下端は水平線の 1.20° 上。中心間隔 4.39°（視半径の和 3.90° に対し 0.49° 離れる）。色は Binary Dusk と同一
+- 光の道 反射板を使わず、波の傾き分布による解析的鏡面（GGX・Cox–Munk 型、rms 傾斜 0.20）。遠方 200 m で完全に分離、岸から 18 m 以内で一本
+- 鏡像 水面に対する鏡映カメラで 1/2 解像度に描き、波の法線で歪めて合成。四角い面・円盤・根が水に映る
+- 円盤 径 24・厚み 1.2・水面上 12.0・皿径 20・深さ 0.9。格子ピッチ 96、奇数行は四分の三ピッチずらす。三つの立ち場所から日に掛かる格子点は描かない（近景 9 基＋遠景 60 基）
+- 記録所 内法 7.2 × 9.6 × 3.6。床は水面 +0.60 で水際まで続き、奥の壁は途中まで。庇を沖へ 3.60。基礎 0.15 出・0.30 高、水位の痕 y 0〜0.62。全稜 r 0.045
+- 岸 土の高さ場（三オクターブ）・小石 1,600・道幅 1.40・根 12 株（骨格法）・陸の岬。四角い面 5.2 × 3.6 × 0.20、傾き 4°、x=−5.2 z=−62
+- 拍 0.78 s（水面の明るさが浅く息をする）／2.4 s（円盤一巡）／三色 #ff05a8 / #f2dbe9 / #00ddc8
+- 後処理 半解像度ブルーム（閾値 0.80）・極小の split toning・周辺減光 0.18
+
+---
+
 ## STUDY — Empyrean Sigil 3D / 01
 
 **公開パス** `empyrean-sigil-3d.html`
