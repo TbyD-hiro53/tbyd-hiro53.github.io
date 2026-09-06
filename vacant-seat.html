@@ -68,6 +68,41 @@ html,body{width:100%;height:100%;background:#010204;overflow:hidden;
 @media (max-width:430px){#cr{font-size:8px;letter-spacing:.02em}}
 @media (min-width:760px){#panel{left:auto;width:392px;right:22px;bottom:96px;border-radius:3px;
  padding:24px 24px 26px;background:rgba(2,4,7,.94);border:1px solid rgba(242,219,233,.10)}}
+
+/* Observation controls — shared Liquid Glass language. */
+#back,#views button,#origin,#px,#panel{
+ background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+ border:1px solid rgba(242,230,242,.23);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -1px 0 rgba(255,255,255,.04),0 8px 26px rgba(0,0,0,.20);
+ -webkit-backdrop-filter:blur(22px) saturate(1.55);backdrop-filter:blur(22px) saturate(1.55);
+ color:#ece3eb;
+}
+#back,#views button,#origin,#px{min-height:44px;border-radius:999px;touch-action:manipulation;
+ transition:background .2s,border-color .2s,color .2s,box-shadow .2s}
+#back{top:calc(12px + env(safe-area-inset-top));left:16px;padding:14px 18px;line-height:16px}
+#hud{top:calc(68px + env(safe-area-inset-top));left:20px;color:rgba(238,225,239,.65);text-shadow:0 1px 5px #010204}
+#hud b{color:#66d7ce}
+#views{bottom:calc(76px + env(safe-area-inset-bottom));gap:8px;white-space:nowrap}
+#views button{padding:12px 19px;color:#ece3eb}
+#views button.on{background:linear-gradient(145deg,rgba(13,110,104,.86),rgba(5,61,64,.88));color:#defff9;border-color:rgba(126,240,223,.65)}
+#origin{bottom:calc(25px + env(safe-area-inset-bottom));padding:10px 22px;font-family:"SF Mono",Menlo,monospace;color:#d5c6d4;font-size:10px}
+#origin.on{color:#ffe2f3;border-color:#d983b8;background:linear-gradient(145deg,rgba(109,43,84,.80),rgba(45,26,45,.85))}
+#cr{color:rgba(230,213,229,.48);font-size:8px}
+#panel{left:auto;right:12px;bottom:calc(134px + env(safe-area-inset-bottom));width:min(420px,calc(100vw - 24px));
+ padding:24px 24px 26px;border-radius:24px;max-height:calc(100dvh - 220px - env(safe-area-inset-top) - env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain;
+ background:linear-gradient(145deg,rgba(59,54,64,.82),rgba(19,24,32,.90));visibility:hidden;
+ transform:translateY(12px);transition:opacity .26s,transform .26s,visibility .26s}
+#panel.on{visibility:visible;transform:translateY(0)}
+#pt{padding-right:42px;line-height:1.7;color:#84e4d6}
+#pe{color:#f3eaf1;font-size:12px}
+#pj{color:#d1c6d1;font-size:12px}
+#ps{border-top:1px solid rgba(235,219,235,.15);padding-top:12px;color:#aaa3b2;line-height:1.8}
+#px{top:8px;right:8px;width:44px;height:44px;border-radius:50%;color:#e8e1ea}
+#back:focus-visible,#origin:focus-visible,#views button:focus-visible,#px:focus-visible{outline:2px solid #82e6d6;outline-offset:3px}
+#back:active,#px:active{background-color:rgba(100,125,130,.38);color:#fff}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){#back,#views button,#origin,#px,#panel{background-color:#222832}}
+@media(max-height:510px){#hud{display:none}#panel{bottom:12px;right:12px;width:min(380px,calc(100vw - 190px));max-height:calc(100dvh - 24px)}#views{left:12px;transform:none;bottom:70px;flex-direction:column}#origin{left:12px;transform:none;bottom:20px}#cr{display:none}}
+@media(prefers-reduced-motion:reduce){#back,#views button,#origin,#px,#panel{transition:none}}
 </style>
 <script>/* h53 count */(function(){try{
 if(location.search.indexOf('skipgc')>-1)localStorage.setItem('skipgc','t');
@@ -83,9 +118,9 @@ var i=new Image();i.src='https://hiro53.goatcounter.com/count'
 <canvas id="c"></canvas>
 <a id="back" href="./index.html">&#8592; index</a>
 <div id="hud">asset 17 · the vacant seat<br><b>phase unresolved · the origin</b><br>tap an object</div>
-<div id="views"><button id="v0" class="on">机の前</button><button id="v1">椅子の背後</button></div>
-<button id="origin">origin</button>
-<div id="panel"><button id="px">&times;</button>
+<div id="views" role="group" aria-label="観測位置"><button id="v0" class="on" aria-pressed="true">机の前</button><button id="v1" aria-pressed="false">椅子の背後</button></div>
+<button id="origin" aria-pressed="false" aria-label="決裁履歴を遡る">origin</button>
+<div id="panel" role="region" aria-labelledby="pt" aria-hidden="true"><button id="px" aria-label="観測記録を閉じる">&times;</button>
 <div id="pt"></div><div id="pe"></div><div id="pj"></div><div id="ps"></div></div>
 <div id="cr">&copy; 2026 h!ro53 &middot; deus ex machina &mdash; viewing permitted, reuse prohibited</div>
 <script>
@@ -106,6 +141,18 @@ var H53 = (function () {
   'use strict';
   var renderer = null;
   function useRenderer(r) { renderer = r; }
+
+  // UV seam vertices stay separate; their normals describe one continuous surface.
+  function smoothPeriodicSeam(g, rows) {
+    var p=g.attributes.position,n=g.attributes.normal;
+    rows.forEach(function(row){
+      var a=row[0],b=row[row.length-1];
+      if(Math.hypot(p.getX(a)-p.getX(b),p.getY(a)-p.getY(b),p.getZ(a)-p.getZ(b))>0.00001)return;
+      var x=n.getX(a)+n.getX(b),y=n.getY(a)+n.getY(b),z=n.getZ(a)+n.getZ(b),L=Math.hypot(x,y,z);
+      if(L>0.00001){n.setXYZ(a,x/L,y/L,z/L);n.setXYZ(b,x/L,y/L,z/L);}
+    });
+  }
+
 
   var P_METRO = (function () {
 
@@ -276,6 +323,7 @@ var H53 = (function () {
     g.addGroup(0, outer.length, 0);
     g.addGroup(outer.length, bore.length, 1);
     g.computeVertexNormals();
+    smoothPeriodicSeam(g, vid);
     return g;
   }
 
@@ -527,11 +575,11 @@ var H53 = (function () {
     pendulum.add(box(W_HX * 2, 0.0084, 0.0048, M.pend, 0, wy, 0));
     pendulum.add(box(T_HX * 2, 0.0012, 0.0062, M.trim, 0, wy + 0.0055, 0));
     pendulum.add(box(T_HX * 2, 0.0012, 0.0062, M.trim, 0, wy - 0.0055, 0));
-    var pv = new THREE.Mesh(new THREE.CylinderGeometry(0.0032, 0.0032, 0.0058, 24), M.trim);
-    pv.rotation.z = Math.PI / 2;
+    var pv = new THREE.Mesh(new THREE.CylinderGeometry(0.0032, 0.0032, 0.0088, 32), M.trim);
+    pv.rotation.x = Math.PI / 2;
     pendulum.add(pv);
-    var pin = new THREE.Mesh(new THREE.CylinderGeometry(0.0009, 0.0009, 0.0072, 14), M.mag);
-    pin.rotation.z = Math.PI / 2;
+    var pin = new THREE.Mesh(new THREE.CylinderGeometry(0.0009, 0.0009, 0.0100, 24), M.mag);
+    pin.rotation.x = Math.PI / 2;
     pendulum.add(pin);
     g.add(pendulum);
 
@@ -852,6 +900,7 @@ var H53 = (function () {
     g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
     g.setIndex(idx);
     g.computeVertexNormals();
+    smoothPeriodicSeam(g, vid);
     return g;
   }
 
@@ -1032,7 +1081,7 @@ var H53 = (function () {
     screenTex = new THREE.CanvasTexture(screenCanvas);
     screenTex.encoding = THREE.sRGBEncoding;
     screenTex.anisotropy = 8;
-    var scr = new THREE.Mesh(screenGeometry(SCR_W, SCR_H, CURV, 28),
+    var scr = new THREE.Mesh(screenGeometry(SCR_W, SCR_H, CURV, 64),
       new THREE.MeshBasicMaterial({ map: screenTex }));
     scr.position.set(0, SCR_CY, -0.0016);
     g.add(scr);
@@ -1046,7 +1095,7 @@ var H53 = (function () {
     g.add(fn);
 
     // 前面の硝子。映り込みだけを持つ
-    var gl = new THREE.Mesh(screenGeometry(SCR_W + 0.0022, SCR_H + 0.0022, CURV, 20), M.glass);
+    var gl = new THREE.Mesh(screenGeometry(SCR_W + 0.0022, SCR_H + 0.0022, CURV, 64), M.glass);
     gl.position.set(0, SCR_CY, 0.0012);
     g.add(gl);
 
@@ -1270,6 +1319,7 @@ var H53 = (function () {
     g.addGroup(0, outer.length, 0);
     g.addGroup(outer.length, bore.length, 1);
     g.computeVertexNormals();
+    smoothPeriodicSeam(g, vid);
     return g;
   }
 
@@ -1541,8 +1591,8 @@ var H53 = (function () {
 
     // 底の脚。机に触れるのはここだけである
     var fz = zMid(0);
-    g.add(box(HWID * 2 - 0.052, 0.0022, 0.030, M.foot, 0, 0.0011, fz + 0.0125));
-    g.add(box(HWID * 2 - 0.052, 0.0022, 0.030, M.foot, 0, 0.0011, fz - 0.0125));
+    g.add(box(HWID * 2 - 0.052, 0.0022, 0.020, M.foot, 0, 0.0011, fz + 0.0125));
+    g.add(box(HWID * 2 - 0.052, 0.0022, 0.020, M.foot, 0, 0.0011, fz - 0.0125));
 
     return g;
   }
@@ -1629,6 +1679,7 @@ var H53 = (function () {
     g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
     g.setIndex(idx);
     g.computeVertexNormals();
+    smoothPeriodicSeam(g, vid);
     return g;
   }
 
@@ -1745,6 +1796,7 @@ var H53 = (function () {
     g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
     g.setIndex(idx);
     g.computeVertexNormals();
+    smoothPeriodicSeam(g, vid);
     return g;
   }
 
@@ -1819,7 +1871,7 @@ var H53 = (function () {
     c.width = 256; c.height = 256;
     var g = c.getContext('2d');
     g.fillStyle = '#b4b4b4'; g.fillRect(0, 0, c.width, c.height);
-    g.globalAlpha = 0.30;
+    g.globalAlpha = 0.12;
     for (var i = 0; i < c.width; i += 4) {
       g.fillStyle = (i / 4) % 2 ? '#d2d2d2' : '#909090';
       g.fillRect(i, 0, 2, c.height);
@@ -2013,44 +2065,32 @@ var H53 = (function () {
 
   // 稜が一様に落ちた箱
   function roundedBox(w, h, d, r, n, seg, lev) {
-    r = r === undefined ? FILLET : r;
-    n = n === undefined ? NEXP : n;
-    seg = seg || 40; lev = lev || 18;
-    var pos = [], uv = [], idx = [], i, j, rings = [];
-    for (j = 0; j <= lev; j++) {
-      var y = -h / 2 + h * j / lev;
-      var dE = h / 2 - Math.abs(y), off = 0;
-      if (dE < r) { var u = r - dE; off = r - Math.sqrt(Math.max(0, r * r - u * u)); }
-      var hw = Math.max(1e-4, w / 2 - off), hd = Math.max(1e-4, d / 2 - off);
-      var row = [];
-      for (i = 0; i <= seg; i++) {
-        var p = sqPt(hw, hd, Math.PI * 2 * i / seg, n);
-        row.push([p[0], y, p[1]]);
+    r = Math.min(r === undefined ? FILLET : r, Math.min(w,h,d) * 0.49);
+    var half = [w/2,h/2,d/2], pos=[], normal=[], uv=[], idx=[];
+    function cuts(h) {
+      var a=[], steps=6;
+      for(var j=0;j<=steps;j++) a.push(-h+r*(1-Math.cos(j/steps*Math.PI/2)));
+      for(var j=0;j<=steps;j++) a.push(h-r+r*Math.sin(j/steps*Math.PI/2));
+      return a;
+    }
+    for(var axis=0;axis<3;axis++) for(var sign=-1;sign<=1;sign+=2){
+      var u=(axis+1)%3,v=(axis+2)%3,U=cuts(half[u]),V=cuts(half[v]),start=pos.length/3;
+      for(var j=0;j<V.length;j++) for(var i=0;i<U.length;i++){
+        var q=[0,0,0];q[axis]=sign*half[axis];q[u]=U[i];q[v]=V[j];
+        var c=q.map(function(x,k){return Math.max(-half[k]+r,Math.min(half[k]-r,x));});
+        var N=q.map(function(x,k){return x-c[k];}),L=Math.hypot(N[0],N[1],N[2]);
+        for(var k=0;k<3;k++){N[k]/=L;pos.push(c[k]+N[k]*r);normal.push(N[k]);}
+        uv.push((q[u]/half[u]+1)/2,(q[v]/half[v]+1)/2);
       }
-      rings.push(row);
-    }
-    function push(p, a, b) { pos.push(p[0], p[1], p[2]); uv.push(a, b); return pos.length / 3 - 1; }
-    var vid = [];
-    for (j = 0; j <= lev; j++) {
-      vid[j] = [];
-      for (i = 0; i <= seg; i++) vid[j][i] = push(rings[j][i], i / seg, j / lev);
-    }
-    for (j = 0; j < lev; j++) {
-      for (i = 0; i < seg; i++) {
-        idx.push(vid[j][i], vid[j + 1][i], vid[j + 1][i + 1],
-                 vid[j][i], vid[j + 1][i + 1], vid[j][i + 1]);
+      for(var j=0;j<V.length-1;j++) for(var i=0;i<U.length-1;i++){
+        var A=start+j*U.length+i,B=A+1,C=A+U.length,D=C+1;
+        if(sign>0)idx.push(A,B,D,A,D,C);else idx.push(A,D,B,A,C,D);
       }
     }
-    var cb = push([0, -h / 2, 0], 0.5, 0.5);
-    for (i = 0; i < seg; i++) idx.push(cb, vid[0][i], vid[0][i + 1]);
-    var ct = push([0, h / 2, 0], 0.5, 0.5);
-    for (i = 0; i < seg; i++) idx.push(ct, vid[lev][i + 1], vid[lev][i]);
-    var g = new THREE.BufferGeometry();
-    g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
-    g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
-    g.setIndex(idx);
-    g.computeVertexNormals();
-    return g;
+    var g=new THREE.BufferGeometry();
+    g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+    g.setAttribute('normal',new THREE.Float32BufferAttribute(normal,3));
+    g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));g.setIndex(idx);return g;
   }
 
   // ─────────────────────────── 材質
@@ -2066,7 +2106,7 @@ var H53 = (function () {
     var _s = 20260829;
     function rnd() { _s = (_s * 9301 + 49297) % 233280; return _s / 233280; }
     for (i = 0; i < a.length; i += 4) {
-      var v = (rnd() - 0.5) * 16;
+      var v = (rnd() - 0.5) * 6;
       a[i] += v; a[i + 1] += v; a[i + 2] += v;
     }
     g.putImageData(d, 0, 0);
@@ -2113,7 +2153,7 @@ var H53 = (function () {
     var fl = concreteTexture('#a9a2a6');
     fl.repeat.set(9, 11);
     M.floor = new THREE.MeshStandardMaterial({
-      color: 0xa38695, roughness: 0.46, metalness: 0.08, map: fl,
+      color: 0x97818e, roughness: 0.57, metalness: 0.08, map: fl,
       envMap: ENV, envMapIntensity: 0.50
     });
     M.floor.__g = true;
@@ -2122,7 +2162,7 @@ var H53 = (function () {
     cl.repeat.set(7, 9);
     M.ceil = new THREE.MeshStandardMaterial({
       color: 0xb2919f, roughness: 0.98, metalness: 0.0, map: cl,
-      emissive: 0x8d6f7d, emissiveMap: cl, emissiveIntensity: 0.14
+      emissive: 0x8d6f7d, emissiveMap: cl, emissiveIntensity: 0.075
     });
     M.ceil.__g = true;
     // 器具の枠。削り出しの縁
@@ -2270,10 +2310,15 @@ var H53 = (function () {
       g.add(lp);
     }
 
-    // 扉。廊下の突き当たり——視点の背後にある
-    g.add(slab(0.900, 2.100, 0.028, M.dark, -0.90, 1.050, HZ - 0.016, 0.004));
-    g.add(slab(0.940, 2.140, 0.012, M.dark, -0.90, 1.070, HZ - 0.030, 0.003));
-    g.add(slab(0.006, 2.100, 0.008, M.trim, -0.452, 1.050, HZ - 0.034, 0.002));
+    // Door leaf, reveal and independent jambs; no second slab over the leaf.
+    g.add(slab(0.888, 2.088, 0.028, M.dark, -0.90, 1.050, HZ - 0.020, 0.004));
+    for (s=-1;s<=1;s+=2)
+      g.add(slab(0.024, 2.140, 0.044, M.desk, -0.90+s*0.464, 1.070, HZ-0.040, 0.003));
+    g.add(slab(0.952, 0.024, 0.044, M.desk, -0.90, 2.128, HZ-0.040, 0.003));
+    // Pull handle has two mounting posts and a clear grip behind its bar.
+    for(var hy=0;hy<2;hy++)
+      g.add(slab(0.020,0.020,0.042,M.trim,-0.552,0.920+hy*0.160,HZ-0.052,0.004));
+    g.add(slab(0.020,0.196,0.020,M.trim,-0.552,1.000,HZ-0.080,0.006));
 
     // 囲いは影を落とさない。受けるだけである。
     // 壁と天井が互いへ落とすと、床に説明のつかない帯が出る
@@ -2306,8 +2351,8 @@ var H53 = (function () {
     // 側板。端から 0.13 内へ寄せる。天板が浮いて見える
     var sx = DESK_W / 2 - 0.130;
     for (s = -1; s <= 1; s += 2) {
-      g.add(slab(0.026, DESK_H - DESK_T - 0.012, DESK_D - 0.090, M.desk,
-        s * sx, (DESK_H - DESK_T - 0.012) / 2, DESK_CZ, 0.005));
+      g.add(slab(0.026, DESK_H - DESK_T, DESK_D - 0.090, M.desk,
+        s * sx, (DESK_H - DESK_T) / 2, DESK_CZ, 0.005));
     }
     // 幕板も前面板も置かない。机は天板と脚だけである。隠すものがない
     // 接地。四隅の座金
@@ -2488,38 +2533,28 @@ var H53 = (function () {
     grade();
   }
 
-  // 室の調律。
-  // 部品はそれぞれ明るい台の上で作られている。この室には光源が二つしかない。
-  // 淡い面は白へ飛び、暗い面は黒へ潰れる。両端を室の階調へ寄せる。
-  // 自ら光る面（表示板・管面）は触らない。それだけが室の光源だからである
+  // A shared finish pass; retain each asset's palette and optical role.
   function grade() {
-    var hsl = {};
-    scene.traverse(function (o) {
-      if (!o.isMesh || !o.material || !o.material.isMeshStandardMaterial) return;
-      var m = o.material;
-      if (m.__g) return;
-      m.__g = true;
-      m.color.getHSL(hsl);
-      if (hsl.l > 0.52) m.color.setHSL(hsl.h, hsl.s * 0.62, 0.42 + (hsl.l - 0.52) * 0.26);
-      else if (hsl.l < 0.13) m.color.setHSL(hsl.h, hsl.s, 0.13 + hsl.l * 0.55);
-      if (m.envMapIntensity !== undefined) m.envMapIntensity = Math.min(m.envMapIntensity, 0.60);
-      // 天井が光るので、金属は映すものを得た。金属度は残す。
-      // ただし鏡のような面は室の広さを誇張するので、粗さだけ一段足す
-      if (m.metalness > 0.42) {
+    var seen = new Set(), hsl = {};
+    scene.traverse(function(o){
+      if(!o.isMesh || !o.material) return;
+      (Array.isArray(o.material)?o.material:[o.material]).forEach(function(m){
+        if(seen.has(m)) return;seen.add(m);
+        if(!m.isMeshStandardMaterial || m.__g || m.transparent) return;
         m.color.getHSL(hsl);
-        if (hsl.l < 0.17) m.color.setHSL(hsl.h, hsl.s, 0.17);
-      }
-      if (m.roughness < 0.26) m.roughness = m.roughness + 0.12;
-      // 影を落とさず受けもしない面が残っていた。自ら光る面以外は影に加える
-      if (!o.castShadow && !o.receiveShadow) { o.castShadow = true; o.receiveShadow = true; }
+        if(hsl.l>0.52) m.color.setHSL(hsl.h,hsl.s*0.94,0.52+(hsl.l-0.52)*0.48);
+        else if(hsl.l<0.13) m.color.setHSL(hsl.h,hsl.s,0.09+hsl.l*0.55);
+        if(m.envMapIntensity!==undefined) m.envMapIntensity=Math.min(m.envMapIntensity,1.10);
+        // Roughness maps already describe the finish. Leave specular edges intact.
+      });
     });
   }
 
   // ─────────────────────────── 場
   function init() {
     var cv = document.getElementById('c');
-    renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+    renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -2543,11 +2578,11 @@ var H53 = (function () {
     key.position.set(0.55, 5.60, 0.90);
     key.target.position.set(0, 0, -0.70);
     key.castShadow = true;
-    key.shadow.mapSize.width = 1024; key.shadow.mapSize.height = 1024;
+    key.shadow.mapSize.width = 2048; key.shadow.mapSize.height = 2048;
     key.shadow.camera.near = 0.5; key.shadow.camera.far = 16.0;
     key.shadow.camera.left = -4.6; key.shadow.camera.right = 4.6;
     key.shadow.camera.top = 5.4; key.shadow.camera.bottom = -5.4;
-    key.shadow.bias = -0.0016; key.shadow.normalBias = 0.014;
+    key.shadow.bias = -0.00025; key.shadow.normalBias = 0.002;
     scene.add(key); scene.add(key.target);
     // 面光源の代わり。反対側からも同じ高さで当て、影の縁を殺す
     var soft = new THREE.DirectionalLight(0xe4ecf4, 0.16);
@@ -2604,10 +2639,12 @@ var H53 = (function () {
     document.getElementById('pj').innerHTML = d.ja;
     document.getElementById('ps').textContent = d.s;
     document.getElementById('panel').classList.add('on');
+    document.getElementById('panel').setAttribute('aria-hidden','false');
   }
   function closePanel() {
     openKey = null;
     document.getElementById('panel').classList.remove('on');
+    document.getElementById('panel').setAttribute('aria-hidden','true');
   }
 
   function goStation(i) {
@@ -2617,10 +2654,13 @@ var H53 = (function () {
     pitAdj = pitPad() * s.up; pit = s.pit + pitAdj; zoom = 1;
     document.getElementById('v0').className = i === 0 ? 'on' : '';
     document.getElementById('v1').className = i === 1 ? 'on' : '';
+    document.getElementById('v0').setAttribute('aria-pressed',String(i===0));
+    document.getElementById('v1').setAttribute('aria-pressed',String(i===1));
     closePanel();
   }
 
   function bind(cv) {
+    window.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel();});
     function down(x, y) { drag = true; px = x; py = y; moved = 0; }
     function move(x, y) {
       if (!drag) return;
@@ -2642,6 +2682,7 @@ var H53 = (function () {
     window.addEventListener('mouseup', function (e) { up(e.clientX, e.clientY); });
     cv.addEventListener('touchstart', function (e) {
       if (e.touches.length === 1) down(e.touches[0].clientX, e.touches[0].clientY);
+      else { drag=false; moved=20; bind._d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY); }
     }, { passive: true });
     cv.addEventListener('touchmove', function (e) {
       if (e.touches.length === 1) move(e.touches[0].clientX, e.touches[0].clientY);
@@ -2658,6 +2699,7 @@ var H53 = (function () {
       var tch = e.changedTouches && e.changedTouches[0];
       up(tch ? tch.clientX : 0, tch ? tch.clientY : 0);
     }, { passive: true });
+    cv.addEventListener('touchcancel',function(){drag=false;bind._d=0;},{passive:true});
     cv.addEventListener('wheel', function (e) {
       zoom = Math.max(0.52, Math.min(1.30, zoom * (1 + e.deltaY * 0.0011)));
       e.preventDefault();
@@ -2672,6 +2714,7 @@ var H53 = (function () {
       if (seeking) return;
       seeking = true; seekT = 0; seekPaint = 1;
       this.className = 'on';
+      this.setAttribute('aria-pressed','true');
     });
   }
 
@@ -2717,6 +2760,7 @@ var H53 = (function () {
         seeking = false; seekT = 0; seekPaint = 0;
         H53.crt.seek(0);
         document.getElementById('origin').className = '';
+        document.getElementById('origin').setAttribute('aria-pressed','false');
       }
     }
 
@@ -2758,3 +2802,4 @@ var H53 = (function () {
 </script>
 </body>
 </html>
+
