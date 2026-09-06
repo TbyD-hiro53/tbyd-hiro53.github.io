@@ -1175,5 +1175,29 @@ animate();
 
 })();
 </script>
+<style id="h53glass">/* h53 canonical glass — controls */
+.eraBtn,body.dark .eraBtn,body.light .eraBtn,#cvBtn,.bgbtn,#bgbtn,body.dark #bgbtn,body.light #bgbtn,#retry,#status button{
+box-sizing:border-box;-webkit-appearance:none;appearance:none;border-radius:999px;
+color:#ece3eb;text-shadow:0 1px 2px rgba(0,0,0,.45);
+background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+border:1px solid rgba(242,230,242,.23);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -1px 0 rgba(255,255,255,.04),0 8px 26px rgba(0,0,0,.20);
+-webkit-backdrop-filter:blur(22px) saturate(1.55);backdrop-filter:blur(22px) saturate(1.55);
+cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+transition:transform .18s ease,background .25s ease,border-color .25s ease}
+.eraBtn:active,body.dark .eraBtn:active,body.light .eraBtn:active,#cvBtn:active,.bgbtn:active,#bgbtn:active,#retry:active,#status button:active{transform:scale(.96);color:#eafffc;border-color:rgba(0,221,200,.55)}
+.eraBtn.on,body.dark .eraBtn.on,body.light .eraBtn.on,#cvBtn.on{background:linear-gradient(150deg,rgba(0,221,200,.30),rgba(9,67,65,.72));
+color:#eafffc;border-color:rgba(0,221,200,.5);font-weight:400}
+/* 寸法とレイアウトは作品側の意匠を残す */
+.eraBtn{display:inline-flex;align-items:center;justify-content:center;
+min-height:44px;padding:0 15px;letter-spacing:.10em;text-transform:lowercase}
+.bgbtn,#bgbtn,#retry,#status button{display:inline-flex;align-items:center;justify-content:center;
+min-height:44px;padding:0 17px;letter-spacing:.10em;text-transform:lowercase}
+#cvBtn{padding:9px 24px}
+.eraBtn:focus-visible,#cvBtn:focus-visible,.bgbtn:focus-visible,#bgbtn:focus-visible,#retry:focus-visible,#status button:focus-visible{outline:2px solid #76e2d4;outline-offset:4px}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+.eraBtn,body.dark .eraBtn,body.light .eraBtn,#cvBtn,.bgbtn,#bgbtn,body.dark #bgbtn,body.light #bgbtn,#retry,#status button{background:#2b2f38}
+.eraBtn.on,body.dark .eraBtn.on,body.light .eraBtn.on,#cvBtn.on{background:#135954}}
+</style>
 </body>
 </html>
