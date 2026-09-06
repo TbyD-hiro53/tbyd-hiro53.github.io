@@ -124,6 +124,63 @@ header{padding:calc(40px + env(safe-area-inset-top)) 0 26px;border-bottom:1px so
 .entry:first-of-type .idx{color:var(--mag);letter-spacing:.2em}
 .entry:first-of-type .name{background:linear-gradient(96deg,var(--mag),var(--red));
   -webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---- 型（媒体）: ターコイズ=WebGL / マゼンタ=Canvas 2D / ペール=SVG / 白銀=TEXT ---- */
+.entry{--tc:var(--chrome)}
+.entry[data-k="gl"]{--tc:#00ddc8}
+.entry[data-k="c2d"]{--tc:#ff05a8}
+.entry[data-k="svg"]{--tc:#f2dbe9}
+.entry[data-k="txt"]{--tc:#d9dee5}
+.entry[data-k] .idx{color:var(--tc)}
+.entry[data-k] .thumb::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+  z-index:3;background:var(--tc);opacity:.62;transition:opacity .34s ease}
+.entry[data-k]:hover .thumb::before,.entry[data-k]:active .thumb::before,
+.entry[data-k]:focus-within .thumb::before{opacity:1;box-shadow:0 0 9px var(--tc)}
+
+/* ---- 目次パネル ---- */
+#tocBtn{position:fixed;z-index:56;left:50%;transform:translateX(-50%);
+  bottom:calc(14px + env(safe-area-inset-bottom));
+  -webkit-appearance:none;appearance:none;cursor:pointer;
+  display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 20px;
+  border-radius:999px;box-sizing:border-box;border:1px solid rgba(242,230,242,.23);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+  color:var(--milk);font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;white-space:nowrap;line-height:1}
+#tocBtn i{font-style:normal;font-size:13px;line-height:1;color:var(--cyan)}
+#toc{position:fixed;inset:0;z-index:70;display:none;background:rgba(5,3,8,.9);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  overflow-y:auto;-webkit-overflow-scrolling:touch}
+#toc.on{display:block}
+#toc .in{max-width:760px;margin:0 auto;
+  padding:calc(74px + env(safe-area-inset-top)) 20px calc(110px + env(safe-area-inset-bottom))}
+#toc h2{font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--chrome);padding-bottom:13px;border-bottom:1px solid var(--line)}
+#toc .kh{display:flex;align-items:baseline;gap:10px;margin:30px 0 4px;
+  font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--chrome)}
+#toc .kh b{font-weight:400;color:var(--milk)}
+#toc .kh s{width:26px;height:2px;text-decoration:none;background:currentColor;
+  display:inline-block;transform:translateY(-3px)}
+#toc a{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;
+  align-items:baseline;text-decoration:none;color:inherit;padding:10px 2px;
+  border-bottom:1px solid var(--line)}
+#toc a .n{font-size:10px;letter-spacing:.14em;min-width:66px}
+#toc a .t{font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:.02em;
+  line-height:1.15;text-transform:uppercase;min-width:0;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap}
+#toc a:active{background:rgba(255,47,160,.10)}
+#toc a:focus-visible{outline:1px solid var(--cyan);outline-offset:2px}
+#toc .x{position:fixed;right:max(12px,env(safe-area-inset-right));
+  top:calc(10px + env(safe-area-inset-top));min-height:44px;min-width:44px;
+  border-radius:999px;box-sizing:border-box;border:1px solid rgba(242,230,242,.23);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+  color:var(--milk);font-size:16px;line-height:1;cursor:pointer;
+  -webkit-appearance:none;appearance:none}
+@media(max-width:520px){#toc a .n{min-width:58px}#toc a .t{font-size:16px}}
+
 /* ── 序文 ── */
 .preface{margin:22px 0 0;padding:0 2px}
 .preface p{font-size:12px;line-height:2;color:var(--milk);opacity:.9;margin:0 0 .9em;max-width:52ch}
@@ -741,7 +798,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
 
 <div class="meta"><span>Holdings registry</span><span id="count">20 assets + 1 study</span></div>
 
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="cyberwafer.html">
   <div class="row"><span class="idx">CANON</span><span class="name">Cyberwafer v25</span></div>
   <p class="desc" lang="ja">Y2K と TRANSCENDENCE の2モデルをボタンで切り替える基幹作品。心拍0.78秒、ディスク周期2.4秒、正準パレットがここで定義され、以降の全作品が継承する。ドラッグで回転、ピンチで拡大。</p>
@@ -756,7 +813,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">Upon the wafer the T stands at the same dimensions under whichever era it is named. The drawing came first. There is no record of commencement, and no requisition for material was ever raised, yet the dimensions were bound in their finished form. The audit entered three times and wrote the same conclusion three times: this structure was inspected and accepted before it was built. Since then no one looks for the original. The copy is the older document.</p>
   </details>
 </article>
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="object.html">
   <div class="row"><span class="idx">ASSET 01</span><span class="name">Object</span></div>
   <p class="desc" lang="ja">磁性のTレターフォームを四行の周回テキストリングが囲み、その下でクロームディスクが降下しては生成される。背景切替とグリッド床を備えた、全作品の起点となる正準オブジェクト。</p>
@@ -771,7 +828,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">Four rows of text revolve without pause, each row set against the next so that it cannot be read to its end. When it was first observed it was not new. The lattice around it had already been laid to its shape, and where its shadow fell the ground was weathered. Removal was attempted once. The procedure was completed, the members were carried out, the site was surveyed. On the following week's map the same shape appeared at a different scale.</p>
   </details>
 </article>
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="cellwafer.html">
   <div class="row"><span class="idx">ASSET 02</span><span class="name">Cellwafer v1</span></div>
   <p class="desc" lang="ja">基幹作品 Cyberwafer を、三色六面の素子ひとつだけで組み直した3Dピクセル版。T構造体・四重の周回文字環・降下ウエハーのすべてが同じ素子でできており、見える色は素子の姿勢だけで決まる。収束ボタンで全体が一個の立方体へ畳まれ、六面に銘が現れる。ドラッグで回転、ピンチで拡大。</p>
@@ -786,7 +843,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">There is but one kind of member: a cube of thirty millimetres, and nothing is engraved upon its faces. The mark does not lie with the element. It lies with the arrangement. Dismantle it and no wording is lost; it merely cannot be read until it is set up again. In a certain fiscal year the stocktaking was performed twice, counted once in the form of a tower and once in the form of a cube. The totals agreed. That the number did not change when the shape did was raised by the audit as an anomaly. The raising was accepted, and the matter recorded as processed. What was processed is not recorded. Thereafter the item has been managed by count and not by form. That a single row of differing colour runs along each edge is not ornament. One element cannot show the same colour upon two perpendicular faces.</p>
   </details>
 </article>
-<article class="entry">
+<article class="entry" data-k="c2d">
   <a class="entry-main" href="code-rain.html">
   <div class="row"><span class="idx">ASSET 03</span><span class="name">Code Rain v4</span></div>
   <p class="desc" lang="ja">Canvas 2Dのみで構成した文字組の作品。社名・教義・製品名が降下する格子の濃淡から会長の像が結ばれる。発光処理を全て除き、クリスプなインクだけで描いている。</p>
@@ -801,7 +858,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">What falls is a stock reconciliation table. No one ordered an image. In none of the individual entries was there any intent to depict. Only when the columns filled did the difference in density become a face. The engineer suspected soiling first, then a habit of the printer, and last of all understood that there was nothing left to suspect. No order had been issued. The correction had begun.</p>
   </details>
 </article>
-    <article class="entry">
+    <article class="entry" data-k="c2d">
   <a class="entry-main" href="code-rain-frozen.html">
       <div class="row"><span class="idx">ASSET 04</span><span class="name">Code Rain v5</span></div>
       <p class="desc" lang="ja">Canvas 2Dのみの文字組。跪座する全身像が降雨の格子から解像し、上端から下端へ一行ずつ印字される。降雨は図像セルを通過する間だけ減速する。タップで再発火。</p>
@@ -816,7 +873,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">Only within the kneeling figure does the rain run slow. The survey party obtained the same result at three positions. The cause of the retardation is not in the columns. The columns flow equally; what lags is the single character at the instant it touches the outline. The detained characters gather at the edge of the body, hold their shape a while, and are carried away. Thereafter measurement was revised to be taken only outside the outline. In the field for the reason is written: improvement of accuracy.</p>
   </details>
 </article>
-    <article class="entry">
+    <article class="entry" data-k="c2d">
   <a class="entry-main" href="code-rain-utterance.html">
       <div class="row"><span class="idx">ASSET 05</span><span class="name">Code Rain v6</span></div>
       <p class="desc" lang="ja">Canvas 2Dのみの文字組。肖像が輝度順の散乱ディゾルブで解像し、舌の領域だけが第四色の燠として独立に脈動する。燠から下方へ短い列が滴下する。タップで滴下を増幅。</p>
@@ -831,7 +888,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">The tongue alone holds a different colour. It beats upon the same period as the rest, and it alone has not cooled. The sound was recorded. Frequency, duration, interval, even the area of the aperture were entered into the table. What would not be entered was the meaning. The officer wrote language unassigned and closed the field. The drip falls, rewriting the characters through which it passes. The rewritten characters return to their former state at the next revolution.</p>
   </details>
 </article>
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="lacto-cortex.html">
   <div class="row"><span class="idx">ASSET 06</span><span class="name">Lacto-Cortex v9</span></div>
   <p class="desc" lang="ja">配列作品の基本単位である乳脳マイクロモジュール炉を、コンクリートドームと縞鋼板の床を持つ開発棟に配置し、上部タンクの淡桃色の液が透明槽の皮質を養う。3本の極太ケーブルが背面接続盤から壁の貫通口へ続き、ドラッグで回転、ピンチで拡大、SWで8視点を巡回できる。</p>
@@ -846,7 +903,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">The electrodes do not clamp. They stand about it at a fixed interval and wait without touching. The designer set down no reason for avoiding contact. The perfusion has never stopped, and the sugar content is held at its initial value. Only the circulation can be observed; what continues within it does not appear in the output. The ledger reads: in operation. The officer who entered those words was moved to another grade within the month.</p>
   </details>
 </article>
-    <article class="entry">
+    <article class="entry" data-k="gl">
   <a class="entry-main" href="cortex-pylon.html">
       <div class="row"><span class="idx">ASSET 07</span><span class="name">Cortex Pylon v3</span></div>
       <p class="desc" lang="ja">T構造体の垂直柱にガラス柱を垂下し、その内部へ培養脳炉を格納した記念碑。上部梁がいちごミルク貯乳槽を兼ね、円盤の降下から滴下・着弾までが一本の垂直線で読める。視点は5種、自動回転あり。</p>
@@ -861,7 +918,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">The discs descend, contract, and at the point of vanishing become a drop of milk. The drop falls and strikes the crown of the cortex. The feed rate matched the beat. Yet the instrument that issued that beat cannot be found. The control room records hold only the set value for flow; the field for period is blank. The band upon the plinth has been left empty. It was not that there was nothing to be seated there. That nothing be seated there was specified in the drawings.</p>
   </details>
 </article>
-    <article class="entry">
+    <article class="entry" data-k="svg">
   <a class="entry-main" href="sigil-fusion.html">
       <div class="row"><span class="idx">ASSET 08</span><span class="name">Sigil Fusion v5</span></div>
       <p class="desc" lang="ja">白地に置かれた唯一の作品。ラスタを一切用いず、SVGと数式のみで拍を刻む。皮質を三重の周回文字環が囲み、下方へウェハーが縮みながら降りる。WebGL不使用。</p>
@@ -876,7 +933,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">Three rings revolve at differing rates, tuned so as to hold no period in common. By calculation there exists no instant at which they coincide. No altar was required. Neither offering, nor a place to kneel, nor any who recite. What was required was a ratio. For this reason the rite does not end. The habit of calling that which does not end a faith had, by this time, fallen out of use.</p>
   </details>
 </article>
-<article class="entry">
+<article class="entry" data-k="svg">
   <a class="entry-main" href="empyrean-sigil.html">
       <div class="row"><span class="idx">ASSET 09</span><span class="name">Empyrean Sigil v7</span></div>
       <p class="desc" lang="ja">乳脳圏の社章。二重のベゼルが互いに逆へ回り、細環が下から生まれて上で消え、銀盤が降下する。中央のTは動かずネオンのみ明滅。背景の明暗を切り替えられる。</p>
@@ -892,7 +949,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
   </details>
 </article>
 <!-- EMPYREAN_3D_STUDY_START -->
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="empyrean-sigil-3d.html">
     <div class="row"><span class="idx">STUDY</span><span class="name">Empyrean Sigil 3D</span></div>
     <p class="desc" lang="ja">Empyrean Sigilを立体化した独立Study。二重の輪と目盛りが逆方向に回転し、細環が上昇、鏡面の銀盤が下降する。明暗それぞれに調整した配色で全画面鑑賞できる。ドラッグで回転、ピンチで拡大、タップで心拍を与える。</p>
@@ -902,7 +959,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
   </a>
 </article>
 <!-- EMPYREAN_3D_STUDY_END -->
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="lacto-empyrean.html">
   <div class="row"><span class="idx">ASSET 10</span><span class="name">Lacto-Empyrean v7</span></div>
   <p class="desc" lang="ja">培養槽が直線に連なる回廊。ドローン視点が配列を巡回し、SWでアングル切替、TOURで自動巡回に入る。左のスライダーで遠近を操作。v7で経路と構図を精緻化。</p>
@@ -917,7 +974,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">The lettering upon the sign may be read as exceedingly sweet. Numbers are assigned. Called upon, they answer. Yet whichever number was called, the memory returned was the same. The audit party took this for a fault in the wiring and physically severed fifty-three units. Beyond the severance the same memory returned. The report concludes: the total remained; no unit could be isolated. Thereafter inspection is carried out upon the aggregate only.</p>
   </details>
 </article>
-    <article class="entry">
+    <article class="entry" data-k="gl">
   <a class="entry-main" href="lacto-mandala.html">
       <div class="row"><span class="idx">ASSET 11</span><span class="name">Lacto-Mandala v2</span></div>
       <p class="desc" lang="ja">五重の同心輪に各五基、放射する五本のスポークへ整列した配列。シネマティックな巡回で全景が開かれ、上下の黒帯とキャプションが入る。SWで視点切替、TOURで自動巡回。</p>
@@ -932,7 +989,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">Five to the rings. Five to what is seated upon each. Five, again, to the lines that split the floor. The floor was drawn again afterwards, so that the distance should be equal measured from any position. The alignment resembles the form of a faith. It only resembles it; there is no trace of its having been designed so. Nothing is seated at the centre. The circling viewpoint passes through it repeatedly and does not notice the passing. There is a response. Only the one responding is absent.</p>
   </details>
 </article>
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="sanctum.html">
   <div class="row"><span class="idx">ASSET 12</span><span class="name">Sanctum v5</span></div>
   <p class="desc" lang="ja">地下大空洞の聖域。融合炉と脳核、洞壁へ貫入する極太送電幹線を、岩殻ドームと鍾乳石が囲む。ERAで階調をY2Kと現行に切り替え、SWで視点を巡回。旧Vault v4を統合。</p>
@@ -947,7 +1004,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">The cavern was not excavated. A body of rock, selected for the convenience of cooling, became the vessel as it stood. The walls were not dressed, and the dripstone was left where it hung. Removal was not included in the schedule of works, nor was any reason for its exclusion sought. The trunks reach deep into their mouths in the rock, and the plan of the districts beyond them is held as a separate volume. That volume is at present stored within this cavern.</p>
   </details>
 </article>
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="lacto-massif.html">
   <div class="row"><span class="idx">ASSET 13</span><span class="name">Lacto-Massif v11</span></div>
   <p class="desc" lang="ja">山上に環状配置された32基の発電タワーと、中央の送電塔。各タワーは51基のユニットを17階層に収める。地表を這う送電線が中心へ集まり、頂部の指向アンテナから三色の螺旋ビームが伸びる。霧の奥には同じ設計の発電所が8基、1〜1.7 kmの距離に乱立し、すべてのビームが同じ方角へ平行に伸びる。12カットを巡回。</p>
@@ -962,7 +1019,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">Thirty-two columns stand in rings, and the one at their centre alone stands twice their height. The dish upon its summit holds one bearing and does not move. Whether the mountain was a mountain from the first, or whether what was piled upon it came to take the shape of one, cannot be distinguished in the records. A document exists stating that there is a recipient at the far end. No document exists stating that it was received. The two are held by separate offices. Reconciliation stands deferred without term, on the ground of a distance of four light years.</p>
   </details>
 </article>
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="lacto-caloris.html">
   <div class="row"><span class="idx">ASSET 14</span><span class="name">Lacto-Caloris v1</span></div>
   <p class="desc" lang="ja">真空環境専用の演算装置。18段72基の演算トレイを中央帯の培養脳が統率し、神経幹が背面区画を縦に走る。大電力の熱は輻射でしか捨てられず、頂部の薄板30枚が負荷に応じて螺旋を描いて展開する。内径42 mの電波暗室に1基。DEPLOYで開閉、RAILで自由視点。</p>
@@ -977,7 +1034,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">This machine works only where there is no air. Most of the power it receives becomes heat, and the heat has nowhere to pass. So the plates open. The heavier the load, the deeper the helix they draw; when it falls they fold and return into the drum. A record of each opening is kept, though the column for its reader has been left blank. In the central band the brain goes on counting seventy-two boards. Whether the work is the counting, or the having counted, is written nowhere in the specification.</p>
   </details>
 </article>
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="lacto-messis.html">
   <div class="row"><span class="idx">ASSET 15</span><span class="name">Lacto-Messis v1</span></div>
   <p class="desc" lang="ja">三重星の衛星UY0311に築かれた受電の敷地。15 mの塔が四光年の彼方から届く三条の螺旋を皿で受け、14角形の甲板の上で42基の演算装置——中央帯の培養脳が72盤を統率するLacto-Caloris同型——へ配られる。地平には同型の局が12、平行なビームの列を立てる。DEPLOYで42基の放熱板が一斉に展開、RAILで自由視点。</p>
@@ -992,7 +1049,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">There are no seasons on this plain. The harvest is reaped four light years away and arrives at the speed of light. Thirteen stations share a single row; the dishes never bow, holding always the same height of sky. On the deck, forty-two minds count the yield. The next harvest lands before the counting ends — which is why the record keeps no column for completion.</p>
   </details>
 </article>
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="binary-dusk.html">
   <div class="row"><span class="idx">ASSET 16</span><span class="name">Binary Dusk</span></div>
   <p class="desc" lang="ja">巨大樹の枝から、二つの日と黄昏を観測する。ピンクの白とターコイズの白。空の三両編成と五基の円盤。左奥に海。SUNSETを押すと三分で日が沈み、夕闇へ続く。</p>
@@ -1007,7 +1064,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">What can be seen from the bough is only what is being carried. The railway runs through the forest to the flat land, bends to the right in the distance, and enters the trees again. The trains pass the single station empty; the category of passenger has ended, and only the line persists. In the forest the discs go on turning with nothing on them. Far to the left the three rivers meet at one same angle and lose their direction in the sea, and the sea returns the setting suns as a grain of light. The suns are two: the larger touches the land first, wanes, and is gone. The order is always the same, and there is no field in which to record the distance.</p>
   </details>
 </article>
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="vacant-seat.html">
   <div class="row"><span class="idx">ASSET 17</span><span class="name">The Vacant Seat v2</span></div>
   <p class="desc" lang="ja">星系座標の原点に建つ事務所一棟、その突き当たりの会長室。机の向こうの椅子は空で、使われた古び方も、使われなかった古び方もしていない。決裁は〇・七八秒に一件ずつ流れ、最上段の未決だけが流れず、承認までの所要拍が積もり続ける。立てる場所は机の前と椅子の斜め背後の二つ。足は動かず、首だけが動く。物に触れると、説明ではなく、その物の観測記録が返る。ORIGINで履歴を遡る。</p>
@@ -1022,7 +1079,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">At the origin there is one office building and nothing else. What stands for ground is flat; there are no stars, and in six directions alone six lights appear at an equal remove, though their remove cannot be equal. In the room at the end of the corridor there is a desk, and beyond the desk a chair. The chair is empty. There is no hollow in the seat, no wear upon the arms, no scuffing of the floor. Neither is there dust, nor fading, nor any drying out. It has not aged as a chair that was used, nor as a chair that was not; it has aged only in the manner of a chair that has been maintained. The room is full of the beat. It is not a sound. The pressure of the air fills shallowly and draws back. The instrument reports that the peak arrives from every quarter with equal strength, and against the source it returns: none applicable. There is no sender. There is only the holding. Upon the desk the decrees run, and the one item at the top does not run. The time to approval has been accruing from the oldest receipt, one pulse at a time, and accrues still. In the field for the total, in place of a figure, there is a single word. Continuing. Only the fitting in the ceiling lights the room, and it lights every part of it alike.</p>
   </details>
 </article>
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="preservation-hall.html">
   <div class="row"><span class="idx">ASSET 18</span><span class="name">The Preservation Hall</span></div>
   <p class="desc" lang="ja">第三作『個』で二人が目覚めた保存棟。起床から百六十日前後、二人はいない。七十二の架が十二段の雛壇に並び、開いているのは二つ。壁の端末には計測記録が流れ、二の行だけが〇・七八秒ごとに書き換わって常に較差外。根が壁から出て天井へ抜け、開いた戸の外に森。立てる場所は架の脇、端末の前、戸の三つ。首だけが動く。物に触れると観測記録が返る。</p>
@@ -1037,7 +1094,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <p class="txt" lang="en">The pods are six across and twelve deep. Seventy-two. Two are open; their lids have withdrawn on the axis at the pillow end and stand there, and do not return. Seventy remain closed, and beneath the clouded lids a thin pink layer can be seen as far as its colour, and no farther. One part of the wall is smoother than the rest, and there the measurement record runs. The base is 0.78. The tolerance is 0.01 either way. Only the second line rewrites itself with each pulse, and it is always outside the tolerance. At the bottom: send. Beneath it: apply. Everything sent was accepted; nothing was received. A root comes out of the wall and passes through the ceiling. It did not break in. It is part of the surface. The door has been unlocked from the first day and open since the twenty-ninth, and twenty paces out the root road begins. In the corner of the forecourt lie six shells that fit no one, and a small heap of cut hair. The pile of a hundred packets ran out three days ago.</p>
   </details>
 </article>
-<article class="entry">
+<article class="entry" data-k="gl">
   <a class="entry-main" href="confluence.html">
   <div class="row"><span class="idx">ASSET 19</span><span class="name">The Confluence</span></div>
   <p class="desc" lang="ja">第九区、水路の合流点。四方から入った水は広さに混ざって向きを失い、日は二つ——ピンクの白とターコイズの白——が、大きいほうが水に触れかけたところで止まっている。水の上には光の道が二本、岸の近くで一本に混ざる。時間は動かない。動くのは円盤と波と、〇・七八秒の拍だけ。立てる場所は岸の道、円盤の真下、記録所の床の切れ目の三つ。首だけが動く。物に触れると観測記録が返る。</p>
@@ -1056,7 +1113,7 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
 
 <div class="meta"><span>Source texts</span><span id="scount">1 title</span></div>
 
-<article class="entry">
+<article class="entry" data-k="txt">
   <a class="entry-main" href="residual-index-53.html">
   <div class="row"><span class="idx">SOURCE 01</span><span class="name">Residual Index 53</span></div>
   <p class="desc" lang="ja">シリーズ第一作。後世の編纂者が資料を綴じた体裁の長篇。企業の監査記録、広報物、三つの解釈学派、そして星系を巡る照合員の報告が並ぶ。ASSET 17 The Vacant Seat の出典は篇11。全文を収録。</p>
@@ -1137,6 +1194,44 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     el.innerHTML = out + '<span class="cursor"></span>';
     setTimeout(step, 340);
   })();
+})();
+</script>
+
+<button type="button" id="tocBtn"><i>&#9776;</i><span lang="ja">目次</span><span lang="en">Contents</span></button>
+<div id="toc" role="dialog" aria-modal="true" aria-label="Contents">
+  <button type="button" class="x" id="tocX" aria-label="Close">&times;</button>
+  <div class="in"><h2>Contents</h2><div id="tocList"></div></div>
+</div>
+
+<script>
+(function(){
+var KIND=[['gl','WebGL','#00ddc8'],['c2d','Canvas 2D','#ff05a8'],
+          ['svg','SVG','#f2dbe9'],['txt','Text','#d9dee5']];
+var list=document.getElementById('tocList');
+var toc=document.getElementById('toc'), bd=document.body;
+var eps=[].slice.call(document.querySelectorAll('.entry[data-k]'));
+for(var i=0;i<KIND.length;i++){
+  var k=KIND[i], rows=eps.filter(function(e){return e.getAttribute('data-k')===k[0]});
+  if(!rows.length) continue;
+  var h=document.createElement('div'); h.className='kh'; h.style.color=k[2];
+  h.innerHTML='<s></s><b>'+k[1]+'</b><span>'+rows.length+'</span>';
+  list.appendChild(h);
+  for(var j=0;j<rows.length;j++){
+    var e=rows[j], a=document.createElement('a');
+    var link=e.querySelector('a.entry-main');
+    a.href=link?link.getAttribute('href'):'#';
+    a.innerHTML='<span class="n" style="color:'+k[2]+'"></span><span class="t"></span>';
+    a.querySelector('.n').textContent=(e.querySelector('.idx')||{}).textContent||'';
+    a.querySelector('.t').textContent=(e.querySelector('.name')||{}).textContent||'';
+    list.appendChild(a);
+  }
+}
+function open(){toc.classList.add('on');bd.style.overflow='hidden';}
+function close(){toc.classList.remove('on');bd.style.overflow='';}
+document.getElementById('tocBtn').onclick=open;
+document.getElementById('tocX').onclick=close;
+toc.addEventListener('click',function(e){if(e.target===toc)close();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
 </script>
 </body>
