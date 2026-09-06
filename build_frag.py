@@ -4,13 +4,47 @@ The original full-site builder was not present in the repository. This
 bounded replacement updates the study card and asset 06 title/descriptions;
 existing narrative and other assets are preserved.
 Run with Python 3 from the repository root. No third-party dependencies.
+Use --viewing-only to update shared viewing notices and description metadata.
 """
 from pathlib import Path
 import html
 import re
+import sys
 
 root = Path(__file__).resolve().parent
 canon = (root / 'CANON_TEXT.md').read_text(encoding='utf-8')
+
+# Update only shared viewing notices, preserving all work entries and narrative.
+if sys.argv[1:] == ['--viewing-only']:
+    notices = canon.split('## サイト共通案内 / Site notices', 1)[1].split('\n## ', 1)[0]
+    def notice(name):
+        match = re.search(r'\*\*' + re.escape(name) + r'\*\*\s*\n([^\n]+)', notices)
+        if not match:
+            raise ValueError('Missing site notice: ' + name)
+        return html.escape(match.group(1), quote=True)
+    path = root / 'index.html'
+    source = path.read_text(encoding='utf-8')
+    for attribute, key in [('name', 'description'), ('name', 'twitter:description'), ('property', 'og:description')]:
+        pattern = r'(<meta\s+' + attribute + r'="' + re.escape(key) + r'"\s+content=")[^"]*(")'
+        source, count = re.subn(pattern, lambda m: m[1] + notice('共有説明 JA') + m[2], source)
+        if count != 1:
+            raise ValueError('Expected one metadata field: ' + key)
+    pattern = r'(<div class="notes">\s*<h2>Viewing</h2>)([\s\S]*?)(</div>)'
+    def viewing(match):
+        body = match[2]
+        for lang in ['ja', 'en']:
+            body, count = re.subn(r'(<p lang="' + lang + r'">)[\s\S]*?(</p>)',
+                                  lambda m: m[1] + notice('Viewing ' + lang.upper()) + m[2], body)
+            if count != 1:
+                raise ValueError('Expected one Viewing paragraph: ' + lang)
+        return match[1] + body + match[3]
+    source, count = re.subn(pattern, viewing, source)
+    if count != 1:
+        raise ValueError('Expected one Viewing block')
+    path.write_text(source, encoding='utf-8')
+    print('Updated Viewing JA/EN and three description metadata fields.')
+    raise SystemExit(0)
+
 section = canon.split('## STUDY — Empyrean Sigil 3D / 01', 1)[1]
 def field(name):
     match = re.search(r'\*\*' + re.escape(name) + r'\*\*\s*\n([^\n]+)', section)

@@ -3,6 +3,24 @@
 `index.html` に反映されているテキストの正本。HTMLを直接編集せず、まずこのファイルを更新し、
 `build_frag.py` を通して反映すること。
 
+
+## サイト共通案内 / Site notices
+
+以下は鑑賞案内と検索・SNS共有用の公開文言。作品の断章や世界内の記録ではない。
+この節は `python3 build_frag.py --viewing-only` で `index.html` へ反映する。
+
+**共有説明 JA**
+h!ro53による、ブラウザで鑑賞する生成アートとインタラクティブな3D作品群。
+
+**Viewing JA**
+各作品はブラウザ上で鑑賞できます。3D作品にはWebGL対応ブラウザが必要です。作品によっては画像や立体データの読み込みに時間がかかります。通信できる環境でご覧ください。
+
+**Viewing EN**
+The works can be viewed in a web browser. A WebGL-capable browser is required for 3D works. Some works may take time to load images and geometry data. Please view them with an internet connection.
+
+**制作・保存方針**
+単一HTMLを全作品の必須条件とせず、作品ごとに形式を選ぶ。承認済みの適用範囲・保存・検証・並行作業の規則は [TECHNICAL_POLICY.md](TECHNICAL_POLICY.md) を参照する。
+
 ## 書式の役割分担（混ぜない）
 
 - **説明** … 作品そのものの記述。何が見えるか、何ができるか、どう操作するか。世界観の語りを入れない。1〜2文。
@@ -547,3 +565,4 @@ An independent three-dimensional study of Empyrean Sigil. Open circular rails an
 
 **v3 更新記録**
 2026-09-05。BG · DARK / LIGHT 切り替えを復元し、選択を保存。原典の横棒と縦棒それぞれのピンク→赤グラデーションを復元。Tの色を保つ材質処理へ調整し、暗背景と明背景でベゼル、細環、銀盤、側面、照明、反射環境、発光量を使い分ける。v2の形状と運動は維持。
+
