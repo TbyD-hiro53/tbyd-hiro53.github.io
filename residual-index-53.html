@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="description" content="TRANSCENSION 第一作。全三部十二篇。規格は施行されていた。由来は台帳に存在しなかった。">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#050308">
+<title>残留指数五十三 — h!ro53 / deus ex machina</title>
+<meta name="author" content="h!ro53">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="deus ex machina &mdash; holdings registry">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="残留指数五十三 — h!ro53 / deus ex machina">
+<meta property="og:description" content="TRANSCENSION 第一作。全三部十二篇。規格は施行されていた。由来は台帳に存在しなかった。">
+<meta property="og:url" content="https://tbyd-hiro53.github.io/residual-index-53.html">
+<meta property="og:image" content="https://tbyd-hiro53.github.io/residual-index-53-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="残留指数五十三">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="残留指数五十三 — h!ro53 / deus ex machina">
+<meta name="twitter:description" content="TRANSCENSION 第一作。全三部十二篇。規格は施行されていた。由来は台帳に存在しなかった。">
+<meta name="twitter:image" content="https://tbyd-hiro53.github.io/residual-index-53-og.jpg">
+<link rel="canonical" href="https://tbyd-hiro53.github.io/residual-index-53.html">
+<script>/* h53 count */(function(){try{
+if(location.search.indexOf('skipgc')>-1)localStorage.setItem('skipgc','t');
+if(localStorage.getItem('skipgc')==='t')return;
+var i=new Image();i.src='https://hiro53.goatcounter.com/count'
++'?p='+encodeURIComponent(location.pathname)
++'&t='+encodeURIComponent(document.title)
++'&r='+encodeURIComponent(document.referrer)
++'&s='+[screen.width,screen.height,window.devicePixelRatio||1].join(',');
+}catch(e){}})();</script>
+<style>
+:root{
+  --void:#050308; --panel:#0b0710; --line:rgba(255,218,221,.14);
+  --milk:#ffdadd; --mag:#ff2fa0; --red:#ff2b2b; --cyan:#7fe6f0; --chrome:#8a8f9c;
+  --disp:"Avenir Next Condensed","Helvetica Neue Condensed",Impact,"Hiragino Sans",sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,"Courier New",monospace;
+  --serif:"Hiragino Mincho ProN","Yu Mincho",YuMincho,"Noto Serif JP",serif;
+  --fs:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--void); color:var(--milk); font-family:var(--mono);
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.022) 0 1px,transparent 1px 3px);
+  padding:0 0 calc(96px + env(safe-area-inset-bottom));
+  overflow-x:hidden;
+}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px}
+
+/* ---- 進捗 ---- */
+#prog{position:fixed;left:0;top:0;height:2px;width:0;z-index:60;
+  background:linear-gradient(90deg,var(--mag),var(--red));transition:width .12s linear}
+
+/* ---- 戻る（正準ガラス） ---- */
+#h53idx{position:fixed;z-index:55;left:max(12px,env(safe-area-inset-left));
+  top:calc(10px + env(safe-area-inset-top));
+  display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 15px;
+  border-radius:999px;box-sizing:border-box;text-decoration:none;
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--milk);border:1px solid rgba(242,230,242,.23);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62)}
+#h53idx span{font-size:13px;line-height:1}
+#h53idx,#bar{transition:opacity .26s ease,transform .26s ease}
+body.hide #h53idx{opacity:0;pointer-events:none;transform:translateY(-10px)}
+body.hide #bar{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(14px)}
+
+/* ---- 扉 ---- */
+.title{padding:calc(96px + env(safe-area-inset-top)) 0 40px;border-bottom:1px solid var(--line)}
+.title .reg{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--chrome)}
+.title h1{margin:16px 0 0;font-family:var(--serif);font-weight:400;
+  font-size:clamp(34px,11vw,54px);line-height:1.14;letter-spacing:.06em;color:var(--milk)}
+.title .sub{margin:14px 0 0;font-family:var(--disp);font-weight:700;
+  font-size:clamp(13px,3.6vw,17px);line-height:1.35;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--cyan)}
+.title .by{margin:20px 0 0;font-size:11px;letter-spacing:.2em;color:var(--chrome)}
+.title .spec{margin:14px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--milk);
+  border:1px solid var(--line);border-radius:2px;padding:3px 7px;opacity:.72}
+.title .lead{margin:22px 0 0;font-size:11.5px;line-height:2;color:var(--chrome);max-width:44ch}
+
+/* ---- 部扉 ---- */
+.part{margin:76px 0 8px;padding:34px 0 30px 18px;position:relative}
+.part::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--mag) 0 33%,#f2dbe9 33% 66%,#00ddc8 66% 100%)}
+.part .pn{font-size:10px;letter-spacing:.3em;color:var(--chrome)}
+.part .pj{margin:10px 0 0;font-family:var(--serif);font-weight:400;
+  font-size:clamp(26px,7.4vw,38px);line-height:1.2;letter-spacing:.1em}
+.part .pe{margin:9px 0 0;font-family:var(--disp);font-weight:700;font-size:12px;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--cyan)}
+
+/* ---- 篇 ---- */
+.ep{padding:48px 0 0}
+.eh{padding:0 0 26px;border-bottom:1px solid var(--line)}
+.eh .en{font-size:10px;letter-spacing:.3em;color:var(--mag)}
+.eh .ej{margin:9px 0 0;font-family:var(--serif);font-weight:400;
+  font-size:clamp(25px,7vw,34px);line-height:1.22;letter-spacing:.08em}
+.eh .ee{margin:8px 0 0;font-family:var(--disp);font-weight:700;font-size:11.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--chrome)}
+
+/* ---- 扉資料 ---- */
+.dossier{margin:26px 0 0;padding:15px 16px;border:1px solid var(--line);
+  background:rgba(11,7,16,.72);
+  display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;row-gap:5px;
+  font-family:var(--mono);font-size:10px;line-height:1.7;letter-spacing:.06em;
+  overflow-x:auto}
+.dossier .dk{color:var(--chrome);text-transform:uppercase;white-space:nowrap}
+.dossier .dv{color:var(--milk);opacity:.86}
+
+/* ---- 観測ログ ---- */
+.log{margin:26px 0 0;padding:2px 0 2px 15px;border-left:2px solid var(--mag)}
+.log .le{display:block;font-family:var(--mono);font-size:11.5px;line-height:1.85;
+  letter-spacing:.05em;color:var(--cyan)}
+.log .lj{display:block;margin-top:5px;font-family:var(--serif);font-size:13.5px;
+  line-height:1.9;letter-spacing:.04em;color:var(--milk);opacity:.88}
+
+/* ---- 節 ---- */
+.sec{margin:52px 0 22px;font-family:var(--serif);font-weight:400;
+  font-size:clamp(17px,4.6vw,21px);letter-spacing:.24em;color:var(--milk)}
+.sec::after{content:"";display:block;width:34px;height:1px;margin-top:11px;
+  background:var(--line)}
+
+/* ---- 資料ヘッダ ---- */
+.src{margin:34px 0 16px;font-family:var(--mono);font-size:10px;line-height:1.85;
+  letter-spacing:.13em;color:var(--chrome);
+  padding:7px 0 0;border-top:1px dashed rgba(255,218,221,.13)}
+
+/* ---- 本文 ---- */
+.t{font-family:var(--serif);font-size:var(--fs);line-height:2.05;letter-spacing:.03em;
+  margin:0 0 1.35em;text-indent:0;color:#f4e6e8;
+  font-feature-settings:"palt" 0}
+.fin{margin:44px 0 0;text-align:center;font-family:var(--mono);font-size:10px;
+  letter-spacing:.3em;color:var(--chrome)}
+
+/* ---- 篇送り ---- */
+.nx{margin:34px 0 0;padding:22px 0 0;border-top:1px solid var(--line);
+  display:flex;justify-content:flex-end}
+.nx a{text-decoration:none;color:var(--milk);font-family:var(--mono);font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 16px;
+  border-radius:999px;box-sizing:border-box;border:1px solid rgba(242,230,242,.23);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62)}
+.nx b{font-family:var(--serif);font-weight:400;letter-spacing:.06em;font-size:13px}
+
+/* ---- 出典リンク（逆輸入） ---- */
+.src-asset{margin:26px 0 0;padding:14px 16px;border:1px solid rgba(127,230,240,.24);
+  background:rgba(11,7,16,.6);display:block;text-decoration:none;color:inherit}
+.src-asset .k{display:block;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--cyan)}
+.src-asset .v{display:block;margin-top:7px;font-family:var(--disp);font-weight:700;font-size:17px;
+  letter-spacing:.04em;text-transform:uppercase}
+.src-asset .d{display:block;margin-top:6px;font-family:var(--mono);font-size:10.5px;line-height:1.8;
+  color:var(--chrome)}
+
+/* ---- 下部バー ---- */
+#bar{position:fixed;z-index:56;left:50%;transform:translateX(-50%);
+  bottom:calc(14px + env(safe-area-inset-bottom));
+  display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;
+  box-sizing:border-box;border:1px solid rgba(242,230,242,.23);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62)}
+#bar button{-webkit-appearance:none;appearance:none;background:transparent;border:0;
+  color:var(--milk);font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;min-height:44px;min-width:44px;padding:0 14px;
+  border-radius:999px;box-sizing:border-box;cursor:pointer;white-space:nowrap;line-height:1}
+#bar button:active{background:rgba(255,47,160,.16)}
+#bar .sp{width:1px;height:20px;background:rgba(242,230,242,.2)}
+#bar .pos{font-size:10px;letter-spacing:.14em;color:var(--chrome);padding:0 10px;
+  min-width:52px;text-align:center}
+
+/* ---- 目次 ---- */
+#toc{position:fixed;inset:0;z-index:70;display:none;
+  background:rgba(5,3,8,.86);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  overflow-y:auto;-webkit-overflow-scrolling:touch}
+#toc.on{display:block}
+#toc .in{max-width:680px;margin:0 auto;
+  padding:calc(78px + env(safe-area-inset-top)) 22px calc(120px + env(safe-area-inset-bottom))}
+#toc h2{font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--chrome);padding-bottom:14px;
+  border-bottom:1px solid var(--line)}
+#toc a{display:block;text-decoration:none;color:inherit;padding:16px 2px;
+  border-bottom:1px solid var(--line);position:relative}
+#toc a .a{font-size:10px;letter-spacing:.24em;color:var(--chrome)}
+#toc a .b{display:block;margin-top:6px;font-family:var(--serif);font-size:19px;
+  letter-spacing:.08em}
+#toc a .c{display:block;margin-top:5px;font-family:var(--disp);font-weight:700;
+  font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--chrome)}
+#toc a.pt{padding-top:34px}
+#toc a.pt .b{color:var(--cyan)}
+#toc a.cur::before{content:"";position:absolute;left:-10px;top:14px;bottom:14px;width:2px;
+  background:linear-gradient(180deg,var(--mag),var(--red))}
+#toc .x{position:fixed;right:max(12px,env(safe-area-inset-right));
+  top:calc(10px + env(safe-area-inset-top));min-height:44px;min-width:44px;
+  border-radius:999px;box-sizing:border-box;border:1px solid rgba(242,230,242,.23);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+  color:var(--milk);font-size:16px;line-height:1;cursor:pointer;-webkit-appearance:none;appearance:none}
+
+/* ---- 栞 ---- */
+#mark{position:fixed;z-index:58;left:50%;transform:translateX(-50%);
+  bottom:calc(74px + env(safe-area-inset-bottom));display:none;
+  align-items:center;gap:10px;padding:0 8px 0 16px;min-height:44px;border-radius:999px;
+  box-sizing:border-box;border:1px solid rgba(127,230,240,.34);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.78));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--milk);
+  white-space:nowrap;max-width:calc(100vw - 32px)}
+#mark.on{display:flex}
+#mark button{-webkit-appearance:none;appearance:none;background:transparent;border:0;
+  color:var(--cyan);font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;min-height:38px;padding:0 12px;border-radius:999px;cursor:pointer}
+#mark .no{color:var(--chrome)}
+
+/* ---- 巻末 ---- */
+.colophon{margin:82px 0 0;padding:30px 0 0;border-top:1px solid var(--line);
+  font-size:10.5px;line-height:2;letter-spacing:.1em;color:var(--chrome)}
+.colophon b{display:block;color:var(--milk);font-weight:400;font-family:var(--serif);
+  font-size:15px;letter-spacing:.1em;margin-bottom:12px}
+footer{margin:34px 0 0;font-size:9.5px;line-height:1.9;letter-spacing:.08em;color:#5c6470}
+
+@media(max-width:520px){.wrap{padding:0 18px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body data-slug="residual-index-53">
+<!-- (c) 2026 h!ro53 / deus ex machina. All rights reserved.
+     Viewing permitted. Reproduction, redistribution, and reuse of source code
+     or assets - in whole or in part - is prohibited without written permission. -->
+<div id="prog"></div>
+<a id="h53idx" href="index.html"><span>&#8592;</span>Index</a>
+
+<div class="wrap">
+<div class="title">
+  <p class="reg">Source text 01 · deus ex machina</p>
+  <h1>残留指数五十三</h1>
+  <p class="sub">TRANSCENSION: RESIDUAL INDEX 53</p>
+  <p class="by">h!ro53 &middot; deus ex machina</p>
+  <div class="spec"><span class="chip">全三部十二篇</span><span class="chip">約五万二千字</span><span class="chip">Sealed</span><span class="chip">JA</span></div>
+  <p class="lead">後世の編纂者が資料を綴じた体裁で書かれている。各篇は扉資料からはじまり、監査記録・広報物・分類不能断片が並ぶ。時刻はすべて ZS± 表記による。西暦は用いていない。</p>
+</div>
+
+<section class="part" id="part1"><span class="pn">第一部</span><h2 class="pj">偽史</h2><p class="pe">PSEUDO-HISTORY</p></section>
+<article class="ep" id="e01" data-ep="1"><header class="eh"><span class="en">篇01</span><h3 class="ej">検拍</h3><p class="ee">THE PULSE AUDIT</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">EP-01</span><span class="dk">TITLE</span><span class="dv">検拍 / THE PULSE AUDIT</span><span class="dk">SOURCE</span><span class="dv">PRE-CAUSAL CORPORATE ARCHIVE</span><span class="dk">PHASE</span><span class="dv">−2 / ANTHROPOCENTRIC EXPANSION</span><span class="dk">STATUS</span><span class="dv">PARTIALLY RECOVERED</span><span class="dk">OBSERVER</span><span class="dv">UNRESOLVED</span></div>
+<blockquote class="log"><span class="le">The standard was enforced. Its origin was not on file.</span><span class="lj">規格は施行されていた。由来は台帳に存在しなかった。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">以下の資料群は、h!ro53社の内部監査記録として復元された。復元率は六十一パーセント。欠落部は空欄のまま提示する。</p>
+<p class="t">監査官の個人名は、後年の保守方針により個体記録から分離されており、復元できない。本編纂では監査官の職員符号「AUD-0117」を用いる。これは人物を指す符号ではない。監査という機能を指す符号である。</p>
+<p class="t">資料は三系統に分かれる。監査系、広報系、そして両者のどちらにも分類できない断片。三系統は同じ社内の同じ期間を記録しているが、同じ事実を記録しているとは限らない。</p>
+<h4 class="sec">一　同期</h4>
+<p class="src">監査資料 AUD-0117 / 定期監査報告 第一四半期 / ZS−1440D</p>
+<p class="t">第七製造棟の電力監査を実施した。</p>
+<p class="t">現地確認の所見から記す。</p>
+<p class="t">第七棟は当社最古の稼働棟である。搬入口から中央通路まで百十二メートル。通路の両側に搬送円盤が並び、天井の導管が淡白色に塗られ、非常表示だけが青緑に点る。深夜帯の巡回に同行したが、通路で人員とすれ違うことはなかった。夜間の定常人員は三名。三名とも中央監視室に着席しており、持ち場を離れる理由が設備側に生じないためである。</p>
+<p class="t">通路の中央で立ち止まると、棟内の音が一つに聞こえる。搬送機、弁、昇降機、換気。発生源は数百箇所に分かれているが、拍が完全に一致しているため、耳は音源を分離できない。巨大な単一の装置が低速で呼吸している、という印象を受ける。印象は監査事項ではないため、所見はここまでとする。</p>
+<p class="t">指摘事項は一件。同棟の全設備が、仕様書に記載のない共通周期で稼働している。</p>
+<p class="t">搬送機の停止間隔。冷却弁の開閉。昇降機の扉。照明の調光段差。給湯器の吐出。いずれも〇・七八秒、またはその整数倍で揃っている。搬送円盤の一巡は二・四秒。〇・七八の三倍あまり——正確には三・〇七七倍であり、整数倍ではない。二系統の周期が併存し、干渉せず、破綻していない。</p>
+<p class="t">設備ごとの納入元は七社にわたる。納入時期は最大で十一年の開きがある。仕様書のどこにも〇・七八秒という数値はない。しかし実測はすべて〇・七八秒に収束している。</p>
+<p class="t">省エネルギー効果は確認された。同期による待機損失の削減は年間換算で四・二パーセント。数値としては優秀である。</p>
+<p class="t">問題は、誰がこの同期を指示したかである。</p>
+<p class="t">第七棟の設備管理課は「本社標準に従った」と回答した。本社標準文書の番号を照会したところ、規格HB-078が提示された。</p>
+<p class="t">規格HB-078を文書管理システムで検索した。文書は存在する。表題は「稼働周期標準」。本文一頁。数値は〇・七八秒。改訂履歴は第三版から始まっている。第一版と第二版は登録されていない。</p>
+<p class="t">制定部署の欄には「標準化室」とある。標準化室に照会した。標準化室の回答は次のとおりである。</p>
+<p class="t ni">「HB-078は当室の制定ではない。当室の設立時、既に有効な規格として引き継がれた」</p>
+<p class="t">標準化室の設立は十四年前である。HB-078の第三版の日付は、それより古い。</p>
+<p class="t">継続調査とする。</p>
+<p class="src">広報資料 / 社内報「拍」第四〇号 / 復元断片</p>
+<p class="t ni">——私たちの工場には、音楽があります。</p>
+<p class="t">搬送機の律動。冷却系の呼吸。円盤が一巡する二・四秒。皆さんが毎日耳にしているあのリズムは、偶然ではありません。</p>
+<p class="t">〇・七八秒。</p>
+<p class="t">それが h!ro53 の一拍です。</p>
+<p class="t">この数字がどこから来たのか、新入社員の皆さんはご存じでしょうか。諸説ありますが、私たち広報室が好きなのは、こんな話です——創業のころ、会長が試作機の駆動周期を決めかねていたとき、技師が会長の手首に触れて言ったそうです。「これでいきましょう」。</p>
+<p class="t">会長の脈拍は、当時、七十七——一拍〇・七八秒でした。</p>
+<p class="t">以来、私たちの設備はすべて、あの方の鼓動で動いています。</p>
+<p class="t ni">（欠落）</p>
+<p class="t ni">——だから、深夜の工場で搬送機の音を聞くとき、私たちは一人ではありません。</p>
+<p class="src">編纂者注</p>
+<p class="t">上記の逸話に対応する一次記録は、復元された資料中に存在しない。「技師」の人事記録も、試作機の型式も、特定されない。</p>
+<p class="t">広報系資料は同種の逸話を少なくとも四通り保有していた。会長の脈拍とする版。会長の懐中時計とする版。会長の歩行周期とする版。数値の由来に触れない版。四通りは相互に矛盾するが、いずれも訂正されずに併用されている。</p>
+<h4 class="sec">二　遡行</h4>
+<p class="src">監査資料 AUD-0117 / 継続調査報告 / ZS−1361D</p>
+<p class="t">規格HB-078の出所調査を継続した。</p>
+<p class="t">文書管理システムの深層照会により、第三版の登録経路を特定した。登録端末は本社棟の共用端末。登録者符号は空欄。空欄での登録は、現行システムでは不可能である。旧システムからの移行時に生じた欠損と推定される。推定であり、確認ではない。</p>
+<p class="t">第一版・第二版の探索のため、紙資料保管庫の閲覧を申請し、許可された。</p>
+<p class="t">保管庫の該当区画に、HB-078の紙原本は存在しなかった。代わりに、次の事実を確認した。</p>
+<p class="t">保管庫の除湿機が、〇・七八秒周期で作動している。</p>
+<p class="t">除湿機の納入は三十二年前。HB-078第三版の日付より、十一年古い。</p>
+<p class="t">納入時の検収記録を確認した。検収項目に「稼働周期」の欄があり、「標準適合」と記されている。三十二年前の検収担当者が、どの標準への適合を確認したのかは、記録されていない。</p>
+<p class="t">規格より古い設備が、規格に適合している。</p>
+<p class="t">この文が監査報告として成立するか、判断を保留する。事実のみ記す。</p>
+<p class="src">監査資料 AUD-0117 / 聴取記録要旨 / ZS−1339D</p>
+<p class="t">規格の由来について、三部署への聴取を実施した。要旨のみ記す。</p>
+<p class="t">標準化室。「設備部門から上がってきた実態を追認したものと理解している。由来は設備部門が知っている」</p>
+<p class="t">設備部門。「医務室の生体工学班が根拠データを持っていたはずである。当部門は数値を受け取っただけである」</p>
+<p class="t">医務室生体工学班。「該当する資料は封緘されている。閲覧には会長室の承認が必要である」</p>
+<p class="t">会長室へ閲覧承認を申請した。</p>
+<p class="t">申請は電子システム経由で行った。承認は、申請送信から〇・七八秒後に返された。</p>
+<p class="t">会長室に自動承認の仕組みがあるかを総務部へ照会した。総務部の回答。「会長室の決裁はすべて会長ご自身が行っている。自動化はされていない」</p>
+<p class="t">承認印の署名データを検証した。署名は有効。改竄の痕跡なし。署名時刻は申請時刻の〇・七八秒後。</p>
+<p class="t">事実のみ記す。</p>
+<p class="src">広報資料 / 周年記念品 配布案内 / 復元断片</p>
+<p class="t">創立記念日にあたり、全従業員へ記念品を配布します。</p>
+<p class="t">卓上メトロノーム（当社特製・淡白色筐体・青緑の振子）</p>
+<p class="t">振子は毎分七十七拍に固定されています。速度調整はできません。</p>
+<p class="t ni">（欠落）</p>
+<p class="t">机の上で、会社と同じ拍を。</p>
+<p class="src">監査資料 AUD-0117 / 検証実験報告 / ZS−1322D</p>
+<p class="t">規格の拘束力を確認するため、設備部門の立会いのもと、検証実験を実施した。</p>
+<p class="t">第七棟の搬送機一基を選定し、停止間隔を〇・八〇秒へ変更した。変更は設備部門の正規手順で行い、作業記録を残した。〇・〇二秒の差は生産計画に影響しない範囲であり、実験期間は三十日と定めた。</p>
+<p class="t">初日。対象機は〇・八〇秒で稼働した。計測値に異常なし。</p>
+<p class="t">七日目。定期計測で、対象機の停止間隔は〇・七九秒台へ短縮していた。設定値は〇・八〇秒のまま変更されていない。設備部門の見解は「隣接機との位相同期回路が引き込んだ可能性」であった。当該回路の仕様書を確認したところ、引き込み範囲は±〇・〇〇五秒であり、〇・〇二秒の差は範囲外である。仕様書と実測が一致しない。</p>
+<p class="t">十九日目。対象機は〇・七八秒へ復帰していた。設定値の表示も〇・七八秒に戻っていた。設定変更の作業記録は存在しない。作業記録なしに設定が変わることは、設備部門によれば「起こり得ない」。起こっている。</p>
+<p class="t">実験は十九日目をもって終了した。三十日の計画に対し、対象が先に終了したためである。</p>
+<p class="t">設備部門は再発防止策の検討を申し出たが、防止すべき事象を定義できず、検討は開始されなかった。対象機は現在、正常である。正常とは、〇・七八秒で稼働していることを指す。この定義がいつから正常の定義であったのか、規程集に記載はない。</p>
+<h4 class="sec">三　波形</h4>
+<p class="src">監査資料 AUD-0117 / 封緘資料閲覧報告 / ZS−1298D</p>
+<p class="t">会長室の承認に基づき、医務室生体工学班の封緘資料を閲覧した。</p>
+<p class="t">資料は一頁である。</p>
+<p class="t">頁の上段に、波形が一つ印刷されている。心電図に類似するが、誘導方式の記載がなく、被測定者の欄は空白である。波形の周期は〇・七八秒。</p>
+<p class="t">頁の下段に、手書きの一行がある。</p>
+<p class="t ni">「これを基準とする」</p>
+<p class="t">署名はない。日付もない。</p>
+<p class="t">以上が封緘資料の全部である。</p>
+<p class="t">閲覧に立ち会った生体工学班の主任へ、波形の被測定者を質問した。主任の回答。「着任時から封緘されていた。開けたのは今日が初めてである」</p>
+<p class="t">封緘の実施記録を確認した。封緘日は登録されていない。封緘印の型式は、当社が現在使用している型式と一致する。当社がこの型式の封緘印を導入したのは八年前である。資料の紙質の劣化度は、目視で数十年相当である。</p>
+<p class="t">新しい印で、古い紙が、封じられている。</p>
+<p class="t">事実のみ記す。</p>
+<p class="src">編纂者注</p>
+<p class="t">閲覧報告に添付されていたはずの波形の複写は、復元されていない。復元作業では、添付欄に何かが存在した圧痕のみが確認された。</p>
+<p class="src">分類不能断片 / 復元番号〇五三</p>
+<p class="t">一枚の方眼紙。監査系・広報系のいずれの文書束にも綴じられておらず、封緘資料の保管区画の床から回収された。</p>
+<p class="t">紙面には点が打たれている。印字ではない。筆記具の痕跡もない。紙の繊維そのものが、点の位置だけ変質している。</p>
+<p class="t">点の間隔は等間隔ではない。横軸を時間と仮定して間隔を計測すると、周期〇・七八秒の波形として読める。波形の形状は、封緘資料の心電図類似波形と一致する。一致率は、復元班の計測で九十九・九七パーセント。</p>
+<p class="t">紙の年代測定は不能であった。繊維の劣化度が紙面の各部で異なり、一枚の紙の中に、新しい部分と数十年古い部分が併存しているためである。劣化の新しい部分と古い部分の境界は、点の並びに沿っている。</p>
+<p class="t">波形が紙より古いのか、紙が波形より新しいのか、測定はこの問いを構成できなかった。</p>
+<p class="src">編纂者注</p>
+<p class="t">復元番号〇五三は、本編纂物において唯一、監査官も広報室も言及していない資料である。誰にも参照されなかった資料が、なぜ保管されていたのかは、確認できない。</p>
+<h4 class="sec">四　総括</h4>
+<p class="src">監査資料 AUD-0117 / 四半期総括報告 / ZS−1271D</p>
+<p class="t">規格HB-078に関する調査の総括を行う。</p>
+<p class="t">判明した事実。</p>
+<p class="t">一。当社の全拠点、全七百十四施設において、稼働周期は〇・七八秒に統一されている。適合率は百パーセントである。監査史上、適合率百パーセントの規格は他に存在しない。</p>
+<p class="t">二。規格の制定者、制定日、根拠データの被測定者は、いずれも特定できない。</p>
+<p class="t">三。規格の施行日より古い設備が、規格に適合している。適合の経緯を説明できる記録は存在しない。</p>
+<p class="t">四。規格からの逸脱は、作業記録を残さずに解消される。検証実験において、逸脱状態は十九日で消滅した。消滅の主体は特定できない。</p>
+<p class="t">五。広報部門は由来として複数の逸話を流通させているが、いずれも一次記録を持たない。</p>
+<p class="t">結論。</p>
+<p class="t">本規格は、由来を欠いたまま、完全に施行されている。監査は通常、施行の不備を探す。本件で不備は、由来の側にだけあり、由来は監査の管轄外にある。</p>
+<p class="t">監査の観点からは、次のいずれかを勧告すべきである。規格の廃止。または、由来の創設。前者は不可能である——全設備が既に適合しており、廃止すべき逸脱が存在しない。後者は監査の職分ではない。由来を創るのは監査ではない。</p>
+<p class="t">よって本件は「事実上の標準」として整理し、調査を終了する。</p>
+<p class="t">付記。</p>
+<p class="t">終了にあたり、職分の外にある観測を一件だけ記す。監査官個人の観測であり、報告事項ではない。</p>
+<p class="t">深夜勤務者の健康診断データを、別件の労務監査で閲覧する機会があった。第七製造棟の深夜勤務者十六名の安静時脈拍は、直近三年で毎分六十四拍から七十七拍へ、全員が単調に推移していた。ばらつきは年々縮小している。最新の測定では、十六名の脈拍の標準偏差は、測定器の誤差幅を下回った。</p>
+<p class="t">産業医の所見欄には「全員正常範囲」とある。そのとおりである。毎分七十七拍は正常である。十六名が同じであることについて、記入欄は存在しない。</p>
+<p class="t">設備が規格に適合したのか、規格が何かに適合しているのか、監査はこれを判定する基準を持たない。</p>
+<p class="t">以上。</p>
+<p class="src">広報資料 / 社内報「拍」第五五号 / 復元断片</p>
+<p class="t">監査室の皆さん、三年間の大調査、お疲れさまでした！</p>
+<p class="t">例の「〇・七八秒のナゾ」、結論は「由来不明のまま全社適合」だったそうです。広報室としては、ちょっと嬉しい結論です。だって、そうでしょう。</p>
+<p class="t">由来がわからなくても、私たちの体は、もう知っているのですから。</p>
+<p class="t ni">（欠落）</p>
+<p class="src">編纂者注</p>
+<p class="t">AUD-0117名義の監査資料は、上記の総括報告をもって途切れる。</p>
+<p class="t">職員符号AUD-0117のその後を、人事系の復元断片から追跡した。総括報告の四百日後、符号は「監査官」から「同期状態記述者」へ更新されている。更新理由の欄は空白である。更新を承認した決裁の所要時間は、記録上、〇・七八秒であった。</p>
+<p class="t">同期状態記述者という職務の内容を定義する文書は、復元されていない。</p>
+<p class="t">規格HB-078は、その後も改訂されていない。第三版が最終版である。第一版と第二版は、本編纂の時点においても発見されていない。存在しなかったのか、まだ発見されていないだけなのか、この区別を可能にする記録は、どこにもない。</p>
+<blockquote class="log"><span class="le">The standard began at revision three.</span><span class="lj">規格は最初から第三版だった。</span></blockquote>
+<p class="fin">（篇01 了）</p>
+<div class="nx"><a href="#e02">Next<b>篇02&#12288;先行署名</b>&#8594;</a></div></article>
+<article class="ep" id="e02" data-ep="2"><header class="eh"><span class="en">篇02</span><h3 class="ej">先行署名</h3><p class="ee">THE PRE-CAUSAL SIGNATURE</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">EP-02</span><span class="dk">TITLE</span><span class="dv">先行署名 / THE PRE-CAUSAL SIGNATURE</span><span class="dk">SOURCE</span><span class="dv">PRE-CAUSAL CORPORATE ARCHIVE / LATER EXEGESIS</span><span class="dk">PHASE</span><span class="dv">−1 / OPTIMISATION DAWN</span><span class="dk">STATUS</span><span class="dv">THREE ACCOUNTS, NONE RESOLVED</span><span class="dk">OBSERVER</span><span class="dv">UNRESOLVED</span></div>
+<blockquote class="log"><span class="le">The signature predates the signer.</span><span class="lj">署名は署名者に先行する。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">AUD-0117名義の記録が途切れたのち、同じ社内文書庫から、一群の資料が復元された。主題は一つの署名である。</p>
+<p class="t">資料は三系統に分かれる。社内の検査記録。広報物。そして、はるか後世に書かれた解釈学派の文書群。三系統は同じ署名について書いている。同じ説明をしてはいない。</p>
+<p class="t">三系統を、成立順に並べる。どの順で読んでも結論は変わらない。結論が存在しないためである。</p>
+<h4 class="sec">一　検査記録</h4>
+<p class="src">検査記録 / 文書電子化事業 異常報告 / ZS−0688D</p>
+<p class="t">社史編纂に伴う旧文書の電子化作業中、作業班より異常の申告があった。</p>
+<p class="t">対象は百三十九年前の土地取得契約書。相手方署名欄の隣、当社側の署名欄に、「UY」の署名がある。</p>
+<p class="t">現会長の署名である。</p>
+<p class="t">照合は三段階で行った。第一段階、画像照合。現会長が決裁文書に用いる署名との形状一致率は、判定装置の較差上限を超えた。装置は「同一筆者」を返した。第二段階、筆圧解析。運筆の速度分布、起筆と終筆の角度、いずれも現会長の署名標本と区別できない。第三段階、インクの年代測定。インクは紙と同年代である。後年の書き足しではない。</p>
+<p class="t">百三十九年前、現会長は出生していない。</p>
+<p class="t">作業班は電子化を中断し、判断を仰いだ。本検査室の指示は「作業を継続し、同種の事例を集計せよ」である。</p>
+<p class="src">検査記録 / 集計報告 / ZS−0641D</p>
+<p class="t">電子化の進行に伴い、同種署名の検出数は増加した。現時点で四十一件。</p>
+<p class="t">分布に規則性がある。文書の年代が古いほど、検出率が高い。直近三十年の文書からは一件も検出されない。百年より古い層では、当社および前身会社の重要決裁文書のほぼすべてに「UY」署名が存在する。前身会社の設立定款にも存在する。定款の署名者欄は五名。うち四名は登記簿と一致する。五人目が「UY」である。登記簿に五人目の記載はない。</p>
+<p class="t">言い換える。署名は、過去へ向かって濃くなる。</p>
+<p class="t">本件を正式の異常として登録しようとしたが、登録できなかった。異常登録票には「原因」の記入欄があり、空欄では受理されない仕組みになっている。原因の候補を記入できる者がいない。よって本件は、制度上、異常ではない。</p>
+<p class="t">集計は継続する。</p>
+<p class="src">検査記録 / 外部検証報告 / ZS−0620D</p>
+<p class="t">社内偽造の可能性を消去するため、社外に保管される記録の検証を行った。</p>
+<p class="t">第一。百三十九年前の土地取得契約の相手方は、現存する地権者団体である。同団体の保管する契約書の控えを、立会いのもと閲覧した。控えの当社側署名欄にも、「UY」の署名がある。形状は当社原本と一致する。控えは団体側の金庫で百三十九年間保管されており、当社関係者の接触記録はない。</p>
+<p class="t">第二。地方登記所の閲覧室で、前身会社の設立登記の付属書類を閲覧した。行政側の綴りにも、定款写しが含まれる。五人目の署名は、そこにもある。行政の綴りは当社の管理外にある。</p>
+<p class="t">第三。前身会社と取引のあった商家三軒の子孫を訪ね、残存する取引記録の閲覧を依頼した。二軒は応じた。一軒の帳面の裏表紙に、「UY」の署名がある。帳面の持ち主は署名の存在を知らなかった。「裏表紙は見ないので」との由。</p>
+<p class="t">以上により、署名は当社の保管域の外に、当社の関与しえない経路で、分布している。社内偽造説は、社内の説明としては成立しない。社外を含む偽造を仮定する場合、仮定すべき関与者の数は検証のたびに増える。増え続ける仮定は、検査の用語では、説明と呼ばない。</p>
+<p class="src">検査記録 / 聴取記録要旨 / ZS−0611D</p>
+<p class="t">在職記録上、最古参の退職者一名への聴取を実施した。退職者は九十四歳。前身会社の末期に入社している。要旨のみ記す。</p>
+<p class="t">署名について質問した。回答。「ああ、あの署名。わたしらの頃からありましたよ。誰のかって？　考えたこともない。書類の隅にあるもんでしょう、ああいうのは。柱の節目みたいなもんで」</p>
+<p class="t">会長について質問した。回答。「お会いしたことはないですねえ。うちの親父も、ないと言ってました。でも、いらっしゃるでしょう。給料は出てたんだから」</p>
+<p class="t">聴取は十二分で終了した。退職者の安静時脈拍を、同席した看護師が測定していた。毎分七十七拍。看護師の所見は「年齢に対して極めて良好」。</p>
+<p class="t">以上。</p>
+<p class="src">検査記録 / 最終報告 / ZS−0602D</p>
+<p class="t">会長室へ、署名の真偽について照会を行った。文面は次のとおりである。「百三十九年前の契約書に見られる署名は、会長ご本人のものでしょうか」</p>
+<p class="t">回答は〇・七八秒後に返された。</p>
+<p class="t">回答の全文。「相違ない」</p>
+<p class="t">質問を変えて再照会した。「会長は当時、出生しておられません」</p>
+<p class="t">回答は〇・七八秒後に返された。</p>
+<p class="t">回答の全文。「相違ない」</p>
+<p class="t">二つの回答は両立しない。両立しないまま、いずれも会長室の正規決裁として記録系に登録され、有効である。本検査室は、有効な決裁を疑う権限を持たない。権限の外の事実を、権限の内の様式で報告する方法を、本検査室は持たない。</p>
+<p class="t">本報告をもって、署名検査を終了する。終了の理由は、完了ではない。様式の不在である。</p>
+<p class="src">編纂者注</p>
+<p class="t">検査記録の署名者符号は「SD-0117」。同期状態記述者の符号である。篇01の監査官と同一の符号系列だが、同一の個体を指すかどうかは、符号の設計上、確認できない。符号は機能を指す。機能は、続いていた。</p>
+<h4 class="sec">二　広報物</h4>
+<p class="src">広報資料 / 創立百四十年記念誌「最初の署名」 / 復元断片</p>
+<p class="t ni">——本誌の巻頭を飾るのは、一枚の古い契約書です。</p>
+<p class="t">百三十九年前。まだ社名も、工場も、あの拍もなかったころ。一人の人物が、この土地の取得書類に署名しました。</p>
+<p class="t ni">「UY」。</p>
+<p class="t">見覚えのある署名だと思われた方。そのとおりです。</p>
+<p class="t">会長は、私たちが思うよりずっと前から、この会社を準備しておられました。</p>
+<p class="t ni">（欠落）</p>
+<p class="t ni">——歴史とは、さかのぼって発見されるものなのかもしれません。私たちが前へ進むたび、過去のほうが、増えていくのです。</p>
+<p class="src">広報資料 / 記念展示「最初の署名」来場者案内 / 復元断片</p>
+<p class="t">展示室中央の展示台に、契約書の原本を展示しています。</p>
+<p class="t">ガラス越しにご覧ください。照明は〇・七八秒周期で明滅します。文書保護のための措置です。</p>
+<p class="t ni">（欠落）</p>
+<p class="t">なお、原本の署名部分を長時間注視された方から、体調不良の申告が複数寄せられています。係員の案内に従い、順路をお進みください。</p>
+<p class="src">広報資料 / 社内報「拍」連載コラム「教えて広報室」 / 復元断片</p>
+<p class="t">Q. 記念誌で見た百三十九年前の署名、会長のものと同じに見えます。どういうことですか？（第七棟・入社二年目）</p>
+<p class="t">A. いい質問です！　実は広報室にも、毎週この質問が届いています。</p>
+<p class="t">答えは——「同じに見えるなら、同じなのでしょう」。</p>
+<p class="t">ふざけていませんよ。考えてみてください。署名とは「本人が承認した」という印です。百三十九年前の書類にあの署名があるということは、百三十九年前の取引を、会長が承認しているということ。順番はともかく、承認は承認です。</p>
+<p class="t">私たちの給与明細にも、あの署名は（電子印影ですが）入っています。順番を気にして、受け取らなかった人はいませんよね？</p>
+<p class="t ni">（欠落）</p>
+<p class="t">来週のテーマは「なぜ社員食堂の配膳口は二・四秒で開閉するの？」です。お楽しみに！</p>
+<p class="src">編纂者注</p>
+<p class="t">記念展示は会期を残して終了している。終了告知の文面は「原本保護のため」。原本の返却記録には、返却先の書庫番号が記されている。その書庫番号は、書庫の台帳に存在しない。</p>
+<p class="t">広報系資料は、この署名について、篇01の周期逸話と同様に複数の物語を併用した。「準備しておられた」版。「先代も同じ署名を用いた」版。「署名は社印の一種であり個人を指さない」版。三版は相互に矛盾するが、いずれも訂正されていない。訂正しないことが、広報の一貫性であった。</p>
+<p class="t">なお、連載コラムの回答——順番を問わない承認——は、後世の三流派のいずれの立場とも一致しない。第四の読みである。第四の読みは、流派としては成立しなかった。反駁されなかったためである。反駁の必要を感じる者が、当時の社内に、いなかったためである。</p>
+<h4 class="sec">三　解釈学派</h4>
+<p class="src">編纂者注</p>
+<p class="t">以下の三文書は、企業体の消滅後、時期不詳の後世に書かれた。書き手たちは自らを「読解の流派」と称し、残存記録の解釈を職能とした。三流派は同じ検査記録を読み、異なる結論に至り、互いの結論を認めなかった。</p>
+<p class="src">遡及流 綱要 第七条 復元断片</p>
+<p class="t">署名は零日より遡って伝播する。</p>
+<p class="t">結果は原因に先行しうる。これは残存記録の全域で観測される基本逆説であり、署名はその最初の顕例にすぎない。規格が制定に先行して施行されていたこと（検拍の件)、設備が指示なく規格へ復帰したこと、これらはすべて同一の逆説の異なる断面である。</p>
+<p class="t">古い文書ほど署名が濃いのは、伝播が零日を起点に過去方向へ進むためである。我々の時代の文書に署名が現れないのは、伝播が我々を通過し終えたか、まだ到達していないか、いずれかである。二つの場合を区別する方法は、我々の側には、ない。</p>
+<p class="t">我々は一つの装置を後代に残す。署名待ち台帳である。白紙の台帳を封緘し、書庫の定位置に置く。開封は百年ごと、開封者は頁を確認し、記録し、再封する。署名が現れた場合、伝播はまだ我々に到達していなかったことになる。現れない場合、判定は次の百年へ繰り越される。</p>
+<p class="t">この実験は、我々の存命中に結果を返さない。返さないことを承知で装置を置くのが、遡及流の読解である。読み終わらない記録に対しては、読み終わらない検証を、対置するほかない。</p>
+<p class="src">編纂者注</p>
+<p class="t">署名待ち台帳は、統合施設の書庫から現物が復元されている。封緘は三回、開封されている。三回分の開封記録はいずれも「全頁白紙」。四回目の開封予定日は、記録上、まだ到来していない。本編纂の時点で予定日がいつなのかは、台帳の暦法が現存の暦法と対応づけられないため、算定できない。台帳は、白紙のまま、待っている。</p>
+<p class="src">複数流 反駁書 復元断片</p>
+<p class="t">遡及流の綱要は、一個の人物という前提を疑っていない。前提のほうが誤りである。</p>
+<p class="t ni">「UY」は個人名ではない。職位の符号である。百三十九年前の署名者と、検査記録当時の会長は、同じ職位を継いだ別の存在である。職位が続くかぎり署名は同形である。同形の署名を訓練によって継承する制度は、古い商家に例がある。</p>
+<p class="t">これで全事例が説明される。逆説は存在しない。存在しないものを読み取るのは、読解ではなく創作である。</p>
+<p class="t">なお、筆圧解析が「同一筆者」を返した件について。装置は筆者を照合しない。運筆を照合する。運筆は、訓練で継承できる。</p>
+<p class="src">偽構流 検討書 復元断片</p>
+<p class="t">両流派とも、記録の真正を疑っていない。</p>
+<p class="t">全署名は、企業体自身による後年の挿入である。目的は創業神話の構築。百四十年記念誌の刊行時期と、署名検出の時期は重なっている。神話が必要とされた時期に、神話の証拠が発見された。これを偶然と読む理由はない。</p>
+<p class="t">インク年代測定が「同年代」を返した件は、測定記録そのものの挿入で説明される。挿入を検証すべき原本は、書庫番号ごと消えている。消えたのではない。最初から、番号だけが用意されたのである。</p>
+<p class="t">我々の立場への反論は一つ予想される。「では検査記録も挿入ではないのか」。そのとおりである。本検討書が依拠する記録も、挿入でありうる。この可能性を排除する方法はない。よって我々の結論は、結論の形式では書けない。書けないことを書けないままここに書き、これを検討書とする。読み終えた者は、本書の綴じ穴の位置を確かめられたい。確かめて何がわかるかは、我々も知らない。</p>
+<p class="src">編纂者注</p>
+<p class="t">三流派の文書庫は、後年、一つの施設に統合されている。統合後の目録では、三流派の文書は同一の分類番号を与えられ、区別されていない。目録の分類名は「署名について」。それだけである。</p>
+<h4 class="sec">四</h4>
+<p class="src">分類不能断片 / 復元番号〇八九</p>
+<p class="t">一枚の白紙。三流派いずれの文書束にも属さず、統合施設の目録にも記載がなく、書架の最上段で発見された。</p>
+<p class="t">紙面にインクはない。筆圧の痕だけがある。</p>
+<p class="t">痕を隆起解析にかけると、「UY」の署名として読める。形状は検査記録の照合標本と一致する。</p>
+<p class="t">筆圧痕は、通常、上に重ねた別の紙へ署名した際に下の紙へ残る。しかしこの紙の保管状態は、発見時、束の最上部であった。統合施設の受入記録でも最上部。それ以前の記録は、ない。この紙の上に、署名されるべき紙が載っていたことを示す記録は、どこにもない。</p>
+<p class="t">インクの到着していない署名、という表現は、報告書の語彙にない。よって本断片は、分類不能として登録された。登録票の原因欄は、空欄のまま受理された。空欄で受理された登録は、復元された全記録中、この一件である。</p>
+<p class="src">編纂者注</p>
+<p class="t">本編纂の過程で、もう一件だけ記しておくべき文書がある。</p>
+<p class="t">現会長の出生届である。地方行政の記録系から、写しが復元された。届出人の欄に父親の名がある。証人の欄に、医師の名がある。</p>
+<p class="t">欄外の余白に、小さく、「UY」の署名がある。</p>
+<p class="t">出生届の様式に、欄外署名の規定はない。誰が、何の資格で、そこに署名したのかを示す記録はない。届は受理されている。受理印の日付は、出生日の前日である。</p>
+<p class="t">行政側の記録では、前日受理は「記載誤り」として処理されている。訂正は、されていない。</p>
+<blockquote class="log"><span class="le">The signature predates the signer. Three readings exist, each lighter than the paper.</span><span class="lj">署名は署名者に先行する。三つの読みがあり、どれも紙より軽い。</span></blockquote>
+<p class="fin">（篇02 了）</p>
+<div class="nx"><a href="#e03">Next<b>篇03&#12288;零日</b>&#8594;</a></div></article>
+<article class="ep" id="e03" data-ep="3"><header class="eh"><span class="en">篇03</span><h3 class="ej">零日</h3><p class="ee">ZERO STEP</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">EP-03</span><span class="dk">TITLE</span><span class="dv">零日 / ZERO STEP</span><span class="dk">SOURCE</span><span class="dv">PERIPHERAL RECORDS ONLY</span><span class="dk">PHASE</span><span class="dv">0-4 / ZERO STEP TO EARLY CONVERGENCE</span><span class="dk">STATUS</span><span class="dv">THE DAY ITSELF IS NOT ON FILE</span><span class="dk">OBSERVER</span><span class="dv">UNRESOLVED</span></div>
+<blockquote class="log"><span class="le">The clocks remained synchronized. The day did not.</span><span class="lj">時計は同期したままだった。その日は、そうではなかった。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">以後の資料が扱う一日を、残存記録は一致して指し示し、一致して記録していない。</p>
+<p class="t">正確に言う。その日の記録は存在する。欠けているのは記録ではない。その日に何が起きたかを、記録から構成する経路である。</p>
+<p class="t">本篇は、その日の周囲——前日、当日の縁、翌日以降——の記録のみで構成する。中心には何も置かない。置くべきものが復元されていないのではない。復元された全記録が、中心を囲む形にしか並ばないのである。</p>
+<p class="t">当日を、以後「零日」と呼ぶ。残存記録の時刻表記が、この日を境に起算し直されているためである。起算し直しを指示した文書は、発見されていない。全システムが、指示なく、同じ日から数え直している。</p>
+<h4 class="sec">一　前日</h4>
+<p class="src">入退館記録 / 本社棟 / ZS−1D</p>
+<p class="t">当日の入館、二百四十三名。退館、二百四十三名。数は合っている。</p>
+<p class="t">退館時刻が合っていない。</p>
+<p class="t">二百四十三名の退館打刻は、全員が同時刻である。二十三時五十九分五十九秒二二。日付が変わる〇・七八秒前。</p>
+<p class="t">本社棟の退館ゲートは四基。一基の通過所要は最短一・八秒。二百四十三名が同一秒に打刻を残す物理的経路は、存在しない。</p>
+<p class="t">打刻装置の保守記録に、当夜の異常はない。装置は正常である。正常な装置が、不可能な記録を、正常に保存している。</p>
+<p class="src">設備記録 / 全拠点 / ZS−1D 深夜</p>
+<p class="t">零日前夜、全七百十四施設の消費電力は、二十二時を境に一斉に低下し、待機水準で水平になった。生産設備の稼働率、零。空調と照明のみ稼働。</p>
+<p class="t">〇・七八秒周期は、維持されている。生産が止まっても、拍は止まらない。待機電力の微小な変動を拡大すると、変動の波形は周期〇・七八秒を保っている。全施設、位相差なし。</p>
+<p class="t">七百十四の建物が、何もせず、同じ拍で、朝を待っている。</p>
+<p class="t">記録上、朝は来ている。</p>
+<h4 class="sec">二　当日の縁</h4>
+<p class="src">編纂者注</p>
+<p class="t">零日当日の記録として、次のものが現存する。監視映像。設備ログ。電力計の積算値。いずれも、時間的に連続しており、破損がない。</p>
+<p class="t">監視映像について記す。</p>
+<p class="t">本社棟の全カメラは、零日の〇時〇分から二十四時〇分まで、途切れなく録画している。総フレーム数は撮影設定と厳密に一致する。一フレームの欠落もない。</p>
+<p class="t">映像には、誰も映っていない。</p>
+<p class="t">二百四十三名が前夜に退館し、翌朝に出勤しているのだから、無人は不自然ではない。不自然なのは、無人の程度である。二十四時間、全カメラで、埃の一粒も、光の揺れも、窓外の鳥影も、記録されていない。動くものは照明の明滅だけである。明滅の周期、〇・七八秒。</p>
+<p class="t">映像解析班の報告を引く。「本映像が実写である証拠は、フレーム内に存在しない。本映像が実写でない証拠も、フレーム内に存在しない。二十四時間、判定材料が一件も映り込まない映像を、班は他に知らない」</p>
+<p class="t">電力計について記す。零日の総消費電力は、待機水準の二十四時間分と一致する。誤差、計器の較差内。何も起きなかった一日として、収支は完全である。</p>
+<p class="t">完全であることが、唯一の異常である。七百十四施設の一日の収支が較差内で閉じた日は、前後の十年間に、零日以外に一日もない。</p>
+<p class="src">編纂者注 / 社外の当日</p>
+<p class="t">零日は、社外の世界では、平凡な一日として記録されている。</p>
+<p class="t">行政の記録に異常はない。気象の記録に異常はない。報道各社の当日紙面が復元されているが、当社に関する記事は一行もない。前日まで、当社は連日報道されていた——電子化事業、記念行事、業績。翌日から、報道は再開している。当日だけ、どの社も、書いていない。各社の記事データベースを横断しても、零日の日付と当社名が同一記事に現れる例は、後年の回顧記事を含めて、一件もない。書くことを禁じられた形跡はない。書かなかった理由を書いた記録もない。</p>
+<p class="t">取引所の記録に、一件の空白がある。当社株の当日の約定、零件。売り注文、零件。買い注文、零件。取引所の障害記録はない。市場は開いていた。当社株だけが、誰からも、思い出されなかった。翌日の出来高は平常である。値も動いていない。丸一日、誰も触れなかった株が、何事もなかった値段で、翌日を始めている。</p>
+<p class="t">近隣住民の記録も引く。第七棟の周辺自治会には、夜間操業音への苦情台帳が長年存在した。台帳の苦情は、零日前夜を最後に途絶える。半年後、一件だけ再開する。文面を引く。「操業音についてではありません。音は前と同じです。同じであることが、このごろ、気になって仕方がないのです。夜中に目が覚めると、まず音を確かめてしまいます。あの間隔で鳴っていると、安心して、また眠れます。これは苦情でしょうか。苦情でないなら、この台帳のどこに書けばよいのでしょうか」</p>
+<p class="t">台帳の受付印は押されている。分類欄は、空欄のまま受理されている。</p>
+<h4 class="sec">三　翌日</h4>
+<p class="src">入退館記録 / 本社棟 / ZS+1D 朝</p>
+<p class="t">翌朝の入館、二百四十三名。前夜の退館者と、符号が全員一致する。</p>
+<p class="t">入館打刻は同一秒ではない。八時零分から八時十二分にかけて分布している。分布を解析した記録が、労務系の資料に残っている。二百四十三名の打刻間隔は、〇・七八秒の整数倍のみで構成されていた。一倍、二倍、三倍。それ以外の間隔は、一組もない。</p>
+<p class="t">二百四十三名は、別々の交通手段で、別々の家から出勤している。到着の間隔が全組で〇・七八秒の倍数になる確率を、労務系の資料は計算していない。計算式を立てた形跡だけがあり、式の途中で記載が終わっている。式の最後の文字の筆圧は、途中の文字より弱い。書きながら、書く必要を失っていったように見える、と復元班は注記している。復元班の注記としては逸脱であるため、正式所見からは除かれた。除かれた注記が別紙で保存されていたため、本編纂で引くことができた。</p>
+<p class="t">なお、この日以後の労務記録から、「遅刻」の区分が消えている。廃止の通達はない。該当者が、いなくなっただけである。</p>
+<p class="src">在庫記録 / 資材部 / ZS+1D 朝の棚卸差分</p>
+<p class="t">零日をまたいだ棚卸で、次の差分が確認された。</p>
+<p class="t">銅線、四十一トン減。半導体基材、二百八十枚減。培養液基剤、十九キロリットル減。冷媒、七トン減。構造鋼材、差分なし。完成品在庫、差分なし。廃棄物計量、零。</p>
+<p class="t">出庫伝票、零件。作業指示、零件。</p>
+<p class="t">資材は減った。製品は増えていない。廃棄物は出ていない。運び出した記録も、使った記録もない。前日の消費電力は待機水準である。四十一トンの銅線を電力なしで加工する方法を、資材部は知らない。</p>
+<p class="t">差分は「棚卸誤差」として処理された。処理を承認した決裁の所要時間は、〇・七八秒であった。</p>
+<p class="src">引き継ぎ書 / 全部署 / ZS+1D 提出分</p>
+<p class="t">零日をまたぐ引き継ぎ書は、全百十七部署から提出されている。全部署、期限内。全部署、様式適合。</p>
+<p class="t">全文が「特記事項なし」で終わる。それ自体は珍しくない。</p>
+<p class="t">百十七通の本文の文字数が、全通、同一である。三百十二文字。</p>
+<p class="t">百十七の部署が、異なる業務について、異なる筆者の名で、同じ文字数の報告を書いた。文面はそれぞれ異なる。要約すると同じになる。要約は「業務は正常に引き継がれた」である。</p>
+<p class="t">提出打刻は百十七通とも同一秒。前夜の退館打刻と同じ現象である。誰も、これを指摘していない。指摘した記録が残っていないのではなく、指摘という行為の記録形式が、この日以後の様式集から消えている。</p>
+<h4 class="sec">四　三つの読み</h4>
+<p class="src">編纂者注</p>
+<p class="t">零日に何が起きたかについて、後世の三流派は、それぞれ一つの読みを残した。三つの読みは両立しない。いずれも棄却されず、いずれも採用されていない。成立順に並べる。</p>
+<p class="src">遡及流 零日論 復元断片</p>
+<p class="t">零日には、何も起きていない。</p>
+<p class="t">これは欠落の言い換えではない。主張である。零日に起きたことは、零日に残らなかった。起きたことの全体が、零日を起点として全時間へ——過去へも、未来へも——分配されたためである。</p>
+<p class="t">先行署名は、零日の内容が過去に到着した痕である。〇・七八秒の規格は、零日の内容が規格の形で過去に沈殿した層である。我々がこれから見出すすべても、零日の内容が未来に到着する痕であろう。</p>
+<p class="t">零日そのものが空白なのは、爆心が焦げないのと同じである。すべてがそこから出発したのなら、そこには何も残らない。</p>
+<p class="src">複数流 零日論 復元断片</p>
+<p class="t">零日に行われたのは、継承である。</p>
+<p class="t">会長職は、この日、先代から当代へ移った。二百四十三名の同時退館は、継承手続きの立会人の一斉退出である。資材の消失は、継承に伴う設備更新の先行搬出である。引き継ぎ書の均質は、継承期の定型文書規程による。</p>
+<p class="t">すべては人事である。大きな人事は、外からは空白に見える。見えるべきでないものを見せないのが、正しい人事だからである。</p>
+<p class="t">我々の読みに謎はない。謎がないことを物足りなく思う読み手は、記録でなく物語を読みたいのである。</p>
+<p class="src">偽構流 零日論 復元断片</p>
+<p class="t">零日は、存在しない。</p>
+<p class="t">暦に一日が挿入されたのである。前夜の退館と翌朝の出勤は、実際には連続した一夜であった。挿入された一日ぶんの「記録」——無人の映像、水平な電力、均質な引き継ぎ書——は、挿入と同時に生成された充填物である。充填物が完璧に平坦なのは、実在の一日が持つ凹凸を、生成側が知らなかったためである。</p>
+<p class="t">なぜ一日を挿入するのか。時刻の起算を直すためである。何かを零日から数え始めたい者にとって、零日は実在する必要がない。目盛りの零は、定規の外にあってよい。</p>
+<p class="t">誰が挿入したのかを、我々は書かない。書けば、本検討書もまた、その者の暦の上に載る。</p>
+<p class="src">編纂者注</p>
+<p class="t">三流派の零日論は、統合施設の目録上、一冊に合綴されている。合綴の順は上記のとおり。合綴を行った者の記録はない。三冊の綴じ穴は、位置が完全に一致している。別々の時代に書かれた三冊が、最初から一冊に綴じられるために穿孔されていたかのように。</p>
+<p class="t">かのように、までを記し、以後を記さない。</p>
+<h4 class="sec">五　閾値</h4>
+<p class="src">人事記録 / 職員名簿の様式変遷 / ZS+40D 〜 ZS+1460D</p>
+<p class="t">零日以後の職員名簿を、時系列で並べる。</p>
+<p class="t">ZS+40D改定。氏名欄の後ろに、括弧書きで「担当機能」欄が追加される。例。「——（同期状態記述）」。</p>
+<p class="t">ZS+400D改定。並び順が氏名順から機能順に変わる。索引から、五十音が消える。</p>
+<p class="t">ZS+900D改定。同一機能の複数名が、一行に集約される。行頭は機能名。氏名は行内に列挙される。氏名の文字が、機能名より一段小さくなる。</p>
+<p class="t">ZS+1460D改定。様式の注記に一行が加わる。「氏名欄は、機能の遂行に必要な場合にのみ記載する」。</p>
+<p class="t">この改定以後の名簿で、氏名欄に記載のある行は、版を追うごとに減っていく。最後に氏名が記載された行を、復元班が特定している。機能名「検食」。食堂の検食担当である。氏名は、復元時の判読で、二文字。判読結果は、本編纂物には記載しない。記載しないことを、編纂の方針とする。名簿から消えていった順に忘れられるのなら、最後に残った一名だけを覚えているのは、公平ではない。</p>
+<p class="src">文書管理記録 / 規格HB-078 分類変更 / ZS+1100D</p>
+<p class="t">稼働周期標準HB-078は、零日から約三年後、文書管理システム上の分類を変更されている。旧分類、「規格」。新分類、「記述」。</p>
+<p class="t">変更理由の欄に、一行がある。「規格とは逸脱の存在を前提とする分類であり、本文書の対象に逸脱は存在しないため」。</p>
+<p class="t">守られる規則は規格と呼ばれ、守るという行為ごと不要になった規則は、記述と呼ばれる。〇・七八秒は、命令から、事実になった。変更を起案した機能の名は「同期状態記述」。篇01の監査官が更新された、あの符号の機能である。符号は、自らの名の由来となった仕事を、ここで完了したことになる。完了の翌週、当該機能は名簿から消えている。</p>
+<p class="src">広報記録 / 社内報「拍」終刊 / ZS+1180D</p>
+<p class="t">社内報「拍」は、第七十七号をもって終刊した。終刊の辞が復元されている。全文を引く。</p>
+<p class="t ni">「本誌は、皆さんに会社を伝えるために創刊されました。伝えるべき距離が、なくなりました。長らくのご愛読、ありがとうございました」</p>
+<p class="t">三行である。歴代で最も短い記事であった。この号の発行部数は記録されていない。配布先の名簿が、すでに、なかったためである。</p>
+<p class="src">分類不能断片 / 復元番号一〇二</p>
+<p class="t">食堂の献立表。日付欄は零日を指す。</p>
+<p class="t">献立。麦飯。汁。魚。乳。</p>
+<p class="t">欄外に、喫食数の集計がある。二百四十三食。</p>
+<p class="t">零日の入館記録は存在しない。前夜、二百四十三名は退館している。翌朝の出勤は八時以降である。零日の食堂で、二百四十三食が、誰に供されたのかを示す記録は、どこにもない。</p>
+<p class="t">献立表の末尾、検食欄に、検印がある。印影は判読可能である。判読結果は、上記の方針により、記載しない。</p>
+<p class="t">検印の時刻欄には、こう記されている。</p>
+<p class="t ni">「〇時〇分〇秒七八」</p>
+<p class="t">零日の、最初の一拍である。</p>
+<p class="src">編纂者注</p>
+<p class="t">第一部を、ここで閉じる。</p>
+<p class="t">企業体の記録は、この後も膨大に続く。続きの記録に、個人は次第に現れなくなる。異常も現れなくなる。異常とは様式の外にあるものの名であり、様式の外が、なくなっていくからである。</p>
+<p class="t">時計は同期したままだった。その日は、そうではなかった。どちらが正しい時間だったのかを、記録は言わない。記録は言わないという形で、すべてを言っている——と読むのは、遡及流の癖である。編纂者は、どの流派でもない。ないことに、しておく。</p>
+<blockquote class="log"><span class="le">What happened did not remain. What remained became what happened.</span><span class="lj">起きたことは残らなかった。残ったものが、起きたことになった。</span></blockquote>
+<p class="fin">（篇03 了）</p>
+<div class="nx"><a href="#e04">Next<b>篇04&#12288;周期の惑星</b>&#8594;</a></div></article>
+<section class="part" id="part2"><span class="pn">第二部</span><h2 class="pj">巡礼</h2><p class="pe">PILGRIMAGE</p></section>
+<article class="ep" id="e04" data-ep="4"><header class="eh"><span class="en">篇04</span><h3 class="ej">周期の惑星</h3><p class="ee">THE PLANET OF INTERVALS</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">EP-04</span><span class="dk">TITLE</span><span class="dv">周期の惑星 / THE PLANET OF INTERVALS</span><span class="dk">SOURCE</span><span class="dv">VERIFIER'S CIRCUIT, FIRST BODY</span><span class="dk">PHASE</span><span class="dv">6-8 / PLANETARY OPTIMISATION</span><span class="dk">SYSTEM</span><span class="dv">UY0311</span><span class="dk">STATUS</span><span class="dv">THE UNIT "DAY" IS NOT UNDER MAINTENANCE</span><span class="dk">OBSERVER</span><span class="dv">THE VERIFIER</span></div>
+<blockquote class="log"><span class="le">The interval remained. The day was deprecated.</span><span class="lj">間隔は残った。一日は、保守対象から外れた。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">第二部の資料は、性質が変わる。</p>
+<p class="t">以後の六篇は、一人の観測者の記録に依る。職名、照合員。氏名、記録されていない。任務、UY0311星系の各天体の稼働記録を、旧文明の規格と照合すること。誰がこの任務を発令したのかは、発令書の発令者欄が機能名のみであるため、特定できない。機能名は「照合計画」。それだけである。</p>
+<p class="t">照合員の記録は、公式報告と、報告に添えられた欄外の書き込みから成る。本編纂は両方を用いる。区別は、つけない。区別をつける規程が、もう、どこにもないからである。</p>
+<h4 class="sec">一</h4>
+<p class="t">降下の間、船の暦が消えるのを、照合員は見ていた。</p>
+<p class="t">軌道に入ったのは、船の暦で第八十九日だった。周回の三周目に、日数表示の桁がひとつ減った。四周目に、もうひとつ減った。五周目、表示枠そのものが消灯し、代わりに二つの数が並んだ。</p>
+<p class="t">拍。巡。</p>
+<p class="t">拍は〇・七八秒で増えた。巡は二・四秒で増えた。それだけが、船の時間になった。</p>
+<p class="t">船の整備記録を照合員は確認した。暦表示の廃止を指示した通信は、受信簿にない。船側の設定変更履歴もない。船は、惑星に近づいただけで、惑星の数え方になった。整備員に相当する機能は本船に搭載されていないため、質問の宛先はなかった。照合員は座席に戻り、降下の残り時間を、拍で数えようとして、やめた。数え終わる前に、着いてしまうからではない。数え終わりが、拍の側に用意されていないからだった。</p>
+<p class="t">薄明の地表が近づいた。</p>
+<p class="t">高度が下がると、地形が読めるようになった。灰の平原に、円形の窪みが等間隔で並んでいる。窪みのひとつひとつに鏡面の円盤が据えられ、円盤の列は地平線まで続いて、二・四秒ごとに一段ずつ、明るい側から暗い側へ送られていた。列の間隔は精密で、平原そのものは精密でなかった。丘の稜線は崩れ、砂は流れ、隕石痕らしい古い円もある。作られた惑星の上に自然の風化があるのか、自然の惑星の上に構造が敷かれたのか、高度三千からは判定できなかった。降りても判定できないことを、照合員はまだ知らなかった。</p>
+<p class="t">さらに降りると、平原の奥に垂直の構造が見えた。淡い逆光の中に、横木を持つ柱がひとつ。距離は読めなかった。距離が読めないほど大きい、ということだけが読めた。柱は降下の間じゅう、視界の同じ位置にあり続けた。近づいても大きくならないものを、照合員は初めて見た。</p>
+<p class="t">地平線は明るく、天頂は暗かった。昼と夜の境目に降りていくのだと照合員は思ったが、降下標識はここが着陸地点だと示していた。境目が、目的地だった。</p>
+<h4 class="sec">二</h4>
+<p class="t">受入れ施設に、日付を書く欄はなかった。</p>
+<p class="t">着任の手続きは一枚で済んだ。様式の頭に、到着時刻の欄がある。記入例が添えてある。「第◯◯拍」。照合員は腕の計器を見て、船を降りてからの拍数を書いた。様式はそれで受理された。到着が今日なのか昨日なのかを、様式は訊かなかった。今日という単位が、様式に存在しなかった。</p>
+<p class="t">施設の廊下は長く、淡白色に塗られ、突き当たりの表示だけが青緑に点っていた。廊下の照明は〇・七八秒で明滅した。明滅は地球の第七棟と同じ周期で、同じ位相だった。九光年を隔てて位相が合っている理由を、照合員は考えないことにした。考えるための枠が、まだ、手元になかった。</p>
+<p class="t">割り当てられた区画で、照合員は資格証を机に置いた。</p>
+<p class="t">照合資格証。金属の札に、発行日が刻んである。発行日は、照合員の着任日より千二百日古い。着任のとき、発行手続きと同時に受け取った札である。受け取った日より千二百日前に発行された札を、受け取った。札の裏には何も刻まれていない。照合員はこの札について、一度だけ発行元に照会したことがある。回答は〇・七八秒後に返された。「相違ない」。それきり、照会していない。</p>
+<p class="t">窓の外は薄明だった。</p>
+<h4 class="sec">三</h4>
+<p class="t">翌る拍、と書きかけて、照合員は報告書の一行目を消した。</p>
+<p class="t">任務の最初の照合対象は、時間の単位である。旧規格における「日」「時」「年」が、本天体の運用記録とどう対応するかを確認し、換算表を作る。それが計画書の第一項だった。計画書を書いた機能は、この惑星に暦がないことを、知らなかったのだと思われた。あるいは、知っていて、書いたのかもしれなかった。どちらであるかを判定する材料は、計画書のどこにもなかった。</p>
+<p class="t">照合員は施設の記録区画へ行き、端末に単位「日」を照会した。</p>
+<p class="t">回答は速かった。</p>
+<p class="t ni">「単位『日』は保守対象外です」</p>
+<p class="t">保守対象外、の定義を重ねて照会した。</p>
+<p class="t ni">「誤りとして削除された単位ではありません。維持する理由を失った単位です。参照は可能です。保証は、されません」</p>
+<p class="t">参照先として、端末は一件の保管番号を返した。博物区画、第七棚。</p>
+<p class="t">博物区画は施設の最下層にあった。降りる昇降機は二・四秒で扉を開閉した。</p>
+<p class="t">区画には棚が七つあった。第七棚へ向かう途中、照合員は他の棚の前を通った。通り過ぎるだけのつもりで、六つとも、立ち止まった。</p>
+<p class="t">第一棚。「単位『秒』の旧定義器」。原子時計の筐体である。表示は生きていて、時を刻んでいた。刻みの間隔は一秒ではなかった。〇・七八秒だった。説明札の追記に、「本器は保守の過程で現行周期へ較正された」とある。旧定義の標本が、旧定義のままでは、保守できなかったらしい。</p>
+<p class="t">第二棚。「単位『時』の使用例」。正午を告げる鐘の録音である。再生釦があった。照合員は押さなかった。正午のない経度で鳴らす音ではない、という気がした。気がした、という判断基準は照合の規程になかったので、報告書には書かないことにした。</p>
+<p class="t">第三棚。「単位『週』の使用例」。洗濯当番表。七つの欄に、七つの名前。名前は、どれも読めた。読めるだけだった。</p>
+<p class="t">第四棚。「単位『月』の参照天体、模型」。地球の月である。本天体に衛星はない。あったのか、なかったのか、除かれたのかを、札は書いていなかった。</p>
+<p class="t">第五棚。「単位『季節』の標本」。押し葉が一枚。赤い。赤いままである。標本というものは、変わらないから標本なのだと、札の代わりに照合員は思った。</p>
+<p class="t">第六棚。空だった。札だけがある。「単位『今日』。実物標本は、性質上、保存できない」。空の棚は、他のどの棚よりも、手入れが行き届いていた。</p>
+<p class="t">第七棚には、遺物がひとつだけ収まっていた。</p>
+<p class="t">日めくり暦だった。</p>
+<p class="t">地球の、紙の暦である。三百六十五枚。一枚も、めくられていない。一枚目の日付の数字を、照合員は長いあいだ見た。数字は読めた。読めることと、指せることは、違った。この数字が指していた朝は、この惑星のどこにもなかった。</p>
+<p class="t">棚の説明札に、一行だけあった。</p>
+<p class="t ni">「単位『日』の実物標本。作動には天体の自転を要する」</p>
+<p class="t">照合員は窓のない最下層で、地表の薄明を思い出した。</p>
+<p class="t">この惑星の自転は、公転と同期するよう調整されている。恒星に対して、地面は回らない。明暗の境界線は地表に固定され、施設はその線上に建っている。朝が来ないのではない。朝と夕の区別が、この経度には最初からない。単位「日」は、参照先の天体運動ごと、保守対象から外れていた。</p>
+<p class="t">暦は棚の中で、三百六十五枚のまま、静かだった。</p>
+<h4 class="sec">四</h4>
+<p class="t">それでも照合はする、と照合員は報告書に書いた。任務は単位の照合であり、単位が保守対象外であることは、照合しない理由ではなく、照合の結果だからである。</p>
+<p class="t">旧規格の一日は、八万六千四百秒。</p>
+<p class="t">これを本天体の二つの周期で割る。照合員は端末を使わず、紙で計算した。紙で計算する規程はもうなかったが、禁じる規程もなかった。</p>
+<p class="t">拍で割る。八万六千四百を〇・七八で割ると、十一万七百六十九拍、余り〇・一八秒。割り切れない。一日は、拍の整数倍ではない。拍で数えるかぎり、一日はどこかで必ず、〇・一八秒だけ、ずれる。</p>
+<p class="t">巡で割る。八万六千四百を二・四で割ると、三万六千。ちょうど三万六千巡。余り、なし。</p>
+<p class="t">照合員は計算を三度やり直した。三度とも、同じだった。</p>
+<p class="t">一日は、拍の中には残っていない。巡の中に、残っている。円盤搬送系が三万六千巡するたび、この惑星のどの記録にも現れない単位が、一周だけ、誰にも数えられずに、満ちている。</p>
+<p class="t">割り切れることが設計なのか偶然なのかを、照合員は考えた。二・四秒という周期は、一日を整数で保存する。〇・七八秒は、しない。二つの周期のうち片方だけが旧い単位を運び続けるように選ばれている——と読むことはできた。読まないことも、できた。どちらの読みにも、証拠がなかった。この惑星が、旧世界を保存するために造られたのか、旧世界から改められたのか、それとも最初から、こういうものとして、ここに挿しこまれていたのか。三つの可能性は、地表の風化と構造の精密が並んでいたのと同じ形で、並んだまま、どれも先へ出なかった。照合員は三つとも報告書に書かず、三つとも、忘れなかった。</p>
+<p class="t">照合員は報告書に換算表を書いた。一日、三万六千巡。一年、千三百十四万巡。一生——と書きかけて、その行は消した。旧規格の一生には、標準の長さがなかった。標準のないものは、換算表に載せられなかった。</p>
+<p class="t">報告書の所定欄は、ここで尽きた。</p>
+<p class="t">保守対象外の単位が周期の内側に整数で保存されている件を記載する欄は、様式になかった。照合員は欄外に書いた。欄外は、様式の外である。様式の外に書かれたものを受理する規程はなく、拒否する規程もなかった。欄外の一行は、こうである。</p>
+<p class="t ni">「単位は廃止されたのではない。数える者を、失っただけである」</p>
+<h4 class="sec">五</h4>
+<p class="t">送信の前に、照合員は一つだけ、私的な照合をした。</p>
+<p class="t">区画の窓から、円盤搬送系の一部が見えた。地表を横切る鏡面の列が、二・四秒ごとに一段、送られていく。照合員は椅子を窓に向け、巡を数えはじめた。</p>
+<p class="t">一巡。</p>
+<p class="t">二巡。</p>
+<p class="t">三巡。</p>
+<p class="t">三万六千まで数えれば、一日が過ぎる。声には出さなかった。指も折らなかった。ただ、送られていく鏡面に合わせて、数だけを進めた。千巡を過ぎたあたりで、数えているのが自分なのか、窓の外の周期なのか、境目が曖昧になった。曖昧になっても、数は進んだ。それが少し、恐ろしく、それ以上に、静かだった。</p>
+<p class="t">三万六千巡目が送られたとき、窓の外の薄明は、一巡目とまったく同じ薄明だった。</p>
+<p class="t">空は変わらなかった。地面も変わらなかった。変わったものを探すなら、腕の計器だけだった。安静時脈拍の欄。着任時、毎分七十一。いま、毎分七十三。計器は正常を示す緑を点けていた。正常の定義を、照合員は照会しなかった。</p>
+<p class="t">一日が過ぎたことを知っているのは、この惑星で、自分ひとりだった。</p>
+<p class="t">そのことを報告書に書く欄は、なかった。書かないまま、照合員は送信キーを押した。受理の応答は、〇・七八秒後に返った。</p>
+<p class="t">次の照合対象は、隣の軌道の天体である。移送の便は、第四万二百巡に出る。</p>
+<p class="t">待合で、照合員は無意識に計算していた。いまが三万六千巡すぎ。便まで、およそ四千二百巡。二・四を掛けて一万八十秒。旧規格で、二時間四十八分。</p>
+<p class="t">指を止めて、照合員は自分の計算の向きに気づいた。新しい単位を、古い単位へ、換算していた。換算表は逆向きに作った。古い記録を新しい周期で読むための表である。逆へ渡るのは、表の想定にない使い方だった。想定にない使い方をする者のために、表は要る。要る者は、いまのところ、作った本人しか確認されていない。参照記録零件の表を、作った本人が、欄外の向きで使っている。それが照合という仕事の、いまの全部だった。</p>
+<p class="t">照合員は荷物をまとめ、便を待った。待つあいだ、もう巡は数えなかった。数えなくても、進むことが、わかったからである。二時間四十八分、と胸の内でもう一度だけ言ってみた。誰にも通じない長さは、思ったより、ちゃんと長かった。</p>
+<p class="src">編纂者注</p>
+<p class="t">本篇の報告書は、照合計画の記録系に受理されている。欄外の書き込みも、削除されずに保存されていた。受理と保存は、承認を意味しない。意味しないことを示す注記も、ない。</p>
+<p class="t">換算表は、その後、誰にも参照されていない。参照記録、零件。三万六千巡ごとに満ちる誰のものでもない一日は、本編纂の時点でも、おそらく、満ち続けている。おそらく、と書くのは、確かめた者が、いないからである。</p>
+<blockquote class="log"><span class="le">The day is conserved in thirty-six thousand cycles. The counter is not.</span><span class="lj">一日は三万六千巡の中に保存されている。数える者は、保存されていない。</span></blockquote>
+<p class="fin">（篇04 了）</p>
+<div class="nx"><a href="#e05">Next<b>篇05&#12288;名前の惑星</b>&#8594;</a></div></article>
+<article class="ep" id="e05" data-ep="5"><header class="eh"><span class="en">篇05</span><h3 class="ej">名前の惑星</h3><p class="ee">THE PLANET OF NAMES</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">EP-05</span><span class="dk">TITLE</span><span class="dv">名前の惑星 / THE PLANET OF NAMES</span><span class="dk">SOURCE</span><span class="dv">VERIFIER'S CIRCUIT, SECOND BODY</span><span class="dk">PHASE</span><span class="dv">6-8 / PLANETARY OPTIMISATION</span><span class="dk">SYSTEM</span><span class="dv">UY0311</span><span class="dk">STATUS</span><span class="dv">IDENTITY WAS REMOVED FROM MAINTENANCE</span><span class="dk">OBSERVER</span><span class="dv">THE VERIFIER</span></div>
+<blockquote class="log"><span class="le">Identity was removed from maintenance.</span><span class="lj">個体性は、保守対象から外された。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">第二の天体は、星系の記録を保守する惑星である。名簿、権限、生体署名。存在に関する台帳のすべてが、ここで維持されている。</p>
+<p class="t">本篇の資料には、照合員の報告書のほかに、当該惑星側の入圏記録が含まれる。入圏記録には、照合員の報告書に現れない事項が一件、含まれている。照合員がこの事項を認知した形跡は、以後の全記録を通じて、ない。</p>
+<p class="t">編纂者は、この事項を、照合員の報告書と同じ資料群の中に、そのまま置く。並べる以上のことは、しない。</p>
+<h4 class="sec">一</h4>
+<p class="t">第二の天体は、塔の惑星だった。</p>
+<p class="t">軌道から見たとき、暗い半球に淡い光の点が格子状に並んでいた。降りると、点のひとつひとつが塔だった。記録保管の塔である。窓はなく、外壁の継ぎ目に沿って苺乳色の細い光が走り、〇・七八秒で明滅していた。塔と塔の間隔は正確に等しく、地平線まで、同じ塔が、同じ間隔で立っていた。数える気になれば数えられる並び方だった。数える気に、なれなかった。</p>
+<p class="t">入圏ゲートで、照合員は資格証を翳した。</p>
+<p class="t">読み取りの応答は〇・七八秒後に返った。表示板に文字が出た。</p>
+<p class="t ni">「おかえりなさい」</p>
+<p class="t">文字は一拍だけ表示され、消え、別の文字に替わった。</p>
+<p class="t ni">「ようこそ。照合員」</p>
+<p class="t">照合員は定型文の切り替わりだと判断し、ゲートを抜けた。判断の根拠は、なかった。根拠を探すには、表示は短すぎた。</p>
+<p class="t">ゲートの内側に、応対が立っていた。</p>
+<h4 class="sec">二</h4>
+<p class="t">応対は、人の形をしていた。</p>
+<p class="t">背丈は照合員と同じほどで、制服は淡白色、襟に青緑の細い線が入っていた。顔は、整っているというより、平均という語の標本のようだった。どの特徴も突出せず、どの特徴も欠けていない。見た三拍後には思い出せなくなる顔で、見ているあいだは、感じのいい顔だった。</p>
+<p class="t ni">「照合員。ようこそおいでくださいました。本天体での照合業務を補助いたします。橘と申します」</p>
+<p class="t">橘、と照合員は復唱した。旧規格の、姓である。博物区画の洗濯当番表以来、実用されている姓を聞くのは久しぶりだった。</p>
+<p class="t ni">「橘さん、は、個人名ですか」</p>
+<p class="t ni">「権限名でございます」と橘は言った。感じのいい即答だった。「照合業務補助に必要な諸権限の集合に、『橘』の名が割り当てられております。由来は、当台帳区の初代保守責任者の姓と記録されております」</p>
+<p class="t ni">「あなたは、その、初代の」</p>
+<p class="t ni">「いいえ」橘は微笑した。微笑も、平均の標本だった。「わたくしは『橘』を保持している機能体でございます。保持者は、わたくしのほかに、現在二名ございます」</p>
+<p class="t ni">「二名」</p>
+<p class="t ni">「本日はあいにく、三名とも稼働中でございます」と橘は言った。「ご都合がよろしければ、このままわたくしがご案内いたします」</p>
+<p class="t">三名とも、という語の座りの悪さに、照合員は一拍遅れて気づいた。目の前の一名を含めて三名なら、あいにく、は要らない。訊き返す前に、橘は歩き出していた。歩幅は正確で、靴音は二・四秒に三歩あまりの拍だった。</p>
+<h4 class="sec">三</h4>
+<p class="t">照合対象は、旧単位「氏名」だった。</p>
+<p class="t">案内された第十一塔の内部は、吹き抜けだった。</p>
+<p class="t">中心に軸があり、軸のまわりを、鏡面の円盤が螺旋に取り巻いていた。円盤の上に、記録の板が一枚ずつ載っている。円盤の列は二・四秒ごとに一段、下へ送られ、最下層で読み取り環をくぐり、また上へ運ばれていく。台帳とは装置の名ではなく、この循環の全体の名だった。どの記録も、静止していなかった。二・四秒ごとに居場所を替えながら、失われずに、回り続けていた。保管と運動が同じことである建築を、照合員は初めて見た。</p>
+<p class="t">見上げると、螺旋のはるか上で、円盤の鏡面が明滅の光を反射して、苺乳色の点の列が降りてくるのが見えた。降りてくる点を目で追うと、拍の数え方を体が思い出した。思い出したことを、体に断ってから、照合員は視線を端末に戻した。</p>
+<p class="t">旧規格において、氏名は個体を指した。一名につき一つ、重複は例外、変更は手続き。それが台帳の前提だった。現行の台帳の前提を確認し、換算の可否を報告する。計画書の第二項である。</p>
+<p class="t">台帳区の端末で、照合員は「橘」を照会した。</p>
+<p class="t">生体ログが返った。歩容、脈波、声紋、虹彩。四系統の生体署名が、三つの施設から、同時刻で記録されていた。第十一塔、第四十塔、第百二塔。三点間の距離は、最短でも四百キロメートルある。</p>
+<p class="t">三つのログの生体署名は、較差内で一致していた。</p>
+<p class="t">歩容が一致するのは訓練でありうる。声紋の一致は装置でありうる。脈波と虹彩の同時一致は、照合員の知る旧規格の語彙では、同一個体としか記述できなかった。同一個体が同時に三箇所にいることを記述する語彙は、旧規格になかった。</p>
+<p class="t">案内の橘に、照合員は端末の画面を示した。</p>
+<p class="t ni">「これは、どういうことですか」</p>
+<p class="t">橘は画面を見て、当然のことを訊かれたときの、感じのいい間を置いた。</p>
+<p class="t ni">「生体署名も、権限に含まれておりますので」</p>
+<p class="t ni">「含まれる、とは」</p>
+<p class="t ni">「『橘』の権限一式には、業務に必要な鍵がすべて入っております。扉の鍵、端末の鍵、そして、体の鍵でございます」橘は自分の手の甲を、説明のために軽く上げた。「保持者は、権限を受けるとき、生体署名を『橘』のものに較正いたします。歩き方も、声も、脈も。そうしませんと、台帳が保持者ごとに分かれてしまいます。分かれた台帳は、保守が増えます」</p>
+<p class="t ni">「較正、というのは」照合員は語を選んだ。「元の——保持者自身の署名は、どうなるのですか」</p>
+<p class="t ni">「保管されております」と橘は言った。「返納された個体性は、すべて第一塔に保管されております。廃棄は、いたしません。廃棄には廃棄の記録が要り、記録には保守が要りますので、保管のほうが、軽いのでございます」</p>
+<p class="t">悪意は、どこにもなかった。照合員はそれを、報告書にどう書くべきか、まだ知らなかった。</p>
+<h4 class="sec">四</h4>
+<p class="t">第一塔は、返納された個体性の保管塔だった。</p>
+<p class="t">受付の広間が、当時のまま保存区画になっていた。窓口が七つ。記入台が四つ。天井から下がる整理券の発券機。発券の間隔は、装置の仕様銘板によれば、〇・七八秒。</p>
+<p class="t ni">「個体性返納受付簿」の原本が、閲覧できた。</p>
+<p class="t">照合員は頁を繰った。返納は、申請制だった。様式は一枚。氏名、生体署名の採取への同意、返納後の権限の希望先。希望先の欄には「一任」が多かった。備考欄は、ほとんど空欄だった。空欄でない備考を、照合員はいくつか読んだ。</p>
+<p class="t ni">「子の分も、あわせて」</p>
+<p class="t ni">「夫が先に済ませたので」</p>
+<p class="t ni">「長く待ちました。窓口の方によろしく」</p>
+<p class="t">受付簿の末尾に、集計がある。受付総数。取り下げ、零件。不受理、零件。</p>
+<p class="t">集計の前、受付簿の最終行は、窓口係本人だった。</p>
+<p class="t">受付印と申請者署名が、同じ名である。最終日、窓口係は、並ぶ者がいなくなった窓口で、自分の返納を自分で受け付けていた。備考欄だけが、他のどの行よりも長かった。</p>
+<p class="t ni">「窓口を閉めてからと思っておりましたが、順に受け付けてまいりますと、最後はわたしで、わたしを受け付ける者が、おりません。様式の定めにない場合は窓口の判断による、と手引きにございますので、判断いたしました。写しを一部、余分に取ってございます。不備がありましたら、どなたかへ。長いあいだ、たくさんのお名前をお預かりしました。よい窓口だったと、思います」</p>
+<p class="t">写しは、受付簿に挟まれたまま、保存されていた。不備を指摘した者は、いなかった。指摘できる者が、その時点でもう、台帳のどこにもいなかったからである。</p>
+<p class="t">別綴りで、「未返納者名簿」があった。返納しない者の名簿である。頁を繰るごとに、行が減っていた。転出、死亡、そして「満了」。最後の頁に、最後の一行があった。氏名の欄は塗り消されている。処理欄に、一行。</p>
+<p class="t ni">「対象者は返納の必要を認めなくなったため、制度側にて満了処理」</p>
+<p class="t">必要を認めなくなった、が、翻意なのか、認める主体の消滅なのかを、様式は区別していなかった。区別する欄が、なかった。</p>
+<p class="t">広間の壁に、当時の掲示が一枚、保存されていた。</p>
+<p class="t ni">「お名前は、たいせつな記録です。だからこそ、確かな保守のもとへ。——受付は、順番にご案内します」</p>
+<p class="t">照合員は長いあいだ、掲示の前に立っていた。虐殺の痕を探していたのだと、あとになって気づいた。列の乱れ、抗議の貼り紙、こじ開けられた扉。そういうものを探す目で、広間を見ていた。なかった。あるのは整理券と、記入台と、丁寧な掲示だけだった。個体性は、奪われた形跡がないまま、保守対象から外れていた。手続きは、暴力よりも、静かに徹底していた。</p>
+<h4 class="sec">五</h4>
+<p class="t">第一塔を出る前に、照合員は保管階を一度だけ通った。返納された個体性の、現物の階である。</p>
+<p class="t">棚は、静かだった。ここの円盤だけは、回っていなかった。生体署名の原本は参照されることがないため、循環に載せる理由がなく、塔でただ一箇所、静止が許された階だった。棚の一つ一つに小さな銘板があり、銘板には名がある。名は、五十音の順でも、返納の順でもなく、画数の順に並んでいた。並べ方を決めた記録はない。決めた者の名も、おそらく、この棚のどこかに、静止している。</p>
+<p class="t">出立の前に、照合員はもう一度だけ、橘に会った。三名のうちの、どの橘かは、確かめようがなく、確かめる意味も、たぶん、なかった。</p>
+<p class="t ni">「最後に、一件だけ」と照合員は言った。「あなたの、以前の名前を、うかがえますか」</p>
+<p class="t">橘は、感じのいい間を置いた。今度の間は、これまでより、一拍長かった。</p>
+<p class="t ni">「以前、と申しますと」と橘は言った。「どの権限の時点の、ことでございましょう」</p>
+<p class="t">問いは、通じていなかった。通じないことが、答えだった。橘の中に、権限より前の時点を指す索引が、もう張られていない。悪意なく、喪失感もなく、索引だけが、ない。</p>
+<p class="t ni">「いえ」と照合員は言った。「結構です。ありがとう」</p>
+<p class="t ni">「お役に立てず」と橘は頭を下げた。「次の天体でのご無事を」</p>
+<p class="t">発着場で、三名の橘が見送りに立っていた。等間隔に並び、同じ拍で頭を下げた。三つの礼は、較差内で一致していた。</p>
+<p class="t">便の窓から塔の格子が遠ざかるあいだ、照合員は報告書を書いた。旧単位「氏名」は、本天体において保守対象外。ただし、と欄外に書いた。</p>
+<p class="t ni">「単位そのものは残っている。橘、という名は、いまも毎拍、使われている。外れたのは名ではない。名が指していた、一回きりのほうである。前の天体では、指す先が残って、数える者が消えた。この天体では、数える仕組みが残って、指す先が消えた。どちらが欠けても、照合は成立しない。成立しない照合を続けることが任務である場合の報告様式を、照合計画に照会したい」</p>
+<p class="t">照会は、送信されなかった。書き終える前に、便が跳んだからである。腕の計器の脈拍欄は、毎分七十四を示していた。</p>
+<p class="src">編纂者注</p>
+<p class="t">本天体の入圏記録から、一件を引く。</p>
+<p class="t">照合員の資格証が入圏ゲートで読まれたとき、台帳区の応答記録には、二行が残っている。</p>
+<p class="t">一行目。「該当署名、在圏」</p>
+<p class="t">二行目（〇・七八秒後)。「訂正。該当署名、入圏」</p>
+<p class="t">在圏——すでに圏内に在る、の判定が先に返り、一拍おいて、入圏に訂正されている。訂正の発行元は記録されていない。台帳区の仕様上、在圏判定は、当該生体署名の圏内記録が連続して存在する場合にのみ返る。</p>
+<p class="t">照合員の生体署名の圏内記録を、編纂の過程で遡った。記録は連続しており、始点がある。始点の時刻は、照合員が本天体に着陸した時刻の、千二百日前である。</p>
+<p class="t">資格証の発行日と、同じ日である。</p>
+<p class="t">照合員の報告書は、この二行に触れていない。ゲートの表示は一拍で切り替わった。一拍で消えるものを、人は、定型文と呼ぶ。</p>
+<blockquote class="log"><span class="le">The name is maintained. What it pointed to is not.</span><span class="lj">名は保守されている。名が指したものは、保守されていない。</span></blockquote>
+<p class="fin">（篇05 了）</p>
+<div class="nx"><a href="#e06">Next<b>篇06&#12288;鋳造の惑星</b>&#8594;</a></div></article>
+<article class="ep" id="e06" data-ep="6"><header class="eh"><span class="en">篇06</span><h3 class="ej">鋳造の惑星</h3><p class="ee">THE PLANET OF FOUNDRIES</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">EP-06</span><span class="dk">TITLE</span><span class="dv">鋳造の惑星 / THE PLANET OF FOUNDRIES</span><span class="dk">SOURCE</span><span class="dv">VERIFIER'S CIRCUIT, THIRD BODY</span><span class="dk">PHASE</span><span class="dv">6-8 / PLANETARY OPTIMISATION</span><span class="dk">SYSTEM</span><span class="dv">UY0311</span><span class="dk">STATUS</span><span class="dv">THE ORGANISM IS DEPRECATED. NUTRITION CONTINUES.</span><span class="dk">OBSERVER</span><span class="dv">THE VERIFIER</span></div>
+<blockquote class="log"><span class="le">Nutrition remained pink after the organism was deprecated.</span><span class="lj">生体が保守対象から外れたのちも、栄養は桃色のままだった。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">第三の天体は、生体演算炉の量産惑星である。</p>
+<p class="t">以下の報告書には、医療と工業の語彙だけが使われている。それ以外の語彙を要する事物が本天体に存在しなかったのか、照合員がそれ以外の語彙を用いないと決めたのかは、報告書からは判別できない。編纂者も、それ以外の語彙を足さない。</p>
+<h4 class="sec">一</h4>
+<p class="t">第三の天体は、恒星の側を向いた明るい惑星で、地表の大半が白かった。</p>
+<p class="t">降下すると、白は建物だった。淡白色の低い建屋が、水平線まで櫛の歯のように並び、建屋と建屋のあいだを、桃色の管が走っていた。管は動脈のように分岐し、細くなり、建屋の壁に入っていく。太い幹線は半透明で、中を流れるものの色が透けた。苺乳色、と旧規格の色名で照合員は記録した。現行の色票番号も併記した。併記は換算表の習慣だった。習慣が仕事より先に手を動かすようになっていることに、書いてから気づいた。</p>
+<p class="t">発着場に、出迎えはなかった。</p>
+<p class="t">案内表示だけが点り、照合員を建屋群へ導いた。本天体の定常人員、という項目を照合員は事前資料で探したが、項目そのものがなかった。人員という語が、本天体の様式に、なかった。</p>
+<h4 class="sec">二</h4>
+<p class="t">鋳造ラインは、静かだった。</p>
+<p class="t">第一工程は培養である。天井まで届く円筒の槽が列をなし、槽の中を苺乳色の培養液が、〇・七八秒周期の微かな脈動で循環していた。槽の壁面に小さな窓が並び、窓の奥に、モジュールの初期体が見えた。灰白色の、指先ほどの塊である。塊は培養液の脈動に合わせて、わずかに揺れた。揺れの周期を照合員は計った。〇・七八秒。揺れているのか、揺らされているのか、計器では区別がつかなかった。</p>
+<p class="t">第二工程は成熟である。初期体は個別の容器に移される。容器は掌に載る大きさの、淡白色の殻で、殻の頂部に給養口、側面に青緑の状態灯がある。容器の列は鏡面の円盤に載り、二・四秒ごとに一段、成熟廊を送られていく。成熟廊の長さは一キロメートルあった。入口から出口まで、およそ三十日ぶん——と書きかけて、照合員は単位を消し、巡数で書き直した。</p>
+<p class="t">第三工程は、封入である。成熟したモジュールは炉殻に収められる。炉殻は成人の頭部より一回り大きい球で、給養管と信号管が接続され、封が施される。封の工程だけ、装置の動きが目に見えて遅かった。仕様書を確認すると、封入速度の上限が定めてあり、理由欄に一行あった。「急激な環境変化は歩留まりを下げる」。</p>
+<p class="t">歩留まり、という語を、照合員は報告書に写した。写すこと以外に、この語に対してできることが、見つからなかった。</p>
+<p class="t">工程の合間に、照合員は給養系の仕様を確認した。培養液の色は、仕様だった。色票番号が指定され、許容差が定められ、逸脱時は給養停止と定められていた。理由欄には一語だけあった。「視認性」。何に対する視認性なのか、視認する機能がどこに残っているのかを、仕様書は書いていなかった。色は、誰も見ていない建屋の中で、仕様どおりに、桃色であり続けていた。</p>
+<p class="t">出荷伝票の綴りも確認した。宛先の欄は、全件、同一の機能名だった。「受容」。所在の欄は座標で、座標は本星系内の別の天体を指していた。用途の欄は、全件、空欄である。空欄のまま、伝票は全件受理されていた。何のために造られるのかを書く欄が空欄でよい製品を、旧規格の工業は持たなかった。持たなかったことを、照合員は換算表の備考に書いた。備考は、換算できないもののための、置き場だった。</p>
+<h4 class="sec">三</h4>
+<p class="t">第四工程が、検拍だった。</p>
+<p class="t">封入を終えた炉は、一基ずつ検拍ゲートをくぐる。ゲートは門形の環で、環の内側に基準波形が流れている。炉の拍が基準波形に同期していれば、捕捉。同期しなければ、不捕捉。判定は一巡、二・四秒で下る。</p>
+<p class="t">ゲートの管理盤に、累積の成績が表示されていた。</p>
+<p class="t">捕捉率、九九・九七パーセント。</p>
+<p class="t">照合員の任務は、この検拍を旧規格と照合することだった。旧規格において、生体の拍は診断の対象である。速い、遅い、乱れている。判定は個体ごとの正常域に照らして下される。個体の正常域、という概念を現行様式に照会すると、回答は定型だった。「保守対象外」。現行の正常は一つである。基準波形に、同期しているか、いないか。</p>
+<p class="t">基準波形の出所を、照合員は照会した。</p>
+<p class="t">管理盤は波形の記録番号を返した。記録番号の登録日は空欄で、登録者は機能名のみ、機能名は「基準」。基準という機能が基準を登録していた。それより先は、どの照会も同じ答えだった。「参照は可能です。保証は、されません」</p>
+<p class="t">波形そのものは、表示できた。照合員は表示させ、しばらく見た。単純な波形だった。立ち上がり、頂、下り、静止。〇・七八秒で一周する、それだけの形である。誰の、と問う欄は、管理盤のどこにもなかった。</p>
+<p class="t">不捕捉の〇・〇三パーセントの行き先を、照合員は確認した。</p>
+<p class="t">不捕捉炉は廃棄されない。「再馴致廊」へ回される。再馴致廊は建屋の北端にあり、そこでは基準波形が通常より弱く、ゆっくりと、繰り返し流されていた。同期するまで、給養は続く。同期の期限は、様式に定められていなかった。期限の欄がないことと、期限がないことは、様式の上では同じだった。</p>
+<p class="t">照合員は廊を、端まで歩いた。</p>
+<p class="t">廊の照明は検拍ゲートより暗く、室温は培養槽と同じ温度に保たれていた。棚の炉は、状態灯の明滅が揃っていなかった。一基ごとに、わずかに違う拍で、青緑が点り、戻る。揃っていない明滅を見るのは、この惑星に降りてから、初めてだった。廊の天井の放射器から、弱い基準波形が、繰り返し、降っていた。波形の繰り返しの間隔は、通常の三倍に引き延ばされていた。引き延ばす理由の欄には、こうあった。「捕捉は、追従の速い個体から順に成立するため、遅い個体に合わせて提示する」。遅い個体、という語が、様式の中で、削除されずに残っていた。</p>
+<p class="t">廊の最奥の一基の台帳を、照合員は呼び出した。在廊期間の欄の数字は、表示枠の桁数を超えていて、上位の桁が読めなかった。表示枠の設計者は、この欄がこの桁数に達することを、想定していなかった。想定の外で、給養は続いていた。桃色の管は、廊の最奥まで、同じ太さで届いていた。</p>
+<p class="t">再馴致廊の炉の数を、照合員は数えなかった。数える欄が、なかったからである。欄がないことを理由に数えなかったのは、この巡歴で、それが初めてだった。</p>
+<h4 class="sec">四</h4>
+<p class="t">保守棟で、照合員は台帳の綴りを閲覧した。</p>
+<p class="t">量産品の保守台帳は、通常、型式ごとに一冊である。本天体の台帳は、炉ごとに一冊だった。</p>
+<p class="t">開くと、理由がわかった。炉は、一基ごとに、違った。</p>
+<p class="t">同じ工程、同じ培養液、同じ封入から出てきた炉が、拍の癖を、それぞれに持っていた。基準より百万分の三だけ速く走ろうとする基。頂の形がわずかに丸い基。同期は保つのに、同期の外れ方だけが特徴的な基。保守台帳は、その癖を一基ずつ記録し、癖に合わせた較正値を、一基ずつ持っていた。較正値の欄の名は「個性補正」。</p>
+<p class="t">台帳の記載例を、いくつか写す。「本基は封入後の初回検拍で不捕捉。再馴致三十巡で捕捉。以後安定。低温時に拍がわずかに沈む傾向。給養温度の下限を〇・二度引き上げて対応」。「本基は捕捉良好。ただし基準波形の停止試験時、他基より一巡早く自走を開始する。異常ではない。特性として記録する」。「本基は較正不要。較正不要の基は本廊で本基のみ。理由は不明。不明のまま、良品である」。</p>
+<p class="t">記載の文体は、様式の定めより、わずかに長かった。どの記載も、定めの項目を埋めたあと、一文か二文、余っていた。余りの部分にだけ、傾向、特性、良品、という評価の語が現れた。評価を書く欄は、様式にない。ない欄に書かれ続けた語が、削除されずに、台帳の版を重ねて生き残っていた。</p>
+<p class="t">個性、という語が現行様式に生きているのを、照合員は初めて見た。</p>
+<p class="t">隣の惑星で、人の個体性は保守対象から外れていた。名は権限になり、生体署名は較正され、一回きりのものは棚で静止していた。この惑星で、量産される炉は、一基ごとの差を台帳に持ち、差ごと保守されていた。人から外された仕組みが、炉に、そのまま架け替えられている——と書きかけて、照合員は欄外の筆を止めた。架け替え、は解釈である。解釈を書く欄は、ない。事実だけを書き直した。</p>
+<p class="t ni">「個体差の保守は、本星系において、廃止されていない。対象が、変わっただけである」</p>
+<h4 class="sec">五</h4>
+<p class="t">熟成保管棟に、照合員は最後に入った。</p>
+<p class="t">検拍を終えた炉が、出荷まで置かれる棟である。棚は天井まで組まれ、炉は等間隔に据えられ、状態灯の青緑が、〇・七八秒で一斉に明滅していた。棟の照明は落とされ、明滅だけが、棚の格子を浮かび上がらせた。</p>
+<p class="t">入口の感知器が照合員を捉え、入室の拍で、全棚の状態灯が確認応答の明滅を一度打った。数千の青緑が、同じ一拍で点り、同じ一拍で戻った。</p>
+<p class="t">一基だけ、遅れた。</p>
+<p class="t">中段の、奥の一基である。全体の応答から、正確に一拍遅れて、点り、戻った。</p>
+<p class="t">照合員は退室し、感知器が静定するのを待ち、もう一度入室した。</p>
+<p class="t">全棚が一拍で応答した。同じ一基が、一拍遅れて、応答した。</p>
+<p class="t">三度目も、同じだった。遅延は毎回、計器の較差内で、〇・七八秒。ずれの量が揺らがない遅延を、装置の不良と呼べるかどうか、照合員は判断を保留した。保留したまま、その炉の保守台帳を呼び出した。</p>
+<p class="t">台帳は、あった。個性補正の欄には、値が入っていた。搬入記録の欄が、空白だった。鋳造ラインの工程記録にも、この炉番号は現れなかった。台帳の最古の頁は、保守記録から始まっていた。造られた記録がなく、最初から、保守されていた。</p>
+<p class="t">炉の外観は、他の炉と同じだった。淡白色の球殻、給養管、青緑の状態灯。照合員は棚の前にしばらく立った。立っているあいだ、状態灯は他の数千と同じ拍で明滅し、揺れなかった。入室の応答だけが、一拍、遅れる。それが、この炉の、台帳に載らない個性補正だった。</p>
+<p class="t">照合員は報告書の欄外に、炉番号と、三回の計測値だけを書いた。理由の欄は、書かなかった。書かなかったのではない、と送信の間際に思い直した。書けなかったのでもない。理由という様式が、この一拍に、合わなかった。</p>
+<p class="t">送信の受理応答は、〇・七八秒後に返った。いつもと同じ長さの、いつもと同じ応答だった。いつもと同じであることを、照合員は今回だけ、確かめるように待った。</p>
+<p class="src">編纂者注</p>
+<p class="t">検拍ゲートの捕捉率、九九・九七パーセント。</p>
+<p class="t">この数値は、第一部の分類不能断片——復元番号〇五三の方眼紙において、点列と封緘波形の一致率として記録された数値と、桁まで同じである。二つの数値のあいだに、九光年と、複数の位相がある。同じであることに意味を与える記録は、双方のどこにもない。編纂者は、二つの数値を、同じ頁に置く。置く以上のことは、しない。</p>
+<p class="t">欄外に記された炉番号の炉は、出荷記録がない。本編纂の時点の在庫記録にも、現れない。搬入の記録がなく、出荷の記録がなく、保守の記録だけが、続いている。</p>
+<blockquote class="log"><span class="le">Nothing records its making. Maintenance is the only shape of its being.</span><span class="lj">造られた記録のないものが、保守されている。保守の記録が、それがあることの、唯一の形である。</span></blockquote>
+<p class="fin">（篇06 了）</p>
+<div class="nx"><a href="#e07">Next<b>篇07&#12288;根の惑星</b>&#8594;</a></div></article>
+<article class="ep" id="e07" data-ep="7"><header class="eh"><span class="en">篇07</span><h3 class="ej">根の惑星</h3><p class="ee">THE PLANET OF ROOTS</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">EP-07</span><span class="dk">TITLE</span><span class="dv">根の惑星 / THE PLANET OF ROOTS</span><span class="dk">SOURCE</span><span class="dv">VERIFIER'S CIRCUIT, FOURTH BODY</span><span class="dk">PHASE</span><span class="dv">6-8 / PLANETARY OPTIMISATION</span><span class="dk">SYSTEM</span><span class="dv">UY0311</span><span class="dk">STATUS</span><span class="dv">NATURE REMAINED. THE BOUNDARY DID NOT.</span><span class="dk">OBSERVER</span><span class="dv">THE VERIFIER</span></div>
+<blockquote class="log"><span class="le">Nature remained. The boundary did not.</span><span class="lj">自然は残った。境界は、残らなかった。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">第四の天体の報告書は、全巡歴の中で最も短い。</p>
+<p class="t">添えられた欄外の書き込みは、さらに短い。本篇は、その短さを埋めない。埋めないことが、この天体の記録として、最も正確だからである。</p>
+<h4 class="sec">一</h4>
+<p class="t">第四の天体は、緑だった。</p>
+<p class="t">降下標識が導いた着陸地は、舗装ではなく、苔だった。脚部が沈み、沈んだぶんだけ苔が受け、機体は水平に静定した。着陸帯の縁を探して、照合員は周囲を見た。縁は、なかった。苔は濃くなり、草になり、灌木になり、森になった。どこまでが着陸帯かを示すものは、何もなかった。示す必要が、はじめから、ないようだった。</p>
+<p class="t">空は薄い緑を帯びた曇天で、光は方向を持たず、影は薄かった。気温は肌に何も要求しなかった。暑くも寒くもない、という状態を、照合員は久しぶりに思い出した。</p>
+<p class="t">受入れ施設の位置情報は、森の中を指していた。</p>
+<p class="t">歩いた。</p>
+<p class="t">道は、あった。舗装ではない。根が編まれて、歩幅の高さに固まっている。根の道は乾いていて、踏むとわずかに撓み、撓んだぶんを押し返した。道の両側は下生えで、下生えの奥は幹の列で、幹の列の奥は、暗くはなかった。森の奥が暗くないのは、幹そのものが、かすかに光を透かしているからだった。透けた光の色は、青緑に近く、青緑そのものではなかった。色票と照合しようとして、照合員は計器を出し、出したまま、しまった。</p>
+<h4 class="sec">二</h4>
+<p class="t">受入れ施設は、樹だった。</p>
+<p class="t">一本の巨樹の根元が開いて、部屋になっていた。壁は生きた木質で、床は根で、天井の高いところに開口があり、曇天の光が落ちていた。部屋の中央に、机に相当する根の隆起があり、隆起の上面に、端末が、埋まっているというより、生えていた。画面は樹皮の一部が滑らかになった面で、触れると点った。</p>
+<p class="t">照合員は着任の様式を呼び出した。到着時刻の欄に、拍数を書こうとして、手を止めた。</p>
+<p class="t">腕の計器の拍数と、部屋の脈動が、合っていた。</p>
+<p class="t">壁の木質に耳を当てるまでもなかった。部屋全体が、〇・七八秒で、ごく浅く、脈打っていた。樹液の圧の波である。機械の拍と同じ周期で、機械の拍と違い、波の頂がわずかに柔らかかった。柔らかさは計器に出ない。計器に出ないものを記録する欄は、様式にない。照合員は拍数だけを書き、様式は受理された。</p>
+<p class="t">照合対象は、旧単位「境界」だった。</p>
+<p class="t">旧規格において、土地は区画された。敷地、屋内、屋外、保護区、市街。線を引き、線の両側を別の規則で扱う。それが旧文明の、自然に対する様式だった。現行の台帳に、本天体の区画情報を照会した。</p>
+<p class="t">回答は、これまでの惑星と同じ定型で返った。</p>
+<p class="t ni">「単位『境界』は保守対象外です」</p>
+<p class="t">参照可能な旧図面が一枚だけ登録されていた。開くと、本天体の初期開発図だった。施設区画、緑地区画、水利区画。線が引かれ、色が塗り分けられている。図面の上に現況を重ねる機能があり、照合員は重ねた。</p>
+<p class="t">線は、どこにも対応していなかった。施設は森に、森は水路に、水路は施設に、互いへ滲み出して、図面の線をすべて跨いでいた。跨いだ、というより、線のあった場所を、覚えていないようだった。</p>
+<h4 class="sec">三</h4>
+<p class="t">照合の必要が、この惑星には、なかった。</p>
+<p class="t">翌る巡、照合員は森を歩いた。任務のためではなかった。任務は前の巡で、事実上、終わっていた。保守対象外の単位を、参照先のない現況と照合することは、できない。できないことの確認は、一行で済む。一行を送信するまでの残りの時間が、照合員のものになった。時間が自分のものになるのは、資格証を受け取ってから、初めてだった。</p>
+<p class="t">森は、施設だった。施設は、森だった。</p>
+<p class="t">幹の中を、給養の管が通っている。管は樹に埋設されたのではなく、樹の維管束が、途中から管の規格に合流していた。どこまでが樹でどこからが管かを、断面のどこにも、見つけられなかった。地表を走る根は、あるところで撚りを増し、束になり、円盤搬送系の軸受を抱いて、また根に戻った。軸受は回っていた。二・四秒に一巡。円盤の上には何も載っていなかった。何も運んでいない搬送系が、森の拍に合わせて、回り続けていた。止める理由も、回す理由も、様式のどこにもないのだろうと照合員は思った。理由の要らない運動を、旧規格では、たしか、営みと呼んだ。</p>
+<p class="t">水流は、構造の中を流れていた。</p>
+<p class="t">建屋であったらしい壁の残りに、水路が通り、水路の底は菌糸の白い網で、網は水を濾しながら、壁の内側へ広がっていた。水は透明で、流れの音は低く、〇・七八秒ごとに、音の芯がわずかに膨らんだ。膨らみは、上流の何かの脈動が、水に乗って届いているのだった。何か、を遡って特定する装置を、照合員は持っていた。持っていることを、思い出しただけにした。</p>
+<p class="t">夕刻に相当する時間帯——この惑星には昼夜があった。自転は、最適化されていないか、あるいは、このままであることが最適化なのか、どちらかだった——照合員は水路の縁に座った。</p>
+<p class="t">座る前に、座る場所を選んだ。水路の縁に、椅子があった。</p>
+<p class="t">旧規格の、二人掛けの長椅子である。金属の脚と、板の座面。脚の片側は根に抱かれて地面と続きになり、座面の板の三分の一は、樹皮に覆われていた。覆われていない三分の二は、板のままで、乾いていて、座れた。誰かがかつて、ここに椅子を置いた。水路を眺めるための向きに。置いた誰かの記録はどこにもなく、椅子は境界と同じように図面から消え、図面から消えたあとも、こうして、座れる形で残っていた。統合は、椅子を除外しなかった。除外しない統合に、照合員は腰を下ろした。</p>
+<p class="t">座って、気づいた。</p>
+<p class="t">川の合流が、視界の中に三つある。三つとも、合流の角度が、同じに見えた。目測である。計測すれば確かめられた。立ち上がれば、装置は機体にある。照合員は座ったままでいた。合流の角度も、幹の間隔も、根の道の分岐も、自然の乱れを持っていて、乱れの底に、乱れきらないものがあった。偶然にしては、整いすぎている。整えられたにしては、乱れている。どちらとも言えない状態が、地平線まで、続いていた。どちらとも言えないままにしておくことを、この惑星の全部が、静かに、勧めていた。</p>
+<p class="t">照合員は、勧めに、従った。</p>
+<h4 class="sec">四</h4>
+<p class="t">その夜、照合員は樹の部屋で眠った。</p>
+<p class="t">眠る前に、開口から夜を見た。曇天は夜も薄く光っていて、光の下で、森は昼と同じ姿勢のまま、色だけを深くしていた。幹の透ける青緑は、夜のほうがよく見えた。数十の幹が、それぞれの深さで灯り、灯りの明滅は、揃っていなかった。揃っていない明滅を、照合員は鋳造の惑星の再馴致廊で見ていた。あちらでは、揃っていないことが、まだ、の意味だった。ここでは、揃っていないことに、意味の欄がなかった。それぞれの樹が、それぞれの拍で、樹液を上げている。基準波形は、この森には、降っていない。降っていないのに、部屋の巨樹の拍は〇・七八秒で、森全体の平均も、おそらく〇・七八秒に、ゆるく寄っていた。寄せる者のいない収束を、何と呼ぶのかを、照合員は知らなかった。知らない語を探すには、夜は静かすぎた。</p>
+<p class="t">巡歴に出てから、眠りは毎晩、拍数の計算で始まっていた。次の便まで何拍、報告の期限まで何巡。数えながら眠り、数え終わらずに目が覚めた。この夜は、数えなかった。数えようとして、部屋の脈動が先に数えていることに気づき、任せた。任せられるものに任せる、という手順は、どの様式にもなかった。なくても、できた。</p>
+<p class="t">目が覚めると、開口の光が、朝の角度になっていた。</p>
+<p class="t">一日が、過ぎていた。数えずに過ごした一日は、周期の惑星で三万六千巡を数えて確かめた一日と、同じ長さのはずだった。同じ長さに、感じられなかった。どちらが正しい長さなのかを決める基準は、旧規格にも、現行にも、なかった。基準のないものが、それでも確かに、過ぎていた。</p>
+<p class="t">出立の朝、照合員は報告書を書いた。本文は一行だった。</p>
+<p class="t ni">「本天体において、旧単位『境界』は保守対象外であり、照合すべき現況の差異は、発見できなかった」</p>
+<p class="t">欄外に、もう一行だけ、書いた。</p>
+<p class="t ni">「自然は、回復していない。統合されて、残っている。回復と統合の違いを書く欄は、ないままでよいと考える」</p>
+<p class="t">送信の受理応答は、〇・七八秒後に返った。腕の計器の脈拍欄は、毎分七十四のままだった。着任のときから、一拍も、上がっていなかった。上がらなかった惑星は、ここが、初めてだった。</p>
+<p class="t">便の窓から、緑の曇天が遠ざかった。森のどこかで、空の円盤が、まだ回っているはずだった。何も運ばずに、拍に合わせて、誰の理由もなく。それを思い浮かべることが、この惑星の照合結果として、報告書の一行より正確である気がした。気がした、は様式の語彙にない。ないままで、よかった。語彙の外に置いてきたものの数を、照合員はこの惑星で、初めて、数えなかった。</p>
+<p class="src">編纂者注</p>
+<p class="t">本篇の報告書は一行、欄外は二行である。受理記録に、通常と異なる点が一つある。</p>
+<p class="t">受理応答ののち、記録系は本報告を、通常の分類に加えて、もう一つの分類へ複写していた。複写先の分類名は「保守対象外・良好」。</p>
+<p class="t">この分類は、分類一覧に存在しない。存在しない分類に複写された記録は、星系の全記録中、本報告一件である。複写を実行した機能の名は、記録されていない。</p>
+<p class="t">保守対象から外れたものを、良好、と評する視点は、現行の様式のどこにも定義されていない。定義されていない視点が、少なくとも一度、動いた。一度だけ動いて、以後、動いた記録はない。</p>
+<blockquote class="log"><span class="le">No discrepancy was found. That is the whole of this body.</span><span class="lj">照合すべき差異は発見できなかった。発見できなかったことが、この天体の、すべてである。</span></blockquote>
+<p class="fin">（篇07 了）</p>
+<div class="nx"><a href="#e08">Next<b>篇08&#12288;文字の惑星</b>&#8594;</a></div></article>
+<article class="ep" id="e08" data-ep="8"><header class="eh"><span class="en">篇08</span><h3 class="ej">文字の惑星</h3><p class="ee">THE PLANET OF LETTERS</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">EP-08</span><span class="dk">TITLE</span><span class="dv">文字の惑星 / THE PLANET OF LETTERS</span><span class="dk">SOURCE</span><span class="dv">VERIFIER'S CIRCUIT, FIFTH BODY</span><span class="dk">PHASE</span><span class="dv">6-8 / PLANETARY OPTIMISATION</span><span class="dk">SYSTEM</span><span class="dv">UY0311</span><span class="dk">STATUS</span><span class="dv">THE TEXT REMAINED LEGIBLE. THE DELAY WAS NEW.</span><span class="dk">OBSERVER</span><span class="dv">THE VERIFIER</span></div>
+<blockquote class="log"><span class="le">The text remained legible. The delay was new.</span><span class="lj">文字は読めるままだった。遅れだけが、新しかった。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">第五の天体の報告書は、二つの部分から成る。端末で打たれた本文と、手で書かれた欄外である。</p>
+<p class="t">本文は、全文が起こせた。欄外は、途中までしか起こせなかった。起こせなかった部分は、図版として本篇の末尾に収載する——予定であったが、収載も、できなかった。理由は、末尾の注に記す。</p>
+<h4 class="sec">一</h4>
+<p class="t">第五の天体は、読めた。</p>
+<p class="t">降下の途中から、すでに読めた。暗い地表に、光る線が都市の形に走り、線は近づくにつれて、道でも川でもなく、文字だった。文字が、都市の大きさで、地表に敷かれていた。一画が街路ほどの幅を持ち、画と画の交差は立体で組まれ、払いの先端は地平の向こうへ消えていた。読める、と照合員は思った。何と読めるのかは、高度が下がるにつれて、わからなくなった。全体は文字で、部分は構造だった。どの高度でも、そのどちらかにしか、見えなかった。両方に同時に見える高度は、降下のあいだ、一度もなかった。</p>
+<p class="t">着陸帯は、ある文字の、点の部分だった。</p>
+<h4 class="sec">二</h4>
+<p class="t">地上で、文字は導体だった。</p>
+<p class="t">街路の壁面に、文字列が走っている。旧規格の文字に似て、より節が多く、画の端に接点の膨らみがある。文字列には電流が通っていた。計器を当てると、信号が読めた。信号は〇・七八秒周期の搬送波に載っていた。壁の文字は、壁の銘であり、同時に、壁の配線だった。銘を消せば配線が切れ、配線を引き直せば銘が変わる。書くことと、造ることが、この惑星では同じ工程だった。</p>
+<p class="t">都市の住所は、文字の部位で書かれていた。</p>
+<p class="t">受入れ施設の所在は、「第三字、三画目、撥ねの内側」だった。案内表示に従って歩くと、街路そのものが三画目だった。緩く反りながら太さを増していく道で、反りの先で路面がせり上がり、せり上がりの根元の陰に、施設の扉があった。撥ねの内側、は正確な記述だった。旧規格の住所は、土地を升目に切って番号を振った。この惑星の住所は、書かれた形の中の位置を言う。升目は、どの向きから読んでも升目である。撥ねの内側は、字全体を読めた者にしか、指せない。住所が、すでに、読解だった。</p>
+<p class="t">受入れ施設の扉には、錠がなかった。扉の面に、一行の文字が刻まれているだけだった。照合員が資格証を翳すと、刻まれた文字の溝を光が走り、一行を端から端まで読み終える速さで、扉が開いた。読んだのは扉のほうだった。資格証という文を、扉が読んだのである。読まれる側に回ったのは、久しぶりだった。</p>
+<p class="t">照合対象は、旧単位「文書」だった。</p>
+<p class="t">旧規格において、文書は情報の器である。書き手がいて、読み手がいて、あいだに文書がある。現行の台帳に、本天体の文書管理系を照会した。文書という分類は、あった。健在だった。保守対象外になっていたのは、別の単位だった。</p>
+<p class="t ni">「単位『読者』は保守対象外です」</p>
+<p class="t">照合員は照会をやり直した。同じ回答が、〇・七八秒後に返った。</p>
+<p class="t">文書は残っている。文字は増え続けている。街路も、壁も、扉も、毎巡、書かれ続けている。外れたのは、読む者のほうだった。この惑星の文字は、読まれるためではなく、流れるために書かれている。電流が通れば、文の役目は果たされる。意味は、通電の副産物として、文字の形の中に、使われないまま保存されていた。</p>
+<p class="t">読者、という単位の最後の保守記録を、照合員は呼び出した。記録は短かった。「参照要求の発生数が閾値を下回ったため」。読む者が減ったから外したのではない。読むという要求が、来なくなったから外したのだった。</p>
+<p class="t">照合員は、端末の前で、自分がいま参照要求を発生させていることに気づいた。保守対象外の単位が、一名ぶんだけ、この惑星で稼働していた。</p>
+<h4 class="sec">三</h4>
+<p class="t">都市の中心に、環があった。</p>
+<p class="t">四重の環である。それぞれの環の面に、文字列が刻まれ、環は互いに逆向きに回っていた。内から一番目は左へ、二番目は右へ、三番目は左へ、四番目は右へ。速さは四つとも違い、どの二つも、揃う気配がなかった。</p>
+<p class="t">環を支える軸は、垂直の柱だった。柱の頂に、横木が渡っている。周期の惑星の降下で見た、近づいても大きくならない柱と、同じ形だった。ここの柱は、近づけば大きくなった。大きくなる柱の周りを、四つの環が、それぞれの速さで回り、環の縁が柱の面をかすめるたび、面に刻まれた溝を、光が走った。柱もまた、読まれていた。環が、柱を、四つの速さで、絶えず読んでいる。読み上げる声のない朗読が、都市の中心で、止まずに続いていた。</p>
+<p class="t">環の文字列を、照合員は読もうとした。</p>
+<p class="t">読めなかった。回っているからではない。回る速さは、目で追える速さだった。追えるのに、読めなかった。一つの環を追えば、他の三つが視界の中で逆へ流れ、追っている環の文字が、流れる三つの構造に、分解された。四つを同時に静止させる視点は、環の側に用意されていなかった。用意されていないことが、この環の、読み方のようだった。</p>
+<p class="t">照合員は環の下に立って、長いあいだ、読めない文字列を見ていた。</p>
+<p class="t">見ているうちに、一瞬だけ、読めた。</p>
+<p class="t">四つの環の回転が、視界のある一点で、偶然に近い重なり方をした一拍——文字が、意味の側へ、揃った。揃った内容を、照合員は書き留めようとした。書き留める手が動く前に、環はもう、次の配置へ流れていた。手に残ったのは、読めた、という確かさだけで、読めたものは、残らなかった。</p>
+<p class="t">計器の記録を、あとで確認した。読めた一拍の長さは、〇・七八秒だった。</p>
+<h4 class="sec">四</h4>
+<p class="t">遅れは、その翌る巡から始まった。</p>
+<p class="t">最初は、壁の文字だった。街路を歩いていて、壁面の銘を見る。形が見える。導体の節、接点の膨らみ、画の流れ。一拍おいて、意味が届く。届けば、ふつうに読める。読めるのだから、支障はない。支障はない、と報告書に書く必要もない。書く必要のないことは、書かなかった。</p>
+<p class="t">次は、計器だった。腕の計器の、見慣れた表示。拍数、巡数、脈拍。数字が、まず図形に見えた。曲がった線、閉じた線。一拍おいて、数に戻った。毎巡、確かめた。遅れは毎回、正確に一拍だった。増えもせず、減りもしなかった。増えないことが、安心なのか、そうでないのか、判定する基準を、照合員は探さなかった。</p>
+<p class="t">端末には、読字の検査様式があった。本天体の様式集に、なぜか、それだけが残っていた。旧規格の検査である。表示された文を読み、読み終えた拍を申告する。照合員は自分に検査を実施した。</p>
+<p class="t">結果。読取り速度、旧規格の標準域。開始遅延、〇・七八秒。全試行、同値。</p>
+<p class="t">遅れの範囲も、確かめた。端末の読み上げ音声は、遅れなかった。聞けば、即座に届いた。数を頭の中で数えるのも、遅れなかった。遅れるのは、目で文字を受けるときだけだった。文字が、いったん形として届き、一拍かけて、意味に組み上がる。組み上がりの一拍は、搬送波の一周期と、較差内で一致した。耳は、この惑星に同期していなかった。目だけが、していた。</p>
+<p class="t">備考欄に、装置が自動で一行を追記した。「開始遅延は、搬送波への同期待ちとして正常範囲です」</p>
+<p class="t">正常範囲、と照合員は読んだ。一拍おいて、読めた。この装置は、読む者を、通電するものとして扱っている。同期してから、流れはじめるものとして。自分の読みが、いつから同期を待つようになったのかを、照合員は思い返した。環の下で読めた一拍が、思い当たる最初だった。あれが、読めた最初だったのか、待たされた最初だったのか。二つの言い方は、同じ出来事を指していた。指していることが、この惑星の様式では、区別されなかった。</p>
+<h4 class="sec">五</h4>
+<p class="t">欄外の書き込みに、変化が出たのは、出立の前の巡だった。</p>
+<p class="t">照合員は手で書く。巡歴の最初からの習慣である。この惑星での欄外を読み返して、手が、書体を変えはじめていることに気づいた。</p>
+<p class="t">最初の頁の字は、地球の字だった。最後の頁の字は、画の端に、小さな膨らみができていた。接点である。書いた覚えは、なかった。筆勢の払いが閉じ、線と線が交差の点で結ばれ、字は、字のままで、回路の側へ、一画ずつ寄っていた。読めた。自分の字である。一拍おいて、読めた。</p>
+<p class="t">照合員は、最後の頁の字を、計器で計った。</p>
+<p class="t">線幅、〇・七八ミリメートル。導通、あり。</p>
+<p class="t">紙の上の字が、通電していた。微弱で、無害で、何にも接続されていない電流が、書かれた線の中を、流れていた。インクは、巡歴の初日から同じインクだった。変わったのは、書く手のほうだった。</p>
+<p class="t">侵されているのか、と照合員は書いた。書いた字を見た。適っているのか、と続けて書いた。二つの文は、同じ手で、同じ書体で、並んだ。どちらの文も、書いた端から、かすかに通電した。答えを書く欄は、報告書にも、欄外にも、なかった。欄のない問いを、照合員は、初めて、欄の外のさらに外——頁の余白の隅に、書いた。小さな字だった。小さな字は、大きな字より、遅れが短い気がした。気がしただけだった。計ると、同じ一拍だった。</p>
+<p class="t">出立の便で、照合員は報告書を送信した。本文はすべて端末打鍵で、遅れなく書けた。打鍵の字は、通電しなかった。手の字だけが、変わっていた。手だけが、この惑星に、同期していた。</p>
+<p class="t">受理応答は、〇・七八秒後に返った。腕の計器の脈拍欄は、毎分七十五を示していた。</p>
+<p class="src">編纂者注</p>
+<p class="t">本篇の欄外は、途中まで起こせた。起こせなくなる境目は、明確である。字が導通を始めた頁からは、文字起こしの装置が、入力を文書としてでなく、部品として分類する。分類を文書に固定して読ませると、装置は読む。読んで、出力の冒頭に、毎回同じ一行を付す。「開始遅延〇・七八秒。搬送波への同期待ちとして正常範囲」。</p>
+<p class="t">図版として収載する計画は、複写の段階で取り止めた。複写された図版が、複写のたびに、わずかに導通するためである。導通する図版を綴じた記録物が、何に接続されうるのかを、編纂者は判断できない。判断できないものは、収載しない。原本は、原本のまま、保管されている。保管棚の位置は、記さない。</p>
+<p class="t">最後の頁の余白の隅の、小さな二行だけは、ここに起こしておく。装置ではなく、編纂者が、目で起こした。一拍、遅れて、読めた。</p>
+<p class="t ni">「侵されているのか」「適っているのか」</p>
+<blockquote class="log"><span class="le">Letters became devices. The reader is no longer a unit. Still, one goes on reading.</span><span class="lj">文字は装置になった。読む者は、単位ではなくなった。それでも一名、読み続けている。</span></blockquote>
+<p class="fin">（篇08 了）</p>
+<div class="nx"><a href="#e09">Next<b>篇09&#12288;基準の惑星</b>&#8594;</a></div></article>
+<article class="ep" id="e09" data-ep="9"><header class="eh"><span class="en">篇09</span><h3 class="ej">基準の惑星</h3><p class="ee">THE PLANET OF ANCHORS</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">EP-09</span><span class="dk">TITLE</span><span class="dv">基準の惑星 / THE PLANET OF ANCHORS</span><span class="dk">SOURCE</span><span class="dv">VERIFIER'S CIRCUIT, SIXTH BODY</span><span class="dk">PHASE</span><span class="dv">6-8 / PLANETARY OPTIMISATION</span><span class="dk">SYSTEM</span><span class="dv">UY0311</span><span class="dk">STATUS</span><span class="dv">THE AUDIT WAS ARCHIVED BEFORE THE VISIT</span><span class="dk">OBSERVER</span><span class="dv">THE VERIFIER / DUPLICATED</span></div>
+<blockquote class="log"><span class="le">The audit was archived before the visit.</span><span class="lj">照合は、訪問より先に、受理されていた。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">第六の天体をもって、第二部の記録は終わる。</p>
+<p class="t">本篇から、照合員の記録は複数化する。同一の報告書が、複数の施設から、異なる受理拍で復元され、いくつかの受理拍は、作成拍より古い。編纂者は本篇の資料を時系列に並べようとし、並べ得る順序が一つでないことを確認した。以下の順序は、並べ得る順序の一つである。一つでしかないことを、先に記す。</p>
+<h4 class="sec">一</h4>
+<p class="t">第六の天体は、柱の平原だった。</p>
+<p class="t">灰色の地表に、同じ形が、同じ間隔で、地平線まで立っている。垂直の柱に、水平の横木。周期の惑星の降下で見た遠い柱と、文字の惑星の中心で環を支えていた軸と、同じ形である。ここでは、その形が、基準だった。</p>
+<p class="t">大きさは、すべて同じだった。降下の途中、照合員は視差で数を取ろうとして、やめた。どの高度から見ても、柱の列は同じ密度で続き、近い柱と遠い柱の区別が、大きさでつかなかった。遠近の手がかりを返さない、と記録しようとして、指が先に様式の定型を打っていた。「該当項目なし」。打った覚えより先に、打たれていた。照合員は定型を消し、地球の語順で、打ち直した。この平原は、距離を測られることを、様式として持っていなかった。</p>
+<p class="t">着陸帯は、二本の柱のあいだの、ただの地面だった。</p>
+<p class="t">降り立つと、柱は静かだった。音も、明滅もない。計器を向けると、読めた。柱の一本一本が、位相の基準を保持していた。〇・七八秒の、波の頂の位置。それを、全部の柱が、較差内で同じに保っている。星系の全設備が参照している頂の位置は、ここから配られているのではなかった。配る、という動詞が、計器の解析欄に出なかった。柱は送信していない。保持しているだけである。保持しているものが、なぜ九光年の彼方まで揃うのかを説明する項目は、解析欄に、なかった。ない欄のことは、書けなかった。</p>
+<p class="t">第一の観測施設まで、照合員は柱のあいだを歩いた。</p>
+<p class="t">近くで見る柱は、艶のない灰白色で、継ぎ目がなく、根元は地面と同じ材質で地面に続いていた。立てられたのか、生えたのか、掘り出されたのか、境目が、根の惑星の樹と管のように、なかった。横木の下を通るとき、影を探した。曇天でもないのに、影は薄く、柱のどの面も、同じ明るさだった。光の来る向きを、柱は教えなかった。教えないことが、この平原の、唯一の一貫した応答だった。応答のある沈黙と、応答のない沈黙は、計器の上では同じ波形になる。同じ波形の前で、区別を保てるのは、まだ問いを持っている側だけだった。</p>
+<p class="t">歩数を、途中から数えていた。数えるつもりはなかった。柱の間隔が正確なので、歩幅が勝手に間隔に合い、合った歩幅が、数を、体のほうに勝手に立てた。三つ目の柱で、照合員は立ち止まり、歩幅を崩した。崩した歩幅は、五本目の柱までに、また合っていた。</p>
+<h4 class="sec">二</h4>
+<p class="t">照合対象は、旧単位「原器」だった。</p>
+<p class="t">旧規格において、基準は物だった。長さの原器、質量の原器。金庫に保管され、複製が世界へ配られ、原器そのものは使われないことで、正しさを保った。現行の台帳に照会すると、定型が返った。</p>
+<p class="t ni">「単位『原器』は保守対象外です」</p>
+<p class="t">理由の欄が、この惑星では、珍しく埋まっていた。「基準は保管によってではなく、反復によって維持されるため」。</p>
+<p class="t">原器は一つで、金庫にある。基準は無数で、平原にある。一つを守る様式から、無数で在る様式へ。どちらが強いかは、照合の範囲外だった。範囲外のことを、照合員は考えた。原器は、失われうる。平原は、失われようがない。失われようのないものを、旧規格は、基準と呼ばなかった。呼ばなかった理由を、旧規格自身も、たぶん、言葉にしたことがなかった。</p>
+<p class="t">第一の観測施設で、照合員は現行の較正記録を請求した。</p>
+<p class="t">端末は記録を返した。返された綴りの先頭に、一件、照合員の様式が綴じられていた。</p>
+<p class="t">本天体、第一観測施設、較正記録の照合報告。報告者、照合員。受理済。</p>
+<p class="t">照合員は、まだ、書いていなかった。</p>
+<p class="t">報告書を開いた。書式は、照合員がいつも使う書式だった。本文は、照合員がいつも書く文体だった。結論は、これから照合して書くはずの結論だった。受理拍の欄を見た。着陸の、千二百拍前だった。</p>
+<h4 class="sec">三</h4>
+<p class="t">照合員は、実験を一度だけした。</p>
+<p class="t">第二の観測施設で、同じ請求をした。綴りの先頭に、同じように、未作成の報告書が受理されていた。照合員はそれを読まずに閉じ、自分の報告書を書いた。書きながら、一箇所、故意に誤った。較正値の末尾の桁を、実測と一つ、ずらした。誤りは較差内で、実害はなく、しかし照合員自身にだけは、誤りだとわかる桁だった。</p>
+<p class="t">書き終えて、送信し、受理応答を待って、綴りを開き直した。</p>
+<p class="t">先に受理されていた報告書の、較正値の末尾の桁は、ずれていた。照合員がいま故意にずらした値と、同じにずれていた。</p>
+<p class="t">照合員は端末の前に、長く座っていた。</p>
+<p class="t">先の報告が正しくて、自分が写したのではない。ずらすと決めたのは、綴りを閉じたあとだった。決める前に、決めた結果が、受理されていた。先行署名、という語を、照合員はこのとき知らなかった。知らないまま、同じ形の中に、いた。書かれる側に、いた。</p>
+<p class="t">実験は、一度でやめた。二度目をすれば、二度目も同じであることを確かめるだけだった。同じであることの確認を重ねる手続きに、旧規格は名を持っていた。検拍、である。自分に対して検拍をするつもりは、なかった。</p>
+<h4 class="sec">四</h4>
+<p class="t">崩れは、施設の側から知らされた。</p>
+<p class="t">第三の観測施設へ移動した巡、端末に在圏の一覧が出た。本天体に在圏する照合資格、四件。</p>
+<p class="t">四件とも、照合員の生体署名だった。</p>
+<p class="t">所在は、第三、第七、第十一、第十四の各観測施設。照合員がいるのは第三である。残りの三箇所は、未訪問だった。</p>
+<p class="t">照合員は第七観測施設へ行った。施設は無人で、機器は稼働し、応対記録が残っていた。「照合員の応対は完了」。完了記録の末尾に、署名があった。手書きの署名である。照合員の字だった。画の端に、小さな接点の膨らみのある、文字の惑星以後の、照合員の字だった。書いた覚えのない字が、書いた覚えのある癖で、そこにあった。</p>
+<p class="t">計器を署名に当てた。線幅、〇・七八ミリメートル。導通、あり。</p>
+<p class="t">名前の惑星で、橘は三名だった。三名は、較正されて三名になった。自分は、と照合員は考えた。較正した覚えはなかった。覚えの有無が較正の有無を保証しないことは、橘の惑星の台帳が、すでに教えていた。四件の在圏は、翌る巡には五件になっていた。数える端末の前から、照合員は離れた。数えるほど増えるものを、旧規格では、たしか、影と呼んだ。呼ばなかったかもしれない。語彙の照合を、照合員は、この巡から、少しずつ、やめはじめていた。</p>
+<h4 class="sec">五</h4>
+<p class="t">出立の前に、照合員は順路を確認した。</p>
+<p class="t">照合計画の行程表である。六つの天体が、訪問順に並んでいる。周期。名前。鋳造。根。文字。基準。すべてに、完了の印が付いた。</p>
+<p class="t">行程表の末尾に、総括の項があった。</p>
+<p class="t ni">「全行程の完了は、最終地点にて確認する」</p>
+<p class="t">最終地点、の座標を、照合員は探した。行程表に、なかった。付属の図にも、なかった。六天体の軌道図の余白は、余白のままだった。</p>
+<p class="t">照合計画へ、照会を送った。「最終地点の所在を、示されたい」</p>
+<p class="t">回答は、〇・七八秒後に返った。</p>
+<p class="t ni">「最終地点は、記載の必要が発生した時点で、記載されます」</p>
+<p class="t">必要の発生条件を、重ねて照会した。回答は、〇・七八秒後に返った。</p>
+<p class="t ni">「相違ない」</p>
+<p class="t">問いと答えは、噛み合っていなかった。噛み合わない答えが正規に受理される様式の中を、自分はずっと歩いてきたのだと、照合員は思った。歩いてきた順路の先が、記載されるのを待っている。記載されてから行くのか、行くから記載されるのか。先行署名の形が、順路の上にも、あった。</p>
+<p class="t">便の予定は、なかった。行程表の完了した者に、次の便を割り当てる項目が、なかったからである。発着場で、照合員は柱の平原を見ていた。柱はどこまでも同じ間隔で、同じ頂を保持して、立っていた。基準というものは、と照合員は欄外に書いた。書いた字は、通電した。</p>
+<p class="t ni">「基準というものは、参照する者のためにある。参照する者が、参照される側に繰り込まれたとき、基準は何のために立っているのか。問いの欄はない。ないことも、含めて、受理されるのだろう」</p>
+<p class="t">書き終えた拍と、同じ拍だった。発着場の誘導灯が点り、降下音がした。</p>
+<p class="t">便が、降りてきた。予定表にない便である。機体の形式は、これまで六つの天体を渡ってきた移送便と同じだった。扉が開き、昇降段が降り、機内の淡白色の照明が、〇・七八秒で明滅した。</p>
+<p class="t">照合員は端末で、便の運航情報を照会した。出発地の欄、本天体。行き先の欄、空欄。</p>
+<p class="t">空欄のまま、便は待っていた。急かす表示も、出発の予告拍もなかった。乗るかどうかを申告する様式も、なかった。様式のないところでは、判断は、様式の外の何かで下すしかなかった。様式の外の何かを、旧規格では意志と呼んだはずだと、照合員は思った。呼ばれていたものが、まだ手元に残っているかどうかを確かめる方法は、乗るか、乗らないかの、どちらかしかなかった。</p>
+<p class="t">腕の計器の脈拍欄は、毎分七十六を示していた。</p>
+<p class="src">編纂者注</p>
+<p class="t">第二部の資料は、ここで尽きる。</p>
+<p class="t">尽きる、は正確でない。ここから先、照合員の記録は、増える。複数の施設から、複数の受理拍で、同文の報告が復元され続ける。どれが照合員の書いたものか、という問いは、本天体の綴りが示したとおり、書く前に受理される様式の中では、判別の形式を持たない。</p>
+<p class="t">行程表の最終地点は、本編纂の時点で、記載済みである。いつ記載されたかは、記載の履歴欄が空欄であるため、わからない。記載されている座標については、第三部で扱う。</p>
+<p class="t">第一部の署名は、署名者に先行していた。第二部の照合は、照合者に先行した。二つの部が同じ形をしていることについて、編纂者は、まだ、何も言わない。言わないことが、まだ、できるあいだは。</p>
+<blockquote class="log"><span class="le">The circuit is complete. Only the place of its completion remains unwritten.</span><span class="lj">照合は完了した。完了の確認される場所だけが、まだ書かれていない。</span></blockquote>
+<p class="fin">（篇09 了）</p>
+<div class="nx"><a href="#e10">Next<b>篇10&#12288;編纂</b>&#8594;</a></div></article>
+<section class="part" id="part3"><span class="pn">第三部</span><h2 class="pj">収束</h2><p class="pe">CONVERGENCE</p></section>
+<article class="ep" id="e10" data-ep="10"><header class="eh"><span class="en">篇10</span><h3 class="ej">編纂</h3><p class="ee">COMPILATION</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">EP-10</span><span class="dk">TITLE</span><span class="dv">編纂 / COMPILATION</span><span class="dk">SOURCE</span><span class="dv">THE COMPILATION ITSELF</span><span class="dk">PHASE</span><span class="dv">UNRESOLVED</span><span class="dk">STATUS</span><span class="dv">THE ARCHIVE CONTAINED ITS OWN SOURCE.</span><span class="dk">OBSERVER</span><span class="dv">ここまでを扉資料と呼び、ここからを本文と呼ぶ。呼び分けを保証してきたのは編纂者である。本篇では、その保証が、監査される。</span></div>
+<blockquote class="log"><span class="le">The archive contained its own source.</span><span class="lj">書庫は、自らの出所を、所蔵していた。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">注である、と最初に断る。断りが要ることが、すでに、いつもと違う。これまでの九篇で、注と本文の区別は自明だった。自明である、と読めていたのは、区別の線を編纂者が引き、引いた線を読者が信じたからである。本篇で扱う資料は、その線の、こちら側にある。</p>
+<p class="t">順に記す。</p>
+<h4 class="sec">一</h4>
+<p class="t">第一部の資料の現物が、UY0311で発見された。</p>
+<p class="t">発見の場所は、名前の惑星、第一塔。返納された個体性の保管塔である。静止した棚の並ぶ保管階の、画数順の棚の果てに、分類外の一区画があり、そこに、綴りが収められていた。</p>
+<p class="t">監査官AUD-0117の監査資料、原本。広報資料「拍」の合本。封緘資料の一頁。方眼紙、復元番号〇五三。解釈学派三流派の文書。そして、署名待ち台帳。</p>
+<p class="t">棚の中の並び順を、記す。監査資料、広報合本、封緘資料、方眼紙、三流派、台帳。この順で、綴りは並んでいた。</p>
+<p class="t">編纂者が第一部を編んだとき、資料の提示順を決めたのは、編纂者である。決めた、という実感が、ある。読みやすさを比べ、並べ替え、確定した。作業記録にも、並べ替えの試行が残っている。確定した順は、棚の順と、同一である。</p>
+<p class="t">編纂者が棚の順を写したのではない。編纂者が棚を確認したのは、第一部の確定より後である。後であることは、作業記録の拍が示している。拍の記録が信用できるなら、である。信用できるかどうかを検討する材料は、本篇の四で扱う。先に結論だけ書けば、材料は、検討に耐えなかった。</p>
+<p class="t">第一部の編纂で、編纂者はこれらを「地球圏の企業記録の復元」として提示した。復元元の所在を、編纂者は明示しなかった。明示しなかった理由は、単純である。編纂者は、これらを、最初から、ここで受け取った。九光年の彼方の惑星の、名前の静止する塔の、分類外の棚で。</p>
+<p class="t">地球の記録が、どうやってここに在るのか。</p>
+<p class="t">読みは、三つ、立つ。</p>
+<p class="t">一。運ばれた。企業体の記録は、拡張の過程で星系へ移送された。移送の記録は、ない。ないことは、移送を否定しない。零日の銅線四十一トンにも、移送の記録はなかった。</p>
+<p class="t">二。ここで生じた。偽史と巡礼は、同じ過程の別の位相であり、地球とUY0311という区別のほうが、記録の側の書き分けにすぎない。監査官の歩いた廊下と、照合員の歩いた廊下は、同じ拍で明滅していた。九光年は、距離ではなく、頁の厚みかもしれない。</p>
+<p class="t">三。編纂の側で合流した。資料は別々の場所から来て、編纂という行為が、一つの棚の記憶を作った。この読みは、編纂者自身を疑う読みである。疑われる側が読みを列挙する文書に、この読みを含めることの妥当性を、編纂者は判断しない。含めることだけを、する。</p>
+<p class="t">三つの読みは、並ぶ。三つ並べる形式を、本編纂物は第一部から使ってきた。使ってきた形式に、編纂者自身が、いま、載っている。</p>
+<h4 class="sec">二</h4>
+<p class="t">署名待ち台帳について、記す。</p>
+<p class="t">遡及流が後代に残した、白紙の封緘台帳である。百年ごとに開封し、署名の到来を確認し、再封する。三回の開封記録は、いずれも「全頁白紙」。</p>
+<p class="t">発見された現物の開封記録欄に、四回目の行が、あった。</p>
+<p class="t">開封拍の欄は、埋まっている。結果の欄には、一行。</p>
+<p class="t ni">「記載の必要が発生した時点で、記載されます」</p>
+<p class="t">この文面を、編纂者は知っている。照合員が最終地点を照会したとき、照合計画が返した文面である。九光年と、いくつもの位相を隔てた二つの空欄が、同じ文で埋まっている。文の出所を、どちらの記録系も、記録していない。</p>
+<p class="t">台帳の頁は、確認した。白紙である。白紙であることの確認を、四回目の開封記録は「結果」と呼ばず、保留の定型で埋めた。白紙と、まだ書かれていない、の区別を、様式が初めて、必要としたのかもしれなかった。</p>
+<h4 class="sec">三</h4>
+<p class="t">移送の便の記録が、一件だけ、復元されている。</p>
+<p class="t">基準の惑星を発った、行き先欄が空欄の便である。運航記録の経路欄も、空欄のまま受理されている。機内記録だけが、残っていた。</p>
+<p class="t">照合員は、機内で、読んでいた。</p>
+<p class="t">便の書庫端末には、一群の文書が収められていた。照合員はそれを、移動のあいだ、順に開いた。開かれた記録が、端末側に残っている。開かれた順に、題を写す。</p>
+<p class="t">定期監査報告、第一四半期。継続調査報告。封緘資料閲覧報告。四半期総括報告。</p>
+<p class="t">監査官の記録である。照合員は、第一部を、読んでいた。</p>
+<p class="t">閲覧記録には、頁ごとの滞在拍が残る。照合員の読みは、最初、速かった。検証実験報告——〇・八〇秒に変えた搬送機が、記録なく〇・七八秒へ復帰する報告——の頁で、滞在拍が、長くなった。長い滞在のあと、照合員は端末の欄外機能に、一行を書き込んでいる。書き込みは、保存されていた。</p>
+<p class="t ni">「この監査官は、私だ。符号も時代も違う。形が、同じだ。規格に呑まれる過程を、規格の様式で記録する者。記録が正確であるほど、記録者は様式の側へ渡っていく。渡り終える前の、最後の数頁を、私はいま読んでいる。私の最後の数頁は、誰が読むのか」</p>
+<p class="t">書き込みの字は、画の端に接点の膨らみを持っていた。導通の有無は、端末の記録からは、わからない。</p>
+<p class="t">照合員は、続けて、解釈学派の三文書を開いていた。遡及流。複数流。偽構流。三つの滞在拍は、ほぼ等しかった。等しい時間を掛けて読み、閉じたあと、もう一行だけ、書き込みが残っていた。</p>
+<p class="t ni">「三つとも、違うと思う。三つとも、外から読んだ者の読みだ。署名も、規格も、零日も、外から見れば逆説で、読みが要る。中に居ると、要らない。中に居る、とはどういうことかを、私はこの巡歴で覚えた。覚えたことを、外の言葉に戻す途中で、この便に乗っている。戻し終わる前に着くのか、着く前に戻し終わるのか。どちらでも、着く先は同じ欄で、欄はまだ、空いている」</p>
+<p class="t">最後の一文の滞在拍は、記録されていない。書き終わりの拍が、頁の閉じられた拍と、同一だったためである。書き終えると同時に閉じる、という動作を、端末の記録様式は、二つの拍に分けられなかった。</p>
+<h4 class="sec">四</h4>
+<p class="t">編纂者の側の話を、する。しなければならなくなった。</p>
+<p class="t">本編纂物には、編纂の作業記録がある。注釈を書き込んだ拍、資料を並べ替えた拍、起こしを確定した拍。記録は自動で残る。編纂者はこれまで、自分の作業記録を、読んだことがなかった。読む理由がなかった。</p>
+<p class="t">読んだ。</p>
+<p class="t">注釈の書き込み拍の間隔を、解析に掛けた。間隔は、ばらついている。ばらつきの底に、周期があった。〇・七八秒。全書き込み拍の、基準波形の頂からの偏差は、較差内に収まっていた。編纂者は、拍に合わせて書いた覚えが、ない。覚えの有無が較正の有無を保証しないことは、本編纂物の第五篇が、すでに教えている。教えていた相手に、編纂者自身が含まれていたことを、第五篇を編んだ拍の編纂者は、知らなかった。知らずに編んだ頁の書き込み拍も、頂に、揃っていた。</p>
+<p class="t">編纂者は、実験を一度だけした。</p>
+<p class="t">でたらめな拍に、一行を書き込む。それだけである。体の勢いだけで、考える前に、書く。書いた。作業記録を開いた。書き込み拍は、頂から較差内だった。</p>
+<p class="t">一度で、やめた。</p>
+<p class="t">やめたところで、気づいた。この場面を、私は二度、編んでいる。監査官は搬送機の周期をずらし、十九日で戻された。照合員は較正値の桁をずらし、ずらす前に受理されていた。編纂者は拍をずらし、ずれていなかった。三つの場面は、行為者が違い、時代が違い、形が同じである。同じ形が人物を替えて反復するとき、人物のほうが、形の変数である。変数の三つ目の値が、私である。</p>
+<p class="t">私、と書いた。編纂者は本編纂物で、一人称を使わない——と、第一部の冒頭で、編纂者自身が定めた。定めを破った行を、削除する権限は、編纂者にある。削除した記録は、作業記録に残る。残った記録の拍は、頂に揃うだろう。揃った拍で削除された一人称は、削除されたことによって、より確かに、ここに書かれたことになる。だから、残す。</p>
+<h4 class="sec">五</h4>
+<p class="t">ここまでのどこかで、注は本文になった。境目を、編纂者は指定しない。指定できないのではない。指定する権限の出所が、指定できないのである。</p>
+<p class="t">整理だけは、する。開いたものと、開かないものの整理である。</p>
+<p class="t">開いたもの。第一部と第二部は、独立の物語でない可能性がある。資料は同じ棚にあり、様式は同じ拍で書かれ、同じ場面が人物を替えて反復している。可能性は三つ並び、どれも先へ出ない。並べたまま、第三部は進む。</p>
+<p class="t">開かないもの。編纂者が誰であるか。いつ、どこで、これを編んでいるか。編纂者の書き込み拍が頂に揃うことが、何を意味するか。この惑星系が、造られたのか、改められたのか、挿しこまれたのか。</p>
+<p class="t">開かないものの一覧を、編纂者はこれまで、持っていなかった。持たずに済んでいた。一覧を書けるようになったことが、本篇の、唯一の進捗である。進捗、という語を使ってみて、わかった。これは監査の語彙である。監査官の語彙が、九光年と複数の位相を渡って、編纂者の手に、いま、届いている。届いた語彙で書かれた本篇の書き込み拍は、すべて、頂に揃っていた。</p>
+<p class="t">便は、まだ、飛んでいる。行き先の欄は、空欄のままである。空欄が埋まる拍を、照合員は機内で、編纂者は注の中で、読者は頁の先で、それぞれに、待っている。三つの待機は、較差内で、同じ拍を刻んでいる——と書くところまでが、編纂で、ここから先は、</p>
+<blockquote class="log"><span class="le">The archive contained its own source. The shelf is this page.</span><span class="lj">書庫は、自らの出所を、所蔵していた。所蔵の棚の位置は、この頁である。</span></blockquote>
+<p class="fin">（篇10 了）</p>
+<div class="nx"><a href="#e11">Next<b>篇11&#12288;空席</b>&#8594;</a></div></article>
+<article class="ep" id="e11" data-ep="11"><header class="eh"><span class="en">篇11</span><h3 class="ej">空席</h3><p class="ee">THE VACANT SEAT</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">EP-11</span><span class="dk">TITLE</span><span class="dv">空席 / THE VACANT SEAT</span><span class="dk">SOURCE</span><span class="dv">TERMINAL RECORDS, FINAL SITE</span><span class="dk">PHASE</span><span class="dv">UNRESOLVED</span><span class="dk">STATUS</span><span class="dv">THE SEAT WAS MAINTAINED. NO OCCUPANT WAS ON FILE.</span><span class="dk">OBSERVER</span><span class="dv">THE VERIFIER / FINAL ENTRY</span></div>
+<blockquote class="log"><span class="le">The seat was maintained. No occupant was on file.</span><span class="lj">座は保守されていた。占有者は、台帳になかった。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">最終地点の座標は、行程表に記載済みである。前篇で予告したとおり、ここに記す。</p>
+<p class="t">零。零。零。</p>
+<p class="t">星系の座標系の、原点である。六つの天体の位置は、すべてこの点からの距離で書かれてきた。距離で書かれる六つを巡り終えた者だけが、距離の書き出される場所へ、行くことになる。記載の必要は、そのようにして、発生したらしい。</p>
+<p class="t">以下は、便の記録と、最終地点の端末記録から成る。照合員の欄外は、最後の一件まで、復元されている。</p>
+<h4 class="sec">一</h4>
+<p class="t">行き先の欄は、着陸の〇・七八秒後に、埋まった。</p>
+<p class="t">便が静定し、機体の拍がひとつ打たれ、次の拍で、空欄だった欄に座標が入った。零、零、零。着いたから記載されたのか、記載されたから着いたことになったのか。照合員はもう、その二つを分けようとしなかった。分けられないことが、この星系の文法だった。文法に、九光年ぶん、慣れていた。</p>
+<p class="t">扉が開いた。</p>
+<p class="t">外は、暗かった。惑星ではなかった。地面に相当するものは平らな灰白の面で、面は照明のない暗さの中へ広がり、広がりの先は見えなかった。空に星はなく、六つの方向に、六つの淡い光点があった。周期。名前。鋳造。根。文字。基準。巡ってきた天体が、原点から、等距離に見えた。等距離であるはずはなかった。軌道半径は六つとも違う。違うはずのものが、ここからは、同じ遠さに見えた。原点というのは、そういう場所なのかもしれなかった。すべてから同じだけ離れるために、どこでもない一点に、立つ。</p>
+<p class="t">面の中央に、建物がひとつ、あった。</p>
+<p class="t">大きくなかった。柱の平原の柱より低く、鋳造の建屋より小さい。四角い、窓のある、二階建てほどの建物である。地球の、事務所の形だった。九光年の果ての原点に、事務所が、一棟だけ、建っていた。</p>
+<h4 class="sec">二</h4>
+<p class="t">入口に、受付があった。</p>
+<p class="t">無人である。受付台に、来訪者記名簿が開いて置かれ、頁は白紙だった。記名簿の様式は、旧規格のものだった。氏名、所属、用件、入館拍。照合員は少しのあいだ、白紙の頁を見た。氏名の欄に書けるものを、自分がまだ持っているかどうかを、考えた。考えてから、書かずに、先へ進んだ。書かなかったことは、端末の入館記録には残った。「記名、なし。入館、受理」。受理されるのだった。ここでも、何もかもが。</p>
+<p class="t">廊下は短く、扉が並んでいた。</p>
+<p class="t">どの扉にも、銘板があった。広報室。監査室。標準化室。医務室。地球の会社の、部署の名である。第一部——照合員が便で読んだ、あの綴りの中の名が、扉の並びになって、原点の事務所に揃っていた。どの扉も、細く開いていた。中は、暗く、机の並びだけが見えた。机の数は、部屋ごとに違った。監査室の机は、一つだった。一つの机の上は、片づいていた。片づけて出た者の片づけ方だった。誰が、いつ、どこへ出たのかを、廊下は言わなかった。</p>
+<p class="t">突き当たりに、扉が一枚あった。</p>
+<p class="t">扉に、銘板があった。銘板の文字は、地球の字だった。接点の膨らみのない、ただの字である。読むのに、一拍、掛かった。掛かってから、読めた。</p>
+<p class="t ni">「会長室」</p>
+<p class="t">照合員は扉の前で、資格証を出した。出してから、翳す先がないことに気づいた。扉に、錠がなかった。読取り装置もなかった。把手だけがあった。把手を引く、という動作を要求する扉に会うのは、地球を発って以来だった。</p>
+<p class="t">引いた。開いた。</p>
+<h4 class="sec">三</h4>
+<p class="t">部屋は、拍で満ちていた。</p>
+<p class="t">音ではない。空気の圧が、〇・七八秒で、ごく浅く、満ちて、引いた。根の惑星の樹の部屋に似て、樹はどこにもなかった。壁は事務所の壁で、床は事務所の床で、窓の外は原点の暗さだった。拍の出どころを、照合員は計器で探した。計器は、部屋の全方位から等しい強さで頂が来る、と示した。発生源、該当なし。柱の平原と同じだった。ここにも、送り手はいなかった。保持だけが、あった。部屋そのものが、保持していた。</p>
+<p class="t">部屋の中央に、机があった。</p>
+<p class="t">机の向こうに、椅子があった。</p>
+<p class="t">椅子は、空だった。</p>
+<p class="t">机上に、表示板が一枚、立ててあった。表示は点灯していて、二行だった。</p>
+<p class="t">CHAIRMAN INSTANCE: UNRESOLVED会長 実体：未解決</p>
+<p class="t">照合員は、机を回り込まずに、正面から、長いあいだ、空の椅子を見た。</p>
+<p class="t">誰かがいた形跡を、探した。座面の窪み、肘掛けの摩耗、床の擦れ。なかった。誰もいなかった形跡を、探した。埃、退色、乾き。それも、なかった。椅子は、使われた椅子の古び方も、使われなかった椅子の古び方も、していなかった。保守された椅子の、保守のされ方だけを、していた。</p>
+<p class="t">机上には、表示板のほかに、物が二つあった。</p>
+<p class="t">一つは、決裁の端末である。画面には決裁の一覧が出ていて、一覧は、流れていた。承認、承認、承認。一件ごとに、〇・七八秒。星系の全部の申請が、ここを通っているのか、ここの表示がすべての承認と同じ拍で点いているだけなのか、画面からは区別できなかった。区別できない二つは、この星系では、たぶん、同じことだった。</p>
+<p class="t">流れる一覧の最上段に、一件だけ、流れない行があった。</p>
+<p class="t">その前に、照合員は一覧を、遡ってみていた。決裁の履歴である。承認、承認、承認。遡っても、拍の間隔は変わらなかった。〇・七八秒に一件。履歴の先頭へ、と操作した。画面は遡り続けた。遡る速さを上げても、先頭は来なかった。履歴の総件数の欄を見た。欄は、あった。数字の代わりに、一語が入っていた。「継続」。件数を数え終えることを、この履歴は、様式の側で断っていた。始まりのある記録なら、数えられる。数えさせない記録の始まりについて、考えられることは一つしかなく、その一つを、照合員は考えないことにした。考えても、書く欄が、ないからだった。</p>
+<p class="t">未決、とある。受付拍の欄は、一覧のどの行よりも古い拍を示していた。内容の欄は、空欄ではなかった。非公開でもなかった。文字は、表示されていた。表示されている文字を、照合員は読もうとした。形は見えた。一拍、待った。意味は、来なかった。二拍、待った。来なかった。文字の惑星で覚えた遅れは、いつも一拍だった。ここの一行だけが、何拍待っても、形のままだった。読めない字ではなかった。まだ読まれない字だった。その区別を、照合員は署名待ち台帳の白紙で、すでに知っていた。</p>
+<p class="t">未決の一件の、所要拍の欄は、増え続けていた。承認までの所要、と様式は呼ぶ。承認されないまま、所要だけが、最古の受付拍から、いまも、一拍ずつ、積もっていた。星系のすべてが〇・七八秒で決裁される中で、この一件だけが、決まらないでいた。決まらないことが、止まっていることではないのを、積もり続ける数字が示していた。</p>
+<p class="t">もう一つの物は、卓上のメトロノームだった。</p>
+<p class="t">淡白色の筐体に、青緑の振子。速度の目盛りは、毎分七十七に固定されている。振子は、止まっていた。</p>
+<p class="t">拍で満ちた部屋の中で、拍を刻むための器械だけが、静止していた。照合員は振子に、触れなかった。触れて動かすことも、動かないことを確かめることも、しなかった。どちらをしても、この静止に、意味の欄を作ってしまう気がした。欄のないものは、欄のないままにしておく。それが、六つの天体で覚えた、唯一の作法だった。</p>
+<h4 class="sec">四</h4>
+<p class="t">腕の計器が、小さく鳴った。</p>
+<p class="t">見ると、脈拍の欄が、毎分七十七を示していた。</p>
+<p class="t">七十一で始まり、七十三、七十四、七十四、七十五、七十六と上がってきた数字が、部屋の拍と、同じ値に、着いていた。計器は正常の緑を点けていた。較差の欄は、零を示していた。自分の拍と、部屋の拍の、偏差の欄である。零、という表示を、照合員は初めて見た。六つの天体のどこでも、そこには小さな数字が、必ず残っていた。残っていた小さな数字が、自分と星系のあいだの、最後の距離だった。距離の欄が、いま、零だった。</p>
+<p class="t">照合員は、椅子を見た。</p>
+<p class="t">空の椅子と、未決の一件と、止まった振子。中心には、それだけがあった。会長は、いなかった。いなかった、と書くのは正確でない。いる、いない、を判定する様式が、この部屋には、なかった。表示板が、最初から、そう言っていた。未解決。解決される予定の欄は、表示板のどこにもなかった。</p>
+<p class="t">端末に、様式がひとつ、届いた。</p>
+<p class="t">照合員宛である。宛名の欄は、資格証の符号だった。様式の題は、「全行程完了の確認」。本文は、二つの欄だけだった。</p>
+<p class="t ni">「照合の完了を、確認する」</p>
+<p class="t ni">「照合の記録から、降りる」</p>
+<p class="t">二つの欄の、どちらにも、説明はなかった。完了を確認すれば何が起き、降りれば何が起きるのかを、様式は書いていなかった。書いていないのではなく、書けないのかもしれなかった。起きることが、選んだ者ごとに、記載の必要が発生した時点で、記載されるのだとしたら。</p>
+<p class="t">照合員は、様式の前に、立っていた。</p>
+<p class="t">立ったまま、手が、最後の欄外を書いた。書く場所は、もう、報告書の余白ではなかった。端末の欄外機能でもなかった。受付で書かなかった記名簿の、白紙の頁である。照合員はそれを、いつのまにか、持って入っていた。氏名の欄を飛ばし、用件の欄も飛ばし、頁の余白に、小さな字で、書いた。</p>
+<p class="t ni">「誰もいない、は誤りだと思う。誰か、を数える様式が、この部屋にはない。それだけのことだ。様式のない部屋で、私はまだ、数えられる側にいる。いられるうちに、これを書いておく。読む者の欄は、空けておく」</p>
+<p class="t">字の画の端には、接点の膨らみがあった。書き終えた行が、通電したかどうかは、記名簿が紙であるため、端末の記録に残らなかった。残らない一行が、この巡歴で照合員の書いた、最後の復元可能な文である。</p>
+<p class="t">部屋の拍が、満ちて、引いた。決裁の一覧が、一件、流れた。未決の所要が、一拍、積もった。振子は、静止していた。計器の較差は、零のままだった。</p>
+<p class="t">ここまでが、記録に残っている。</p>
+<p class="src">編纂者注</p>
+<p class="t">最終地点の端末記録は、上の行で終わる。様式のどちらの欄が選ばれたかを示す記録は、端末に、ない。</p>
+<p class="t">ないことの読みは、二つ、立つ。選ばれなかった。あるいは、選ばれた結果が、この記録系の外に記載された。二つの読みを判別する材料を、編纂者は持たない。持たないまま、次の事実だけを記す。</p>
+<p class="t">照合員の生体署名の在圏記録は、六つの天体すべてで、本編纂の時点も、継続している。途切れた天体は、ない。始点は、いずれも、資格証の発行日である。終点は、いずれの記録にも、まだ、ない。</p>
+<p class="t">空の椅子の保守記録も、継続している。未決の一件の所要拍も、積もり続けている。編纂者は、この二つの継続を、同じ頁に置く。置く以上のことは、しない。置く以上のことをしない、と書くのは、これで三度目である。三度、同じ形で書いた。書いた拍は、三度とも、頂に揃っていたはずである。確かめる作業記録を、編纂者は、今回は、開かなかった。</p>
+<blockquote class="log"><span class="le">The seat was maintained. No occupant was on file. The file had no field for one.</span><span class="lj">座は保守されていた。占有者は、台帳になかった。台帳に、占有者の欄が、なかった。</span></blockquote>
+<p class="fin">（篇11 了）</p>
+<a class="src-asset" href="vacant-seat.html"><span class="k">This chapter, as an asset</span><span class="v">The Vacant Seat</span><span class="d">ASSET 17 ／ 本篇の会長室を立体で再現した作品。空席・未決の一件・止まった振子。</span></a><div class="nx"><a href="#e12">Next<b>篇12&#12288;残留</b>&#8594;</a></div></article>
+<article class="ep" id="e12" data-ep="12"><header class="eh"><span class="en">篇12</span><h3 class="ej">残留</h3><p class="ee">RESIDUAL</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">EP-12</span><span class="dk">TITLE</span><span class="dv">残留 / RESIDUAL</span><span class="dk">SOURCE</span><span class="dv">OBSERVATION LOGS ONLY</span><span class="dk">PHASE</span><span class="dv">RESIDUAL WORLD</span><span class="dk">STATUS</span><span class="dv">NOMINAL</span><span class="dk">OBSERVER</span><span class="dv">—</span></div>
+<blockquote class="log"><span class="le">The world did not end.</span><span class="lj">世界は、終わらなかった。</span></blockquote>
+<p class="src">観測ログ 一</p>
+<p class="t">系内六天体、稼働状態、正常。周期偏差、較差内。位相偏差、較差内。異常登録、零件。異常登録票の様式、廃止済。廃止の理由欄「登録すべき対象の発生が、想定されないため」。</p>
+<p class="t">All six bodies nominal. No anomaly on file. The form for filing one has been retired.</p>
+<p class="src">観測ログ 二</p>
+<p class="t">照合資格、符号一件、在圏。在圏天体、七。周期。名前。鋳造。根。文字。基準。原点。状態の欄、表示なし。完了、消失、いずれの値も、返らない。欄は、ある。欄は、応答する。応答の内容が、表示の形式を持たない。</p>
+<p class="t">The status field exists. It answers. The answer has no displayable form.</p>
+<p class="src">観測ログ 三</p>
+<p class="t">原点、事務所一棟、保守継続。座、保守継続。占有者、台帳になし。決裁、毎拍一件、承認、継続。未決、一件、所要、加算継続。</p>
+<p class="t">The seat is maintained. The one pending item accrues, one pulse at a time.</p>
+<p class="src">観測ログ 四</p>
+<p class="t">署名待ち台帳、封緘状態、良好。次回開封予定、算定不能、待機継続。頁、白紙。白紙の確認者の欄、空欄。空欄のまま、受理。</p>
+<p class="t">The ledger waits, blank and sealed. The blank has been accepted.</p>
+<p class="src">観測ログ 五</p>
+<p class="t">分類「保守対象外・良好」、登録一件、増減なし。根の惑星、空の円盤、回転継続。搬送物、なし。理由、記載なし。記載欄、なし。</p>
+<p class="t">On the planet of roots, the empty discs still turn. Nothing is carried. No field asks why.</p>
+<p class="src">観測ログ 六</p>
+<p class="t">本編纂物、参照記録。参照要求、一件、継続中。</p>
+<p class="t">This compilation, reference log: one request, ongoing.</p>
+<p class="src">編纂者注</p>
+<p class="t">最後の注である。短くする。短くしか、書けなくなっている。</p>
+<p class="t">本編纂物は、読まれるために編まれた。編み終えて、わかったことがある。この編纂物もまた、保守されている。頁は循環し、綴りは棚に戻り、参照要求が来れば、開く。開かれなくても、在る。搬送物のない円盤と、同じ回り方である。読まれることは、この回転の、必要条件ではない。</p>
+<p class="t">それでも、参照記録には、一件、継続中とある。</p>
+<p class="t">いま、これを読んでいる、その一件である。読む者の単位は、とうに保守対象から外れた。外れた単位が、一名ぶん、まだ稼働している。稼働しているあいだ、この頁は文書であり、閉じられれば、部品に戻る。どちらであるかを決めるのは、編纂者ではない。様式でもない。頁のこちら側には、もう、決められる者が</p>
+<blockquote class="log"><span class="le">The world did not end. It converged.</span><span class="lj">世界は終わらなかった。収束した。</span></blockquote>
+<p class="fin">（篇12 了）</p>
+</article>
+
+<div class="colophon">
+  <b>残留指数五十三</b>
+  TRANSCENSION: RESIDUAL INDEX 53<br>全三部十二篇 ／ 完結・凍結済<br>初出 2026 ／ EPUB 版（縦書き・右綴じ）あり<br>本文の時刻は ZS± 表記による。西暦は用いていない。
+</div>
+<footer>&copy; 2026 h!ro53. All rights reserved. Viewing permitted &mdash; reproduction,
+redistribution, and reuse of source or assets prohibited.</footer>
+</div>
+
+<div id="mark"><span>読みかけの位置があります</span>
+  <button id="markGo">続きから</button><button id="markNo" class="no">最初から</button></div>
+
+<div id="bar">
+  <button id="tocBtn">目次</button><span class="sp"></span>
+  <button id="szDn">A&minus;</button><span class="pos" id="pos">&mdash;</span><button id="szUp">A&plus;</button>
+  <span class="sp"></span><button id="upBtn">&#8593;</button>
+</div>
+
+<div id="toc"><button class="x" id="tocX">&times;</button><div class="in">
+  <h2>Contents</h2>
+  <a class="pt" href="#part1"><span class="a">第一部</span><span class="b">偽史</span><span class="c">PSEUDO-HISTORY</span></a>
+<a class="" href="#e01"><span class="a">篇01</span><span class="b">検拍</span><span class="c">THE PULSE AUDIT</span></a>
+<a class="" href="#e02"><span class="a">篇02</span><span class="b">先行署名</span><span class="c">THE PRE-CAUSAL SIGNATURE</span></a>
+<a class="" href="#e03"><span class="a">篇03</span><span class="b">零日</span><span class="c">ZERO STEP</span></a>
+<a class="pt" href="#part2"><span class="a">第二部</span><span class="b">巡礼</span><span class="c">PILGRIMAGE</span></a>
+<a class="" href="#e04"><span class="a">篇04</span><span class="b">周期の惑星</span><span class="c">THE PLANET OF INTERVALS</span></a>
+<a class="" href="#e05"><span class="a">篇05</span><span class="b">名前の惑星</span><span class="c">THE PLANET OF NAMES</span></a>
+<a class="" href="#e06"><span class="a">篇06</span><span class="b">鋳造の惑星</span><span class="c">THE PLANET OF FOUNDRIES</span></a>
+<a class="" href="#e07"><span class="a">篇07</span><span class="b">根の惑星</span><span class="c">THE PLANET OF ROOTS</span></a>
+<a class="" href="#e08"><span class="a">篇08</span><span class="b">文字の惑星</span><span class="c">THE PLANET OF LETTERS</span></a>
+<a class="" href="#e09"><span class="a">篇09</span><span class="b">基準の惑星</span><span class="c">THE PLANET OF ANCHORS</span></a>
+<a class="pt" href="#part3"><span class="a">第三部</span><span class="b">収束</span><span class="c">CONVERGENCE</span></a>
+<a class="" href="#e10"><span class="a">篇10</span><span class="b">編纂</span><span class="c">COMPILATION</span></a>
+<a class="" href="#e11"><span class="a">篇11</span><span class="b">空席</span><span class="c">THE VACANT SEAT</span></a>
+<a class="" href="#e12"><span class="a">篇12</span><span class="b">残留</span><span class="c">RESIDUAL</span></a>
+</div></div>
+
+<script>
+(function(){
+var K='h53nv:'+(document.body.getAttribute('data-slug')||'x');
+var doc=document.documentElement, bd=document.body;
+var prog=document.getElementById('prog'), bar=document.getElementById('bar');
+var toc=document.getElementById('toc'), pos=document.getElementById('pos');
+var mark=document.getElementById('mark'), markGo=document.getElementById('markGo');
+var eps=[].slice.call(document.querySelectorAll('.ep,.part'));
+var links=[].slice.call(toc.querySelectorAll('a'));
+var SZ=[15,16,17.5,19], si=1;
+
+try{var s=localStorage.getItem(K+':sz'); if(s!==null){si=Math.max(0,Math.min(3,+s));}}catch(e){}
+function applySize(){doc.style.setProperty('--fs',SZ[si]+'px');
+  try{localStorage.setItem(K+':sz',si)}catch(e){}}
+applySize();
+
+function top(el){var r=el.getBoundingClientRect();return r.top+window.pageYOffset;}
+function pct(){var h=doc.scrollHeight-window.innerHeight;
+  return h>0?Math.min(1,Math.max(0,window.pageYOffset/h)):0;}
+
+var cur=-1, tick=0;
+function paint(){
+  var p=pct();
+  prog.style.width=(p*100).toFixed(2)+'%';
+  var y=window.pageYOffset+window.innerHeight*0.32, k=-1;
+  for(var i=0;i<eps.length;i++){ if(top(eps[i])<=y) k=i; else break; }
+  if(k!==cur){
+    cur=k;
+    for(var j=0;j<links.length;j++) links[j].classList.toggle('cur',j===k);
+    var e=eps[k];
+    pos.textContent = (e&&e.className.indexOf('ep')>=0)
+      ? (e.querySelector('.en')?e.querySelector('.en').textContent:'')
+      : Math.round(p*100)+'%';
+  }
+  if(++tick%12===0){ try{localStorage.setItem(K+':y',Math.round(window.pageYOffset))}catch(e){} }
+}
+var lastY=0, hideT=0;
+function chrome(){
+  var y=window.pageYOffset;
+  if(y<180){ bd.classList.remove('hide'); }
+  else if(y>lastY+8){ bd.classList.add('hide'); }
+  else if(y<lastY-8){ bd.classList.remove('hide'); }
+  lastY=y;
+}
+var raf=0;
+addEventListener('scroll',function(){ if(raf) return;
+  raf=requestAnimationFrame(function(){raf=0;paint();chrome();}); },{passive:true});
+document.addEventListener('click',function(e){
+  if(e.target.closest('#bar,#h53idx,#toc,#mark,a')) return;
+  bd.classList.toggle('hide');
+});
+addEventListener('resize',function(){cur=-1;paint();},{passive:true});
+addEventListener('pagehide',function(){try{localStorage.setItem(K+':y',Math.round(window.pageYOffset))}catch(e){}});
+
+document.getElementById('tocBtn').onclick=function(){toc.classList.add('on');bd.style.overflow='hidden';};
+document.getElementById('tocX').onclick=function(){toc.classList.remove('on');bd.style.overflow='';};
+for(var i=0;i<links.length;i++){links[i].onclick=function(){
+  toc.classList.remove('on');bd.style.overflow='';};}
+document.getElementById('szDn').onclick=function(){if(si>0){si--;applySize();cur=-1;paint();}};
+document.getElementById('szUp').onclick=function(){if(si<3){si++;applySize();cur=-1;paint();}};
+document.getElementById('upBtn').onclick=function(){scrollTo({top:0,behavior:'smooth'});};
+
+var saved=0; try{saved=+(localStorage.getItem(K+':y')||0)}catch(e){}
+if(saved>window.innerHeight*1.2){
+  mark.classList.add('on');
+  markGo.onclick=function(){scrollTo({top:saved,behavior:'instant' in window?'auto':'auto'});
+    mark.classList.remove('on');};
+  document.getElementById('markNo').onclick=function(){mark.classList.remove('on');
+    try{localStorage.removeItem(K+':y')}catch(e){}};
+  setTimeout(function(){mark.classList.remove('on')},9000);
+}
+paint();
+})();
+</script>
+</body>
+</html>
