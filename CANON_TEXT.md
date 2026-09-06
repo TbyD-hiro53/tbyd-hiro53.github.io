@@ -394,17 +394,17 @@ There are no seasons on this plain. The harvest is reaped four light years away 
 - 三色 #ff05a8 / #f2dbe9 / #00ddc8 ／ 拍0.78 s・6カット62.4 s
 
 
-## ASSET 16 — Binary Dusk v11
+## ASSET 16 — Binary Dusk
 
 **位相** PHASE 6–8 · UY0311
 
 **観測ログ** `The suns set in order. The distance was not on file.`
 
 **説明 JA**
-根の惑星、分館の巨大樹。差し渡し10mの枝の上からの眺め。日は二つ——ピンクの白と、ターコイズの白——で、大気は地球と同じ黄昏の橙に染まる。線路は森を割って延び、奥の右手へ曲がってまた森へ入る。誰も乗らない列車が15.6秒ごとに一つきりの駅を通過し、森では空の円盤が2.4秒で一巡する。左の奥では海が沈む日を映して粒立って光る。SUNSETを押すと三分で日が沈み、二度と戻らない。
+巨大樹の枝から、二つの日と黄昏を観測する。ピンクの白とターコイズの白。空の三両編成と五基の円盤。左奥に海。SUNSETを押すと三分で日が沈み、夕闇へ続く。
 
 **説明 EN**
-From a bough ten metres across, high on the vast library tree of the planet of roots. There are two suns — one pink-white, one turquoise-white — and the air scatters the same beautiful orange as an earthly dusk. The railway runs through the forest, bends away to the right and re-enters the trees; an empty train passes the single station every 15.6 seconds, and the bare discs turn once every 2.4 seconds. Far to the left the sea catches the setting suns and glitters. Press SUNSET and the suns go down in three minutes, never to return.
+From a branch of the giant tree, two suns and the ground below. Pink-white and turquoise-white. An empty three-car train, five turning discs, and the sea to the far left. SUNSET begins their descent; both suns set within three minutes, and twilight continues.
 
 **断章 JA**
 枝の上から見えるものは、運ばれていくものばかりである。線路は森を割って土へ延び、奥で右へ曲がって、また森へ入る。列車は空のまま、一つきりの駅を通過する。旅客という区分は終了し、線路だけが存続している。森では円盤が、何も載せずに回り続ける。左の奥で、川は三つとも同じ角度で合流し、海に混ざって向きを失う。海は沈む日を映して、粒立って光る。日は二つ。大きいほうが先に土へ触れて、欠けて、なくなる。順序はいつも同じで、距離を記す欄は、ない。
@@ -412,7 +412,7 @@ From a bough ten metres across, high on the vast library tree of the planet of r
 **断章 EN**
 What can be seen from the bough is only what is being carried. The railway runs through the forest to the flat land, bends to the right in the distance, and enters the trees again. The trains pass the single station empty; the category of passenger has ended, and only the line persists. In the forest the discs go on turning with nothing on them. Far to the left the three rivers meet at one same angle and lose their direction in the sea, and the sea returns the setting suns as a grain of light. The suns are two: the larger touches the land first, wanes, and is gone. The order is always the same, and there is no field in which to record the distance.
 
-**主要諸元**
+**旧HTML v11の主要諸元（制作履歴）**
 - 視点 分館の巨大樹・差し渡し10 mの枝の上（完全固定・眼高は頂面+約2 m相当）
 - 巨枝 幹(620,-1600)からほぼ水平に視界を横切る。畝16条・節輪・管3＋帯金具・芽節5（一箇所欠け）
   畝は実形状。縦筋は長手方向にねじれ、乾いた微細凹凸が法線に反映される。近景ほど詳細が立つ
@@ -428,7 +428,7 @@ What can be seen from the bough is only what is being carried. The railway runs 
 - 三色 #ff05a8 / #f2dbe9 / #00ddc8 ／ 拍0.78 s・巡2.4 s・便15.6 s
 
 
-**v11 制作・実装記録（世界内の新事実ではない）**
+**旧HTML v11 制作・実装記録（世界内の新事実ではない）**
 - 原典：『書』最終稿、篇07「樹」、篇22「上へ」、篇26「それでも」。
 - 描写根拠：重なる上方の枝、外側へ下る足場、先細る枝先、乾いて押し返す外皮、上へねじれる筋、等間隔の縦長の面。面の表は外を向き、裏側から足場を照らさない。
 - 形状補完：上方7枝＋二次枝21＋近傍3枝、根9本、追加面140枚（幹面30枚を含む）。数・寸法・配置は、この3D作品における造形判断。
@@ -436,6 +436,14 @@ What can be seen from the bough is only what is being carried. The railway runs 
 - 葉の種・形・色、材質の同定、成長か建設か、内部機能は確定していない。
 - 画面の固定構図・二つの日・三色・拍・列車／円盤の周期を維持。
 - 代表画像：サムネイルはv9受領時の撮影画像を継続利用。OGの写真部分も同画像由来、表題はv11。追加枝や森の詳細を反映したv11の新規撮影画像ではない。
+
+
+**Web版 v3 公開実装（世界内の新事実ではない）**
+- 作者承認済みのBlender v9を基準に、巨大な主幹、足場、枝葉、地上施設を引き継ぐ。横・縦それぞれに固定構図を備える。
+- 日没前から列車・五基の円盤・風・水面が動く。SUNSETは一度だけ日没を開始し、運動時刻をリセットしない。一時停止と再開を備える。
+- 軽量3Dと視点別の事前計算による質感・照明を併用。HTML・JS・CSS・素材を分ける方式は、作者承認による作品固有の公開例外。配置はルート直下、作品固有の版識別付きファイル名。
+- 作品内の対象説明は短い常体による新しい記述。上記の断章や小説本文の引用として扱わない。
+- 代表画像はWeb版 v3の実描画へ更新。サムネイル `binary-dusk-w3-20260906-thumb.jpg`、OG `binary-dusk-w3-20260906-og.jpg`。
 
 
 ## ASSET 17 — The Vacant Seat v2
