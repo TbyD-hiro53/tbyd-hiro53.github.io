@@ -65,6 +65,45 @@ html,body{width:100%;height:100%;background:#b9b5b8;overflow:hidden;
  #views button{padding:9px 13px;letter-spacing:.06em;white-space:nowrap}}
 @media (min-width:760px){#panel{left:auto;width:392px;right:22px;bottom:82px;border-radius:3px;
  padding:24px 24px 26px;background:rgba(246,240,243,.96);border:1px solid rgba(42,34,38,.12)}}
+
+/* Shared visual language with The Confluence; stronger tint maintains contrast in a pale hall. */
+html,body{background:#747076;color-scheme:dark}
+#back,#views button,#panel,#px{
+ background:linear-gradient(180deg,rgba(61,58,65,.72),rgba(31,32,38,.66));
+ -webkit-backdrop-filter:blur(22px) saturate(1.55);backdrop-filter:blur(22px) saturate(1.55);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.42),inset 0 -1px 0 rgba(255,255,255,.08),inset 1px 0 0 rgba(255,255,255,.14),0 10px 30px rgba(0,0,0,.22),0 0 0 .5px rgba(255,255,255,.20);
+ border:0;color:#f5eaf1;overflow:hidden;
+}
+#back{min-height:44px;display:inline-flex;align-items:center;padding:0 17px;border-radius:999px;letter-spacing:.12em}
+#back:active{color:#eafffc}
+#hud{top:max(72px,calc(env(safe-area-inset-top) + 58px));color:#3e343d;text-shadow:0 1px 3px rgba(236,223,233,.75)}
+#hud b{color:#075e59}
+#views{gap:8px;max-width:calc(100vw - 24px);bottom:calc(30px + env(safe-area-inset-bottom))}
+#views button{position:relative;min-height:44px;border-radius:999px;padding:10px 17px;white-space:nowrap;touch-action:manipulation;
+ text-shadow:0 1px 2px rgba(0,0,0,.4);transition:transform .18s ease,background .25s ease}
+#views button:before,#back:before{content:"";position:absolute;inset:-40% -20% auto;height:90%;pointer-events:none;
+ background:radial-gradient(60% 55% at 30% 40%,rgba(255,255,255,.22),transparent 70%)}
+#views button.on{background:linear-gradient(180deg,rgba(0,113,104,.85),rgba(9,67,65,.80));color:#eafffc;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(0,221,200,.25),0 8px 26px rgba(0,75,70,.18),0 0 0 .5px rgba(0,221,200,.55)}
+#views button:active,#px:active{transform:scale(.96)}
+#panel{left:50%;right:auto;bottom:calc(90px + env(safe-area-inset-bottom));width:min(420px,calc(100vw - 24px));
+ border-radius:24px;padding:22px 22px 20px;max-height:calc(100dvh - 190px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+ overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+ transform:translate(-50%,12px) scale(.985);visibility:hidden;
+ transition:opacity .28s ease,transform .34s cubic-bezier(.2,.8,.2,1),visibility .28s}
+#panel.on{transform:translate(-50%,0) scale(1);visibility:visible}
+#pt{padding-right:32px;color:#76e2d4;font-size:10px;line-height:1.7;letter-spacing:.14em}
+#pe{color:#fbf3f7;font-size:13px;line-height:1.7;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+#pj{color:#eadfe7;font-size:12px;line-height:1.9}
+#ps{color:#c4b9c2;border-top:1px solid rgba(255,255,255,.16);padding-top:12px;line-height:1.7}
+#px{position:absolute;top:7px;right:7px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.06);box-shadow:none;z-index:1}
+#cr{color:#d7cbd3;text-shadow:0 1px 3px #262229;line-height:1.5}
+#back:focus-visible,#views button:focus-visible,#px:focus-visible{outline:2px solid #76e2d4;outline-offset:4px}
+@media(max-width:360px){#views{gap:6px}#views button{padding:10px 12px;letter-spacing:.02em}#hud{font-size:9px}}
+@media(max-height:500px){#panel{bottom:calc(82px + env(safe-area-inset-bottom));max-height:calc(100dvh - 110px - env(safe-area-inset-bottom));padding:16px 20px}#hud{font-size:9px}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){#back,#views button,#panel{background:#39383f}#views button.on{background:#135954}}
+@media(prefers-reduced-motion:reduce){#panel,#views button{transition:none}}
+
 </style>
 <script>/* h53 count */(function(){try{
 if(location.search.indexOf('skipgc')>-1)localStorage.setItem('skipgc','t');
@@ -80,8 +119,8 @@ var i=new Image();i.src='https://hiro53.goatcounter.com/count'
 <canvas id="c"></canvas>
 <a id="back" href="./index.html">&#8592; index</a>
 <div id="hud">asset 18 · the preservation hall<br><b>phase unresolved · the individual</b><br>tap an object</div>
-<div id="views"><button id="v0" class="on">架の脇</button><button id="v1">端末の前</button><button id="v2">戸</button></div>
-<div id="panel"><button id="px">&times;</button>
+<div id="views" role="group" aria-label="立ち位置"><button id="v0" class="on">架の脇</button><button id="v1">端末の前</button><button id="v2">戸</button></div>
+<div id="panel" role="region" aria-label="観測記録" aria-hidden="true"><button id="px" aria-label="記録を閉じる">&times;</button>
 <div id="pt"></div><div id="pe"></div><div id="pj"></div><div id="ps"></div></div>
 <div id="cr">&copy; 2026 h!ro53 &middot; deus ex machina &mdash; viewing permitted, reuse prohibited</div>
 <script>
@@ -124,9 +163,9 @@ var H53 = (function () {
   var OPEN_DEG = 78;                    // 開いた蓋と床のなす角
   var OPEN_ROT = Math.PI - OPEN_DEG * Math.PI / 180;   // 枕側の軸で外へ倒れて立つ（102° 回す）
   var PLAN_N = 6.0;                     // 平面形の超楕円指数（角の丸い矩形）
-  var SEG = 48;                         // 断面の分割（4 の倍数：軸上の点を正確に取る）
-  var ARC_N = 4;                        // 丸み一つの分割（稜のハイライトが折れずに回るため v3 の 3 → 4）
-  var LID_K = [0.90, 0.72, 0.48, 0.22]; // 蓋のドーム環の縮尺
+  var SEG = 80;                         // 断面の分割（4 の倍数：軸上の点を正確に取る）
+  var ARC_N = 7;                        // 丸み一つの分割（稜のハイライトが折れずに回るため v3 の 3 → 4）
+  var LID_K = [0.94, 0.86, 0.74, 0.60, 0.44, 0.27, 0.12]; // 蓋のドーム環の縮尺
 
   // 写実（v4）
   var TEX = 512;                        // むらのテクスチャ一辺
@@ -230,6 +269,14 @@ var H53 = (function () {
     g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
     g.setIndex(idx);
     g.computeVertexNormals();
+    var normals=g.attributes.normal, positions=g.attributes.position, shared=new Map();
+    for(var v=0;v<positions.count;v++){
+      var key=[positions.getX(v),positions.getY(v),positions.getZ(v)].map(function(a){return Math.round(a*1e6);}).join(',');
+      if(!shared.has(key))shared.set(key,[]);shared.get(key).push(v);
+    }
+    shared.forEach(function(ids){if(ids.length<2)return;var n=new THREE.Vector3();
+      ids.forEach(function(i){n.x+=normals.getX(i);n.y+=normals.getY(i);n.z+=normals.getZ(i);});n.normalize();
+      ids.forEach(function(i){normals.setXYZ(i,n.x,n.y,n.z);});});
     return g;
   }
 
@@ -309,11 +356,11 @@ var H53 = (function () {
   // 丁番。枕側（+z）の縁の上、軸 (y=HB, z=HD) に沿う胴。開いた蓋はこの軸で回り、閉じた蓋の縁もここに掛かる
   // UV は m 単位（周方向 2πR・軸方向 L）。頂点色は 1（器と同じ材で描くため属性を揃える）
   function hingeGeometry() {
-    var cyl = new THREE.CylinderGeometry(HINGE_R, HINGE_R, HINGE_L, 16, 1, true);
+    var cyl = new THREE.CylinderGeometry(HINGE_R, HINGE_R, HINGE_L, 32, 1, true);
     cyl.rotateZ(Math.PI / 2);                                       // 軸を x に
-    var capL = new THREE.SphereGeometry(HINGE_R, 16, 6, 0, Math.PI * 2, 0, Math.PI / 2);
+    var capL = new THREE.SphereGeometry(HINGE_R, 32, 12, 0, Math.PI * 2, 0, Math.PI / 2);
     capL.rotateZ(Math.PI / 2); capL.translate(-HINGE_L / 2, 0, 0);  // -x 端の半球
-    var capR = new THREE.SphereGeometry(HINGE_R, 16, 6, 0, Math.PI * 2, 0, Math.PI / 2);
+    var capR = new THREE.SphereGeometry(HINGE_R, 32, 12, 0, Math.PI * 2, 0, Math.PI / 2);
     capR.rotateZ(-Math.PI / 2); capR.translate(HINGE_L / 2, 0, 0); // +x 端の半球
     var scl = [[Math.PI * 2 * HINGE_R, HINGE_L], [Math.PI * 2 * HINGE_R, Math.PI * HINGE_R / 2], [Math.PI * 2 * HINGE_R, Math.PI * HINGE_R / 2]];
     var parts = [cyl, capL, capR], pos = [], nrm = [], uv = [], col = [], idx = [], base = 0, k, i, a;
@@ -865,9 +912,9 @@ var H53 = (function () {
   var LIP_FLAT = 0.0015;                         // 板の稜の内側、平らな縁
   var SCREEN_Z = TOP_Z;                          // 表示面。板の平らな縁より 0.0001 上に乗せる
   var LIP_TOP_Z = TOP_Z - 0.0001;
-  var RIM_N = 14, LIP_N = 0, CORNER_SEG = 8;     // 分割。v2 は板の稜（LIP）を持たない
+  var RIM_N = 22, LIP_N = 0, CORNER_SEG = 12;     // 分割。v2 は板の稜（LIP）を持たない
   var PUMP = 0.78;                               // 拍。二の行の更新周期
-  var EMIT_LIT = 0.50;                           // 点灯時の自発光。壁より一段明るく、文字は墨のまま。白飛び ≤245 で実測
+  var EMIT_LIT = 0.20;                           // 点灯時の自発光。壁より一段明るく、文字は墨のまま。白飛び ≤245 で実測
   var EDGE_W = 0.0015;                           // 硝子の小口。表示面と帯の境の暗い線の幅
   var EDGE_Z = 0.00005;                          // 小口の線を表示面の上に置く量（Z ファイト回避）
   var CSS_UNLIT = '#2a2226';                     // 消灯時の面。墨（文字と同じ色）。映り込みだけが残る
@@ -1206,7 +1253,7 @@ var H53 = (function () {
   var BAG_X = [-0.25, 0.25], BAG_Z = 0.060;                   // 壁際（背が壁から 7 mm）
   var BAG_NP = 4.0, BAG_NV = 3.2;
   var BAG_NV_LO = 6.0, BAG_LO = 0.48;
-  var BAG_SEG_V = 12, BAG_SEG_V_LO = 10, BAG_SEG_P = 36;
+  var BAG_SEG_V = 20, BAG_SEG_V_LO = 16, BAG_SEG_P = 56;
   var BAG_AO = 0.07;
   var DECAL_HW = 0.100, DECAL_HD = 0.060;
   var DENT_R = 0.006, DENT_DEPTH = 0.0025;
@@ -2079,8 +2126,8 @@ var H53 = (function () {
       pts: [[4.40, 0.9, 6.44], [4.10, D, 6.70], [3.78, D, 6.80], [3.50, D, 7.02], [3.20, D, 7.08], [2.94, 0.3, 7.20], [2.70, -1.5, 7.26]] }
   ];
   var CRAWL_PROF = [[0, 1.15], [0.20, 1.00], [0.60, 0.85], [0.85, 0.60], [0.95, 0.40], [1, 0.30]];   // 這う根の先細り（針にせず、鈍く沈む）
-  var RING_END_N = 16, RING_END_POW = 2.2;   // 面を貫く端：裾の区間の輪数と詰め方（面に近いほど密）
-  var RING_SPACING = 0.05;              // 中間の輪の間隔（m）
+  var RING_END_N = 24, RING_END_POW = 2.2;   // 面を貫く端：裾の区間の輪数と詰め方（面に近いほど密）
+  var RING_SPACING = 0.035;              // 中間の輪の間隔（m）
   var LOBE_AMP = 0.05;                  // 断面の二葉
   var UNDUL_A = 0.08, UNDUL_B = 0.03;   // 太さのうねり（低周波・高周波）。管に見せない
   var RIDGE_W = 0.16;                   // 稜の幅（rad）
@@ -2089,7 +2136,7 @@ var H53 = (function () {
   var OPEN_X = 0.0, OPEN_Z = 2.0;
   var OPEN_W = 2.40, OPEN_D = 1.60;     // x × z
   var OPEN_R = 0.06;                    // 角丸
-  var OPEN_ARC_SEG = 6;
+  var OPEN_ARC_SEG = 12;
   var COLLAR_W = 3.00, COLLAR_D = 2.20; // 天井面に貼る襟（統合側の矩形穴の角を覆う）
   var COLLAR_DROP = 0.002;
   var SKY_Y = CEIL_Y + CEIL_T;          // 空の面 9.80
@@ -2226,8 +2273,8 @@ var H53 = (function () {
 
   // 根の網を一つの BufferGeometry に。法線は表面関数の差分（面に接する裾で解析と同じ向きになる）。面の上の輪は面の法線に吸着
   function rootGeometry() {
-    var pos = [], nrm = [], uv = [], col = [], bark = [], idx = [], tubes = [];
-    var cPale = new THREE.Color(C_PALE).convertSRGBToLinear(), cRoot = new THREE.Color(C_ROOT).convertSRGBToLinear();
+    var pos = [], nrm = [], uv = [], col = [], bark = [], shellEmit = [], idx = [], tubes = [];
+    var cPale = new THREE.Color(0xbdb3b8).convertSRGBToLinear(), cRoot = new THREE.Color(0xa69a94).convertSRGBToLinear();
     var rimR = cPale.r / (cRoot.r * 0.975), rimG = cPale.g / (cRoot.g * 0.975), rimB = cPale.b / (cRoot.b * 0.975);   // 面の位置で根の色＝面の色になる比
     var ti, i, j, k, base = 0;
     var T = new THREE.Vector3(), N = new THREE.Vector3(), B = new THREE.Vector3();
@@ -2246,7 +2293,7 @@ var H53 = (function () {
       tb.curve = new THREE.CatmullRomCurve3(pts, false, 'centripetal');
       var L = tb.curve.getLength();
       tb.len = L;
-      var S = tubeSamples(tb, L), nRing = S.length, RS = tb.seg;
+      var S = tubeSamples(tb, L), nRing = S.length, RS = Math.ceil(tb.seg * 1.35);
       var centres = [], Nprev = null, ringBase = base;
       var uScale = tb.rep / (Math.PI * 2), vScale = tb.rep * L / (Math.PI * 2 * tb.r0);
       for (j = 0; j < nRing; j++) {
@@ -2297,7 +2344,12 @@ var H53 = (function () {
           if (tb.crotch && s < CROTCH_S) c *= 1 - CROTCH_AMT * (1 - s / CROTCH_S);
           // 付け根：面へ近づくほど根の色を面の色へ寄せる（裾は面に接するので、色も面に溶ける）
           var wb = u0 < RIM_BLEND ? Math.pow(1 - u0 / RIM_BLEND, 2) : 0;
-          col.push(c * (1 + (rimR - 1) * wb), c * (1 + (rimG - 1) * wb), c * (1 + (rimB - 1) * wb));
+          var ceilingEnd=(CEIL_Y-p.y)<Math.abs(WALL_X-p.x);
+          var shellColor=new THREE.Color(ceilingEnd?0xc7bec4:0xbdb3b8).convertSRGBToLinear();
+          var sr=shellColor.r/(cRoot.r*0.975),sg=shellColor.g/(cRoot.g*0.975),sb=shellColor.b/(cRoot.b*0.975);
+          col.push(c*(1+(sr-1)*wb),c*(1+(sg-1)*wb),c*(1+(sb-1)*wb));
+          var shellGlow=(ceilingEnd?0.22:0.012)*wb;
+          shellEmit.push(shellColor.r*shellGlow,shellColor.g*shellGlow,shellColor.b*shellGlow);
           // 樹皮の法線は面の近くで薄める（面の位置で 0）
           var fadeL = BARK_FADE_K * FLARE_KL * tb.r0 * knots(tb.prof, s) + BARK_FADE_MIN;
           // 裾では薄める：面の位置で 0、裾の外で 1（漏斗に放射状の裂け目が走ると笠に見える）
@@ -2321,6 +2373,7 @@ var H53 = (function () {
     g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
     g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
     g.setAttribute('aBark', new THREE.Float32BufferAttribute(bark, 1));
+    g.setAttribute('aShellEmit', new THREE.Float32BufferAttribute(shellEmit, 3));
     g.setIndex(idx);
     g.userData.tubes = tubes;
     return g;
@@ -2516,8 +2569,8 @@ var H53 = (function () {
     // 頂点属性 aBark で樹皮の法線の振幅を掛ける（面の位置で 0 → 付け根で面のむらと同じ滑らかさになり、輪郭が出ない）
     M.root.onBeforeCompile = function (sh) {
       sh.vertexShader = sh.vertexShader
-        .replace('#include <common>', '#include <common>\nattribute float aBark;\nvarying float vBark;')
-        .replace('#include <begin_vertex>', '#include <begin_vertex>\nvBark = aBark;');
+        .replace('#include <common>', '#include <common>\nattribute float aBark;\nattribute vec3 aShellEmit;\nvarying vec3 vShellEmit;\nvarying float vBark;')
+        .replace('#include <begin_vertex>', '#include <begin_vertex>\nvBark = aBark; vShellEmit = aShellEmit;');
       // onBeforeCompile の時点では #include が展開されていないので、チャンクを展開してから書き換える
       var SC = THREE.ShaderChunk;
       var nfm = SC.normal_fragment_maps.replace('mapN.xy *= normalScale;', 'mapN.xy *= normalScale * vBark;');
@@ -2525,12 +2578,13 @@ var H53 = (function () {
       var mfr = SC.map_fragment.replace('diffuseColor *= texelColor;', 'diffuseColor *= mix(vec4(vec3(0.944), 1.0), texelColor, vBark);');
       var rfr = SC.roughnessmap_fragment.replace('roughnessFactor *= texelRoughness.g;', 'roughnessFactor *= mix(0.86, texelRoughness.g, vBark);');
       sh.fragmentShader = sh.fragmentShader
-        .replace('#include <common>', '#include <common>\nvarying float vBark;')
+        .replace('#include <common>', '#include <common>\nvarying float vBark;\nvarying vec3 vShellEmit;')
         .replace('#include <normal_fragment_maps>', nfm)
         .replace('#include <map_fragment>', mfr)
-        .replace('#include <roughnessmap_fragment>', rfr);
+        .replace('#include <roughnessmap_fragment>', rfr)
+        .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\n totalEmissiveRadiance += vShellEmit;');
     };
-    M.root.customProgramCacheKey = function () { return 'rootlight-bark'; };
+    M.root.customProgramCacheKey = function () { return 'rootlight-bark-hall-refined'; };
     // 曇り空。外の光なのでトーンマップに通さない
     M.sky = new THREE.MeshBasicMaterial({ color: _skyA.clone(), toneMapped: false });
     // 点。画面上で正確に #00ddc8
@@ -2610,7 +2664,7 @@ var H53 = (function () {
   var SH_HT = 0.002;                   // 殻の半厚（厚み 0.004）
   var SH_GAP = 0.045;                  // 後ろの開き（縁と縁の間の明き）
   var FILLET = 0.002;                  // 稜の丸み。部品内で一つ。半厚と同じなので端は全周が丸い
-  var N_ARC = 40, N_CAP = 3, N_MID = 8;     // 断面の分割（外弧・端の半円）と長さ方向の中間分割。v1 の 28 → 40（近接で縁の段が見えたため）
+  var N_ARC = 64, N_CAP = 6, N_MID = 14;     // 断面の分割（外弧・端の半円）と長さ方向の中間分割。v1 の 28 → 40（近接で縁の段が見えたため）
   var HAIR_N = 320;                    // 髪の本数
   var HAIR_R = 0.0006;                 // 髪の半径
   var HAIR_SEG = 6;                    // 髪の断面分割（v1 は 4。艶の筋を出すため 6）
@@ -3071,7 +3125,7 @@ var H53 = (function () {
   var C_CANOPY_GLOW = 0x0d4a44;
 
   var PUMP_PERIOD = 0.78;               // 床の呼吸
-  var FLOOR_E0 = 0.03, FLOOR_E1 = 0.06;
+  var FLOOR_E0 = 0.012, FLOOR_E1 = 0.027;
 
   // ─────────────────────────── 乱数
   var _seed = 1;
@@ -4384,8 +4438,8 @@ var H53 = (function () {
     if (k >= 2) {
       var ys = [0, 0.05, 0.13, 0.26, 0.42 - r];
       for (i = 0; i < ys.length; i++) prof.push([z0, yb + ys[i], yb + ys[i] - (yt - r), 1]);
-      for (i = 1; i <= 3; i++) {
-        var ph = Math.PI / 2 * i / 3;
+      for (i = 1; i <= 8; i++) {
+        var ph = Math.PI / 2 * i / 8;
         prof.push([z0 + r - r * Math.cos(ph), yt - r + r * Math.sin(ph), 0, 0]);
       }
     } else {
@@ -4428,7 +4482,7 @@ var H53 = (function () {
     var pivot = new THREE.Group();
     pivot.name = 'door'; parts.door = pivot;
     pivot.position.set(DOOR_HINGE_X, 0, -OZ);
-    var leaf = new THREE.Mesh(roundedBox(DOOR_W, DOOR_H, DOOR_T, FILLET, 7.0, 28, 12), M.door);
+    var leaf = new THREE.Mesh(roundedBox(DOOR_W, DOOR_H, DOOR_T, FILLET, 7.0, 48, 20), M.door);
     leaf.position.set(DOOR_W / 2, DOOR_H / 2, DOOR_T / 2);
     leaf.castShadow = true; leaf.receiveShadow = true;
     leaf.name = 'door-leaf';
@@ -4987,12 +5041,13 @@ var H53 = (function () {
   function makeEnv() {
     var c = document.createElement('canvas'); c.width = 64; c.height = 32;
     var x = c.getContext('2d'), g = x.createLinearGradient(0, 0, 0, 32);
-    g.addColorStop(0.00, '#f6eef2');
-    g.addColorStop(0.48, '#e9dde3');
-    g.addColorStop(0.55, '#cfc3c8');
-    g.addColorStop(1.00, '#bcb0b5');
+    g.addColorStop(0.00, '#d1c8cd');
+    g.addColorStop(0.48, '#ada6ab');
+    g.addColorStop(0.55, '#827e82');
+    g.addColorStop(1.00, '#67646a');
     x.fillStyle = g; x.fillRect(0, 0, 64, 32);
     var tex = new THREE.CanvasTexture(c);
+    tex.encoding = THREE.sRGBEncoding;
     tex.mapping = THREE.EquirectangularReflectionMapping;
     var pm = new THREE.PMREMGenerator(renderer);
     pm.compileEquirectangularShader();
@@ -5094,32 +5149,56 @@ var H53 = (function () {
     tag(corner, 'corner');
     scene.add(corner);
 
-    // 階調。天井だけが光源である。壁は天井より暗く、床は体温の淡白
-    var wallM = H53.hall.M.wall;
-    wallM.emissiveIntensity = 0.10;
-    H53.hall.M.ceil.emissiveIntensity = 0.78;
-    // 端末の帯は壁と同じ色・同じ自発光にする。粗さの勾配（帯の作り）はそのまま残す。
-    // 壁の map は m 単位の UV で張ってあるので帯には使わない（帯の UV は 0..1）
-    term.traverse(function (o) {
-      if (o.isMesh && o.name === 'bezel' && wallM) {
-        o.material.color.copy(wallM.color);
-        o.material.emissive.copy(wallM.emissive);
-        o.material.emissiveIntensity = wallM.emissiveIntensity;
-        o.material.envMapIntensity = wallM.envMapIntensity;
-        o.material.needsUpdate = true;
+    // Quiet mineral surfaces, satin ceramic pods and softly reflective accessories.
+    // Palette constants are authored in sRGB; explicitly decode only the retuned materials.
+    function tone(m,hex,rough,env,emit){
+      m.color.setHex(hex).convertSRGBToLinear();m.roughness=rough;m.envMapIntensity=env;
+      if(m.emissive){m.emissive.copy(m.color);m.emissiveIntensity=emit||0;}
+    }
+    var HM=H53.hall.M;
+    tone(HM.wall,0xbdb3b8,0.88,0.30,0.012);
+    tone(HM.ceil,0xc7bec4,0.93,0.22,0.22);
+    tone(HM.riser,0xaaa1a8,0.82,0.26,0.010);
+    tone(HM.floor,0xaaa2a6,0.84,0.34,0.012);
+    tone(HM.door,0xbdb3b8,0.72,0.34,0);
+    HM.floor.normalScale.set(0.55,0.55);
+    tone(H53.pods.M.body,0xdec7d5,0.34,0.60,0);
+    tone(H53.pods.M.lid,0xcebac9,0.46,0.38,0.012);
+    tone(H53.pods.M.lidOpen,0xd5c2ce,0.38,0.40,0.008);
+    H53.pods.M.lid.clearcoat=0.24;H53.pods.M.lidOpen.clearcoat=0.28;
+    H53.pods.M.line.emissiveIntensity=0.025;
+    term.traverse(function(o){if(!o.isMesh)return;
+      if(o.name==='bezel')tone(o.material,0xbdb3b8,1,0.30,0.012);
+      if(o.name==='screen'){o.material.envMapIntensity=0.30;o.material.clearcoat=0.32;}
+    });
+    var seen=new Set();
+    ports.traverse(function(o){if(!o.isMesh)return;var m=o.material;if(seen.has(m))return;seen.add(m);
+      if(m.isMeshStandardMaterial){
+        if(m.transparent)tone(m,0xcbb4c0,0.45,0.40,0);
+        else if(m.normalMap)tone(m,0xbdb3b8,0.62,0.32,0.012);
       }
     });
+    rl.traverse(function(o){if(!o.isMesh)return;
+      if(o.name==='root')tone(o.material,0xa69a94,0.86,0.30,0);
+      if(o.name==='reveal'||o.name==='collar')tone(o.material,0xc7bec4,0.93,0.22,0.22);
+    });
+    seen.clear();corner.traverse(function(o){if(!o.isMesh)return;var m=o.material;
+      if(seen.has(m))return;seen.add(m);
+      if(m.isMeshPhysicalMaterial)tone(m,0xd2c0cc,0.31,0.55,0);
+      else if(m.isMeshStandardMaterial&&m.roughness>0.7)tone(m,0xb3a5a6,0.90,0.22,0);
+    });
+
   }
 
   // ─────────────────────────── 場
   function init() {
     var cv = document.getElementById('c');
-    renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+    renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 0.92;
+    renderer.toneMappingExposure = 0.80;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
@@ -5141,7 +5220,7 @@ var H53 = (function () {
     top.shadow.camera.near = 2.0; top.shadow.camera.far = 30.0;
     top.shadow.camera.left = -6.2; top.shadow.camera.right = 6.2;
     top.shadow.camera.top = 21.0; top.shadow.camera.bottom = -21.0;
-    top.shadow.bias = -0.0012; top.shadow.normalBias = 0.02;
+    top.shadow.bias = -0.0003; top.shadow.normalBias = 0.02;
     scene.add(top); scene.add(top.target);
     var side = new THREE.DirectionalLight(0xe8e2e6, 0.10);
     side.position.set(-6.0, 4.0, 6.0);
@@ -5190,10 +5269,12 @@ var H53 = (function () {
     document.getElementById('pj').innerHTML = d.ja;
     document.getElementById('ps').textContent = d.s;
     document.getElementById('panel').classList.add('on');
+    document.getElementById('panel').setAttribute('aria-hidden','false');
   }
   function closePanel() {
     openKey = null;
     document.getElementById('panel').classList.remove('on');
+    document.getElementById('panel').setAttribute('aria-hidden','true');
   }
 
   function goStation(i) {
@@ -5201,7 +5282,7 @@ var H53 = (function () {
     var s = ST[i];
     eye = s.pos.slice(); yaw = s.yaw;
     pitAdj = pitPad() * s.up; pit = s.pit + pitAdj; zoom = 1;
-    for (var k = 0; k < ST.length; k++) document.getElementById('v' + k).className = k === i ? 'on' : '';
+    for (var k = 0; k < ST.length; k++){var button=document.getElementById('v'+k);button.className=k===i?'on':'';button.setAttribute('aria-pressed',String(k===i));}
     closePanel();
   }
 
@@ -5253,6 +5334,7 @@ var H53 = (function () {
         document.getElementById('v' + i).addEventListener('click', function () { goStation(i); });
       })(k);
     }
+    window.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel();});
     var xb = document.getElementById('px');
     xb.addEventListener('click', function (e) { e.preventDefault(); closePanel(); });
     xb.addEventListener('touchend', function (e) { e.preventDefault(); closePanel(); }, false);
@@ -5315,3 +5397,4 @@ var H53 = (function () {
 </script>
 </body>
 </html>
+
