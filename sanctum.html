@@ -49,13 +49,13 @@
   .swcol{display:flex;flex-direction:column;align-items:center;gap:5px;}
   .btn{pointer-events:auto;font-family:inherit;font-size:12px;letter-spacing:1px;color:#ffe7f6;
     background:rgba(30,20,42,.6);backdrop-filter:blur(6px);border:1px solid rgba(255,140,220,.4);
-    border-radius:1248.8px;padding:9px 16px;cursor:pointer;transition:transform .15s,background .2s;box-shadow:0 4px 16px rgba(0,0,0,.45);}
+    border-radius:999px;padding:9px 16px;cursor:pointer;transition:transform .15s,background .2s;box-shadow:0 4px 16px rgba(0,0,0,.45);}
   .btn:active{transform:translateY(1px);}
   .hint{text-align:center;white-space:nowrap;font-size:10.5px;letter-spacing:1px;color:rgba(240,210,236,.55);pointer-events:none;z-index:9;}
   .wm{text-align:center;line-height:1.55;font-family:'Courier New',monospace;font-size:9px;letter-spacing:1px;color:rgba(150,220,230,.45);pointer-events:none;}
   .swwrap{display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none;}
   #viewname{font-size:10px;letter-spacing:2px;color:rgba(255,214,240,.85);text-shadow:0 0 8px rgba(255,110,210,.55);}
-  #sw{width:48px;height:48px;border-radius:62.5%;padding:0;font-weight:700;font-size:14px;pointer-events:auto;}
+  #sw{width:48px;height:48px;border-radius:50%;padding:0;font-weight:700;font-size:14px;pointer-events:auto;}
 </style>
 
 <style id="h53-copyright-css">
@@ -1958,7 +1958,7 @@ function sparkLines(ph,rs,color,count,nc,off,speed){
   mat.customProgramCacheKey=function(){return 'sp_'+ph.toFixed(3)+'_'+count;};
   mat.onBeforeCompile=function(sh){
     sh.uniforms.uTime={value:0}; sh.uniforms.uBoost={value:1};
-    sh.vertexShader='uniform float uTime;attribute float aU;attribute float aLife;attribute vec3 aDir;attribute float aEnd;attribute float aSp;varying float vA;\n'
+    sh.vertexShader='uniform float uTime;uniform float uBoost;attribute float aU;attribute float aLife;attribute vec3 aDir;attribute float aEnd;attribute float aSp;varying float vA;\n'
       +sh.vertexShader.replace('#include <begin_vertex>',
         'float lp=fract(aLife+uTime*0.55);\n'
        +'float u=aU;\n'
@@ -2474,5 +2474,25 @@ addEventListener('resize',()=>{
 updateCam(); tick();
 })();
 </script>
+<style id="h53glass">/* h53 canonical glass — controls */
+.btn{-webkit-appearance:none;appearance:none;box-sizing:border-box;
+display:inline-flex;align-items:center;justify-content:center;
+min-height:44px;padding:0 17px;border-radius:999px;
+font:11px/1 ui-monospace,"SF Mono",Menlo,"Courier New",monospace;
+letter-spacing:.10em;text-transform:lowercase;white-space:nowrap;
+color:#ece3eb;text-shadow:0 1px 2px rgba(0,0,0,.45);
+background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+border:1px solid rgba(242,230,242,.23);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -1px 0 rgba(255,255,255,.04),0 8px 26px rgba(0,0,0,.20);
+-webkit-backdrop-filter:blur(22px) saturate(1.55);backdrop-filter:blur(22px) saturate(1.55);
+cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;opacity:1;
+transition:transform .18s ease,background .25s ease,border-color .25s ease}
+.btn:active{transform:scale(.96);opacity:1;color:#eafffc;border-color:rgba(0,221,200,.55)}
+.btn.on{background:linear-gradient(150deg,rgba(0,221,200,.30),rgba(9,67,65,.72));
+color:#eafffc;border-color:rgba(0,221,200,.5)}
+.btn:focus-visible{outline:2px solid #76e2d4;outline-offset:4px}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+.btn{background:#2b2f38}.btn.on{background:#135954}}
+</style>
 </body>
 </html>
