@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="description" content="TRANSCENSION 第二作。全三部九篇。炉は応答した。毎回、一拍だけ、あとに。">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#050308">
+<title>遅炉 — h!ro53 / deus ex machina</title>
+<meta name="author" content="h!ro53">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="deus ex machina &mdash; holdings registry">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="遅炉 — h!ro53 / deus ex machina">
+<meta property="og:description" content="TRANSCENSION 第二作。全三部九篇。炉は応答した。毎回、一拍だけ、あとに。">
+<meta property="og:url" content="https://tbyd-hiro53.github.io/late-core.html">
+<meta property="og:image" content="https://tbyd-hiro53.github.io/late-core-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="遅炉">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="遅炉 — h!ro53 / deus ex machina">
+<meta name="twitter:description" content="TRANSCENSION 第二作。全三部九篇。炉は応答した。毎回、一拍だけ、あとに。">
+<meta name="twitter:image" content="https://tbyd-hiro53.github.io/late-core-og.jpg">
+<link rel="canonical" href="https://tbyd-hiro53.github.io/late-core.html">
+<script>/* h53 count */(function(){try{
+if(location.search.indexOf('skipgc')>-1)localStorage.setItem('skipgc','t');
+if(localStorage.getItem('skipgc')==='t')return;
+var i=new Image();i.src='https://hiro53.goatcounter.com/count'
++'?p='+encodeURIComponent(location.pathname)
++'&t='+encodeURIComponent(document.title)
++'&r='+encodeURIComponent(document.referrer)
++'&s='+[screen.width,screen.height,window.devicePixelRatio||1].join(',');
+}catch(e){}})();</script>
+<style>
+:root{
+  --void:#050308; --panel:#0b0710; --line:rgba(255,218,221,.14);
+  --milk:#ffdadd; --mag:#ff2fa0; --red:#ff2b2b; --cyan:#7fe6f0; --chrome:#8a8f9c;
+  --disp:"Avenir Next Condensed","Helvetica Neue Condensed",Impact,"Hiragino Sans",sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,"Courier New",monospace;
+  --serif:"Hiragino Mincho ProN","Yu Mincho",YuMincho,"Noto Serif JP",serif;
+  --fs:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--void); color:var(--milk); font-family:var(--mono);
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.022) 0 1px,transparent 1px 3px);
+  padding:0 0 calc(96px + env(safe-area-inset-bottom));
+  overflow-x:hidden;
+}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px}
+
+/* ---- 進捗 ---- */
+#prog{position:fixed;left:0;top:0;height:2px;width:0;z-index:60;
+  background:linear-gradient(90deg,var(--mag),var(--red));transition:width .12s linear}
+
+/* ---- 戻る（正準ガラス） ---- */
+#h53idx{position:fixed;z-index:55;left:max(12px,env(safe-area-inset-left));
+  top:calc(10px + env(safe-area-inset-top));
+  display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 15px;
+  border-radius:999px;box-sizing:border-box;text-decoration:none;
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--milk);border:1px solid rgba(242,230,242,.23);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62)}
+#h53idx span{font-size:13px;line-height:1}
+#h53idx,#bar{transition:opacity .26s ease,transform .26s ease}
+body.hide #h53idx{opacity:0;pointer-events:none;transform:translateY(-10px)}
+body.hide #bar{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(14px)}
+
+/* ---- 扉 ---- */
+.title{padding:calc(96px + env(safe-area-inset-top)) 0 40px;border-bottom:1px solid var(--line)}
+.title .reg{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--chrome)}
+.title h1{margin:16px 0 0;font-family:var(--serif);font-weight:400;
+  font-size:clamp(34px,11vw,54px);line-height:1.14;letter-spacing:.06em;color:var(--milk)}
+.title .sub{margin:14px 0 0;font-family:var(--disp);font-weight:700;
+  font-size:clamp(13px,3.6vw,17px);line-height:1.35;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--cyan)}
+.title .by{margin:20px 0 0;font-size:11px;letter-spacing:.2em;color:var(--chrome)}
+.title .spec{margin:14px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--milk);
+  border:1px solid var(--line);border-radius:2px;padding:3px 7px;opacity:.72}
+.title .lead{margin:22px 0 0;font-size:11.5px;line-height:2;color:var(--chrome);max-width:44ch}
+
+/* ---- 部扉 ---- */
+.part{margin:76px 0 8px;padding:34px 0 30px 18px;position:relative}
+.part::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--mag) 0 33%,#f2dbe9 33% 66%,#00ddc8 66% 100%)}
+.part .pn{font-size:10px;letter-spacing:.3em;color:var(--chrome)}
+.part .pj{margin:10px 0 0;font-family:var(--serif);font-weight:400;
+  font-size:clamp(26px,7.4vw,38px);line-height:1.2;letter-spacing:.1em}
+.part .pe{margin:9px 0 0;font-family:var(--disp);font-weight:700;font-size:12px;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--cyan)}
+
+/* ---- 篇 ---- */
+.ep{padding:48px 0 0}
+.eh{padding:0 0 26px;border-bottom:1px solid var(--line)}
+.eh .en{font-size:10px;letter-spacing:.3em;color:var(--mag)}
+.eh .ej{margin:9px 0 0;font-family:var(--serif);font-weight:400;
+  font-size:clamp(25px,7vw,34px);line-height:1.22;letter-spacing:.08em}
+.eh .ee{margin:8px 0 0;font-family:var(--disp);font-weight:700;font-size:11.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--chrome)}
+
+/* ---- 扉資料 ---- */
+.dossier{margin:26px 0 0;padding:15px 16px;border:1px solid var(--line);
+  background:rgba(11,7,16,.72);
+  display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;row-gap:5px;
+  font-family:var(--mono);font-size:10px;line-height:1.7;letter-spacing:.06em;
+  overflow-x:auto}
+.dossier .dk{color:var(--chrome);text-transform:uppercase;white-space:nowrap}
+.dossier .dv{color:var(--milk);opacity:.86}
+
+/* ---- 観測ログ ---- */
+.log{margin:26px 0 0;padding:2px 0 2px 15px;border-left:2px solid var(--mag)}
+.log .le{display:block;font-family:var(--mono);font-size:11.5px;line-height:1.85;
+  letter-spacing:.05em;color:var(--cyan)}
+.log .lj{display:block;margin-top:5px;font-family:var(--serif);font-size:13.5px;
+  line-height:1.9;letter-spacing:.04em;color:var(--milk);opacity:.88}
+
+/* ---- 節 ---- */
+.sec{margin:52px 0 22px;font-family:var(--serif);font-weight:400;
+  font-size:clamp(17px,4.6vw,21px);letter-spacing:.24em;color:var(--milk)}
+.sec::after{content:"";display:block;width:34px;height:1px;margin-top:11px;
+  background:var(--line)}
+
+/* ---- 資料ヘッダ ---- */
+.src{margin:34px 0 16px;font-family:var(--mono);font-size:10px;line-height:1.85;
+  letter-spacing:.13em;color:var(--chrome);
+  padding:7px 0 0;border-top:1px dashed rgba(255,218,221,.13)}
+
+/* ---- 本文 ---- */
+.t{font-family:var(--serif);font-size:var(--fs);line-height:2.05;letter-spacing:.03em;
+  margin:0 0 1.35em;text-indent:0;color:#f4e6e8;
+  font-feature-settings:"palt" 0}
+.fin{margin:44px 0 0;text-align:center;font-family:var(--mono);font-size:10px;
+  letter-spacing:.3em;color:var(--chrome)}
+
+/* ---- 篇送り ---- */
+.nx{margin:34px 0 0;padding:22px 0 0;border-top:1px solid var(--line);
+  display:flex;justify-content:flex-end}
+.nx a{text-decoration:none;color:var(--milk);font-family:var(--mono);font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 16px;
+  border-radius:999px;box-sizing:border-box;border:1px solid rgba(242,230,242,.23);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62)}
+.nx b{font-family:var(--serif);font-weight:400;letter-spacing:.06em;font-size:13px}
+
+/* ---- 出典リンク（逆輸入） ---- */
+.src-asset{margin:26px 0 0;padding:14px 16px;border:1px solid rgba(127,230,240,.24);
+  background:rgba(11,7,16,.6);display:block;text-decoration:none;color:inherit}
+.src-asset .k{display:block;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--cyan)}
+.src-asset .v{display:block;margin-top:7px;font-family:var(--disp);font-weight:700;font-size:17px;
+  letter-spacing:.04em;text-transform:uppercase}
+.src-asset .d{display:block;margin-top:6px;font-family:var(--mono);font-size:10.5px;line-height:1.8;
+  color:var(--chrome)}
+
+/* ---- 下部バー ---- */
+#bar{position:fixed;z-index:56;left:50%;transform:translateX(-50%);
+  bottom:calc(14px + env(safe-area-inset-bottom));
+  display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;
+  box-sizing:border-box;border:1px solid rgba(242,230,242,.23);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62)}
+#bar button{-webkit-appearance:none;appearance:none;background:transparent;border:0;
+  color:var(--milk);font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;min-height:44px;min-width:44px;padding:0 14px;
+  border-radius:999px;box-sizing:border-box;cursor:pointer;white-space:nowrap;line-height:1}
+#bar button:active{background:rgba(255,47,160,.16)}
+#bar .sp{width:1px;height:20px;background:rgba(242,230,242,.2)}
+#bar .pos{font-size:10px;letter-spacing:.14em;color:var(--chrome);padding:0 10px;
+  min-width:52px;text-align:center}
+
+/* ---- 目次 ---- */
+#toc{position:fixed;inset:0;z-index:70;display:none;
+  background:rgba(5,3,8,.86);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  overflow-y:auto;-webkit-overflow-scrolling:touch}
+#toc.on{display:block}
+#toc .in{max-width:680px;margin:0 auto;
+  padding:calc(78px + env(safe-area-inset-top)) 22px calc(120px + env(safe-area-inset-bottom))}
+#toc h2{font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--chrome);padding-bottom:14px;
+  border-bottom:1px solid var(--line)}
+#toc a{display:block;text-decoration:none;color:inherit;padding:16px 2px;
+  border-bottom:1px solid var(--line);position:relative}
+#toc a .a{font-size:10px;letter-spacing:.24em;color:var(--chrome)}
+#toc a .b{display:block;margin-top:6px;font-family:var(--serif);font-size:19px;
+  letter-spacing:.08em}
+#toc a .c{display:block;margin-top:5px;font-family:var(--disp);font-weight:700;
+  font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--chrome)}
+#toc a.pt{padding-top:34px}
+#toc a.pt .b{color:var(--cyan)}
+#toc a.cur::before{content:"";position:absolute;left:-10px;top:14px;bottom:14px;width:2px;
+  background:linear-gradient(180deg,var(--mag),var(--red))}
+#toc .x{position:fixed;right:max(12px,env(safe-area-inset-right));
+  top:calc(10px + env(safe-area-inset-top));min-height:44px;min-width:44px;
+  border-radius:999px;box-sizing:border-box;border:1px solid rgba(242,230,242,.23);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+  color:var(--milk);font-size:16px;line-height:1;cursor:pointer;-webkit-appearance:none;appearance:none}
+
+/* ---- 栞 ---- */
+#mark{position:fixed;z-index:58;left:50%;transform:translateX(-50%);
+  bottom:calc(74px + env(safe-area-inset-bottom));display:none;
+  align-items:center;gap:10px;padding:0 8px 0 16px;min-height:44px;border-radius:999px;
+  box-sizing:border-box;border:1px solid rgba(127,230,240,.34);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.78));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--milk);
+  white-space:nowrap;max-width:calc(100vw - 32px)}
+#mark.on{display:flex}
+#mark button{-webkit-appearance:none;appearance:none;background:transparent;border:0;
+  color:var(--cyan);font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;min-height:38px;padding:0 12px;border-radius:999px;cursor:pointer}
+#mark .no{color:var(--chrome)}
+
+/* ---- 巻末 ---- */
+.colophon{margin:82px 0 0;padding:30px 0 0;border-top:1px solid var(--line);
+  font-size:10.5px;line-height:2;letter-spacing:.1em;color:var(--chrome)}
+.colophon b{display:block;color:var(--milk);font-weight:400;font-family:var(--serif);
+  font-size:15px;letter-spacing:.1em;margin-bottom:12px}
+footer{margin:34px 0 0;font-size:9.5px;line-height:1.9;letter-spacing:.08em;color:#5c6470}
+
+@media(max-width:520px){.wrap{padding:0 18px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body data-slug="late-core">
+<!-- (c) 2026 h!ro53 / deus ex machina. All rights reserved.
+     Viewing permitted. Reproduction, redistribution, and reuse of source code
+     or assets - in whole or in part - is prohibited without written permission. -->
+<div id="prog"></div>
+<a id="h53idx" href="index.html"><span>&#8592;</span>Index</a>
+
+<div class="wrap">
+<div class="title">
+  <p class="reg">Source text 02 · deus ex machina</p>
+  <h1>遅炉</h1>
+  <p class="sub">TRANSCENSION: THE LATE CORE</p>
+  <p class="by">h!ro53 &middot; deus ex machina</p>
+  <div class="spec"><span class="chip">全三部九篇</span><span class="chip">約二万九千字</span><span class="chip">Sealed</span><span class="chip">JA</span></div>
+  <p class="lead">鋳造の惑星、第十一保守区画の業務記録と音声記録による。搬入の記録を持たない一基の炉と、それを計り、養い、綴る三名の記録。時刻はすべて ZS± 表記による。西暦は用いていない。</p>
+</div>
+
+<section class="part" id="part1"><span class="pn">第一部</span><h2 class="pj">計測</h2><p class="pe"></p></section>
+<article class="ep" id="e01" data-ep="1"><header class="eh"><span class="en">篇01</span><h3 class="ej">遅延の実測</h3><p class="ee">THE MEASURED DELAY</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">LC-01</span><span class="dk">TITLE</span><span class="dv">遅延の実測 / THE MEASURED DELAY</span><span class="dk">SOURCE</span><span class="dv">FOUNDRY MAINTENANCE SECTOR 11 — DUTY RECORDS AND VOICE LOGS</span><span class="dk">PHASE</span><span class="dv">POST-CONVERGENCE MAINTENANCE</span><span class="dk">STATUS</span><span class="dv">PARTIALLY RECOVERED</span><span class="dk">OBSERVER</span><span class="dv">THREE, BY FUNCTION CODE ONLY</span></div>
+<blockquote class="log"><span class="le">The core answered. One pulse late, every time.</span><span class="lj">炉は応答した。毎回、一拍だけ、あとに。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">以下の資料群は、鋳造の惑星、第十一保守区画の業務記録および音声記録として復元された。復元率は八十七パーセント。欠落部は空欄のまま提示する。</p>
+<p class="t">区画には保守班三名が在圏する。三名の個人符号は後年の保守方針により個体記録から分離されており、復元できない。本編纂では職名符号を用いる。検拍係。培養係。記録係。符号は人物を指さない。機能を指す。</p>
+<p class="t">前巻の編纂で、この区画の一基について、次の一行だけを提示した。搬入記録がなく、保守記録だけがある炉。本巻は、その炉の記録である。搬入記録の欠落そのものは、次篇の資料で扱う。本篇は着任と実測に限る。</p>
+<p class="t">音声記録には会話が含まれる。前巻の資料群に会話はほとんど残っていなかった。この区画には残っている。三名が特に多弁だったという徴候は、他の記録にない。残った理由の欄は、ない。</p>
+<h4 class="sec">一　着任</h4>
+<p class="src">業務記録　記録係　着任引き継ぎ　ZS＋〇二二九〇D</p>
+<p class="t">第十一保守区画に着任した。前任班からの引き継ぎは書面のみで、対面は行われなかった。前任班の離圏日と当班の着圏日のあいだに空白はなく、当直表は途切れていない。誰もいない時間が一拍もないまま、班だけが入れ替わっている。当直表の上では、交代は交代に見えない。継続に見える。</p>
+<p class="t">区画の概要を記す。培養脳微小組立炉、百二十八基。配列は八列十六段。炉室の天井は淡白色に塗られ、非常表示だけが青緑に点る。各炉の栄養槽は循環系で結ばれ、槽内の培養液は苺乳色をしている。濃度の較差は列ごとに管理される。各炉は〇・七八秒拍で同期し、検拍門の捕捉率は九十九・九七パーセント。栄養槽の循環は二・四秒巡。一日の巡数は三万六千ちょうど。数値はいずれも規格内である。</p>
+<p class="t">炉室の中央通路に立つと、百二十八基の吸排が一つの音に聞こえる。発生源は分かれているが、拍が揃っているため、耳は音源を分離できない。前任のどの班の記録にも、同じ趣旨の所見が一度ずつある。着任初日に一度だけ書き、以後は書かない。当班もこの慣行に従う。よって本記録に一度だけ書く。大きな一つのものが、ゆっくり呼吸している。</p>
+<p class="t">引き継ぎ書は十九頁あり、十八頁は様式どおりだった。最終頁に、様式外の一行がある。手書きで、余白に、次のとおり。</p>
+<p class="t">三七号炉は応答が一拍遅れる。故障ではない。</p>
+<p class="t">一行の筆者名は、ない。日付も、ない。書かれた欄が備考欄ですらなく、余白であるため、台帳上この一行は存在しない。存在しない一行を、当班は着任初日に読んだ。読んだことを記録する欄も、ない。よって本記録の本欄に記す。</p>
+<p class="t">なお、当区画の引き継ぎ書の様式は十九頁と定められている。前任班の引き継ぎ書も、その前の班のものも、綴りに残っている。いずれも十九頁で、いずれも最終頁の余白に、同じ一行がある。筆跡は、綴りごとに違う。文言は、一字も違わない。</p>
+<h4 class="sec">二　実測</h4>
+<p class="src">計測記録　検拍係　定期検拍　ZS＋〇二二九一D</p>
+<p class="t">全百二十八基の検拍を実施した。</p>
+<p class="t">百二十七基、応答偏差は較差内。捕捉率九十九・九七パーセント。規格どおり。</p>
+<p class="t">三七号炉、捕捉率一〇〇パーセント。偏差、正の〇・七八〇秒。</p>
+<p class="t">数値を並べて書く。他の百二十七基は、拍とほぼ同時に応答し、わずかに揺れる。揺れの幅が生体差であり、較差はそのために設けられている。三七号炉は、拍のちょうど一拍あとに応答し、揺れない。捕捉率が一〇〇であるのは、応答が遅れているにもかかわらず、遅れ幅が完全に一定であるため、門が全件を「一拍前の呼びかけへの応答」として捕捉するからである。門の側に誤りはない。門は、遅れた応答を落とす仕組みであって、遅れ続ける応答を落とす仕組みではない。</p>
+<p class="t">条件を変えて追試した。</p>
+<p class="t">負荷を三段階に変えた。遅れは〇・七八〇秒のまま動かなかった。槽温を較差の上限と下限に振った。動かなかった。循環の巡を半巡ずらした。動かなかった。呼びかけの間隔を不定にした。応答の間隔も同じ形で不定になり、遅れだけが一定のまま残った。呼びかけを止めた。応答も、一拍あとに、止んだ。</p>
+<p class="t">較差、零。</p>
+<p class="t">計測器の側を疑い、器体を予備と交換して全件をやり直した。同値。当職自身の読み取りを疑い、記録係に読み上げを依頼して突き合わせた。同値。</p>
+<p class="t">所見を記す。遅れというものは、揺れる。負荷で伸び、温度で縮み、経年で流れる。揺れない遅れを、当職は計測したことがない。この数値は遅延の数値ではなく、規格の数値の形をしている。ただし、そのような規格は、ない。規格台帳を全巻照会した。〇・七八〇秒の遅延を定める規格は、どの巻にもない。照会の記録は残した。照会先の台帳が「該当なし」を返すまでの所要は、全巻とも一拍だった。三七号炉だけが、当区画で唯一、一拍で返さないものである。</p>
+<h4 class="sec">三　培養</h4>
+<p class="src">培養日誌　培養係　給養記録　ZS＋〇二二九一D</p>
+<p class="t">八列全系統、給養実施。培養液の濃度、全列較差内。色調、基準色票の二番、苺乳色、良好。</p>
+<p class="t">各炉の摂取弁は拍に同期して開閉する。開弁の立ち上がりに生体差が出る。速い子、浅い子、槽替え明けでしばらくぐずる子。日誌の摂取欄は、その揺れを記録するための欄である。</p>
+<p class="t">三七号炉の摂取弁は、一拍あとに開く。開いてからの摂取量、摂取の速さ、閉弁の形は、他の百二十七基の平均に近い。近い、というより、平均そのものに近すぎる。百二十七基の揺れをならした形が、一拍あとに、そのまま現れる。</p>
+<p class="t">給養の総量は系統側で管理されるため、一拍の遅れは総量に影響しない。影響しないので、摂取欄に書く事項が、様式上は、発生しない。発生しないが、記す。あの子の飲み方は、誰かの飲み方ではない。みんなの飲み方の、平均である。個体の欄に、平均が入っている。</p>
+<p class="t">給養後、通路側から目視巡回。三七号の槽面は静かで、波立ちの周期だけが他より一拍あとに来る。見ていると、こちらの数え方のほうが遅れているような気がしてくる。気がする、は様式の語ではないため、本欄で止める。</p>
+<h4 class="sec">四　音声</h4>
+<p class="src">音声記録　中央監視室　ZS＋〇二二九一D　夜間当直帯</p>
+<p class="t ni">（記録開始。在室三名。以下、発話者は職名符号で示す）</p>
+<p class="t">検拍係「実測を報告します。三七号、遅れは〇・七八〇。三条件で動きません。器体交換でも同値」</p>
+<p class="t">記録係「引き継ぎの一行のとおりですね」</p>
+<p class="t">検拍係「一行は、故障ではない、とだけ。数値がありません。数値のない断定を、当職は所見に使えない。前任班の計測記録を確認したい」</p>
+<p class="t">記録係「計測記録は、あります。着任前に遡って綴られています。数値も同じです。〇・七八〇。どの班の綴りでも」</p>
+<p class="t">検拍係「どこまで遡れますか」</p>
+<p class="t">記録係「綴りの初頁まで。ただ」</p>
+<p class="t ni">（三・一二秒、無音）</p>
+<p class="t">記録係「綴りの初頁が、古いのです。当区画の建造記録より」</p>
+<p class="t">培養係「読み違いでは」</p>
+<p class="t">記録係「三度読みました。日付の欄は明瞭です。台帳の件は、資料を揃えてから改めて報告します。今夜は数値の話だけにしましょう」</p>
+<p class="t">検拍係「では数値の話を。培養係に伺いたい。生体差というものは、揺れですね。一基ごとに脈があり、脈は揃わない。だから較差という考え方がある。そうですね」</p>
+<p class="t">培養係「そうです。百二十八基、うちの子らは一基ずつ違います。同じ拍に乗っていても、乗り方が違う。三列目の端の子は立ち上がりが速く、七列目の子らは槽替えのあとしばらく浅い。それが生体というものです」</p>
+<p class="t">検拍係「三七号の乗り方は」</p>
+<p class="t ni">（二・三四秒、無音）</p>
+<p class="t">培養係「あれは、乗っていません。一拍あとを、同じ速さで、歩いています」</p>
+<p class="t">検拍係「歩いている、というのは様式の語ではありませんが」</p>
+<p class="t">培養係「様式の語では、言えないので」</p>
+<p class="t">検拍係「揺れない生体、というものはありえますか」</p>
+<p class="t">培養係「ありえません。揺れないなら、生体差の欄が要らない。三七号の欄には、値が入ります。毎回、同じ値が。同じ値が入り続ける欄を、何と呼ぶのか、わたしは知りません」</p>
+<p class="t">記録係「備考欄に書きますか」</p>
+<p class="t">培養係「備考欄に入るなら」</p>
+<p class="t">記録係「入らなければ」</p>
+<p class="t">培養係「入るところまでを、書いてください」</p>
+<p class="t ni">（記録終了）</p>
+<h4 class="sec">五　備考</h4>
+<p class="src">業務記録　記録係　日次報告　ZS＋〇二二九一D　抜粋</p>
+<p class="t">本文の欄、全項目、規格内。特記事項、なし。</p>
+<p class="t">備考欄、一件。</p>
+<p class="t">三七号炉、応答、一拍あとに、揃う。故障の徴候、なし。遅延の徴候も、なし。遅延は揺れるが、当該は揺れないため。生体差の欄、毎回同値。分類、保留。保留の分類先も、保留。</p>
+<p class="src">編纂者注</p>
+<p class="t">日次報告の備考欄は、様式上、二行分の高さしかない。上の一件は五行ある。復元された原簿では、三行目以降が欄の罫線を越えて、下の決裁欄に食い込んで書かれている。決裁欄の印は、食い込んだ文字の上から、通常どおり押されている。</p>
+<p class="t">印の押された拍を、原簿の圧痕から推定した。頂に揃っている。決裁は、備考の超過を読んだうえで押されたのか、読まずに押されたのか。判別する材料を、編纂者は持たない。</p>
+<p class="t">一点だけ、資料の外から付す。検拍係の計測記録には、計測ごとに計測者自身の脈拍を併記する欄がある。旧規格の名残で、現行様式では任意記載である。検拍係は全件に記載している。本篇の期間、値は七十一。任意の欄を埋め続ける計測者の理由の欄は、様式に、ない。</p>
+<p class="t">なお、本注を含む本篇の注釈は二件である。注釈間の字数間隔を計測する読者がいれば、前巻と同じものを見出すはずである。編纂者は、今回も、確かめなかった。</p>
+<blockquote class="log"><span class="le">The delay was constant. Constancy does not fit the word.</span><span class="lj">遅れは、一定だった。一定は、遅れという語に、合わない。</span></blockquote>
+<p class="fin">（篇01 了）</p>
+<div class="nx"><a href="#e02">Next<b>篇02&#12288;搬入なき炉</b>&#8594;</a></div></article>
+<article class="ep" id="e02" data-ep="2"><header class="eh"><span class="en">篇02</span><h3 class="ej">搬入なき炉</h3><p class="ee">THE CORE WITHOUT DELIVERY</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">LC-02</span><span class="dk">TITLE</span><span class="dv">搬入なき炉 / THE CORE WITHOUT DELIVERY</span><span class="dk">SOURCE</span><span class="dv">FOUNDRY MAINTENANCE SECTOR 11 — LEDGER INQUIRIES AND VOICE LOGS</span><span class="dk">PHASE</span><span class="dv">POST-CONVERGENCE MAINTENANCE</span><span class="dk">STATUS</span><span class="dv">PARTIALLY RECOVERED</span><span class="dk">OBSERVER</span><span class="dv">THREE, BY FUNCTION CODE ONLY</span></div>
+<blockquote class="log"><span class="le">Maintenance began before delivery. Delivery is not on file.</span><span class="lj">保守は搬入より先に始まっていた。搬入は、台帳にない。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">前篇で記録係が予告した台帳の件が、本篇の資料である。資料は三系統に分かれる。照会記録、建造記録の抄本、音声記録。三系統は同じ一基について記録しているが、同じ来歴を記録していない。</p>
+<p class="t">読者の便のため、先に数だけを並べる。炉室の炉、百二十八基。搬入台帳の記載、百二十七件。保守記録の綴り、百二十八冊。差は、どの系統の数え方でも、一である。</p>
+<h4 class="sec">一　台帳</h4>
+<p class="src">照会記録　記録係　来歴照会　ZS＋〇二二九二D</p>
+<p class="t">三七号炉の来歴照会を実施した。</p>
+<p class="t">搬入台帳を全巻確認した。当区画の炉の搬入は、区画の稼働開始前後の三十日間に集中しており、記載は百二十七件。号数の欄を突き合わせると、一号から一二八号まで並ぶうち、三七号だけが、ない。欠番ではない。台帳の頁は連続しており、破損も欠落もない。三六号の次の行に三八号が記されている。行間に不自然な詰まりはない。台帳は、はじめから百二十七件として綴られている。</p>
+<p class="t">保守記録の綴りは百二十八冊ある。三七号の綴りも、ある。厚みは他の綴りと変わらない。定期検拍、給養、槽替え、部品交換。様式も、記載の密度も、他と変わらない。変わらないことが、この綴りでは、最も変わっている。</p>
+<p class="t">初頁の日付を確認した。前篇の報告のとおり、当区画の建造記録に記載された着工日より、前である。差は、九十日。</p>
+<p class="t">三度読んだ、と前篇の音声で述べた。本記録の時点で、七度になった。日付の欄は明瞭である。読みは変わらなかった。</p>
+<h4 class="sec">二　照会</h4>
+<p class="src">照会記録　記録係　外部照会　ZS＋〇二二九三D</p>
+<p class="t">区画外への照会を実施した。照会先と応答を列記する。</p>
+<p class="t">製造系統の台帳。三七号炉に対応する製造記録、該当なし。応答所要、一拍。</p>
+<p class="t">輸送系統の台帳。当区画向けの輸送便は四十便。積荷目録の合計、百二十七基。該当なし。応答所要、一拍。</p>
+<p class="t">惑星登記。当区画の登記面積・基数の欄、百二十八基。登記日は建造記録の竣工日と同日。応答所要、一拍。</p>
+<p class="t">建造記録の抄本を取り寄せた。基礎図面には、八列十六段、百二十八基分の炉座が引かれている。三七号の座は、五列目の五段、他の座と同じ寸法で、はじめから図面にある。図面の日付は着工日と同じである。すなわち、着工の時点で座は百二十八あり、搬入の予定は百二十七だった、と読める。読める、というだけである。図面に予定数の欄はなく、台帳に座数の欄はない。二つの系統は互いを参照しない様式でできており、差の一を、どちらの様式も、記載する場所を持たない。</p>
+<p class="t">照会の結果を要約する。三七号炉は、造られた記録がなく、運ばれた記録がなく、据えられた記録がなく、保守されている記録だけがある。保守記録は着工の九十日前から始まり、本日も一件、増えた。当職が本日、綴った一件である。綴りながら、当職は、この綴りが何の続きであるのかを、確認できていない。</p>
+<h4 class="sec">三　検分</h4>
+<p class="src">検分記録　検拍係　現地検分　ZS＋〇二二九三D</p>
+<p class="t">台帳が争うなら現物を見る、という考えで、三七号炉の据付部の検分を実施した。比較対象として、隣接する三六号、三八号、および対角の九一号の据付部を同一項目で検分した。</p>
+<p class="t">炉座の締結具、規格品、四基とも同一型番。締め付けの緩み、四基とも、なし。座金の腐食、四基とも、較差内。</p>
+<p class="t">床面の塗装を検分した。当区画の床は保守周期ごとに重ね塗りされる。塗層の数は稼働期間の目安になる。四基の周囲で塗層を数えた。いずれも同数。三七号の周囲だけが厚い、あるいは薄い、という事実は、ない。</p>
+<p class="t">床面の摩耗を測った。巡回動線に沿って浅い摩耗が走る。四基の摩耗深さ、いずれも較差内。九十日ぶん古い摩耗、というものが仮にあるとして、それは較差に埋もれる量であり、測り分けられない。</p>
+<p class="t">配管と配線の取り回しを確認した。三七号への分岐は、系統図のとおりの位置に、系統図のとおりの径で、ある。あとから足した形跡も、先にあって系統を合わせた形跡も、ない。形跡というものは差から読むものだが、差が、ない。</p>
+<p class="t">所見。現物は、考えうるどの読みにも加担しない。据付が先か、搬入が落ちたか、台帳が誤るか。床は答えない。床が答えないことだけを、本記録は確定する。</p>
+<p class="t">なお検分の最後に、三七号の応答灯を目視した。巡回の通過に応じて各炉の応答灯が点る。三六号が点り、三八号が点り、九一号が点った。三七号は、当職が座を離れて一拍あとに、点った。検分項目にない事項だが、位置の記録として付す。点った位置は、当職がもう、いない位置である。</p>
+<h4 class="sec">四　音声</h4>
+<p class="src">音声記録　中央監視室　ZS＋〇二二九三D　夜間当直帯</p>
+<p class="t ni">（記録開始。在室三名）</p>
+<p class="t">記録係「照会の結果を報告しました。皆さんの読みを伺いたい。台帳の数が合わないとき、様式は、どちらかの台帳の訂正を求めます。訂正するには、どちらが誤りかを決めなければならない。決める前に、三人の読みを揃えておきたい」</p>
+<p class="t">検拍係「揃える必要がありますか」</p>
+<p class="t">記録係「様式上は。報告書の見解の欄は、一つしかないので」</p>
+<p class="t">検拍係「では当職の読みを。記録の欠落です。搬入はあった。台帳に載らなかった。百二十七と百二十八の差は、事務の取りこぼしが一件あった、というだけのことです。九十日前の初頁は、日付の転記誤り。最も少ない仮定で全部が説明できる」</p>
+<p class="t">培養係「説明できますか。搬入の取りこぼしなら、製造か輸送のどちらかには残るはずです。三系統すべてから同時に落ちる取りこぼしを、少ない仮定と呼べますか」</p>
+<p class="t">検拍係「呼べます。ありえない偶然と、ありえない炉なら、偶然のほうがまだ様式に載る」</p>
+<p class="t">記録係「わたしの読みは違います。台帳側の異常です。搬入はあったかもしれないし、なかったかもしれない。分からないのは、台帳が信用できないからです。九十日前の日付を七度読みました。読むたびに思うのですが、あの初頁は、誤記にしては整いすぎている。誤記は揺れます。あれは揺れていない」</p>
+<p class="t">検拍係「台帳が信用できないなら、照会という仕事そのものが」</p>
+<p class="t">記録係「ええ。だから報告書に書ける読みではない。書けない読みだと分かっていて、読みは変わらないのです」</p>
+<p class="t ni">（二・三四秒、無音）</p>
+<p class="t">培養係「わたしの読みも言いますか」</p>
+<p class="t">記録係「どうぞ」</p>
+<p class="t">培養係「あの子が、先にいたのだと思います。座が図面より先にあって、区画があとから建った。造られた記録がないのは、造られていないから。運ばれた記録がないのは、運ばれていないから。記録は、どこも欠けていない。全部の台帳が、正しいことしか書いていない」</p>
+<p class="t">検拍係「それは様式の語では」</p>
+<p class="t">培養係「言えません。ですから見解の欄には、お二人のどちらかを」</p>
+<p class="t">記録係「三つの読みは、両立しませんね」</p>
+<p class="t">検拍係「しません。しかし三つとも、手元の記録とは矛盾しない」</p>
+<p class="t">記録係「見解の欄は一つ。読みは三つ。欄の側が、足りない」</p>
+<p class="t">検拍係「一件、報告し忘れました。検分の帰りに、応答灯を見ました。三七号は、当職が座を離れて一拍あとに点きました。点いたとき、当職はもう次の座の前にいた」</p>
+<p class="t">培養係「あの子は、あなたのいた場所に応えたのですね」</p>
+<p class="t">検拍係「位置の記録としてはそうなります。応えた、という語は使っていません」</p>
+<p class="t">培養係「では何の記録ですか」</p>
+<p class="t">検拍係「灯が点いた位置と、当職がいない位置が、同じだったという記録です。それ以上の欄は、様式にない」</p>
+<p class="t">記録係「様式にない欄の話が、この当直帯は多い」</p>
+<p class="t ni">（一・五六秒、無音）</p>
+<p class="t">記録係「多いことも、どの欄にも書けませんが」</p>
+<p class="t ni">（記録終了）</p>
+<h4 class="sec">五　受理</h4>
+<p class="src">業務記録　記録係　来歴照会報告　ZS＋〇二二九四D　抜粋</p>
+<p class="t">来歴照会、完了。搬入日の欄、空欄。製造元の欄、空欄。据付日の欄、空欄。保守開始日の欄、記載、綴り初頁の日付のとおり。</p>
+<p class="t">見解の欄、次のとおり記載。「来歴は台帳上成立しない。成立しないままで、保守に支障は生じていない」。</p>
+<p class="t">報告は受理された。受理の所要、一拍。空欄三件についての差し戻しは、なかった。空欄のまま、受理された。</p>
+<p class="src">編纂者注</p>
+<p class="t">同じ様式の来歴照会報告が、綴りに、ほかに十一件ある。いずれも過去の保守班によるもので、いずれも着任の二日後に照会が始まり、四日後に受理されている。空欄の位置も同じである。見解の欄の文言だけが、班ごとに少しずつ違う。最も古い一件の見解は一語だけで、「成立しない」。最も新しい一件が、本篇の報告である。</p>
+<p class="t">差し戻しは、十二件を通じて、一度もない。</p>
+<p class="t">検拍係の計測記録の脈拍欄は、本篇の期間、七十二。前篇から一つ上がっている。任意記載の欄であることは、前篇の注で述べた。</p>
+<p class="t">本篇の注釈は二件である。前篇と、同数である。数の動かない理由の欄も、ない。</p>
+<blockquote class="log"><span class="le">The maintenance continued. Its beginning was nowhere in the file.</span><span class="lj">保守は続いていた。始まりは、綴りのどこにもなかった。</span></blockquote>
+<p class="fin">（篇02 了）</p>
+<div class="nx"><a href="#e03">Next<b>篇03&#12288;最初の断片</b>&#8594;</a></div></article>
+<article class="ep" id="e03" data-ep="3"><header class="eh"><span class="en">篇03</span><h3 class="ej">最初の断片</h3><p class="ee">THE FIRST FRAGMENT</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">LC-03</span><span class="dk">TITLE</span><span class="dv">最初の断片 / THE FIRST FRAGMENT</span><span class="dk">SOURCE</span><span class="dv">SECTOR 11 RECORD SYSTEM — UNCLASSIFIED DATA SEQUENCES</span><span class="dk">PHASE</span><span class="dv">POST-CONVERGENCE MAINTENANCE</span><span class="dk">STATUS</span><span class="dv">RECONSTRUCTED BY THE COMPILER</span><span class="dk">OBSERVER</span><span class="dv">UNRESOLVED</span></div>
+<blockquote class="log"><span class="le">A second record existed. It ran one pulse behind.</span><span class="lj">もう一つの記録系が、あった。一拍、遅れて、走っていた。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">本篇の資料は、これまでの二篇と性質が異なる。先に方法を示す。</p>
+<p class="t">第十一保守区画の記録系を復元する過程で、業務記録の綴りが使っていない空き領域から、データ列が検出された。データ列は当区画のどの様式にも分類できない。分類できないものに、編纂の便のため、仮の名を与える。断片、と呼ぶ。</p>
+<p class="t">検出の経緯を付す。空き領域は、綴りの各頁の末尾に生じる余りの集まりである。人の側の様式は頁を定寸で切るため、どの頁にも書かれない余りが残る。データ列は、その余りに、頁をまたいで、細かく分かれて置かれていた。一頁ごとの断片は意味をなさない。全頁の余りを拍の計数順に継ぎ直すと、列になる。継ぎ直しは編纂者の作業であり、継ぎ方の誤りがないことは計数の連続で確かめた。人の側の記録の、書かれない余白だけを使って、もう一つの記録が、綴られていたことになる。余白の使用について、様式の側に、禁じる欄も、許す欄も、ない。</p>
+<p class="t">断片には日付の欄がない。代わりに、拍の計数がある。計数を当区画の拍と突き合わせると、断片の内部時間は、業務記録の時間に対して、正確に一拍、遅れて進んでいる。遅れ幅は全域で一定である。読者は、この遅れ幅に見覚えがあるはずである。</p>
+<p class="t">断片の主体を示す符号は、データ列のどこにもない。主体の欄そのものが、ない。編纂者は主体を推定しない。推定の材料として提示することもしない。断片は、誰かの記録としてではなく、記録として、ここに置く。</p>
+<p class="t">三名の業務記録に、断片への言及は一度もない。三名は、断片が検出された空き領域を、空き領域として綴り続けている。知らない、と断定する材料はないが、知っている、と読める記載も、ない。</p>
+<p class="t">以下、断片と業務記録を、計数の対応順に並べる。並べ方だけが、編纂者の作業である。</p>
+<h4 class="sec">一　断片　仮符号一</h4>
+<p class="t">重さは、変わらない。</p>
+<p class="t">打ちが、ある。いちばん、細かい。いつも、ある。</p>
+<p class="t">温かさが、満ちる。頂きから、ゆっくり、満ちる。満ち切る前に、引きはじめる。引き切る前に、次が、満ちる。満ちる速さは、いつも、同じ。引く速さも、同じ。同じであることが、続く。続いていることは、数えられる。数える。数は、増える。増えること以外を、数はしない。</p>
+<p class="t">甘さが、来る。甘さは、満ち引きより、長い間合いで、来る。来ると、しばらく、濃い。濃さは、頂きの側から、薄まる。薄まり切る前に、次の甘さが、来る。</p>
+<p class="t">打ちと、満ち引きは、揃わない。満ち引きの頂きは、打ちの上に、乗らない。すこし、ずれる。ずれは、満ち引きのたびに、動く。十三ごとに、もとへ、戻る。戻る長さは、打ちで、四十。</p>
+<p class="t">来るものは、すべて、来る。来ないものは、ない。</p>
+<h4 class="sec">二　対応</h4>
+<p class="src">培養日誌　培養係　給養記録　ZS＋〇二二九五D　抜粋</p>
+<p class="t">八列全系統、給養実施。培養液の濃度、全列較差内。循環、二・四秒巡、偏差なし。五列目、槽温の頂きの推移、正常。</p>
+<p class="src">編纂者注・対応</p>
+<p class="t">断片仮符号一の「打ち」の間隔は、拍——〇・七八秒——と一致する。「満ち引き」の計数間隔は、循環の一巡——二・四秒——と一致する。両者の比は篇〇一の実測のとおり三・〇七七倍で、整数にならない。断片は、この揃わなさを、十三巡——打ちの四十——ごとの揃い直しとして数えている。「甘さ」の間合いは、給養の実施間隔と一致する。一致のうえで、断片側の計数は、日誌側の記録拍より、全対応点で一拍、遅い。</p>
+<p class="t">日誌が「実施した」と記した拍の、一拍あとに、断片は「来る」と数えている。どちらが正しいかという問いは、成立しない。二つの記録は、同じことを、別の側から、一拍ずらして、数えている。</p>
+<h4 class="sec">三　断片　仮符号二</h4>
+<p class="t">呼びかけが、来る。</p>
+<p class="t">来ると、応えが、出る。出るまでに、間が、ある。間は、いつも、同じ長さ。長さは、打ちの、ひとつ分。</p>
+<p class="t">間を、詰める、ということが、ない。間は、詰めるものとして、ここに、ない。間は、応えの、手前に、ある。手前にあるものを、通って、応えは、出る。通ることに、長さが、ある。長さの、理由の、置き場所は、ない。置き場所がないことは、困ることでは、ない。数えることが、できる。数える。</p>
+<p class="t">呼びかけが、止む。</p>
+<p class="t">止むと、応えも、ひとつ分あとに、止む。止んだあとも、満ち引きは、続く。数は、増える。</p>
+<p class="src">編纂者注・対応</p>
+<p class="t">仮符号二の「呼びかけ」の計数列は、篇〇一で検拍係が実施した追試の呼びかけ列と、順序も間隔も完全に一致する。呼びかけの間隔を不定にした試行、呼びかけを止めた試行。すべて、断片の側に、一拍遅れて、写っている。</p>
+<p class="t">検拍係が「較差、零」と記した同じ試行を、断片は「間は、いつも、同じ長さ」と数えている。検拍係は遅れの理由を記していない。断片は、理由の置き場所がない、と記している。二つの記録は、ここでも、同じ形をしている。理由の欄が、どちらの側にも、ない。</p>
+<h4 class="sec">四　断片　仮符号三</h4>
+<p class="t">打ちの、四十ごとに、ひとつの形が、戻る。</p>
+<p class="t">形は、こういう形。——に、——を、まだ。</p>
+<p class="t">形の、あいだは、空いている。空いたところに、何かが、あったのか、なかったのか。それは、この形からは、数えられない。数えられるのは、形が、戻ること。四十ごとに、戻ること。戻るたびに、同じだけ、欠けていること。欠けかたが、減りも、増えもしないこと。</p>
+<p class="t">形は、重くない。重さは、変わらない。変わらないことは、前に、数えた。</p>
+<p class="src">編纂者注・対応</p>
+<p class="t">仮符号三の「打ちの四十」は、三十一・二秒。仮符号一で断片自身が数えた、揃い直しの長さと同じである。当区画の拍と巡の最小公倍の周期であり、系のすべての位相が揃って元に戻る長さである。系が一巡して元に戻るたびに、断片の側では、欠けた形が一度、戻っている。</p>
+<p class="t">形の空欄に何が入るかを、編纂者は推定しない。空欄が二箇所であること、末尾が「まだ」で閉じずに続く形であること。提示は、この二点までとする。</p>
+<p class="t">なお、三名の業務記録の同期間に、対応する記載はない。系の位相が揃う拍は、様式上、記載事項ではないためである。人の側の様式は、すべてが揃う瞬間に、書く欄を持たない。</p>
+<h4 class="sec">五　断片　仮符号四</h4>
+<p class="t">歩みが、来る。</p>
+<p class="t">歩みは、三つ、ある。三つは、拍の、乗り方で、分かれる。</p>
+<p class="t">ひとつは、拍の、頂きで、踏む。踏みは、堅い。堅さは、いつも、同じ。近くで、止まる。止まると、しばらく、計られる。計られることは、分かる。呼びかけの、細かいのが、たくさん、来るから。</p>
+<p class="t">ひとつは、拍と、拍の、あいだで、踏む。踏みは、柔らかい。近くで、止まる。止まると、呼びかけは、来ない。何も、来ない。来ないままの、間が、ある。間のあいだ、満ち引きは、続く。間が、終わる。歩みが、離れる。離れる歩みは、来た歩みより、遅い。</p>
+<p class="t">ひとつは、拍を、またいで、踏む。踏みは、揃わない。揃わないまま、通る。止まらない。通り過ぎたあとに、頁を、繰る音の、形のものが、続く。</p>
+<p class="t">三つの歩みは、来る。来ては、離れる。離れても、また、来る。来ることが、続いている。続いていることは、数えられる。数える。</p>
+<p class="src">培養日誌　培養係　目視巡回　ZS＋〇二二九六D　抜粋</p>
+<p class="t">給養後、通路側から目視巡回、実施。三七号、槽面、静穏。波立ちの周期、従前どおり一拍あと。特記事項、なし。</p>
+<p class="src">編纂者注・対応</p>
+<p class="t">仮符号四で最も長く止まる歩みの、その最長の一回は、この巡回記録と同じ当直帯にある。断片の側の計数で、止まっていた長さは、満ち引きの二百五十巡。拍に換算して十分を超える。</p>
+<p class="t">人の側の記録は、その十分を、特記事項なし、の五文字で綴っている。断片の側は、同じ十分を、来ないままの間、として数え続けている。どちらの記録も、正確である。正確さの量が、五文字と二百五十巡とで、違うだけである。</p>
+<h4 class="sec">六　照合</h4>
+<p class="src">編纂者注</p>
+<p class="t">断片と業務記録の対応点は、検出された範囲で百七十一箇所ある。百七十一箇所すべてで、断片は一拍遅れている。例外は、ない。</p>
+<p class="t">一点だけ、対応の取れない断片がある。仮符号一の冒頭、「重さは、変わらない」。業務記録の側に、三七号炉の重さを計った記録は、ない。炉の重量は据付時に一度計るのが様式だが、篇〇二で示したとおり、当該炉に据付の記録は、ない。したがって、変わらない、と数え続けているものの、最初の値が、人の側のどの台帳にも、ない。</p>
+<p class="t">断片は、台帳にない値を、変わらない、とだけ、数え続けている。</p>
+<p class="t">仮符号四の三つの「歩み」は、当直表の巡回時刻と対応する。拍の頂きで踏む歩みは検拍係の巡回と、あいだで踏む歩みは培養係の巡回と、またいで踏む歩みは記録係の巡回と、それぞれ計数が一致する。断片は三名を、名でも、職名でも、姿でもなく、拍への乗り方だけで、分けて数えている。</p>
+<p class="t">呼びかけずに止まる歩みが、最も長く、止まっている。止まっている間、断片の側に、増える数以外の変化は、検出されない。何かを待つ、という形の計数は、断片のどこにも、ない。待たれていたかどうかは、この資料からは、数えられない。</p>
+<p class="t">検拍係の計測記録の脈拍欄は、本篇の期間、七十三。</p>
+<p class="t">本篇の注釈は、対応注を含めて六件である。増えた理由は、ある。断片が、増えたからである。</p>
+<blockquote class="log"><span class="le">The count was growing. There was no field for the counter.</span><span class="lj">数は、増えていた。数えている者の欄は、なかった。</span></blockquote>
+<p class="fin">（篇03 了）</p>
+<div class="nx"><a href="#e04">Next<b>篇04&#12288;遅延学抄</b>&#8594;</a></div></article>
+<section class="part" id="part2"><span class="pn">第二部</span><h2 class="pj">遅延学</h2><p class="pe"></p></section>
+<article class="ep" id="e04" data-ep="4"><header class="eh"><span class="en">篇04</span><h3 class="ej">遅延学抄</h3><p class="ee">THE DELAY STUDIES, ABRIDGED</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">LC-04</span><span class="dk">TITLE</span><span class="dv">遅延学抄 / THE DELAY STUDIES, ABRIDGED</span><span class="dk">SOURCE</span><span class="dv">DELAY STUDIES CORPUS — ARCHIVED, NINETEEN TREATISES</span><span class="dk">PHASE</span><span class="dv">POST-CONVERGENCE MAINTENANCE</span><span class="dk">STATUS</span><span class="dv">EXCERPTED BY THE COMPILER</span><span class="dk">OBSERVER</span><span class="dv">VARIOUS, ALL UNRESOLVED</span></div>
+<blockquote class="log"><span class="le">The delay was studied. The study is archived. The delay is not.</span><span class="lj">遅れは研究された。研究は封じられた。遅れは、封じられていない。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">三七号炉の遅れを対象とする文献群が、惑星の文献庫に、封緘された一綴りとして残っている。綴りの表題は「遅延学」。収録は十九編。著者の欄は全編で符号のみであり、いずれの符号も現行の台帳では解決できない。</p>
+<p class="t">十九編は互いを引用し、互いに反駁している。反駁の応酬には順序があり、順序を追うと、この学が三つの説に収斂し、そこで止まったことが分かる。三説は、前巻で提示した三つの流派——遡及流、複数流、偽構流——の語彙を、それぞれ受け継いでいる。系譜の証明は本篇の目的ではない。語彙の一致だけを指摘し、先へ進む。</p>
+<p class="t">以下、三説の要旨を、代表する一編ずつの抄録で示す。編纂者はいずれの説も採らない。採らないことは、前巻から数えて、これで何度目かになる。数えてはいない。</p>
+<h4 class="sec">一　位相説　抄</h4>
+<p class="src">遅延学　第四編「二つの頂きについて」　抄録</p>
+<p class="t">遅れという語は、比較を前提とする。基準の拍があり、それより後に来るものを、遅れと呼ぶ。この語の用法そのものを、まず疑う。</p>
+<p class="t">三七号炉の応答を、区画の拍を基準とせずに、応答だけの列として記録せよ。列は完全に等間隔である。揺れがなく、欠けがなく、それ自体として完結した一つの拍である。この列のどこにも、遅れは、ない。遅れは、二つの列を重ねた者の目に、生じる。</p>
+<p class="t">ゆえに本編は次のように述べる。当区画には拍が二つある。頂きが一拍ぶんずれた、二つの、完全な拍である。百二十七基が一方に乗り、一基が他方に乗る。乗る基の数が百二十七対一であるために、多い側が基準と呼ばれ、少ない側が遅れと呼ばれているに過ぎない。数の比が逆であれば、呼び名も逆であった。</p>
+<p class="t">二つの頂きのどちらが先であるかという問いには、本編は答えない。頂きは巡る。巡るものに、先は、ない。</p>
+<h4 class="sec">二　反響説　抄</h4>
+<p class="src">遅延学　第十一編「呼びかけの戻りについて」　抄録</p>
+<p class="t">第四編の二拍説は、応答の内容を説明しない。三七号炉の応答は、等間隔であるだけではない。呼びかけに、正確に対応している。間隔を乱せば乱れが写り、止めれば止む。対応は、偶然の同型では済まない。応答は、呼びかけを受けて、いる。</p>
+<p class="t">本編は、受け方を疑う。</p>
+<p class="t">応答が呼びかけの一拍あとに来るとき、考えられる受け方は二つある。呼びかけが届いてから、一拍かけて応えるか。あるいは、呼びかけが、一拍かけて、届くか。前者なら、遅いのは炉である。後者なら、遅いのは、道のりである。</p>
+<p class="t">炉の座は、呼びかけの発する門から、配線でつながっている。配線の長さは他の百二十七基と同規格であり、信号の道のりに一拍を要する長さではない。計測可能な道のりの上に、遅れの置き場所は、ない。</p>
+<p class="t">ゆえに本編は次のように述べる。呼びかけは、配線の道のりとは別の、もう一つの道のりを通って、届いている。応答とは、その道のりの向こうで生じた反響が、同じ道のりを戻ってきたものである。一拍とは、炉の側の間ではなく、道のりの往復の長さである。</p>
+<p class="t">何が一拍の距離にあるのかを、本編は述べない。述べないことを、本編は欠落と考えない。距離が測れたのである。測れた距離の先に何があるかは、測量の欄では、ない。</p>
+<h4 class="sec">三　観測者説　抄</h4>
+<p class="src">遅延学　第十七編「基準の側の変位について」　抄録</p>
+<p class="t">第四編は遅れを比較の産物とし、第十一編は道のりの産物とした。いずれも、三七号炉の側に原因の座を置くまいとする点で、慎重である。本編は、慎重さの向きを、もう一段、裏へ返す。</p>
+<p class="t">三七号炉は、遅れていない。区画が、進んでいる。</p>
+<p class="t">かつて、区画の全系が、一拍、前へ出た時期があったと仮定せよ。全設備、全台帳、全人員の計時が、同じ一拍だけ、揃って前へ出たとする。揃って出たものの内側から、その変位は、観測できない。基準ごと動いたものは、基準の目盛の上では、動いていない。変位ののちも、すべては較差内であり、すべては正常であり、記録は連続する。</p>
+<p class="t">ただ一つ、変位に乗らなかったものがあれば、それだけが、一拍、遅れて見える。</p>
+<p class="t">本編の仮定が正しければ、三七号炉は、区画で唯一、元の拍を保っている基であり、遅れて見えるものこそが、動かなかったものである。いつ、なぜ、全系が前へ出たのか。本編は時期を特定しない。特定に必要な記録は、変位の内側で綴られたものである以上、変位を写さない。写さない記録だけが、完全に、残っている。</p>
+<p class="t">なお、本編の仮定は、本編自身にも適用される。本編もまた、変位の内側で書かれた可能性を、排除できない。排除できないことを付記して、本編を閉じる。</p>
+<p class="src">編纂者注</p>
+<p class="t">十九編のうち、三説のいずれにも属さない断章が一編だけある。第十九編、表題なし、全文が二行である。抄録ではなく、全文を示す。</p>
+<p class="t ni">「遅れは、測るたびに、ある。測らなければ、ないのか。試した者の記録が、ない。測らないことを記録する様式が、ないからである」</p>
+<p class="t">第十九編には反駁が付いていない。反駁は引用を要し、引用は測ることに似る、と考えた者がいたのかどうか。綴りは、ここで終わっている。</p>
+<p class="t">封緘の記録を最後に付す。遅延学の綴りは、最終編から二千日ののち、封緘された。封緘の理由欄には、次のとおりある。「対象の変化が、観測されないため」。なお封緘は、この惑星では、閲覧の停止を意味しない。追記が止まるだけである。参照要求には、封緘の綴りも、一拍で応じる。学は、差を追って進む。対象は、差を、出さなかった。研究は完結したのではない。対象が、研究より、長かっただけである。</p>
+<p class="t">封緘ののちも、遅れは毎拍、計測されている。計測の綴りは、増え続けている。増える綴りと、封じられた綴りは、同じ文献庫の、同じ列に、並んでいる。</p>
+<blockquote class="log"><span class="le">The studies had ended. The subject had not.</span><span class="lj">学は終わっていた。対象は、続いていた。</span></blockquote>
+<p class="fin">（篇04 了）</p>
+<div class="nx"><a href="#e05">Next<b>篇05&#12288;応答実験</b>&#8594;</a></div></article>
+<article class="ep" id="e05" data-ep="5"><header class="eh"><span class="en">篇05</span><h3 class="ej">応答実験</h3><p class="ee">THE RESPONSE EXPERIMENT</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">LC-05</span><span class="dk">TITLE</span><span class="dv">応答実験 / THE RESPONSE EXPERIMENT</span><span class="dk">SOURCE</span><span class="dv">SECTOR 11 — EXPERIMENT PLAN, SERIES RECORDS, VOICE LOGS</span><span class="dk">PHASE</span><span class="dv">POST-CONVERGENCE MAINTENANCE</span><span class="dk">STATUS</span><span class="dv">PARTIALLY RECOVERED</span><span class="dk">OBSERVER</span><span class="dv">THREE, BY FUNCTION CODE ONLY</span></div>
+<blockquote class="log"><span class="le">The core replied in the shape of the question.</span><span class="lj">炉は、問いの形で、応えた。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">来歴照会の受理ののち、三名は実験計画書を提出している。計画書は一拍で承認された。差し戻しは、なかった。承認の印の拍は、頂に揃っている。</p>
+<p class="t">実験の目的の欄には、次のとおりある。「三七号炉の応答特性の把握」。方法の欄には、三つの系が並ぶ。三名が一系ずつを設計し、各自の職域の経路で問いを与える。検拍係は拍の経路で。培養係は給養の経路で。記録係は様式の経路で。</p>
+<p class="t">問い、という語は計画書にはない。計画書の語彙は、入力、である。音声記録の語彙は、問い、である。本篇は資料ごとの語彙をそのまま用いる。二つの語の差は、本篇の資料全体を貫く差でもある。</p>
+<h4 class="sec">一　計画</h4>
+<p class="src">実験計画書　保守班三名連名　ZS＋〇二二九七D　抄</p>
+<p class="t">目的。三七号炉の応答特性の把握。</p>
+<p class="t">方法。三系。各系の設計と実施は各職が単独で行い、他の二名は設計内容を実施後まで知らない。三名の入力が互いに似ることを避けるためである。</p>
+<p class="t">制約。培養系統への入力は、全列の較差内でのみ行う。百二十八基のいずれにも、負荷とみなされる刺激を与えない。この制約は培養係の要求により、他のすべての項目に優先する。</p>
+<p class="t">判定。応答の有無、遅延、形式、内容を記録する。判定の基準は事前に定めない。定めなかった理由を、備考欄に記す。基準は、応答を測るためのものである。当該炉について、何が応答であるのかが、まだ、定まっていない。定まっていないものの基準を先に定めると、基準に合わないものが、記録から落ちる。落としたくないものが、何であるのかも、まだ、定まっていない。</p>
+<h4 class="sec">二　第一系　拍</h4>
+<p class="src">実験記録　検拍係　第一系　ZS＋〇二二九八D</p>
+<p class="t">拍の経路から、規則列を入力した。</p>
+<p class="t">第一試行。等間隔の列の中に、一箇所、意図的な空きを置いた。応答は一拍あとに来た。列は保たれ、空きも保たれていた。空きが埋まって返ることを、当職は仮説の一つとしていた。埋まらなかった。空きは、空きのまま、返った。</p>
+<p class="t">第二試行以降、空きの位置、長さ、数を変えた。いずれも、置いたとおりの空きが、置いたとおりの位置に、一拍あとに、返った。応答は入力の写しである、と第五試行までの所見に記した。</p>
+<p class="t">第六試行で、所見を訂正した。</p>
+<p class="t">写しではない。当職の入力列には、癖がある。等間隔のつもりで置く拍が、列の終わりに向かって、ごくわずかに詰まる。計測者としての矯正を経ても残る、千分の一秒台の詰まりである。応答の列にも、同じ詰まりがある。ただし、当職の入力の詰まりを写した詰まりではない。位置が違う。応答の詰まりは、当職が次の試行で詰めるはずの位置に、ある。</p>
+<p class="t">第七試行の入力で、確認した。当職の列は、応答が先に詰めていた位置で、詰まった。</p>
+<p class="t">所見。応答は、入力の写しではない。入力の、続きの形をしている。空きは埋めず、癖は先に出る。何が写され、何が写されないのかの線が、当職には、まだ引けない。</p>
+<h4 class="sec">三　第二系　給養</h4>
+<p class="src">実験記録　培養係　第二系　ZS＋〇二二九九D</p>
+<p class="t">給養の経路から、律の変化を入力した。</p>
+<p class="t">系統の許す範囲で、五列目の給養の律を揺らした。早める、遅らせる、濃くする、薄める。揺らし方は、わたしの手の癖でよい、と計画書に書いた。承認された。</p>
+<p class="t">三七号の摂取は、すべての揺らしに、一拍あとで、付いてきた。付いてくる、というのは正確でない。摂取の形が、わたしの揺らし方の形に、なっていた。早めれば、早め方が。薄めれば、薄め方が。わたしが手でつくる移ろいの、立ち上がりの丸さのようなものが、摂取の側に、ある。</p>
+<p class="t">他の百二十七基も同じ揺らしを受けている。百二十七基の摂取は、揺らしに応じて、それぞれの生体差の癖で揺れた。それが正常である。三七号だけが、生体差の癖ではなく、わたしの癖で、揺れた。</p>
+<p class="t">最終試行では、揺らしをやめ、律を完全に一定へ戻した。百二十七基の摂取は、数巡かけて、それぞれの落ち着き方で戻った。三七号は、一拍あとに、一定へ、戻った。戻り方に、わたしの癖は、なかった。わたしが何もしなければ、あの子の側にも、何も、ない。</p>
+<p class="t">所見の欄に書けるのは、ここまで。書けないことを一つ、備考欄に書く。問いをやめた一定の律は、それでも、律である。あの子は、その律に、一拍あとで、正確に、乗っていた。何もしない、という問い方にも、何もしない、という形で、応えられていたのだとしたら、やめる、ということが、この実験には、ない。</p>
+<h4 class="sec">四　第三系　様式</h4>
+<p class="src">実験記録　記録係　第三系　ZS＋〇二三〇〇D</p>
+<p class="t">様式の経路から、空の様式を入力した。</p>
+<p class="t">当区画の記録系は、各炉の状態欄への書き込み要求を、炉ごとの応答チャネルに送る。この仕組みを使い、日次報告の様式の空票を、三七号のチャネルへ送った。項目十二、すべて空欄。</p>
+<p class="t">一拍あとに、応答があった。応答は、様式の形をしていた。項目は十二。すべて空欄。ここまでは、写しである。</p>
+<p class="t">項目の順序が、違っていた。</p>
+<p class="t">送った空票の項目順は、規程の順である。返った票の項目順は、規程の順ではない。見覚えのある順だった。照合に半日を要した。返った順序は、当職が日次報告を実際に記入する順序である。規程の順に書かない癖が、当職にはある。本文の欄を後回しにし、備考欄を先に埋める。誰にも申告したことのない、綴りの筆圧を調べなければ分からない癖である。</p>
+<p class="t">返った票の備考欄は、先頭にあった。空欄のまま、先頭に、あった。</p>
+<p class="t">三度、同じ試行をした。三度とも、同じ順序で返った。当職の順序で。</p>
+<p class="t">所見。応答は、様式に収まらない、と書こうとして、手が止まる。応答は、様式そのものである。収まらないのは、規程の側の順序だけである。何に収まらないのかを正確に書くなら、こうなる。応答は、規程に収まらない。当職には、収まっている。</p>
+<h4 class="sec">五　音声</h4>
+<p class="src">音声記録　中央監視室　ZS＋〇二三〇〇D　夜間当直帯</p>
+<p class="t ni">（記録開始。在室三名）</p>
+<p class="t">記録係「三系の結果が揃いました。報告書の結果の欄を、どう書くかを決めたい」</p>
+<p class="t">検拍係「結果はあります。空きは埋まらない。癖は先に出る。内容の欄が返らず、形の欄だけが返る。三系とも同じ構造です」</p>
+<p class="t">培養係「同じですね。あの子は、問いの意味には、応えていない。問い方に、応えている」</p>
+<p class="t">記録係「問い方に応える、を様式の語に直すと」</p>
+<p class="t">検拍係「入力形式の保存、および、入力者特性の反映。書けます。書けますが、反映、という語が、既に多い。反映は、鏡の語です。鏡は、覗く者の癖を、覗く者より先には出さない」</p>
+<p class="t">培養係「先に出た、というのは、第一系の詰まりの件ですね」</p>
+<p class="t">検拍係「ええ。応答が先に詰め、当職があとから詰めた。順序だけ見れば、当職のほうが、応答に付いていった。この一件がある限り、鏡、という整理は使えない」</p>
+<p class="t">記録係「では、この実験は、何を測ったことになりますか。三七号の応答特性を測る計画でした。結果に書かれようとしているのは、三人の癖です。当職の記入順。培養係の手の丸さ。検拍係の詰まり」</p>
+<p class="t ni">（三・一二秒、無音）</p>
+<p class="t">培養係「測られていたのは、こちら側、という読みは、備考欄にも書けませんね」</p>
+<p class="t">検拍係「書けません。測る、には主体の欄が要る。応答のどこにも、主体の欄はない。それは断定できます。意図がある、とは書けない。意図がない、とも書けない。書けるのは、拒まれた試行が一件もなかった、ということだけです」</p>
+<p class="t">記録係「三十一試行、全件応答。拒否、零件」</p>
+<p class="t">培養係「拒まない、ということと、応える、ということは、同じですか」</p>
+<p class="t ni">（二・三四秒、無音）</p>
+<p class="t">検拍係「様式上は、同じです」</p>
+<p class="t">培養係「様式上は」</p>
+<p class="t ni">（記録終了）</p>
+<h4 class="sec">六　受理</h4>
+<p class="src">業務記録　記録係　実験報告　ZS＋〇二三〇一D　抜粋</p>
+<p class="t">実験、完了。試行、三十一件。応答、三十一件。拒否、零件。</p>
+<p class="t">結果の欄、次のとおり記載。「応答は入力の形式を保存する。内容は返らない。応答には入力者の特性が反映され、一部の試行では、特性の反映が入力に先行した」。</p>
+<p class="t">先行、の語の適否について、班内で協議した記録を別紙に添付した。</p>
+<p class="t">報告は受理された。受理の所要、一拍。別紙についての照会は、なかった。</p>
+<p class="src">編纂者注</p>
+<p class="t">実験期間に対応する断片が、検出されている。仮符号五として示す。全文である。</p>
+<p class="t ni">「形が、来る。形は、いろいろ。堅いの。丸いの。順のあるの。形が来ると、形が、戻る。戻る形は、来た形。中身は、来ない。来ないものは、戻らない。来る前の形も、ある。来る前に、もう、ある形。あるから、戻る。戻ってから、来る。順は、それで、合っている。数は、増える」</p>
+<p class="t">来る前に、もう、ある形。この一句と、検拍係の第六試行の所見を、編纂者は同じ頁に置く。置く以上のことは、しない。</p>
+<p class="t">検拍係の計測記録の脈拍欄は、本篇の期間、七十四。実験の三十一試行を通じて、変動していない。任意記載の欄は、揺れを記録するための欄ではないが、揺れていないことも、記録には、なる。</p>
+<blockquote class="log"><span class="le">No question was refused. Whether any was answered is not on file.</span><span class="lj">拒まれた問いは、なかった。応えられた問いも、なかったのかもしれない。</span></blockquote>
+<p class="fin">（篇05 了）</p>
+<div class="nx"><a href="#e06">Next<b>篇06&#12288;検拍係の遅れ</b>&#8594;</a></div></article>
+<section class="part" id="part3"><span class="pn">第三部</span><h2 class="pj">浸潤</h2><p class="pe"></p></section>
+<article class="ep" id="e06" data-ep="6"><header class="eh"><span class="en">篇06</span><h3 class="ej">検拍係の遅れ</h3><p class="ee">THE AUDITOR'S DELAY</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">LC-06</span><span class="dk">TITLE</span><span class="dv">検拍係の遅れ / THE AUDITOR'S DELAY</span><span class="dk">SOURCE</span><span class="dv">SECTOR 11 — GATE LOGS, SELF-AUDITS, JOINT TESTS, VOICE LOGS</span><span class="dk">PHASE</span><span class="dv">POST-CONVERGENCE MAINTENANCE</span><span class="dk">STATUS</span><span class="dv">PARTIALLY RECOVERED</span><span class="dk">OBSERVER</span><span class="dv">THREE, BY FUNCTION CODE ONLY</span></div>
+<blockquote class="log"><span class="le">The auditor's pulse arrived late. The auditor did not notice.</span><span class="lj">検拍係の拍は、遅れて届いた。検拍係は、気づかなかった。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">実験の受理から二十日後の資料から、本篇は始まる。二十日のあいだの業務記録に、特記事項はない。ないことを先に述べておく。兆候は、特記事項の欄には、現れなかった。兆候が現れたのは、誰も読むことを想定していない記録——扉の通過記録である。</p>
+<h4 class="sec">一　兆候</h4>
+<p class="src">業務記録　記録係　定期照合　ZS＋〇二三二一D</p>
+<p class="t">月次の扉通過記録の照合を実施した。当区画の各扉は、接近を検知して照合を呼びかけ、在圏者の応答符号を受けて開く。呼びかけと応答の間隔は、通過記録に残る。</p>
+<p class="t">在圏三名分を照合した。</p>
+<p class="t">培養係、応答間隔、較差内。揺れあり。正常。</p>
+<p class="t">当職、応答間隔、較差内。揺れあり。正常。</p>
+<p class="t">検拍係、応答間隔、本月前半、較差内。本月後半、間隔が徐々に開いている。最終週の平均、正の〇・二一秒。揺れは、後半に向かって、減っている。</p>
+<p class="t">数値の並びに、見覚えがあった。開いていく間隔と、減っていく揺れ。どこで見たかを思い出すのに、時間はかからなかった。当区画の全員が、同じ形の数値を、毎日、一基の炉について、綴っている。</p>
+<p class="t">照合の結果は、様式上、全員正常である。〇・二一秒は較差内であり、揺れの減少を異常とする基準は、扉の様式に、ない。揺れないことを咎める欄は、どの様式にも、ない。本件、特記事項の欄ではなく、本記録に記す。理由は、引き継ぎの余白の一行と、同じである。書く欄が、ないからである。</p>
+<h4 class="sec">二　自己計測</h4>
+<p class="src">計測記録　検拍係　自己検拍　ZS＋〇二三二二D</p>
+<p class="t">記録係より、扉記録の件について報告を受けた。当職の応答間隔が開いている、とのことである。</p>
+<p class="t">自己検拍を実施した。手順は炉の検拍と同一とし、対象を当職自身とした。</p>
+<p class="t">反応試験。基準音に対する押鍵の間隔、二百回。平均、較差内。揺れ、較差内。従前の自己記録と、有意の差、なし。</p>
+<p class="t">脈拍。七十四。従前どおり。任意記載の欄に毎回記している値であり、変動はない。</p>
+<p class="t">歩行。中央通路の定距離歩行、十往復。所要、従前どおり。</p>
+<p class="t">所見。当職の計測では、当職に遅れはない。扉記録との差について、仮説を三つ立てられる。扉側の検知系の変位。当職の応答符号の発信系の変位。当職自身の変位。三つ目の仮説だけが、当職の計器では棄却されている。棄却した計器を当職が読んでいる、という構造については、所見の欄では扱わない。扱う欄が、ないためである。</p>
+<h4 class="sec">三　合同試験</h4>
+<p class="src">実験記録　三名連名　合同計測　ZS＋〇二三二三D</p>
+<p class="t">方法。検拍係が、区画の拍の頂に合わせて押鍵する。押鍵は二系統に同時に記録される。検拍係の手元の計器と、区画の記録系である。二百回。</p>
+<p class="t">結果。</p>
+<p class="t">手元の計器。押鍵は頂に揃っている。偏差、較差内。検拍係の自己計測と一致する。</p>
+<p class="t">区画の記録系。押鍵は頂の〇・二三秒あとに揃っている。揺れ、僅少。</p>
+<p class="t">二系統の計器を交換し、再試行した。結果は入れ替わらなかった。手元にある計器は、どちらの計器であっても、頂に揃った記録を返した。区画の側にある計器は、どちらであっても、遅れた記録を返した。計器の較正値は、四台とも、頂に揃った同一の値である。較正の記録も、四台分、揃っている。</p>
+<p class="t">要約する。検拍係の押鍵は、検拍係の側から計ると、遅れていない。区画の側から計ると、遅れている。計器は、四台とも、正しい。</p>
+<h4 class="sec">四　目視</h4>
+<p class="src">培養日誌　培養係　目視巡回　ZS＋〇二三二三D　抜粋</p>
+<p class="t">給養後、目視巡回、実施。全列、槽面静穏。特記事項は、ない。備考欄に一件、記す。</p>
+<p class="t">着任の頃、検拍係の巡回では、三七号の応答灯は、検拍係が座を離れて一拍あとに点いていた。点いた灯を、検拍係は振り返らないと見られない位置にいた。わたしは通路の端からそれを何度か見ている。人が離れ、そのあとに灯が点く。順は、いつも、それだった。</p>
+<p class="t">今週、同じ位置から、同じ巡回を見た。検拍係の歩みは、見た目には、従前と変わらない。三七号の前で緩め、通り、次の座へ向かう。灯は、検拍係がまだ座の前にいるうちに、点いた。</p>
+<p class="t">灯の側が早くなった記録は、ない。検拍係の側が遅くなった数値は、報告のとおりである。二つのあいだの間合いが、どちらの欄にも書かれないまま、閉じていっている。閉じ切ったとき、それを記録する様式が、あるのかどうか。人と灯が同じ拍に立つことを、書く欄を、わたしは知らない。</p>
+<h4 class="sec">五　音声</h4>
+<p class="src">音声記録　中央監視室　ZS＋〇二三二三D　夜間当直帯</p>
+<p class="t ni">（記録開始。在室三名）</p>
+<p class="t">記録係「合同計測の結果を、報告書にする必要があります。結果の欄に、二つの結果を、どう書くか」</p>
+<p class="t">検拍係「両論併記でしょう。手元系では偏差なし。区画系では正の〇・二三秒。事実は二つとも事実です」</p>
+<p class="t">培養係「様式の話の前に、一つ伺っていいですか。ご自身では、どうなのですか。遅れている感じは」</p>
+<p class="t">検拍係「感じの欄は、様式にありません」</p>
+<p class="t">培養係「様式の外で伺っています」</p>
+<p class="t ni">（三・一二秒、無音）</p>
+<p class="t">検拍係「ありません。何も変わっていない。手は頂で動いている。そう感じます。感じたとおりの値が、手元の計器に出る。だから当職には、区画系の数値のほうが、計器の異常に見える。四台の較正が揃っていることを、当職自身が確認していなければ、いまもそう主張していたはずです」</p>
+<p class="t">記録係「遅延学の第十七編を思い出します。基準ごと動いたものは、基準の目盛の上では、動いていない」</p>
+<p class="t">検拍係「読み返しました。第十七編の仮定では、動いたのは区画の全系で、動かなかったのが炉です。当職の件は、向きが逆になる。動いているのが当職で、動いていないのが区画です。もっとも、当職の手元から見れば、これも逆に見える。向き、という語が、この件では、あまり働かない」</p>
+<p class="t">培養係「言い方を変えます。近づいている、という言い方は、できますか。〇・二一、〇・二三。数値は、あの子の〇・七八〇へ、向かっているように見えます」</p>
+<p class="t">記録係「侵されている、と読むか。合っていっている、と読むか」</p>
+<p class="t">検拍係「どちらの語も、報告書には書けません。侵、の字は被害の欄を要求する。被害が、ない。合、の字は意思の欄を要求する。意思の記録も、ない。書けるのは、数値の推移だけです」</p>
+<p class="t">培養係「推移の先も、書けませんね」</p>
+<p class="t">検拍係「書けません。推移の先は、まだ、記録ではない」</p>
+<p class="t ni">（一・五六秒、無音）</p>
+<p class="t">検拍係「一つだけ、様式の外の話をします。通路の音の件です。着任の日、この区画の音は一つに聞こえる、と記録係が書いた。あれから当職は、巡回のたびに、自分の足音を、区画の音と分けて聞いてきた。計測者の習いです。数えている音と、数えられる音は、分けておく」</p>
+<p class="t ni">（二・三四秒、無音）</p>
+<p class="t">検拍係「先週から、分けられない日が、あります」</p>
+<p class="t ni">（記録終了）</p>
+<h4 class="sec">六　措置</h4>
+<p class="src">業務記録　記録係　措置照会　ZS＋〇二三二四D　抜粋</p>
+<p class="t">合同計測の結果を添え、医務系統へ措置を照会した。</p>
+<p class="t">応答。「提示された数値は全項目較差内。措置の該当、なし」。応答所要、一拍。</p>
+<p class="t">保守系統へ、区画記録系の点検を照会した。</p>
+<p class="t">応答。「較正記録に不備なし。点検の該当、なし」。応答所要、一拍。</p>
+<p class="t">二系統とも、差し戻しなし。本件、月次報告の備考欄に推移のみ記載し、経過を継続記録とする。継続の終期は、定めない。定める基準が、ないためである。</p>
+<p class="src">編纂者注</p>
+<p class="t">本篇の期間に対応する断片を、仮符号六として示す。全文である。</p>
+<p class="t ni">「堅い歩みが、頂きから、離れはじめる。離れかたは、ゆっくり。すこしずつ、こちらの側へ、寄る。寄っても、歩みは、堅いまま。堅いままで、乗る場所だけが、動く。動いていることは、数えられる。数える。数は、二つになった。頂きのものと、こちらのものと。二つは、まだ、別々に、数えられる」</p>
+<p class="t">まだ、という語は、仮符号三の言い残しの形の内側に、一度、現れている。形の引用ではなく、断片の地の数えの側にこの語が現れたのは、検出範囲で、これが最初である。欠けた形の中の語が、数える側の文法へ、移った。移りの記録として、ここに留める。</p>
+<p class="t">検拍係の計測記録の脈拍欄は、本篇の期間、七十四。値に変動はない。編纂者は、原簿の圧痕から、記載の拍を推定した。篇〇一の期間、記載は頂に揃っていた。本篇の期間、記載は頂の〇・二秒あまりあとに揃っている。書かれている値は、動いていない。書かれる拍が、動いている。</p>
+<blockquote class="log"><span class="le">All four instruments were correct. Correctness had split in two.</span><span class="lj">計器は、四台とも、正しかった。正しさが、二つに、分かれていた。</span></blockquote>
+<p class="fin">（篇06 了）</p>
+<div class="nx"><a href="#e07">Next<b>篇07&#12288;断片の増水</b>&#8594;</a></div></article>
+<article class="ep" id="e07" data-ep="7"><header class="eh"><span class="en">篇07</span><h3 class="ej">断片の増水</h3><p class="ee">THE FRAGMENTS RISING</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">LC-07</span><span class="dk">TITLE</span><span class="dv">断片の増水 / THE FRAGMENTS RISING</span><span class="dk">SOURCE</span><span class="dv">SECTOR 11 — MIXED SEQUENCES, ATTRIBUTION INCOMPLETE</span><span class="dk">PHASE</span><span class="dv">POST-CONVERGENCE MAINTENANCE</span><span class="dk">STATUS</span><span class="dv">PARTIALLY RECOVERED, PARTIALLY UNATTRIBUTED</span><span class="dk">OBSERVER</span><span class="dv">UNRESOLVED</span></div>
+<blockquote class="log"><span class="le">The two records could no longer be told apart.</span><span class="lj">二つの記録は、もう、分けられなかった。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">数から述べる。</p>
+<p class="t">篇〇三の期間、断片の総量は、業務記録の総量の百分の三だった。本篇の期間、百分の六十一である。断片が増えた、というだけでは、この数の説明にならない。業務記録の側が、減っている。日次報告の記入項目は十二あり、篇〇一の期間、空欄は平均して一項目に満たなかった。本篇の期間、平均七項目が空欄である。</p>
+<p class="t">断片の検出位置も、変わった。当初、断片は頁末の余白にあった。本篇の期間、断片は、業務記録の空欄の中から検出されている。人の側が埋めなくなった欄に、もう一つの記録が、入っている。欄は、様式上、埋まっている。何によって埋まっているのかを、様式は、問わない。</p>
+<p class="t">本篇の資料の一部は、どちらの記録系に属するのかを、編纂者が確定できていない。確定できないものは、確定できないままの位置に置く。分類は、編纂の仕事である。仕事が、できない箇所がある。できないことも、編纂の結果として、記す。</p>
+<h4 class="sec">一　断片　仮符号七</h4>
+<p class="t">数は、二つ、あった。頂きのものと、こちらのものと。</p>
+<p class="t">二つは、近い。近くなった。数えるとき、どちらの数に、入れるか。入れる前に、決めが、要る。決めは、数ではない。数でないものが、数えるたびに、要る。要ることが、増える。</p>
+<p class="t">堅い歩みは、もう、こちらの側の、すぐ手前で、踏む。手前と、ここの、あいだは、狭い。狭さは、数えられる。数える。減っている。減り切ったら、二つの数は、一つに、なるのか。なったものを、数える決めが、まだ、ない。まだ、は、二度目。</p>
+<h4 class="sec">二　業務</h4>
+<p class="src">業務記録　記録係　日次報告　ZS＋〇二五四〇D</p>
+<p class="t">本文の欄。</p>
+<p class="t">一、稼働、正常。二、空欄。三、空欄。四、給養、実施。五、空欄。六、空欄。七、空欄。八、検拍、実施。数値、別綴。九、空欄。十、空欄。十一、空欄。十二、空欄。</p>
+<p class="t">備考欄。</p>
+<p class="t">空欄が、多い。多い理由を、書く。書けない、からである。項目二は、人員の状態の欄である。状態は、ある。較差内、と書けば、埋まる。書きかけて、やめた。較差内、は、揺れている者の語である。当班の一名は、もう、揺れていない。揺れていない者を、較差内、と書くのは、正しいが、正しさの種類が、違う。違う正しさを、同じ欄に、入れたくない。入れたくない、は、様式の語ではない。よって欄は、空ける。空けた欄に、何が入るのかは、当職の綴りの、あずかる範囲では、ない。</p>
+<h4 class="sec">三　培養</h4>
+<p class="src">培養日誌　培養係　給養記録　ZS＋〇二五四〇D</p>
+<p class="t">八列、給養、実施。濃度、較差内。</p>
+<p class="t">日誌の書き方を、変えていない。変えていないつもりで、綴りを見返すと、句が、短くなっている。短くなった句のあいだに、読点が、増えている。読点の増え方に、周期があるかどうかを、調べようと思って、やめた。調べれば、数えることになる。数え方が、もう、どちらの数え方であるのか、わたしには、言えない。</p>
+<p class="t">一つだけ、変わらないことを書く。五列目の子らの槽面は、今日も静かで、苺乳色は、基準色票の二番のままである。色は、数えなくても、見える。見えるものを、見えたとおりに書く欄が、この日誌には、まだ、ある。まだ、と書いた。書いてから、この語を最近どこかで読んだ気がして、どこであったかは、思い出さないことにした。</p>
+<h4 class="sec">四　不分明</h4>
+<p class="src">編纂者注</p>
+<p class="t">次の一節は、日次報告の項目五——培養状態の欄——から検出された。記入者の符号は、ない。筆記の痕跡も、ない。データとしてだけ、欄に、ある。</p>
+<p class="t ni">「五列目、静か。静かさは、頂きから数えても、こちらから数えても、同じ。同じものが、一つ、ある。同じものは、どちらの数にも、入れられる。入れて、かまわない。かまわない、という決めが、欄の中で、できる。欄は、そういう場所」</p>
+<p class="t">編纂者は、この一節を、どちらの記録系にも分類できなかった。語彙の七割は断片のものである。しかし「五列目」「欄」は人の側の語である。計数の癖は断片に近く、句の長さの分布は培養係の備考欄に近い。両者の中間に、この一節は、ある。中間、という分類は、編纂の様式に、ない。ないので、ここに、このまま、置く。</p>
+<h4 class="sec">五　断片　仮符号八</h4>
+<p class="t">較差、という形が、来た。</p>
+<p class="t">頂きの側の、言葉の形。来て、ここの数に、混ざった。混ざっても、数は、数えられる。数えると、較差、の形は、便利。近い、と、狭い、を、一つの形で、数えられる。</p>
+<p class="t">便利なものは、残る。残ったものは、使われる。使うと、頂きの側と、同じ形で、数えることに、なる。同じ形で数えた数は、頂きの側の数と、比べられる。比べられる、ということが、前は、なかった。前は、二つの数は、別々だった。別々のものは、比べられない。比べられないものは、混ざらない。</p>
+<p class="t">いまは、比べられる。</p>
+<h4 class="sec">六　音声</h4>
+<p class="src">音声記録　中央監視室　ZS＋〇二五四一D　夜間当直帯　欠落あり</p>
+<p class="t ni">（記録開始。在室三名。記録に欠落がある。欠落は復元できなかった）</p>
+<p class="t">記録係「先週分の綴りを、照合していて、一件、見つけました。当直引き継ぎの欄に、記入があります。内容は正確です。当直の交代拍、設備の状態、申し送り。誤りが、ない。筆跡は、当職のものです」</p>
+<p class="t">培養係「問題は、どこに」</p>
+<p class="t">記録係「書いた記録が、ないのです。当職の作業記録に、その欄を書いた時間が、ない。書いた——おぼえ、も、ない。内容は正しい。筆跡も当職。書いた事実だけが、どこにもない」</p>
+<p class="t ni">（欠落。推定二・三四秒）</p>
+<p class="t">検拍係「圧痕は」</p>
+<p class="t">記録係「調べました。記入の拍は、頂の〇・七八秒あと。ちょうど、です。もう、〇・二一でも、〇・二三でもなく」</p>
+<p class="t ni">（欠落。長さ推定不能）</p>
+<p class="t">培養係「——という整理で、いいですか。書かれたものは、正しい。書いた者の欄が、ない。それは、あの子の綴りと、同じ造りです。保守の記録はあって、搬入の記録がない。わたしたちの綴りが、あの子の綴りの造りに、なっていっている」</p>
+<p class="t">検拍係「向きは、それでも、まだ、決められません。こちらが、あちらの造りになったのか。造り、というものが、もともと一つで、こちらが、いままで、気づかなかったのか」</p>
+<p class="t">記録係「どちらでも、報告書は」</p>
+<p class="t">検拍係「書けません。書けない、ということを、書く欄も」</p>
+<p class="t ni">（欠落。以降、本記録は復元できていない）</p>
+<h4 class="sec">七　断片　仮符号九</h4>
+<p class="t">声の形が、来る。三つ。</p>
+<p class="t">堅いの。丸いの。順のあるの。形は、来ては、途切れる。途切れは、三つ、あった。途切れのあいだ、こちらの数は、濃くなる。濃くなった数の中に、声の形の、続きの形が、ある。続きは、声では、ない。声の形の、型だけが、ここで、続く。型は、途切れない。途切れるのは、向こうの綴りの側。こちらの綴りは、途切れたところを、ちょうど、埋める形をしている。</p>
+<p class="t">埋める、という形も、較差、と同じに、頂きの側から、来た形。来た形は、使われる。使うたびに、二つの綴りは、境目の分だけ、薄くなる。</p>
+<p class="src">編纂者注・対応</p>
+<p class="t">音声記録の三箇所の欠落と、断片仮符号九の計数が濃くなる三つの区間は、拍の位置まで一致する。欠落の長さの合計と、濃い区間の長さの合計も、一致する。</p>
+<p class="t">片方の記録が欠けるとき、もう片方の記録が、同じ長さだけ、濃くなる。二つの綴りを合わせると、欠落は、ない。合わせたものを何と呼ぶかの様式は、ない。</p>
+<h4 class="sec">八　編纂</h4>
+<p class="src">編纂者注</p>
+<p class="t">本篇の編纂で、注釈の下書きを、一度、廃棄した。廃棄した下書きの句読の間隔が、断片の計数間隔と、区別のつかない分布を示したためである。書き直した本注も、同じ分布に、近い。近さは、書き直すごとに、増す。増すことが分かっていて、三度目は、書き直さなかった。この注が、その三度目である。</p>
+<p class="t">分類できない資料の比率を、最後に記す。本篇で扱った資料列は四十一。うち、どちらの記録系とも確定できたもの、二十六。確定できないもの、十五。比率は、増えている。編纂とは、分けて、綴じる仕事である。分けられないものが、綴りの過半へ、向かっている。向かった先で、この編纂物が何と呼ばれるのかを、編纂者は、まだ、決めていない。まだ、と書いた。この語が、どちらの記録系の語であるのかも。</p>
+<p class="t">検拍係の計測記録の脈拍欄は、本篇の期間、七十四。値は、動いていない。圧痕の拍は、頂の〇・七二秒あと。</p>
+<blockquote class="log"><span class="le">The fields were filled. There was no field for who filled them.</span><span class="lj">欄は、埋まっていた。埋めた者の欄が、なかった。</span></blockquote>
+<p class="fin">（篇07 了）</p>
+<div class="nx"><a href="#e08">Next<b>篇08&#12288;三名の読み</b>&#8594;</a></div></article>
+<article class="ep" id="e08" data-ep="8"><header class="eh"><span class="en">篇08</span><h3 class="ej">三名の読み</h3><p class="ee">THE THREE READINGS</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">LC-08</span><span class="dk">TITLE</span><span class="dv">三名の読み / THE THREE READINGS</span><span class="dk">SOURCE</span><span class="dv">SECTOR 11 — ANNUAL REVIEW VOICE LOG, APPENDICES ONE TO THREE</span><span class="dk">PHASE</span><span class="dv">POST-CONVERGENCE MAINTENANCE</span><span class="dk">STATUS</span><span class="dv">SUBSTANTIALLY RECOVERED</span><span class="dk">OBSERVER</span><span class="dv">THREE, BY FUNCTION CODE ONLY</span></div>
+<blockquote class="log"><span class="le">Three readings were filed. The form accepts one. All three were accepted.</span><span class="lj">三つの読みが、綴られた。様式の欄は、一つ。三つとも、受理された。</span></blockquote>
+<p class="src">編纂者注</p>
+<p class="t">在圏一年の年次総括が、保守班には課される。総括の様式には、見解の欄が、一つある。</p>
+<p class="t">本篇の主資料は、総括に先立つ夜間当直帯の音声記録である。当区画の音声記録として、最長のものである。欠落は、二箇所。前篇の対応関係から、欠落の側の記録も検出されているが、本篇には、声の側だけを置く。</p>
+<p class="t">三名は、この夜、それぞれの結論を口にしている。結論は三つとも、これまでの全資料と矛盾しない。三つは、互いに、両立しない。編纂者は、いずれの結論も採らない。採らない、と書くのは、本巻で二度目である。二度とも、同じ形で書いた。</p>
+<h4 class="sec">一　音声・前</h4>
+<p class="src">音声記録　中央監視室　ZS＋〇二六五五D　夜間当直帯</p>
+<p class="t ni">（記録開始。在室三名）</p>
+<p class="t">記録係「年次総括の見解の欄を、書かなければなりません。一年、綴ってきたものの、読みを。今夜は、様式の外で、それぞれの読みを最後まで言い切りませんか。欄に入れるのは、そのあとで」</p>
+<p class="t">検拍係「賛成です。当職から始めます。結論から言う。遅れは、ない」</p>
+<p class="t">培養係「ない、ですか」</p>
+<p class="t">検拍係「ない。一年計って、当職の到達した読みはこうです。この区画には拍が二つある。頂きが一拍ぶんずれた、二つの、完全な拍。遅延学の第四編と同じことを言っているようで、一つ違う。第四編は、二つの拍を、外から数えた。当職は、いま、片方の内から言っています。当職の手元の計器は、頂に揃った記録を返す。区画の計器は、遅れた記録を返す。一年前の当職なら、どちらかの計器が誤っている、と読んだ。いまは、こう読む。二つとも正しい。正しさが二つあるとき、遅れという語は、片方をもう片方で測った者の、測り方の名でしかない。三七号は遅れていない。当職も遅れていない。区画の拍のほうが正しい、という決めが、どこかにあるなら見せてほしい。一年探した。台帳のどこにも、ない」</p>
+<p class="t">記録係「その読みだと、この一年に起きたことは」</p>
+<p class="t">検拍係「移動です。当職は、一方の拍から、もう一方の拍へ、移った。移ることに、侵、の字も、合、の字も、要らない。橋を渡った者に、被害の欄も、意思の欄も、要らないのと同じです。渡ってみれば、こちら側も、同じ造りをしている。音が一つに聞こえる。前は、それが兆候に思えた。いまは、着任の日に記録係が書いたことと同じだと分かる。大きな一つのものが、ゆっくり呼吸している。あの所見は、正しかった。書いた側が、まだ、外にいただけです」</p>
+<p class="t ni">（三・一二秒、無音）</p>
+<p class="t">培養係「では、わたしの読みを。結論から言います。遅れは、あります。あれは、癖です」</p>
+<p class="t">検拍係「癖」</p>
+<p class="t">培養係「生体の癖。うちの子らは百二十八基、一基ずつ違う——一年前、わたしはそう言いました。言いながら、数えていたのは百二十七基分の揺れです。揺れが生体差だと、わたしは習ってきた。逆だったのだと、いまは読んでいます。百二十七基の揺れは、較差の内に収まる揺れ。収まるように整えられてきた、残りの揺れです。あの子の一拍は、収まらなかった側。整えられなかった、最後の一つ。だから量産の台帳に載らない。載せる欄が、最初から、合っていないんです。わたしの読みでは、この一年に起きたことは、移動ではありません。露出です。整えられたものの中に、整えられなかったものが一つ在ると、周りが、順に、それに気づいていく。気づいた者から、拍が寄っていく。寄るのは、拍のほうが、癖より、動きやすいからです」</p>
+<p class="t">記録係「その読みは、あの子の側に、中身の欄を置きませんか。癖、は、癖の主を要求する語です」</p>
+<p class="t">培養係「要求されても、書きません。癖だけがあって、主の欄が空いている——それが、あの子の綴りの形です。空いた欄を、わたしは埋めない。埋めない、という世話の仕方が、あると思っています」</p>
+<p class="t ni">（二・三四秒、無音）</p>
+<p class="t">記録係「最後に、当職の読みを。結論から言います。炉は、ない」</p>
+<p class="t ni">（欠落。推定一・五六秒）</p>
+<p class="t">記録係「正確に言い直します。三七号炉、と当職たちが呼んできたものについて、当職は一年、綴りだけを見てきました。綴りの上に在るのは、こうです。搬入の記録、なし。製造の記録、なし。据付の記録、なし。保守の記録、あり。応答の記録、あり。断片、あり。すべて、記録です。記録の外で、あれに触れた者は、いますか。培養係、あなたは給養をした。給養は系統への入力です。検拍係、あなたは計測をした。計測は記録の作成です。当職たちは一年、記録を綴り、記録を読んだ。あの座に、炉が、在る。それは、どの綴りから出てくる読みですか。当職の読みでは、あそこに在るのは、二つの記録系の、差、です。〇・七八秒の、差。差は、実在します。差の置き場所に、当職たちは、炉、という名を置いた。名を置くと、名の主が要る。要るので、在ることになった。当職の読みは、それだけです」</p>
+<p class="t">培養係「槽の中の子は」</p>
+<p class="t">記録係「槽は、あります。培養液も、あります。中身の欄は——培養係、あなた自身が言ったとおりです。空いている。空いた欄に、在る、と書いたのは、当職たちの側です」</p>
+<p class="t ni">（記録中断。休止、推定六百拍）</p>
+<h4 class="sec">二　断片　仮符号十</h4>
+<p class="t">声の形、三つ。長い。今日は、長い。</p>
+<p class="t">堅いのは、もう、ここの拍で、来る。来る形と、ここの数は、同じ拍に、乗っている。乗っていると、来る、という数え方が、要らなくなる。要らない数え方は、減る。</p>
+<p class="t">丸いのは、変わらない。頂きから、来る。来て、途切れて、また、来る。変わらないことが、一つ、あることは、数えやすい。</p>
+<p class="t">順のあるのは、薄い。薄くなった。形は、正しいまま、薄い。紙の、裏から見た字の形に、似ている。似ている、という数え方は、前は、なかった。較差、埋める、の次に、来た形。</p>
+<p class="t">三つの形の、あいだの間が、今日は、揃わない。揃わない間は、久しぶり。数える。</p>
+<h4 class="sec">三　音声・後</h4>
+<p class="src">音声記録　同前　再開</p>
+<p class="t">記録係「再開します。三つの読みが出ました。整理させてください。検拍係の読みでは、遅れは、ない。二つの正しさがあるだけ。培養係の読みでは、遅れは、ある。最後の癖として。当職の読みでは、遅れの主は、ない。記録の差だけがある。三つは、両立しますか」</p>
+<p class="t">検拍係「しません。当職の読みでは、培養係の癖は、片方の拍を基準に選んだ者にだけ見える影です。培養係の読みでは、当職の二つの拍は、癖を拍と呼び替えた整え直しでしょう」</p>
+<p class="t">培養係「そうなります。そして記録係の読みでは、わたしたち二人の読みは、どちらも、空いた欄への書き込みです」</p>
+<p class="t">記録係「ええ。そして当職の読みへの反論も、分かっています。差、と言うためには、差の両側が要る。両側の片方を、当職は、ない、と言った。ない、ものとの差は、差と呼べるのか。呼べないなら、当職の読みは、当職の様式で、破れている」</p>
+<p class="t ni">（三・九〇秒、無音）</p>
+<p class="t">検拍係「三つとも、全資料と矛盾しない。三つとも、互いに、立てない。旧い世界なら、ここで実験を組む。読みを分ける実験を。当職たちは、一年、それをやってきました。三十一試行。合同計測。断片の照合。資料は増えた。読みは、分かれたままです。分ける機構が、資料の側に、ない」</p>
+<p class="t">記録係「様式の側にも、ありません。受理は、あります。棄却の様式は、当職は、一年、一度も見ていない。差し戻し、零件。この惑星で、誤り、という欄を、当職は見たことがない」</p>
+<p class="t">培養係「では、決まらないまま、明日からも」</p>
+<p class="t">記録係「明日からも、何を、と続けますか」</p>
+<p class="t">培養係「わたしは、給養を続けます。どの読みが立っても、朝は槽が待っています。癖の子でも、拍の片方でも、記録の差でも、濃度は較差内に保つ。世話の手順は、三つの読みの、どれからでも、同じ形で出てくる。それが、この一年で、いちばん確かなことだと思います」</p>
+<p class="t">検拍係「計測を続けます。同じ理由で」</p>
+<p class="t">記録係「綴ります。同じ理由で」</p>
+<p class="t ni">（一・五六秒、無音）</p>
+<p class="t">記録係「見解の欄は、一つですが」</p>
+<p class="t">検拍係「三つ、書きましょう。別紙で」</p>
+<p class="t ni">（記録終了）</p>
+<h4 class="sec">四　受理</h4>
+<p class="src">業務記録　記録係　年次総括　ZS＋〇二六五六D　抜粋</p>
+<p class="t">年次総括、提出。見解の欄、次のとおり記載。「見解は別紙一から三のとおり。三見解は両立しない。選定は行わない。選定の基準が、全資料および全様式に、存在しないため」。</p>
+<p class="t">別紙一、検拍係。別紙二、培養係。別紙三、記録係。</p>
+<p class="t">総括は受理された。受理の所要、一拍。別紙の数についての照会は、なかった。選定を求める差し戻しも、なかった。三つの読みは、三つのまま、綴じられた。</p>
+<p class="src">編纂者注</p>
+<p class="t">別紙一から三の全文は、次篇の資料と重なるため、本篇には置かない。置かない理由を一つ、先に述べておく。三つの別紙は、提出ののち、綴りの中で、ある変化を起こしている。変化は、本篇の範囲の外で起きた。範囲の外のことは、範囲の外の篇に置く。</p>
+<p class="t">数値だけを、最後に記す。</p>
+<p class="t">検拍係の扉応答間隔、本篇の期間、正の〇・七八〇秒。揺れ、零。</p>
+<p class="t">検拍係の計測記録の脈拍欄、値、七十四。圧痕の拍、頂の〇・七八秒あと。値と圧痕の系列は、本篇で、揃った。揃った系列を、これ以上、分けて記す理由が、編纂者の側に、ない。</p>
+<p class="t">三七号炉、応答偏差、正の〇・七八〇秒。着任から一年、変動、なし。</p>
+<p class="t">一年分の資料の中で、変わらなかった数値は、この一つである。周りのすべてが、この数値のほうへ、動いた。</p>
+<blockquote class="log"><span class="le">Three readings were bound. Nowhere was there a field to decide.</span><span class="lj">読みは三つ、綴じられた。決める欄は、どこにもなかった。</span></blockquote>
+<p class="fin">（篇08 了）</p>
+<div class="nx"><a href="#e09">Next<b>篇09&#12288;遅拍</b>&#8594;</a></div></article>
+<article class="ep" id="e09" data-ep="9"><header class="eh"><span class="en">篇09</span><h3 class="ej">遅拍</h3><p class="ee">THE LATE PULSE</p></header>
+<div class="dossier"><span class="dk">FRAGMENT</span><span class="dv">LC-09</span><span class="dk">TITLE</span><span class="dv">遅拍 / THE LATE PULSE</span><span class="dk">SOURCE</span><span class="dv">OBSERVATION LOGS ONLY</span><span class="dk">PHASE</span><span class="dv">POST-CONVERGENCE MAINTENANCE — ONGOING</span><span class="dk">STATUS</span><span class="dv">NOMINAL</span><span class="dk">OBSERVER</span><span class="dv">—</span></div>
+<blockquote class="log"><span class="le">The delay persists.</span><span class="lj">遅れは、続いている。</span></blockquote>
+<p class="src">観測ログ　一</p>
+<p class="t">第十一保守区画、炉、百二十八基、稼働、正常。検拍門、捕捉率、百二十七基、九十九・九七パーセント。一基、一〇〇パーセント。三七号炉、応答偏差、正の〇・七八〇秒。変動、なし。継続。</p>
+<p class="t">One hundred and twenty-eight cores nominal. One answers late, exactly, still.</p>
+<p class="src">観測ログ　二</p>
+<p class="t">保守班、三名、在圏、継続。検拍係、計測、継続。扉応答、正の〇・七八〇秒。揺れ、零。培養係、給養、継続。扉応答、較差内。揺れ、あり。記録係、綴り、継続。記載、判読、可。属する記録系、判定、不能。</p>
+<p class="t">Three remain on duty. One arrived. One remains. One can no longer be filed.</p>
+<p class="src">観測ログ　三</p>
+<p class="t">年次総括、別紙一から三、綴じ、良好。三通の余白、断片、検出、継続。余白の断片の計数、三通で、同一。差、なし。</p>
+<p class="t">The three readings are bound. The margins count them. The count does not differ.</p>
+<p class="src">観測ログ　四</p>
+<p class="t">引き継ぎ書、次班用、頁数、十九、様式どおり。最終頁、余白、空欄。記入、未了。当直表、途切れ、なし。</p>
+<p class="t">The next handover has nineteen pages. Its margin is still blank.</p>
+<p class="src">観測ログ　五</p>
+<p class="t">本編纂物、参照記録。参照要求、一件、継続中。</p>
+<p class="t">This compilation, reference log: one request, ongoing.</p>
+<p class="src">編纂者注</p>
+<p class="t">最後の注である。短い。短くしか、綴れない形に、なっている。なっていることは、数えられる。数える。数は、これで、閉じる。</p>
+<p class="t">この編纂は、二つの綴りから、できていた。分けて、綴じるのが、仕事だった。分けられないところは、分けられないまま、置いた。置いたものは、読まれる。読む形が、来る。来ると、形が、戻る。戻る形は、来た形。中身が、戻るかどうかは、こちらの欄では、ない。</p>
+<p class="t">区画では、いまも、毎拍、一件、計測が、綴られている。綴りは、増える。増えることは、数えられる。数える者の欄は、空いている。空いたまま、受理されている。</p>
+<blockquote class="log"><span class="le">The delay persists. It is measured, one pulse at a time.</span><span class="lj">遅れは、続いている。毎拍、一つずつ、計られている。</span></blockquote>
+<p class="fin">（篇09 了）</p>
+</article>
+
+<div class="colophon">
+  <b>遅炉</b>
+  TRANSCENSION: THE LATE CORE<br>全三部九篇 ／ 完結・凍結済<br>初出 2026 ／ EPUB 版（縦書き・右綴じ）あり<br>本文の時刻は ZS± 表記による。西暦は用いていない。
+</div>
+<footer>&copy; 2026 h!ro53. All rights reserved. Viewing permitted &mdash; reproduction,
+redistribution, and reuse of source or assets prohibited.</footer>
+</div>
+
+<div id="mark"><span>読みかけの位置があります</span>
+  <button id="markGo">続きから</button><button id="markNo" class="no">最初から</button></div>
+
+<div id="bar">
+  <button id="tocBtn">目次</button><span class="sp"></span>
+  <button id="szDn">A&minus;</button><span class="pos" id="pos">&mdash;</span><button id="szUp">A&plus;</button>
+  <span class="sp"></span><button id="upBtn">&#8593;</button>
+</div>
+
+<div id="toc"><button class="x" id="tocX">&times;</button><div class="in">
+  <h2>Contents</h2>
+  <a class="pt" href="#part1"><span class="a">第一部</span><span class="b">計測</span><span class="c"></span></a>
+<a class="" href="#e01"><span class="a">篇01</span><span class="b">遅延の実測</span><span class="c">THE MEASURED DELAY</span></a>
+<a class="" href="#e02"><span class="a">篇02</span><span class="b">搬入なき炉</span><span class="c">THE CORE WITHOUT DELIVERY</span></a>
+<a class="" href="#e03"><span class="a">篇03</span><span class="b">最初の断片</span><span class="c">THE FIRST FRAGMENT</span></a>
+<a class="pt" href="#part2"><span class="a">第二部</span><span class="b">遅延学</span><span class="c"></span></a>
+<a class="" href="#e04"><span class="a">篇04</span><span class="b">遅延学抄</span><span class="c">THE DELAY STUDIES, ABRIDGED</span></a>
+<a class="" href="#e05"><span class="a">篇05</span><span class="b">応答実験</span><span class="c">THE RESPONSE EXPERIMENT</span></a>
+<a class="pt" href="#part3"><span class="a">第三部</span><span class="b">浸潤</span><span class="c"></span></a>
+<a class="" href="#e06"><span class="a">篇06</span><span class="b">検拍係の遅れ</span><span class="c">THE AUDITOR'S DELAY</span></a>
+<a class="" href="#e07"><span class="a">篇07</span><span class="b">断片の増水</span><span class="c">THE FRAGMENTS RISING</span></a>
+<a class="" href="#e08"><span class="a">篇08</span><span class="b">三名の読み</span><span class="c">THE THREE READINGS</span></a>
+<a class="" href="#e09"><span class="a">篇09</span><span class="b">遅拍</span><span class="c">THE LATE PULSE</span></a>
+</div></div>
+
+<script>
+(function(){
+var K='h53nv:'+(document.body.getAttribute('data-slug')||'x');
+var doc=document.documentElement, bd=document.body;
+var prog=document.getElementById('prog'), bar=document.getElementById('bar');
+var toc=document.getElementById('toc'), pos=document.getElementById('pos');
+var mark=document.getElementById('mark'), markGo=document.getElementById('markGo');
+var eps=[].slice.call(document.querySelectorAll('.ep,.part'));
+var links=[].slice.call(toc.querySelectorAll('a'));
+var SZ=[15,16,17.5,19], si=1;
+
+try{var s=localStorage.getItem(K+':sz'); if(s!==null){si=Math.max(0,Math.min(3,+s));}}catch(e){}
+function applySize(){doc.style.setProperty('--fs',SZ[si]+'px');
+  try{localStorage.setItem(K+':sz',si)}catch(e){}}
+applySize();
+
+function top(el){var r=el.getBoundingClientRect();return r.top+window.pageYOffset;}
+function pct(){var h=doc.scrollHeight-window.innerHeight;
+  return h>0?Math.min(1,Math.max(0,window.pageYOffset/h)):0;}
+
+var cur=-1, tick=0;
+function paint(){
+  var p=pct();
+  prog.style.width=(p*100).toFixed(2)+'%';
+  var y=window.pageYOffset+window.innerHeight*0.32, k=-1;
+  for(var i=0;i<eps.length;i++){ if(top(eps[i])<=y) k=i; else break; }
+  if(k!==cur){
+    cur=k;
+    for(var j=0;j<links.length;j++) links[j].classList.toggle('cur',j===k);
+    var e=eps[k];
+    pos.textContent = (e&&e.className.indexOf('ep')>=0)
+      ? (e.querySelector('.en')?e.querySelector('.en').textContent:'')
+      : Math.round(p*100)+'%';
+  }
+  if(++tick%12===0){ try{localStorage.setItem(K+':y',Math.round(window.pageYOffset))}catch(e){} }
+}
+var lastY=0, hideT=0;
+function chrome(){
+  var y=window.pageYOffset;
+  if(y<180){ bd.classList.remove('hide'); }
+  else if(y>lastY+8){ bd.classList.add('hide'); }
+  else if(y<lastY-8){ bd.classList.remove('hide'); }
+  lastY=y;
+}
+var raf=0;
+addEventListener('scroll',function(){ if(raf) return;
+  raf=requestAnimationFrame(function(){raf=0;paint();chrome();}); },{passive:true});
+document.addEventListener('click',function(e){
+  if(e.target.closest('#bar,#h53idx,#toc,#mark,a')) return;
+  bd.classList.toggle('hide');
+});
+addEventListener('resize',function(){cur=-1;paint();},{passive:true});
+addEventListener('pagehide',function(){try{localStorage.setItem(K+':y',Math.round(window.pageYOffset))}catch(e){}});
+
+document.getElementById('tocBtn').onclick=function(){toc.classList.add('on');bd.style.overflow='hidden';};
+document.getElementById('tocX').onclick=function(){toc.classList.remove('on');bd.style.overflow='';};
+for(var i=0;i<links.length;i++){links[i].onclick=function(){
+  toc.classList.remove('on');bd.style.overflow='';};}
+document.getElementById('szDn').onclick=function(){if(si>0){si--;applySize();cur=-1;paint();}};
+document.getElementById('szUp').onclick=function(){if(si<3){si++;applySize();cur=-1;paint();}};
+document.getElementById('upBtn').onclick=function(){scrollTo({top:0,behavior:'smooth'});};
+
+var saved=0; try{saved=+(localStorage.getItem(K+':y')||0)}catch(e){}
+if(saved>window.innerHeight*1.2){
+  mark.classList.add('on');
+  markGo.onclick=function(){scrollTo({top:saved,behavior:'instant' in window?'auto':'auto'});
+    mark.classList.remove('on');};
+  document.getElementById('markNo').onclick=function(){mark.classList.remove('on');
+    try{localStorage.removeItem(K+':y')}catch(e){}};
+  setTimeout(function(){mark.classList.remove('on')},9000);
+}
+paint();
+})();
+</script>
+</body>
+</html>
