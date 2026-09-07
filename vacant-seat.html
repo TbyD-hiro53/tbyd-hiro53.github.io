@@ -26,7 +26,7 @@ html,body{width:100%;height:100%;background:#010204;overflow:hidden;
  -webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
 #c{display:block;width:100%;height:100%;touch-action:none}
 #back,#hud,#views,#origin,#cr,#panel{position:fixed;z-index:4;
- font-family:"DejaVu Sans Mono","SF Mono",Menlo,monospace;
+ font-family:"DejaVu Sans Mono","SF Mono",Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;
  -webkit-user-select:none;user-select:none}
 #back{top:max(14px,env(safe-area-inset-top));left:16px;z-index:7;font-size:11px;
  letter-spacing:.16em;text-transform:lowercase;text-decoration:none;
@@ -85,7 +85,7 @@ html,body{width:100%;height:100%;background:#010204;overflow:hidden;
 #views{bottom:calc(76px + env(safe-area-inset-bottom));gap:8px;white-space:nowrap}
 #views button{padding:12px 19px;color:#ece3eb}
 #views button.on{background:linear-gradient(145deg,rgba(13,110,104,.86),rgba(5,61,64,.88));color:#defff9;border-color:rgba(126,240,223,.65)}
-#origin{bottom:calc(25px + env(safe-area-inset-bottom));padding:10px 22px;font-family:"SF Mono",Menlo,monospace;color:#d5c6d4;font-size:10px}
+#origin{bottom:calc(25px + env(safe-area-inset-bottom));padding:10px 22px;font-family:"SF Mono",Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;color:#d5c6d4;font-size:10px}
 #origin.on{color:#ffe2f3;border-color:#d983b8;background:linear-gradient(145deg,rgba(109,43,84,.80),rgba(45,26,45,.85))}
 #cr{color:rgba(230,213,229,.48);font-size:8px}
 #panel{left:auto;right:12px;bottom:calc(134px + env(safe-area-inset-bottom));width:min(420px,calc(100vw - 24px));
@@ -388,11 +388,11 @@ var H53 = (function () {
     var g = c.getContext('2d');
     g.clearRect(0, 0, c.width, c.height);
     g.fillStyle = 'rgba(120,104,116,0.62)';
-    g.font = '500 40px "DejaVu Sans Mono", Menlo, monospace';
+    g.font = '500 40px "DejaVu Sans Mono", Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace';
     g.textAlign = 'center'; g.textBaseline = 'middle';
     g.fillText('h!ro53', c.width / 2, 34);
     g.fillStyle = 'rgba(120,104,116,0.34)';
-    g.font = '500 21px "DejaVu Sans Mono", Menlo, monospace';
+    g.font = '500 21px "DejaVu Sans Mono", Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace';
     g.fillText('77 / MIN', c.width / 2, 70);
     var t = new THREE.CanvasTexture(c);
     t.encoding = THREE.sRGBEncoding;
@@ -713,7 +713,7 @@ var H53 = (function () {
     g.fillStyle = CSS_TURQ; g.globalAlpha = 0.66;
     g.font = '500 26px "Hiragino Sans", "Noto Sans CJK JP", sans-serif';
     g.textAlign = 'left'; g.fillText('決裁一覧', pad, y);
-    g.font = '500 22px "DejaVu Sans Mono", Menlo, monospace';
+    g.font = '500 22px "DejaVu Sans Mono", Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace';
     g.textAlign = 'right'; g.fillText('HB-078', W - pad, y);
     g.globalAlpha = 1;
     g.strokeStyle = 'rgba(0,221,200,0.28)'; g.lineWidth = 1.5;
@@ -732,7 +732,7 @@ var H53 = (function () {
     g.font = '500 21px "Hiragino Sans", "Noto Sans CJK JP", sans-serif';
     g.fillText(bk < 0 ? '所要' : '遡行', pad, y + 40);
     g.fillStyle = bk === 0 ? 'rgba(255,5,168,0.32)' : CSS_MAG;
-    g.font = '600 32px "DejaVu Sans Mono", Menlo, monospace';
+    g.font = '600 32px "DejaVu Sans Mono", Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace';
     g.textAlign = 'right'; g.fillText(groupDigits(pulseCount()), W - pad, y + 41);
     g.strokeStyle = bk === 1 ? 'rgba(255,5,168,0.74)' : 'rgba(255,5,168,0.30)';
     g.beginPath(); g.moveTo(pad, y + 66); g.lineTo(W - pad, y + 66); g.stroke();
@@ -753,7 +753,7 @@ var H53 = (function () {
       g.globalAlpha = fade * 0.52;
       g.fillStyle = CSS_TURQ;
       g.textAlign = 'right';
-      g.font = '500 15px "DejaVu Sans Mono", Menlo, monospace';
+      g.font = '500 15px "DejaVu Sans Mono", Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace';
       g.fillText('0.78', W - pad, yy);
       g.globalAlpha = fade * 0.16;
       g.fillStyle = CSS_PALE;
@@ -1150,11 +1150,11 @@ var H53 = (function () {
     var g = c.getContext('2d');
     g.clearRect(0, 0, c.width, c.height);
     g.fillStyle = 'rgba(112,96,108,0.78)';
-    g.font = '600 58px "DejaVu Sans Mono", Menlo, monospace';
+    g.font = '600 58px "DejaVu Sans Mono", Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace';
     g.textAlign = 'center'; g.textBaseline = 'middle';
     g.fillText('h!ro53', c.width / 2, 42);
     g.fillStyle = 'rgba(112,96,108,0.46)';
-    g.font = '500 26px "DejaVu Sans Mono", Menlo, monospace';
+    g.font = '500 26px "DejaVu Sans Mono", Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace';
     g.fillText('HB-078 · TERMINAL', c.width / 2, 88);
     var t = new THREE.CanvasTexture(c);
     t.encoding = THREE.sRGBEncoding;
@@ -1432,7 +1432,7 @@ var H53 = (function () {
     }
     // 銘。前面には置かない
     g.fillStyle = 'rgba(222,230,240,0.60)';
-    g.font = '600 36px "DejaVu Sans Mono", Menlo, monospace';
+    g.font = '600 36px "DejaVu Sans Mono", Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace';
     g.textAlign = 'center'; g.textBaseline = 'middle';
     g.fillText('h!ro53', cx, 306);
     // 端子。彫り込みとして図に含める。部品を貼らない
@@ -1833,7 +1833,7 @@ var H53 = (function () {
       g.stroke();
     }
     g.fillStyle = 'rgba(206,216,228,0.46)';
-    g.font = '600 26px "DejaVu Sans Mono", Menlo, monospace';
+    g.font = '600 26px "DejaVu Sans Mono", Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace';
     g.textAlign = 'center'; g.textBaseline = 'middle';
     g.fillText('h!ro53', cx, cy + 268);
     var t = new THREE.CanvasTexture(c);
