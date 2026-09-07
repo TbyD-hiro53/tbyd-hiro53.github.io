@@ -34,7 +34,7 @@
 <style>
   
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-  html,body{height:100%;overflow:hidden;background:#020509;font-family:'Helvetica Neue',sans-serif;}
+  html,body{height:100%;overflow:hidden;background:#020509;font-family:'Helvetica Neue',"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,sans-serif;}
   #app{position:fixed;inset:0;} canvas{display:block;}
   .ui{position:fixed;inset:0;pointer-events:none;z-index:10;display:flex;flex-direction:column;justify-content:space-between;}
   .ui::before,.ui::after{content:"";position:fixed;left:0;right:0;pointer-events:none;z-index:-1;}
@@ -46,7 +46,7 @@
   .brand{font-weight:700;font-size:14px;letter-spacing:3px;color:rgba(226,244,250,.92);}
   .sub{font-size:clamp(8.5px,2.4vw,10px);letter-spacing:clamp(1.6px,.8vw,3.5px);color:rgba(150,190,206,.62);margin-top:4px;line-height:1.5;}
   .obs{max-width:40ch;text-align:center;
-    font-family:'Courier New',monospace;font-size:9px;line-height:1.75;letter-spacing:.6px;
+    font-family:'Courier New',"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;font-size:9px;line-height:1.75;letter-spacing:.6px;
     color:rgba(140,178,194,.42);pointer-events:none;}
   .botstack{display:flex;flex-direction:column;align-items:center;gap:10px;
     padding:0 14px calc(32px + env(safe-area-inset-bottom));}
@@ -56,14 +56,14 @@
     border-radius:2px;padding:8px 15px;cursor:pointer;transition:opacity .2s;}
   .btn:active{opacity:.6;}
   .btn.on{border-color:rgba(63,224,214,.6);color:#e8ffff;}
-  .wm{text-align:center;line-height:1.55;font-family:'Courier New',monospace;font-size:8.5px;letter-spacing:1px;color:rgba(120,158,176,.42);pointer-events:none;}
+  .wm{text-align:center;line-height:1.55;font-family:'Courier New',"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;font-size:8.5px;letter-spacing:1px;color:rgba(120,158,176,.42);pointer-events:none;}
   #viewname{font-size:10px;letter-spacing:2px;color:rgba(190,226,238,.85);pointer-events:none;}
 </style>
 
 <style id="h53-copyright-css">
 .h53-copy{position:fixed;left:0;right:0;bottom:0;z-index:99999;pointer-events:none;
   padding:6px 10px calc(6px + env(safe-area-inset-bottom));
-  font:9px/1.4 ui-monospace,"SF Mono",Menlo,monospace;letter-spacing:.04em;
+  font:9px/1.4 ui-monospace,"SF Mono",Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;letter-spacing:.04em;
   color:rgba(255,218,221,.42);text-align:center;
   background:linear-gradient(0deg,rgba(0,0,0,.35),transparent);
   text-shadow:0 1px 2px rgba(0,0,0,.6)}
@@ -81,7 +81,7 @@
   var PAD = 12;
   var CSS = '#h53idx{position:fixed;z-index:2147483600;display:inline-flex;align-items:center;'
     + 'box-sizing:border-box;gap:7px;min-height:44px;padding:0 17px;border-radius:999px;'
-    + 'font:11px/1 ui-monospace,"SF Mono",Menlo,"Courier New",monospace;'
+    + 'font:11px/1 ui-monospace,"SF Mono",Menlo,"Courier New","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;'
     + 'letter-spacing:.12em;text-transform:lowercase;text-decoration:none;'
     + 'color:#ece3eb;text-shadow:0 1px 2px rgba(0,0,0,.45);'
     + 'background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));'
@@ -303,7 +303,7 @@
       if(document.querySelector('canvas')) return;
       var d=document.createElement('div');
       d.style.cssText='position:fixed;inset:0;display:flex;align-items:center;justify-content:center;'+
-        'color:#f0f;background:#000;font:12px/1.8 -apple-system,sans-serif;text-align:center;padding:24px;z-index:9999';
+        'color:#f0f;background:#000;font:12px/1.8 -apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,sans-serif;text-align:center;padding:24px;z-index:9999';
       d.textContent='WebGL initialization failed. Safariで開き直してください。';
       document.body.appendChild(d);
     }, 2500);
@@ -1237,7 +1237,7 @@
 <script>
 (function(){
 const errBox=document.createElement('div');
-errBox.style.cssText='position:fixed;left:10px;top:calc(10px + env(safe-area-inset-top));z-index:99;max-width:80vw;font:10px/1.5 "Courier New",monospace;color:#ff9b9b;background:rgba(6,20,30,.88);border:1px solid rgba(255,120,120,.5);padding:6px 8px;border-radius:3px;display:none;white-space:pre-wrap;';
+errBox.style.cssText='position:fixed;left:10px;top:calc(10px + env(safe-area-inset-top));z-index:99;max-width:80vw;font:10px/1.5 "Courier New","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;color:#ff9b9b;background:rgba(6,20,30,.88);border:1px solid rgba(255,120,120,.5);padding:6px 8px;border-radius:3px;display:none;white-space:pre-wrap;';
 errBox.onclick=function(){errBox.style.display='none';};
 document.body.appendChild(errBox);
 function showErr(msg){errBox.textContent='⚠ RUNTIME ERROR（タップで閉じる）\n'+msg;errBox.style.display='block';}
@@ -1911,7 +1911,7 @@ addEventListener('resize',function(){
 .btn{-webkit-appearance:none;appearance:none;box-sizing:border-box;
 display:inline-flex;align-items:center;justify-content:center;
 min-height:44px;padding:0 17px;border-radius:999px;
-font:11px/1 ui-monospace,"SF Mono",Menlo,"Courier New",monospace;
+font:11px/1 ui-monospace,"SF Mono",Menlo,"Courier New","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;
 letter-spacing:.10em;text-transform:lowercase;white-space:nowrap;
 color:#ece3eb;text-shadow:0 1px 2px rgba(0,0,0,.45);
 background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
