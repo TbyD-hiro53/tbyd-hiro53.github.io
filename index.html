@@ -1247,9 +1247,10 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
   apply(root.getAttribute('data-lang') === 'en' ? 'en' : 'ja');
 })();
 (function(){
+  var holdingsCount = document.querySelectorAll('.entry[data-k]').length;
   var lines = [
     "> mounting registry ......... <b>ok</b>",
-    "> integrity check .......... <b>20 / 20 sealed</b>",
+    "> integrity check .......... <b>" + holdingsCount + " / " + holdingsCount + " sealed</b>",
     "> operator ................. <b>h!ro53</b>"
   ];
   var el = document.getElementById('term');
