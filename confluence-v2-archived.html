@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101417"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2313181c'/%3E%3Ccircle cx='24' cy='33' r='15' fill='%23f2dbe9'/%3E%3Ccircle cx='49' cy='28' r='9' fill='%23bceae5'/%3E%3C/svg%3E"><title>The Confluence — h!ro53</title><meta name="description" content="第九区、水路の合流点。三つの場所から見渡す、ひとつの風景。"><link rel="stylesheet" href="confluence-v2-20260909-viewer.css?v=36a29c7c79a5"><script>window.CONFLUENCE_ASSET_ROOT='confluence-v2-20260909-';</script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="deus ex machina — holdings registry">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="The Confluence — h!ro53 / deus ex machina">
+<meta property="og:description" content="第九区、水路の合流点。四方から入った水は広さに混ざって向きを失い、日は二つ——ピンクの白とターコイズの白——が、大きいほうが水に触れかけたところで止まっている。水の上には光の道が二本、岸の近くで一本に混ざる。時間は動かない。立てる場所は岸の道、円盤の真下、記録所の床の切れ目の三つ。首だけが動く。物に触れると観測記録が返る。">
+<meta property="og:url" content="https://tbyd-hiro53.github.io/confluence.html">
+<meta property="og:image" content="https://tbyd-hiro53.github.io/confluence-v2-20260909-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Confluence">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Confluence — h!ro53 / deus ex machina">
+<meta name="twitter:description" content="第九区、水路の合流点。四方から入った水は広さに混ざって向きを失い、日は二つ——ピンクの白とターコイズの白——が、大きいほうが水に触れかけたところで止まっている。水の上には光の道が二本、岸の近くで一本に混ざる。時間は動かない。立てる場所は岸の道、円盤の真下、記録所の床の切れ目の三つ。首だけが動く。物に触れると観測記録が返る。">
+<meta name="twitter:image" content="https://tbyd-hiro53.github.io/confluence-v2-20260909-og.jpg">
+<link rel="canonical" href="https://tbyd-hiro53.github.io/confluence.html">
+<!-- © 2026 h!ro53 / deus ex machina. All rights reserved.
+     Viewing permitted. Reproduction, redistribution, and reuse of source code
+     or assets — in whole or in part — is prohibited without written permission. -->
+<meta name="author" content="h!ro53" />
+</head>
+<body>
+<main id="experience" aria-label="合流点の風景">
+<canvas id="view" tabindex="0" aria-label="ドラッグまたは矢印キーで見渡す。1、2、3で場所を移動。スペースで動きを停止。二本指で拡大。"></canvas>
+<div class="shade" aria-hidden="true"></div>
+<header class="chrome"><div class="identity"><a class="author" href="https://tbyd-hiro53.github.io/" target="_blank" rel="noopener">h!ro53 <span>／</span> TRANSCENSION</a><h1>The Confluence</h1><p>第九区 <span>—</span> 合流点</p></div><div class="actions"><button id="records" aria-haspopup="dialog" title="観測記録">観測記録 <span aria-hidden="true">↗</span></button><button id="fullscreen" aria-label="全画面にする" title="全画面">⛶</button><button id="hide" aria-label="操作表示を隠す" title="操作表示を隠す（H）">−</button></div></header>
+<div id="status" role="status" aria-live="polite"><span class="loader"></span><span id="status-text">岸の道を開いています</span></div>
+<div id="error" hidden role="alert"><p>風景を読み込めませんでした。</p><button id="retry">もう一度開く</button><a class="still-link" href="confluence-v2-20260909-bank.jpg">パノラマ画像を開く ↗</a></div>
+<footer class="chrome"><div class="location-label"><span id="number">01</span><div><span class="eyebrow">OBSERVATION POINT</span><span id="location">岸の道</span></div></div>
+<nav aria-label="立ち場所"><button class="spot selected" data-spot="0" aria-pressed="true"><small>01</small>岸の道</button><button class="spot" data-spot="1" aria-pressed="false"><small>02</small>円盤の真下</button><button class="spot" data-spot="2" aria-pressed="false"><small>03</small>床の切れ目</button></nav>
+<div class="playback"><button id="motion" aria-pressed="true" disabled>動きを止める</button><button id="still" disabled>静止画で見る</button></div><div class="hint"><span>ドラッグして見渡す · 物に触れて記録を読む</span><button id="reset" title="視線を戻す（R）">視線を戻す <span aria-hidden="true">↺</span></button></div></footer>
+<div id="notice" role="status" hidden><span id="notice-text"></span><button id="motion-retry">動く風景を再読込</button></div><button id="restore" hidden>操作を表示</button>
+<dialog id="journal" aria-labelledby="journal-title"><div class="journal-head"><span class="eyebrow">FIELD RECORDS</span><button id="close" aria-label="観測記録を閉じる">×</button></div><h2 id="journal-title">観測記録</h2><p class="journal-intro">第九区、水路の合流点。</p><div id="entries"></div><p class="colophon">『白』より<br>h!ro53 · TRANSCENSION</p></dialog>
+<noscript><p class="noscript">この鑑賞画面にはJavaScriptが必要です。<a href="confluence-v2-20260909-bank.jpg">岸の道のパノラマを開く</a></p></noscript>
+</main><script src="confluence-v2-20260909-targets.js?v=f8e8a5bc5905"></script><script src="confluence-v2-20260909-three.min.js"></script><script src="confluence-v2-20260909-engine.js?v=444285465c46"></script><script src="confluence-v2-20260909-viewer.js?v=a8c56fadf4c5"></script></body></html>
