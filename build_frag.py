@@ -14,6 +14,55 @@ import sys
 root = Path(__file__).resolve().parent
 canon = (root / 'CANON_TEXT.md').read_text(encoding='utf-8')
 
+# ASSET 20 registration is isolated from legacy replacement modes.
+if sys.argv[1:] == ['--asset20-only']:
+    section = canon.split('## ASSET 20 — Earth Origin Material', 1)[1].split('\n## ', 1)[0]
+    def a20(name):
+        match = re.search(r'\*\*' + re.escape(name) + r'\*\*\s*\n([^\n]+)', section)
+        if not match:
+            raise ValueError('Missing ASSET 20 field: ' + name)
+        return html.escape(match[1])
+    phase = re.search(r'\*\*位相\*\* (.+)', section)[1]
+    log = re.search(r'\*\*観測ログ\*\* `([^`]+)`', section)[1]
+    start = '<!-- ASSET20_START -->'
+    end = '<!-- ASSET20_END -->'
+    card = f"""{start}
+<article class="entry" data-k="gl">
+  <a class="entry-main" href="earth-origin-material.html">
+    <div class="row"><span class="idx">ASSET 20</span><span class="name">Earth Origin Material</span></div>
+    <p class="desc" lang="ja">{a20('説明 JA')}</p>
+    <p class="desc" lang="en">{a20('説明 EN')}</p>
+    <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div>
+    <span class="thumb"><img src="earth-origin-material-thumb.jpg" alt="地球圏由来保存物 — 保存区の開口から、幹の重なりと根の道、その奥の円盤を見る" width="640" height="640" loading="lazy" decoding="async"></span>
+  </a>
+  <details class="frag">
+    <summary><span>{html.escape(phase)}</span></summary>
+    <p class="log">{html.escape(log)}</p>
+    <p class="txt" lang="ja">{a20('断章 JA')}</p>
+    <p class="txt" lang="en">{a20('断章 EN')}</p>
+  </details>
+</article>
+{end}"""
+    path = root/'index.html'
+    source = path.read_text(encoding='utf-8')
+    if start in source:
+        source, count = re.subn(re.escape(start) + r'[\s\S]*?' + re.escape(end), lambda _: card, source)
+        if count != 1:
+            raise ValueError('Duplicate ASSET 20 block')
+    else:
+        if 'href="earth-origin-material.html"' in source:
+            raise ValueError('Unmanaged ASSET 20 already exists')
+        offset = source.index('</article>', source.index('href="confluence.html"')) + len('</article>')
+        source = source[:offset] + '\n' + card + source[offset:]
+    # The CANON card is counted as a holding alongside numbered ASSET cards.
+    total = len(re.findall(r'<span class="idx">(?:ASSET \d+|CANON)</span>', source))
+    source, count = re.subn(r'(id="count">)\d+ assets( \+ 1 study</span>)', lambda m: m[1] + str(total) + ' assets' + m[2], source)
+    if count != 1:
+        raise ValueError('Expected one holdings count')
+    path.write_text(source, encoding='utf-8')
+    print('Registered ASSET 20 from CANON_TEXT; all other entries preserved.')
+    raise SystemExit(0)
+
 # Update only shared viewing notices, preserving all work entries and narrative.
 if sys.argv[1:] == ['--viewing-only']:
     notices = canon.split('## サイト共通案内 / Site notices', 1)[1].split('\n## ', 1)[0]

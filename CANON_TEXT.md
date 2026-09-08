@@ -547,6 +547,40 @@ Water enters from four sides. Where it enters it has a direction, a speed and an
 
 ---
 
+## ASSET 20 — Earth Origin Material
+
+**和題** 地球圏由来保存物
+
+**公開パス** `earth-origin-material.html`
+
+**位相** PHASE UNRESOLVED · THE INDIVIDUAL
+
+**観測ログ** `The request could be made. Its arrival had no field.`
+
+**説明 JA**
+第三作『個』で二人が地球の記録に行き当たった保存区。二人が発った直後。旧い様式で、天井は低く、取手も椅子も身体の寸法に合わせてある。立てる場所は入口、記録室、天体参照室、開口の四つ。首だけが動く。物に触れると観測記録が返る。記録室の画面は閉じられ、奥の暗室では中央の面から光点が空間へ広がる。恒星SOLと、三番目の青い点SOL-3。通信要求は零件のまま。
+
+**説明 EN**
+The preservation district in THE INDIVIDUAL where the two encountered records of Earth, just after their departure. Its older form has low ceilings, handles and chairs fitted to the body. Four places to stand: the entrance, the record room, the stellar reference room and the opening. Only the head turns. Touch a thing and it returns its record of observation. The record-room screen is closed. In the dark room beyond, points of light spread into space from the central surface: the star SOL and its third, blue point, SOL-3. Communication requests remain at zero.
+
+**断章 JA**
+区画は旧い。天井は低く、廊下は二人で並べるが、三人では窮屈になる。取手は手を伸ばした高さにあり、椅子は膝の位置へ来る。寸法が身体の側から決められている。入口の面は一つ。一行で済む者と、二行かかる者がある。足りないという意味ではない。ないことを、いちいち書いてから通す。奥の室は、はじめから暗い。中央の面から光の点が空間へ広がって、一つの恒星で止まる。三番目の点は青い。距離は読める。声にも出せる。着地しない。要求の欄には、零件。二人はいない。記録室の画面は閉じられている。閉じても、ここにあるものは残る。
+
+**断章 EN**
+The district is old. The ceiling is low; two can walk abreast in the corridor, but three would be cramped. The handle is at the height of an outstretched hand, the chair at the knee. The dimensions have been decided from the body's side. There is one surface at the entrance. One line suffices for one person; another takes two. It does not mean something is lacking. What is absent must be written down each time before passage. The room beyond is dark from the beginning. Points of light spread from the central surface into space and come to rest at one star. The third point is blue. The distance can be read. It can be spoken aloud. It does not land. In the field for requests: zero. The two are absent. The record-room screen is closed. What is here remains when it is closed.
+
+**主要諸元**
+- 立ち場所 四つ。入口 (0, 1.55, −11.2)／記録室 (−3.85, 1.10, −2.05)／天体参照室 (0, 1.55, 14.1)／開口 (−0.37, 1.55, −7.2)。位置固定・向き自在
+- 家具 机天端 0.74 m、椅子座面 0.42 m・幅 0.46 m、椅子二脚。数値は視覚化の設計値であり、小説の記載数値ではない
+- 表示 入口の面は一つ。記録室端末は初期消灯。観測記録十二件、0.78 s の待ちと二段表示。移動時は表示予約を取消
+- 天体 はじめから暗い室、中央の面、恒星 SOL と青い SOL-3。地球の現況と通信の成否は確定しない
+- 外 開口から約 12 m 先を根の道が斜めに横切る。曇天、光をかすかに透かす幹、円盤一巡 2.4 s。水面は置かない
+- 描画 Three.js r128／IIFE。承認済み v4：shell v5・face v4・fixture v4・star v4・outside v7・host v4。室内の焼き込み照明と屋外の霧を分離
+- 実測 形状三角形 156,278、点群 4,800 点。Mac の Chrome で四視点・十二記録・連続タップ・移動時取消を確認。iPhone／Safari 実機の測定は未確認
+
+---
+
+
 ## STUDY — Empyrean Sigil 3D / 01
 
 **公開パス** `empyrean-sigil-3d.html`
