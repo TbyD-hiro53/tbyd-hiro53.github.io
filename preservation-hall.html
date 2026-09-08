@@ -114,7 +114,13 @@ var i=new Image();i.src='https://hiro53.goatcounter.com/count'
 +'&r='+encodeURIComponent(document.referrer)
 +'&s='+[screen.width,screen.height,window.devicePixelRatio||1].join(',');
 }catch(e){}})();</script>
-</head>
+<script>(function(){'use strict';
+function show(message){var b=document.getElementById('h53-runtime-error');if(!b){document.addEventListener('DOMContentLoaded',function(){show(message);},{once:true});return;}b.textContent='表示エラー: '+String(message||'ページを再読み込みしてください').slice(0,180)+'（タップで閉じる）';b.hidden=false;}
+window.addEventListener('error',function(e){if(e.error)show(e.message);});
+window.addEventListener('unhandledrejection',function(e){show(e.reason&&e.reason.message||e.reason);});
+window.addEventListener('h53-display-error',function(e){show(e.detail);});
+document.addEventListener('DOMContentLoaded',function(){document.getElementById('h53-runtime-error').addEventListener('click',function(){this.hidden=true;});},{once:true});
+})();</script></head>
 <body>
 <canvas id="c"></canvas>
 <a id="back" href="./index.html">&#8592; index</a>
@@ -5193,8 +5199,8 @@ var H53 = (function () {
   // ─────────────────────────── 場
   function init() {
     var cv = document.getElementById('c');
-    renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: !window.matchMedia('(pointer: coarse)').matches });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -5320,10 +5326,11 @@ var H53 = (function () {
       }
     }, { passive: true });
     cv.addEventListener('touchend', function (e) {
+      e.preventDefault();
       bind._d = 0;
       var tch = e.changedTouches && e.changedTouches[0];
       up(tch ? tch.clientX : 0, tch ? tch.clientY : 0);
-    }, { passive: true });
+    }, { passive: false });
     cv.addEventListener('wheel', function (e) {
       zoom = Math.max(0.50, Math.min(1.25, zoom * (1 + e.deltaY * 0.0011)));
       e.preventDefault();
@@ -5383,6 +5390,7 @@ var H53 = (function () {
     station: goStation,
     setView: function (y, p, z) { yaw = y; pit = p; zoom = z === undefined ? zoom : z; },
     setEye: function (x, y, z) { eye = [x, y, z]; },
+    registerRefinedMesh: function (o, key) { o.userData.h53 = key; pickables.push(o); },
     pickAt: pick,
     open: openPanel,
     keys: function () { return Object.keys(roots); },
@@ -5427,6 +5435,74 @@ color:#eafffc;border-color:rgba(0,221,200,.5)}
 #back,#views button,#origin,#px,#panel,.glass,.spot,#pre{background:#2b2f38}
 #views button.on,.spot.on{background:#135954}}
 </style>
-</body>
+<style>#h53-runtime-error{position:fixed;z-index:100;left:16px;right:16px;top:calc(70px + env(safe-area-inset-top));padding:14px;min-height:44px;border:1px solid #b0a4a9;border-radius:12px;background:#29262bed;color:#fff;text-align:left;font:14px/1.6 sans-serif;overflow-wrap:anywhere;cursor:pointer}#h53-runtime-error[hidden]{display:none}#h53-runtime-error:focus-visible{outline:2px solid #76e2d4;outline-offset:3px}</style><button id="h53-runtime-error" type="button" role="status" hidden aria-label="表示エラーを閉じる"></button><script>(function () {
+  'use strict';
+  function locate(scene, path) {
+    return path.split('/').reduce(function (object, name) {
+      return object && object.children.find(function (child) { return child.name === name; });
+    }, scene);
+  }
+  function prepare(THREE, bridge, entry, buffer) {
+    const geometry = new THREE.BufferGeometry();
+    for (const name of Object.keys(entry.attributes)) {
+      const a = entry.attributes[name];
+      if (a.offset % 4 || a.offset + a.count * a.size * 4 > buffer.byteLength) throw new Error('形状データが不完全です');
+      geometry.setAttribute(name, new THREE.BufferAttribute(new Float32Array(buffer, a.offset, a.count * a.size), a.size));
+    }
+    geometry.setIndex(new THREE.BufferAttribute(new Uint32Array(buffer, entry.index.offset, entry.index.count), 1));
+    entry.groups.forEach(function (group) { geometry.addGroup(group.start, group.count, group.materialIndex); });
+    geometry.computeBoundingBox(); geometry.computeBoundingSphere();
+    const parent = locate(bridge.scene, entry.name.split('/').slice(0, -1).join('/'));
+    const target = entry.new ? null : locate(bridge.scene, entry.name);
+    if (!parent || (!entry.new && !target)) { geometry.dispose(); throw new Error('表示対象を確認できません'); }
+    return { entry: entry, geometry: geometry, parent: parent, target: target };
+  }
+  async function load() {
+    const bridge = window.__H53M;
+    const response = await fetch('./preservation-hall-v4r2-meshes.json');
+    if (!response.ok) throw new Error('形状を取得できませんでした');
+    const manifest = await response.json(), prepared = [];
+    try {
+      for (const entry of manifest.meshes) {
+        const compressed = typeof DecompressionStream !== 'undefined';
+        const r = await fetch('./' + entry.file + (compressed ? '.meshpack' : ''));
+        if (!r.ok) throw new Error('形状を取得できませんでした');
+        const bytes = compressed ? await new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).arrayBuffer() : await r.arrayBuffer();
+        if (bytes.byteLength !== entry.bytes) throw new Error('形状データが不完全です');
+        prepared.push(prepare(THREE, bridge, entry, bytes));
+      }
+      const root = locate(bridge.scene, 'rootlight/root');
+      if (!root || !root.material) throw new Error('根の表示を確認できません');
+      for (const item of prepared) {
+        if (item.entry.new) {
+          const mesh = new THREE.Mesh(item.geometry, new THREE.MeshStandardMaterial({ vertexColors: true, roughness: .69, metalness: 0, side: THREE.DoubleSide }));
+          mesh.name = item.entry.name.split('/').pop(); item.parent.add(mesh);
+          bridge.registerRefinedMesh(mesh, 'forest');
+        } else {
+          const object = item.target; object.geometry = item.geometry;
+          if (object.isInstancedMesh) {
+            object.count = 1; object.setMatrixAt(0, new THREE.Matrix4()); object.instanceMatrix.needsUpdate = true;
+            if (object.instanceColor) { object.setColorAt(0, new THREE.Color(1, 1, 1)); object.instanceColor.needsUpdate = true; }
+          }
+        }
+      }
+      const material = root.material, previous = material.onBeforeCompile;
+      material.onBeforeCompile = function (shader) {
+        previous.call(this, shader);
+        shader.fragmentShader = shader.fragmentShader.replace('#include <color_fragment>', '#include <color_fragment>\ndiffuseColor.rgb *= (1.0 - 0.43 * vBark);');
+      };
+      material.customProgramCacheKey = function () { return 'preservation-v4r2-root'; };
+      material.needsUpdate = true;
+    } catch (error) {
+      prepared.forEach(function (item) {
+        if (!item.target || item.target.geometry !== item.geometry) item.geometry.dispose();
+      });
+      throw error;
+    }
+  }
+  function start() { load().catch(function (error) { window.dispatchEvent(new CustomEvent('h53-display-error', { detail: error.message })); }); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
+  else start();
+})();
+</script></body>
 </html>
-
