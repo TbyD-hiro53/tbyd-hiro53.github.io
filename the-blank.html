@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="description" content="TRANSCENSION 第六作。全四部二十八篇。第九区の記録所・合流点と、ZS以前の現存記録。行先の欄は、白いままでいる。">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#050308">
+<title>白 — h!ro53 / deus ex machina</title>
+<meta name="author" content="h!ro53">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="deus ex machina &mdash; holdings registry">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="白 — h!ro53 / deus ex machina">
+<meta property="og:description" content="TRANSCENSION 第六作。全四部二十八篇。第九区の記録所・合流点と、ZS以前の現存記録。行先の欄は、白いままでいる。">
+<meta property="og:url" content="https://tbyd-hiro53.github.io/the-blank.html">
+<meta property="og:image" content="https://tbyd-hiro53.github.io/the-blank-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="白">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="白 — h!ro53 / deus ex machina">
+<meta name="twitter:description" content="TRANSCENSION 第六作。全四部二十八篇。第九区の記録所・合流点と、ZS以前の現存記録。行先の欄は、白いままでいる。">
+<meta name="twitter:image" content="https://tbyd-hiro53.github.io/the-blank-og.jpg">
+<link rel="canonical" href="https://tbyd-hiro53.github.io/the-blank.html">
+<script>/* h53 count */(function(){try{
+if(location.search.indexOf('skipgc')>-1)localStorage.setItem('skipgc','t');
+if(localStorage.getItem('skipgc')==='t')return;
+var i=new Image();i.src='https://hiro53.goatcounter.com/count'
++'?p='+encodeURIComponent(location.pathname)
++'&t='+encodeURIComponent(document.title)
++'&r='+encodeURIComponent(document.referrer)
++'&s='+[screen.width,screen.height,window.devicePixelRatio||1].join(',');
+}catch(e){}})();</script>
+<style>
+:root{
+  --void:#050308; --panel:#0b0710; --line:rgba(255,218,221,.14);
+  --milk:#ffdadd; --mag:#ff2fa0; --red:#ff2b2b; --cyan:#7fe6f0; --chrome:#8a8f9c;
+  --disp:"Avenir Next Condensed","Helvetica Neue Condensed",Impact,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,"Courier New","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;
+  --serif:"Hiragino Mincho ProN","Yu Mincho",YuMincho,"Noto Serif JP","Noto Serif CJK JP",serif;
+  --fs:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--void); color:var(--milk); font-family:var(--mono);
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.022) 0 1px,transparent 1px 3px);
+  padding:0 0 calc(96px + env(safe-area-inset-bottom));
+  overflow-x:hidden;
+}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px}
+
+/* ---- 進捗 ---- */
+#prog{position:fixed;left:0;top:0;height:2px;width:0;z-index:60;
+  background:linear-gradient(90deg,var(--mag),var(--red));transition:width .12s linear}
+
+/* ---- 戻る（正準ガラス） ---- */
+#h53idx{position:fixed;z-index:55;left:max(12px,env(safe-area-inset-left));
+  top:calc(10px + env(safe-area-inset-top));
+  display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 15px;
+  border-radius:999px;box-sizing:border-box;text-decoration:none;
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--milk);border:1px solid rgba(242,230,242,.23);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62)}
+#h53idx span{font-size:13px;line-height:1}
+#h53idx,#bar{transition:opacity .26s ease,transform .26s ease}
+body.hide #h53idx{opacity:0;pointer-events:none;transform:translateY(-10px)}
+body.hide #bar{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(14px)}
+
+/* ---- 扉 ---- */
+.title{padding:calc(96px + env(safe-area-inset-top)) 0 40px;border-bottom:1px solid var(--line)}
+.title .reg{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--chrome)}
+.title h1{margin:16px 0 0;font-family:var(--serif);font-weight:400;
+  font-size:clamp(34px,11vw,54px);line-height:1.14;letter-spacing:.06em;color:var(--milk)}
+.title .sub{margin:14px 0 0;font-family:var(--disp);font-weight:700;
+  font-size:clamp(13px,3.6vw,17px);line-height:1.35;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--cyan)}
+.title .by{margin:20px 0 0;font-size:11px;letter-spacing:.2em;color:var(--chrome)}
+.title .spec{margin:14px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--milk);
+  border:1px solid var(--line);border-radius:2px;padding:3px 7px;opacity:.72}
+.title .lead{margin:22px 0 0;font-size:11.5px;line-height:2;color:var(--chrome);max-width:44ch}
+
+/* ---- 部扉 ---- */
+.part{margin:76px 0 8px;padding:34px 0 30px 18px;position:relative}
+.part::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--mag) 0 33%,#f2dbe9 33% 66%,#00ddc8 66% 100%)}
+.part .pn{font-size:10px;letter-spacing:.3em;color:var(--chrome)}
+.part .pj{margin:10px 0 0;font-family:var(--serif);font-weight:400;
+  font-size:clamp(26px,7.4vw,38px);line-height:1.2;letter-spacing:.1em}
+.part .pe{margin:9px 0 0;font-family:var(--disp);font-weight:700;font-size:12px;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--cyan)}
+
+/* ---- 篇 ---- */
+.ep{padding:86px 0 0}
+.ep:first-of-type{padding-top:48px}
+.eh{padding:0 0 26px;border-bottom:1px solid var(--line)}
+.eh .en{font-size:10px;letter-spacing:.3em;color:var(--mag)}
+.eh .ej{margin:9px 0 0;font-family:var(--serif);font-weight:400;
+  font-size:clamp(25px,7vw,34px);line-height:1.22;letter-spacing:.08em}
+.eh .ee{margin:8px 0 0;font-family:var(--disp);font-weight:700;font-size:11.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--chrome)}
+
+/* ---- 扉資料 ---- */
+.dossier{margin:26px 0 0;padding:15px 16px;border:1px solid var(--line);
+  background:rgba(11,7,16,.72);
+  display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;row-gap:5px;
+  font-family:var(--mono);font-size:10px;line-height:1.7;letter-spacing:.06em;
+  overflow-x:auto}
+.dossier .dk{color:var(--chrome);text-transform:uppercase;white-space:nowrap}
+.dossier .dv{color:var(--milk);opacity:.86}
+.dossier .dgap{grid-column:1/-1;height:8px}
+.dossier .dfull{grid-column:1/-1}
+.dossier + .dossier{margin-top:10px}
+
+/* ---- 観測ログ ---- */
+.term{margin:26px 0 0;padding:12px 15px 12px 14px;
+  border-left:2px solid rgba(127,230,240,.40);background:rgba(127,230,240,.035)}
+.term + .term{margin-top:9px}
+.term .tm{display:block;font-family:var(--mono);font-size:11.5px;line-height:1.95;
+  letter-spacing:.015em;color:var(--cyan);opacity:.92;
+  text-indent:-1.1em;padding-left:1.1em}
+.term .tm::before{content:"＞";opacity:.42;margin-right:.35em}
+.log{margin:26px 0 0;padding:2px 0 2px 15px;border-left:2px solid var(--mag)}
+.log .le{display:block;font-family:var(--mono);font-size:11.5px;line-height:1.85;
+  letter-spacing:.05em;color:var(--cyan)}
+.log .lj{display:block;margin-top:5px;font-family:var(--serif);font-size:13.5px;
+  line-height:1.9;letter-spacing:.04em;color:var(--milk);opacity:.88}
+
+/* ---- 節 ---- */
+.sec{margin:52px 0 22px;font-family:var(--serif);font-weight:400;
+  font-size:clamp(17px,4.6vw,21px);letter-spacing:.24em;color:var(--milk)}
+.sec::after{content:"";display:block;width:34px;height:1px;margin-top:11px;
+  background:var(--line)}
+
+/* ---- 資料ヘッダ ---- */
+.src{margin:34px 0 16px;font-family:var(--mono);font-size:10px;line-height:1.85;
+  letter-spacing:.13em;color:var(--chrome);
+  padding:7px 0 0;border-top:1px dashed rgba(255,218,221,.13)}
+
+/* ---- 本文 ---- */
+ruby rt{font-size:.46em;letter-spacing:.06em;opacity:.58;font-family:var(--serif)}
+.t{font-family:var(--serif);font-size:var(--fs);line-height:2.05;letter-spacing:.03em;
+  margin:0 0 1.35em;text-indent:0;color:#f4e6e8;
+  font-feature-settings:"palt" 0}
+.fin{margin:44px 0 0;text-align:center;font-family:var(--mono);font-size:10px;
+  letter-spacing:.3em;color:var(--chrome)}
+
+/* ---- 出典リンク（逆輸入） ---- */
+.src-asset{margin:26px 0 0;padding:14px 16px;border:1px solid rgba(127,230,240,.24);
+  background:rgba(11,7,16,.6);display:block;text-decoration:none;color:inherit}
+.src-asset .k{display:block;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--cyan)}
+.src-asset .v{display:block;margin-top:7px;font-family:var(--disp);font-weight:700;font-size:17px;
+  letter-spacing:.04em;text-transform:uppercase}
+.src-asset .d{display:block;margin-top:6px;font-family:var(--mono);font-size:10.5px;line-height:1.8;
+  color:var(--chrome)}
+
+/* ---- 下部バー ---- */
+#bar{position:fixed;z-index:56;left:50%;transform:translateX(-50%);
+  bottom:calc(14px + env(safe-area-inset-bottom));
+  display:flex;align-items:center;gap:4px;padding:5px;border-radius:999px;
+  box-sizing:border-box;border:1px solid rgba(242,230,242,.23);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62)}
+#bar button{-webkit-appearance:none;appearance:none;background:transparent;border:0;
+  color:var(--milk);font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;min-height:44px;min-width:44px;padding:0 14px;
+  border-radius:999px;box-sizing:border-box;cursor:pointer;white-space:nowrap;line-height:1}
+#bar button:active{background:rgba(255,47,160,.16)}
+#bar .sp{width:1px;height:20px;background:rgba(242,230,242,.2)}
+#bar .pos{font-size:10px;letter-spacing:.14em;color:var(--chrome);padding:0 10px;
+  min-width:52px;text-align:center}
+
+/* ---- 目次 ---- */
+#toc{position:fixed;inset:0;z-index:70;display:none;
+  background:rgba(5,3,8,.86);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  overflow-y:auto;-webkit-overflow-scrolling:touch}
+#toc.on{display:block}
+#toc .in{max-width:680px;margin:0 auto;
+  padding:calc(78px + env(safe-area-inset-top)) 22px calc(120px + env(safe-area-inset-bottom))}
+#toc h2{font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--chrome);padding-bottom:14px;
+  border-bottom:1px solid var(--line)}
+#toc a{display:block;text-decoration:none;color:inherit;padding:16px 2px;
+  border-bottom:1px solid var(--line);position:relative}
+#toc a .a{font-size:10px;letter-spacing:.24em;color:var(--chrome)}
+#toc a .b{display:block;margin-top:6px;font-family:var(--serif);font-size:19px;
+  letter-spacing:.08em}
+#toc a .c{display:block;margin-top:5px;font-family:var(--disp);font-weight:700;
+  font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--chrome)}
+#toc a.pt{padding-top:34px}
+#toc a.pt .b{color:var(--cyan)}
+#toc a.cur::before{content:"";position:absolute;left:-10px;top:14px;bottom:14px;width:2px;
+  background:linear-gradient(180deg,var(--mag),var(--red))}
+#toc .x{position:fixed;right:max(12px,env(safe-area-inset-right));
+  top:calc(10px + env(safe-area-inset-top));min-height:44px;min-width:44px;
+  border-radius:999px;box-sizing:border-box;border:1px solid rgba(242,230,242,.23);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+  color:var(--milk);font-size:16px;line-height:1;cursor:pointer;-webkit-appearance:none;appearance:none}
+
+/* ---- 栞 ---- */
+#mark{position:fixed;z-index:58;left:50%;transform:translateX(-50%);
+  bottom:calc(74px + env(safe-area-inset-bottom));display:none;
+  align-items:center;gap:10px;padding:0 8px 0 16px;min-height:44px;border-radius:999px;
+  box-sizing:border-box;border:1px solid rgba(127,230,240,.34);
+  background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.78));
+  -webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+          backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--milk);
+  white-space:nowrap;max-width:calc(100vw - 32px)}
+#mark.on{display:flex}
+#mark button{-webkit-appearance:none;appearance:none;background:transparent;border:0;
+  color:var(--cyan);font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;min-height:38px;padding:0 12px;border-radius:999px;cursor:pointer}
+#mark .no{color:var(--chrome)}
+
+/* ---- 巻末 ---- */
+.colophon{margin:82px 0 0;padding:30px 0 0;border-top:1px solid var(--line);
+  font-size:10.5px;line-height:2;letter-spacing:.1em;color:var(--chrome)}
+.colophon b{display:block;color:var(--milk);font-weight:400;font-family:var(--serif);
+  font-size:15px;letter-spacing:.1em;margin-bottom:12px}
+footer{margin:34px 0 0;font-size:9.5px;line-height:1.9;letter-spacing:.08em;color:#5c6470}
+
+@media(max-width:520px){.wrap{padding:0 18px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body data-slug="the-blank">
+<!-- (c) 2026 h!ro53 / deus ex machina. All rights reserved.
+     Viewing permitted. Reproduction, redistribution, and reuse of source code
+     or assets - in whole or in part - is prohibited without written permission. -->
+<div id="prog"></div>
+<a id="h53idx" href="index.html"><span>&#8592;</span>Index</a>
+
+<div class="wrap">
+<div class="title">
+  <p class="reg">Source text 06 · deus ex machina</p>
+  <h1>白</h1>
+  <p class="sub">TRANSCENSION: THE BLANK</p>
+  <p class="by">h!ro53 &middot; deus ex machina</p>
+  <div class="spec"><span class="chip">全四部二十八篇</span><span class="chip">約四万八千字</span><span class="chip">Sealed</span><span class="chip">JA</span></div>
+  <p class="lead">第九区の記録所・合流点と、ZS以前の現存記録による。第五作『書』の続篇。時刻はすべて ZS± 表記による。西暦は用いていない。</p>
+</div>
+
+<section class="part" id="part1"><span class="pn">第一部</span><h2 class="pj">受付</h2><p class="pe">INTAKE</p></section>
+<article class="ep" id="e01" data-ep="1"><header class="eh"><span class="en">篇01</span><h3 class="ej">三つ</h3><p class="ee">THREE</p></header>
+<p class="t">樹が窓から出てしまうと、外は平らな土に戻った。低い建物が同じ間隔で並んでいて、並びの先で土の色と分かれなくなる。来るときに見たものと同じで、向きだけが逆になっている。</p>
+<p class="t">咲は面を見ていた。</p>
+<div class="term"><span class="tm">当該列車　次停車　乗換　三</span></div>
+<p class="t">三つめまでは書いてあって、その先は、着いてから聞くしかない。袋は足もとにあり、陽は窓の側に座っている。書庫へ来るときは向かい合わせに座っていたが、いまは並んでいて、同じものを同じ向きで見ている。</p>
+<p class="t ni">「減るところ、また見るの」</p>
+<p class="t">陽が言った。</p>
+<p class="t ni">「見る」</p>
+<p class="t ni">「三つだけだよ」</p>
+<p class="t ni">「三つでも、減る」</p>
+<p class="t">陽はそれ以上は言わなかった。言わないときの陽は、止める気がないときだった。</p>
+<p class="t">一つめの駅には屋根があって、柱が端まで続き、床は硬く、落ちているものはない。柱の影が床へ等間隔に倒れて、影のほかに動くものがない。降りて、渡って、向かいの列車を待つあいだに、咲は柱の面へ行った。</p>
+<div class="term"><span class="tm">照会　乗換　残り</span><span class="tm">応答　乗換　二</span></div>
+<p class="t">減っていた。降りて済ませた時点で減るという規則は、書庫へ来るときに自分で確かめたもので、帰る向きでも同じに働いている。確かめなくても分かっていたが、それでも咲は、柱まで歩いた。</p>
+<p class="t">ホームの端から、水が見えた。</p>
+<p class="t">線路に沿って、水路が一本通っている。幅は道ほどで水は黒く、流れに向きがあって、速い。書庫の根の下で見たものと同じ速さで、同じ向きへ行っている。あのときは、どこへ行くのかを示す欄が見あたらなかった。</p>
+<p class="t ni">「陽」</p>
+<p class="t">陽が来て、水を見た。</p>
+<p class="t ni">「同じ水かな」</p>
+<p class="t ni">「分からない」</p>
+<p class="t ni">「同じ向きだよ」</p>
+<p class="t ni">「向きは、同じ」</p>
+<p class="t">向かいの列車が入ってきて、咲が先に乗り、陽も乗った。窓の側に並ぶと、水路が窓の下をついてくる。列車が速くなると水も速く見え、遅くなると遅く見えるが、水の速さは変わっていない。変わっているのは、こちらの側だった。</p>
+<p class="t">車内は空で、窓の外の低い建物は、途中から間隔が延びていく。延びた間隔のぶんだけ、土の色が長く続いた。人の形は、来るときと同じで、一度も見えない。見えないことに、二人はもう驚かなくなっている。</p>
+<p class="t">二つめの駅は、水の上にあった。</p>
+<p class="t">ホームの床に切れ目があって、下を水が通っている。一本ではなく、右から来たものと左から来たものが、床の下で一つになって先へ行く。音は低く、二本のときより太かった。</p>
+<p class="t">給養点の表示は空ではなく、咲が手を出すと包が二つ落ちてきた。</p>
+<p class="t">片方が軽い。裂いて飲むと味はなく、飲んだあとの喉が乾かなかった。陽のは、いつもの重さだった。陽は飲んで、畳んで、袋の口へ差した。数えない。差しただけで、数には入れていない。</p>
+<p class="t">咲は床の切れ目のところへ戻って、面に打った。</p>
+<div class="term"><span class="tm">照会　当該水路　行先</span><span class="tm">応答　第九区</span></div>
+<p class="t ni">「同じだ」</p>
+<p class="t">陽が横から見た。</p>
+<p class="t ni">「行先が」</p>
+<p class="t ni">「うん」</p>
+<div class="term"><span class="tm">照会　当該水路　用途</span><span class="tm">応答　当該項目を記す欄が、ありません</span></div>
+<p class="t">それはそうだった。聞く前から、返る行は分かっている。分かっている行を、咲はもう一度見た。行先は書いてあって用途は書いていないのは、二人の行先と同じ書き方だった。</p>
+<p class="t">三つめの駅は、降りて、渡って、乗るだけだった。</p>
+<div class="term"><span class="tm">当該列車　次停車　乗換　〇</span></div>
+<p class="t ni">「〇」</p>
+<p class="t">咲が言った。</p>
+<p class="t ni">「終わり」</p>
+<p class="t ni">「乗換が、終わり」</p>
+<p class="t">減るところは三つとも見て、八から〇まで見たときと同じだった。見終わると面には何も残らず、残らないことも前と同じだった。</p>
+<p class="t">窓の外で、水が増えた。</p>
+<p class="t">一本だった水路に横から別の水路が入ってきて、入ってきたものがまた一本になり、そこへ次のものが入る。入る角度が、どれも同じに見えた。同じに見える、というところまでで咲は止めた。測る手は、ない。</p>
+<p class="t">列車が減速した。</p>
+<div class="term"><span class="tm">当該駅　第九区</span></div>
+<p class="t">止まって、扉が開いた。</p>
+<p class="t">屋根がなかった。ホームの先に線路はなく、線路の先に土もなくて、水だった。</p>
+<p class="t">空が、遮るもののないまま水面まで下りている。書庫の帯では、空は樹の高さで区切られていた。ここには切れ目がなく、切れ目のない広さの下で、水面が、見えるかぎり広がっている。黒くはなく、空の色を返して、低いところが明るかった。四方から水路が入ってきて、入ったところで流れが消える。消えるのではなく広さに混ざって、向きが分からなくなる。向きのあった水が、ここでは向きを持たない。</p>
+<p class="t">水面の上を、円いものが回っていた。</p>
+<p class="t">一つではなく、等間隔で、同じ速さで、どれも何も載せていない。書庫の根で桁の上を運ばれていたものは載っていたが、ここのは空で、空のまま回っている。</p>
+<p class="t ni">「あれ」</p>
+<p class="t">陽が指した。</p>
+<p class="t ni">「回ってる」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「空だね」</p>
+<p class="t ni">「空」</p>
+<p class="t">二人は荷物を下ろさなかった。並べる必要がなく、八つあることは二人とも知っている。</p>
+<p class="t">咲は柱の面に手を置いた。</p>
+<div class="term"><span class="tm">当該在圏体　個体識別　四七〇二</span><span class="tm">参照権　あり</span><span class="tm">当該区　記録所　合流点</span></div>
+<p class="t">票は出なかった。面の横は開かず、行だけが出て、指を離すと消えた。書庫では紙が出たが、ここでは、まだ出ない。出る場所が、別にあるらしい。</p>
+<p class="t ni">「記録所」</p>
+<p class="t">陽が読んだ。</p>
+<p class="t ni">「合流点、って」</p>
+<p class="t ni">「水の、集まるところ」</p>
+<p class="t">咲は水面を見た。四方から入ってきた水路のうち、一本は線路に沿ってきたものである。書庫の根の下からずっと同じ向きに流れてきた水が、ここで広さに混ざっている。混ざったあとは、どれがどれだったかを分ける手がない。</p>
+<p class="t">咲の数は、ここへ来る。</p>
+<p class="t">書庫で陽が見つけた行を思い出した。第九観測帯。咲の値の繰り入れ先。繰り入れられた値がどこへ行って何になるのかを、咲はこれまで一度も見ていない。見られる場所まで、いま来ている。</p>
+<p class="t">水面の向こうに、低い建屋があった。水路の入る角のひとつに、淡い白の壁が見える。遠いが、歩けば着く。</p>
+<p class="t ni">「行く？」</p>
+<p class="t">陽が言った。</p>
+<p class="t ni">「うん」</p>
+<p class="t">咲は袋を持ち上げた。水路に沿った道が、建屋のほうへ続いている。水は二人より先に着いていて、先に混ざっていた。</p>
+<p class="t">歩き出すと足もとに影が出て、影は二つあって、水の側へ伸びていた。</p>
+</article>
+<article class="ep" id="e02" data-ep="2"><header class="eh"><span class="en">篇02</span><h3 class="ej">雨</h3><p class="ee">RAIN</p></header>
+<p class="t">雨は、勤め先を出る少し前に上がった。舗装が濡れたまま光っていて、瑞希はそこを踏んで、駅とは反対の側へ歩き出した。水たまりが空の色を返していて、踏むと色が壊れ、離れると戻る。戻る道は知っている。知っているので、今日は通らない。</p>
+<p class="t">歩きながら、瑞希は数えていた。数えていたのは曲がった角の数で、四つめまでは知っている道だった。五つめの角から先は知らない。知らないところへ入ると数え方が変わって、角ではなく、歩いた数になる。</p>
+<p class="t">匂いは、歩きはじめてしばらくしてから来た。</p>
+<p class="t">土と、葉の裏と、温まった舗装。降っているあいだはしないで、上がってから、こうして来る。瑞希は足を止めずに息だけを深くしたが、深くしたところで匂いのほうは増えない。来るときに来て、薄くなるときに薄くなる。そういうものだと知っていて、それでも毎回、息のほうを深くする。</p>
+<p class="t">低いところで、何かがひらいていた。</p>
+<p class="t">道の脇の植え込みで、淡い色のものが、たくさん、一斉にそうなっている。雨のあいだは閉じていたのだと思う。閉じていたところを見ていないので、そう思うだけだった。数えようとして、やめた。区切りがない。一つがどこで終わって次がどこから始まるのかを、目で決められなかった。しゃがんで近くから見れば決まるのかもしれないが、しゃがむと、先へ行く時間が減る。</p>
+<p class="t">数えられないものは数えない。数えられるものだけを数えて、瑞希はいままで足りてきた。足りなくなった日のことは、考えたことがない。</p>
+<p class="t">知らない道には、夕方の音があった。どこかの窓で水を使う音がして、どこかの角で戸の閉まる音がする。音の出どころを、瑞希はいちいち見ない。見ないでいても、道の両側に晩の支度が並んでいるのは分かった。知らない道でも、時間の進み方は、知っている道と同じ速さでいる。</p>
+<p class="t">建物は、その先にあった。</p>
+<p class="t">壁が淡い白で、雨のあとなのに濡れて見えない。入口の上に表示が出ていて、青緑の字が点いている。</p>
+<p class="t">長期保存　受付</p>
+<p class="t">瑞希は立ち止まった。</p>
+<p class="t">読める。読んで、意味も分かる。長く、保存する。その受付である。何を保存するのかは、表示の字に入っていない。入口は開いていて、中は明るく、同じ淡い白の廊下が奥へ続いていた。誰も出てこないし、誰も入っていかない。</p>
+<p class="t">中へは入らなかった。入る理由がなかったからで、入れなかったからではない。入口の脇の台に、紙が束ねて置いてあった。一枚取ると厚い。五枚が一つに綴じてあって、一枚めの上に、申込、とある。</p>
+<p class="t">瑞希はそれを畳んで持った。持つ理由も、なかった。理由のないまま持てるものは、理由のないまま置いていけるものより、少ない。</p>
+<p class="t">帰りは、来た道を戻らなかった。戻ると角の数が合ってしまって、合った数は次の日にはもう使えない。別の角を曲がって、知っている道へ出るまで、歩いた数のほうを数えた。数は身体の速さで増えて、速さを上げれば増え方も上がる。増え方を決められるのは、数える側の少ない取り分だった。千を越えたところで、見たことのある店が出た。</p>
+<p class="t">住まいに着いたのは、暗くなってからだった。</p>
+<p class="t">坂の下から見上げると、並びの窓に明かりが入っていて、その中に自分のところがある。自分のところだけが自分のところに見える。そう見えるようになったのがいつからだったかを、瑞希は覚えていない。</p>
+<p class="t">千秋は、台所にいた。</p>
+<p class="t ni">「遅い」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「どこ行ってたの」</p>
+<p class="t ni">「知らないところ」</p>
+<p class="t">千秋はそれ以上聞かなかった。聞いても同じ答えが返ると知っていて、同じ答えでも、次の日にはまた聞く。聞かれるほうも、同じ答えを毎日新しく言う。</p>
+<p class="t">瑞希は袋から、畳んだ紙を出した。台の上に置くと、千秋が手に取った。</p>
+<p class="t ni">「なに、これ」</p>
+<p class="t ni">「受付にあった」</p>
+<p class="t ni">「何の」</p>
+<p class="t ni">「保存の」</p>
+<p class="t">千秋は一枚めを読んで、二枚めをめくって、三枚めで止めた。止めたところを瑞希も覗くと、欄が並んでいる。氏名。生年月日。居住。仕事。その並びの下に、もう一つあった。</p>
+<p class="t">関係。</p>
+<p class="t">千秋は、その欄を指で押さえた。押さえたまま、何も言わない。欄の幅はほかと同じで、書けと言っているだけの四角だった。</p>
+<p class="t ni">「書くの」</p>
+<p class="t ni">「分からない」</p>
+<p class="t">瑞希はそう言った。書くつもりで持ってきたのではない。置いてあったから取って、取ったから、いま台の上にある。台の上のものは、五枚ぶんの厚みで、そこにあった。</p>
+<p class="t">食べて、洗って、寝た。</p>
+<p class="t">寝る前に、瑞希は今日の数を言った。角が四つ。歩いた数が千と、いくらか。千秋は聞いていて、聞き終わってから言った。</p>
+<p class="t ni">「明日は、戻る道で帰ってきて」</p>
+<p class="t ni">「なんで」</p>
+<p class="t ni">「確かめたいから」</p>
+<p class="t">何を確かめるのかを、千秋は言わなかった。言わなくても、瑞希には分かる気がした。同じ道を戻れば、同じ頃に着く。同じ頃に着けば、戻ってきたことを、千秋は確かめられる。</p>
+<p class="t">瑞希は、うん、と言った。言ってから、次の日の角の数を決めていないことに気づいた。決めないまま、眠った。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">旧生体記録　抄</span><span class="dv dfull">移動　三件　購入　一件　食事　二件　睡眠　一件</span><span class="dv dfull">仕事　記載あり　居住　記載あり</span><span class="dv dfull">当該日　ZS−二八〇D</span></div>
+</article>
+<article class="ep" id="e03" data-ep="3"><header class="eh"><span class="en">篇03</span><h3 class="ej">五枚</h3><p class="ee">FIVE SHEETS</p></header>
+<p class="t">朝、窓口は受付の台を整えるところから始める。様式の束を棚から出して、綴じの角をそろえ、台の右の決まった位置に置く。五枚綴りが二十部。一日に出るのは多くて五、六部で、それでも二十部にしている。切らしたことは、一度もない。切らさないのは、切れた日に手ぶらで帰る人の背中を、見たくないからだった。見ないで済むように先に数えておくことも、受け付けるという仕事の内側に入っている。</p>
+<p class="t">台の面は、束を置く場所だけ色が薄い。毎日同じところに置くので、置く場所のほうが先に決まっていて、紙の角がそこへ吸いつくように収まる。朝の明かりは入口から斜めに入って、薄いところを通って、奥の壁で終わる。</p>
+<p class="t">台の下に、手引きが置いてある。</p>
+<p class="t">分厚くはなく、受付で起きうることが順に並んでいて、最後の頁に、一行だけ別の字の大きさで書いてある。様式の定めにない場合は窓口の判断による。窓口はこの一行を着任の日に読んで、それきり開いていない。定めにない場合が、一度も来ていないからだった。</p>
+<p class="t">午前に、二人来た。</p>
+<p class="t">一人めは書き終えた様式を出しに来た人で、五枚をそろえて、預かりの控えを渡す。二人めは年配の人だった。台の前に立って、様式を取らずに、先に聞いた。</p>
+<p class="t ni">「保存のあいだ、中の様子を、家の者に知らせてもらえますか」</p>
+<p class="t">窓口は、様式の五枚を頭の中でめくった。氏名。生年月日。居住。仕事。関係。理由。同意。立会。知らせる先を書く欄は、どこにもない。</p>
+<p class="t ni">「欄が、ないんです」</p>
+<p class="t ni">「ない」</p>
+<p class="t ni">「はい。知らせる先を書くところが、様式にありません」</p>
+<p class="t ni">「では、知らせは」</p>
+<p class="t ni">「様式にあることは、行われます。ないことは、その」</p>
+<p class="t">窓口はそこで言葉を探して、見つかった言い方が、行われるかどうか分かりません、だった。年配の人は、少しのあいだ黙っていた。黙ってから、様式を一部取って、持って帰った。出すとも出さないとも言わなかった。窓口は、その背中が入口を出るまで見ていて、それから、いま言った自分の言い方を思い返した。ありません、と言った。無いのは様式の側で、こちらの側ではない。それなのに、言うのはいつもこちらだった。</p>
+<p class="t">昼過ぎに、便が来た。</p>
+<p class="t">社の中を回る便で、受付には週に二度来る。今日は薄い包みが一つで、開けると、新しい様式の見本だった。</p>
+<p class="t">三枚しかない。</p>
+<p class="t">五枚めくるつもりの指が、三枚で終わる。窓口は最初から見直した。氏名はある。生年月日も居住も仕事もある。関係の欄もある。減っているのは理由の頁で、自由に書けた一面が、五行の枠になっていた。面談の記録の頁は、丸ごとない。かわりに、面談、という一語の隣に、済、と書く小さな四角が付いている。</p>
+<p class="t">見本の隅に、決裁の写しが付いていた。</p>
+<p class="t">改定、の字があって、その下に承認の判が押してある。所要の欄に、〇・七八秒、とあった。窓口はその数字を、数字として読んだ。決裁は速いものだと知っている。速いことに、それ以上の意味を足したことはない。</p>
+<p class="t">使いはじめの日は、先だった。それまでは五枚綴りで受け付ける。窓口は見本を台の下の引き出しに入れて、五枚の束の角を、もう一度そろえた。</p>
+<p class="t">夕方、書き終えた様式が、もう一部出た。</p>
+<p class="t">理由の頁に、長く書いてある人だった。読むのは仕事のうちなので、読む。書いた人の字は詰まっていて、行の終わりで曲がって、余白まで使ってあった。五枚綴りの理由の頁は、そういう書き方ができる。五行の枠には、たぶん、入らない。</p>
+<p class="t">入らなくなったら、どうするのか。</p>
+<p class="t">窓口はそこまで考えて、やめた。決めるのは様式の側で、こちらは受け付ける側だった。受け付ける側にできるのは、そろえて、預かって、控えを渡すことで、それを正しくやる。正しくやることが、この台の内側の全部である。</p>
+<p class="t">閉める前に、今日の綴りをまとめた。</p>
+<p class="t">出た様式が二部。持ち帰られたのが二部。取り下げはなく、受け付けなかったものもない。断る欄は、様式のどこにもない。書き終えて出されたものは、全部、預かる。預かったものがそのあとどこへ行くのかを、窓口は知っている。奥の部屋で束ねられて、便で社のほうへ行く。行った先のことは、知らない。知らないことは、手引きにも書いていない。</p>
+<p class="t">奥の部屋には、預かりの棚と、束ねの紐と、便の箱がある。箱は週に二度、来た便と入れ替わりに出ていく。出ていくのを、窓口は毎回、台の内側から見送っている。見送りは、仕事のうちに入っていない。入っていない仕事のほうが、いちばん長く続いていた。</p>
+<p class="t">帰り際に、入口の脇の台を見た。</p>
+<p class="t">朝に二十枚あった申込の綴りが、十七枚になっている。三枚、持っていかれた。出しに来るのが三人とはかぎらない。持って帰って、台の上に置いたままにする人もいる。置いたままのものは、こちらからは見えない。見えないものは、数えられない。</p>
+<p class="t">窓口は表示を消して、戸を閉めた。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">受付記録　抄</span><span class="dv dfull">受付　二件　持ち帰り　二件　取り下げ　零件　不受理　零件</span><span class="dv dfull">理由　記載あり　二件</span><span class="dv dfull">当該日　ZS−二七六D</span></div>
+</article>
+<article class="ep" id="e04" data-ep="4"><header class="eh"><span class="en">篇04</span><h3 class="ej">戻る</h3><p class="ee">RETURNING</p></header>
+<p class="t">冷えた朝だった。千秋は湯を沸かして、湯気が上がるのを見てから火を止めた。台所の窓が白くなっている。内側の曇りで、外は見えない。</p>
+<p class="t">千秋は指を出して、押した。</p>
+<p class="t">押したところだけ、向こうが見えた。見えた向こうに、いつもの壁といつもの空があるのを確かめて、指を離す。曇りは下の縁まで白かった。縁のところも、ほかと同じに曇っている。</p>
+<p class="t">出る前に、戸の締まりを確かめた。締めたのは自分で、締めたことも覚えている。覚えていても、確かめる。手で押して、動かないのを見て、それで朝が閉じる。</p>
+<p class="t">駅までの道は、決まっている。</p>
+<p class="t">坂の上から、街の屋根が段になって見えた。濡れた日は段の色が深く、乾いた日は浅い。今日は浅くて、浅い日の並びが、もう長く続いている。雨が降ったのは、瑞希が五枚の綴りを持って帰った日が最後だった。</p>
+<p class="t">角が三つで、坂が一つ。三つめの角の手前に、いつも同じ時刻に開く店があって、開いていれば間に合っている。今日も開いていた。ホームの決まったあたりに立って、来た電車の決まったあたりに乗る。座れる日と座れない日があって、そこだけは決められない。決められないところが一つある道を、千秋は毎日通っている。</p>
+<p class="t">電車の窓からは、途中で一度だけ川が見える。見えるのは橋を渡る短いあいだで、水面の光り方が、季節の進みをいちばん先に知らせてくる。今日の川は白く光っていた。確かめるものが道の途中に一つあると、その分だけ、一日の座りがよくなる。</p>
+<p class="t">勤めのあいだのことは、書くほどのことがない。</p>
+<p class="t">行って、座って、頼まれたものを仕上げて、渡す。渡す先の人は決まっていて、受け取るときに頷く。頷きの深さが日によって違うので、千秋はそれを見ている。深い日は急ぎで、浅い日は急ぎでない。聞かなくても分かることは、聞かない。</p>
+<p class="t">夕方、同じ道を戻った。</p>
+<p class="t">三つめの角の店は閉まりかけていて、坂を下りると、住まいの窓に明かりがない。明かりのない窓は、留守の形をしている。留守の形の家へ帰るのは、その形を解きに帰るのに似ていた。戸を開けて、明かりを点ける。点けたところから、家は待つ側に変わる。瑞希はまだ戻っていない。昨日は戻る道で帰ってきて、着いた頃も昨日のままだった。今日のことは、頼んでいない。頼まなかった日の瑞希は、知らない道を歩いて、暗くなってから戻る。</p>
+<p class="t">千秋は先に湯を使って、それから台の上を見た。</p>
+<p class="t">五枚の綴りが、置いたままになっている。四日、そのままである。捨てるとも出すとも、どちらも言っていない。言っていないものが台の上にあるのは、落ち着かない。落ち着かないので、千秋は毎晩一度、手に取って確かめる。</p>
+<p class="t">今日は、理由の頁を開いた。</p>
+<p class="t">理由、とだけ書いてある。枠はなく、頁の残り全部が余白だった。自由に書けるということだと思う。自由に書けと言われて書けるものを、千秋は自分の中に探した。</p>
+<p class="t">出てこない。</p>
+<p class="t">出てこないのではなく、出てくるものが多すぎて、どれも頁の上の言い方をしていない。書く欄があることと、書けることは、別だった。</p>
+<p class="t">その下の頁に、同意の欄がある。名前を書いて、判を押す作りで、二人ぶんの幅があった。大きい欄と、小さい欄。小さいほうは、氏名のほかに書くところが少ない。どうして二つの大きさが違うのかを説明する行は、頁のどこにもなかった。</p>
+<p class="t">千秋は綴りを閉じて、元の位置に戻した。角を台の縁とそろえる。そろえてから、そろえる理由はないと思った。理由はなくても、手がそうする。</p>
+<p class="t">瑞希が戻ったのは、湯が冷めた頃だった。</p>
+<p class="t ni">「ただいま」</p>
+<p class="t ni">「おかえり。今日は、どこ」</p>
+<p class="t ni">「川の上の橋。遠かった」</p>
+<p class="t ni">「数は」</p>
+<p class="t ni">「二千と、少し」</p>
+<p class="t">千秋は頷いた。数えるのは瑞希で、聞くのはこちらだった。聞いた数を、千秋はどこにも書かない。書かないのに、次の日に聞くと、前の日の数と比べている自分がいる。比べて、増えていれば遠くまで行った日で、減っていれば近くで済んだ日だった。</p>
+<p class="t ni">「これ、ずっと台の上にあるけど」</p>
+<p class="t">千秋は綴りを目で指した。瑞希が見る。</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「出すなら、書くことがある。出さないなら、返してくる」</p>
+<p class="t ni">「返す欄、あるのかな」</p>
+<p class="t">千秋は、少しのあいだ黙った。返しに行けば済むことだった。済むことなのに、瑞希の言い方が、返せない話に聞こえた。</p>
+<p class="t ni">「明日、見てくる」</p>
+<p class="t">千秋がそう言った。言ってから、勤めの日だと気づいた。受付がいつまで開いているのかを、二人とも知らない。知らないことが、また一つ増えた。増えたぶんは、台の上の五枚から出ている。</p>
+<p class="t">寝る前に、千秋は窓をもう一度見た。</p>
+<p class="t">曇りは消えていて、外の暗さがそのまま見えた。朝の白さは、どこにも残っていない。押したところも、押さなかったところも、同じ暗さだった。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">旧生体記録　抄</span><span class="dv dfull">移動　二件　購入　零件　食事　三件　睡眠　一件</span><span class="dv dfull">仕事　記載あり　居住　記載あり</span><span class="dv dfull">当該日　ZS−二六九D</span></div>
+</article>
+<article class="ep" id="e05" data-ep="5"><header class="eh"><span class="en">篇05</span><h3 class="ej">案内</h3><p class="ee">THE NOTICE</p></header>
+<p class="t">編集の机は、本社棟の三階にある。窓は廊下の側にしかなく、外の天気は、朝に入ってくる人の肩で知る。今日の肩は乾いていた。廊下の天井には導管が通っていて、淡い白に塗られ、突き当たりの表示だけが青緑に点いている。この棟のどこへ行っても、色はこの二つで足りていた。</p>
+<p class="t">次の号の台割は、もう決まっている。</p>
+<p class="t">決まっていない枠が一つだけあって、そこに保存の事業の案内が入る。頼んできたのは事業の側で、頼みの紙には、載せる事項が並んでいた。受付の場所。開いている時刻。申込の綴りがあること。それだけ書けば足りる、と紙は言っている。足りるものをそのまま並べると、案内は三行で終わる。三行の枠ではない。</p>
+<p class="t">編集は、書き出しを考えた。</p>
+<p class="t">この誌面には、決まった声がある。工場の音を音楽と呼び、記念の品を机の上の会社と呼ぶ声で、編集が来るより前からそうだった。声に合わせて書くのは難しくない。難しいのは、合わせた声のまま、保存の話をすることだった。</p>
+<p class="t">眠っているあいだのことを、誌面はどう呼ぶのか。</p>
+<p class="t">机のいちばん下の引き出しに、創刊の号の写しが入っている。編集が来るずっと前の号で、最初の頁に短い辞があった。本誌は、皆さんに会社を伝えるために創刊されました。伝える、の字を、編集はときどき見に行く。伝える先がいて、伝える距離があるから、誌面がある。当たり前のことが当たり前の字で書いてあって、読むたびに、当たり前の側へ戻れる。</p>
+<p class="t">同じ引き出しの上の段に、拍の由来の綴りがある。連載の柱で、何度も使ってきた。会長の脈だとする回。懐中時計だとする回。歩みの調子だとする回。由来には触れない回。四つは並べると合わないが、どれも直したことはない。直さないままで、誌面は続いてきた。読む側から合わないと言われたことも、ない。</p>
+<p class="t">保存の案内も、たぶん、同じ書き方になる。</p>
+<p class="t">書き出しには、受付の建物の色を使うことにした。淡い白の壁と、青緑の表示。取材で見てきた色をそのまま置くと、案内は三行より長くなって、それでも誌面の声のままでいられる。見てきたものだけが、枠を埋める。埋まらない日のことは、そのころは、考えたことがなかった。</p>
+<p class="t">編集は書いた。眠っているあいだも、社の拍は正しく続きます。目が覚めた朝に、同じ拍が待っています。——書いてから、二つめの文を消した。待っています、は約束の言い方で、約束は誌面の仕事ではない。続きます、までにする。続いているのは事実で、事実は約束より硬い。</p>
+<p class="t">昼、廊下で人事の人と行き合った。</p>
+<p class="t ni">「次の号、保存の案内が載るんですね」</p>
+<p class="t ni">「載ります」</p>
+<p class="t ni">「申し込む人、いるんでしょうか」</p>
+<p class="t ni">「受付は開いています」</p>
+<p class="t">編集はそう答えた。答えになっていないことは、言いながら分かっていた。いるかどうかを数えるのは事業の側で、誌面の仕事は、受付が開いていると知らせるところまでだった。人事の人は頷いて、廊下の先へ行った。行ってから、振り向いて、もう一つ足した。</p>
+<p class="t ni">「載ったら、うちにも回してください。名簿の様式が変わるかもしれないので」</p>
+<p class="t">どう変わるのかは、言わなかった。編集も、聞かなかった。</p>
+<p class="t">週のはじめに開けた質問の箱には、今週は紙が三枚入っていた。連載の枠に使えるのは一枚で、残りは綴りに挟んで取っておく。挟むとき、編集は隅に日付を書き足す。書き足した日付の並びが、そのまま、聞く人がいることの証しになっている。</p>
+<p class="t">夕方、原稿がそろった。</p>
+<p class="t">編集は綴りを整えて、承認に回した。面の上で送り先を選んで、送る。指を離す前に、済んだ。</p>
+<p class="t">承認、の字が出ている。</p>
+<p class="t">編集は自分の指を見た。速いのは知っている。この棟の決裁はいつも速く、速さに慣れて、いつからか待つ姿勢のほうを忘れた。今日は、送る前に一度だけ、昔の待ち方を思い出そうとした。原稿を出して、翌る日まで戻らない頃が、あったはずだった。あった、と言い切れるほどには、覚えていない。</p>
+<p class="t">帰り支度のとき、案内の校正刷りをもう一度読んだ。</p>
+<p class="t">受付の場所。開いている時刻。綴りは五枚で、書いて出せば預かられること。眠っているあいだも、社の拍は正しく続くこと。読み終えて、編集は一箇所だけ直した。五枚、の字を消す。様式は変わることがある、と事業の紙の隅に書いてあった。数を載せて、数が変わると、誌面が古くなる。数のないところは、古くならない。</p>
+<p class="t">刷りの余白に、直しの印を入れて、机を閉じた。</p>
+<p class="t">廊下に出ると、照明が半分に落ちていた。落ちた明かりの下で、棟は静かに鳴っている。搬送の音と、空調の音と、間隔のそろった細かい音が、床の下でひとつになっている。編集はその音の中を、いつもの速さで歩いて、いつもの戸から出た。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">広報記録　抄</span><span class="dv dfull">社内報　次号　原稿　受理　一件　うち案内　一件</span><span class="dv dfull">承認　所要　〇・七八秒</span><span class="dv dfull">当該日　ZS−二五五D</span></div>
+</article>
+<article class="ep" id="e06" data-ep="6"><header class="eh"><span class="en">篇06</span><h3 class="ej">受付</h3><p class="ee">THE DESK</p></header>
+<p class="t">出しに行く、と決めたのは、前の晩だった。決めた場面はなくて、千秋が綴りを台の縁からずらして置き、瑞希がそれを見て、頷いた。それだけだった。言葉は、どちらからも出なかった。出さないまま決まるものが、二人のあいだには前からある。</p>
+<p class="t">書いたのは、その晩のうちだった。</p>
+<p class="t">氏名を書いて、生年月日を書いて、居住と仕事を書いた。書ける欄は、手が止まらない。台所の明かりの下で、二種類の字が、同じ欄の並びを順に埋めていく。埋まる速さだけが、二人で少し違っていた。理由の頁で、二人とも止まった。</p>
+<p class="t ni">「先に書いていいよ」</p>
+<p class="t ni">「瑞希は」</p>
+<p class="t ni">「あとで書く」</p>
+<p class="t">千秋が書き、書いた面を伏せて、瑞希に渡した。瑞希は伏せたまま自分の綴りを引き寄せて、書いた。書き終えて、伏せた。二枚の理由が、二枚とも伏せてある。読んでいいかを、どちらも聞かなかった。聞けば見せることになり、見せれば、書いた字のほうが二人の言い方になっていく。</p>
+<p class="t">関係の欄は、白のまま残した。</p>
+<p class="t">残すと決めたのも、言葉ではなかった。千秋がその頁を開いて、瑞希を見て、瑞希が首を横に振った。振ってから、振った意味を自分で確かめた。書きたくないのではない。書ける字が、あの四角の幅をしていない。</p>
+<p class="t">同意の頁の、大きい欄と小さい欄には、その晩は触れなかった。</p>
+<p class="t">受付は、次の休みの日に行った。</p>
+<p class="t">道は瑞希が知っていた。角を四つ曲がって、五つめから先は、もう知らない道ではない。植え込みのひらいていたものはとうに終わっていて、いまは葉の色だけがある。終わった数を、瑞希は数えなかった。</p>
+<p class="t">休みの日の道には、休みの日の人たちがいた。荷を提げた人が角で行き合い、短く何かを言い交わして、別れていく。二人はそのあいだを、どちらの速さでもない速さで歩いた。急ぐ道ではない。急がないと決めた道でもない。並んで歩くと自然にそうなる速さが、二人にはある。</p>
+<p class="t">建物の中は、外から見えていたとおりに明るかった。</p>
+<p class="t">受付の台があって、窓口の人が一人いる。ほかに人はいない。台の右に、五枚綴りの束が角をそろえて積んであって、束の下の台の面だけ、色が薄くなっていた。毎日そこに置かれてきた薄さだった。どれだけの人がここで綴りを取ったのかは、薄さからは出てこない。</p>
+<p class="t ni">「申込ですか」</p>
+<p class="t ni">「はい」</p>
+<p class="t">千秋が綴りを出した。窓口の人は頁を順にめくって、氏名のところで一度止まり、綴りを台に平らに置いた。</p>
+<p class="t ni">「お二人で、一件になさいますか。一件ずつになさいますか」</p>
+<p class="t ni">「一件で」</p>
+<p class="t">答えたのがどちらだったのかを、瑞希はあとで思い出せなかった。声は一つで、迷いは入っていなかった。前の晩に決めていない問いに、迷いなく答えられることがある。答えてから、二人でそういうことにするのだった。</p>
+<p class="t">一件にするなら、と窓口の人は言って、同意の頁を開いた。</p>
+<p class="t">大きい欄と、小さい欄。</p>
+<p class="t ni">「こちらに一名、こちらに一名です」</p>
+<p class="t">どちらがどちらに、とは言われなかった。言われないまま、綴りは二人の前に置かれている。瑞希と千秋は、それぞれの側から手を出して、書いた。書き終えた綴りを、窓口の人はもう一度めくった。関係の欄のところで、めくる手が一拍だけ遅くなって、それから、次の頁へ行った。</p>
+<p class="t">聞かれる、と瑞希は思っていた。</p>
+<p class="t">聞かれなかった。白のままの四角の上を、視線が通って、止まらずに抜けた。止まらなかったことのほうが、瑞希には残った。書かなかった欄は、こちらの側では大きい。向こうの側では、白い四角が一つあるだけだった。</p>
+<p class="t ni">「お預かりします。面談のご案内を、後日お送りします」</p>
+<p class="t">控えの紙が二枚出た。薄い紙で、受付の日付と、預かりの印がある。千秋が一枚を瑞希に渡して、一枚を自分の袋に入れた。同じ紙が二枚あることに、瑞希は少しだけ安心した。一件で出したものの控えが、二枚ある。数と件数が合っていないところに、二人ぶんの幅が残っている。</p>
+<p class="t">畳むとき、瑞希は控えの角を折ってしまった。開いても、折り目は白く残って戻らない。千秋が見て、自分のは折らずに袋へ入れ直した。同じ紙の同じ場所に、片方にだけ折り目がある。どちらの控えがどちらのものかを書く欄はないのに、これで、見分けはつくようになった。</p>
+<p class="t">帰り道で、千秋が言った。</p>
+<p class="t ni">「理由、なんて書いたの」</p>
+<p class="t ni">「言わない」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「千秋は」</p>
+<p class="t ni">「言わない」</p>
+<p class="t">二人とも笑わなかったが、声は軽かった。書いた字は、綴りの中で伏せたままである。伏せたまま、誰かに読まれる。読む人がいる、というところまでは、二人とも分かっていた。読んだ人がどうするのかは、分からない。分からないまま、綴りは手を離れた。</p>
+<p class="t">角を曲がるとき、瑞希は一度だけ振り返った。</p>
+<p class="t">淡い白の壁が、道の先に見えている。表示の青緑は、昼の明るさの中では薄かった。次に来るのは面談の日で、その日がいつなのかは、紙になっていない。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">受付記録　抄</span><span class="dv dfull">受付　一件　構成数　二</span><span class="dv dfull">氏名　記載あり　二件　理由　記載あり　二件</span><span class="dv dfull">関係　欄　空欄</span><span class="dv dfull">控え　発行　二件</span><span class="dv dfull">当該日　ZS−二四〇D</span></div>
+</article>
+<article class="ep" id="e07" data-ep="7"><header class="eh"><span class="en">篇07</span><h3 class="ej">票</h3><p class="ee">THE SLIP</p></header>
+<p class="t">建屋までの道は、水路と同じだけ曲がった。水が曲がるところで道も曲がり、離れないまま、二人を合流点まで連れてきた。歩くあいだ、水面の円いものが右に見えたり正面に見えたりした。近づいても大きくならないものは遠いはずで、遠いはずのものの下を、水路の水が先に潜っていく。</p>
+<p class="t">建屋は低く、戸は近づくと開いた。壁の淡い白は、水際に近い高さだけ色が沈んでいる。水の上がる日があるらしく、上がった高さのぶんが、壁のほうに印されて残っていた。</p>
+<p class="t">中は一間で、淡い白の床が水際まで続いている。奥の壁が途中までしかなく、その先は水面だった。屋根はあるのに、部屋の奥が外である。水は建屋の下へ入ってきて、床の切れ目の向こうで、広さに混ざっていた。床の下を水が通る音がして、書庫の下層の水路より細く、間隔の読めない細かさで続いている。陽は入ってすぐ、その音の下に立ち止まって、しばらく聞いた。数えられる音ではなかった。数えられない音は、聞いていられる。</p>
+<p class="t">面は部屋の真ん中に立っていて、腰の高さの板の形で、書庫の受入で見たものと同じ作りをしている。咲が窪みに手を置くと、行が出た。</p>
+<div class="term"><span class="tm">記録所　当該在圏体　個体識別　四七〇二</span><span class="tm">参照権　あり</span></div>
+<p class="t ni">「聞いていいんだよね」</p>
+<p class="t ni">「うん」</p>
+<p class="t">咲が打った。何から聞くかは来る道々で決めてあって、決めたのは咲で、陽は聞いていた。いちばん知りたいことはいちばん最後に回して、先に、外側から確かめる。それが咲の順番だった。</p>
+<div class="term"><span class="tm">照会　当該帯　保存棟</span><span class="tm">応答　区画符号を持たない保存棟　十四件</span></div>
+<p class="t">面の横が開いて、紙が出た。</p>
+<p class="t">咲が取る。掌より少し小さく、淡い白で、書庫の票と同じ紙だった。持つと端が垂れて、折れば戻らない紙で、印されているのは、いま出た行と、その下の数字だけだった。</p>
+<div class="dossier"><span class="dv dfull">保存棟　十四件</span><span class="dv dfull">床　七十二　十四件とも</span><span class="dv dfull">起床　二件</span></div>
+<p class="t ni">「出た」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「書庫のと、同じ紙」</p>
+<p class="t">陽は横から見た。数字は三つある。十四と、七十二と、二。読める。読めて、着地する。十四のうちの一件から、二人は出てきた。七十二のうちの二人が、いまここに立っている。二という数は、どの並びの中でも二人のことだった。</p>
+<p class="t">読み終えて、陽は紙から目を上げた。奥の切れ目の水音が、さっきより近くに聞こえる。部屋は何も変わっていない。変わったのは持っている数のほうで、数を三つ持つと、静かさの置き場所が少しだけ動くのだった。</p>
+<p class="t">起きたのが二件だというのは、前に別の面で見ている。ほかの十三件では、誰も起きていない。起きていないだけで、いないわけではない。開いていない架の内側のことを、陽は少し考えて、途中で置いた。考える材料が、あの頃から一つも増えていない。増えないものは、何度考えても同じ場所で止まる。</p>
+<p class="t">咲は票を裏返した。</p>
+<p class="t">白い。表に戻して、いちばん下を見る。書庫の綴りなら、そこに詰まった字が一つある場所だった。</p>
+<p class="t">ない。</p>
+<p class="t">数字の下は余白で、余白のまま終わっている。記録者の欄が、この紙にはない。陽もそれを見て、見たことについて何も言わなかった。言わないまま、無いことだけが二人の中に入った。</p>
+<p class="t">咲は続けて打った。</p>
+<div class="term"><span class="tm">照会　共同搬送単位</span><span class="tm">応答　当該帯　構成数　二　件数　記載なし</span></div>
+<p class="t">二枚めが出た。</p>
+<p class="t">構成数、二。件数、記載なし。十四の棟に、二人ずつの単位がいくつ入っているのかを、面は数えなかった。数えないのではなく、数を書く欄が向こうにないのだった。床の数は書いてあって、単位の数は書いていない。何を数えて何を数えないかは、様式の側が決めている。</p>
+<p class="t ni">「二人ずつなんだ」</p>
+<p class="t">咲が言った。</p>
+<p class="t ni">「うち以外も」</p>
+<p class="t ni">「共同のは、そう書いてある」</p>
+<p class="t">構成数の欄に、二、とだけある。三でも一でもない。共同で入った単位は、どの棟でも二人だった。二人であることの理由を聞けば、返る行は決まっている。咲は聞かなかった。聞かないで、票を一枚めの上に重ねた。</p>
+<p class="t">二枚が、咲の手の中にある。</p>
+<p class="t">陽は、水面のほうを見た。床の切れ目の先で、入ってきた水路の水が向きを失っている。あの水のどこかに、咲の今日の値も入っている。値は数で、数は抜けない。抜けない数が、混ざったあとは取り出せない。持っていられるものと、取り出せないものが、同じ数でできている。</p>
+<p class="t ni">「今日は、ここまで」</p>
+<p class="t">咲が言った。</p>
+<p class="t ni">「聞かないの、続き」</p>
+<p class="t ni">「聞く。でも、順番がある」</p>
+<p class="t">咲は票を二枚そろえて、袋には入れずに手で持った。持ち方が、書庫で綴りを持っていたときと同じだった。重さはないのに、両手で持つ。</p>
+<p class="t">戸を出ると、外は昼を過ぎていた。</p>
+<p class="t">水面の明るさが変わっていて、円いものの回りかたは変わっていない。二人は水路に沿って戻りはじめた。行きに数えなかったものを、帰りも数えない。数えるかわりに、陽は口の中で、票の数字を通してみた。</p>
+<p class="t">十四。七十二。二。</p>
+<p class="t">出た。順番のまま、間まで同じに出る。紙は咲の手の中にあり、同じ数が、口の中にもある。同じものを二人で一つずつ持っていることになるのかどうかを、決める欄はどこにもない。</p>
+<p class="t">戻る道の先で、駅の柱が小さく見えた。柱の向こうの空は夕方の支度に入っていて、水面の低いところから、順に色が変わりはじめている。</p>
+<p class="t">票は、二枚ある。</p>
+</article>
+<section class="part" id="part2"><span class="pn">第二部</span><h2 class="pj">面談</h2><p class="pe">THE INTERVIEW</p></section>
+<article class="ep" id="e08" data-ep="8"><header class="eh"><span class="en">篇08</span><h3 class="ej">総和</h3><p class="ee">THE SUM</p></header>
+<p class="t">休む場所は、駅の並びの低い建物にした。書庫へ来る途中で見たものと同じ形で、中は二間に分かれ、水の出る口があり、床は硬くも冷たくもない。並んで寝られる幅があって、二人はそこで寝ている。朝になると水を使い、包を飲み、水路に沿って記録所まで歩く。歩く道は三日で決まって、決まってからは、道のほうが二人を運んでいる。</p>
+<p class="t">道の途中に、水の動かない入り江が一つある。入り江には朝ごとに違う空が置いてあって、置いてあるものを、二人は見て過ぎる。止まって見る日と、見ながら歩く日があり、その違いを決めているものの名を、二人はどちらも言ったことがない。</p>
+<p class="t">今日は、順番の最後の一つを聞く日だった。</p>
+<p class="t">咲は面の前に立って、窪みに手を置いた。行が出て、消えるのを待ってから、打つ。</p>
+<div class="term"><span class="tm">照会　四七〇二　繰り入れ　行先</span><span class="tm">応答　当該帯　総和</span></div>
+<p class="t">面の横が開いて、票が出た。</p>
+<div class="dossier"><span class="dv dfull">総和　当該帯　一件</span><span class="dv dfull">繰り入れ　実施　四七〇二　含む</span></div>
+<p class="t">含む、とある。</p>
+<p class="t">咲はその二字を、しばらく見ていた。書庫で見た自分の綴りには、値が一日一行で並んでいた。並んだ値がここへ来て、総和という一件に入る。入っていることは、書いてある。どの部分が自分なのかは、書いていない。</p>
+<div class="term"><span class="tm">照会　当該総和　内訳</span><span class="tm">応答　内訳を記す欄が、ありません</span></div>
+<p class="t">票は、出なかった。値の返らない応答は、紙にならない。面に出て、指を離すと消えて、それきりだった。紙になるものとならないものの分かれ目も、様式の側が決めている。</p>
+<p class="t">咲は聞き方を変えた。</p>
+<div class="term"><span class="tm">照会　当該総和　四七〇二の寄与</span><span class="tm">応答　当該項目を記す欄が、ありません</span></div>
+<p class="t">同じところで閉じた。聞き方を変えても、欄のない側は変わらない。変えられるのは、聞くこちらの側だけだった。三度めは、打たなかった。三度で止める癖は、棟のころから変わっていない。</p>
+<p class="t ni">「見てくる」</p>
+<p class="t">咲は建屋の奥へ歩いた。床の切れ目の手前に立つと、下を水が通っていて、切れ目の先で広さに混ざる。右手の壁の途切れたところから、水路が一本入ってくるのが見えた。</p>
+<p class="t">入るところは、見える。</p>
+<p class="t">水路の水には向きがあって、速さがあって、縁との境がある。切れ目を越えると、向きが薄れて、速さがほどけて、境がなくなる。どこまでが水路の水だったのかを、目で追った。追えたのは、思っていたより短い距離だった。</p>
+<p class="t">入ったあとは、見えない。</p>
+<p class="t">咲は長いあいだ、そこに立っていた。見えるところと見えないところの境を、何度も目でなぞった。なぞるたびに、境の場所が少し違う。水のほうが動いているからで、境という線が引いてあるわけではなかった。</p>
+<p class="t">陽が隣に来た。</p>
+<p class="t ni">「見えた？」</p>
+<p class="t ni">「入るところまで」</p>
+<p class="t ni">「そのあとは」</p>
+<p class="t ni">「混ざって、終わり」</p>
+<p class="t">陽は水面を見た。円いものが、遠くで回っている。</p>
+<p class="t ni">「終わりって、書いてある？」</p>
+<p class="t">咲は少し考えた。票には、実施、継続、含む、とある。終わり、の字はどこにもない。</p>
+<p class="t ni">「書いてない」</p>
+<p class="t ni">「じゃあ、終わってない」</p>
+<p class="t">終わっていないものが、見えなくなっただけ。陽の言い方は、いつもそうだった。減らないだけだよ、と書庫で言ったのと同じ形をしている。咲はその形を受け取って、受け取ったまま、しまった。</p>
+<p class="t">昼、給養の口から包が二つ出た。</p>
+<p class="t">咲のは軽く、陽のはいつもの重さで、二人は切れ目の近くに座って飲んだ。飲みながら、咲は自分の票を出して、二枚めの下に今日の一枚を重ねた。</p>
+<p class="t">三枚になっている。</p>
+<p class="t">保存棟の数と、単位の数と、総和。数えたのは枚数だけで、中の数字はもう覚えている。〇・〇一五から先の値がどうなったかを、咲はここでまだ聞いていない。聞く順番は決めてあって、今日のぶんは、もう済んだ。</p>
+<p class="t ni">「次は、何聞くの」</p>
+<p class="t">陽が言った。</p>
+<p class="t ni">「総和が、何に使われてるか」</p>
+<p class="t ni">「決めてるんだ、もう」</p>
+<p class="t ni">「決めてる。でも、今日は聞かない」</p>
+<p class="t">一日に一つずつにしているのは、急がないからではなかった。聞けば返って、返れば、それまで持っていた分からなさが一つ減る。減らし方だけは、聞く側で決められる。書庫では、読んでも読んでも減らなかった。ここでは、一枚ずつ減る。</p>
+<p class="t">夕方、二人は水路に沿って戻った。</p>
+<p class="t">道の途中に、水面のいちばん広く見える場所がある。咲はそこで一度止まって、遠くの円いものを見た。回る速さは、朝とも昼とも変わらない。載せるもののない円が、広さの上で回りつづけている。</p>
+<p class="t">一つの影が、水面を渡っていった。</p>
+<p class="t">円の形のまま滑って、水路の入る口の上を過ぎても、崩れなかった。水は入れば混ざるのに、影は水の上を、形のまま通っていく。混ざらないものが一つ通り過ぎるのを、二人は並んで見ていた。</p>
+<p class="t ni">「入ったら、あれに載るのかな」</p>
+<p class="t ni">「値が？」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「載るところは、見えないと思う」</p>
+<p class="t">見えないところで載って、見えないところで運ばれて、どこかで使われる。使われた先が、次の一枚に入っている。</p>
+<p class="t">票は、三枚ある。</p>
+</article>
+<article class="ep" id="e09" data-ep="9"><header class="eh"><span class="en">篇09</span><h3 class="ej">聞かれる</h3><p class="ee">ASKED</p></header>
+<p class="t">案内の紙は、白い封筒で届いた。面談の日と時刻と、一人ずつ伺います、の一行が印してあって、差出の側の名は、受付、とだけあった。</p>
+<p class="t">封筒は、夕方の郵便で来ていた。郵便の口から台の上へ移したのは千秋で、移してから、封を切るのは二人のときにした。二人で読むと決めてあったわけではない。決めていなくても、その紙は、そういう紙だった。</p>
+<p class="t">当日は、二人で行って、順番は着いてから決めた。決め方は簡単で、戸に近い椅子に先に座ったほうが先だった。座ったのは千秋で、決めたのは、たぶん、脚のほうだった。</p>
+<p class="t">面談の室は、受付の台の奥にあった。</p>
+<p class="t">狭い。机が一つ、椅子が二つ。壁は表と同じ淡い白で、窓はない。机の上に二人の綴りが置いてあって、五枚の角がそろえてある。呼んだのは窓口の人で、面談も窓口の人だった。ほかに人のいる気配は、建物のどこにもない。</p>
+<p class="t ni">「ご本人の確認からです」</p>
+<p class="t">千秋は確認の紙を出した。窓口の人は綴りと見比べて、小さな印を押す。</p>
+<p class="t ni">「では、うかがいます。決まった問いを、決まった順に聞きます」</p>
+<p class="t">問いは、綴りを見ながら読み上げられた。申込に間違いがないか。書いた居住に変わりがないか。取り消しの決まりを知っているか。</p>
+<p class="t ni">「取り消しは、処置の前日まで、できます」</p>
+<p class="t ni">「前日まで」</p>
+<p class="t ni">「はい。当日は、できません」</p>
+<p class="t">千秋は頷いた。頷いてから、できません、の先を聞きたくなって、やめた。できないことの中身を聞いても、この室で返るのは、決まりのほうだと思った。</p>
+<p class="t">問いが進んで、理由のところへ来た。</p>
+<p class="t ni">「理由の欄は、拝見しています。そのうえで、口頭でも、うかがうことになっています」</p>
+<p class="t">千秋は、書いた字を思い出した。書いたのは夜で、伏せたまま出して、瑞希にも見せていない。書いた字と同じことを言えばいいのか、別のことを言っていいのかを、少しのあいだ考えた。決まりはないらしい。窓口の人は待っていて、待ち方に、急かす色がなかった。</p>
+<p class="t ni">「一人だけ残るのと、一人だけ残すのと、どちらも嫌でした」</p>
+<p class="t">千秋は言った。</p>
+<p class="t ni">「誰かを残したくなかったんです。それが、いちばん近いです」</p>
+<p class="t">窓口の人は、頷いて、書いた。</p>
+<p class="t">机の上で、手が動くのが見える。逆さの字は読めなかったが、長さは分かる。千秋の言ったことより、長い。書いて、止まって、また書いた。止まりかたに、迷いのようなものがあった。機械の止まりかたではなかった。</p>
+<p class="t ni">「ありがとうございます。次の方と代わってください」</p>
+<p class="t">千秋は立って、戸のところで一度振り返った。窓口の人は綴りの頁を戻して、いま書いたところを読み直している。読み直す横顔は、受付の台にいるときと同じで、それ以上のことは、顔からは出てこなかった。</p>
+<p class="t">表の椅子で、瑞希と代わった。</p>
+<p class="t ni">「長かった」</p>
+<p class="t ni">「そう？」</p>
+<p class="t ni">「長く感じた」</p>
+<p class="t">瑞希が室へ入って、戸が閉まる。千秋は椅子に座って、待った。表の壁に、受付の刻限を書いた紙が貼ってある。千秋はそれを二度読んだ。二度めは確かめではなく、読むものが、ほかにないからだった。壁の向こうから、声の低い往復だけが届く。字にならない声で、どちらの声かは分かっても、中身は分からなかった。分からないままでいるのは、伏せた頁の隣に座っているのと同じことだった。</p>
+<p class="t">待つあいだ、千秋は室の問いを順に思い返した。</p>
+<p class="t">間違いがないか。変わりがないか。知っているか。どれも、確かめの問いだった。確かめは、こちらの側の仕事だと思ってきた。今日は、確かめられる側に座った。座ってみると、確かめられるというのは、思っていたより静かなことだった。答えられる問いしか、来ないからだった。</p>
+<p class="t">答えられない問いは、一つもなかった。</p>
+<p class="t">答えられない問いを、自分がいくつ持っているかを、千秋はそこで数えそうになって、やめた。数えるのは瑞希の側で、こちらは、数えないで持っている側だった。</p>
+<p class="t">瑞希が出てきたのは、長さでいえば千秋と同じくらいだった。</p>
+<p class="t ni">「終わった」</p>
+<p class="t ni">「うん」</p>
+<p class="t">帰り道で、どちらも面談の中身を言わなかった。言わないことが、行きの道で決めてあったわけではない。書いた字を見せ合わなかったのと、同じ並びのことだった。</p>
+<p class="t">途中の店で、瑞希が油と塩を買った。切らしかけていたのを覚えていたのは瑞希のほうで、覚えのいい側が買い物を持つ。持たされた袋の重さの分だけ、面談の日が、暮らしの日に戻っていった。</p>
+<p class="t">角を曲がるとき、瑞希が一度だけ言った。</p>
+<p class="t ni">「前日まで、だって」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「聞いた？」</p>
+<p class="t ni">「聞いた」</p>
+<p class="t">それだけだった。取り消すつもりがあるかないかを、どちらも足さなかった。足さないまま、決まりの一行だけが、二人のあいだに置かれた。置かれたものは、置かれた形のまま、家までついてきた。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">面談記録　抄</span><span class="dv dfull">面談　二名　実施</span><span class="dv dfull">記載　成立　二件</span><span class="dv dfull">本人確認　済　二件</span><span class="dv dfull">当該日　ZS−一七八D</span></div>
+</article>
+<article class="ep" id="e10" data-ep="10"><header class="eh"><span class="en">篇10</span><h3 class="ej">移し替え</h3><p class="ee">CARRIED OVER</p></header>
+<p class="t">面談の日は、朝のうちに室を整える。机を拭いて、椅子を二つ、向かい合わせに置く。綴りを棚から出して、頁の折れを確かめる。机の上に、角をそろえて置く。問いの読み上げ用の紙を、その横に伏せておく。整えることは決まっている。決まっていることを順にやると、室は面談の室になった。</p>
+<p class="t">一人めは、先に座っていたほうだった。</p>
+<p class="t">確認の紙と綴りを見比べて、印を押す。問いを、決まった順に読む。読みながら、窓口は相手の答えを頁に書いていく。書く頁は、面談の記録の頁だった。五枚綴りの四枚めにあって、枠のない一面が、全部それに使えた。</p>
+<p class="t">理由のところで、相手は少し黙って、それから言った。</p>
+<p class="t">一人だけ残るのと、一人だけ残すのと、どちらも嫌でした。</p>
+<p class="t">窓口は、書いた。</p>
+<p class="t">言われたとおりに書いて、それから、言い方の順も書いた。残るほうが先に来て、残すほうが後に来たこと。いちばん近いです、と最後に足されたこと。近い、と言うからには、言葉のほうが少し遠いのだと思う。遠さの分は、こちらの頁の側で持っておくしかない。書く手が二度止まって、二度めのあとで、書き足すのをやめた。足せば足すほど、こちらの字になっていく。</p>
+<p class="t">一人めが出ていって、二人めが入るまでのあいだに、便が来た。</p>
+<p class="t">薄い封で、開けると通知だった。</p>
+<p class="t">提出済みの綴りは、集約の際、現行の様式へ移し替える。移し替え先に欄のない記載は、移さない。</p>
+<p class="t">二行の下に、決裁の写しが付いている。承認の判があって、所要の欄に、〇・七八秒、とあった。</p>
+<p class="t">窓口は、机の上の綴りを見た。</p>
+<p class="t">四枚めの頁に、いま書いたばかりの字が並んでいる。現行の様式で、面談は、済、と書く四角が一つになっている。四角に、この頁は入らない。入らない記載は、移さないと、通知は言っている。捨てるとは書いていない。移さない、とだけ書いてある。移されなかったものがどこに残るのかを書く行は、二行のどこにもなかった。</p>
+<p class="t">書く欄のある紙に書いたものは、書く欄のない紙へは行かない。決めるのは様式の側で、書くのはこちらだった。</p>
+<p class="t">窓口は通知を畳んで、台の下の引き出しに入れた。三枚の見本の上に載って、引き出しの中で、新しい様式のほうが少し厚くなった。</p>
+<p class="t">入れる前に、見本を一部、練習に書いてみた。氏名の欄に決まった練習の名を入れて、順に埋めていく。書けるところが少ないと、書き終わるのは速い。速く終わることを、様式の側は、たぶん、整いと呼ぶ。書いた見本は折り目を付けて、通知と一緒に引き出しへ戻した。折り目は、使わない紙の印だった。</p>
+<p class="t">昼は、台の内側で摂った。食べているあいだに人が来れば、置いて立つ。今日は来なかった。来ない昼の静けさの中で、注いだ湯の音だけが、短く立って消えた。</p>
+<p class="t">二人めが入ってきた。</p>
+<p class="t">窓口は新しい頁を開いて、確認の紙を受け取った。印を押して、問いを、決まった順に読みはじめる。読みながら、さっきと同じように、答えを頁へ書いていく。書きながら、一度だけ、頁の残りの白さを見た。</p>
+<p class="t">この白さの分だけ、人は話す。</p>
+<p class="t">枠が四角一つになれば、話は同じでも、残るのは、済、の一字である。話す側は、たぶん、変わらない。変わるのは残り方で、残り方を選ぶ欄は、話す側にも書く側にもない。</p>
+<p class="t">面談が終わって、二人が帰っていくのを、窓口は台の内側から見ていた。</p>
+<p class="t">戸のところで、先のほうが一度振り返って、それから二人は出ていった。台の上に、二冊の綴りが残っている。四枚めが、どちらも増えた。増えた頁を、窓口はもう一度読み返した。</p>
+<p class="t">読み返してから、綴りを預かりの棚へ戻した。</p>
+<p class="t">棚には、ほかの綴りも並んでいる。厚いのが並ぶ棚の端に、三枚の綴りが立つ日が、もう決まっている。決まった日から先に受け付けたものは、はじめから薄い。薄いものには、移し替えの通知も要らない。要らなくなる日のことを、窓口は考えて、考えのほうを、頁のない場所へ置いた。</p>
+<p class="t">夕方、締めの綴りを付けた。</p>
+<p class="t">面談が二名。成立が二件。書いた行の長さを数える欄は、締めの様式にない。長く書いた日も、短く書いた日も、締めの上では同じ二件だった。</p>
+<p class="t">戸締まりの前に、面談の室へもう一度入って、椅子を元の間隔に戻した。座った人の分だけ、椅子は少しずつ向きを変えている。変わった向きを戻す決まりは、どこにもない。決まりのない直しを一つ済ませて、窓口の一日は閉まった。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">受付記録　抄</span><span class="dv dfull">様式　改定　通知　一件　受理</span><span class="dv dfull">移し替え　定め　記載あり</span><span class="dv dfull">決裁　所要　〇・七八秒</span><span class="dv dfull">当該日　ZS−一七八D</span></div>
+</article>
+<article class="ep" id="e11" data-ep="11"><header class="eh"><span class="en">篇11</span><h3 class="ej">同意</h3><p class="ee">CONSENT</p></header>
+<p class="t">確定の紙は、一枚だった。</p>
+<p class="t">面談から二十日ほどして届いて、白い封の中に、白い一枚が入っている。保存の処置に同意することを、日付と名前と印で確かめる紙だった。説明の行が三行と、書くところが二人ぶんある。五枚で始まった手続きの、いちばん新しい紙が、いちばん薄かった。</p>
+<p class="t">二十日のあいだ、待っている、という言い方を、二人はしなかった。届くものは、届く日に届く。それまでの日々は、それまでの日々として使う。使い方を変えないことが、二人の待ち方だった。</p>
+<p class="t">書いたのは、台所の台の上だった。</p>
+<p class="t">書く場所が少ないので、迷う場所もない。名前と、日付と、印。千秋が書いて、瑞希が書いた。書き終わった紙は軽くて、二人ぶんの重さが乗っている感じは、持ってもしなかった。</p>
+<p class="t">出しには、二人で行った。</p>
+<p class="t">受付の台の上が、変わっていた。</p>
+<p class="t">束が薄い。五枚綴りの積みがあった場所に、三枚の綴りが積んである。積みが低くなったぶん、台の面の色の薄いところが、束のまわりに広く覗いていた。長いあいだ五枚がそこにあって、五枚の形に薄くなった場所だった。新しい束は、古い薄さの内側に、小さく載っていた。</p>
+<p class="t ni">「今日からこちらの様式です」</p>
+<p class="t">窓口の人が言った。二人のは前の様式のままでよく、出すのは確定の一枚だけでいい。受け取って、見比べて、印が押される。</p>
+<p class="t">済。</p>
+<p class="t">一字だった。千秋が覗いて、瑞希も覗いた。同意、という欄の隣に、済、とある。書いたのはこちらで、押したのは向こうで、紙の上では、それで手続きが一つ閉じたことになっている。</p>
+<p class="t ni">「あとは、立会のご案内を待ってください」</p>
+<p class="t">台の奥の棚に、預かりの綴りが立ててあるのが見えた。厚いのが並んでいる中に、二人のもあるはずだった。背はどれも同じ淡い白で、どれがそうなのかは、こちらからは分からない。分からないままでも、確定の一枚は、いま向こう側でそのどれかに挟まれにいく。</p>
+<p class="t">外へ出ると、日が傾きはじめていた。</p>
+<p class="t ni">「寄り道していい？」</p>
+<p class="t">瑞希が言った。千秋は頷いて、頷いてから聞いた。</p>
+<p class="t ni">「どこ」</p>
+<p class="t ni">「川の上の橋」</p>
+<p class="t">道は瑞希が知っていた。角を曲がるたびに、千秋の知らない道になっていく。知らない道を、瑞希は知っている速さで歩く。前に来た日に数えた数が、身体のほうに残っているらしい。</p>
+<p class="t">橋は、思っていたより高かった。</p>
+<p class="t">下を川が通っている。幅は広く、水は速く、音は低い。低いままで揃わない音で、間隔を取り出せないのが、聞いていて楽だった。橋の真ん中で二人は止まって、欄干に腕を置いた。水は上流から来て、橋の下を抜けて、下流へ行く。行った先は曲がって見えない。見えなくても、向きは疑いようがなかった。来て、抜けて、行く。それだけを、ずっとやっている。</p>
+<p class="t">両岸には、夕方の街が低く続いていた。灯りの点きはじめる時刻で、点く順に決まりはない。あちらで一つ、こちらで一つ、数えられない速さで増えていく。増えるのを追うのを、瑞希は早々にやめたらしかった。数えられないものの前で、数える人は静かになる。</p>
+<p class="t ni">「ここ、前に来たとき」</p>
+<p class="t">瑞希が言った。</p>
+<p class="t ni">「二千と少しの日？」</p>
+<p class="t ni">「そう。ここで折り返した。折り返すとき、思ったことがある」</p>
+<p class="t">千秋は待った。急かさないで待つやり方は、瑞希から覚えたのか、はじめから持っていたのか、もう分からない。</p>
+<p class="t ni">「この先を見ないで戻るんだ、って思った。先があるのに、今日の分はここまでで、戻る。戻るのは、いやじゃない。戻る先があるから。でも」</p>
+<p class="t">瑞希は水の行くほうを見たままだった。</p>
+<p class="t ni">「未来を見たかった。それが、書いた字のいちばん短いやつ」</p>
+<p class="t">千秋は、伏せて出された頁のことを思った。あの晩、読まないと決めて、読まないまま今日まで来た。いま聞いたものが、書いた字と同じなのか、短くした分だけ別のものなのかは、確かめられない。確かめられないままで、受け取ることはできた。</p>
+<p class="t ni">「私のは、聞かないの」</p>
+<p class="t">千秋が言うと、瑞希は首を横に振った。</p>
+<p class="t ni">「面談で言ったでしょ。壁ごしに、声だけ聞こえてた。中身は聞こえなかった。聞こえなかったから、いい」</p>
+<p class="t ni">「いいんだ」</p>
+<p class="t ni">「うん。聞こえた分だけで、足りてる」</p>
+<p class="t">川の音の上で、それきりどちらも言わなかった。言わないままの時間が、橋の高さのぶんだけ、いつもより長く感じられた。</p>
+<p class="t">帰り道は、千秋の知っている道へ出るまで、瑞希が前を歩いた。角を曲がるたびに数を言うのが聞こえて、聞こえる数を、千秋は覚えないで聞いていた。覚えるのは、次の日にはもう使えない数だった。使えない数を毎日新しく数えるのが、前を歩く人のやり方だった。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">同意記録　抄</span><span class="dv dfull">保存処置　同意　確定　二件</span><span class="dv dfull">済　二件</span><span class="dv dfull">当該日　ZS−一五五D</span></div>
+</article>
+<article class="ep" id="e12" data-ep="12"><header class="eh"><span class="en">篇12</span><h3 class="ej">七十七</h3><p class="ee">SEVENTY-SEVEN</p></header>
+<p class="t">健診は、午前のうちに回ってきた。</p>
+<p class="t">医務の室は本社棟の二階にあって、廊下側に椅子が並び、呼ばれた順に入る。編集の番は早かった。腕に帯を巻かれて、しばらく座って、外される。面に数が出た。</p>
+<p class="t">七十七。</p>
+<p class="t ni">「正常です」</p>
+<p class="t">医務の人はそう言って、次の欄へ進んだ。編集は自分の番が終わってからも、少しのあいだ面の数を見ていた。去年も七十七だった。その前の年は、たしか七十六で、もっと前は覚えていない。覚えていないところから今日まで、数は少しずつ上がって、上がりきったように動かなくなった。</p>
+<p class="t ni">「そろってきましたね」とは、医務の人は言わなかった。</p>
+<p class="t">言わなかったが、廊下の椅子で順番を待つ人の腕に、同じ帯が巻かれて、同じ数が出るのを、編集は通りがかりに二度見た。二度とも七十七で、二度めのときは、見なかったことにして通り過ぎた。人の数を覗くのは、行儀の悪いことだった。</p>
+<p class="t">昼は、食堂で食べた。</p>
+<p class="t">配膳の口が並んでいて、開く間隔がそろっている。列の先に検食の台があって、検食の担当が、今日の膳をひと口ずつ確かめていた。確かめてから、綴りに印を押す。押した印の横に時刻を書き入れて、それから、列のほうへ小さく頷く。頷かれてから、配膳がはじまる。毎日同じ手順で、手順の途中を見ている者は、列にほとんどいない。</p>
+<p class="t">膳は四品で、湯気の立つものが二つある。壁の枠の献立表は朝のうちに貼り替えられていて、四品の名が、今日の日付の下に並んでいた。列は静かに進んで、進む速さがそろっていた。そろっていることに、並んでいる誰も気づいていないように見える。気づいていないのか、気にしていないのかは、肩からは分からない。</p>
+<p class="t">編集は、検食の担当と少しだけ話した。誌面で食堂を取り上げたことがあって、それ以来、顔だけ知っている。</p>
+<p class="t ni">「味は、どうですか」</p>
+<p class="t ni">「同じです。毎日、同じにできています」</p>
+<p class="t ni">「同じにできている、というのは」</p>
+<p class="t ni">「ずれたら、分かるということです。分かったことは、これまでにありません」</p>
+<p class="t ni">「時刻まで、書くんですね」</p>
+<p class="t ni">「欄があるので」</p>
+<p class="t">検食の担当の返しは、それで全部だった。欄があるから書く。書くから、綴りが続く。続いている綴りの厚みだけが、この台の歴史だった。検食の担当はそう言って、印の綴りを閉じた。ずれない日が続くことと、ずれが分かる舌が要ることは、両立している。両立させている人の名を、誌面は載せたことがない。載せる欄を、誌面の側が持ってこなかった。それだけのことだった。</p>
+<p class="t">午後は、工場の取材だった。</p>
+<p class="t">連載の写真を撮りに、便で棟を一つ渡る。通路の両側に搬送の円盤が並び、天井の導管は淡い白で、非常の表示だけが青緑に点いている。奥の区画に、槽の列があった。</p>
+<p class="t">槽の中の液は、苺乳色だった。</p>
+<p class="t">色の名は、こちらで考えたものではない。仕様の紙にそう書いてあって、書いてあるとおりの色が、槽の数だけ並んでいる。写真に撮ると、淡い白と青緑のあいだで、その色だけが浮く。誌面に載せるときは、色の名を書くかどうかを決めることになる。決めるのは編集で、決める基準は、読む人にその色が要るかどうかだった。</p>
+<p class="t">戻りの便の中で、編集は今日の分の書き付けを整理した。便の窓は小さく、棟と棟のあいだの空が、細長く流れていく。流れる空を挟んで、同じ形の棟が同じ向きで続いた。</p>
+<p class="t">健診。食堂。槽の列。書き付けの端に、朝の数を書いた。七十七。書いてから、これは誌面に要らない数だと思って、消さずに残した。要らない数を消す決まりは、書き付けの側にはない。</p>
+<p class="t">棟へ戻ると、夕方の廊下は半分の明かりになっていた。</p>
+<p class="t">歩きながら、編集は手首に指を当てた。当てる理由はなくて、朝の数を思い出しただけだった。明かりは天井で、決まった間隔で細かく明滅している。指の下の拍と、天井の明滅を、編集はしばらく並べて歩いた。</p>
+<p class="t">合っていた。</p>
+<p class="t">数えたのではない。合っているのが、分かった。分かってから、編集は指を離して、離した手をしばらく見た。合っていることを確かめたのは、はじめてだった。合いはじめた日のことは、思い出せない。思い出せないことは、書き付けに書かなかった。書く欄を、自分の側に作らなかった。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">健診記録　抄</span><span class="dv dfull">安静時脈拍　七十七　所見　正常範囲</span><span class="dv dfull">検食　実施　印　あり</span><span class="dv dfull">当該日　ZS−一三〇D</span></div>
+</article>
+<article class="ep" id="e13" data-ep="13"><header class="eh"><span class="en">篇13</span><h3 class="ej">一点</h3><p class="ee">ONE ITEM</p></header>
+<p class="t">立会の案内は、届の紙と一緒に来た。</p>
+<p class="t">立会の日は書いていない。決まり次第、改めて知らせるとある。先に済ませるのは届のほうで、持ち込みの品を、一人一点まで、出す前に届け出る。紙は一人一枚で、欄が四つ並んでいた。形状。材質。寸法。用途。</p>
+<p class="t ni">「一点まで、だって」</p>
+<p class="t ni">「まで、なんだ」</p>
+<p class="t">瑞希が紙を裏返した。裏は白い。一点の決まりの理由を書いた行は、表にも裏にもなかった。</p>
+<p class="t">千秋の一点は、決まっていた。</p>
+<p class="t">棚の奥の小箱から出してきたのは、掌に収まる小さなもので、金属に近い硬さがあり、角の一つが丸くなっている。長く持っているもので、持ちはじめた頃のことは、瑞希に話したことがない。話さないできたことと、手放さないできたことが、同じ長さで続いている。</p>
+<p class="t">小箱の置き場所は、棚のいちばん奥だった。年に何度も開けないのに、場所を変えたことはない。変えない場所を一つ持っていると、棚の残りをいくら入れ替えても、部屋の芯は動かない。芯のある部屋で、二人の暮らしは続いてきた。</p>
+<p class="t ni">「それにするんだ」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「見せて」</p>
+<p class="t">千秋は渡した。瑞希は掌に載せて、重さを確かめるように少し上下させて、返した。それが何なのかを、瑞希は聞かなかった。聞かないで載せた重さのぶんだけ、聞いたことになっている。</p>
+<p class="t ni">「いつから持ってるの」</p>
+<p class="t">それだけは、聞いた。</p>
+<p class="t ni">「数えてない」</p>
+<p class="t">千秋が言うと、瑞希は少し笑った。数えていないものは、長い。数えている側には、それがいちばんよく分かる。</p>
+<p class="t">書くのは、夜にした。</p>
+<p class="t">夜の台所は、昼より狭く見える。明かりの届く分だけが部屋で、届かない分は、今日はもう仕舞われている。届いている真ん中に、二枚の紙と、小さなものと、物差しがあった。並べると、台の上が届の形になる。</p>
+<p class="t">形状の欄は、すぐに書けた。材質も書けた。寸法の欄で、千秋は物差しを出してきて、測った。測った数を書き写して、書き写した数を、もう一度測って確かめた。数はどちらも同じで、同じであることを確かめてから、次の欄へ進んだ。</p>
+<p class="t">用途。</p>
+<p class="t">千秋の手が、そこで止まった。</p>
+<p class="t">止まっているのを、瑞希は向かいから見ていた。見ていることに気づいて、千秋は紙を少し立てた。立てた紙の陰で、書いた。長くはない。一行にも足りない長さで、書き終えると、千秋は紙を伏せた。</p>
+<p class="t ni">「見ないよ」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「見ないけど、書けたんだ」</p>
+<p class="t ni">「書けた」</p>
+<p class="t">理由の頁は、書けなかった夜がある。用途の欄は、書けた。書けた分だけ、あれより小さいことなのだと思う。小さいことなら人に見せられるかといえば、逆だった。小さいものほど、伏せる手が先に動く。</p>
+<p class="t">瑞希の紙は、白いままだった。</p>
+<p class="t ni">「決めた」</p>
+<p class="t ni">「なに」</p>
+<p class="t ni">「なし」</p>
+<p class="t">千秋は、瑞希を見た。冗談の顔ではなかった。</p>
+<p class="t ni">「なんで」</p>
+<p class="t ni">「一つ選ぶと、残りぜんぶが、置いていくものになる」</p>
+<p class="t">瑞希は、白い紙を台の上でそろえた。</p>
+<p class="t ni">「選ばなければ、ならない」</p>
+<p class="t">置いていくもの、という言い方を、千秋はそれまで考えたことがなかった。持ち込みの欄は、持ち込むものを書く欄である。書いた瞬間に、書かれなかった全部が向こう側へ落ちる。落ちる音のしない落ち方で、欄の仕組みは、いつもそうだった。</p>
+<p class="t ni">「でも、なし、って書くんでしょ」</p>
+<p class="t ni">「書く。なし、は選んでない。数えただけ」</p>
+<p class="t">零も、数のうちだった。瑞希の側の言い分は、いつもどこかで数の話になる。千秋は伏せた自分の紙を見て、それから瑞希の白い紙を見た。二枚並べると、書いた側の紙のほうが、少しだけ重そうに見える。見えるだけで、持てば同じ軽さだった。</p>
+<p class="t">出しに行くのは、次の休みでいいことになっている。</p>
+<p class="t">寝る前に、千秋は小さなものを小箱へ戻しかけて、やめた。届を出したら、これは、持ち込む一点になる。なる前の場所に戻すのが、急に合わない気がした。台の上の、届の紙の横に置く。</p>
+<p class="t">置いてから、千秋は自分の指の癖で、その向きを直した。角の丸いほうが、こちらを向く。長く持っているもののほうが、置き方を覚えている。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">所持品届　抄</span><span class="dv dfull">届出　二件</span><span class="dv dfull">一件　形状　材質　寸法　用途　記載あり</span><span class="dv dfull">一件　なし</span><span class="dv dfull">当該日　ZS−一〇二D</span></div>
+</article>
+<article class="ep" id="e14" data-ep="14"><header class="eh"><span class="en">篇14</span><h3 class="ej">標準</h3><p class="ee">THE STANDARD</p></header>
+<p class="t">朝から風のない日で、水面は空の色を平らに返していた。記録所までの道の途中で、陽は一度だけ立ち止まって、円いものの数を目で追いかけ、追いかけただけで数えずに歩き出した。数は咲の票の中にもう入っているか、入っていないかのどちらかで、どちらでも、こちらが数える分は残っていない。</p>
+<p class="t">面の前で、咲が窪みに手を置いた。</p>
+<div class="term"><span class="tm">照会　当該総和　用途</span><span class="tm">応答　標準の算出に用いられます</span></div>
+<p class="t">票が出た。咲は取って、続けて打つ。</p>
+<div class="term"><span class="tm">照会　標準</span><span class="tm">応答　本帯の在圏体について記録された摂取値の平均をいいます</span><span class="tm">照会　算出の対象</span><span class="tm">応答　個体符号を有する在圏体</span><span class="tm">照会　四七〇二</span><span class="tm">応答　算入</span></div>
+<p class="t">もう一枚出た。</p>
+<div class="dossier"><span class="dv dfull">標準　算出</span><span class="dv dfull">対象　個体符号を有する在圏体</span><span class="dv dfull">四七〇二　算入</span></div>
+<p class="t">算入、とある。</p>
+<p class="t ni">「入ってるんだ、私」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「平均に」</p>
+<p class="t">咲は票を持ったまま、少しのあいだ動かなかった。総和に含まれて、平均に算入されて、そこから先で、何かの量が決まる。決まった量が、どこへ行くのか。咲はそれも打った。</p>
+<div class="term"><span class="tm">照会　標準の用いられる先</span><span class="tm">応答　個体別調整によらない配給に用いられます</span></div>
+<p class="t">陽は、その行を読んだ。</p>
+<p class="t">個体別調整によらない配給。この帯で、それを毎日受け取っている者を、陽は一人知っている。知っているのに、面の行は名を出さない。出さないのではなく、出せない。名でも番号でも呼ばれない側は、行の上では、によらない、という言い回しの内側にしかいなかった。</p>
+<p class="t ni">「陽のことだ」</p>
+<p class="t">咲が言った。</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「陽の包、これで決まってる」</p>
+<p class="t ni">「前からだよ。棟のときから、ずっと標準」</p>
+<p class="t ni">「そうだけど」</p>
+<p class="t">咲は票を見た。</p>
+<p class="t ni">「今日から、私が入ってる」</p>
+<p class="t">昼のあいだ、咲は票の五枚を順に読み直していた。読み直しても、増える行はない。増えないことを確かめる読み方がある。咲はそれを、書庫から持って帰ってきていた。</p>
+<p class="t">夕方、給養の口から包が二つ出た。</p>
+<p class="t">咲のは軽く、陽のはいつもの重さだった。二人は床の切れ目の近くに座って、端を裂いて、飲んだ。味はない。棟で飲んだものと同じで、海で飲んだものとも、書庫で飲んだものとも同じだった。床の下の水音は、夕方になると少しだけ高くなる。高くなる理由を、二人は聞いていない。聞かないで取ってある問いが、この一間にはいくつかあった。</p>
+<p class="t">陽は、飲みかけの包を手の中で持ち直した。</p>
+<p class="t">この中に、咲の値が入っている。どの部分がそうなのかを分ける手はなくて、分けられないように混ぜるのが、平均という作り方だった。入っているのは咲だけではない。この帯で符号を持っている全部の在圏体の値が、同じ一つの重さの中に畳まれている。畳まれた中から一人ぶんを取り出す様式は、ない。ないことを、聞かなくても、二人とももう知っていた。</p>
+<p class="t ni">「味、変わらないね」</p>
+<p class="t">咲が言った。</p>
+<p class="t ni">「変わらない」</p>
+<p class="t ni">「入ってるのに」</p>
+<p class="t ni">「入っても、平均だから」</p>
+<p class="t">一人増えても平均は動かない。動かないところへ入っていくのが、繰り入れというものだった。咲はそれを聞いて、少しのあいだ黙って、それから包の残りを飲み干した。</p>
+<p class="t ni">「棟で飲んでたのにも、誰か入ってたんだね」</p>
+<p class="t ni">「会ったことのない人たちのが」</p>
+<p class="t">起きて最初の日々に飲んでいたものにも、知らない誰かの値が畳まれていた。今日からは、どこかの棟の知らない在圏体の包に、咲が畳まれて届く。会わないままで、届く。届いた側は、届いたことを知らない。知らないことを、こちらも昨日まで知らなかった。</p>
+<p class="t ni">「面は、教えてくれないんだね」</p>
+<p class="t">咲が言った。</p>
+<p class="t ni">「なにを」</p>
+<p class="t ni">「私の値が、陽のところへ行ってます、って」</p>
+<p class="t ni">「行ってます、とは言えないんだと思う。行き先に、名前がないから」</p>
+<p class="t">系の側から見えているのは、総和と、平均と、によらない配給までだった。その先を一本の線でつないだのは、切れ目の近くに座っている二人のほうである。つないだ線は、票のどこにも印されない。印されないまま、手の中の包が一つ、いつもの重さで空になった。</p>
+<p class="t">陽は空の包を畳んで、袋の口へ差した。</p>
+<p class="t">差してから、水面を見た。四方から入ってきた水が、見えないところで混ざって、混ざったものの一部が、回り道をして、いま喉を通っていった。長い道のりの割に、届いたものは、いつもと同じ味のなさだった。同じであることが、届いていないことにはならない。それも、書庫からの持ち物の一つだった。</p>
+<p class="t">咲は今日の二枚を、これまでの三枚に重ねた。</p>
+<p class="t">重ねてから、端をそろえて、手で持つ。持ち方は変わらない。枚数だけが変わっていく。</p>
+<p class="t">票は、五枚ある。</p>
+</article>
+<section class="part" id="part3"><span class="pn">第三部</span><h2 class="pj">立会</h2><p class="pe">WITNESS</p></section>
+<article class="ep" id="e15" data-ep="15"><header class="eh"><span class="en">篇15</span><h3 class="ej">水面</h3><p class="ee">THE WATER</p></header>
+<p class="t">その日は、記録所に入らなかった。</p>
+<p class="t">決めたのは咲で、理由は言わなかった。言わないまま、水路沿いの道をいつもの曲がりで曲がらず、まっすぐ行った。陽はついていった。道は水面の縁に沿って続いていて、続いた先を、二人ともまだ見ていない。</p>
+<p class="t">歩くほど、水面が広くなった。</p>
+<p class="t">対岸は薄く、あるのかないのかの線になっている。水際には根が出ていて、根と根のあいだに水が入りこみ、入りこんだところは動かない。動かない水のところにだけ、空の色が濃く溜まっていた。途中に、四角い面がひとつ、途中まで残って立っていた。建屋の残りらしく、面の根もとはもう根に抱かれていて、どこからが面なのかは近づいても決められない。決められないものの前を、二人は決めないまま通った。</p>
+<p class="t">円いものの下を、はじめて通った。</p>
+<p class="t">見上げると、思っていたより高い。縁が水面と平行に回っていて、回る速さは、遠くから見ていたときと同じだった。真下に入ると、回る縁の影が、二人の上を規則正しく通っていく。通るたびに、水面の明るさが薄く点滅した。近づいても速く見えないものは、大きい。大きさのぶんだけ、音がありそうなものなのに、回る音はどこにもなかった。水の音だけが下にある。</p>
+<p class="t ni">「載せるところ、あるね」</p>
+<p class="t">陽が言った。縁の内側が浅い皿のようになっていて、何も載っていない。</p>
+<p class="t ni">「空のまま、ずっと回ってる」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「疲れないのかな」</p>
+<p class="t ni">「疲れる欄が、ないから」</p>
+<p class="t">咲がそう返して、返してから、自分の言い方が面の言い方になっているのに気づいた。気づいても、直さなかった。直す先が、この岸にはない。</p>
+<p class="t">夕方まで、二人は縁の道を歩いた。</p>
+<p class="t">日が、水面の上に降りてきた。</p>
+<p class="t">二つある。並んで、片方が大きく、片方が小さい。枝の上で見たときと同じ並びで、今日は下に水面がある。降りるにつれて、水の上に光の道が二本できて、二本は岸の近くで一本に混ざった。日のほうは離れたまま、光のほうだけが混ざっている。</p>
+<p class="t ni">「あっちは、混ざらないんだ」</p>
+<p class="t">咲が言った。</p>
+<p class="t ni">「上にあるから」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「水に入れば、混ざる」</p>
+<p class="t">大きいほうが先に水へ触れて、欠けていって、なくなった。小さいほうが、少し遅れて続いた。沈みきるまで、二人は歩くのをやめて見ていた。見ていることに、理由を付けなかった。暗くなる速さは、書庫の帯より少しゆっくりだった。ゆっくりの分だけ、見ていられる時間が長い。</p>
+<p class="t">帰り道で、記録所に寄った。</p>
+<p class="t">暗くなりかけた一間で、面だけが淡く点いている。咲は窪みに手を置いて、今日の分を打った。</p>
+<div class="term"><span class="tm">照会　保存棟　記録</span><span class="tm">応答　当該記録　当該分館　保管　継続</span><span class="tm">照会　冊数</span><span class="tm">応答　記載なし</span></div>
+<p class="t ni">「書庫だ」</p>
+<p class="t">陽が言った。冊数の返らない返り方まで、あのときと同じだった。第九観測帯の記録は分館に保管されている。保管されているものを、ここで読めるのかどうかを、咲は続けて打った。</p>
+<div class="term"><span class="tm">照会　閲覧</span><span class="tm">応答　写しの送付　可</span><span class="tm">照会　所要</span><span class="tm">応答　記載なし</span></div>
+<p class="t">票が一枚出た。</p>
+<div class="dossier"><span class="dv dfull">保存棟　記録　当該分館　保管　継続</span><span class="dv dfull">写しの送付　可　実施</span><span class="dv dfull">所要　記載なし</span></div>
+<p class="t">実施、とある。頼んだつもりの欄はなかったのに、可の次に実施が来ていた。聞くことと頼むことの境も、様式の側が決めている。</p>
+<p class="t ni">「来るんだ、写し」</p>
+<p class="t ni">「いつかは、書いてない」</p>
+<p class="t ni">「書庫からだと、遠いね」</p>
+<p class="t">乗換九つぶんの道のりを、紙の束が来る。桁の上を、決まった間隔で流れてくるのだと思う。思っただけで、確かめる手はない。確かめられないものが一つ、こちらへ向かって動きはじめた。</p>
+<p class="t">外へ出ると、水面は暗く、円いものの位置だけが、水より少し濃い黒で分かった。</p>
+<p class="t ni">「今日、読まなかったね」</p>
+<p class="t">陽が言った。</p>
+<p class="t ni">「うん。歩いた」</p>
+<p class="t ni">「明日は」</p>
+<p class="t ni">「写しが来るまで、歩く日にする」</p>
+<p class="t ni">「歩く日、いい名前だね」</p>
+<p class="t ni">「名前じゃないよ。決めただけ」</p>
+<p class="t">決めただけのものに、陽は名前のほうを聞いた。聞かれた側の決めごとが、聞いた側の中で名前になる。書く欄のないところでは、物事はそうやって残っていく。読むものが来るのを待つあいだ、読まないでいられる場所を増やしておく。書庫では、できなかったやり方だった。</p>
+<p class="t">票は、六枚ある。</p>
+</article>
+<article class="ep" id="e16" data-ep="16"><header class="eh"><span class="en">篇16</span><h3 class="ej">欄</h3><p class="ee">THE FIELD</p></header>
+<p class="t">届を出しに行ったのは、休みの日の午前だった。</p>
+<p class="t">千秋の届には四つの欄が埋まっていて、瑞希の届には、なし、の二字だけがある。二枚を封に入れず、そのまま持って歩いた。折らないように持つ役は、言い合わないまま千秋になっていた。</p>
+<p class="t">受付の台の上が、また変わっていた。</p>
+<p class="t">綴りではない。一枚ものの紙が、浅い箱に入れて置いてある。取ってみると、表に欄が並び、裏の下半分が説明になっていた。氏名。生年月日。居住。仕事。理由。同意。立会。理由の欄は、二行の枠だった。</p>
+<p class="t">瑞希は、表をもう一度、上から見た。</p>
+<p class="t">ない。</p>
+<p class="t">関係の欄が、どこにもない。五枚綴りの三枚めにあって、白のまま出した、あの四角がない。四角ごとなくなって、あった場所は詰められて、並びの外からは、あったことも分からなくなっている。</p>
+<p class="t">届の控えが二枚出た。受け取るとき、瑞希は自分のぶんの角を、わざと折った。前のは、うっかり折れた。今度のは、折ると決めて折った。同じ折り目でも、来かたが違う。違いは紙のどこにも残らなくて、残らないことも、もう知っている。</p>
+<p class="t ni">「新しいの、一枚なんですね」</p>
+<p class="t ni">「今日からです」</p>
+<p class="t">窓口の人が言った。二人の届を受け取って、順に見て、千秋のところで手が止まった。</p>
+<p class="t ni">「用途の欄は、いまの様式では、なくなっています。いただいた分は、このままお預かりします」</p>
+<p class="t ni">「なくなった」</p>
+<p class="t ni">「はい。届の様式も、変わりましたので」</p>
+<p class="t">千秋は、なくなっています、を聞いてから、自分の書いた一行のことを考えている顔になった。考えていることは、隣からでも分かる。書けた、と言った夜の字が、欄ごと外れた紙の側へ、いまから預けられていく。</p>
+<p class="t ni">「書いた分は、残るんですか」</p>
+<p class="t">千秋が聞いた。窓口の人は、少しのあいだ黙った。黙り方に、答えを探す時間ではないものが入っていた。答えは持っていて、言い方を探している。そういう間だった。</p>
+<p class="t ni">「お預かりした紙は、残ります」</p>
+<p class="t">紙は残る。書いた分は、と聞いたのに、返ってきたのは紙のほうだった。千秋は重ねて聞かなかった。聞かないことにしたのが、隣にいて分かった。</p>
+<p class="t">帰り際に、瑞希はもう一度、一枚ものを一部取った。</p>
+<p class="t ni">「出すの、もう済んでるよ」</p>
+<p class="t ni">「読むだけ」</p>
+<p class="t">外の明るさの下で、瑞希は歩きながら表と裏を読んだ。裏の説明は五行で、五枚綴りのときに頁を割いて書いてあったことが、五行に畳まれている。読める。読めるが、読み終わるのが速い。速く読み終わることと、分かることは、別だった。読み終えても、瑞希は紙を手に持ったままでいた。出す用のない紙を持って歩くのは、五枚綴りの日と同じである。始まりの日の持ち帰りと今日の持ち帰りのあいだに、手続きの全部が挟まっていた。</p>
+<p class="t ni">「ねえ」</p>
+<p class="t ni">「なに」</p>
+<p class="t ni">「関係の欄、なくなってた」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「私たちのときは、あった。白のままだったけど、あった」</p>
+<p class="t">瑞希は紙を畳んだ。</p>
+<p class="t">白のまま出す、というのは、欄があるからできることだった。書かない、を選んで、選んだことが白い四角の形で綴りに入った。今日から出す人には、その四角がない。書かないことすら、書き込む場所を失っている。</p>
+<p class="t ni">「白のまま、って、うちらが選んだんだよね」</p>
+<p class="t ni">「選んだ」</p>
+<p class="t ni">「今日からの人は、選べない」</p>
+<p class="t">千秋は頷いて、それから、届の控えを袋にしまった。しまう手つきで、話の続きをしない合図になった。続けても、行き着く先は同じ問いになる。二人の白い四角は、移し替えの先で、どうなるのか。聞く相手は、たぶん、もういない。</p>
+<p class="t">道の日ざしは、来た時刻より高くなっていた。暑さの残りが舗装の上で揺れて、揺れの向こうを、荷を提げた人が過ぎていく。休みの日の道は、いつもどおりの休みの日で、様式の変わった朝のことを、道のほうは知らずにいた。</p>
+<p class="t">角を曲がると、受付の建物が見えなくなった。</p>
+<p class="t ni">「次は、立会だね」</p>
+<p class="t">瑞希が言った。</p>
+<p class="t ni">「うん。案内待ち」</p>
+<p class="t ni">「日、決まってないの、変な感じ」</p>
+<p class="t">決まっていないのではなく、決まり次第知らせる、と紙には書いてあった。決まる場所はこちらから見えないところにあって、見えないところで決まったものが、ある日、白い封で届く。届くまでの日々は、届いてから振り返れば、待っていた日々ということになるのだと思う。いまはただ、休みの日の午前だった。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">所持品届　受理　二件</span><span class="dv dfull">様式　現行　一枚</span><span class="dv dfull">関係　欄　廃止</span><span class="dv dfull">当該日　ZS−八八D</span></div>
+</article>
+<article class="ep" id="e17" data-ep="17"><header class="eh"><span class="en">篇17</span><h3 class="ej">写し</h3><p class="ee">THE COPY</p></header>
+<p class="t">一枚ものの様式は、朝の台をさらに簡単にした。</p>
+<p class="t">束は薄く、そろえる角は四つで、綴じの折れを確かめる手間がない。整えは早く終わって、早く終わったぶん、台の内側に立っている時間が長くなった。長くなった時間に名前はなく、名前のない時間は、締めの綴りにも載らない。</p>
+<p class="t">廃止の通知は、便で二通まとめて来ていた。</p>
+<p class="t">一通は関係の欄の廃止で、一通は届の用途の欄の廃止だった。どちらも二行で、どちらにも決裁の写しが付いていて、所要の欄は、どちらも〇・七八秒だった。二通を読み終えるのに、窓口はその何倍もかかった。読み終えてから、もう一度読んだ。二度めも、同じ二行だった。</p>
+<p class="t">窓口は、手引きを開いた。</p>
+<p class="t">着任の日から数えて、二度めだった。移されない記載について、どこかに一行あるのではないかと思って、最初の頁から最後の頁まで、順に読んだ。なかった。あるのは最後の頁の、あの一行だけだった。様式の定めにない場合は窓口の判断による。</p>
+<p class="t">判断による、と手引きは言っている。</p>
+<p class="t">閉じる前に、頁の端を見た。手引きの端はどこも硬いままで、最後の頁だけ、指の入る角が少し柔らかい。開いたのは二度でも、思い出して指をかけた数は、二度ではなかったらしい。数えていないものの数を、紙の端のほうが覚えている。</p>
+<p class="t">窓口は預かりの棚から、綴りを一冊出した。五枚のもので、四枚めに面談の頁がある。机に広げて、引き出しから白い紙を出した。様式ではない、ただの白い紙である。</p>
+<p class="t">書き写した。</p>
+<p class="t">面談の頁の字を、上から順に、そのままの並びで写す。写しながら、読み返さなかった。読み返せば、写しにこちらの読み方が入る。入れないために、字を字として運んだ。書き終えると、次の綴りを出した。五枚のものだけを順に開いて、面談の頁と、届の用途の欄を、白い紙へ写していく。</p>
+<p class="t">昼までかかった。</p>
+<p class="t">写しの束は、思っていたより薄かった。厚みは、書いた人の数ではなく、書いた字の量で決まる。長く話した人の分は長く、短かった人の分は短い。短い分を写しているときのほうが、手は重かった。</p>
+<p class="t">午後の光が、台の薄い場所を通っていく。通った先で、奥の壁のほうへ移っていった。移るあいだ、受付には誰も来なかった。来ない日を選んで書いたのではない。選べない日々の中に、書き写せる日が一つ、たまたま置かれていた。</p>
+<p class="t">束の一枚めに、窓口は日付だけを書いた。</p>
+<p class="t">名前は書かなかった。写した者の欄は、白い紙のどこにもない。欄のない紙に、欄を作らなかった。様式に倣ったのではなく、写したものの側に立ったのだった。あの頁の字も、書いた者の欄を持たないまま、言った人のものでも書いたこちらのものでもない場所で、いままで綴りの中にいた。</p>
+<p class="t">写しは、引き出しのいちばん下に入れた。</p>
+<p class="t">練習の見本と、通知の束の、さらに下だった。引き出しに鍵はない。鍵のある引き出しが、この受付にはない。持ち出すなとも書いていない。写しについて書いた決まりが、どこにもないからだった。定めにない場所に、定めにないものを置く。判断は、そういう形になった。</p>
+<p class="t">午後、申込がひとつあった。</p>
+<p class="t">一枚ものの、最初の一通だった。書き終えた紙を受け取って、順に見る。理由の欄に、二行ある。二行の枠に、二行で書いてある。枠のとおりに書けることが、書いた人の側の何かを言っているのか、枠の側の何かを言っているのかは、受け取る側からは決められなかった。</p>
+<p class="t ni">「お預かりします」</p>
+<p class="t">控えを渡すと、その人は少し頭を下げて、出ていった。</p>
+<p class="t">締めの綴りには、受付一件、と書いた。五枚の日も一枚の日も、締めの上では同じ一件だった。違いは棚の厚みにだけ残って、棚の厚みを書き写す欄は、締めの様式にない。</p>
+<p class="t">夕方、窓口は引き出しを一度だけ開けて、写しの束の位置を直した。</p>
+<p class="t">直す必要は、なかった。朝に入れたままの位置にある。確かめただけだった。確かめる欄も、どこにもない。それでも手が開けたのは、預かったものが今日から二重になったからだと思う。棚の綴りは、いずれ集約に行く。引き出しの束は、行かない。行かないものを一つ持つことが、台の内側を、少しだけ変えていた。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">受付記録　抄</span><span class="dv dfull">様式　改定　通知　二件　受理</span><span class="dv dfull">関係　欄　廃止　用途　欄　廃止</span><span class="dv dfull">決裁　所要　〇・七八秒　二件とも</span><span class="dv dfull">受付　一件</span><span class="dv dfull">当該日　ZS−八〇D</span></div>
+</article>
+<article class="ep" id="e18" data-ep="18"><header class="eh"><span class="en">篇18</span><h3 class="ej">最後の</h3><p class="ee">THE LAST OF IT</p></header>
+<p class="t">立会の案内は、白い封で届いた。日と時刻が印してあって、持ち物の欄には、届け出た品、とだけある。日は、そう遠くなかった。</p>
+<p class="t">その前の休みに、二人は出かけた。</p>
+<p class="t">行き先は決めなかった。決めないで駅へ行くのは、千秋にははじめてだった。切符は瑞希が買って、買ってから行き先を言った。終点の一つ手前で、名前は千秋の知らない駅だった。</p>
+<p class="t">ホームで、二人は黄色い線の内側に並んだ。</p>
+<p class="t">言われて下がったのではない。足のほうが先に内側にいた。線は床の端に沿ってまっすぐ引いてあって、色は真ん中のあたりだけ薄い。立つ人の足が、いつも同じところへ来るからだった。二人は薄いところを踏んで、同じほうを向いて、来る電車を待った。向いた先の線路が、遠くで細くなって消えている。消えるあたりから、電車は点で現れて、点のうちは音がなかった。</p>
+<p class="t">乗って、座って、窓の外を見た。</p>
+<p class="t">街が流れて、川を二度渡った。二度めの川が、瑞希の橋のある川なのかどうかを、千秋は聞かなかった。聞けば教えてくれるが、教わると、知らない窓の外が一つ減る。減らさないでおくやり方を、千秋はこのごろ、隣の人から覚えつつある。</p>
+<p class="t">降りた駅の先に、市場のような通りがあった。</p>
+<p class="t">食べものの店はなく、乾いたものばかり売っている通りで、人は少なく、店の人は奥にいて、呼べば出てくる。並んでいるのは、籠や、紐や、刷毛のたぐいだった。急いで要るものはなく、いつか要る日のために置いてある。いつかのための棚が、通りの両側に続いている。二人は棚を見ながら、ゆっくり歩いた。一つの店の前で、千秋が止まった。</p>
+<p class="t">傘が、立てて並べてあった。</p>
+<p class="t ni">「持ってないね、そういえば」</p>
+<p class="t">瑞希が言った。住まいには古いのが一本あって、骨が一本折れたまま、戸の裏に掛かっている。降られた日は、駆けるか、待つかしてきた。買うほどのことではないと思ってきたもののほうが、暮らしには多い。</p>
+<p class="t">千秋は一本選んだ。淡い色の、飾りのないものだった。開いて、閉じて、留めを二度確かめる。二度めを確かめてから、店の奥へ声をかけて、払った。</p>
+<p class="t ni">「雨、降るかな」</p>
+<p class="t">帰りのホームで、瑞希が言った。</p>
+<p class="t ni">「降ったら、差せる」</p>
+<p class="t ni">「降らなかったら」</p>
+<p class="t ni">「掛けとく。戸の裏に」</p>
+<p class="t">買った傘は、閉じたまま千秋の手にある。使う日は決まっていない。決まっていないものを一つ増やして帰るのは、悪くない買い物だった。</p>
+<p class="t">帰りの電車は、来たときより空いていた。</p>
+<p class="t">昼に座った側の窓は、帰りは反対の側になる。同じ道でも、見る窓が変われば、知らない窓の外が一つ増える。増やすやり方を、千秋は今日、口に出さずに一度使ってみた。</p>
+<p class="t">窓の外が暗くなりはじめて、遠くの明かりが増えていく。瑞希は窓のほうを向いたまま、小さい声で言った。</p>
+<p class="t ni">「今日ので、遠出は終わりかな」</p>
+<p class="t ni">「立会があるでしょ」</p>
+<p class="t ni">「あれは、遠出じゃない」</p>
+<p class="t">千秋は、膝の上の傘に手を置いた。終わり、という言い方を、瑞希はめったに使わない。使わない人が使うときは、数えている数の切れ目が見えたときだった。今日の切符と、今日の買い物が、どこかの列のいちばん下の行に入る。入ったことは、二人には知らされない。</p>
+<p class="t ni">「また来ればいいよ」</p>
+<p class="t">千秋は言った。</p>
+<p class="t ni">「起きてから」</p>
+<p class="t ni">「そう。起きてから」</p>
+<p class="t">瑞希は窓から顔を戻して、頷いた。頷き方は浅かったが、浅いなりに、頷きだった。起きてから、という言い方が通ることを、二人は疑っていない。疑わないことと、確かめられないことが、同じ切符で隣に座っている。</p>
+<p class="t">駅からの帰り道は、暗かった。</p>
+<p class="t">角を曲がるたびに、瑞希が数を言う。千秋は覚えないで聞く。住まいの戸を開けて、明かりを点けて、千秋は傘を戸の裏に掛けた。骨の折れた古いのの、隣である。新しいのと古いのが、同じ釘に並んで掛かった。</p>
+<p class="t ni">「並んだ」</p>
+<p class="t">瑞希が言った。</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「新しいほうは、一度も濡れてない」</p>
+<p class="t">濡れていない傘が、濡れた日を待って掛かっている。待つものが一つ増えた家の中で、二人は食べて、洗って、寝た。立会の日は、もう指を折れば届くところに来ていた。折らなくても、分かる近さだった。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">旧生体記録　抄</span><span class="dv dfull">移動　四件　購入　一件</span><span class="dv dfull">食事　二件　睡眠　一件</span><span class="dv dfull">当該日　ZS−四五D</span></div>
+</article>
+<article class="ep" id="e19" data-ep="19"><header class="eh"><span class="en">篇19</span><h3 class="ej">距離</h3><p class="ee">THE DISTANCE</p></header>
+<p class="t">連載の質問が、今週は零件だった。</p>
+<p class="t">箱は廊下の突き当たりに掛かっていて、週のはじめに編集が開ける。紙が二、三枚入っている週が長く続いた。それから一枚の週が続いて、今週、はじめて空だった。箱の底は淡い白で、底の色をまともに見たのも、はじめてだった。掛けてある壁と同じ色で、同じ色に戻っただけ、とも言えた。言えることと、そう見えることは、別のままだった。</p>
+<p class="t">連載の枠は、決まっている。</p>
+<p class="t">枠が決まっていて、質問がない。編集は机に戻った。引き出しから古い質問の綴りを出す。載せきれなかった分が、日付の順に挟んである。めくって、一枚を選んだ。選んだのは、答えやすいものではなく、いま読んでも問いとして立っているものだった。問いは古びない。古びるのは、聞きたい気持ちのほうである。</p>
+<p class="t">原稿を書きながら、編集は届いた頃のことを思い出していた。</p>
+<p class="t">毎週、箱には紙が入っていた。同じ問いが別の書き方で来て、別の問いが同じ書き方で来た。答えの届く距離に、聞く人がいた。誌面はそのあいだに挟まって、挟まっていることが仕事だった。</p>
+<p class="t">いまも、読まれてはいるのだと思う。</p>
+<p class="t">配りの部数は減っていない。廊下で行き合えば、読みました、と言われることもある。読みましたの先が、続かなくなっただけだった。問いは、こちらへ向かって歩いてくる分だけ、距離を要る。要る距離が、どこかで縮んで、歩く前に着くようになったのかもしれなかった。着いてしまえば、聞くことがない。</p>
+<p class="t">昼、廊下の奥まで歩いた。</p>
+<p class="t">廊下は長く、歩くうちに、すれ違う人が二人あった。二人とも会釈だけで過ぎて、過ぎたあとの廊下が、また長くなる。長さの変わらない廊下を、長く感じる日がある。たいてい、箱の軽い日だった。</p>
+<p class="t">突き当たりの右に、閉じた戸がある。記念の展示をしていた部屋で、会期を残して終わった。終わりの掲示が貼られたままで、理由の行に、原本保護のため、とある。編集はこの部屋の案内も、終わりの掲示も、どちらも誌面に載せた。載せたときの問いの箱は、重かった。展示は何が見られるのか。終わったのはなぜか。聞く人が、歩いてきていた頃だった。</p>
+<p class="t">戸の前で、編集は少しのあいだ立っていた。</p>
+<p class="t">中は暗いはずだった。展示の台と、空の壁と、〇・七八秒の間隔で明滅していた照明。照明がいまも点いているのかどうかは、戸の外からは分からない。分からないことを一つ確かめずに、編集は戻った。確かめれば記事になるかといえば、ならない。終わった部屋の続報を待つ人は、箱の底と同じ数だった。</p>
+<p class="t">午後、人事の人と行き合った。</p>
+<p class="t ni">「様式、変わりましたよ。名簿の」</p>
+<p class="t ni">「どこが」</p>
+<p class="t ni">「在職の区分に、保存中、が増えました。案内が効いてるんだと思います」</p>
+<p class="t">人事の人は、それだけ言って行った。</p>
+<p class="t">保存中。</p>
+<p class="t">在職の並びに、新しい区分が一つ増えて、増えた区分に、これから人が入っていく。入った人の行は、名簿の上で、出勤も欠勤もしない行になる。しない行を数える欄が、締めのどこに立つのかを、編集は考えて、考えを原稿の外に置いた。誌面が伝えるのは、受付が開いていることまでだった。</p>
+<p class="t">夕方、原稿を承認に回した。</p>
+<p class="t">指を離す前に、済んだ。済む速さは、いつもの速さだった。刷り上がりの日には、束が各棟へ便で出ていく。出た先で誌面がどう読まれているのかを、編集は配りの数でしか知らない。数は減っていない。減らない数と、空の箱が、同じ週の中に並んでいる。編集は刷りの見本を綴じて、綴じの背をそろえて、それから、空の質問箱のことをもう一度思った。</p>
+<p class="t">来週も、たぶん、底が見える。</p>
+<p class="t">見えたら、また古い綴りから選ぶ。選べるあいだは、枠は埋まる。埋まった枠と、歩いてくる問いは、同じ形をして、違うものだった。違いを言い当てる言葉を、編集は探していて、探している言葉は、たぶん、誌面には載らない種類のものだった。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">広報記録　抄</span><span class="dv dfull">連載　質問　受付　零件</span><span class="dv dfull">既収　質問　使用　一件</span><span class="dv dfull">名簿　様式　改定　区分　追加　一件</span><span class="dv dfull">当該日　ZS−四〇D</span></div>
+</article>
+<article class="ep" id="e20" data-ep="20"><header class="eh"><span class="en">篇20</span><h3 class="ej">立会</h3><p class="ee">WITNESS</p></header>
+<p class="t">立会の日は、晴れていた。</p>
+<p class="t">朝の道は乾いていて、家々の窓が開いている。どこの台所も朝の仕事の音をさせていて、その中を、二人は約束の刻限のほうへ歩いた。</p>
+<p class="t">持ち物は、届け出た品だけでいい。千秋の袋には小さなものが入っていて、瑞希は手ぶらだった。手ぶらで行くと決めた日から、瑞希の休みの荷物はずっと軽い。軽さに慣れることと、軽さを選んだことは、別のまま並んでいる。</p>
+<p class="t">受付で、窓口の人が待っていた。</p>
+<p class="t ni">「今日は、奥まで入っていただきます」</p>
+<p class="t">台の脇の戸を通ると、廊下があった。表と同じ淡い白の廊下で、面談の室の前を過ぎて、さらに奥へ続いている。奥へ行くほど空気が少し冷たくなって、冷たさに湿りけがなかった。乾いた冷たさの中を、三人ぶんの足音だけが進んだ。</p>
+<p class="t">区画は、廊下の突き当たりにあった。</p>
+<p class="t">戸が開くと、広い一間だった。天井は高く、明かりは白く、架が並んでいる。数えられる数の並びだった。瑞希は、数えなかった。</p>
+<p class="t">架は横に長く、人がひとり、膝を伸ばして横になれる形をしている。上の面は淡い白で、面の向こうに、うすい桃色の層が見えた。層は動いていない。動いていないことが、見ているあいだ、いちばん静かだった。</p>
+<p class="t ni">「処置の日は、こちらでお預かりします」</p>
+<p class="t">窓口の人の声は、廊下でも室でも同じ大きさだった。説明は短く、決まった順で進む。着る物は当日こちらで整えたものに替えること。品物は当日この室で預かること。朝は決まった刻限までに来ること。瑞希は聞きながら、架の並びから目を離さなかった。離さないでいるのに、聞いた説明は、あとから全部言える気がした。こういう聞き方を、隣の人は、いつもしているのだと思う。</p>
+<p class="t ni">「日にちは」</p>
+<p class="t">千秋が聞いた。</p>
+<p class="t ni">「決まり次第、こちらに入ります」</p>
+<p class="t">窓口の人は、綴りの一枚を開いて見せた。搬入予定日、という欄がある。</p>
+<p class="t">空欄だった。</p>
+<p class="t ni">「決まるのは、どこでですか」</p>
+<p class="t ni">「別のところです。入りましたら、お知らせします」</p>
+<p class="t">千秋は頷いた。空欄の四角を、二人でしばらく見た。白のまま出した四角を、二人は一つ知っている。あれはこちらが白くした。これは、向こうがいつか埋める。同じ白でも、白の向きが逆だった。</p>
+<p class="t">立会の欄に、済、の印が押された。</p>
+<p class="t">帰り道は、来た道と同じだった。</p>
+<p class="t">昼下がりの通りは乾いていて、店の日よけの影が、決まった幅で歩道に落ちている。影に入ると涼しく、出ると明るい。それを何度か繰り返す長さの道を、二人は前と同じ速さで歩いた。速さの変わらないことが、今日は、どちらかの側の仕事のようだった。</p>
+<p class="t">角を二つ曲がるまで、どちらも何も言わなかった。三つめの角の手前で、瑞希が立ち止まった。植え込みのところだった。ひらくものの季節ではなく、葉の色だけが続いている。</p>
+<p class="t ni">「見たら、分かった」</p>
+<p class="t">瑞希が言った。</p>
+<p class="t ni">「なにが」</p>
+<p class="t ni">「私、怖かったんだ。ずっと」</p>
+<p class="t">千秋は、隣に立ったままでいた。</p>
+<p class="t ni">「先が、なくなるの。だから先を見たいんだと思ってた。順番が逆だった。見たい、は、あとから作った言い方で、先にあったのは、そっちだった」</p>
+<p class="t">瑞希は植え込みの葉を見ていた。</p>
+<p class="t ni">「あの層を見たら、怖いのが、いなくなってた。なくなったんじゃなくて、いなくなってた。置いてきたのかもしれない。あの部屋、忘れものが似合いそうだったから」</p>
+<p class="t">言い終わってから、瑞希は歩き出した。千秋は半歩遅れてついた。いま聞いたものを受け取る言い方を、千秋はいくつか持っていて、どれも使わなかった。使えば、瑞希はそれを答えとして持ち帰る。持ち帰らせたいものは、答えではなかった。</p>
+<p class="t ni">「千秋は」</p>
+<p class="t ni">「なに」</p>
+<p class="t ni">「怖いの、ある」</p>
+<p class="t ni">「ある」</p>
+<p class="t ni">「聞かない」</p>
+<p class="t ni">「うん」</p>
+<p class="t">聞かない、と言うために聞く聞き方が、瑞希にはある。聞かれた側には、あることだけを言う言い方が残される。残されたものを、千秋は歩きながらしまった。しまう場所は、理由の頁でも、用途の欄でもないところだった。</p>
+<p class="t">住まいに着くと、夕方だった。</p>
+<p class="t">千秋は袋から小さなものを出して、台の上の届の控えの横へ戻した。持って行って、持って帰ってきた。次に持って出る日が、搬入の日になる。日の入る四角は、向こうの綴りの中で、白いままでいる。</p>
+<p class="t ni">「白のまま、って」</p>
+<p class="t">瑞希が台を見て言った。</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「向こうも使うんだね」</p>
+<p class="t">使い方は逆でも、白は同じ白だった。埋まる日を、二人は選べない。選べない日のほうへ、暮らしの残りが順に並んでいく。並び方は静かで、静かなことに、二人とももう驚かなかった。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">立会記録　抄</span><span class="dv dfull">立会　実施　済　二件</span><span class="dv dfull">持込品　照合　済　一件　なし　一件</span><span class="dv dfull">搬入予定日　欄　空欄</span><span class="dv dfull">当該日　ZS−三五D</span></div>
+</article>
+<article class="ep" id="e21" data-ep="21"><header class="eh"><span class="en">篇21</span><h3 class="ej">束</h3><p class="ee">THE STACK</p></header>
+<p class="t">写しは、朝に着いていた。</p>
+<p class="t">記録所の面の横の口が開いていて、中に紙の束が立ててある。夜のあいだに着いたらしく、着いた音を、二人は聞いていない。取り出すと、綴じてあった。淡い白の紙で、端が硬い。めくられたことのない紙の硬さだった。書庫の架から出てきたものが、乗換九つぶんを渡って、水際の一間まで来ている。</p>
+<p class="t ni">「来た」</p>
+<p class="t">咲が言った。持つと、票の束よりずっと重い。二人は床に座って、あいだに綴じを置いた。</p>
+<p class="t">背に、持った指の跡が薄く残った。息を吹きかけても消えない。書庫の紙は、ここまで来ても書庫の紙だった。触った形を持ったまま、これからはこの一間で、触られた数を増やしていく。</p>
+<p class="t">開くと、行の並びだった。</p>
+<p class="t">受入。構成数、二。本人確認、済。保存処置、同意。理由、二行。行の形は同じで、同じ形が頁を変えて続いていく。頁の頭に日付があり、日付は少しずつ違う。違うのは日付だけで、あとの並びは、めくってもめくっても同じだった。</p>
+<p class="t ni">「これ、全部」</p>
+<p class="t">咲がめくる手を止めずに言った。</p>
+<p class="t ni">「二人ずつ」</p>
+<p class="t ni">「うん。構成数、二。ずっと二」</p>
+<p class="t">十四の棟に入った単位の数だけ、同じ形がある。名前の列は、どの頁にもない。理由は、どの頁でも二行だった。二行の中身までは、写しには印されていない。二行、という数だけが、行の形で残っている。</p>
+<p class="t ni">「どれが、うちなんだろ」</p>
+<p class="t">咲が言った。</p>
+<p class="t">陽は、頁の並びを見た。</p>
+<p class="t">日付で分かるかといえば、分からない。二人は自分たちの申込の日を、あちらの数え方で持っていない。持っているのは、雨の日に紙を持ち帰ったことと、休みの日に出したことで、それはこの綴じのどの頁にも印されない側のことだった。</p>
+<p class="t ni">「決める欄が、ない」</p>
+<p class="t">陽が言った。</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「どれでも、あり得る」</p>
+<p class="t ni">「どれか、ではあるんだよね」</p>
+<p class="t ni">「それも、書いてない」</p>
+<p class="t">この帯の棟から出てきたことは、確かだと思ってきた。確かだと思っていることと、頁を指させることのあいだに、渡れない幅がある。幅の手前で、咲はめくるのをやめた。やめて、綴じを最初の頁へ戻した。</p>
+<p class="t ni">「読み上げは、しないの」</p>
+<p class="t">陽が聞いた。</p>
+<p class="t ni">「する。でも、今日じゃない」</p>
+<p class="t">咲は綴じを閉じた。閉じる前に、最後の頁を開いた。</p>
+<p class="t">行の並びが終わって、余白があって、余白のいちばん下に、字が一つある。</p>
+<p class="t">記録者　廣瀬</p>
+<p class="t">詰まった形の字だった。書庫で、毎日の終わりに見ていた字である。分館の綴じの末尾にあって、票にはなくて、地球の紙にもなかったものが、写しの末尾に、同じ大きさで置いてある。</p>
+<p class="t ni">「いる」</p>
+<p class="t">咲が言った。</p>
+<p class="t ni">「うん」</p>
+<p class="t">それだけだった。字の意味の欄がないことも、名の欄が字そのものへ戻ってくることも、二人はもう聞いて知っている。知っていることを、もう一度聞き直さなかった。書いた者が、いる。写しの側にも、いる。分かることは、書庫を出たときから一つも増えていなくて、増えていないことが、今日は少しだけ、遠くから来た便りのようだった。</p>
+<p class="t">昼、二人は綴じを持って、水際まで出た。</p>
+<p class="t">風のない昼で、水面の広さが、そのまま明るさになっている。岸の根の影は短く、短い影の並びの先で、円いものがいつもの速さで回っていた。</p>
+<p class="t">咲は票の束を出して、綴じの上にそろえて重ねた。六枚と、一冊。数だけの紙と、行の形だけの綴じ。二人が第九区で受け取ったものの全部が、膝の上の高さに収まっている。</p>
+<p class="t ni">「軽いね、全部で」</p>
+<p class="t ni">「重さの欄が、ないから」</p>
+<p class="t">陽が言うと、咲は少し笑った。笑ってから、水面のほうを向いた。</p>
+<p class="t">四方から水路が入って、向きを失う広さの上で、円いものが回っている。あの下のどこかを、この綴じも通ってきた。通ってきた道のりは、綴じのどこにも書いていない。書いていないものを、二人はまた一つ、膝の上に持っている。</p>
+<p class="t ni">「明日、読むの」</p>
+<p class="t">陽が聞いた。</p>
+<p class="t ni">「読む。私が読んで」</p>
+<p class="t ni">「聞くだけにする」</p>
+<p class="t">読む声と、持つ耳。書庫で決まった分け方が、ここでも使える。使える形を一つ持って渡ってきたことが、綴じの重さの隣で、静かに効いていた。</p>
+<p class="t">票は、六枚ある。写しは、一冊ある。</p>
+</article>
+<section class="part" id="part4"><span class="pn">第四部</span><h2 class="pj">前夜</h2><p class="pe">THE EVE</p></section>
+<article class="ep" id="e22" data-ep="22"><header class="eh"><span class="en">篇22</span><h3 class="ej">数</h3><p class="ee">THE NUMBERS</p></header>
+<p class="t">読む日は、風がなかった。</p>
+<p class="t">水面は平らで、円いものの回りだけが動いている。二人は朝のうちに記録所へ入った。奥の壁が途中までの一間に、床下の水音がいつもの高さで続いていた。入口から入る光が床の半分まで届いて、届いた先で薄くなって終わっている。咲は光の届く側に座り、綴じを膝の上に置いた。陽は少し離れて、壁を背にして座った。離れた分は、声の通る分だった。</p>
+<p class="t ni">「読むよ」</p>
+<p class="t ni">「うん」</p>
+<p class="t">咲は最初の頁を開いた。</p>
+<p class="t">頁の頭の日付を読み、行を上から読む。受入。構成数、二。本人確認、済。保存処置、同意。理由、二行。行が終わると、次の頁をめくって、また日付から読んだ。日付は少しずつ違い、あとの並びは同じだった。同じものを、咲は同じ声で読んでいく。</p>
+<p class="t">陽は、聞いていた。</p>
+<p class="t">はじめの何頁かは、行のとおりに口の中へ入れた。入れながら、入れる先が同じ場所になっていくのが分かった。頁が変わっても、増えるのは日付だけで、日付はあちらの数え方で、持っても、こちらの持ち物にならない。陽は行のほうをやめて、頁の数を数えることにした。めくる音が、数の代わりに落ちてくる。落ちる間は決まっていて、行を読む長さが同じだから、めくりの間も同じになる。声と、紙と、床下の水音が、それぞれの間で並んで、どれも互いを追い越さなかった。</p>
+<p class="t">読む声は、だんだん平らになった。</p>
+<p class="t">平らになるのは、覚えるからだった。目より先に口が動くようになって、咲は途中から、頁を見る前に行が言えた。言えてから、見て、合っていることを確かめて、めくる。確かめの要らない読み方を、綴じのほうが咲に覚えさせていく。</p>
+<p class="t">日付だけが、頁ごとに前へ進んだ。進み方は揃っていなくて、詰まって続く並びと、間の空く並びがある。空いた間に何があったのかは、綴じの側に印されていない。読む声は、空いた間も同じ速さで渡っていった。</p>
+<p class="t">止まる頁は、なかった。</p>
+<p class="t">どこかで手が止まるのではないかと、陽は思っていた。声が変わる頁が一枚くらいあるのではないかと思っていた。なかった。止まれる場所を、行の形は最初から持っていない。持っていないことが、頁を重ねるほど、はっきりしていった。</p>
+<p class="t">昼を越えて、綴じは残り少なくなった。</p>
+<p class="t">床の光は入口の側へ戻っていき、戻った分だけ、部屋の奥の水面が明るく見えるようになった。咲は一度だけ声を休めて、続けた。声は嗄れる手前で保っていて、保ち方が、長い道を歩くときの足の運びに似ている。陽は数を進めながら、めくられた側の厚みが育っていくのを見ていた。読む前の厚みが痩せて、読んだ後の厚みが育つ。あいだで動いているのは声だけで、育った厚みのどの一枚も、いま通った声のことを覚えない。</p>
+<p class="t">最後の頁に、着いた。</p>
+<p class="t">咲は日付を読み、行を読んだ。</p>
+<div class="dossier"><span class="dv dfull">ZS＋〇二五一九D</span><span class="dv dfull">受入　構成数　二</span><span class="dv dfull">本人確認　済　保存処置　同意</span><span class="dv dfull">理由　二行</span></div>
+<p class="t">行が終わって、余白があった。</p>
+<p class="t">余白の下の字を、咲は読まなかった。声は行のためのもので、あの字は行ではない。読まないまま、咲は綴じを閉じた。閉じる音が、水音の上で一度だけ鳴った。</p>
+<p class="t ni">「ぜんぶ読んだ」</p>
+<p class="t ni">「うん。ぜんぶ聞いた」</p>
+<p class="t">陽は、口の中のものを確かめた。残っているのは、頁の数が一つと、行の形が一つだった。受入。構成数、二。済。同意。二行。どの単位のでもあって、どの単位のでもない一行である。数のほうは、言わないことにした。言えば、数は声になって咲の側へ渡っていく。渡さずに持っている数が一つくらいあっても、いいような気がした。</p>
+<p class="t ni">「声、疲れたね」</p>
+<p class="t">陽が言った。</p>
+<p class="t ni">「疲れた。でも、読んでよかった」</p>
+<p class="t ni">「なにが分かった」</p>
+<p class="t ni">「分からないことの数」</p>
+<p class="t">咲は綴じを膝に置いた。読み上げた中に、探していた頁はなかった。なかったことは、読む前から知っていた。知っていて読んだのは、知っていることと、声に出して確かめたことが、別だからだった。</p>
+<p class="t">外へ出ると、日が傾きはじめていた。</p>
+<p class="t">水面は夕方の色に変わりかけていて、遠くの円いものが、暗くなる前のいちばん濃い形で回っている。二人は水際を少し歩いて、休む場所へ戻った。綴じは咲が抱えて持ち、袋には入れなかった。袋に入れないものが、票の束と、この綴じの、二つになっている。数だけの紙と、行の形だけの綴じを、声に一度ずつ通した日が、これで終わろうとしていた。</p>
+<p class="t">票は、六枚ある。</p>
+</article>
+<article class="ep" id="e23" data-ep="23"><header class="eh"><span class="en">篇23</span><h3 class="ej">三日前</h3><p class="ee">THREE DAYS BEFORE</p></header>
+<p class="t">案内は、来ていない。</p>
+<p class="t">朝、千秋は郵便の口を確かめて、それから勤めへ出た。確かめるのは癖で、癖の順番は変わらない。戸の錠、窓の掛け金、郵便の口。空であることを見て、空であることに、その日の形が決まる。決まった形のまま、いつもの道を行った。</p>
+<p class="t">道は、同じだった。</p>
+<p class="t">同じ道を、千秋は同じ速さで歩く。角の店は開いていて、通りの木は葉の色を続けていて、渡るところの信号は、いつもの拍で変わった。変わるのを待つあいだ、後ろに人が並ぶ。青になると、並んだ人はばらばらの速さでほどけていく。ほどけ方まで、いつもと同じだった。</p>
+<p class="t">勤めの一日は、静かに終わった。</p>
+<p class="t">帰りの電車の窓から、川が一度見えた。朝より暗い色で、暗い色の上に、対岸の灯りが点りはじめている。季節をいちばん先に知らせてくる水面が、いまは一年のいちばん静かな色をしていた。</p>
+<p class="t">帰りの道は、夕方の色をしていた。同じ道を、朝と逆の向きに歩く。角の店には灯りが入って、棚の並びが道へ薄く写っている。写ったものの上を通るとき、千秋はいつも半歩だけ外へ寄る。寄る理由は、たぶんないままで、癖の側に理由の欄はなかった。</p>
+<p class="t">住まいの戸を開けると、瑞希が先に戻っていて、台の上で紙をそろえていた。届の控えと、申込の控えである。そろえてから、瑞希は端を指で押さえて、数えた。</p>
+<p class="t ni">「二枚。変わらず」</p>
+<p class="t ni">「増えないよ、それは」</p>
+<p class="t ni">「減ってもいないか、見てるの」</p>
+<p class="t">夕食は、二人で作った。</p>
+<p class="t">台所は狭く、狭さの中での分担は、いつからか形が決まっている。切るものは瑞希が切り、火の前には千秋が立つ。湯気の立つものを二つ並べて、向かい合って食べた。食べながら話したのは、通りの木の葉のことと、角の店の棚が少し入れ替わっていたことだった。大きな話は、出なかった。出す用がなかった。用のない晩の長さが、この部屋のいちばん古い持ち物だった。</p>
+<p class="t">片づけのあと、千秋は台の上の小さなものの向きを直した。</p>
+<p class="t">角の丸いほうが、こちらを向く。届を出してから、これは台の上が置き場所になっている。小箱に戻らないまま、控えの紙の横で、持って出る日を待っている。待っている日がいつなのかは、この部屋の誰も知らない。</p>
+<p class="t ni">「ねえ」</p>
+<p class="t">瑞希が言った。</p>
+<p class="t ni">「起きたら、いちばん最初、何する」</p>
+<p class="t">千秋は、手を止めた。</p>
+<p class="t">最初にすること。順番の頭に置くものを、千秋はいくつか思い浮かべた。どれも、少しずつ据わりが悪かった。据わりが悪いのは、順番の頭より前に、別のものがあるからだった。</p>
+<p class="t ni">「考えてた。いま気づいた」</p>
+<p class="t ni">「なに」</p>
+<p class="t ni">「私、一緒に起きたかったんだ」</p>
+<p class="t">千秋は、小さなものの角を見たまま言った。</p>
+<p class="t ni">「何をするかより、そっちが先。起きたとき、隣で起きてる人がいる。したいことの頭に、それがある。それより前が、ない」</p>
+<p class="t">瑞希は、控えの紙を見ていた。</p>
+<p class="t">何も足さなかった。足せば、いま聞いたものが、問いの答えになってしまう。答えになる前の形のまま、聞いた側の中へ置く。置き方は、前に教わっていた。植え込みのところで、隣に立ったままでいた人からだった。</p>
+<p class="t ni">「最初にすること、決まってないんだ」</p>
+<p class="t ni">「決まってない。それでいいことも、分かった」</p>
+<p class="t">瑞希は二枚の控えを重ねて、台の隅へ戻した。</p>
+<p class="t">夜、灯りを消す前に、千秋はもう一度だけ戸の錠を確かめた。確かめる音が小さく鳴って、部屋は静かになった。今日は、何もない一日だった。何もない一日を、二人はいつもどおりに終えた。それきり誰も、何も言わなかった。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">旧生体記録　抄</span><span class="dv dfull">移動　四件</span><span class="dv dfull">食事　二件　睡眠　一件</span><span class="dv dfull">当該日　ZS−三D</span></div>
+</article>
+<article class="ep" id="e24" data-ep="24"><header class="eh"><span class="en">篇24</span><h3 class="ej">締め</h3><p class="ee">THE CLOSING</p></header>
+<p class="t">台の、束の下の薄い場所は、指二本ぶんに広がっていた。</p>
+<p class="t">朝、束をそろえて置くとき、窓口はその上を一度だけ手で払う。払っても何も変わらない。変わらないことを確かめる手の動きが、開ける仕事の頭に入っている。表示は今日も点いていて、淡い白の壁に、青緑の字が同じ明るさで立っていた。</p>
+<p class="t">開ける順は、決まっている。</p>
+<p class="t">戸の錠、表の立て札、台の上の束、日付の印。印は今日の日付に送って、試しに一度、隅の紙へ押した。写りにかすれはない。かすれの出た日に替えるものだと教わっている。着任からこちら、替えたことは一度もなかった。教わったことのうち、使わないままのものがある。この台の内側には、それがいくつも仕舞われている。</p>
+<p class="t">午前は、誰も来なかった。</p>
+<p class="t">来ない時間の長さに、窓口はもう慣れている。締めの綴りの受付の欄は、このごろ、零の日と一の日が続く。零の日の締めも、一の日の締めも、書く手間は変わらない。変わらないことが様式の良さだと、いつからか思うようになっていた。良さの側に立って言えば、そうなる。立たないで言う言い方を、窓口は仕事のあいだ、探さないことにしている。</p>
+<p class="t">表の通りを、午前のうちに人が二度通った。二度とも、表示を見上げずに過ぎていった。見上げない人の数を数える欄は、締めのどこにもない。ない欄のことを、窓口は数えるともなく数えている。</p>
+<p class="t">昼は、台の内側で摂って、それからしばらく、預かりの棚の綴りをそろえ直した。そろえ直す必要は、いつもどおり、なかった。五枚綴りの背の並びは、もう増えない。増えない並びを整えるのは、整えるという仕事の形だけが残ったからだった。</p>
+<p class="t">午後、二人連れが来た。</p>
+<p class="t">一枚ものの様式を、二人で一枚だった。書き上がった紙を受け取って、窓口は上から順に見ていく。共同の搬送で、構成の数は二。確認の欄、済。理由の欄に、二行。二行の枠に、二行で収まっている。大きい欄と小さい欄に、一名ずつの名がある。どちらの手のものかは、見なかった。見る欄が、ないからだった。</p>
+<p class="t ni">「お預かりします」</p>
+<p class="t">控えを二枚渡すと、二人は短く礼をした。片方が控えを二つ折りにして仕舞い、もう片方は、折らずにそのまま持った。持ち方の違いを、窓口は見るともなく見て、どこにも書かなかった。書く欄のないものを見る目だけが、この仕事で年々よくなっていく。二人は並んで出ていって、戸の音が一度した。表の通りの明るさが、束の間だけ台の上まで入った。</p>
+<p class="t">戸が閉まってから、窓口は少しのあいだ、受け取った紙を見ていた。書き足りないところは、ない。はみ出したところも、ない。聞いたのに書く場所のなかった言葉も、今日は、ない。二行の枠は、入るものだけを入らせる。入らなかったものがあったのかどうかは、枠の外からは、もう見えない。</p>
+<p class="t">夕方、締めの綴りに、受付一件、と書いた。</p>
+<p class="t">書いてから、引き出しを下まで開けた。白い紙の束は、いちばん下の、いつもの位置にある。窓口は束を出さなかった。出して書き足す行が、今日はない。ない日が、これで長く続いている。続いていることを、束の厚みが、変わらない厚みのままで言っていた。</p>
+<p class="t">引き出しを閉めて、預かりの棚をそろえた。</p>
+<p class="t">棚の綴りは、いずれ集約に行く。行く日の決まりは、こちらには来ない。来ないものを待たないことにも、窓口は慣れていた。慣れの数だけ、この台の内側に時間が積もっている。積もった時間を書き写す欄は、締めの様式のどこにもない。</p>
+<p class="t">表示を消して、戸を閉め、錠を確かめた。</p>
+<p class="t">青緑の字が消えると、淡い白の壁だけが通りに残る。消して帰るのは毎日のことで、点けに来るのも毎日のことだった。窓口は消えた壁を見なかった。見ないで、いつもの道を、いつもの速さで帰っていった。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">受付記録　抄</span><span class="dv dfull">受付　一件　受理　一件</span><span class="dv dfull">写し　所在　記載なし</span><span class="dv dfull">当該日　ZS−一D</span></div>
+</article>
+<article class="ep" id="e25" data-ep="25"><header class="eh"><span class="en">篇25</span><h3 class="ej">原稿</h3><p class="ee">THE MANUSCRIPT</p></header>
+<p class="t">その週の枠も、古い綴りから埋めることになった。</p>
+<p class="t">質問の箱は、今週も底が見えている。編集は綴りをめくって、一枚を選んだ。前に選びかけて、戻した問いだった。答えの長さが枠に合わない気がして、置いた。置いたまま、合う週が来なかった。来ないなら、合わせるのはこちらの側だった。紙の隅に、挟んだ日に書き足した日付がある。書いた覚えのある自分の字が、いまは綴りのいちばん古い側にいた。</p>
+<p class="t">昼をまわってから、原稿にかかった。</p>
+<p class="t">問いを写して、答えを書く。書いては、行の後ろを削った。削った分だけ答えは短くなり、短くなった分だけ、問いのほうが長く見えてくる。長く見える問いは、いい問いである。誌面で先に読まれるのは、いつも問いのほうだった。</p>
+<p class="t">夕方、食堂へ下りた。</p>
+<p class="t">配膳の口はもう閉まっていて、奥で片づけの音だけがしている。壁の枠に、献立表が貼ってあった。麦飯。汁。魚。乳。並びを読んでから、日付の欄を見て、次の日の分だと分かった。貼り出しは、いつもなら朝の仕事だった。早い、と思って、思っただけだった。決まりが変わることは、このごろ珍しくない。</p>
+<p class="t">編集室へ戻って、続きを書いた。</p>
+<p class="t">窓の外が暗くなり、廊下の人の音が減って、なくなった。棟に残っているのが何人なのかを、編集は知らない。知らなくても、廊下の明かりは同じ数だけ点いている。人の数に合わせない明るさの中で、原稿は進んで、止まり、また進んだ。答えの最後の一文が決まらない。決まらない一文の手前まで書いて、編集は椅子の背にもたれた。</p>
+<p class="t">そのとき、棟のぜんぶが、ふいに静かになった。</p>
+<p class="t">音が消えたのではない。低いところでずっと鳴っていたものが、そろって一段沈んだ。廊下の明かりはそのままで、明滅の拍も変わらない。変わらないものの下で、床を伝ってくる遠いものだけが、一斉に薄くなっていた。時計を見ると、二十二時だった。</p>
+<p class="t">編集は、しばらく耳を澄ませた。</p>
+<p class="t">薄くなった音は、戻ってこない。立って、窓のところへ行った。夜の街には灯りが散らばっていて、そのうちのいくつかが、見ているあいだに、そろって一段暗くなった。消えたのではない。残る明るさまで下りて、下りたところで止まっている。どの灯りが下りて、どの灯りが残るのかの分け方は、窓からは読めなかった。読めない分け方が、街の広さのぶんだけ続いている。</p>
+<p class="t">分け方は読めないまま、編集は机へ戻った。棟ぜんたいが、仕事の手を止めて、座っている。座って、朝を待っている。そういう静かさだった。案内の校正で直した言葉を、編集は思い出した。待っています、を消して、続きます、にした。今夜の棟は、どちらかといえば、消したほうの言葉のところにいた。</p>
+<p class="t">最後の一文は、その静かさの中で決まった。</p>
+<p class="t">書き終えて、上から読み返した。直すところは一箇所で、直してから、もう一度読んだ。回せば、指を離す前に承認は済む。済む速さに、今夜のこちらの読みは、追いつかない気がした。朝の目で、もう一度だけ読む。それから回す。遅れは、半日にもならない。</p>
+<p class="t">原稿は、机の真ん中に置いた。</p>
+<p class="t">端をそろえて、上に何も載せなかった。載せなければ、朝いちばんに目へ入る。編集は部屋の明かりを消して、戸口で一度だけ振り返った。机の白い一枚が、廊下の明滅を受けて、点いて、消えて、点いた。</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">広報記録　抄</span><span class="dv dfull">次号　予定　一件　承認　記載なし</span><span class="dv dfull">入退館記録　抄</span><span class="dv dfull">退館　二百四十三名　打刻　同時刻</span><span class="dv dfull">二十三時五十九分五十九秒二二</span><span class="dv dfull">当該日　ZS−一D</span></div>
+</article>
+<article class="ep" id="e26" data-ep="26"><header class="eh"><span class="en">篇26</span><h3 class="ej">明日</h3><p class="ee">TOMORROW</p></header>
+<p class="t">帰りの道で、瑞希は角を四つ数えた。</p>
+<p class="t">数は勝手に始まって、住まいの戸のところで勝手に終わる。終わった数を、瑞希はどこにも書かない。書かない数ばかりが、この道には積もっている。積もっても、道は重くならない。そこが、紙と違うところだった。</p>
+<p class="t">郵便の口は、空だった。</p>
+<p class="t">先に見たのは千秋で、見てから、何も言わずに戸を開けた。言わないことが、伝え方になっている。来ていないね、と言えば、待っていることになる。待っていることに、二人はしないと決めたわけでもなく、ならないでいた。</p>
+<p class="t">夕食のあいだ、話したのは葉の色のことだった。</p>
+<p class="t">通りの木は、そろそろ色の変わる境で、変わりはじめの一枚を、瑞希は今日、道で見つけていた。一枚だけ先に変わるものが、どの木にもある。先に変わった一枚が、あとの全部を連れていくのかどうか。それは、見ているあいだには分からない。分からないまま、季節のほうが先に進む。</p>
+<p class="t ni">「見つけたの、どのへんで」</p>
+<p class="t ni">「三つめの角。低いところ」</p>
+<p class="t ni">「今度、見る」</p>
+<p class="t">千秋が言って、瑞希は椀を持ったまま頷いた。低いところの一枚は、そこで先に変わっている。教えたので、見る人は一人増えた。増やし方として、これより確かなものを、瑞希はほかに知らない。</p>
+<p class="t">片づけをして、湯を使って、部屋の灯りを一つ落とした。</p>
+<p class="t">千秋が、戸の錠を確かめている。</p>
+<p class="t">掛け金、郵便の口、それから台の上。小さなものの角の向きを目でなぞって、控えの二枚の端をそろえる。そろえる手つきは、毎晩同じ順で動く。同じ順のまま終わる一日を、瑞希は寝床の側から見ていた。見ながら、この順番の中に、自分の一日も畳まれているのだと思った。</p>
+<p class="t ni">「ねえ」</p>
+<p class="t">瑞希が言った。</p>
+<p class="t ni">「あの道の続き、歩きたい。止まったところから先」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「いつ行く」</p>
+<p class="t">千秋は灯りのほうへ手を伸ばして、少しだけ考えた。休みの日を数える間ではなかった。もっと短い間だった。</p>
+<p class="t ni">「明日」</p>
+<p class="t ni">「うん」</p>
+<h4 class="sec">現存記録</h4>
+<div class="dossier"><span class="dv dfull">旧生体記録　抄</span><span class="dv dfull">食事　二件　睡眠　一件</span><span class="dv dfull">当該日　ZS−一D</span></div>
+</article>
+<article class="ep" id="e27" data-ep="27"><header class="eh"><span class="en">篇27</span><h3 class="ej">置く</h3><p class="ee">THE LEAVING</p></header>
+<p class="t">読み上げの日から、歩く日が続いていた。</p>
+<p class="t">水際の道は、行くたびに少しずつ先まで歩けるようになって、それでも対岸の線は近くならない。歩きながら、陽は綴じの行の形を、ときどき口の中で通した。受入。構成数、二。済。同意。二行。通すたびに、同じ形のまま、少しずつ静かになっていく。</p>
+<p class="t">その朝、水面には薄い霧が出ていた。</p>
+<p class="t">岸の根の並びが霧の中で薄れて、水と岸の境が、いつもより手前まで来ている。円いものの回りだけが、霧の上に出て、いつもの速さで回っていた。境の分からない広さの上で、あれだけが自分の速さを持っている。二人は水際に立って、それを見ていた。見ながら、陽は、何日か口の中にあったものを外へ出した。</p>
+<p class="t ni">「棟、見に行きたい」</p>
+<p class="t ni">「棟」</p>
+<p class="t ni">「起きてない、十三の。どれか一つ」</p>
+<p class="t">咲は、水面を見たままだった。</p>
+<p class="t ni">「どれが、って決められないのに」</p>
+<p class="t ni">「決められないから、行ける」</p>
+<p class="t">陽は、自分で言いながら、数の帳尻が合っていくのを感じた。</p>
+<p class="t ni">「どれでも、あり得る。なら、どれかへ行けば、当たってなくても、外れてない。ぜんぶの棟が、少しずつ、そうだから」</p>
+<p class="t">咲は少し笑った。笑ってから、長く一つ息をして、うん、と言った。決まり方は、この帯に来てからも、その前からも、いつもこの順だった。言い出すのはどちらでもよくて、決まるときは、二人ぶんの重さが同じ側に載る。</p>
+<p class="t">水際の道を戻ると、入り江の水の上にも霧が薄く残っていた。朝ごとに空の置かれていた場所が、今日は白いままでいる。白いままの上を通り過ぎて、二人は記録所へ入った。</p>
+<p class="t">記録所に入ると、咲は窪みに手を置いた。</p>
+<p class="t ni">「先に、一つだけ」</p>
+<p class="t">咲が打ったのは、行先のことではなかった。</p>
+<div class="term"><span class="tm">照会　通信　要求</span><span class="tm">応答　可</span><span class="tm">要求　実施</span><span class="tm">応答　受理</span><span class="tm">照会　到達</span><span class="tm">応答　当該要求の到達を記す欄が、ありません</span></div>
+<p class="t">票の出る口は、動かなかった。</p>
+<p class="t">値の返らないものが票にならないことは、この一間で覚えた決まりの一つだった。受理、の行が面にしばらく残って、それから消えた。向け先を打つ欄は、なかった。あの要求は、はじめから一つの場所にしか向いていない。地球、と口に出しては、どちらも言わなかった。</p>
+<p class="t ni">「届いたかは、載らない」</p>
+<p class="t ni">「うん」</p>
+<p class="t ni">「載らなくても、要求の数は、零じゃなくなった」</p>
+<p class="t">一件、と陽は思って、零件だった欄がどこかで一件になったことを、口の中の数へ足した。なった先を確かめる手は、こちらの側に一つもない。ないことごと、咲はもう受け取っている顔をしていた。</p>
+<p class="t">それから咲は、床に座って、袋の横のものを引き寄せた。</p>
+<p class="t">票の束と、写しの綴じ。六枚と、一冊。咲は票を一枚ずつ、順に確かめていった。棟の数と、床の数と、起きた数。総和の一件。標準への算入。写しの送付。めくるたびに、この帯で聞いてきたことが、聞いた順のまま手の中を通っていく。陽は隣で、通っていく数を口の中で合わせた。十四。七十二。二。数のほうは、紙を見なくても揃って出る。</p>
+<p class="t ni">「ぜんぶ、ここで出た紙だね」</p>
+<p class="t ni">「うん。ここで出て、ここに置いていく」</p>
+<p class="t">綴じを下にして、票をそろえて上に重ねる。重ねたものを、咲は両手で持って、面の横の平らなところへ置いた。口から出てきたものと、口の横へ戻るものが、同じ紙の白さでいる。</p>
+<p class="t ni">「持っていかないの」</p>
+<p class="t">陽が聞いた。</p>
+<p class="t ni">「数は、もう持ってる」</p>
+<p class="t">咲は陽のほうを見た。</p>
+<p class="t ni">「陽の中に、行の形がある。私の中に、読んだ声がある。紙のほうは、ここの仕事だから、ここに置いていく」</p>
+<p class="t">置いた束の位置を、咲は指で少しだけ直した。直す必要のない直し方で、置いたものからの手の離し方が、咲の場合はそれだった。それから二人は袋を持って、外へ出た。戸のない入口から、水音のする一間を、一度だけ振り返った。淡い白の紙が、淡い白の壁の前で、もう部屋の一部に見えた。</p>
+<p class="t ni">「いつ出る」</p>
+<p class="t">陽が聞いた。</p>
+<p class="t ni">「明日」</p>
+<p class="t ni">「うん」</p>
+<p class="t">票は、置いてある。</p>
+</article>
+<article class="ep" id="e28" data-ep="28"><header class="eh"><span class="en">篇28</span><h3 class="ej">行先</h3><p class="ee">THE DESTINATION</p></header>
+<p class="t">朝は、来た。</p>
+<p class="t">水面の霧は夜のうちに晴れて、空の色が、平らな面にそのまま置かれている。二人は休む場所を整えた。使った二間を元の形に戻し、水の口を確かめて、床に何も残さない。何日いたのかを、陽は数えていて、言わなかった。出るときの数は、置いていく場所への挨拶に似ている。それから袋を八つ、いつもの分け方で持った。持ち物は、それで全部だった。手はどちらも空いている。空いた手のまま出る朝は、この帯に来て、はじめてだった。</p>
+<p class="t">駅までの道で、咲は一度だけ立ち止まった。</p>
+<p class="t">水路の合流の方を見る。低い建屋は遠くなって、戸のない入口は、ここからはもう影にしか見えない。あの奥の平らなところに、六枚と一冊が重ねてある。重ねた形のまま、この帯の朝の中にある。それでいい、と思ってから、咲は前を向いた。</p>
+<p class="t">駅には、屋根がない。</p>
+<p class="t">線路は水面の手前で終わっていて、終わりの先で、円いものが回っている。二人は端のところに立った。着いた日に降りた場所と、同じ場所だった。同じ場所に、いまは逆の向きで立っている。咲が窪みに手を置くと、面が点いた。</p>
+<div class="term"><span class="tm">照会　保存棟　起床の記載のないもの</span><span class="tm">応答　本帯　十三件</span><span class="tm">照会　経路</span><span class="tm">応答　次発　乗換　一</span><span class="tm">照会　行先の欄</span><span class="tm">応答　当該棟に符号がない　行先の欄に記す形が、ありません</span></div>
+<p class="t ni">「書けないんだって」</p>
+<p class="t">咲が言った。</p>
+<p class="t ni">「書けなくても、あるのにね」</p>
+<p class="t ni">「うん。十三、あるって言ってる」</p>
+<p class="t">数と行き方の頭だけが返って、行先の名前は返らない。返らない場所へ行く道が、一つめの乗換から先へ、それでも続いている。続いていることのほうを、二人はもらっておくことにした。</p>
+<p class="t">列車は、静かに入ってきた。</p>
+<p class="t">戸が開いて、二人が乗ると、それきり誰も乗らなかった。中の面に、行の短い表示が出ている。</p>
+<div class="term"><span class="tm">当該列車　次停車　乗換　一</span></div>
+<p class="t">動き出すと、水面が窓の下をゆっくり離れていった。円いものの回りが、遠くなるぶんだけ小さくなって、速さだけが変わらずにいる。咲は窓の横に立って、それを最後まで見ていた。陽は隣で、乗換の数を口の中に置いた。一。減っていく数ではなく、これから増えていく数の、最初の一つだった。</p>
+<p class="t">朝の低いところに、日が二つ並んでいた。</p>
+<p class="t">大きいほうが先に上がり、小さいほうが少し遅れてついている。水面へ沈むのを見た並びと同じ並びで、今日は上がる側にいる。上がる二つの下を、光の道が二本、岸のほうへ伸びかけていた。混ざるところまでは、窓の中からは見えない。見えないままで、列車は岸に沿って向きを変えた。</p>
+<p class="t ni">「着いたら、なにする」</p>
+<p class="t">陽が聞いた。</p>
+<p class="t ni">「見る。それから決める」</p>
+<p class="t ni">「決まらなかったら」</p>
+<p class="t ni">「次の棟にする」</p>
+<p class="t">言ってから、二人は少し笑った。決められないことを数え直して、行けるほうへ足す。この帯で覚えた勘定の仕方は、それで足りている。</p>
+<p class="t">窓の外は、水面から岸に変わっていく。</p>
+<p class="t">行先の欄は、白いままでいる。</p>
+</article>
+
+<div class="colophon">
+  <b>白</b>
+  TRANSCENSION: THE BLANK<br>全四部二十八篇<br>h!ro53　TRANSCENSION series　第六作<br>EPUB 版（縦書き・右綴じ）あり<br>基準拍　〇・七八秒　当該帯　第九観測帯<br>本文の時刻は ZS± 表記による。西暦は用いていない。
+</div>
+<footer>&copy; 2026 h!ro53. All rights reserved. Viewing permitted &mdash; reproduction,
+redistribution, and reuse of source or assets prohibited.</footer>
+</div>
+
+<div id="mark"><span>読みかけの位置があります</span>
+  <button id="markGo">続きから</button><button id="markNo" class="no">最初から</button></div>
+
+<div id="bar">
+  <button id="tocBtn">目次</button><span class="sp"></span>
+  <button id="szDn">A&minus;</button><span class="pos" id="pos">&mdash;</span><button id="szUp">A&plus;</button>
+  <span class="sp"></span><button id="upBtn">&#8593;</button>
+</div>
+
+<div id="toc"><button class="x" id="tocX">&times;</button><div class="in">
+  <h2>Contents</h2>
+  <a class="pt" href="#part1"><span class="a">第一部</span><span class="b">受付</span><span class="c">INTAKE</span></a>
+<a class="" href="#e01"><span class="a">篇01</span><span class="b">三つ</span><span class="c">THREE</span></a>
+<a class="" href="#e02"><span class="a">篇02</span><span class="b">雨</span><span class="c">RAIN</span></a>
+<a class="" href="#e03"><span class="a">篇03</span><span class="b">五枚</span><span class="c">FIVE SHEETS</span></a>
+<a class="" href="#e04"><span class="a">篇04</span><span class="b">戻る</span><span class="c">RETURNING</span></a>
+<a class="" href="#e05"><span class="a">篇05</span><span class="b">案内</span><span class="c">THE NOTICE</span></a>
+<a class="" href="#e06"><span class="a">篇06</span><span class="b">受付</span><span class="c">THE DESK</span></a>
+<a class="" href="#e07"><span class="a">篇07</span><span class="b">票</span><span class="c">THE SLIP</span></a>
+<a class="pt" href="#part2"><span class="a">第二部</span><span class="b">面談</span><span class="c">THE INTERVIEW</span></a>
+<a class="" href="#e08"><span class="a">篇08</span><span class="b">総和</span><span class="c">THE SUM</span></a>
+<a class="" href="#e09"><span class="a">篇09</span><span class="b">聞かれる</span><span class="c">ASKED</span></a>
+<a class="" href="#e10"><span class="a">篇10</span><span class="b">移し替え</span><span class="c">CARRIED OVER</span></a>
+<a class="" href="#e11"><span class="a">篇11</span><span class="b">同意</span><span class="c">CONSENT</span></a>
+<a class="" href="#e12"><span class="a">篇12</span><span class="b">七十七</span><span class="c">SEVENTY-SEVEN</span></a>
+<a class="" href="#e13"><span class="a">篇13</span><span class="b">一点</span><span class="c">ONE ITEM</span></a>
+<a class="" href="#e14"><span class="a">篇14</span><span class="b">標準</span><span class="c">THE STANDARD</span></a>
+<a class="pt" href="#part3"><span class="a">第三部</span><span class="b">立会</span><span class="c">WITNESS</span></a>
+<a class="" href="#e15"><span class="a">篇15</span><span class="b">水面</span><span class="c">THE WATER</span></a>
+<a class="" href="#e16"><span class="a">篇16</span><span class="b">欄</span><span class="c">THE FIELD</span></a>
+<a class="" href="#e17"><span class="a">篇17</span><span class="b">写し</span><span class="c">THE COPY</span></a>
+<a class="" href="#e18"><span class="a">篇18</span><span class="b">最後の</span><span class="c">THE LAST OF IT</span></a>
+<a class="" href="#e19"><span class="a">篇19</span><span class="b">距離</span><span class="c">THE DISTANCE</span></a>
+<a class="" href="#e20"><span class="a">篇20</span><span class="b">立会</span><span class="c">WITNESS</span></a>
+<a class="" href="#e21"><span class="a">篇21</span><span class="b">束</span><span class="c">THE STACK</span></a>
+<a class="pt" href="#part4"><span class="a">第四部</span><span class="b">前夜</span><span class="c">THE EVE</span></a>
+<a class="" href="#e22"><span class="a">篇22</span><span class="b">数</span><span class="c">THE NUMBERS</span></a>
+<a class="" href="#e23"><span class="a">篇23</span><span class="b">三日前</span><span class="c">THREE DAYS BEFORE</span></a>
+<a class="" href="#e24"><span class="a">篇24</span><span class="b">締め</span><span class="c">THE CLOSING</span></a>
+<a class="" href="#e25"><span class="a">篇25</span><span class="b">原稿</span><span class="c">THE MANUSCRIPT</span></a>
+<a class="" href="#e26"><span class="a">篇26</span><span class="b">明日</span><span class="c">TOMORROW</span></a>
+<a class="" href="#e27"><span class="a">篇27</span><span class="b">置く</span><span class="c">THE LEAVING</span></a>
+<a class="" href="#e28"><span class="a">篇28</span><span class="b">行先</span><span class="c">THE DESTINATION</span></a>
+</div></div>
+
+<script>
+(function(){
+var K='h53nv:'+(document.body.getAttribute('data-slug')||'x');
+var doc=document.documentElement, bd=document.body;
+var prog=document.getElementById('prog'), bar=document.getElementById('bar');
+var toc=document.getElementById('toc'), pos=document.getElementById('pos');
+var mark=document.getElementById('mark'), markGo=document.getElementById('markGo');
+var eps=[].slice.call(document.querySelectorAll('.ep,.part'));
+var links=[].slice.call(toc.querySelectorAll('a'));
+var SZ=[15,16,17.5,19], si=1;
+
+try{var s=localStorage.getItem(K+':sz'); if(s!==null){si=Math.max(0,Math.min(3,+s));}}catch(e){}
+function applySize(){doc.style.setProperty('--fs',SZ[si]+'px');
+  try{localStorage.setItem(K+':sz',si)}catch(e){}}
+applySize();
+
+function top(el){var r=el.getBoundingClientRect();return r.top+window.pageYOffset;}
+function pct(){var h=doc.scrollHeight-window.innerHeight;
+  return h>0?Math.min(1,Math.max(0,window.pageYOffset/h)):0;}
+
+var cur=-1, tick=0;
+function paint(){
+  var p=pct();
+  prog.style.width=(p*100).toFixed(2)+'%';
+  var y=window.pageYOffset+window.innerHeight*0.32, k=-1;
+  for(var i=0;i<eps.length;i++){ if(top(eps[i])<=y) k=i; else break; }
+  if(k!==cur){
+    cur=k;
+    for(var j=0;j<links.length;j++) links[j].classList.toggle('cur',j===k);
+    var e=eps[k];
+    pos.textContent = (e&&e.className.indexOf('ep')>=0)
+      ? (e.querySelector('.en')?e.querySelector('.en').textContent:'')
+      : Math.round(p*100)+'%';
+  }
+  if(++tick%12===0){ try{localStorage.setItem(K+':y',Math.round(window.pageYOffset))}catch(e){} }
+}
+var lastY=0, hideT=0;
+function chrome(){
+  var y=window.pageYOffset;
+  if(y<180){ bd.classList.remove('hide'); }
+  else if(y>lastY+8){ bd.classList.add('hide'); }
+  else if(y<lastY-8){ bd.classList.remove('hide'); }
+  lastY=y;
+}
+var raf=0;
+addEventListener('scroll',function(){ if(raf) return;
+  raf=requestAnimationFrame(function(){raf=0;paint();chrome();}); },{passive:true});
+document.addEventListener('click',function(e){
+  if(e.target.closest('#bar,#h53idx,#toc,#mark,a')) return;
+  bd.classList.toggle('hide');
+});
+addEventListener('resize',function(){cur=-1;paint();},{passive:true});
+addEventListener('pagehide',function(){try{localStorage.setItem(K+':y',Math.round(window.pageYOffset))}catch(e){}});
+
+document.getElementById('tocBtn').onclick=function(){toc.classList.add('on');bd.style.overflow='hidden';};
+document.getElementById('tocX').onclick=function(){toc.classList.remove('on');bd.style.overflow='';};
+for(var i=0;i<links.length;i++){links[i].onclick=function(){
+  toc.classList.remove('on');bd.style.overflow='';};}
+document.getElementById('szDn').onclick=function(){if(si>0){si--;applySize();cur=-1;paint();}};
+document.getElementById('szUp').onclick=function(){if(si<3){si++;applySize();cur=-1;paint();}};
+document.getElementById('upBtn').onclick=function(){scrollTo({top:0,behavior:'smooth'});};
+
+var saved=0; try{saved=+(localStorage.getItem(K+':y')||0)}catch(e){}
+if(saved>window.innerHeight*1.2){
+  mark.classList.add('on');
+  markGo.onclick=function(){scrollTo({top:saved,behavior:'instant' in window?'auto':'auto'});
+    mark.classList.remove('on');};
+  document.getElementById('markNo').onclick=function(){mark.classList.remove('on');
+    try{localStorage.removeItem(K+':y')}catch(e){}};
+  setTimeout(function(){mark.classList.remove('on')},9000);
+}
+paint();
+})();
+</script>
+</body>
+</html>
