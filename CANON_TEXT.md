@@ -72,6 +72,20 @@ Upon the wafer the T stands at the same dimensions under whichever era it is nam
 
 ---
 
+## ASSET 21 — CHROME LITURGY
+
+**制作上の仮題** 作者の命名確認後に変更可能。独立した作品としてCANONの直後、一覧2番目に配置。
+
+**説明 JA**
+Cyberwafer v25の構造と運動を、磨かれた金属と厚みのある光の文字で再構成。ピンクから赤へ移るT、青緑の文字環、循環するクローム円盤。ドラッグで回転、ピンチで拡大、タップで拍動。Blender原本と高精細写真を収録。
+
+**説明 EN**
+The structure and motion of Cyberwafer v25, recast in polished metal and solid luminous lettering. A pink-to-red T, turquoise text rings and circulating chrome wafers. Drag to orbit, pinch to zoom, tap to pulse. Includes the Blender master and a high-resolution photograph.
+
+**制作記録** Cyberwafer v25 の元形状、リング角速度、Tの浮遊、円盤のスロット循環、タップ時の0.78秒の拍動を継承。素材・照明・背景は本作独自。新しい世界設定・断章は追加していない。WebGLはBlenderの評価済み形状・ベイク画像・HDR照明を使用する近似PBR表示。高精細写真はCyclesによるパストレーシング。
+
+---
+
 ## ASSET 01 — Object
 
 **位相** PHASE 1 · THE FIRST T
