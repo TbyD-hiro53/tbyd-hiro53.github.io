@@ -20,6 +20,7 @@
 <meta name="twitter:image" content="https://tbyd-hiro53.github.io/earth-origin-material-og.jpg">
 <link rel="canonical" href="https://tbyd-hiro53.github.io/earth-origin-material.html">
 <meta name="observation-log" content="The request could be made. Its arrival had no field.">
+<meta name="asset-version" content="4.1">
 <meta name="asset-slug" content="earth-origin-material.html">
 <style>
 html,body{margin:0;height:100%;background:#05070a;overflow:hidden;
@@ -56,7 +57,6 @@ html,body{margin:0;height:100%;background:#05070a;overflow:hidden;
 #rec .px{font-size:10px;letter-spacing:.15em;color:rgba(238,242,242,.52);white-space:nowrap}
 #rec .pe{font-size:11px;letter-spacing:.02em;color:rgba(238,242,242,.60);margin-bottom:9px}
 #rec .pj{font-size:13.5px;line-height:1.95;color:#f2ecee}
-#rec .pd{margin-top:12px;font-size:9px;letter-spacing:.34em;color:rgba(0,221,200,.62)}
 #ring{position:fixed;z-index:5;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;
  border:1px solid rgba(242,219,233,.85);opacity:0;pointer-events:none}
 #ring.ring{animation:rg .6s ease-out forwards}
@@ -986,9 +986,9 @@ html,body{margin:0;height:100%;background:#05070a;overflow:hidden;
  * 第三作『個』篇20  「入口に、面が一つあった」／篇20「記録室で、咲が端末を開いた」
  * 篇21「中央の面へ触れると、光点が空間に広がった」／篇21「咲は、指を欄の手前で止めた」
  * 造形の芯（v2。Ryota 指摘：「テクスチャを貼っただけ」を解消する）：
- *   ・表示は 2048 角 CanvasTexture（中央の面は正方形に円を描く。矩形二面は縦横比を保ったまま
- *     内接させ、texture.repeat/offset で中身だけを切り出す＝WebGL1 でも 2 のべき乗のまま
- *     ミップマップが効く）。minFilter=LinearMipmapLinear・anisotropy=最大値で、近接の格子が
+ *   ・v4.1: 2048 角 CanvasTexture 全域を使用し、物理縦横比のレイアウトを面のUVへ写す。
+ *     WebGL1 のミップマップを保持し、文字の後から格子を重ねない。
+ *     minFilter=LinearMipmapLinear・anisotropy=実機上限（最大16）で、近接の格子が
  *     遠くで自然に消える（走査線は入れない）。
  *   ・表示は MeshStandardMaterial の emissive+emissiveMap で光らせる。map は同じ絵を素の
  *     albedo としても使い、消灯時は「地の暗さ」がそのまま返る（黒レベルは #0b0d10／点灯地
@@ -1207,6 +1207,10 @@ html,body{margin:0;height:100%;background:#05070a;overflow:hidden;
   // opt.on: 点灯しているか（地の明るさ・むらの有無を決める）。走査線は入れない。
   function renderScreenCanvas(ctx, rx, ry, rw, rh, lines, opt, subTile) {
     ctx.save();
+    // Use all texture pixels: layout remains in the original physical-aspect coordinates.
+    // The screen geometry restores the physical aspect; no unused square margins remain.
+    ctx.scale(ctx.canvas.width / rw, ctx.canvas.height / rh);
+    ctx.translate(-rx, -ry);
     ctx.beginPath(); ctx.rect(rx, ry, rw, rh); ctx.clip();
     ctx.clearRect(rx, ry, rw, rh);
 
@@ -1223,13 +1227,18 @@ html,body{margin:0;height:100%;background:#05070a;overflow:hidden;
       ctx.fillStyle = vg; ctx.fillRect(rx, ry, rw, rh);
     }
 
+    // Faint substrate detail stays beneath the crisp glyph layer.
+    if (subTile) {
+      ctx.fillStyle = ctx.createPattern(subTile, 'repeat');
+      ctx.fillRect(rx, ry, rw, rh);
+    }
     if (lines && lines.length) {
       var family = opt.fontFamily;
       var size = fitSize(ctx, lines, opt.fitMax, family, opt.fitStart, opt.fitMin);
       ctx.font = size + 'px ' + family;
       ctx.textBaseline = 'alphabetic';
       ctx.textAlign = 'left';
-      var glow = Math.max(2, size * 0.045);
+      var glow = Math.max(1, size * 0.012);
       var y = ry + opt.startY, i, k, segs, total, cx, pass;
       for (i = 0; i < lines.length; i++) {
         if (i > 0) y += opt.lineGap + (opt.extraGapAfter === (i - 1) ? opt.extraGap : 0);
@@ -1242,7 +1251,7 @@ html,body{margin:0;height:100%;background:#05070a;overflow:hidden;
         }
         for (pass = 0; pass < 2; pass++) {
           var cxx = cx;
-          if (pass === 0) { ctx.shadowBlur = glow; ctx.globalAlpha = 0.5; }
+          if (pass === 0) { ctx.shadowBlur = glow; ctx.globalAlpha = 0.12; }
           else { ctx.shadowBlur = 0; ctx.globalAlpha = 1; }
           for (k = 0; k < segs.length; k++) {
             ctx.shadowColor = segs[k].c;
@@ -1255,12 +1264,6 @@ html,body{margin:0;height:100%;background:#05070a;overflow:hidden;
       ctx.shadowBlur = 0; ctx.globalAlpha = 1;
     }
 
-    // 画素構造：極めて細かい格子（サブピクセル）。周期 1.4mm 相当、コントラスト 6〜8%
-    if (subTile) {
-      var pat = ctx.createPattern(subTile, 'repeat');
-      ctx.fillStyle = pat;
-      ctx.fillRect(rx, ry, rw, rh);
-    }
     ctx.restore();
   }
 
@@ -1291,9 +1294,9 @@ html,body{margin:0;height:100%;background:#05070a;overflow:hidden;
     [SEG('＞ 通信要求　', TXT_BASE), SEG('零件', TXT_VERDICT)]
   ];
 
-  // ── v2 キャンバス：どれも 2048 角（WebGL1 でミップマップを効かせるため 2 のべき乗正方形に統一）。
-  // 矩形二面は縦横比を保ったまま中央へ内接させ、texture.repeat/offset で中身だけを切り出す。
-  var CANVAS_SIZE = 2048;
+  // 2048角の全面を使う。以下の矩形は物理縦横比を保つレイアウト座標。
+  // renderScreenCanvasで全面へ写し、repeat/offsetによる余白の切り出しを廃止。
+  var CANVAS_SIZE = 2048; // v4.1: same memory, full texture coverage, original layout space.
   function contentRect(physW, physH) {
     var scale = physW / physH >= 1 ? CANVAS_SIZE / physW : CANVAS_SIZE / physH;
     var w = Math.round(physW * scale), h = Math.round(physH * scale);
@@ -1305,10 +1308,10 @@ html,body{margin:0;height:100%;background:#05070a;overflow:hidden;
   var TERM_RECT  = contentRect(TERM_W, TERM_H);     // 幅基準で内接（横長）
   var CENTRE_RECT = contentRect(1, 1);              // 正方形＝全面
 
-  // 1.4mm 周期のサブピクセル格子（各面の実スケールで px 換算。コントラスト 7%）
-  var ENTRY_SUB  = makeSubpixelTile(0.0014 * ENTRY_RECT.scale, 0.07);
-  var TERM_SUB   = makeSubpixelTile(0.0014 * TERM_RECT.scale, 0.07);
-  var CENTRE_SUB = makeSubpixelTile(0.0014 * CENTRE_RECT.scale * TABLE_R * 2, 0.07);
+  // 1.4mm 周期の基板の微細模様。文字の下だけに2%で描く。
+  var ENTRY_SUB  = makeSubpixelTile(0.0014 * ENTRY_RECT.scale, 0.02);
+  var TERM_SUB   = makeSubpixelTile(0.0014 * TERM_RECT.scale, 0.02);
+  var CENTRE_SUB = makeSubpixelTile(0.0014 * CENTRE_RECT.scale * TABLE_R * 2, 0.02);
 
   // ─────────────────────────── 壁の面（框＋窓＋表示面＋カバーガラス＋漏れ光リング）を一組つくる
   function buildWallFace(wallX, nrm, cx, cy, cz, w, h, hitKey, avgColorHolder) {
@@ -1506,6 +1509,10 @@ html,body{margin:0;height:100%;background:#05070a;overflow:hidden;
     drawTerminal(terminalOn);
   }
 
+  var displayAnisotropy = 8;
+  function setDisplayQuality(maxAnisotropy) {
+    displayAnisotropy = Math.max(1, Math.min(16, maxAnisotropy || 1));
+  }
   function makeCanvasTex(cv) {
     var t = new THREE.CanvasTexture(cv);
     t.encoding = THREE.sRGBEncoding;
@@ -1515,7 +1522,7 @@ html,body{margin:0;height:100%;background:#05070a;overflow:hidden;
     // 契約は部品へ renderer を渡さない。検討ページ内では実測の最大値を、
     // 統合後（renderer 未定義）は代表的な上限 8 を暫定値として使う（M は公開しているので
     // 統合側が正確な最大値で上書き可能）。typeof は未宣言識別子でも例外にならない。
-    var maxAniso = 8;
+    var maxAniso = displayAnisotropy;
     if (typeof renderer !== 'undefined' && renderer && renderer.capabilities) {
       maxAniso = renderer.capabilities.getMaxAnisotropy();
     }
@@ -1559,16 +1566,12 @@ html,body{margin:0;height:100%;background:#05070a;overflow:hidden;
       parts.entryCv.width = parts.entryCv.height = CANVAS_SIZE;
       parts.entryCtx = parts.entryCv.getContext('2d');
       parts.entryTex = makeCanvasTex(parts.entryCv);
-      parts.entryTex.repeat.set(ENTRY_RECT.w / CANVAS_SIZE, ENTRY_RECT.h / CANVAS_SIZE);
-      parts.entryTex.offset.set(ENTRY_RECT.x / CANVAS_SIZE, ENTRY_RECT.y / CANVAS_SIZE);
     }
     if (!parts.termCv) {
       parts.termCv = document.createElement('canvas');
       parts.termCv.width = parts.termCv.height = CANVAS_SIZE;
       parts.termCtx = parts.termCv.getContext('2d');
       parts.termTex = makeCanvasTex(parts.termCv);
-      parts.termTex.repeat.set(TERM_RECT.w / CANVAS_SIZE, TERM_RECT.h / CANVAS_SIZE);
-      parts.termTex.offset.set(TERM_RECT.x / CANVAS_SIZE, TERM_RECT.y / CANVAS_SIZE);
     }
     if (!parts.centreCv) {
       parts.centreCv = document.createElement('canvas');
@@ -1647,7 +1650,7 @@ html,body{margin:0;height:100%;background:#05070a;overflow:hidden;
   window.EO.C = window.EO.C || { MAG: C_MAG, PALE: C_PALE, TURQ: C_TURQ, BLUE: C_BLUE };
   window.EO.U = window.EO.U || { uT: { value: 0 }, uPump: { value: 0 } };
   window.EO.parts = window.EO.parts || {};
-  window.EO.parts.face = { build: build, tick: tick, mats: mats, M: M, name: 'face',
+  window.EO.parts.face = { setDisplayQuality: setDisplayQuality, build: build, tick: tick, mats: mats, M: M, name: 'face',
     showEntry: showEntry, showTerminal: showTerminal };
 })();
 /* asset-fixture-v4.js */
@@ -4719,7 +4722,6 @@ window.EO.baked={"uv":{"0-0":{"map":0,"uv2":[0.097053,0.9575105,0.0991474,0.9562
   };
   var KEYS = ['entryface', 'terminal', 'centreface', 'sol3', 'points', 'handrail',
               'chair', 'ceiling', 'aperture', 'forest', 'disc', 'rootroad'];
-  var seen = {}, seenN = 0;
 
   // ─────────────────────────── 場
   var renderer, scene, camera, clock, root;
@@ -4761,16 +4763,12 @@ window.EO.baked={"uv":{"0-0":{"map":0,"uv2":[0.097053,0.9575105,0.0991474,0.9562
   // ─────────────────────────── 記録パネル
   function openRecord(key) {
     var r = REC[key]; if (!r) return;
-    if (!seen[key]) { seen[key] = 1; seenN++; }
     var n = KEYS.indexOf(key) + 1;
-    var dots = '';
-    for (var i = 0; i < KEYS.length; i++) dots += seen[KEYS[i]] ? '●' : '○';
     panel.innerHTML =
       '<div class="ph"><span class="pn">' + r.n + '</span>' +
       '<span class="px">RECORD ' + (n < 10 ? '0' : '') + n + ' / 12</span></div>' +
       '<div class="pe">' + r.en + '</div>' +
-      '<div class="pj">' + r.ja + '</div>' +
-      '<div class="pd">' + dots + (seenN === KEYS.length ? '　全件' : '') + '</div>';
+      '<div class="pj">' + r.ja + '</div>';
     panel.className = 'gl open';
     panelOpen = true;
   }
@@ -4828,8 +4826,8 @@ window.EO.baked={"uv":{"0-0":{"map":0,"uv2":[0.097053,0.9575105,0.0991474,0.9562
     ring = document.getElementById('ring');
     stbar = document.getElementById('stbar');
 
-    renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+    renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true });
+    renderer.setPixelRatio(renderScale(window.innerWidth, window.innerHeight));
     renderer.setSize(window.innerWidth, window.innerHeight, false);
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -4858,6 +4856,7 @@ window.EO.baked={"uv":{"0-0":{"map":0,"uv2":[0.097053,0.9575105,0.0991474,0.9562
     for (var i = 0; i < order.length; i++) {
       var p = EO.parts[order[i]];
       if (!p) continue;
+      if (order[i] === 'face' && p.setDisplayQuality) p.setDisplayQuality(renderer.capabilities.getMaxAnisotropy());
       if (p.mats) p.mats();
       if (p.build) { var g = p.build(); root.add(g); if (order[i] === 'shell') shellG = g; }
     }
@@ -4923,8 +4922,13 @@ window.EO.baked={"uv":{"0-0":{"map":0,"uv2":[0.097053,0.9575105,0.0991474,0.9562
     panel.addEventListener('click', function () { closeRecord(); }, false);
   }
 
+  // Native MSAA plus up to 2x device pixels. Keep large displays within 3 Mpx.
+  function renderScale(w, h) {
+    return Math.min(window.devicePixelRatio || 1, 2, Math.sqrt(3000000 / Math.max(1, w * h)));
+  }
   function onResize() {
     var w = window.innerWidth, h = window.innerHeight;
+    renderer.setPixelRatio(renderScale(w, h));
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.__baseFov = fovFor(w, h);
