@@ -1,0 +1,21 @@
+/* Blender v1 -> live Three.js r128. Static irradiance only; specular and animation stay live. */
+(function(){'use strict';
+var state={ready:false,error:null,source:'Blender first edition',meshes:0,atlasBytes:0,geometryBefore:0,geometryAfter:0};window.__blenderTransfer=state;
+function request(url,type){return fetch(url,{cache:'default'}).then(function(r){if(!r.ok)throw new Error(url+': '+r.status);return type==='json'?r.json():r.arrayBuffer();});}
+function texture(url,renderer){return new Promise(function(resolve,reject){new THREE.TextureLoader().load(url,function(t){t.encoding=THREE.sRGBEncoding;t.wrapS=t.wrapT=THREE.ClampToEdgeWrapping;t.minFilter=THREE.LinearMipmapLinearFilter;t.magFilter=THREE.LinearFilter;t.anisotropy=Math.min(4,renderer.capabilities.getMaxAnisotropy());t.name='Blender indirect light + independent occlusion';resolve(t);},undefined,reject);});}
+function geometry(g,row,buffer){var count=g.index?g.index.count:g.attributes.position.count;if(count!==row.corners)throw new Error('Blender UV topology mismatch');var used=new Uint32Array(buffer,row.remapOffset,row.vertices),uvs=new Uint16Array(buffer,row.uvOffset,row.vertices*2),indices=row.indexBytes===2?new Uint16Array(buffer,row.indexOffset,row.corners):new Uint32Array(buffer,row.indexOffset,row.corners),uv=new Float32Array(uvs.length);for(var i=0;i<uv.length;i++)uv[i]=uvs[i]/65535;
+var out=new THREE.BufferGeometry();Object.keys(g.attributes).forEach(function(k){if(k==='uv2')return;var a=g.attributes[k],data=new a.array.constructor(used.length*a.itemSize);for(var i=0;i<used.length;i++)for(var j=0;j<a.itemSize;j++)data[i*a.itemSize+j]=a.array[used[i]*a.itemSize+j];out.setAttribute(k,new THREE.BufferAttribute(data,a.itemSize,a.normalized));});out.setAttribute('uv2',new THREE.BufferAttribute(uv,2));out.setIndex(new THREE.BufferAttribute(indices,1));g.groups.forEach(function(x){out.addGroup(x.start,x.count,x.materialIndex);});out.computeBoundingBox();out.computeBoundingSphere();return out;}
+function bytes(g){return Object.values(g.attributes).reduce(function(n,a){return n+a.array.byteLength;},g.index?g.index.array.byteLength:0);}
+H53.applyBlenderRefinement=function(scene,renderer){return Promise.all([request('vacant-seat-v4-20260913-blender-bake.json','json'),request('vacant-seat-v4-20260913-blender-uv.bin','array')]).then(function(values){var manifest=values[0],buffer=values[1],atlases={};return Promise.all(Object.keys(manifest.atlases).map(function(k){return texture(manifest.atlases[k].file,renderer).then(function(t){atlases[k]=t;state.atlasBytes+=manifest.atlases[k].size*manifest.atlases[k].size*4*4/3;});})).then(function(){
+var objects={};scene.traverse(function(o){if(o.isMesh)objects[o.name]=o;});var discardedAO=new Set();
+manifest.meshes.forEach(function(row){var o=objects[row.name];if(!o)throw new Error('Missing Blender model '+row.name);var old=o.geometry;state.geometryBefore+=bytes(old);o.geometry=geometry(old,row,buffer);state.geometryAfter+=bytes(o.geometry);old.dispose();
+function material(original){var m=original.clone(),compile=original.onBeforeCompile,key=original.customProgramCacheKey;m.extensions=Object.assign({},original.extensions);m.name=original.name+'.blenderGI';m.lightMap=atlases[row.atlas];m.lightMapIntensity=manifest.atlases[row.atlas].scale;m.aoMap=atlases[row.atlas];m.aoMapIntensity=.45;
+if(original.aoMap)discardedAO.add(original.aoMap);
+m.onBeforeCompile=function(shader,r){compile.call(original,shader,r);shader.fragmentShader=shader.fragmentShader.replace('texture2D( aoMap, vUv2 ).r','texture2D( aoMap, vUv2 ).a');};m.customProgramCacheKey=function(){return key.call(original)+'-blender-indirect-alpha-ao-v2';};m.userData.blenderGI={atlas:row.atlas,source:manifest.source};m.needsUpdate=true;return m;}
+o.material=Array.isArray(o.material)?o.material.map(material):material(o.material);state.meshes++;});
+discardedAO.forEach(function(t){t.dispose();});
+// The reviewed native correction: indicator and support ring clear the curved housing.
+['terminal-007','terminal-008'].forEach(function(name){if(!objects[name])throw new Error('Missing indicator part');objects[name].position.z+=manifest.indicator_forward_offset_m;});
+scene.updateMatrixWorld(true);H53.captureRoom(scene,renderer);state.ready=true;state.manifest=manifest;return state;
+});}).catch(function(e){state.error=String(e);throw e;});};
+})();

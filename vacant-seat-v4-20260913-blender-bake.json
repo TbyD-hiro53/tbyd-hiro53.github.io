@@ -1,0 +1,547 @@
+{
+  "source": "scene/vacant-seat-v3.blend",
+  "atlases": {
+    "architecture": {
+      "size": 1024,
+      "scale": 1.7668964862823486,
+      "objects": 34,
+      "irradiance_max": 1.7668964862823486,
+      "file": "vacant-seat-v4-20260913-architecture-gi.png",
+      "coveredFraction": 0.4982013702392578,
+      "irradianceDenoiseSigmaPixels": 2
+    },
+    "furniture": {
+      "size": 1024,
+      "scale": 1.0326157808303833,
+      "objects": 18,
+      "irradiance_max": 1.0326157808303833,
+      "file": "vacant-seat-v4-20260913-furniture-gi.png",
+      "coveredFraction": 0.4976072311401367,
+      "irradianceDenoiseSigmaPixels": 2
+    }
+  },
+  "meshes": [
+    {
+      "name": "room-001",
+      "atlas": "architecture",
+      "corners": 6,
+      "remapOffset": 0,
+      "uvOffset": 16,
+      "indexOffset": 32,
+      "indexBytes": 2,
+      "vertices": 4
+    },
+    {
+      "name": "room-002",
+      "atlas": "architecture",
+      "corners": 6,
+      "remapOffset": 44,
+      "uvOffset": 60,
+      "indexOffset": 76,
+      "indexBytes": 2,
+      "vertices": 4
+    },
+    {
+      "name": "room-003",
+      "atlas": "architecture",
+      "corners": 6084,
+      "remapOffset": 88,
+      "uvOffset": 5732,
+      "indexOffset": 11376,
+      "indexBytes": 2,
+      "vertices": 1411
+    },
+    {
+      "name": "room-004",
+      "atlas": "architecture",
+      "corners": 6084,
+      "remapOffset": 23544,
+      "uvOffset": 29188,
+      "indexOffset": 34832,
+      "indexBytes": 2,
+      "vertices": 1411
+    },
+    {
+      "name": "room-005",
+      "atlas": "architecture",
+      "corners": 6084,
+      "remapOffset": 47000,
+      "uvOffset": 53704,
+      "indexOffset": 60408,
+      "indexBytes": 2,
+      "vertices": 1676
+    },
+    {
+      "name": "room-006",
+      "atlas": "architecture",
+      "corners": 6084,
+      "remapOffset": 72576,
+      "uvOffset": 78280,
+      "indexOffset": 83984,
+      "indexBytes": 2,
+      "vertices": 1426
+    },
+    {
+      "name": "room-007",
+      "atlas": "architecture",
+      "corners": 6084,
+      "remapOffset": 96152,
+      "uvOffset": 101796,
+      "indexOffset": 107440,
+      "indexBytes": 2,
+      "vertices": 1411
+    },
+    {
+      "name": "room-008",
+      "atlas": "architecture",
+      "corners": 6084,
+      "remapOffset": 119608,
+      "uvOffset": 125312,
+      "indexOffset": 131016,
+      "indexBytes": 2,
+      "vertices": 1426
+    },
+    {
+      "name": "room-009",
+      "atlas": "architecture",
+      "corners": 6084,
+      "remapOffset": 143184,
+      "uvOffset": 148888,
+      "indexOffset": 154592,
+      "indexBytes": 2,
+      "vertices": 1426
+    },
+    {
+      "name": "room-010",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 166760,
+      "uvOffset": 168800,
+      "indexOffset": 170840,
+      "indexBytes": 2,
+      "vertices": 510
+    },
+    {
+      "name": "room-011",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 174368,
+      "uvOffset": 176408,
+      "indexOffset": 178448,
+      "indexBytes": 2,
+      "vertices": 510
+    },
+    {
+      "name": "room-012",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 181976,
+      "uvOffset": 184016,
+      "indexOffset": 186056,
+      "indexBytes": 2,
+      "vertices": 510
+    },
+    {
+      "name": "room-013",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 189584,
+      "uvOffset": 191624,
+      "indexOffset": 193664,
+      "indexBytes": 2,
+      "vertices": 510
+    },
+    {
+      "name": "room-014",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 197192,
+      "uvOffset": 199160,
+      "indexOffset": 201128,
+      "indexBytes": 2,
+      "vertices": 492
+    },
+    {
+      "name": "room-015",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 204656,
+      "uvOffset": 206624,
+      "indexOffset": 208592,
+      "indexBytes": 2,
+      "vertices": 492
+    },
+    {
+      "name": "room-016",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 212120,
+      "uvOffset": 214216,
+      "indexOffset": 216312,
+      "indexBytes": 2,
+      "vertices": 524
+    },
+    {
+      "name": "room-017",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 219840,
+      "uvOffset": 221936,
+      "indexOffset": 224032,
+      "indexBytes": 2,
+      "vertices": 524
+    },
+    {
+      "name": "room-018",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 227560,
+      "uvOffset": 229528,
+      "indexOffset": 231496,
+      "indexBytes": 2,
+      "vertices": 492
+    },
+    {
+      "name": "room-019",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 235024,
+      "uvOffset": 236992,
+      "indexOffset": 238960,
+      "indexBytes": 2,
+      "vertices": 492
+    },
+    {
+      "name": "room-020",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 242488,
+      "uvOffset": 244584,
+      "indexOffset": 246680,
+      "indexBytes": 2,
+      "vertices": 524
+    },
+    {
+      "name": "room-021",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 250208,
+      "uvOffset": 252304,
+      "indexOffset": 254400,
+      "indexBytes": 2,
+      "vertices": 524
+    },
+    {
+      "name": "room-032",
+      "atlas": "architecture",
+      "corners": 4212,
+      "remapOffset": 257928,
+      "uvOffset": 262528,
+      "indexOffset": 267128,
+      "indexBytes": 2,
+      "vertices": 1150
+    },
+    {
+      "name": "room-033",
+      "atlas": "architecture",
+      "corners": 4212,
+      "remapOffset": 275552,
+      "uvOffset": 280152,
+      "indexOffset": 284752,
+      "indexBytes": 2,
+      "vertices": 1150
+    },
+    {
+      "name": "room-034",
+      "atlas": "architecture",
+      "corners": 4212,
+      "remapOffset": 293176,
+      "uvOffset": 297512,
+      "indexOffset": 301848,
+      "indexBytes": 2,
+      "vertices": 1084
+    },
+    {
+      "name": "room-035",
+      "atlas": "architecture",
+      "corners": 4212,
+      "remapOffset": 310272,
+      "uvOffset": 314608,
+      "indexOffset": 318944,
+      "indexBytes": 2,
+      "vertices": 1084
+    },
+    {
+      "name": "room-036",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 327368,
+      "uvOffset": 329472,
+      "indexOffset": 331576,
+      "indexBytes": 2,
+      "vertices": 526
+    },
+    {
+      "name": "room-037",
+      "atlas": "architecture",
+      "corners": 4212,
+      "remapOffset": 335104,
+      "uvOffset": 339216,
+      "indexOffset": 343328,
+      "indexBytes": 2,
+      "vertices": 1028
+    },
+    {
+      "name": "room-042",
+      "atlas": "architecture",
+      "corners": 4212,
+      "remapOffset": 351752,
+      "uvOffset": 355864,
+      "indexOffset": 359976,
+      "indexBytes": 2,
+      "vertices": 1028
+    },
+    {
+      "name": "room-043",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 368400,
+      "uvOffset": 370432,
+      "indexOffset": 372464,
+      "indexBytes": 2,
+      "vertices": 508
+    },
+    {
+      "name": "room-044",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 375992,
+      "uvOffset": 378024,
+      "indexOffset": 380056,
+      "indexBytes": 2,
+      "vertices": 508
+    },
+    {
+      "name": "room-045",
+      "atlas": "architecture",
+      "corners": 2772,
+      "remapOffset": 383584,
+      "uvOffset": 386512,
+      "indexOffset": 389440,
+      "indexBytes": 2,
+      "vertices": 732
+    },
+    {
+      "name": "room-046",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 394984,
+      "uvOffset": 397080,
+      "indexOffset": 399176,
+      "indexBytes": 2,
+      "vertices": 524
+    },
+    {
+      "name": "room-047",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 402704,
+      "uvOffset": 404800,
+      "indexOffset": 406896,
+      "indexBytes": 2,
+      "vertices": 524
+    },
+    {
+      "name": "room-048",
+      "atlas": "architecture",
+      "corners": 1764,
+      "remapOffset": 410424,
+      "uvOffset": 412496,
+      "indexOffset": 414568,
+      "indexBytes": 2,
+      "vertices": 518
+    },
+    {
+      "name": "desk-001",
+      "atlas": "furniture",
+      "corners": 4212,
+      "remapOffset": 418096,
+      "uvOffset": 422724,
+      "indexOffset": 427352,
+      "indexBytes": 2,
+      "vertices": 1157
+    },
+    {
+      "name": "desk-002",
+      "atlas": "furniture",
+      "corners": 4212,
+      "remapOffset": 435776,
+      "uvOffset": 440080,
+      "indexOffset": 444384,
+      "indexBytes": 2,
+      "vertices": 1076
+    },
+    {
+      "name": "desk-003",
+      "atlas": "furniture",
+      "corners": 4212,
+      "remapOffset": 452808,
+      "uvOffset": 457112,
+      "indexOffset": 461416,
+      "indexBytes": 2,
+      "vertices": 1076
+    },
+    {
+      "name": "desk-004",
+      "atlas": "furniture",
+      "corners": 2772,
+      "remapOffset": 469840,
+      "uvOffset": 472768,
+      "indexOffset": 475696,
+      "indexBytes": 2,
+      "vertices": 732
+    },
+    {
+      "name": "desk-005",
+      "atlas": "furniture",
+      "corners": 2772,
+      "remapOffset": 481240,
+      "uvOffset": 484168,
+      "indexOffset": 487096,
+      "indexBytes": 2,
+      "vertices": 732
+    },
+    {
+      "name": "chair-001",
+      "atlas": "furniture",
+      "corners": 76416,
+      "remapOffset": 492640,
+      "uvOffset": 548324,
+      "indexOffset": 604008,
+      "indexBytes": 2,
+      "vertices": 13921
+    },
+    {
+      "name": "chair-002",
+      "atlas": "furniture",
+      "corners": 28248,
+      "remapOffset": 756840,
+      "uvOffset": 779352,
+      "indexOffset": 801864,
+      "indexBytes": 2,
+      "vertices": 5628
+    },
+    {
+      "name": "chair-003",
+      "atlas": "furniture",
+      "corners": 18480,
+      "remapOffset": 858360,
+      "uvOffset": 873296,
+      "indexOffset": 888232,
+      "indexBytes": 2,
+      "vertices": 3734
+    },
+    {
+      "name": "chair-005",
+      "atlas": "furniture",
+      "corners": 24240,
+      "remapOffset": 925192,
+      "uvOffset": 943784,
+      "indexOffset": 962376,
+      "indexBytes": 2,
+      "vertices": 4648
+    },
+    {
+      "name": "chair-006",
+      "atlas": "furniture",
+      "corners": 24240,
+      "remapOffset": 1010856,
+      "uvOffset": 1029448,
+      "indexOffset": 1048040,
+      "indexBytes": 2,
+      "vertices": 4648
+    },
+    {
+      "name": "chair-007",
+      "atlas": "furniture",
+      "corners": 10416,
+      "remapOffset": 1096520,
+      "uvOffset": 1104580,
+      "indexOffset": 1112640,
+      "indexBytes": 2,
+      "vertices": 2015
+    },
+    {
+      "name": "chair-008",
+      "atlas": "furniture",
+      "corners": 2160,
+      "remapOffset": 1133472,
+      "uvOffset": 1135428,
+      "indexOffset": 1137384,
+      "indexBytes": 2,
+      "vertices": 489
+    },
+    {
+      "name": "chair-009",
+      "atlas": "furniture",
+      "corners": 10416,
+      "remapOffset": 1141704,
+      "uvOffset": 1149732,
+      "indexOffset": 1157760,
+      "indexBytes": 2,
+      "vertices": 2007
+    },
+    {
+      "name": "chair-010",
+      "atlas": "furniture",
+      "corners": 2160,
+      "remapOffset": 1178592,
+      "uvOffset": 1180548,
+      "indexOffset": 1182504,
+      "indexBytes": 2,
+      "vertices": 489
+    },
+    {
+      "name": "chair-011",
+      "atlas": "furniture",
+      "corners": 10416,
+      "remapOffset": 1186824,
+      "uvOffset": 1194884,
+      "indexOffset": 1202944,
+      "indexBytes": 2,
+      "vertices": 2015
+    },
+    {
+      "name": "chair-012",
+      "atlas": "furniture",
+      "corners": 2160,
+      "remapOffset": 1223776,
+      "uvOffset": 1225732,
+      "indexOffset": 1227688,
+      "indexBytes": 2,
+      "vertices": 489
+    },
+    {
+      "name": "chair-013",
+      "atlas": "furniture",
+      "corners": 10416,
+      "remapOffset": 1232008,
+      "uvOffset": 1240036,
+      "indexOffset": 1248064,
+      "indexBytes": 2,
+      "vertices": 2007
+    },
+    {
+      "name": "chair-014",
+      "atlas": "furniture",
+      "corners": 2160,
+      "remapOffset": 1268896,
+      "uvOffset": 1270852,
+      "indexOffset": 1272808,
+      "indexBytes": 2,
+      "vertices": 489
+    }
+  ],
+  "indicator_forward_offset_m": 0.0017912788512650878,
+  "geometryFormat": "preindexed-uv2-v1"
+}

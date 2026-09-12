@@ -1,0 +1,17 @@
+/* h53 Liquid Glass: canonical surface, radius 24, close target 44. */
+#record-shield{position:fixed;inset:0;z-index:8;touch-action:none;cursor:default}
+#record-shield[hidden]{display:none}
+#panel{z-index:9;display:flex;flex-direction:column;padding:0;overflow:hidden;
+ bottom:max(16px,env(safe-area-inset-bottom));right:max(12px,env(safe-area-inset-right));
+ width:min(420px,calc(100vw - 24px));max-height:calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+ transition:opacity .26s ease,transform .26s ease,visibility .26s;user-select:text;-webkit-user-select:text}
+#record-head{flex:none;display:flex;align-items:flex-start;gap:12px;padding:12px 12px 8px 24px}
+#pt{flex:1;min-width:0;margin:0;padding:9px 0 0;overflow-wrap:anywhere}
+#px{position:static;flex:0 0 44px}
+#record-body{min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+ touch-action:pan-y;padding:0 24px 24px;scrollbar-width:thin}
+#record-body:focus-visible{outline:1px solid #76e2d4;outline-offset:-4px}
+body.reading #views,body.reading #origin,body.reading #back{opacity:.28;filter:saturate(.3);cursor:default}
+#views button:disabled,#origin:disabled{cursor:default;transform:none}
+@media(max-height:510px){#panel{width:min(420px,calc(100vw - 24px));bottom:max(12px,env(safe-area-inset-bottom))}}
+@media(prefers-reduced-motion:reduce){#panel{transition:none}}
