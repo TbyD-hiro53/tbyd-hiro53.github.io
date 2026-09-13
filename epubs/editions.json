@@ -1,0 +1,60 @@
+{
+  "series": "TRANSCENSION",
+  "author": "h!ro53",
+  "volumes": [
+    {
+      "volume": "01",
+      "title": "TRANSCENSION: RESIDUAL INDEX 53",
+      "edition": "2026-09-13",
+      "reader": "residual-index-53.html",
+      "epub": "epubs/residual-index-53_20260913.epub",
+      "epub_sha256": "9c2cd9420d534f77a07bb256bfc4a74996998b7bc71a614dfb6917e2851daf18",
+      "bytes": 156252
+    },
+    {
+      "volume": "02",
+      "title": "TRANSCENSION: THE LATE CORE　遅炉",
+      "edition": "2026-09-13",
+      "reader": "late-core.html",
+      "epub": "epubs/late-core_20260913.epub",
+      "epub_sha256": "4b04b3b540dc49f57f6c1f8da3ac1dede500454543c87a17a9a02dc47ac4ed4b",
+      "bytes": 129291
+    },
+    {
+      "volume": "03",
+      "title": "個 / TRANSCENSION: THE INDIVIDUAL",
+      "edition": "2026-09-13",
+      "reader": "the-individual.html",
+      "epub": "epubs/the-individual_20260913.epub",
+      "epub_sha256": "79cb90619a16a5c86e10e5b085bffde1e2e12d377913957f31158624c36949e0",
+      "bytes": 192691
+    },
+    {
+      "volume": "04",
+      "title": "未 / TRANSCENSION: NOT YET",
+      "edition": "2026-09-13",
+      "reader": "not-yet.html",
+      "epub": "epubs/not-yet_20260913.epub",
+      "epub_sha256": "1c7d6e862cd7fe3037f861639f078484674b075ae7484844737a00e432cf96b5",
+      "bytes": 169930
+    },
+    {
+      "volume": "05",
+      "title": "書 / TRANSCENSION: THE WRITTEN",
+      "edition": "2026-09-13",
+      "reader": "the-written.html",
+      "epub": "epubs/the-written_20260913.epub",
+      "epub_sha256": "20f17ccc3fe710542ddfd9e7484ecc3c77adae18548a4cc824cd2c638c4f5f0e",
+      "bytes": 161027
+    },
+    {
+      "volume": "06",
+      "title": "白 / TRANSCENSION: THE BLANK",
+      "edition": "2026-09-13",
+      "reader": "the-blank.html",
+      "epub": "epubs/the-blank_20260913.epub",
+      "epub_sha256": "20aec0e378f1e707d5726d60329710468a5d290920e3d978b79e65e0a47a774c",
+      "bytes": 145774
+    }
+  ]
+}
