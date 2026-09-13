@@ -595,6 +595,20 @@ The district is old. The ceiling is low; two can walk abreast in the corridor, b
 ---
 
 
+## ASSET 22 — The Changes
+
+**和題** 乗換
+
+**公開パス** `the-changes.html`
+
+**説明 JA**
+海辺の駅、上下の線が通る大きい駅、巨樹を望む車内。根の惑星の三つの情景を、動きと短い叙述でたどる。場面と固定カットを選び、物に触れるとその場所の文章が開く。波、葉、列車は動き続ける。
+
+**説明 EN**
+A station by the sea, a great station with lines above and below, and a carriage looking towards an immense tree. Three scenes on the planet of roots, observed through movement and short passages. Choose a scene and a fixed view; touch an object to open its description. Waves, leaves and trains continue to move.
+
+---
+
 ## STUDY — Empyrean Sigil 3D / 01
 
 **公開パス** `empyrean-sigil-3d.html`
