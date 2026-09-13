@@ -4,7 +4,6 @@ Original v25、Glass edition、Metal editionを一つの固定空間で切り替
 
 - [操作できるHTTPSプレビュー](https://tbyd-hiro53.github.io/cyberwafer-r2-preview.html)
 - [比較画像と検証の入口](https://tbyd-hiro53.github.io/cyberwafer-r2-review.html)
-- [納品ZIP](https://tbyd-hiro53.github.io/cyberwafer-r2-3editions-20260911-delivery.zip)
 
 R1の空間、照明、World、カメラ、露出を維持し、円盤の人工的な二重縁を一枚の連続断面へ変更しました。Tは既存の軽い内外角フィレットを保持しています。全景の比較は同じ時刻1.2秒です。
 

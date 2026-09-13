@@ -62,7 +62,7 @@ function originalSurface(mat,kind){
   else sh.fragmentShader=sh.fragmentShader.replace('gl_FragColor = vec4( outgoingLight, diffuseColor.a );','float nv=clamp(dot(normal,geometry.viewDir),0.0,1.0);vec3 film=.94+.06*cos(vec3(1.0,1.3,1.65)*(1.0-nv)*2.2);outgoingLight*=film;gl_FragColor=vec4(outgoingLight,diffuseColor.a);');
  };mat.customProgramCacheKey=function(){return 'r2-original-'+kind;};
 }
-function setPhoto(e){var token=++switchToken,path=P+e+'-hero.jpg';var im=photoCache[e];if(!im){im=new Image();photoCache[e]=im;im.src=path;}function use(){if(token!==switchToken||e!==edition)return;el('photograph').src=path;el('photograph').alt=e+' / Cycles';el('savePhoto').href=path;}if(im.complete&&im.naturalWidth)use();else im.onload=use;}
+function setPhoto(e){var token=++switchToken,path=P+e+'-hero.jpg';var im=photoCache[e];if(!im){im=new Image();photoCache[e]=im;im.src=path;}function use(){if(token!==switchToken||e!==edition)return;el('photograph').src=path;el('photograph').alt=e+' / Cycles';}if(im.complete&&im.naturalWidth)use();else im.onload=use;}
 function applyEdition(next){if(!editionBanks[next])next='original';var bank=editionBanks[next];Object.keys(objects).forEach(function(n){if(n==='T'||n.indexOf('Ring')===0||n.indexOf('Disc')===0){objects[n].material=bank[n.indexOf('Disc')===0?'DiscTop':n];objects[n].castShadow=next!=='glass';}});edition=next;editionChanges++;perf=[];intervals=[];['original','glass','metal'].forEach(function(e){el('edition-'+e).setAttribute('aria-pressed',String(e===edition));});mirrorAt=cubeAt=-1e9;setPhoto(edition);if(ready)diagnostics();}
 ['original','glass','metal'].forEach(function(e){el('edition-'+e).onclick=function(){if(ready)applyEdition(e);};});
 
