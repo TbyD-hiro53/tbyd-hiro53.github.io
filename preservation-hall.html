@@ -5463,7 +5463,7 @@ color:#eafffc;border-color:rgba(0,221,200,.5)}
     if (!response.ok) throw new Error('形状を取得できませんでした');
     const manifest = await response.json(), prepared = [];
     try {
-      for (const entry of manifest.meshes) {
+      for (const entry of manifest.meshes.filter(function(e) { return e.name.indexOf('hall/') !== 0; })) {
         const compressed = typeof DecompressionStream !== 'undefined';
         const r = await fetch('./' + entry.file + (compressed ? '.meshpack' : ''));
         if (!r.ok) throw new Error('形状を取得できませんでした');
@@ -5504,5 +5504,131 @@ color:#eafffc;border-color:rgba(0,221,200,.5)}
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
   else start();
 })();
+</script><script>
+(function () {
+  'use strict';
+  const PREFIX = './preservation-hall-v5-20260913-';
+  const resources = { geometries: [], materials: [], textures: [] };
+  async function response(path) {
+    const r = await fetch(path);
+    if (!r.ok) throw new Error('森林の表示データを取得できませんでした');
+    return r;
+  }
+  function attribute(buffer, a) {
+    const Type = { float32: Float32Array, int16: Int16Array, int8: Int8Array, uint16: Uint16Array, uint8: Uint8Array, uint32: Uint32Array }[a.type];
+    if (!Type || a.offset % Type.BYTES_PER_ELEMENT || a.offset + a.count * a.size * Type.BYTES_PER_ELEMENT > buffer.byteLength) throw new Error('森林の形状データが不完全です');
+    return new THREE.BufferAttribute(new Type(buffer, a.offset, a.count * a.size), a.size, a.normalized);
+  }
+  function texture(name, repeat, srgb) {
+    return new Promise(function (resolve, reject) {
+      new THREE.TextureLoader().load('./' + name, function (t) {
+        t.encoding = srgb ? THREE.sRGBEncoding : THREE.LinearEncoding;
+        t.wrapS = t.wrapT = repeat ? THREE.RepeatWrapping : THREE.ClampToEdgeWrapping;
+        t.anisotropy = Math.min(4, window.__H53M.renderer.capabilities.getMaxAnisotropy());
+        resources.textures.push(t); resolve(t);
+      }, undefined, function () { reject(new Error('森林の素材を取得できませんでした')); });
+    });
+  }
+  async function load() {
+    const bridge = window.__H53M, hall = bridge.scene.getObjectByName('hall');
+    if (!hall) throw new Error('森林の表示位置を確認できません');
+    const manifest = await (await response(PREFIX + 'forest.json')).json();
+    if (manifest.version !== 5) throw new Error('森林の表示データを確認できません');
+    const crowns = await (await response(PREFIX + 'crowns.json')).json();
+    const compressed = typeof DecompressionStream !== 'undefined';
+    const dataPromise = response('./' + manifest.file + (compressed ? '.meshpack' : '')).then(async function (r) {
+      return compressed ? await new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).arrayBuffer() : await r.arrayBuffer();
+    });
+    const crownPromise = response('./' + crowns.file + (compressed ? '.meshpack' : '')).then(async function(r) { return compressed ? await new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).arrayBuffer() : await r.arrayBuffer(); });
+    const ts = {}, texturePromises = Object.keys(manifest.textures).map(async function (key) {
+      ts[key] = await texture(manifest.textures[key], !/leaves|branches/.test(key), ['bark','soil','leaves','branches'].indexOf(key) !== -1);
+    });
+    // Wait for every request to settle before disposing any resource on failure.
+    const results = await Promise.allSettled([dataPromise, crownPromise].concat(texturePromises));
+    const failed = results.find(function (r) { return r.status === 'rejected'; });
+    if (failed) throw failed.reason;
+    const buffer = results[0].value, crownBuffer = results[1].value;
+    if(crownBuffer.byteLength !== crowns.bytes) throw new Error('枝葉の形状データが不完全です');
+    if (buffer.byteLength !== manifest.bytes) throw new Error('森林の形状データが不完全です');
+    const oldGround = hall.children.find(function(o) { return o.name === 'ground'; });
+    const env = oldGround && oldGround.material.envMap;
+    function mat(options) {
+      const m = new THREE.MeshStandardMaterial(Object.assign({ vertexColors: true, roughness: .87, metalness: 0, envMap: env || null, envMapIntensity: .85 }, options));
+      resources.materials.push(m); return m;
+    }
+    const bark = { map: ts.bark, roughnessMap: ts['bark-rough'], bumpMap: ts.bark, bumpScale: .021 };
+    const materials = {
+      trunk: mat(bark), root: mat(bark),
+      soil: mat({ map: ts.soil, roughnessMap: ts['soil-rough'], bumpMap: ts['soil-bump'], bumpScale: .055 }),
+      leaf: mat({ map: ts.leaves, normalMap: ts['leaves-normal'], normalScale: new THREE.Vector2(.36,.36), alphaTest: .38, side: THREE.DoubleSide, roughness: .73, envMapIntensity: 1.15 }),
+      branch: mat({ map: ts.branches, alphaTest: .4, side: THREE.DoubleSide }),
+      plant: mat({ side: THREE.DoubleSide, roughness: .8 }),
+      moss: mat({ side: THREE.DoubleSide, roughness: .96 }),
+      litter: mat({ map: ts.soil, side: THREE.DoubleSide, roughness: .94 }),
+      stone: mat({ color: 0x777568, roughness: .95, bumpMap: ts['soil-bump'], bumpScale: .012 })
+    };
+    materials.trunk.bumpScale = 0;
+    materials.trunk.onBeforeCompile = function(shader) {
+      shader.vertexShader = 'varying vec3 vForestP; varying vec3 vForestN;\n' + shader.vertexShader;
+      shader.vertexShader = shader.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\nvForestP = (modelMatrix * vec4(position,1.0)).xyz; vForestN = normalize(mat3(modelMatrix) * normal);');
+      shader.fragmentShader = 'varying vec3 vForestP; varying vec3 vForestN;\n' + shader.fragmentShader;
+      shader.fragmentShader = shader.fragmentShader.replace('#include <map_fragment>', 'vec3 w = pow(abs(normalize(vForestN)),vec3(4.0)); w /= (w.x+w.y+w.z); vec3 p = vForestP * vec3(.8,.49,.8); vec4 c1=mapTexelToLinear(texture2D(map,p.zy)); vec4 c2=mapTexelToLinear(texture2D(map,p.xz)); vec4 c3=mapTexelToLinear(texture2D(map,p.xy)); diffuseColor *= c1*w.x+c2*w.y+c3*w.z;');
+    };
+    materials.trunk.customProgramCacheKey = function() { return 'forest-v5-triplanar'; };
+    const forest = new THREE.Group(); forest.name = 'forest-v5';
+    function build(entry, buffer) {
+      if (!materials[entry.material]) throw new Error('森林の素材を確認できません');
+      const geometry = new THREE.BufferGeometry(); resources.geometries.push(geometry);
+      Object.keys(entry.attributes).forEach(function (key) { geometry.setAttribute(key, attribute(buffer, entry.attributes[key])); });
+      const packedUV = geometry.getAttribute('uv'), uv = new Float32Array(packedUV.count * 2);
+      for (let i=0;i<uv.length;i++) uv[i] = packedUV.array[i] * entry.uvScale[i%2] + entry.uvOrigin[i%2];
+      geometry.setAttribute('uv', new THREE.BufferAttribute(uv,2));
+      geometry.setIndex(attribute(buffer, entry.index)); geometry.computeBoundingBox(); geometry.computeBoundingSphere();
+      if (!Number.isFinite(geometry.boundingSphere.radius)) throw new Error('森林の形状を確認できません');
+      let mesh;
+      if (entry.instances) {
+        const material = materials[entry.material].clone(); resources.materials.push(material);
+        material.onBeforeCompile = function(shader) {
+          shader.vertexShader = 'attribute vec3 growth;\n' + shader.vertexShader;
+          shader.vertexShader = shader.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\ntransformed.xz += growth.xy * pow(max(0.0,position.y*growth.z-1.2),1.5);');
+          shader.vertexShader = shader.vertexShader.replace('#include <beginnormal_vertex>', '#include <beginnormal_vertex>\nobjectNormal.y -= dot(objectNormal.xz,growth.xy)*1.5*growth.z*sqrt(max(0.0,position.y*growth.z-1.2));');
+        };
+        material.customProgramCacheKey = function() { return 'forest-v5-botanical-growth'; };
+        mesh = new THREE.InstancedMesh(geometry,material,entry.instances.length);
+        const growth = new Float32Array(entry.instances.length*3);
+        entry.instances.forEach(function(instance,i) {
+          mesh.setMatrixAt(i,new THREE.Matrix4().fromArray(instance.matrix));
+          mesh.setColorAt(i,new THREE.Color(1,1,1)); growth.set(instance.growth,i*3);
+        });
+        geometry.setAttribute('growth',new THREE.InstancedBufferAttribute(growth,3));
+        mesh.instanceMatrix.needsUpdate=true; mesh.instanceColor.needsUpdate=true; mesh.frustumCulled=false;
+        geometry.boundingSphere.radius+=2;
+      } else mesh = new THREE.Mesh(geometry, materials[entry.material]); mesh.position.fromArray(entry.origin); mesh.scale.setScalar(entry.scale); mesh.name = entry.name; mesh.receiveShadow = true; forest.add(mesh);
+    }
+    manifest.meshes.forEach(function(entry) { build(entry,buffer); });
+    crowns.meshes.forEach(function(entry) { build(entry,crownBuffer); });
+    // Atomic replacement: the existing view stays intact until all geometry and maps are ready.
+    hall.add(forest);
+    ['ground','apron','root-path','trunks','leaves','canopy','undergrowth','near-blades','backdrop'].forEach(function (name) {
+      const old = hall.children.find(function (o) { return o.name === name; });
+      if (!old) return;
+      old.visible = false;
+      old.traverse(function(o) { if (o.isMesh) { o.raycast = function() {}; o.geometry.dispose(); o.geometry = new THREE.BufferGeometry(); } });
+    });
+    forest.children.forEach(function (mesh) { bridge.registerRefinedMesh(mesh, 'forest'); });
+    forest.userData.ready = true;
+  }
+  function start() {
+    load().catch(function (e) {
+      resources.geometries.forEach(function(x) { x.dispose(); });
+      resources.materials.forEach(function(x) { x.dispose(); });
+      resources.textures.forEach(function(x) { x.dispose(); });
+      window.dispatchEvent(new CustomEvent('h53-display-error', { detail: e.message }));
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
+  else start();
+})();
+
 </script></body>
 </html>
