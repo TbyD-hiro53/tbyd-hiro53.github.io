@@ -14,6 +14,41 @@ import sys
 root = Path(__file__).resolve().parent
 canon = (root / 'CANON_TEXT.md').read_text(encoding='utf-8')
 
+# The Changes registration: bounded mode; no new fictional fragment.
+if sys.argv[1:] == ['--changes-only']:
+    section = canon.split('## ASSET 22 — The Changes', 1)[1].split('\n## ', 1)[0]
+    def changes_field(name):
+        m = re.search(r'\*\*' + re.escape(name) + r'\*\*\s*\n([^\n]+)', section)
+        if not m: raise ValueError('Missing Changes field: ' + name)
+        return html.escape(m[1])
+    start, end = '<!-- CHANGES_START -->', '<!-- CHANGES_END -->'
+    card = f"""{start}
+<article class="entry" data-k="gl">
+  <a class="entry-main" href="the-changes.html">
+    <div class="row"><span class="idx">ASSET 22</span><span class="name">The Changes</span></div>
+    <p class="desc" lang="ja">{changes_field('説明 JA')}</p>
+    <p class="desc" lang="en">{changes_field('説明 EN')}</p>
+    <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div>
+    <span class="thumb"><img src="the-changes-thumb.jpg" alt="乗換 — 巨樹を望む車内" width="640" height="640" loading="lazy" decoding="async"></span>
+  </a>
+</article>
+{end}"""
+    p = root / 'index.html'
+    source = p.read_text(encoding='utf-8')
+    if start in source:
+        source, count = re.subn(re.escape(start) + r'[\s\S]*?' + re.escape(end), lambda _: card, source)
+        if count != 1: raise ValueError('Duplicate Changes card')
+    else:
+        if 'href="the-changes.html"' in source: raise ValueError('Unmanaged Changes card')
+        at = source.index('<!-- ASSET20_END -->') + len('<!-- ASSET20_END -->')
+        source = source[:at] + '\n' + card + source[at:]
+    total = len(re.findall(r'<span class="idx">(?:ASSET \d+|CANON)</span>', source))
+    source, count = re.subn(r'(id="count">)\d+ assets( \+ 1 study</span>)', lambda m: m[1] + str(total) + ' assets' + m[2], source)
+    if count != 1: raise ValueError('Expected one holdings count')
+    p.write_text(source, encoding='utf-8')
+    print('Registered The Changes; all other entries preserved.')
+    raise SystemExit(0)
+
 # ASSET 20 registration is isolated from legacy replacement modes.
 if sys.argv[1:] == ['--asset20-only']:
     section = canon.split('## ASSET 20 — Earth Origin Material', 1)[1].split('\n## ', 1)[0]
