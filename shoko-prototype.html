@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#121819">
+<meta name="robots" content="noindex,nofollow">
+<title>書庫 / SHOKO — 暫定Webプロトタイプ</title>
+<meta name="description" content="h!ro53「書庫」。7つの固定した情景を巡る、v12による暫定Webプロトタイプ。">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./shoko-prototype-v12-20260917-viewer-d1ed9d7418.css">
+<script defer src="./shoko-prototype-v12-20260917-scenes-9d4a2f5298.js"></script>
+<script defer src="./shoko-prototype-v12-20260917-viewer-b070252245.js"></script>
+</head>
+<body>
+<main id="app" aria-label="書庫の鑑賞画面" data-build="v12-web-20260917-r1">
+  <div id="stage" aria-busy="true">
+    <div id="frame"><img id="poster" alt="" draggable="false" decoding="async"><video id="motion" muted playsinline loop preload="none" disablepictureinpicture aria-hidden="true"></video><div id="hotspots" aria-label="この場面の説明対象"></div></div>
+  </div>
+  <header id="hud">
+    <div class="signature">h!ro53 / deus ex machina</div>
+    <h1>書庫 <span>SHOKO</span></h1>
+    <div class="edition">暫定プレビュー · v12</div>
+  </header>
+  <button id="pause" class="glass circle" type="button" aria-label="動きを再生する" aria-pressed="true" hidden>▷</button>
+  <div id="loading" class="glass notice" role="status">空間を開いています</div>
+  <div id="failure" class="glass notice" hidden><p id="failure-text"></p><button id="retry" class="glass" type="button">もう一度読み込む</button></div>
+  <div id="motion-note" class="glass motion-note" role="status" hidden></div>
+  <div id="record-shield" hidden></div>
+  <section id="description" class="glass" role="dialog" aria-modal="true" aria-labelledby="description-name" aria-describedby="description-text" hidden>
+    <div class="panel-head"><h2 id="description-name"></h2><button id="description-close" class="glass circle" type="button" aria-label="文章を閉じる">×</button></div>
+    <div id="description-text" tabindex="0"></div>
+  </section>
+  <footer id="navigation">
+    <p id="scene-current" aria-live="polite">01 / 07　外皮</p>
+    <nav id="scenes" aria-label="場所"></nav>
+  </footer>
+</main>
+<noscript><div class="no-script">この鑑賞画面にはJavaScriptが必要です。<a href="./shoko-prototype-v12-20260917-01_exterior-portrait-8f0d72c869.jpg">外皮の画像を開く</a></div></noscript>
+</body>
+</html>
