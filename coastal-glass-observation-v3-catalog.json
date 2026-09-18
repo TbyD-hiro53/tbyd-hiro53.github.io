@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "language": "ja",
+  "title": "Coastal Glass",
+  "subtitle": "浮遊ガラス物体の観測記録",
+  "about": "世界各地に突如出現したcyberwafer。世間には、その正体が分からない浮遊ガラス物体として認識されている。本作は、その一体と周辺環境を記録した観測ログである。",
+  "scenes": [
+    {"id": "mid-sunset", "title": "沈み途中"},
+    {"id": "night", "title": "夜間"}
+  ],
+  "interactionPolicy": {
+    "overallListOnly": true,
+    "partTapPriority": true,
+    "descriptionMustBeExplicitlyClosed": true,
+    "hiddenSceneTargetsUnavailable": true,
+    "ringsShareDescription": true,
+    "descendingDiscsShareDescription": true
+  },
+  "items": [
+    {
+      "id": "overall",
+      "title": "浮遊物体の全体",
+      "text": "路面から離れた位置に、透明な構造体が浮かぶ。T字の部分、環状の文字列、複数の円盤が見える。支持機構は視野内に確認できない。材質と浮遊の仕組みは不明である。",
+      "scenes": ["mid-sunset", "night"],
+      "listOnly": true
+    },
+    {
+      "id": "t",
+      "title": "T字の部分",
+      "text": "上部にT字の輪郭があり、ゆっくり上下に動く。厚みのある透明な部分を通して、背後の光景が透けて見える。桃色を帯びるが、材質やT字の意味は分かっていない。",
+      "scenes": ["mid-sunset", "night"]
+    },
+    {
+      "id": "top-disc",
+      "title": "最上部の円盤",
+      "text": "円盤群の最上部に、位置を保つ薄い円盤がある。その下では別の円盤の輪郭が現れ、下方へ移動する。上下の円盤をつなぐ軸や支柱は確認できない。",
+      "scenes": ["mid-sunset", "night"]
+    },
+    {
+      "id": "discs",
+      "title": "下降する円盤",
+      "text": "複数の薄い円盤が、最上部の円盤と重なる位置から下へ移動する。見えている輪郭は下降に伴って小さくなり、次の円盤が続く。円盤が移動する仕組みは不明である。",
+      "scenes": ["mid-sunset", "night"]
+    },
+    {
+      "id": "boundary",
+      "title": "輪郭が現れる境界",
+      "text": "最上部の円盤の下面を境に、下降する輪郭が現れる。境界より上では、対応する部分を視認できない。この境界が何によって生じているかは分かっていない。",
+      "scenes": ["mid-sunset", "night"]
+    },
+    {
+      "id": "rings",
+      "title": "環状の文字列",
+      "text": "青緑を帯びた文字列が、T字の周囲を段ごとに回転する。上から「transcendence」「by」「deus ex machina」「h!ro53」と読める。この物体において文字列が何を指すのか、誰が示しているのかは不明である。",
+      "scenes": ["mid-sunset", "night"]
+    },
+    {
+      "id": "sea",
+      "title": "海と波",
+      "text": "道路の海側に、細かな波の重なる水面が広がる。波の向きと傾きが変わり、明暗も絶えず入れ替わる。沖の水平線は、浮遊物体と陸地の位置関係を捉える手がかりになる。",
+      "scenes": ["mid-sunset", "night"]
+    },
+    {
+      "id": "reflection",
+      "title": "水面に映る光",
+      "text": "空の明るい部分に対応して、水面に光の筋が見える。波の傾きに応じて光は細かく途切れ、つながり方を変える。浮遊物体の周囲でも、透ける色と映り込む明るさが重なって見える。",
+      "scenes": ["mid-sunset", "night"]
+    },
+    {
+      "id": "sun",
+      "title": "水平線の太陽",
+      "text": "左奥の太陽が水平線にかかり、円の一部が見えている。暖かな光が空と海に広がり、浮遊物体の縁にも映り込む。",
+      "scenes": ["mid-sunset"]
+    },
+    {
+      "id": "moon",
+      "title": "夜空の月",
+      "text": "夜空に丸い月が見える。冷たい色の光が水面に映り、浮遊物体の輪郭や透ける部分にも重なる。",
+      "scenes": ["night"]
+    },
+    {
+      "id": "stars",
+      "title": "夜空の星",
+      "text": "暗い空に小さな光点が散らばる。月の近くと低い空では目立ちにくく、暗い部分で見つけやすい。",
+      "scenes": ["night"]
+    },
+    {
+      "id": "lighthouse",
+      "title": "灯台の本体",
+      "text": "道の奥の高い位置に、細い塔と灯室が見える。灯室の周囲には手すりがあり、上には屋根が重なる。海岸の奥行きと浮遊物体の位置を捉える目印になる。",
+      "scenes": ["mid-sunset", "night"]
+    },
+    {
+      "id": "beam",
+      "title": "灯台から伸びる光",
+      "text": "灯室から海側へ、細い光の束が伸びる。空気中では淡く見え、海面では波の傾きに応じて光の見え方が変わる。",
+      "scenes": ["night"]
+    },
+    {
+      "id": "road",
+      "title": "曲がる道路",
+      "text": "道路は手前で曲がり、海岸と斜面の間を奥へ続く。浮遊物体との位置関係を捉える、地上側の目印となる。",
+      "scenes": ["mid-sunset", "night"]
+    },
+    {
+      "id": "pavement",
+      "title": "路面と歩道の舗装",
+      "text": "車道と歩道には、細かな凹凸と色のむらが見える。道路に沿う白線や縁石が、地面の曲がり方と境目を示す。",
+      "scenes": ["mid-sunset", "night"]
+    },
+    {
+      "id": "seawall",
+      "title": "海側の護岸",
+      "text": "道路と海の間に、石の面と継ぎ目を持つ壁が続く。上端は道の曲がりに沿い、陸地と水面の境を示している。",
+      "scenes": ["mid-sunset", "night"]
+    },
+    {
+      "id": "fence",
+      "title": "海沿いの柵",
+      "text": "海側の縁に、支柱と横桟が連続して並ぶ。奥へ向かう支柱の重なりが、道の曲がりと距離を見せる。",
+      "scenes": ["mid-sunset", "night"]
+    },
+    {
+      "id": "sign",
+      "title": "曲がりを示す標識",
+      "text": "黄色を帯びた標識面に、右へ曲がる黒い矢印がある。支柱で路傍に立ち、道の先の曲がりを示している。",
+      "scenes": ["mid-sunset", "night"]
+    },
+    {
+      "id": "slope",
+      "title": "斜面と植生",
+      "text": "道路の陸側では、斜面に草や低い茂みが重なる。葉の間には地面が見え、海側の開けた空間とは異なる密度で奥へ続く。",
+      "scenes": ["mid-sunset", "night"]
+    }
+  ]
+}

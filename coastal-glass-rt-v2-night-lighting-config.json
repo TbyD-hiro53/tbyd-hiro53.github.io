@@ -1,0 +1,309 @@
+{
+  "version": 1,
+  "scope": "Web-only independent late-night lighting. Does not modify completed Blender masters or approved stills.",
+  "coordinateSystem": "Original Blender Z-up world metres. Azimuth atan2(x,y), elevation asin(z).",
+  "timeAssumption": {
+    "label": "夜間",
+    "independentFromSunset": true,
+    "illustrativeHoursAfterReferenceSunset": 9,
+    "statement": "A separate later-night view, approximately nine hours after the reference sunset as an artistic assumption. No location, season, calendar date or astronomical timetable is claimed.",
+    "fullMoonPhaseAssumption": "The late-night Sun is below the horizon, opposite the Moon; no low sunset Sun or warm sunset reflection remains."
+  },
+  "exposure": 3,
+  "viewTransform": "AgX",
+  "look": "AgX - Medium Low Contrast",
+  "moon": {
+    "azimuthDegrees": -26,
+    "elevationDegrees": 25.5,
+    "worldDirection": [
+      -0.39566734617539395,
+      0.8112382798508955,
+      0.43051109680829514
+    ],
+    "angularDiameterDegrees": 0.52,
+    "angularRadiusRadians": 0.004537856055185257,
+    "solidAngleSteradians": 0.00006469199712345156,
+    "directIrradianceScalar": 0.008,
+    "colorLinearRGB": [
+      0.8,
+      0.86,
+      1
+    ],
+    "discRadianceLinearRGB": [
+      98.93032035766183,
+      106.35009438448645,
+      123.66290044707728
+    ],
+    "temperatureKelvinReference": 6500,
+    "temperatureNote": "Neutral daylight-scale illuminant reference with a modest cool appearance tint; RGB above is authoritative, not a measured lunar spectrum.",
+    "lightType": "SUN",
+    "lightAngleRadians": 0.009075712110370514,
+    "screenCenterTopOrigin": {
+      "4x3": [
+        0.13772662862422452,
+        0.2478326315224602
+      ],
+      "iphone-portrait": [
+        0.08483562513611659,
+        0.402353660265416
+      ],
+      "iphone-landscape": [
+        0.2192413299737856,
+        0.21258239203398732
+      ],
+      "3x4": [
+        0.04825333768024936,
+        0.34142788823908976
+      ]
+    },
+    "fixedAcrossCameras": true,
+    "independentTapTarget": false
+  },
+  "lateNightSun": {
+    "worldDirection": [
+      0.39566734617539395,
+      -0.8112382798508955,
+      -0.43051109680829514
+    ],
+    "elevationDegrees": -25.5,
+    "visible": false,
+    "directIrradianceScalar": 0,
+    "note": "Antipodal full-phase construction only; below-horizon Sun contributes no retained sunset disc/stripe."
+  },
+  "world": {
+    "strength": 2,
+    "gradientInput": "normalized world-ray Z",
+    "interpolation": "linear",
+    "stops": [
+      {
+        "z": -1,
+        "radianceLinearRGB": [
+          0.00035,
+          0.00065,
+          0.0012
+        ]
+      },
+      {
+        "z": 0,
+        "radianceLinearRGB": [
+          0.0025,
+          0.0045,
+          0.009
+        ]
+      },
+      {
+        "z": 1,
+        "radianceLinearRGB": [
+          0.0006,
+          0.00125,
+          0.0035
+        ]
+      }
+    ]
+  },
+  "beacon": {
+    "sourceGeometry": "Existing source lighthouse decagonal glazed lantern, existing opaque mullions/roof/floor unchanged",
+    "internalSourcePosition": [
+      12.655214309692383,
+      22,
+      11.005817413330078
+    ],
+    "glazingBottomTopZ": [
+      10.77702808380127,
+      11.234606742858887
+    ],
+    "beamAzimuthDegrees": -72,
+    "beamElevationDegrees": -3,
+    "worldDirection": [
+      -0.9497531263931349,
+      0.30859349732391056,
+      -0.052335956242943835
+    ],
+    "exitPupilPosition": [
+      12.303450609457942,
+      22.114294954625937,
+      10.986433544920779
+    ],
+    "exitDistanceFromSource": 0.3703738271126625,
+    "exitPupilRadiusMetres": 0.015,
+    "colorLinearRGB": [
+      1,
+      0.67,
+      0.32
+    ],
+    "sourcePowerWatts": 12,
+    "glazingTransmissionApprox": 0.88,
+    "emittedPowerWattsAfterGlazing": 10.56,
+    "outerFullAngleDegrees": 5.6,
+    "innerFullAngleDegrees": 4.2,
+    "outerHalfAngleRadians": 0.048869219055841226,
+    "innerHalfAngleRadians": 0.03665191429188092,
+    "rangeMetres": 220,
+    "nearMetres": 0.015,
+    "lanternGlazingEmissionStrength": 1,
+    "lightType": "SPOT",
+    "spotBlend": 0.25,
+    "stationary": true,
+    "independentTapTarget": false,
+    "volume": {
+      "extinctionPerMetre": 0.0022,
+      "scatteringPerMetre": 0.00075,
+      "henyeyGreensteinG": 0.28,
+      "colorLinearRGB": [
+        1,
+        1,
+        1
+      ],
+      "rangeFadeStartMetres": 180,
+      "rangeFadeEndMetres": 220,
+      "assumption": "Weak homogeneous maritime haze for the narrow beacon only. Single scattering with inverse-square irradiance and Beer attenuation; no global opaque fog or surface overlay.",
+      "airOnlyAboveMeanSeaZ": -1.52
+    },
+    "shadow": {
+      "file": "beacon-shadow-opaque-depth.bin.gz",
+      "png": "beacon-shadow-opaque-depth.png",
+      "format": "Float32 little-endian radial distance metres; rows bottom-to-top, DataTexture flipY=false. Gzip compressed. Far220 means no opaque hit.",
+      "pngEncoding": "RGB24 linear q=round(distance/220*16777215), alpha255; PNG top-to-bottom, TextureLoader flipY=true, no sRGB transfer. Decode dot(rgb,vec3(65536,256,1))*255/16777215*220.",
+      "resolution": [
+        256,
+        256
+      ],
+      "fovDegrees": 80,
+      "nearMetres": 0.015,
+      "farMetres": 220,
+      "originWorld": [
+        12.655214309692383,
+        22,
+        11.005817413330078
+      ],
+      "forwardWorld": [
+        -0.9497531056404114,
+        0.3085935115814209,
+        -0.0523359552025795
+      ],
+      "cameraWorldMatrix": [
+        0.3090171217918396,
+        0.9510564208030701,
+        -5.024595495228823e-8,
+        0,
+        -0.04977443441748619,
+        0.016172800213098526,
+        0.9986295104026794,
+        0,
+        0.9497530460357666,
+        -0.3085935711860657,
+        0.05233599990606308,
+        0,
+        12.655214309692383,
+        22,
+        11.005817413330078,
+        1
+      ],
+      "viewMatrix": [
+        0.3090170919895172,
+        -0.04977448284626007,
+        0.9497531056404114,
+        0,
+        0.9510565400123596,
+        0.01617277041077614,
+        -0.30859366059303284,
+        0,
+        -9.5926239396249e-8,
+        0.9986295700073242,
+        0.05233597382903099,
+        0,
+        -24.833921432495117,
+        -10.716628074645996,
+        -5.806270122528076,
+        1
+      ],
+      "projectionMatrix": [
+        1.191753625869751,
+        0,
+        0,
+        0,
+        0,
+        1.191753625869751,
+        0,
+        0,
+        0,
+        0,
+        -1.000136375427246,
+        -1,
+        0,
+        0,
+        -0.03000204637646675,
+        0
+      ],
+      "viewProjectionMatrix": [
+        0.36827224493026733,
+        -0.059318918734788895,
+        -0.9498826265335083,
+        -0.9497531056404114,
+        1.1334251165390015,
+        0.01927395723760128,
+        0.30863574147224426,
+        0.30859366059303284,
+        -1.1432044288994803e-7,
+        1.1901204586029053,
+        -0.052343111485242844,
+        -0.05233597382903099,
+        -29.595916748046875,
+        -12.771580696105957,
+        5.777060031890869,
+        5.806270122528076
+      ],
+      "matrixOrder": "column-major Three.Matrix4.fromArray",
+      "comparison": "Distance(worldSample,originWorld) <= shadowDepth + biasMetres. Project sample with viewProjectionMatrix; uv=ndc.xy*.5+.5. Require clip.w>0 and UVwithin0..1; light cone must also hold.",
+      "biasMetres": 0.004,
+      "filter": "Nearest depth; optional3x3PCF on binary visibility, do not linearly interpolate rawdepth across occlusionedge.",
+      "scope": "Exact evaluated opaque source static mesh/curve geometry. Glazing kept as transmission .88 instead of opaque; vegetation instances excluded from beam shadow proxy, while full Cycles static lighting bakes preserve them. Moving primary glass is not in static shadow map.",
+      "seaAirBoundaryZ": null,
+      "waterSurfacePolicy": "Sea omitted from light-space occlusion. Volume separately clips below mean sea; dynamic wave trough surface light remains continuous.",
+      "stats": {
+        "opaquePixels": 34726,
+        "seaBoundaryPixels": 0,
+        "farPixels": 30810,
+        "minDepth": 0.30391812324523926,
+        "maxDepth": 220,
+        "vertices": 489127,
+        "polygons": 457888
+      },
+      "sha256": "e8e570d2f2f8e91b061383cbf985dd0bd8cecebdd919d46b8360ec554c9b5d5e",
+      "gzipSha256": "56ab15906d20f294e1a22d17cb7fdf2957dba5776e8da441fe9131fa17c0ef7c",
+      "gzipBytes": 108179,
+      "pngSha256": "dadc88f44e67cf6e7cce9f9d4d32ca7170c671a982d6d6a002a75b0327f186d6",
+      "pngBytes": 41606,
+      "pngMaxRoundtripErrorMetres": 0.000006556241247623884,
+      "centerRayUvValidation": [
+        0.49999984138594283,
+        0.5000001473317608
+      ]
+    },
+    "aperture": {
+      "existingGlazingPanel": "Lantern glazing panel.004",
+      "worldPoint": [
+        12.327203750610352,
+        22.106576919555664,
+        10.98774242401123
+      ],
+      "worldNormal": [
+        0.9510573744773865,
+        -0.30901452898979187,
+        0
+      ],
+      "rayDistanceFromInternalLamp": 0.345363974571228,
+      "coneRaysVerified": 513,
+      "allConeRaysPassOpeningBeforeOpaqueGeometry": true,
+      "centerHeightAboveGlazingBottom": 0.21071434020996094,
+      "centerHeightBelowGlazingTop": 0.24686431884765625
+    },
+    "effectiveBeamSolidAngleSteradians": 0.005860543328624288,
+    "radiantIntensityCenterRGB": [
+      1801.8807144420293,
+      1207.2600786761598,
+      576.6018286214495
+    ]
+  },
+  "lightingUnitsNote": "Scene-linear working radiometric units. Moon directional irradiance and visible disc radiance are linked by the disc solid angle. These are design assumptions, not measurements of an actual site."
+}

@@ -86,6 +86,30 @@ The structure and motion of Cyberwafer v25, recast in polished metal and solid l
 
 ---
 
+## ASSET 23 — Coastal Glass
+
+**副題 JA**
+浮遊ガラス物体の観測記録
+
+**副題 EN**
+Observation log of a floating glass-like object
+
+**公開パス** `coastal-glass.html`
+
+**説明 JA**
+世界各地に突如出現した、正体不明のcyberwafer。その一体と周辺環境を夕景と夜景で観測し、対象に触れると短い観測記録が開く。
+
+**説明 EN**
+An observation of one of the unidentified cyberwafers that have suddenly appeared around the world, together with its surroundings. Switch between sunset and night, and touch an object to open its observation record.
+
+**作品設定（承認済み）**
+世界各地に突如出現したcyberwafer。世間には、その正体が分からない浮遊ガラス物体として認識されている。本作は、その一体と周辺環境を記録した観測ログである。
+
+**登録記録**
+2026-09-18。作者確認済みのリアルタイム3D版を公開。Cyberwaferの構造と運動を異なる材質・環境で観測する作品として、CHROME LITURGYの直後、一覧3番目に配置。既存ASSETの識別子は変更せず、未使用のASSET 23を付与する。新しい位相・断章・由来の説明は追加しない。公開カードは `build_frag.py --coastal-glass-only` で生成する。
+
+---
+
 ## ASSET 01 — Object
 
 **位相** PHASE 1 · THE FIRST T

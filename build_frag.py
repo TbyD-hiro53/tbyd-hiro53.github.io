@@ -5,6 +5,7 @@ bounded replacement updates the study card and asset 06 title/descriptions;
 existing narrative and other assets are preserved.
 Run with Python 3 from the repository root. No third-party dependencies.
 Use --viewing-only to update shared viewing notices and description metadata.
+Use --coastal-glass-only to register Coastal Glass without changing other works.
 """
 from pathlib import Path
 import html
@@ -13,6 +14,55 @@ import sys
 
 root = Path(__file__).resolve().parent
 canon = (root / 'CANON_TEXT.md').read_text(encoding='utf-8')
+
+# Coastal Glass registration: approved observation copy, no new narrative fragment.
+if sys.argv[1:] == ['--coastal-glass-only']:
+    section = canon.split('## ASSET 23 — Coastal Glass', 1)[1].split('\n## ', 1)[0]
+    def coastal_field(name):
+        match = re.search(r'\*\*' + re.escape(name) + r'\*\*\s*\n([^\n]+)', section)
+        if not match:
+            raise ValueError('Missing Coastal Glass field: ' + name)
+        return html.escape(match[1])
+    public_path = re.search(r'\*\*公開パス\*\* `([^`]+)`', section)[1]
+    if public_path != 'coastal-glass.html':
+        raise ValueError('Unexpected Coastal Glass public path')
+    start, end = '<!-- COASTAL_GLASS_START -->', '<!-- COASTAL_GLASS_END -->'
+    card = f"""{start}
+<article class="entry" data-k="gl">
+  <a class="entry-main" href="{public_path}">
+    <div class="row"><span class="idx">ASSET 23</span><span class="name">Coastal Glass</span></div>
+    <p class="desc" lang="ja">{coastal_field('副題 JA')}</p>
+    <p class="desc" lang="en">{coastal_field('副題 EN')}</p>
+    <p class="desc" lang="ja">{coastal_field('説明 JA')}</p>
+    <p class="desc" lang="en">{coastal_field('説明 EN')}</p>
+    <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div>
+    <span class="thumb"><img src="coastal-glass-thumb.jpg" alt="Coastal Glass — 浮遊ガラス物体の観測記録" width="640" height="640" loading="lazy" decoding="async"></span>
+  </a>
+</article>
+{end}"""
+    path = root / 'index.html'
+    source = path.read_text(encoding='utf-8')
+    if start in source:
+        source, count = re.subn(re.escape(start) + r'[\s\S]*?' + re.escape(end), lambda _: card, source)
+        if count != 1:
+            raise ValueError('Duplicate Coastal Glass card')
+    else:
+        if 'href="coastal-glass.html"' in source or '<span class="idx">ASSET 23</span>' in source:
+            raise ValueError('Coastal Glass path or ASSET 23 already registered')
+        anchor = '<!-- CHROME_LITURGY_END -->'
+        if source.count(anchor) != 1:
+            raise ValueError('Expected one Chrome Liturgy card')
+        offset = source.index(anchor) + len(anchor)
+        source = source[:offset] + '\n' + card + source[offset:]
+    # Preserve existing identifiers; CANON counts as one asset, as in other modes.
+    total = len(re.findall(r'<span class="idx">(?:ASSET \d+|CANON)</span>', source))
+    source, count = re.subn(r'(id="count">)\d+ assets( \+ 1 study</span>)',
+                            lambda m: m[1] + str(total) + ' assets' + m[2], source)
+    if count != 1:
+        raise ValueError('Expected one holdings count')
+    path.write_text(source, encoding='utf-8')
+    print('Registered Coastal Glass from CANON_TEXT; all other entries preserved.')
+    raise SystemExit(0)
 
 # The Changes registration: bounded mode; no new fictional fragment.
 if sys.argv[1:] == ['--changes-only']:
