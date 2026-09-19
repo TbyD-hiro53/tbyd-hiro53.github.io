@@ -120,7 +120,9 @@ window.addEventListener('error',function(e){if(e.error)show(e.message);});
 window.addEventListener('unhandledrejection',function(e){show(e.reason&&e.reason.message||e.reason);});
 window.addEventListener('h53-display-error',function(e){show(e.detail);});
 document.addEventListener('DOMContentLoaded',function(){document.getElementById('h53-runtime-error').addEventListener('click',function(){this.hidden=true;});},{once:true});
-})();</script><script src="h53-liquid-glass-optics-v1.js"></script><script src="h53-liquid-ui-v1-20260919.js"></script><script src="h53-liquid-host-v1-20260919.js"></script><script src="h53-liquid-menu-v1-20260919.js"></script></head>
+})();</script><script src="h53-liquid-glass-optics-v1.js"></script><script src="h53-liquid-ui-v1-20260919.js"></script><script src="h53-liquid-host-v1-20260919.js"></script><script src="h53-liquid-menu-v1-20260919.js"></script><link rel="stylesheet" href="h53-direct-controls-v1-20260919.css">
+<script defer src="h53-direct-controls-v1-20260919.js"></script>
+</head>
 <body>
 <canvas id="c"></canvas>
 <a id="back" href="./index.html">&#8592; index</a>

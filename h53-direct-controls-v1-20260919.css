@@ -1,0 +1,33 @@
+/* Only controls participate in this layout; scene/camera containers are unchanged. */
+.h53-direct-layout{--h53-primary-height:44px}
+.h53-direct-layout .h53-primary-controls{position:fixed!important;left:calc(16px + env(safe-area-inset-left))!important;right:calc(16px + env(safe-area-inset-right))!important;bottom:calc(30px + env(safe-area-inset-bottom))!important;top:auto!important;width:auto!important;max-width:none!important;transform:none!important;display:flex;flex-direction:row!important;flex-wrap:wrap!important;align-items:center;justify-content:center;gap:8px!important;pointer-events:none;box-sizing:border-box;z-index:6}
+.h53-direct-layout .h53-primary-controls[hidden]{display:none!important}
+.h53-direct-layout .h53-primary-controls>button,.h53-direct-layout .h53-primary-controls>label{position:relative!important;inset:auto!important;transform:none!important;flex:0 1 auto;min-height:44px;max-width:100%;box-sizing:border-box;pointer-events:auto;touch-action:manipulation}
+.h53-direct-layout .h53-primary-controls>button{display:inline-flex;align-items:center;justify-content:center;white-space:normal;padding:0 14px;border:1px solid #ffffff33;border-radius:999px;color:inherit;font:12px/1.35 var(--mono,-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino Sans',sans-serif);letter-spacing:.04em}
+.h53-direct-layout .h53-primary-controls>button[aria-pressed=true]{color:#b7fff2;border-color:#b7fff277}
+.h53-direct-layout .composer-title,.h53-direct-layout .legacy-three-title{bottom:calc(46px + env(safe-area-inset-bottom) + var(--h53-primary-height));max-width:calc(100% - 44px)}
+.h53-direct-layout .composer-zoom{width:230px;max-width:100%;padding:0 12px;min-height:44px;gap:10px}
+.h53-direct-layout .composer-zoom input{min-height:44px}
+.h53-direct-layout #composerPrimary,.h53-direct-layout #legacyThreePrimary{color:#f3f4f5}
+.h53-direct-layout #composerMenuContent>button,.h53-direct-layout #legacyThreeContent>button{box-sizing:border-box;max-width:100%}
+.h53-direct-layout #svgPrimary{color:inherit}
+.h53-direct-layout #svgPrimary #bgbtn{display:inline-flex!important;visibility:visible!important;min-width:88px}
+.h53-direct-layout #svgPrimary{left:calc(128px + env(safe-area-inset-left))!important;right:calc(88px + env(safe-area-inset-right))!important;bottom:calc(36px + env(safe-area-inset-bottom))!important}
+.h53-direct-layout #h53-menu-toggle{top:calc(14px + env(safe-area-inset-top));bottom:auto}
+.h53-direct-layout #h53-menu-panel{top:calc(70px + env(safe-area-inset-top));bottom:auto}
+.h53-direct-layout[data-h53-work=earth-origin-material] #back{top:calc(14px + env(safe-area-inset-top));left:calc(16px + env(safe-area-inset-left));bottom:auto}
+.h53-direct-layout[data-h53-work=earth-origin-material] #hud{top:calc(72px + env(safe-area-inset-top));left:calc(20px + env(safe-area-inset-left));right:calc(20px + env(safe-area-inset-right))}
+.h53-direct-layout[data-h53-work=chrome-liturgy] #editionPicker{left:50%;right:auto;bottom:calc(42px + env(safe-area-inset-bottom) + var(--h53-primary-height));transform:translateX(-50%)}
+.h53-direct-layout[data-h53-work=chrome-liturgy] #menu{bottom:calc(104px + env(safe-area-inset-bottom) + var(--h53-primary-height));max-height:calc(100dvh - 190px - var(--h53-primary-height))}
+.h53-direct-layout[data-h53-work=chrome-liturgy].photographic #controls #reset{display:none}
+.h53-direct-layout[data-h53-work=chrome-liturgy].chrome-ui-hidden #controls{visibility:hidden;pointer-events:none}
+.h53-direct-layout[data-h53-work=chrome-liturgy] #controls{color:#f3f4f5}
+.h53-direct-layout[data-h53-work=confluence] #ui{color:#f3f4f5}
+.h53-direct-layout[data-h53-work=confluence] #menu{bottom:calc(44px + env(safe-area-inset-bottom) + var(--h53-primary-height));max-height:calc(100dvh - 112px - var(--h53-primary-height))}
+.h53-direct-layout[data-h53-work=the-changes] #navigation{flex-direction:column!important}
+.h53-direct-layout[data-h53-work=the-changes] #scenes,.h53-direct-layout[data-h53-work=the-changes] #views{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;overflow:visible;width:auto;max-width:100%}
+.h53-direct-layout[data-h53-work=the-changes] #viewbar{width:100%;max-width:100%}
+.h53-direct-layout[data-h53-work=the-changes] #view-next{display:none!important}
+.h53-direct-layout[data-h53-work=the-changes] #hud{right:calc(100px + env(safe-area-inset-right));max-width:calc(100% - 142px)}
+.h53-direct-layout[data-h53-work=binary-dusk] #menu,.h53-direct-layout[data-h53-work=binary-dusk] #info{bottom:calc(48px + env(safe-area-inset-bottom) + var(--h53-primary-height))}
+@media(max-height:520px) and (orientation:landscape){.h53-direct-layout .composer-title,.h53-direct-layout .legacy-three-title{left:calc(120px + env(safe-area-inset-left));right:calc(130px + env(safe-area-inset-right));top:calc(18px + env(safe-area-inset-top));bottom:auto;max-width:none}.h53-direct-layout .composer-title small,.h53-direct-layout .legacy-three-title small{display:none}.h53-direct-layout[data-h53-work=chrome-liturgy] #editionPicker{bottom:calc(38px + env(safe-area-inset-bottom) + var(--h53-primary-height))}.h53-direct-layout .h53-primary-controls{bottom:calc(22px + env(safe-area-inset-bottom))!important}}
