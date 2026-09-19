@@ -1,0 +1,10 @@
+.h53-liquid-host #panel{opacity:1;transform:translateX(-50%);transition:none;padding:24px;border-radius:30px;z-index:9}.h53-liquid-host #panel .lg{font-size:14px;line-height:1.95}.h53-liquid-host #px{z-index:10}.h53-liquid-host #hint{z-index:3}.h53-liquid-host #menu{border-radius:26px}.h53-liquid-host .qualities button[aria-pressed=true]{box-shadow:inset 0 0 0 1px #e3f9ff80!important}.h53-liquid-host.immersive .chrome{display:none!important}
+
+/* The direct dock retains the original #ui padding. Its observed height includes all rows. */
+.h53-direct-layout[data-h53-work=confluence] #status.subtle{
+  bottom:calc(42px + env(safe-area-inset-bottom) + var(--h53-primary-height));
+  max-width:calc(100vw - 32px - env(safe-area-inset-left) - env(safe-area-inset-right));
+  white-space:normal;text-align:center;z-index:4;
+}
+.h53-direct-layout[data-h53-work=confluence]:has(#menu:not([hidden])) #status.subtle,
+.h53-direct-layout[data-h53-work=confluence].h53-liquid-reading #status.subtle{visibility:hidden}

@@ -1,0 +1,14 @@
+/* Utterance v6 only: observation text sits above the two corner controls. */
+body.code-rain-liquid #crLiquidControls :is(#back,#menuToggle,#showUI){bottom:calc(44px + env(safe-area-inset-bottom))}
+body.code-rain-liquid #hudBL{
+  left:calc(16px + env(safe-area-inset-left));
+  right:calc(16px + env(safe-area-inset-right));
+  bottom:calc(100px + env(safe-area-inset-bottom));
+  max-width:560px;white-space:normal;overflow-wrap:break-word;line-height:1.6;
+}
+body.code-rain-liquid #hint{
+  left:calc(132px + env(safe-area-inset-left));
+  right:calc(88px + env(safe-area-inset-right));
+  bottom:calc(56px + env(safe-area-inset-bottom));
+  font-size:9px;letter-spacing:.06em;line-height:1.5;
+}

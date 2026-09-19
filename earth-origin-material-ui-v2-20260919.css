@@ -1,0 +1,10 @@
+/* This station caption uses the same live Liquid Glass surface as the menu. */
+.h53-direct-layout[data-h53-work=earth-origin-material] #hud{
+  width:max-content;max-width:calc(100vw - 40px - env(safe-area-inset-left) - env(safe-area-inset-right));
+  right:auto;padding:12px 16px;border-radius:24px;font-size:11px;line-height:1.8;
+}
+.h53-direct-layout[data-h53-work=earth-origin-material] #hud b{color:#d2fff5}
+/* Keep the caption out of the open sheet, including its closing transition. */
+.h53-direct-layout[data-h53-work=earth-origin-material]:has(#h53-menu-panel:not([hidden])) #hud,
+.h53-direct-layout[data-h53-work=earth-origin-material].h53-liquid-reading #hud{visibility:hidden}
+@media(max-width:400px){.h53-direct-layout[data-h53-work=earth-origin-material] #hud{font-size:10px}}

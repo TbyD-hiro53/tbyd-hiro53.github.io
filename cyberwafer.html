@@ -891,7 +891,8 @@ function applyEra(idx){
   /* chrome reflections follow the model; the backdrop never changes */
   scene.environment = e.dark ? envDark : envBright;
   /* the backdrop is dark -> HUD stays on the dark palette */
-  document.body.className = 'dark';
+  document.body.classList.remove('light');
+  document.body.classList.add('dark');
   resizeLowRT();
   var li;
   for (li = 0; li < ERA.length; li++){ eraBtns[li].className = li === idx ? 'eraBtn on' : 'eraBtn'; }
