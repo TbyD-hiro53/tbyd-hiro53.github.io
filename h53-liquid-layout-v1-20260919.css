@@ -1,0 +1,21 @@
+/* Common material plane and compact reading surfaces. Artwork layout is untouched. */
+.h53-liquid-overlay{position:fixed!important;inset:0!important;width:100%!important;height:100%!important;display:block;z-index:2;pointer-events:none!important;contain:strict}
+.h53-liquid-overlay[hidden]{display:none!important}
+.h53-liquid-host .h53-liquid-panel{padding:24px;border-radius:30px}
+.h53-liquid-host .h53-liquid-panel p{font-size:14px;line-height:1.95}
+.h53-liquid-host .h53-liquid-menu{padding:10px;gap:2px;border-radius:26px}
+.h53-liquid-host .h53-liquid-menu button:not(.h53-liquid-surface){border:0;border-radius:18px;box-shadow:none!important;background:transparent!important;text-align:left;justify-content:flex-start;padding:0 18px}
+.h53-liquid-host .h53-liquid-menu button:hover{background:rgba(210,232,246,.09)!important}
+.h53-liquid-host .h53-liquid-menu button:active{background:rgba(210,232,246,.15)!important}
+.h53-liquid-host .h53-liquid-panel .target-list{display:grid;grid-template-columns:1fr;gap:1px}
+.h53-liquid-host .h53-liquid-panel .target-list button{border:0;border-radius:12px;justify-content:flex-start;text-align:left;padding:9px 12px}
+.h53-liquid-host .h53-liquid-panel .target-list button:hover{background:rgba(210,232,246,.08)}
+.h53-liquid-host .h53-liquid-panel :is(button,select,input){touch-action:manipulation}
+.h53-liquid-host .h53-liquid-surface::before,.h53-liquid-host .h53-liquid-surface::after{content:none!important}
+.h53-liquid-host.h53-liquid-reading :is(#back,#controls,#menuToggle,#editionPicker){pointer-events:none}
+.h53-liquid-host #info{z-index:9;transition:none}
+.h53-liquid-host #menu{z-index:6;transition:none}
+.h53-liquid-host #info[hidden],.h53-liquid-host #menu[hidden]{transform:translateX(-50%)}
+.h53-liquid-host #infoTitle{padding-right:24px}
+.h53-liquid-host #closeInfo{z-index:10}
+@media(max-height:520px) and (orientation:landscape){.h53-liquid-host .h53-liquid-panel{padding:16px 20px}.h53-liquid-host .h53-liquid-menu{padding:8px}}

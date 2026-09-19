@@ -1,0 +1,21 @@
+/* Scoped Coastal-derived UI; original artwork and camera-fit layout stay intact. */
+body.composer-liquid .ui,body.composer-liquid .ui *,body.composer-liquid .hud,body.composer-liquid .stack,body.composer-liquid .stack *,body.composer-liquid .zoomwrap,body.composer-liquid .zoomwrap *,body.composer-liquid #h53idx{visibility:hidden!important;pointer-events:none!important}
+body.composer-liquid .ui::before,body.composer-liquid .ui::after{display:none}
+body.composer-liquid .h53-liquid-overlay{z-index:35}
+.composer-shell{font-family:'Helvetica Neue',Arial,'Hiragino Sans','Yu Gothic',sans-serif;color:#f3f4f5;position:fixed;inset:0;z-index:40;pointer-events:none}
+.composer-shell a,.composer-shell button,.composer-shell input{pointer-events:auto;color:inherit;font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.composer-shell button,.composer-shell a{appearance:none;border:1px solid transparent;min-height:44px;padding:0 17px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px;letter-spacing:.03em}
+.composer-shell [hidden]{display:none!important}
+.composer-top{position:absolute;inset:calc(14px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) auto calc(16px + env(safe-area-inset-left));display:flex;justify-content:space-between;align-items:flex-start;gap:12px;pointer-events:none}
+.composer-title{position:absolute;left:calc(22px + env(safe-area-inset-left));bottom:calc(34px + env(safe-area-inset-bottom));max-width:calc(100% - 110px);text-shadow:0 1px 5px #000;pointer-events:none}
+.composer-title strong{display:block;font-size:13px;font-weight:400;letter-spacing:.09em}.composer-title small{display:block;font-size:9px;opacity:.68;line-height:1.65;letter-spacing:.06em;margin-top:4px}
+#composerMenu{position:absolute;right:calc(16px + env(safe-area-inset-right));top:calc(68px + env(safe-area-inset-top));width:min(330px,calc(100vw - 32px));max-height:calc(100dvh - 100px - env(safe-area-inset-top) - env(safe-area-inset-bottom));display:flex;flex-direction:column;pointer-events:auto;overflow:hidden}
+#composerMenu header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:3px 6px 8px 14px}#composerMenu h2{font-size:13px;font-weight:400;letter-spacing:.04em}#composerMenuClose{padding:0;width:44px;flex:0 0 44px;font-size:21px}
+#composerMenuContent{display:flex;flex-direction:column;gap:2px;min-height:0;overflow:auto;overscroll-behavior:contain;padding:0 4px 4px}
+#composerMenuContent>button{width:100%;justify-content:space-between;text-align:left;background:none;border:0;border-radius:16px;box-shadow:none;flex-shrink:0;min-height:44px;backdrop-filter:none;-webkit-backdrop-filter:none}
+#composerMenuContent>button[aria-pressed=true]::after{content:'';width:5px;height:5px;flex:0 0 5px;border-radius:50%;background:currentColor;margin-left:12px}
+#composerMenuContent p{font-size:13px;line-height:1.9;margin:4px 14px 15px;white-space:pre-line;color:inherit}
+.composer-state{font-size:10px;line-height:1.8;opacity:.72;padding:5px 17px;overflow-wrap:anywhere;white-space:pre-line}
+.composer-zoom{display:flex;align-items:center;gap:12px;padding:12px 17px;font-size:11px}.composer-zoom input{min-width:0;width:100%;accent-color:#dcf5ff}
+#composerShow{position:absolute;right:calc(16px + env(safe-area-inset-right));bottom:calc(34px + env(safe-area-inset-bottom))}
+@media(max-height:520px) and (orientation:landscape){#composerMenu{top:calc(12px + env(safe-area-inset-top));right:calc(104px + env(safe-area-inset-right));max-height:calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom))}.composer-title{bottom:28px}}

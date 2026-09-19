@@ -6,6 +6,7 @@ existing narrative and other assets are preserved.
 Run with Python 3 from the repository root. No third-party dependencies.
 Use --viewing-only to update shared viewing notices and description metadata.
 Use --coastal-glass-only to register Coastal Glass without changing other works.
+Use --liquid-glass-sigil-scope-only to clarify SVG artwork/UI technical scope.
 """
 from pathlib import Path
 import html
@@ -14,6 +15,41 @@ import sys
 
 root = Path(__file__).resolve().parent
 canon = (root / 'CANON_TEXT.md').read_text(encoding='utf-8')
+
+# Liquid Glass is a UI renderer; preserve the native SVG artwork description.
+if sys.argv[1:] == ['--liquid-glass-sigil-scope-only']:
+    section = canon.split('## ASSET 08 — Sigil Fusion v5', 1)[1].split('\n## ', 1)[0]
+    def sigil_field(name):
+        match = re.search(r'\*\*' + re.escape(name) + r'\*\*\s*\n([^\n]+)', section)
+        if not match:
+            raise ValueError('Missing Sigil field: ' + name)
+        return html.escape(match[1], quote=True)
+    path = root / 'index.html'
+    source = path.read_text(encoding='utf-8')
+    pattern = r'(<a class="entry-main" href="sigil-fusion.html">)([\s\S]*?)(</a>)'
+    def update_sigil(match):
+        body = match[2]
+        for lang in ['ja', 'en']:
+            body, count = re.subn(r'(<p class="desc" lang="' + lang + r'">)[\s\S]*?(</p>)',
+                                  lambda m: m[1] + sigil_field('説明 ' + lang.upper()) + m[2], body)
+            if count != 1:
+                raise ValueError('Expected one Sigil description: ' + lang)
+        body = body.replace('<span class="chip">No WebGL</span>', '<span class="chip">SVG artwork</span>')
+        return match[1] + body + match[3]
+    source, count = re.subn(pattern, update_sigil, source)
+    if count != 1:
+        raise ValueError('Expected one Sigil card')
+    path.write_text(source, encoding='utf-8')
+    path = root / 'sigil-fusion.html'
+    source = path.read_text(encoding='utf-8')
+    for attribute, key in [('name', 'description'), ('name', 'twitter:description'), ('property', 'og:description')]:
+        pattern = r'(<meta\s+' + attribute + r'="' + re.escape(key) + r'"\s+content=")[^"]*(")'
+        source, count = re.subn(pattern, lambda m: m[1] + sigil_field('説明 JA') + m[2], source)
+        if count != 1:
+            raise ValueError('Expected one Sigil metadata field: ' + key)
+    path.write_text(source, encoding='utf-8')
+    print('Clarified Sigil artwork technical scope from CANON_TEXT; narrative and other entries preserved.')
+    raise SystemExit(0)
 
 # Coastal Glass registration: approved observation copy, no new narrative fragment.
 if sys.argv[1:] == ['--coastal-glass-only']:

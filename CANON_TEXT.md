@@ -270,10 +270,10 @@ The discs descend, contract, and at the point of vanishing become a drop of milk
 **観測ログ** `Ascension no longer required belief.`
 
 **説明 JA**
-白地に置かれた唯一の作品。ラスタを一切用いず、SVGと数式のみで拍を刻む。皮質を三重の周回文字環が囲み、下方へウェハーが縮みながら降りる。WebGL不使用。
+白地に置かれた唯一の作品。造形本体はラスタを用いず、SVGと数式のみで拍を刻む。皮質を三重の周回文字環が囲み、下方へウェハーが縮みながら降りる。造形本体はWebGL不使用。
 
 **説明 EN**
-The only work set on white. No raster is used anywhere; SVG and arithmetic alone keep the beat. Three rings of circling text enclose the cortex while wafers descend below, shrinking as they fall. No WebGL.
+The only work set on white. The artwork itself uses no raster; SVG and arithmetic alone keep the beat. Three rings of circling text enclose the cortex while wafers descend below, shrinking as they fall. The artwork itself uses no WebGL.
 
 **断章 JA**
 三つの環がそれぞれ違う速さで巡り、共通の周期を持たないよう調律されている。合致する瞬間は計算上存在しない。祭壇は要らなかった。供物も、跪く場所も、唱える者も要らなかった。必要だったのは比だけである。だから儀式は終わらない。終わらないものを信仰と呼ぶ習慣は、この頃までに廃れていた。

@@ -1,0 +1,9 @@
+.h53-menu-pill{position:fixed;right:calc(16px + env(safe-area-inset-right));bottom:calc(30px + env(safe-area-inset-bottom));z-index:6;display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:52px;padding:0 17px;border:1px solid #ffffff33;border-radius:999px;font:11px var(--mono,ui-monospace,monospace);letter-spacing:.08em;color:#f3f4f5;cursor:pointer}
+#h53-menu-toggle{font-size:16px;letter-spacing:.08em}
+#h53-menu-panel{position:fixed;right:calc(12px + env(safe-area-inset-right));bottom:calc(86px + env(safe-area-inset-bottom));z-index:6;width:min(290px,calc(100vw - 24px));max-height:calc(100dvh - 150px - env(safe-area-inset-top) - env(safe-area-inset-bottom));overflow:auto;overscroll-behavior:contain;display:grid;gap:2px;font:12px/1.7 var(--mono,ui-monospace,monospace);color:#f3f4f5;transform:none}
+#h53-menu-panel>button{display:flex;align-items:center;justify-content:flex-start;min-height:44px;width:100%;font:inherit;letter-spacing:.06em;cursor:pointer}
+#h53-menu-panel p{font:12px/1.9 -apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;padding:0 12px}
+#h53-menu-panel a{color:inherit;text-decoration:underline}
+.h53-menu-at-top #h53-menu-toggle{top:calc(14px + env(safe-area-inset-top));bottom:auto}
+.h53-menu-at-top #h53-menu-panel{top:calc(70px + env(safe-area-inset-top));bottom:auto}
+.h53-liquid-host [hidden]{display:none!important}

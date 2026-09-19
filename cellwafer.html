@@ -869,6 +869,7 @@ function loop(now){
   camera.lookAt(camTarget);
 
   renderer.render(scene, camera);
+  if(window.H53LegacyThreeLiquid)window.H53LegacyThreeLiquid.afterRender(renderer,{time:t,convergence:conv,target:convTarget});
 }
 requestAnimationFrame(loop);
 
@@ -1078,5 +1079,7 @@ min-height:44px;padding:0 17px;letter-spacing:.10em;text-transform:lowercase}
 .eraBtn,body.dark .eraBtn,body.light .eraBtn,#cvBtn,.bgbtn,#bgbtn,body.dark #bgbtn,body.light #bgbtn,#retry,#status button{background:#2b2f38}
 .eraBtn.on,body.dark .eraBtn.on,body.light .eraBtn.on,#cvBtn.on{background:#135954}}
 </style>
+
+<!-- H53_LEGACY_LIQUID_V1_START --><link rel="stylesheet" href="h53-liquid-ui-v1-20260919.css"><link rel="stylesheet" href="h53-liquid-layout-v1-20260919.css"><link rel="stylesheet" href="legacy-three-liquid-v1-20260919.css"><script src="h53-liquid-ui-v1-20260919.js"></script><script src="h53-liquid-glass-optics-v1.js"></script><script src="h53-liquid-host-v1-20260919.js"></script><script src="legacy-three-liquid-v1-20260919.js"></script><!-- H53_LEGACY_LIQUID_V1_END -->
 </body>
 </html>

@@ -534,6 +534,7 @@ function tick(){
   });
   updateCam();
   renderer.render(scene,camera);
+  if(window.H53LegacyThreeLiquid)window.H53LegacyThreeLiquid.afterRender(renderer,{time:t,bg:bgIdx});
 }
 addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
 updateCam(); tick();
@@ -559,5 +560,7 @@ color:#eafffc;border-color:rgba(0,221,200,.5)}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
 .btn{background:#2b2f38}.btn.on{background:#135954}}
 </style>
+
+<!-- H53_LEGACY_LIQUID_V1_START --><link rel="stylesheet" href="h53-liquid-ui-v1-20260919.css"><link rel="stylesheet" href="h53-liquid-layout-v1-20260919.css"><link rel="stylesheet" href="legacy-three-liquid-v1-20260919.css"><script src="h53-liquid-ui-v1-20260919.js"></script><script src="h53-liquid-glass-optics-v1.js"></script><script src="h53-liquid-host-v1-20260919.js"></script><script src="legacy-three-liquid-v1-20260919.js"></script><!-- H53_LEGACY_LIQUID_V1_END -->
 </body>
 </html>

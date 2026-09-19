@@ -63,6 +63,15 @@
 </style>
 
 <script>/* h53 count */(function(){try{if(location.search.indexOf('skipgc')>-1)localStorage.setItem('skipgc','t');if(localStorage.getItem('skipgc')==='t')return;var i=new Image();i.src='https://hiro53.goatcounter.com/count'+'?p='+encodeURIComponent(location.pathname)+'&t='+encodeURIComponent(document.title)+'&r='+encodeURIComponent(document.referrer)+'&s='+[screen.width,screen.height,window.devicePixelRatio||1].join(',');}catch(e){}})();</script>
+
+<!-- Coastal-derived shared UI; original artwork renderer remains unchanged. -->
+<link rel="stylesheet" href="h53-liquid-ui-v1-20260919.css">
+<link rel="stylesheet" href="h53-liquid-layout-v1-20260919.css">
+<link rel="stylesheet" href="composer-liquid-v1-20260919.css">
+<script defer src="h53-liquid-ui-v1-20260919.js"></script>
+<script defer src="h53-liquid-glass-optics-v1.js"></script>
+<script defer src="h53-liquid-host-v1-20260919.js"></script>
+<script defer src="composer-liquid-v1-20260919.js"></script>
 </head>
 <body>
 <script>
@@ -3077,6 +3086,7 @@ function tick(){
   renderer.toneMappingExposure=1.04+0.05*pb;
   if(gradePass)gradePass.uniforms.uTime.value=t;
   if(composer)composer.render();else renderer.render(scene,camera);
+  if(window.H53ComposerLiquid)window.H53ComposerLiquid.afterRender();
 }
 
 applyRail(0);updateCam();rebucket();bucketTowers();

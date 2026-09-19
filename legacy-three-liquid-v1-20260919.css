@@ -1,0 +1,24 @@
+/* Scoped Coastal-derived UI; original artwork and camera-fit layout stay intact. */
+body.legacy-three-liquid #uiTop,body.legacy-three-liquid #uiTop *,body.legacy-three-liquid #uiBot,body.legacy-three-liquid #uiBot *,body.legacy-three-liquid #bgbtn,body.legacy-three-liquid .ui,body.legacy-three-liquid .ui *,body.legacy-three-liquid .hud,body.legacy-three-liquid .stack,body.legacy-three-liquid .stack *,body.legacy-three-liquid .zoomwrap,body.legacy-three-liquid .zoomwrap *,body.legacy-three-liquid #h53idx{visibility:hidden!important;pointer-events:none!important}
+body.legacy-three-liquid .ui::before,body.legacy-three-liquid .ui::after{display:none}
+body.legacy-three-liquid .h53-liquid-overlay{z-index:35}
+.legacy-three-shell{font-family:'Helvetica Neue',Arial,'Hiragino Sans','Yu Gothic',sans-serif;color:#f3f4f5;position:fixed;inset:0;z-index:40;pointer-events:none}
+.legacy-three-shell a,.legacy-three-shell button,.legacy-three-shell input{pointer-events:auto;color:inherit;font:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.legacy-three-shell button,.legacy-three-shell a{appearance:none;border:1px solid transparent;min-height:44px;padding:0 17px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px;letter-spacing:.03em}
+.legacy-three-shell [hidden]{display:none!important}
+.legacy-three-top{position:absolute;inset:calc(14px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) auto calc(16px + env(safe-area-inset-left));display:flex;justify-content:space-between;align-items:flex-start;gap:12px;pointer-events:none}
+.legacy-three-title{position:absolute;left:calc(22px + env(safe-area-inset-left));bottom:calc(34px + env(safe-area-inset-bottom));max-width:calc(100% - 110px);text-shadow:0 1px 5px #000;pointer-events:none}
+.legacy-three-title strong{display:block;font-size:13px;font-weight:400;letter-spacing:.09em}.legacy-three-title small{display:block;font-size:9px;opacity:.68;line-height:1.65;letter-spacing:.06em;margin-top:4px}
+#legacyThreeMenu{position:absolute;right:calc(16px + env(safe-area-inset-right));top:calc(68px + env(safe-area-inset-top));width:min(330px,calc(100vw - 32px));max-height:calc(100dvh - 100px - env(safe-area-inset-top) - env(safe-area-inset-bottom));display:flex;flex-direction:column;pointer-events:auto;overflow:hidden}
+#legacyThreeMenu header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:3px 6px 8px 14px}#legacyThreeMenu h2{font-size:13px;font-weight:400;letter-spacing:.04em}#legacyThreeClose{padding:0;width:44px;flex:0 0 44px;font-size:21px}
+#legacyThreeContent{display:flex;flex-direction:column;gap:2px;min-height:0;overflow:auto;overscroll-behavior:contain;padding:0 4px 4px}
+#legacyThreeContent>button{width:100%;justify-content:space-between;text-align:left;background:none;border:0;border-radius:16px;box-shadow:none;flex-shrink:0;min-height:44px;backdrop-filter:none;-webkit-backdrop-filter:none}
+#legacyThreeContent>button[aria-pressed=true]::after{content:'●';font-size:7px;margin-left:12px}
+#legacyThreeContent p{font-size:13px;line-height:1.9;margin:4px 14px 15px;white-space:pre-line;color:inherit}
+.legacy-three-state{font-size:10px;line-height:1.8;opacity:.72;padding:5px 17px;overflow-wrap:anywhere;white-space:pre-line}
+.legacy-three-zoom{display:flex;align-items:center;gap:12px;padding:12px 17px;font-size:11px}.legacy-three-zoom input{min-width:0;width:100%;accent-color:#dcf5ff}
+#legacyThreeShow{position:absolute;right:calc(16px + env(safe-area-inset-right));bottom:calc(34px + env(safe-area-inset-bottom))}
+@media(max-height:520px) and (orientation:landscape){#legacyThreeMenu{top:calc(12px + env(safe-area-inset-top));right:calc(104px + env(safe-area-inset-right));max-height:calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom))}.legacy-three-title{bottom:28px}}
+
+body.legacy-three-ui-hidden .h53-copy{visibility:hidden!important}
+#legacyThreeContent>a{padding:12px 17px;text-decoration:underline;line-height:1.7}

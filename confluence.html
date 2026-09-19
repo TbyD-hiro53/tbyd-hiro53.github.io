@@ -19,11 +19,11 @@
      Viewing permitted. Reproduction, redistribution, and reuse of source code
      or assets — in whole or in part — is prohibited without written permission. -->
 <meta name="author" content="h!ro53" />
-</head>
+<link rel="stylesheet" href="h53-liquid-ui-v1-20260919.css"><link rel="stylesheet" href="h53-liquid-layout-v1-20260919.css"><link rel="stylesheet" href="confluence-liquid-v1-20260919.css"></head>
 <body>
 <main id="experience" aria-label="合流点の風景">
 <canvas id="view" tabindex="0" aria-label="ドラッグまたは矢印キーで見渡す。物に触れるかEnterで中央の対象を観測。1、2、3で移動。スペースで一時停止。"></canvas>
-<a id="back" class="glass pill chrome" href="https://tbyd-hiro53.github.io/index.html">← index</a>
+<a id="back" class="glass pill chrome" href="index.html">← index</a>
 <div id="hint" class="chrome">THE CONFLUENCE <span>ドラッグで見渡す · 対象に触れて記録を読む</span></div>
 <div id="status" class="glass" role="status" aria-live="polite"><span class="loader"></span><span id="status-text">岸の道を開いています</span></div>
 <div id="error" class="glass" hidden role="alert"><p>風景を読み込めませんでした。</p><button id="retry" class="glass pill">もう一度開く</button><a class="still-link" href="confluence-v5-20260909-bank.jpg">パノラマ画像を開く ↗</a></div>
@@ -37,7 +37,7 @@
 <div class="panel-head"><div class="hd"><span id="record-name"></span></div><button id="px" class="glass" aria-label="観測記録を閉じる">×</button></div>
 <div id="record-text" class="lg" lang="ja"></div>
 </aside>
-<aside id="menu" class="glass chrome" aria-label="その他の操作" hidden>
+<aside id="menu" class="glass chrome h53-liquid-menu" aria-label="その他の操作" hidden>
 <button id="motion" aria-pressed="true" disabled>動きを止める</button><button id="still" disabled>静止画で見る</button><button id="reset">視線を戻す</button>
 <fieldset><legend>画質</legend><div class="qualities"><button data-quality="auto" aria-pressed="true">自動</button><button data-quality="high" aria-pressed="false">高</button><button data-quality="low" aria-pressed="false">軽量</button></div></fieldset>
 <button id="fullscreen">全画面にする</button><button id="hide">操作表示を隠す</button>
@@ -45,4 +45,4 @@
 <div id="notice" class="glass" role="status" hidden><span id="notice-text"></span><button id="motion-retry">動く風景を再読込</button></div><button id="restore" class="glass pill" hidden>操作を表示</button>
 <div class="h53-copy">© 2026 h!ro53 · deus ex machina — viewing permitted, reuse prohibited</div>
 <noscript><p class="noscript">この鑑賞画面にはJavaScriptが必要です。<a href="confluence-v5-20260909-bank.jpg">岸の道のパノラマを開く</a></p></noscript>
-</main><script src="confluence-v5-20260909-targets.js?v=f8e8a5bc5905"></script><script src="confluence-v5-20260909-three.min.js"></script><script src="confluence-v5-20260909-FXAAShader.js"></script><script src="confluence-v5-20260909-engine.js?v=60b8098d017f"></script><script src="confluence-v5-20260909-viewer.js?v=560084895a17"></script></body></html>
+</main><script src="confluence-v5-20260909-targets.js?v=f8e8a5bc5905"></script><script src="confluence-v5-20260909-three.min.js"></script><script src="confluence-v5-20260909-FXAAShader.js"></script><script src="confluence-v5-20260909-engine.js?v=60b8098d017f"></script><script src="h53-liquid-glass-optics-v1.js"></script><script src="h53-liquid-ui-v1-20260919.js"></script><script src="h53-liquid-host-v1-20260919.js"></script><script src="confluence-liquid-v1-20260919-viewer.js"></script></body></html>

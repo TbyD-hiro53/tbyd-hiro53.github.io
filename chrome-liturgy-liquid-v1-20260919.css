@@ -1,0 +1,16 @@
+/* Keep original header/edition dimensions: the approved camera fit measures them. */
+header,#editionPicker,#controls,footer{z-index:4}
+.chrome-liquid-photo-source{position:fixed;inset:0;width:100%;height:100%;visibility:hidden;pointer-events:none}
+#menuToggle,#showUI,#closeInfo,#fullscreen,#hideUI{font-family:ui-monospace,"SF Mono",Menlo,"Hiragino Sans",sans-serif;letter-spacing:.06em}
+#menuToggle{min-width:44px;padding:0 14px!important}
+body.h53-liquid-host #menu{position:fixed;top:auto;left:50%;right:auto;bottom:calc(142px + env(safe-area-inset-bottom));transform:translateX(-50%);width:260px;max-width:calc(100% - 28px);max-height:calc(100dvh - 195px);overflow-y:auto;display:grid;grid-template-columns:1fr;z-index:6}
+#menu button{appearance:none;min-height:44px;color:inherit;cursor:pointer;font-size:13px;letter-spacing:.04em}
+body.h53-liquid-host #info{position:fixed;left:50%;right:auto;top:auto;bottom:calc(92px + env(safe-area-inset-bottom));transform:translateX(-50%);width:420px;max-width:calc(100% - 28px);max-height:calc(100dvh - 150px - env(safe-area-inset-top));display:flex;flex-direction:column;z-index:9}
+#infoTitle{font-size:15px;font-weight:500;letter-spacing:.06em;margin:0 0 8px}
+#infoBody{min-height:0;font-size:14px;line-height:1.8}#infoBody a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px}
+#closeInfo{position:absolute;right:8px;top:8px;width:44px;height:44px;min-height:44px;padding:0;appearance:none;border:1px solid #ffffff30;color:inherit;border-radius:50%;font-size:22px;background:transparent;cursor:pointer}
+#showUI{position:fixed;right:16px;bottom:calc(20px + env(safe-area-inset-bottom));z-index:7;font-size:12px}
+.chrome-ui-hidden header,.chrome-ui-hidden #editionPicker,.chrome-ui-hidden #controls,.chrome-ui-hidden footer{visibility:hidden;pointer-events:none}
+body.idle #editionPicker,body.idle #controls{opacity:1}
+body.photographic #menu #pause,body.photographic #menu #reset{display:none}
+@media(max-height:500px) and (orientation:landscape){body.h53-liquid-host #menu{left:auto;right:16px;bottom:80px;transform:none;max-height:calc(100dvh - 100px)}body.h53-liquid-host #menu[hidden]{transform:none}body.h53-liquid-host #info{bottom:24px;max-height:calc(100dvh - 48px)}#showUI{bottom:18px}}

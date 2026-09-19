@@ -1,0 +1,16 @@
+/* Opt-in surface skin only. Existing work layout, font loading and semantics stay local.
+ * Real refraction is supplied by H53LiquidGlassOptics, never a static background image. */
+.h53-liquid-host .h53-liquid-surface{box-sizing:border-box;font-family:var(--sans,inherit);color:#f3f4f5;text-shadow:0 1px 3px rgba(0,0,0,.75);-webkit-tap-highlight-color:transparent}
+.h53-liquid-host .h53-liquid-control{min-width:44px;min-height:44px;border-radius:999px;touch-action:manipulation}
+.h53-liquid-host .h53-liquid-panel{border-radius:30px;isolation:isolate;overscroll-behavior:contain}
+.h53-liquid-host.h53-liquid-ready .h53-liquid-surface{background:none!important;border-color:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.h53-liquid-host.h53-liquid-ready .h53-liquid-control{transition:color .16s ease}
+.h53-liquid-host.h53-liquid-ready .h53-liquid-panel{transition:none!important;will-change:auto}
+.h53-liquid-host .h53-liquid-panel button:not(.h53-liquid-surface),.h53-liquid-host .h53-liquid-panel [role="button"]:not(.h53-liquid-surface){min-height:44px;color:inherit;font-family:inherit;background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.h53-liquid-host .h53-liquid-panel :is(p,li,label){color:inherit;text-shadow:inherit}
+.h53-liquid-host .h53-liquid-panel :is(button,a,input,select):focus-visible,.h53-liquid-host .h53-liquid-control:focus-visible{outline:2px solid #e3f9ff;outline-offset:3px}
+.h53-liquid-host .h53-liquid-scroll{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#ffffff55 transparent;min-height:0}
+.h53-liquid-host.h53-liquid-simple .h53-liquid-surface{background:rgba(24,31,40,.96)!important;border:1px solid rgba(224,238,247,.32)!important;box-shadow:0 3px 15px #0003,inset 0 1px rgba(255,255,255,.15)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;color:#f5f7fa!important;text-shadow:none}
+.h53-liquid-host .h53-liquid-surface[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){.h53-liquid-host .h53-liquid-surface{transition:none!important;animation:none!important}}
+@media(prefers-contrast:more),(forced-colors:active){.h53-liquid-host .h53-liquid-surface{background:Canvas!important;color:CanvasText!important;border:1px solid CanvasText!important;text-shadow:none!important;box-shadow:none!important}.h53-liquid-host .h53-liquid-panel :is(p,li,label,button,a){color:CanvasText!important;text-shadow:none!important}.h53-liquid-host .h53-liquid-surface:focus-visible{outline:2px solid Highlight!important}}

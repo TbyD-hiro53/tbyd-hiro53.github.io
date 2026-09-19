@@ -1,0 +1,18 @@
+/* Reading content/cards remain original DOM. Only existing operation surfaces change. */
+body.reader-liquid .h53-liquid-overlay{z-index:54}
+body.reader-liquid #bar{gap:2px;padding:5px;border-radius:999px}
+body.reader-liquid #bar button{padding:0 12px;color:#f3f4f5}
+body.reader-liquid #h53idx{color:#f3f4f5;letter-spacing:.04em}
+body.reader-liquid #toc{inset:auto;top:calc(76px + env(safe-area-inset-top));bottom:calc(76px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(540px,calc(100vw - 32px));padding:0;overflow:hidden;display:block;border-radius:30px;max-height:calc(100dvh - 152px - env(safe-area-inset-top) - env(safe-area-inset-bottom))}
+body.reader-liquid #toc[hidden]{display:none!important}
+body.reader-liquid #toc .in{width:100%;max-width:none;height:100%;overflow-y:auto;overscroll-behavior:contain;padding:24px 24px 28px;-webkit-overflow-scrolling:touch}
+body.reader-liquid #toc h2{padding-right:48px;min-height:36px;margin:0 0 10px}
+body.reader-liquid #toc .x{position:absolute;top:12px;right:12px;z-index:2;min-width:44px;min-height:44px;padding:0;line-height:1;border-radius:50%;color:#f3f4f5}
+body.reader-liquid #toc a{border-color:#e3f1ff1a;border-radius:0;color:#f3f4f5}
+body.reader-liquid #mark{gap:8px;border-radius:24px;color:#f3f4f5}
+body.reader-liquid #mark button{min-height:44px;background:none;border:none;color:inherit;box-shadow:none}
+body.reader-liquid .lang{min-height:44px;min-width:44px;border-radius:999px!important;color:#f3f4f5;margin-left:4px}
+body.reader-liquid .langbar{position:relative;z-index:55}
+body.reader-liquid #readerShow{position:fixed;right:max(12px,env(safe-area-inset-right));bottom:calc(14px + env(safe-area-inset-bottom));z-index:56;min-height:44px;padding:0 16px;font-family:var(--mono);font-size:11px;color:#f3f4f5;border:1px solid transparent;border-radius:999px;touch-action:manipulation}
+body.reader-liquid #readerShow[hidden]{display:none!important}
+@media(max-height:520px) and (orientation:landscape){body.reader-liquid #toc{top:calc(16px + env(safe-area-inset-top));bottom:calc(16px + env(safe-area-inset-bottom));max-height:calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom));width:min(540px,calc(100vw - 120px))}}
