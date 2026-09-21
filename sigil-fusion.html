@@ -310,5 +310,22 @@
   requestAnimationFrame(frame);
 })();
 </script>
+<style id="h53sigil-place-v1">
+/* メニューは釦と同じ角へ。中央（left:50%）だと作品の真上を覆う */
+#svgLiquidControls #menu{left:auto;right:calc(16px + env(safe-area-inset-right));
+  transform:none!important}
+.h53-liquid-host #menu[hidden]{transform:none!important}
+/* 作品説明は読む面なので中央に置くが、上半分は空けて主体を見せる */
+#svgLiquidControls #info{top:auto;bottom:calc(104px + env(safe-area-inset-bottom));
+  transform:translateX(-50%)!important;
+  max-height:min(56dvh,calc(100dvh - 150px - env(safe-area-inset-top) - env(safe-area-inset-bottom)))}
+.h53-liquid-host #info[hidden]{transform:translateX(-50%)!important}
+@media(max-height:520px) and (orientation:landscape){
+  #svgLiquidControls #menu{right:calc(16px + env(safe-area-inset-right))}
+  #svgLiquidControls #info{bottom:calc(88px + env(safe-area-inset-bottom));
+    max-height:min(62dvh,calc(100dvh - 118px))}
+}
+</style>
+<script defer src="h53-dismiss-v1-20260921.js"></script>
 </body>
 </html>
