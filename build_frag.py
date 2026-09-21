@@ -92,7 +92,7 @@ if sys.argv[1:] == ['--coastal-glass-only']:
         source = source[:offset] + '\n' + card + source[offset:]
     # Preserve existing identifiers; CANON counts as one asset, as in other modes.
     total = len(re.findall(r'<span class="idx">(?:ASSET \d+|CANON)</span>', source))
-    source, count = re.subn(r'(id="count">)\d+ assets( \+ 1 study</span>)',
+    source, count = re.subn(r'(id="count">)\d+ assets(?: \+ 1 study)?(</span>)',
                             lambda m: m[1] + str(total) + ' assets' + m[2], source)
     if count != 1:
         raise ValueError('Expected one holdings count')
@@ -129,7 +129,7 @@ if sys.argv[1:] == ['--changes-only']:
         at = source.index('<!-- ASSET20_END -->') + len('<!-- ASSET20_END -->')
         source = source[:at] + '\n' + card + source[at:]
     total = len(re.findall(r'<span class="idx">(?:ASSET \d+|CANON)</span>', source))
-    source, count = re.subn(r'(id="count">)\d+ assets( \+ 1 study</span>)', lambda m: m[1] + str(total) + ' assets' + m[2], source)
+    source, count = re.subn(r'(id="count">)\d+ assets(?: \+ 1 study)?(</span>)', lambda m: m[1] + str(total) + ' assets' + m[2], source)
     if count != 1: raise ValueError('Expected one holdings count')
     p.write_text(source, encoding='utf-8')
     print('Registered The Changes; all other entries preserved.')
@@ -177,7 +177,7 @@ if sys.argv[1:] == ['--asset20-only']:
         source = source[:offset] + '\n' + card + source[offset:]
     # The CANON card is counted as a holding alongside numbered ASSET cards.
     total = len(re.findall(r'<span class="idx">(?:ASSET \d+|CANON)</span>', source))
-    source, count = re.subn(r'(id="count">)\d+ assets( \+ 1 study</span>)', lambda m: m[1] + str(total) + ' assets' + m[2], source)
+    source, count = re.subn(r'(id="count">)\d+ assets(?: \+ 1 study)?(</span>)', lambda m: m[1] + str(total) + ' assets' + m[2], source)
     if count != 1:
         raise ValueError('Expected one holdings count')
     path.write_text(source, encoding='utf-8')
@@ -215,7 +215,7 @@ if sys.argv[1:] == ['--viewing-only']:
     print('Updated Viewing JA/EN and three description metadata fields.')
     raise SystemExit(0)
 
-section = canon.split('## STUDY — Empyrean Sigil 3D / 01', 1)[1]
+section = canon.split('## ASSET 24 — Empyrean Sigil 3D', 1)[1]
 def field(name):
     match = re.search(r'\*\*' + re.escape(name) + r'\*\*\s*\n([^\n]+)', section)
     if not match:
@@ -227,7 +227,7 @@ end = '<!-- EMPYREAN_3D_STUDY_END -->'
 card = f'''{start}
 <article class="entry">
   <a class="entry-main" href="empyrean-sigil-3d.html">
-    <div class="row"><span class="idx">STUDY</span><span class="name">Empyrean Sigil 3D</span></div>
+    <div class="row"><span class="idx">ASSET 24</span><span class="name">Empyrean Sigil 3D</span></div>
     <p class="desc" lang="ja">{field('説明 JA')}</p>
     <p class="desc" lang="en">{field('説明 EN')}</p>
     <div class="spec"><span class="chip live">Live</span><span class="chip">3D study</span><span class="chip">WebGL</span></div>
@@ -245,8 +245,9 @@ else:
     target = source.index('href="empyrean-sigil.html"')
     position = source.index('</article>', target) + len('</article>')
     source = source[:position] + '\n' + card + source[position:]
-source, n = re.subn(r'(id="count">)18 assets(?: \+ 1 study)*(</span>)',
-                    r'\g<1>18 assets + 1 study\2', source)
+total = len(re.findall(r'<span class="idx">(?:ASSET \d+|CANON)</span>', source))
+source, n = re.subn(r'(id="count">)\d+ assets(?: \+ 1 study)?(</span>)',
+                    lambda m: m[1] + str(total) + ' assets' + m[2], source)
 if n != 1:
     raise ValueError('Expected exactly one holdings count')
 source = source.replace('シリーズ 18 点。', 'シリーズ 18 点と独立Study 1 点。')

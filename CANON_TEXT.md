@@ -633,7 +633,7 @@ A station by the sea, a great station with lines above and below, and a carriage
 
 ---
 
-## STUDY — Empyrean Sigil 3D / 01
+## ASSET 24 — Empyrean Sigil 3D
 
 **公開パス** `empyrean-sigil-3d.html`
 
@@ -645,6 +645,9 @@ An independent three-dimensional study of Empyrean Sigil. Open circular rails an
 
 **運用記録**
 2026-09-05。旧作empyrean-sigil.htmlは無変更。正式題・位相・新規断章は未設定のため、既存ASSET番号を変更せずSTUDYとして併記。直前の会話内互換版を公開対象とし、実表示未確認の高反射WebGL初稿とは区別する。新規カードはbuild_frag.pyの追加専用処理から生成する。
+
+**昇格記録**
+2026-09-21。作者裁定によりSTUDYからASSET 24へ昇格。既存の番号は一切動かさず末尾に採番し、一覧での位置はASSET 09の直後のまま据え置いた。OG画像・OGタグ・計数を新設。正式題・位相・断章は未設定のままで、説明JA/ENの「独立Study」の語も未改訂。
 
 **v2 更新記録**
 2026-09-05。全画面構成と操作案内をCyberwaferに統一。簡易描画の固定を解除し、WebGLの物理ベース材質・鏡面反射・アンチエイリアスを使用。回転ベゼルの円環面を除去し、二本の輪と独立目盛りを一体で回転させる開放構造へ修正。原典の回転周期、細環と銀盤の運動は維持。
