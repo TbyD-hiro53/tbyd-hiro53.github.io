@@ -358,19 +358,24 @@ body{background:var(--ground);color:var(--ink);
 /* 目次の器は置くが、見せない。理由は本体側の註のとおり */
 .toc-gone{display:none!important}
 
-/* ── 明暗の切替。言語の対（丸二つ）とは細い罫で切り、丸一つで別物と分かる ──
-   地・枠・影は liquid glass の正準が描く（data-h53-liquid="control"）。
-   色は当てない。半円の向きが、いまどちらの相にいるかを示す */
+/* ── 明暗の切替。言語の対とは細い罫で群を切り、半円の向きで別物と分かる ──
+   地・枠・影は liquid glass の正準が描く（data-h53-liquid="control"）。色は当てない。
+
+   寸法は言語の丸とまったく同じにする。横長の丸角にすると、ガラスの照りが
+   面いっぱいに広がって地が白け、同じ #f3f4f5 の字でも眠く見える
+   （実測：幅58・66・80 いずれも白けた。44の正円で言語の丸と揃う）。
+
+   言語の対は下に 16px の余白を持っている。帯は margin 箱の中心で揃えるので、
+   放っておくと言語だけ 8px 上へ寄る（実測：言語 y54 / 相 y62）*/
+.rail .langbar{margin:0}
 .rail-sep{flex:none;width:1px;height:20px;background:var(--line);margin:0 1px}
 .phase{flex:none;display:inline-flex;align-items:center;justify-content:center;
-  min-width:72px;min-height:44px;height:44px;padding:0 13px;
-  background:transparent;border:0;border-radius:999px;box-sizing:border-box;cursor:pointer}
+  width:44px;height:44px;min-width:44px;min-height:44px;padding:0;
+  background:transparent;border:0;border-radius:50%;box-sizing:border-box;cursor:pointer;
+  font:600 15px/1 var(--mono);letter-spacing:0;transition:transform .18s ease;
+  font-variant-emoji:text;font-synthesis:none}
 .phase:active{transform:scale(.94)}
 .phase:focus-visible{outline:2px solid var(--turq);outline-offset:3px}
-/* 中身は文字にする。共有のガラスは要素の上から描き直すため、
-   svg や図形はそこで沈む（実測：塗りを三色にしても出てこない）。文字は残る */
-.phase{font:600 10px/1 var(--mono);letter-spacing:.17em;white-space:nowrap;
-  transition:transform .18s ease}
 @media (prefers-reduced-motion: reduce){.phase{transition:none}}
 
 /* ── 登録簿。頁は移らない。系統はその場で開く ── */
@@ -492,7 +497,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
   </div>
     <span class="rail-sep" aria-hidden="true"></span>
     <button type="button" class="phase" id="phaseBtn" data-h53-liquid="control"
-      aria-live="polite"><span id="phaseLbl">DARK</span></button>
+><span id="phaseLbl" aria-hidden="true">&#9681;&#65038;</span></button>
   </div>
 
   <div class="plate">
@@ -1627,7 +1632,9 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
   var lbl=document.getElementById('phaseLbl');
   function label(){
     var ja=r.getAttribute('data-lang')==='ja', cur=now(), to=cur==='dark'?'light':'dark';
-    if(lbl) lbl.textContent = cur==='dark' ? 'DARK' : 'LIGHT';
+    /* 半円の向きが相を示す。押すと塗りつぶした半分が左右に入れ替わる */
+    if(lbl) lbl.textContent = (cur==='dark' ? '◑' : '◐')+'︎';
+    b.title = ja ? (cur==='dark'?'暗側':'明側') : (cur==='dark'?'Dark':'Light');
     b.setAttribute('aria-label', ja ? (to==='dark'?'暗側へ切り替える':'明側へ切り替える')
                                     : (to==='dark'?'Switch to dark':'Switch to light'));
   }
