@@ -390,17 +390,17 @@ Thirty-two columns stand in rings, and the one at their centre alone stands twic
 
 ---
 
-## ASSET 14 — Lacto-Caloris v1
+## ASSET 14 — Lacto-Caloris v2
 
 **位相** PHASE 6 · UY0311
 
 **観測ログ** `Radiated. Nothing received it.`
 
 **説明 JA**
-真空環境専用の演算装置。18段72基の演算トレイを中央帯の培養脳が統率し、神経幹が背面区画を縦に走る。大電力の熱は輻射でしか捨てられず、頂部の薄板30枚が負荷に応じて螺旋を描いて展開する。内径42 mの電波暗室に1基。DEPLOYで開閉、RAILで自由視点。
+真空環境専用の演算装置。18段72基の演算トレイを中央帯の培養脳が統率し、神経幹が背面区画を縦に走る。大電力の熱は輻射でしか捨てられず、頂部の薄板30枚が負荷に応じて螺旋を描いて展開する。内径42 mの電波暗室に1基。DEPLOYで開閉。脳・回転台・放熱板・接続盤の四つを軸に、視点は自由に回してよい。
 
 **説明 EN**
-A computing engine for vacuum alone. Seventy-two trays across eighteen levels are marshalled by the cultured brain in the central band, its nerve trunks running vertically through the rear raceway. Heat from the great draw can be shed only by radiation, so thirty thin plates at the crown unfurl into a helix as the load demands. One unit in an anechoic chamber forty-two metres across. DEPLOY opens and stows it; RAIL frees the view.
+A computing engine for vacuum alone. Seventy-two trays across eighteen levels are marshalled by the cultured brain in the central band, its nerve trunks running vertically through the rear raceway. Heat from the great draw can be shed only by radiation, so thirty thin plates at the crown unfurl into a helix as the load demands. One unit in an anechoic chamber forty-two metres across. DEPLOY opens and stows it; four subjects — brain, turntable, radiator, pedestal — anchor a view that turns freely.
 
 **断章 JA**
 この機械は大気のない場所でしか働かない。受けた電力のほとんどは熱になり、熱は伝わる先を持たない。だから板が開く。負荷が上がるほど深く螺旋を描き、下がれば畳まれて筒の中へ戻る。開閉の記録は残されているが、読む者の欄は空のままである。中央の帯では脳が七十二の盤を数え続けている。数えることが仕事なのか、数え終わることが仕事なのかは、仕様書のどこにも書かれていない。
@@ -417,6 +417,15 @@ This machine works only where there is no air. Most of the power it receives bec
 - 前面240° 演算面 ／ 背面120° 電力・冷媒・神経幹の区画
 - 三色 #ff05a8 / #f2dbe9 / #00ddc8 を外面648点と放熱板の縁に
 - 電波暗室 内径42 × 高さ27 m。吸収体4,020個（くさび 底辺1.05 × 長さ2.70）
+
+**v2（2026-09-21）— v1 からの差分**
+- 制作を Blender（Cycles）で作り直し、web は同じ立体を three.js r128 で実時間描画する分割構成（HTML＋JS＋立体データ 16.6 MB を 5 分割）
+- 放熱板の展開ピッチ 0.048 → 0.060 m、全開の頂 4.54 m（v1 4.18）。定格を 24 kW 級（72 基 × 約 330 W）に定義し直した。v1 の 110 kW は履歴として保持
+- 給電を可視化：後方 3.3 m の床から立つ円筒の接続盤（Ø0.66 × 0.46 m）から三本の動力ケーブルを基部裾の給電口へ
+- 基部後方の開口（方位 126–234°）を黒スモーク強化ガラスで閉じ、内部のポンプ・遮断器を透かして見せる
+- 神経幹の隔壁貫通部にグランドとフランジを追加。ハーネスの色を白から明るい灰へ
+- 操作：レールと自由視点モードを廃止。脳・回転台・放熱板・接続盤の四つを軸に、回転・ズームは常に自由。DEPLOY は据え置き
+- 上の主要諸元は v1 の値。v2 の正準値は制作文書側にある
 
 ---
 
