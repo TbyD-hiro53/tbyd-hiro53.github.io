@@ -42,9 +42,24 @@ function esc(){
   (document.activeElement||document.body).dispatchEvent(e);
   if(!e.defaultPrevented)document.dispatchEvent(e);
 }
+/* 開いている面を集める。
+   ① 明示の面（PANEL）
+   ② 開いている釦が aria-controls で指している面
+   ②が要る。coastal-glass の時刻切替 #timeMenu は①のどれにも当たらない（実測）*/
+function panels(){
+  var out=[],i,p;
+  var a=document.querySelectorAll(PANEL);
+  for(i=0;i<a.length;i++)if(out.indexOf(a[i])<0)out.push(a[i]);
+  var b=document.querySelectorAll('[aria-controls][aria-expanded="true"]');
+  for(i=0;i<b.length;i++){
+    p=document.getElementById(b[i].getAttribute('aria-controls'));
+    if(p&&out.indexOf(p)<0)out.push(p);
+  }
+  return out;
+}
 function onDown(ev){
   if(ev.button!==undefined&&ev.button!==0)return;
-  var t=ev.target,did=false,list=document.querySelectorAll(PANEL);
+  var t=ev.target,did=false,list=panels();
   for(var i=0;i<list.length;i++){
     var p=list[i];
     if(!shown(p)||p.contains(t))continue;
