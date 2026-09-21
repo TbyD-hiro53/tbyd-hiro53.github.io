@@ -5,7 +5,7 @@
 <link rel="canonical" href="https://tbyd-hiro53.github.io/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:title" content="deus ex machina — holdings registry">
+<meta name="twitter:title" content="h!ro53 — creation archive">
 <meta name="twitter:description" content="h!ro53による、ブラウザで鑑賞する生成アートとインタラクティブな3D作品群。">
 <meta name="twitter:image" content="https://tbyd-hiro53.github.io/og.png">
 <meta charset="UTF-8" />
@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="theme-color" content="#050308" />
-<title>deus ex machina — holdings registry</title>
+<title>h!ro53 — creation archive</title>
 <meta name="author" content="h!ro53" />
 <script>(function(){var l;try{l=localStorage.getItem('h53lang')}catch(e){}
 if(l!=='ja'&&l!=='en'){l=(navigator.language||'').toLowerCase().indexOf('ja')===0?'ja':'en'}
@@ -21,12 +21,12 @@ var d=document.documentElement;d.setAttribute('data-lang',l);d.setAttribute('lan
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22512%22 height=%22512%22 viewBox=%220 0 512 512%22 role=%22img%22 aria-label=%22h%21ro53%22%3E%3Cdefs%3E%3CradialGradient id=%22b%22 cx=%2246%25%22 cy=%2240%25%22 r=%2278%25%22%3E%3Cstop offset=%220%22 stop-color=%22%23f73cb6%22/%3E%3Cstop offset=%220.62%22 stop-color=%22%23ea2ea9%22/%3E%3Cstop offset=%221%22 stop-color=%22%23dc1e99%22/%3E%3C/radialGradient%3E%3ClinearGradient id=%22t%22 x1=%220%22 y1=%22855%22 x2=%220%22 y2=%221553%22 gradientUnits=%22userSpaceOnUse%22%3E%3Cstop offset=%220%22 stop-color=%22%233fe0d6%22/%3E%3Cstop offset=%221%22 stop-color=%22%232fb8c6%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22512%22 height=%22512%22 fill=%22url(%23b)%22/%3E%3Cg transform=%22translate(-79.04,-295.98) scale(0.46)%22%3E%3Cg fill=%22%23c11384%22%3E%3Cpath transform=%22translate(14,16)%22 d=%22M 444 958 L 997 958 L 1017.6 855 L 464.6 855 Z M 529 1553 L 654 1553 L 772.9 958 L 647.9 958 Z%22/%3E%3C/g%3E%3Cpath d=%22M 444 958 L 997 958 L 1017.6 855 L 464.6 855 Z M 529 1553 L 654 1553 L 772.9 958 L 647.9 958 Z%22 fill=%22url(%23t)%22/%3E%3C/g%3E%3C/svg%3E" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="deus ex machina — holdings registry" />
+<meta property="og:title" content="h!ro53 — creation archive" />
 <meta property="og:description" content="h!ro53による、ブラウザで鑑賞する生成アートとインタラクティブな3D作品群。" />
 <meta property="og:url" content="https://tbyd-hiro53.github.io/" />
 <meta property="og:image" content="https://tbyd-hiro53.github.io/og.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<!-- © 2026 h!ro53 / deus ex machina. All rights reserved.
+<!-- © 2026 h!ro53 / transcendence by deus ex machina. All rights reserved.
      Viewing permitted. Reproduction, redistribution, and reuse of source code
      or assets — in whole or in part — is prohibited without written permission. -->
 <style>
@@ -47,26 +47,6 @@ body{
 
 /* ---- header: terminal manifest ---- */
 header{padding:calc(40px + env(safe-area-inset-top)) 0 26px;border-bottom:1px solid var(--line)}
-.crest{margin:0;font-weight:400;line-height:0}
-.crest svg{display:block;width:100%;height:auto;border-radius:2px;
-  filter:drop-shadow(0 0 26px rgba(255,47,160,.26));
-  animation:crestIn .62s cubic-bezier(.2,.7,.2,1) both}
-
-/* ── PLATE 00：看板の額装化（A フルブリード＋フェード / B キャプション / C 走査線＋周辺減光）── */
-.plate{margin:0 -20px 26px;position:relative}
-.plate-cap{display:flex;justify-content:space-between;padding:0 20px 7px;
-  font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:#5c6470;text-transform:uppercase}
-.plate-img{position:relative;overflow:hidden;
-  border-top:1px solid rgba(207,211,218,.16);border-bottom:1px solid rgba(207,211,218,.16)}
-.plate-img .crest svg{border-radius:0;
-  filter:saturate(.88) contrast(1.06) brightness(.93) drop-shadow(0 0 30px rgba(255,47,160,.16));
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 76%,transparent 100%);
-          mask-image:linear-gradient(180deg,transparent 0,#000 10%,#000 76%,transparent 100%)}
-.plate-img::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55;
-  background:repeating-linear-gradient(180deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px);
-  mix-blend-mode:multiply}
-.plate-img::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:radial-gradient(120% 90% at 50% 45%,transparent 52%,rgba(5,3,8,.9) 100%)}
 @keyframes crestIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
 .sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;
   clip:rect(0 0 0 0);white-space:nowrap;border:0}
@@ -79,63 +59,9 @@ header{padding:calc(40px + env(safe-area-inset-top)) 0 26px;border-bottom:1px so
 /* ---- registry ---- */
 .meta{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.22em;
   text-transform:uppercase;color:var(--chrome);padding:20px 0 10px}
-.entry{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;
-  align-items:start;text-decoration:none;color:inherit;position:relative;
-  border-bottom:1px solid var(--line);padding:20px 4px 20px 0;overflow:hidden}
-.entry>*{grid-column:1;min-width:0}
-.entry::before{content:"";position:absolute;left:-2px;top:0;bottom:0;width:2px;
-  background:linear-gradient(180deg,var(--mag),var(--red));transform:scaleY(0);transform-origin:top;
-  transition:transform .32s cubic-bezier(.2,.7,.2,1)}
-.entry:hover::before,.entry:active::before,.entry:focus-visible::before{transform:scaleY(1)}
-.entry:focus-visible{outline:1px solid var(--cyan);outline-offset:3px}
-.row{display:flex;align-items:baseline;gap:12px}
-.idx{font-size:10px;color:var(--chrome);letter-spacing:.1em;min-width:52px}
-.name{font-family:var(--disp);font-weight:700;font-size:clamp(23px,6.4vw,34px);
-  line-height:1;letter-spacing:.01em;text-transform:uppercase}
-.desc{margin:9px 0 0 64px;font-size:11.5px;line-height:1.85;color:var(--chrome);max-width:46ch}
-@media(max-width:520px){.desc,.spec{margin-left:0}.row .idx{min-width:44px}}
-.spec{margin:10px 0 0 64px;display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--milk);
-  border:1px solid var(--line);border-radius:2px;padding:3px 7px;opacity:.72}
-.chip.live{color:var(--cyan);border-color:rgba(127,230,240,.32)}
-.chip.live::before{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;
-  background:var(--cyan);margin-right:6px;vertical-align:1px;
-  box-shadow:0 0 6px var(--cyan);animation:pulse .78s ease-in-out infinite}
+@media(max-width:520px){.desc,.spec{margin-left:0}}
 @keyframes pulse{0%,100%{opacity:.35}45%{opacity:1}}
-
-/* ---- entry preview ---- */
-.entry .thumb{grid-column:2;grid-row:1/span 20;align-self:start;display:block;position:relative;
-  margin:2px 0 0;width:clamp(84px,24vw,116px);aspect-ratio:1/1;
-  border:1px solid var(--line);background:#000;overflow:hidden}
-.entry .thumb img{display:block;width:100%;height:100%;object-fit:cover;
-  opacity:.66;filter:saturate(.6) contrast(1.04);
-  transition:opacity .34s ease,filter .34s ease,transform .62s cubic-bezier(.2,.7,.2,1)}
-.entry:hover .thumb img,.entry:active .thumb img,.entry:focus-visible .thumb img{
-  opacity:1;filter:saturate(1.14) contrast(1.02);transform:scale(1.045)}
-.entry .thumb::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:
-    repeating-linear-gradient(0deg,rgba(0,0,0,.26) 0 1px,transparent 1px 3px),
-    linear-gradient(96deg,rgba(255,47,160,.07),rgba(255,43,43,.05));
-  box-shadow:inset 0 0 34px rgba(0,0,0,.62)}
 @media (max-width:520px){.entry .thumb{margin-left:0}}
-
-/* ---- notes ---- */
-.entry .idx{font-size:10px}
-.entry:first-of-type .idx{color:var(--mag);letter-spacing:.2em}
-.entry:first-of-type .name{background:linear-gradient(96deg,var(--mag),var(--red));
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-
-/* ---- 型（媒体）: ターコイズ=WebGL / マゼンタ=Canvas 2D / ペール=SVG / 白銀=TEXT ---- */
-.entry{--tc:var(--chrome)}
-.entry[data-k="gl"]{--tc:#00ddc8}
-.entry[data-k="c2d"]{--tc:#ff05a8}
-.entry[data-k="svg"]{--tc:#f2dbe9}
-.entry[data-k="txt"]{--tc:#d9dee5}
-.entry[data-k] .idx{color:var(--tc)}
-.entry[data-k] .thumb::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;
-  z-index:3;background:var(--tc);opacity:.62;transition:opacity .34s ease}
-.entry[data-k]:hover .thumb::before,.entry[data-k]:active .thumb::before,
-.entry[data-k]:focus-within .thumb::before{opacity:1;box-shadow:0 0 9px var(--tc)}
 
 /* ---- 目次パネル ---- */
 #tocBtn{position:fixed;z-index:56;left:50%;transform:translateX(-50%);
@@ -185,35 +111,6 @@ header{padding:calc(40px + env(safe-area-inset-top)) 0 26px;border-bottom:1px so
 .preface{margin:22px 0 0;padding:0 2px}
 .preface p{font-size:12px;line-height:2;color:var(--milk);opacity:.9;margin:0 0 .9em;max-width:52ch}
 .preface p:first-child{color:var(--cyan);letter-spacing:.06em}
-
-/* ── 作品別断章（entry を article へ組み替え、link と details を兄弟に） ── */
-.entry{display:block;border-bottom:1px solid var(--line);padding:0;overflow:visible}
-.entry-main{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;
-  align-items:start;text-decoration:none;color:inherit;position:relative;
-  padding:20px 4px 20px 0;overflow:hidden}
-.entry-main>*{grid-column:1;min-width:0}
-/* .entry-main>* と .thumb は同特異度のため、後勝ちに負けないよう子孫指定で上書き */
-.entry-main>.thumb{grid-column:2;grid-row:1/span 20;align-self:start}
-/* 旧 .entry::before（左バー）は .entry-main::before に置き換えるため無効化 */
-.entry::before{content:none}
-.entry-main::before{content:"";position:absolute;left:-2px;top:0;bottom:0;width:2px;
-  background:linear-gradient(180deg,var(--mag),var(--red));transform:scaleY(0);transform-origin:top;
-  transition:transform .32s cubic-bezier(.2,.7,.2,1)}
-.entry-main:hover::before,.entry-main:active::before,.entry-main:focus-visible::before{transform:scaleY(1)}
-.entry-main:focus-visible{outline:1px solid var(--cyan);outline-offset:3px}
-.frag{margin:0 0 18px;border-top:1px solid rgba(207,211,218,.08)}
-.frag summary{list-style:none;cursor:pointer;padding:11px 4px 11px 0;
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  font-family:var(--mono);font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:#6b7280}
-.frag summary::-webkit-details-marker{display:none}
-.frag summary::after{content:"+";font-size:12px;letter-spacing:0;color:var(--chrome)}
-.frag[open] summary::after{content:"\2212"}
-.frag summary:hover,.frag[open] summary{color:var(--cyan)}
-.frag summary:focus-visible{outline:1px solid var(--cyan);outline-offset:2px}
-.frag .log{font-family:var(--mono);font-size:10px;line-height:1.7;letter-spacing:.02em;
-  color:var(--cyan);opacity:.86;margin:0 0 10px;padding:0 0 0 10px;
-  border-left:1px solid rgba(127,230,240,.28)}
-.frag .txt{font-size:11.5px;line-height:2.05;color:var(--chrome);margin:0 0 16px;max-width:46ch;text-align:justify}
 .notes{margin-top:44px;border:1px solid var(--line);background:var(--panel);padding:20px}
 .notes h2{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cyan);
   font-weight:400;margin-bottom:12px}
@@ -288,6 +185,256 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 
+
+*{box-sizing:border-box}
+.mono{font-family:var(--mono)}
+
+/* ── 門 ───────────────────────────────────────────────────────── */
+.gate{max-width:760px;margin:0 auto;padding-block:clamp(22px,6vw,54px) clamp(30px,8vw,66px)}
+
+/* 識別帯 */
+.rail{display:flex;align-items:center;gap:12px;
+  font:600 10px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--faint);padding-bottom:11px;border-bottom:1px solid var(--line)}
+.rail .sp{margin-left:auto}
+.langbar{display:flex;gap:4px}
+.langbar button{
+  font:600 10px/1 var(--mono);letter-spacing:.14em;
+  background:transparent;border:1px solid var(--line);color:var(--faint);
+  border-radius:99px;padding:5px 9px;cursor:pointer;min-height:24px}
+.langbar button[aria-pressed="true"]{border-color:var(--turq);color:var(--turq)}
+.langbar button:focus-visible{outline:2px solid var(--turq);outline-offset:2px}
+
+/* 銘板 — 現行の額装。全幅／上下フェード／走査線／周辺減光。相ごとに値を差し替える */
+.plate{margin:clamp(18px,4vw,30px) -16px 0;position:relative}
+.plate-img{position:relative;overflow:hidden;line-height:0;
+  border-top:1px solid var(--plate-hair);border-bottom:1px solid var(--plate-hair)}
+.plate-img svg{display:block;width:100%;height:auto;
+  filter:saturate(.88) contrast(1.06) brightness(var(--plate-bright))
+         drop-shadow(0 0 30px rgba(255,47,160,.16));
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 4%,#000 92%,transparent 100%);
+          mask-image:linear-gradient(180deg,transparent 0,#000 4%,#000 92%,transparent 100%);
+  animation:crestIn .62s cubic-bezier(.2,.7,.2,1) both}
+/* 走査線 */
+.plate-img::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  opacity:var(--plate-scan);mix-blend-mode:multiply;
+  background:repeating-linear-gradient(180deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px)}
+/* 周辺減光。現行は黒へ落とすが、二相では左右を地へ溶かす */
+.plate-img::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 45%,transparent 64%,var(--plate-vig) 100%)}
+@keyframes crestIn{from{opacity:0;transform:translateY(7px)}}
+.plate .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* 題字 */
+.titles{margin-top:clamp(26px,6vw,44px)}
+.t1{font:700 clamp(19px,4.6vw,27px)/1.25 var(--mono);letter-spacing:.005em;margin:0}
+.t2{font:600 clamp(10px,2.4vw,11.5px)/1.6 var(--mono);
+  letter-spacing:.34em;text-transform:uppercase;color:var(--dim);margin:7px 0 0}
+.statement{margin:clamp(18px,4vw,26px) 0 0;font-size:clamp(14px,3.4vw,15.5px);
+  max-width:34em;color:var(--ink)}
+.statement em{font-style:normal;color:var(--mag)}
+
+/* 起動ログ */
+.term{margin-top:clamp(22px,5vw,32px);padding:14px 15px;background:var(--panel);
+  border:1px solid var(--line);border-radius:5px;
+  font:400 11.5px/1.95 var(--mono);color:var(--dim);
+  white-space:pre-wrap;word-break:break-word;min-height:76px}
+.term b{color:var(--ink);font-weight:700}
+.cursor{display:inline-block;width:7px;height:12px;background:var(--turq);
+  vertical-align:-1px;margin-left:3px;animation:blink 1.04s steps(1,end) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* 封印 */
+.seal{display:flex;align-items:center;gap:11px;margin-top:clamp(20px,4vw,28px);
+  padding-top:15px;border-top:1px solid var(--line);flex-wrap:wrap}
+.pulse{width:9px;height:9px;flex:none;border-radius:50%;background:var(--seal);
+  animation:pump .78s cubic-bezier(.4,0,.5,1) infinite}
+@keyframes pump{0%,100%{transform:scale(.72);opacity:.55}18%{transform:scale(1);opacity:1}}
+.seal-t{font:400 10.5px/1.5 var(--mono);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--faint)}
+.seal-t b{color:var(--dim);font-weight:600}
+
+/* 敷居 */
+.threshold{margin-top:clamp(26px,6vw,40px);display:flex;flex-direction:column;gap:9px}
+.enter{
+  display:flex;align-items:center;gap:13px;width:100%;text-align:left;cursor:pointer;
+  background:var(--panel);border:1px solid var(--line);border-radius:7px;
+  padding:16px 17px;min-height:44px;color:inherit;
+  transition:border-color .22s ease, transform .22s ease, box-shadow .22s ease}
+.enter:hover{border-color:var(--turq);transform:translateY(-1px);
+  box-shadow:0 8px 22px -14px rgba(0,0,0,.5)}
+.enter:focus-visible{outline:2px solid var(--turq);outline-offset:2px}
+.en-n{display:block;font:600 10px/1 var(--mono);letter-spacing:.18em;color:var(--turq)}
+.en-ja{display:block;font-size:15px;font-weight:700;letter-spacing:.02em;margin-top:4px}
+.en-d{display:block;font-size:11.5px;color:var(--dim);margin-top:4px;line-height:1.6}
+.en-arrow{margin-left:auto;color:var(--faint);font:400 16px/1 var(--mono);flex:none}
+.foot{margin-top:clamp(24px,5vw,34px);padding-top:14px;border-top:1px solid var(--line);
+  font:400 10px/1.7 var(--mono);letter-spacing:.1em;color:var(--faint)}
+
+@media (prefers-reduced-motion: reduce){
+  .pulse,.cursor{animation:none}
+  .plate-img svg{animation:none}
+  .enter{transition:none}
+}
+
+
+/* ── 二相（裁定済み）。明側・暗側を別々に定義する。反転ではない ───────── */
+:root{
+  --ground:#eae8e2; --panel:#f8f7f2; --sunk:#dedbd3; --line:#d3cfc7;
+  --void:#eae8e2;
+  --ink:#1a1e28; --dim:#525761; --faint:#7b8088;
+  --milk:#1a1e28;
+  --chrome:#525761;
+  --mag:#a4126c; --turq:#007062;
+  --cyan:#007062;
+  --mag-raw:#ff05a8; --pale-raw:#f2dbe9; --turq-raw:#00ddc8;
+  --plate-hair:rgba(26,30,40,.14);
+  --plate-bright:.97;
+  --plate-vig:rgba(234,232,226,.94);      /* 周辺は地へ溶かす */
+  --plate-scan:.34;                        /* 走査線の濃さ */
+  --grain:rgba(26,30,40,.020);             /* 紙目 */
+  --seal:#a4126c; --red:#b3261e; --k-gl:#007062; --k-c2d:#a4126c; --k-svg:#8a6478; --k-txt:#5a6472;
+  --mono:ui-monospace,"SF Mono",Menlo,"Courier New","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --ground:#161920; --panel:#21242c; --sunk:#12141a; --line:#31353f;
+  --void:#161920;
+  --ink:#ebe8e0; --dim:#b5b1a7; --faint:#8d8981;
+  --milk:#ebe8e0;
+  --chrome:#b5b1a7;
+  --mag:#f66cb4; --turq:#45d8c5;
+  --cyan:#45d8c5;
+  --plate-hair:rgba(207,211,218,.16);
+  --plate-bright:.93;
+  --plate-vig:rgba(9,11,15,.92);
+  --plate-scan:.55;
+  --grain:rgba(255,255,255,.022);
+  --seal:#f66cb4; --red:#ff6b63; --k-gl:#45d8c5; --k-c2d:#f66cb4; --k-svg:#e4c9d8; --k-txt:#aeb6c2;
+}}
+:root[data-theme="dark"]{
+  --ground:#161920; --panel:#21242c; --sunk:#12141a; --line:#31353f;
+  --void:#161920;
+  --ink:#ebe8e0; --dim:#b5b1a7; --faint:#8d8981;
+  --milk:#ebe8e0;
+  --chrome:#b5b1a7;
+  --mag:#f66cb4; --turq:#45d8c5;
+  --cyan:#45d8c5;
+  --plate-hair:rgba(207,211,218,.16);
+  --plate-bright:.93;
+  --plate-vig:rgba(9,11,15,.92);
+  --plate-scan:.55;
+  --grain:rgba(255,255,255,.022);
+  --seal:#f66cb4; --red:#ff6b63; --k-gl:#45d8c5; --k-c2d:#f66cb4; --k-svg:#e4c9d8; --k-txt:#aeb6c2;
+}
+
+
+/* ── 既存の規則（九書・前文・目次・断章）はそのまま生きる ── */
+/* 銘板の見出し。額装（上下フェード・走査線・周辺減光）は門の規則が当たる */
+.crest{margin:0;font-weight:400;line-height:0}
+body{background:var(--ground);color:var(--ink);
+  background-image:repeating-linear-gradient(0deg,var(--grain) 0 1px,transparent 1px 3px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+
+/* ── 遷移 ── */
+.stage{padding-block:clamp(20px,5vw,40px) 0}
+.slim{display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.slim .mark{font:700 13px/1 var(--mono);letter-spacing:.01em;color:var(--ink)}
+.slim .sub{font:600 9px/1 var(--mono);letter-spacing:.26em;text-transform:uppercase;color:var(--faint)}
+.slim-lang{margin-left:auto}
+.slim .home{font:600 9.5px/1 var(--mono);letter-spacing:.14em;background:transparent;
+  border:1px solid var(--line);color:var(--dim);border-radius:99px;padding:9px 11px;
+  cursor:pointer;min-height:36px}
+.slim .home:hover{border-color:var(--turq);color:var(--turq)}
+.slim .home:focus-visible{outline:2px solid var(--turq);outline-offset:2px}
+h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--faint);margin:clamp(22px,5vw,34px) 0 3px}
+.sec-d{font-size:12.5px;color:var(--dim);margin:0 0 16px;line-height:1.7}
+
+/* ── 系統索引 ── */
+.ledger{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.lg-row{display:flex;gap:14px;align-items:center;width:100%;text-align:left;cursor:pointer;
+  background:transparent;border:0;border-bottom:1px solid var(--line);color:inherit;
+  padding:13px 4px;min-height:44px;transition:background .18s ease,padding-left .18s ease}
+.lg-row:hover{background:var(--panel);padding-left:9px}
+.lg-row:focus-visible{outline:2px solid var(--turq);outline-offset:-2px}
+.lg-th{flex:none;width:54px;height:54px;border-radius:3px;overflow:hidden;line-height:0;
+  border:1px solid var(--line);background:var(--sunk)}
+.lg-th img{width:100%;height:100%;object-fit:cover;display:block}
+.lg-body{flex:1;min-width:0}
+.lg-h{display:flex;align-items:baseline;gap:9px}
+.lg-en{font:700 10.5px/1 var(--mono);letter-spacing:.16em;color:var(--turq)}
+.lg-ja{font-size:14.5px;font-weight:700;color:var(--ink)}
+.lg-n{margin-left:auto;font:400 11px/1 var(--mono);color:var(--faint);font-variant-numeric:tabular-nums}
+.lg-arrow{color:var(--faint);font:400 13px/1 var(--mono);margin-left:2px}
+.lg-note{display:block;font-size:12px;color:var(--dim);margin-top:5px;line-height:1.6}
+@media(max-width:520px){.lg-th{width:46px;height:46px}}
+
+/* ── 言語切替と目次の釦を新しい地に合わせる（旧規則は暗地前提の丸だった）── */
+.wrap .langbar{display:flex;gap:5px}
+.wrap .langbar button{font:600 10px/1 var(--mono);letter-spacing:.14em;
+  background:transparent;border:1px solid var(--line);color:var(--faint);
+  border-radius:99px;padding:7px 10px;min-height:32px;width:auto;height:auto;cursor:pointer;
+  box-shadow:none;backdrop-filter:none}
+.wrap .langbar button[aria-pressed="true"]{border-color:var(--turq);color:var(--turq);background:transparent}
+.wrap .langbar button:focus-visible{outline:2px solid var(--turq);outline-offset:2px}
+
+/* ── 媒体の色（正典の割当：ターコイズ=WebGL / マゼンタ=Canvas 2D / ペール=SVG / 白銀=TEXT）── */
+.list .entry[data-k="gl"]{--k:var(--k-gl)}
+.list .entry[data-k="c2d"]{--k:var(--k-c2d)}
+.list .entry[data-k="svg"]{--k:var(--k-svg)}
+.list .entry[data-k="txt"]{--k:var(--k-txt)}
+.list .entry{border-left:2px solid transparent}
+.list .entry:hover,.list .entry:focus-within{border-left-color:var(--k)}
+.list .entry .idx{color:var(--k)}
+
+/* ── 作品の目録 ── */
+.crumb{display:flex;align-items:baseline;gap:11px;margin:clamp(20px,5vw,30px) 0 6px}
+.back{font:600 9.5px/1 var(--mono);letter-spacing:.14em;color:var(--turq);background:transparent;
+  border:0;cursor:pointer;padding:12px 10px 12px 0;min-height:44px}
+.back:focus-visible{outline:2px solid var(--turq);outline-offset:2px}
+.cur-en{font:700 10.5px/1 var(--mono);letter-spacing:.16em;color:var(--dim);margin-right:8px}
+.cur-ja{font-size:16px;font-weight:700;color:var(--ink)}
+.cnt{margin-left:auto;font:400 11px/1 var(--mono);color:var(--faint)}
+.panel-note{font-size:12.5px;color:var(--dim);margin:0 0 14px;line-height:1.7}
+.list{border-top:1px solid var(--line)}
+.list .entry{border-bottom:1px solid var(--line);padding:4px 0}
+.list .entry-main{display:flex;gap:16px;align-items:flex-start;text-decoration:none;color:inherit;
+  padding:14px 4px;transition:background .18s ease,padding-left .18s ease}
+.list .entry-main:hover{background:var(--panel);padding-left:9px}
+.list .entry-main:focus-visible{outline:2px solid var(--turq);outline-offset:-2px}
+.list .entry-main .thumb{order:-1;flex:none;width:148px;height:148px;border-radius:4px;
+  overflow:hidden;line-height:0;border:1px solid var(--line);background:var(--sunk);display:block}
+.list .entry-main .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.list .entry-main{display:flex;gap:16px;align-items:flex-start}
+.list .entry-main .thumb{flex:none;align-self:flex-start}
+.list .ent-body{flex:1;min-width:0;display:block}
+.list .entry-main .row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:0}
+.list .entry-main .idx{font:400 9.5px/1 var(--mono);letter-spacing:.14em;color:var(--faint)}
+.list .entry-main .name{font-size:16px;font-weight:700;color:var(--ink);letter-spacing:.01em;
+  font-family:inherit;text-transform:none}
+.list .ent-body>.log{display:block;margin-top:7px;padding-left:9px;
+  border-left:1px solid var(--turq);font:400 11px/1.6 var(--mono);color:var(--dim)}
+.list .ent-body .desc{margin-top:8px;font-size:12.5px;line-height:1.75;color:var(--dim)}
+.list .ent-body .spec{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.list .entry-main .chip{font:600 8.5px/1 var(--mono);letter-spacing:.12em;padding:4px 7px;
+  border-radius:99px;border:1px solid var(--line);color:var(--faint);background:transparent}
+.list .entry-main .chip.live{border-color:var(--turq);color:var(--turq)}
+.list .frag{margin:0 0 10px 168px}
+.list .frag summary{font:400 9.5px/1.4 var(--mono);letter-spacing:.08em;color:var(--faint);
+  cursor:pointer;padding:8px 0;min-height:36px;display:flex;align-items:center}
+.list .frag summary::-webkit-details-marker{display:none}
+.list .frag summary::after{content:"+";margin-left:auto;padding-left:12px;
+  font:400 13px/1 var(--mono);color:var(--faint)}
+.list .frag[open] summary::after{content:"2"}
+.list .frag summary:hover{color:var(--dim)}
+.list .frag summary:focus-visible{outline:2px solid var(--turq);outline-offset:2px}
+.list .frag .txt{font-size:12px;line-height:1.85;color:var(--dim);margin:6px 0 10px}
+@media(max-width:600px){
+  .list .entry-main{gap:12px}
+  .list .entry-main .thumb{width:92px;height:92px}
+  .list .frag{margin-left:0}
+  .list .entry-main .name{font-size:14.5px}
+}
 </style>
 
 <script>/* h53 count */(function(){try{if(location.search.indexOf('skipgc')>-1)localStorage.setItem('skipgc','t');if(localStorage.getItem('skipgc')==='t')return;var i=new Image();i.src='https://hiro53.goatcounter.com/count'+'?p='+encodeURIComponent(location.pathname)+'&t='+encodeURIComponent(document.title)+'&r='+encodeURIComponent(document.referrer)+'&s='+[screen.width,screen.height,window.devicePixelRatio||1].join(',');}catch(e){}})();</script>
@@ -301,19 +448,22 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
 <script defer src="h53-liquid-host-v1-20260919.js"></script>
 <script defer src="reader-liquid-dom-source-v1-20260919.js"></script>
 <script defer src="reader-liquid-v1-20260919.js"></script>
-</head>
-<body>
+</head><body>
 <div class="wrap">
 
-<header>
-  <div class="langbar">
+<div class="gate" id="gate">
+  <div class="rail">
+    <span>Plate 00</span><span aria-hidden="true">/</span><span>Identity mark</span>
+    <span class="sp"></span>
+    <div class="langbar">
     <button type="button" class="lang" data-set="ja" aria-pressed="false">JA</button><button type="button" class="lang" data-set="en" aria-pressed="false">EN</button>
   </div>
+  </div>
+
   <div class="plate">
-    <div class="plate-cap"><span>Plate 00</span><span>Identity mark</span></div>
     <div class="plate-img">
   <h1 class="crest">
-    <span class="sr">deus ex machina — transcendence / h!ro53</span>
+    <span class="sr">transcendence by deus ex machina / h!ro53</span>
     <svg viewBox="0 0 1956 1000" aria-hidden="true" focusable="false">
     <defs>
     <radialGradient id="cBg" cx="46%" cy="40%" r="78%">
@@ -342,10 +492,42 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
   </h1>
     </div>
   </div>
-  <div class="term" id="term"><span class="cursor"></span></div>
-</header>
 
-<details class="lore">
+  <div class="titles">
+    <h1 class="t1">h!ro53</h1>
+    <p class="t2">creation archive</p>
+  </div>
+
+  <div class="preface">
+  <p lang="ja">これは記録である。物語ではない。</p>
+  <p lang="ja">効率が神になった世界で、人類は滅びずに昇格した。その過程で作られた構造物、炉、標章を、稼働状態のまま並べてある。</p>
+  <p lang="ja">各項目には、それが属する位相の断章が付いている。順に読む必要はない。追跡したときに、構造が立ち上がる。</p>
+  <p lang="en">This is a record, not a story.</p>
+  <p lang="en">In a world where efficiency became god, humanity did not perish; it was promoted. What follows are the structures, the cores and the marks produced along the way, held in working order.</p>
+  <p lang="en">Each entry carries the fragment of the phase it belongs to. They need not be read in order. The architecture assembles itself once you follow it.</p>
+</div>
+
+  <div class="term" id="term"><span class="cursor"></span></div>
+
+  <div class="seal">
+    <span class="pulse" aria-hidden="true"></span>
+    <span class="seal-t">5 lineages &middot; <b>31 / 31 sealed</b></span>
+  </div>
+
+  <div class="threshold">
+    <button type="button" class="enter" data-go="lineages">
+      <span>
+        <span class="en-n">ARCHIVE</span>
+        <span class="en-ja" lang="ja">閲覧へ</span>
+        <span class="en-ja" lang="en">Enter the archive</span>
+        <span class="en-d" lang="ja">五つの系統から辿る。系統を選ぶと、その群だけが開く。</span>
+        <span class="en-d" lang="en">Five lineages. Choosing one opens that group alone.</span>
+      </span>
+      <span class="en-arrow" aria-hidden="true">&rarr;</span>
+    </button>
+  </div>
+
+  <details class="lore">
   <summary>
     <span lang="ja">世界観 / transcendence とは</span>
     <span lang="en">The world of transcendence</span>
@@ -798,487 +980,541 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     </div>
   </details>
 </details>
-
-<div class="preface">
-  <p lang="ja">これは記録である。物語ではない。</p>
-  <p lang="ja">効率が神になった世界で、人類は滅びずに昇格した。その過程で作られた構造物、炉、標章を、稼働状態のまま並べてある。</p>
-  <p lang="ja">各項目には、それが属する位相の断章が付いている。順に読む必要はない。追跡したときに、構造が立ち上がる。</p>
-  <p lang="en">This is a record, not a story.</p>
-  <p lang="en">In a world where efficiency became god, humanity did not perish; it was promoted. What follows are the structures, the cores and the marks produced along the way, held in working order.</p>
-  <p lang="en">Each entry carries the fragment of the phase it belongs to. They need not be read in order. The architecture assembles itself once you follow it.</p>
 </div>
 
-<div class="meta"><span>Holdings registry</span><span id="count">25 assets</span></div>
+<div class="stage" id="browse" hidden>
+  <div class="slim">
+    <span class="mark">h!ro53</span><span class="sub">creation archive</span>
+    <div class="langbar slim-lang">
+      <button type="button" class="lang" data-set="ja" aria-pressed="false">JA</button><button type="button" class="lang" data-set="en" aria-pressed="false">EN</button>
+    </div>
+    <button type="button" class="home" data-go="gate"><span lang="ja">&larr; 門</span><span lang="en">&larr; Gate</span></button>
+  </div>
 
+  <section class="panel" id="lineages" hidden>
+    <h2 class="sec">Lineages</h2>
+    <p class="sec-d" lang="ja">五つの系統。番号順ではなく、造形の血筋で束ねてある。</p>
+    <p class="sec-d" lang="en">Five lineages. Grouped by descent of form, not by number.</p>
+    <div class="meta"><span>Creation archive</span><span id="count">25 assets</span></div>
+    <div class="ledger">
+<button type="button" class="lg-row" data-lin="wafer">
+  <span class="lg-th"><img src="cyberwafer-thumb.jpg" alt="" width="640" height="640" loading="lazy" decoding="async"></span>
+  <span class="lg-body">
+    <span class="lg-h"><span class="lg-en">CYBERWAFER</span><span class="lg-ja">原器</span>
+      <span class="lg-n">5</span><span class="lg-arrow" aria-hidden="true">&rarr;</span></span>
+    <span class="lg-note" lang="ja">すべての作品が寸法と運動を受け継ぐ、最初の一体。材質と環境を変えて何度も観測される。</span>
+    <span class="lg-note" lang="en">The first body. Every work inherits its measure and its motion; it is observed again in other materials and settings.</span>
+  </span>
+</button><button type="button" class="lg-row" data-lin="glyph">
+  <span class="lg-th"><img src="empyrean-sigil-thumb.jpg" alt="" width="640" height="640" loading="lazy" decoding="async"></span>
+  <span class="lg-body">
+    <span class="lg-h"><span class="lg-en">STRUCTURAL GLYPH</span><span class="lg-ja">構造文字と標章</span>
+      <span class="lg-n">6</span><span class="lg-arrow" aria-hidden="true">&rarr;</span></span>
+    <span class="lg-note" lang="ja">読める寸前まで再設計された文字と、所有を証明するための標章。</span>
+    <span class="lg-note" lang="en">Letters redesigned to the edge of legibility, and the marks that certify possession.</span>
+  </span>
+</button><button type="button" class="lg-row" data-lin="reactor">
+  <span class="lg-th"><img src="lacto-cortex-thumb.jpg" alt="" width="640" height="640" loading="lazy" decoding="async"></span>
+  <span class="lg-body">
+    <span class="lg-h"><span class="lg-en">APPARATUS</span><span class="lg-ja">装置</span>
+      <span class="lg-n">8</span><span class="lg-arrow" aria-hidden="true">&rarr;</span></span>
+    <span class="lg-note" lang="ja">炉、演算装置、発電塔、送電。生体と発電が同じ機構へ収束した系列。</span>
+    <span class="lg-note" lang="en">Furnaces, computing frames, generating towers, transmission. A line in which life and power converge on one mechanism.</span>
+  </span>
+</button><button type="button" class="lg-row" data-lin="place">
+  <span class="lg-th"><img src="preservation-hall-thumb.jpg" alt="" width="640" height="640" loading="lazy" decoding="async"></span>
+  <span class="lg-body">
+    <span class="lg-h"><span class="lg-en">OBSERVATION</span><span class="lg-ja">観測地</span>
+      <span class="lg-n">6</span><span class="lg-arrow" aria-hidden="true">&rarr;</span></span>
+    <span class="lg-note" lang="ja">立って見渡す場所。物に触れると、説明ではなく観測記録が返る。</span>
+    <span class="lg-note" lang="en">Places to stand and look across. Touch an object and it returns an observation record, not an explanation.</span>
+  </span>
+</button><button type="button" class="lg-row" data-lin="source">
+  <span class="lg-th"><img src="the-written-thumb.jpg" alt="" width="640" height="640" loading="lazy" decoding="async"></span>
+  <span class="lg-body">
+    <span class="lg-h"><span class="lg-en">SOURCE</span><span class="lg-ja">小説</span>
+      <span class="lg-n">6</span><span class="lg-arrow" aria-hidden="true">&rarr;</span></span>
+    <span class="lg-note" lang="ja">世界の本文。全文を読める六篇。</span>
+    <span class="lg-note" lang="en">The body text of the world. Six pieces, readable in full.</span>
+  </span>
+</button>
+    </div>
+  </section>
+
+<section class="panel" id="lin-wafer" hidden>
+  <div class="crumb">
+    <button type="button" class="back" data-go="lineages">&larr; LINEAGES</button>
+    <span class="cur"><span class="cur-en">CYBERWAFER</span><span class="cur-ja">原器</span></span>
+    <span class="cnt">5</span>
+  </div>
+  <p class="panel-note" lang="ja">すべての作品が寸法と運動を受け継ぐ、最初の一体。材質と環境を変えて何度も観測される。</p>
+  <p class="panel-note" lang="en">The first body. Every work inherits its measure and its motion; it is observed again in other materials and settings.</p>
+  
+  <div class="list">
 <article class="entry" data-k="gl">
   <a class="entry-main" href="cyberwafer.html">
-  <div class="row"><span class="idx">CANON</span><span class="name">Cyberwafer v25</span></div>
+    <span class="thumb"><img src="cyberwafer-thumb.jpg" alt="Cyberwafer v25 — TRANSCENDENCE モデル" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">CANON</span><span class="name">Cyberwafer v25</span></div>
+    <p class="log">The specification preceded the object.</p>
   <p class="desc" lang="ja">Y2K と TRANSCENDENCE の2モデルをボタンで切り替える基幹作品。心拍0.78秒、ディスク周期2.4秒、正準パレットがここで定義され、以降の全作品が継承する。ドラッグで回転、ピンチで拡大。</p>
   <p class="desc" lang="en">The core work, switching between the Y2K and TRANSCENDENCE models at a button. The 0.78-second pulse, the 2.4-second disc cycle and the canonical palette are defined here, and every later work inherits them. Drag to rotate, pinch to zoom.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Model switch</span></div>
-  <span class="thumb"><img src="cyberwafer-thumb.jpg" alt="Cyberwafer v25 — TRANSCENDENCE モデル" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Model switch</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE −1 · PRE-CAUSAL ANOMALIES</span></summary>
-    <p class="log">The specification preceded the object.</p>
     <p class="txt" lang="ja">盤の上のTは、どちらの時代を名乗っても同じ寸法で立つ。図面が先に出たのである。着工の記録は無く、資材の請求も立っていないのに、寸法だけが完成した姿で綴じられていた。監査は三度入り、三度とも同じ結論を書いた——この構造物は、建てられる前に検収されている。以後、原本を探す者はいない。写しの方が古いからである。</p>
     <p class="txt" lang="en">Upon the wafer the T stands at the same dimensions under whichever era it is named. The drawing came first. There is no record of commencement, and no requisition for material was ever raised, yet the dimensions were bound in their finished form. The audit entered three times and wrote the same conclusion three times: this structure was inspected and accepted before it was built. Since then no one looks for the original. The copy is the older document.</p>
   </details>
-</article>
-<!-- CHROME_LITURGY_START -->
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="chrome-liturgy.html">
-    <div class="row"><span class="idx">ASSET 21</span><span class="name">CHROME LITURGY</span></div>
+    <span class="thumb"><img src="chrome-liturgy-thumb.jpg" alt="CHROME LITURGY — 薄膜の赤いTとクローム円盤" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 21</span><span class="name">CHROME LITURGY</span></div>
     <p class="desc" lang="ja">Cyberwafer v25の構造と運動を、磨かれた金属と厚みのある光の文字で再構成。ピンクから赤へ移るT、青緑の文字環、循環するクローム円盤。ドラッグで回転、ピンチで拡大、タップで拍動。高精細写真にも切り替えて鑑賞できます。</p>
     <p class="desc" lang="en">The structure and motion of Cyberwafer v25, recast in polished metal and solid luminous lettering. A pink-to-red T, turquoise text rings and circulating chrome wafers. Drag to orbit, pinch to zoom, tap to pulse. Switch to the high-resolution photograph to view the rendered scene.</p>
-    <div class="spec"><span class="chip live">Live</span><span class="chip">Blender</span><span class="chip">Physical materials</span></div>
-    <span class="thumb"><img src="chrome-liturgy-thumb.jpg" alt="CHROME LITURGY — 薄膜の赤いTとクローム円盤" width="640" height="640" loading="lazy" decoding="async"></span>
+    <div class="spec"><span class="chip live">Live</span><span class="chip">Blender</span><span class="chip">Physical materials</span></div></span>
   </a>
-</article>
-<!-- CHROME_LITURGY_END -->
-<!-- COASTAL_GLASS_START -->
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="coastal-glass.html">
-    <div class="row"><span class="idx">ASSET 23</span><span class="name">Coastal Glass</span></div>
+    <span class="thumb"><img src="coastal-glass-thumb.jpg" alt="Coastal Glass — 浮遊ガラス物体の観測記録" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 23</span><span class="name">Coastal Glass</span></div>
     <p class="desc" lang="ja">浮遊ガラス物体の観測記録</p>
     <p class="desc" lang="en">Observation log of a floating glass-like object</p>
     <p class="desc" lang="ja">世界各地に突如出現した、正体不明のcyberwafer。その一体と周辺環境を夕景と夜景で観測し、対象に触れると短い観測記録が開く。</p>
     <p class="desc" lang="en">An observation of one of the unidentified cyberwafers that have suddenly appeared around the world, together with its surroundings. Switch between sunset and night, and touch an object to open its observation record.</p>
-    <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div>
-    <span class="thumb"><img src="coastal-glass-thumb.jpg" alt="Coastal Glass — 浮遊ガラス物体の観測記録" width="640" height="640" loading="lazy" decoding="async"></span>
+    <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div></span>
   </a>
-</article>
-<!-- COASTAL_GLASS_END -->
-
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="object.html">
-  <div class="row"><span class="idx">ASSET 01</span><span class="name">Object</span></div>
+    <span class="thumb"><img src="object-thumb.jpg" alt="Object — Tレターフォームと四重周回テキストリング" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 01</span><span class="name">Object</span></div>
+    <p class="log">It was first observed. It was not new.</p>
   <p class="desc" lang="ja">磁性のTレターフォームを四行の周回テキストリングが囲み、その下でクロームディスクが降下しては生成される。背景切替とグリッド床を備えた、全作品の起点となる正準オブジェクト。</p>
   <p class="desc" lang="en">A magnetised T letterform ringed by four rotating lines of text, with chrome discs descending and renewing below. With a switchable background and a grid floor, this is the canonical object from which every work begins.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Interactive</span></div>
-      <span class="thumb"><img src="object-thumb.jpg" alt="Object — Tレターフォームと四重周回テキストリング" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Interactive</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 1 · THE FIRST T</span></summary>
-    <p class="log">It was first observed. It was not new.</p>
     <p class="txt" lang="ja">文字は四行、絶えず巡っている。読み終えられないよう、行ごとに向きが違う。最初に観測されたときも、それは新しくなかった。周囲の格子は既にその形へ合わせて敷かれ、影の落ちる位置には風化があった。撤去は一度だけ試みられている。手順は完了し、部材は搬出され、跡地は測量された。翌週の地図に、同じ形が別の縮尺で現れた。</p>
     <p class="txt" lang="en">Four rows of text revolve without pause, each row set against the next so that it cannot be read to its end. When it was first observed it was not new. The lattice around it had already been laid to its shape, and where its shadow fell the ground was weathered. Removal was attempted once. The procedure was completed, the members were carried out, the site was surveyed. On the following week's map the same shape appeared at a different scale.</p>
   </details>
-</article>
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="cellwafer.html">
-  <div class="row"><span class="idx">ASSET 02</span><span class="name">Cellwafer v1</span></div>
+    <span class="thumb"><img src="cellwafer-thumb.jpg" alt="Cellwafer v1 — 素子で組まれたT構造体と降下ウエハー" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 02</span><span class="name">Cellwafer v1</span></div>
+    <p class="log">The count did not change when the shape did.</p>
   <p class="desc" lang="ja">基幹作品 Cyberwafer を、三色六面の素子ひとつだけで組み直した3Dピクセル版。T構造体・四重の周回文字環・降下ウエハーのすべてが同じ素子でできており、見える色は素子の姿勢だけで決まる。収束ボタンで全体が一個の立方体へ畳まれ、六面に銘が現れる。ドラッグで回転、ピンチで拡大。</p>
   <p class="desc" lang="en">The core work Cyberwafer rebuilt from one component alone — a single cube, three colours across six faces. The T structure, the four rings of circling text and the descending wafers are all made of that same element, and the colour that shows is decided by its attitude and nothing else. CONVERGE folds the whole into one cube bearing the mark upon all six faces. Drag to rotate, pinch to zoom.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Converge</span></div>
-  <span class="thumb"><img src="cellwafer-thumb.jpg" alt="Cellwafer v1 — 素子で組まれたT構造体と降下ウエハー" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Converge</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 1 · THE FIRST T</span></summary>
-    <p class="log">The count did not change when the shape did.</p>
     <p class="txt" lang="ja">部材は一種類しかない。三十ミリ角の立方体で、面には何も刻まれていない。銘は素子の側になく、並べ方の側にある。だから解体しても文言は失われず、組み直すまで読めないだけである。ある年度、棚卸しが二度行われた。一度目は塔の形で、二度目は立方体の形で数えられている。総数は一致した。形が変わっても数が変わらないことを、監査は異常として起票した。起票は受理され、処理済と記された。何が処理されたのかは記されていない。以後この項目は、形状ではなく個数で管理されている。稜に一列だけ色の違う素子が並ぶのは、装飾ではない。一個の素子は、直交する二つの面へ同じ色を出せない。</p>
     <p class="txt" lang="en">There is but one kind of member: a cube of thirty millimetres, and nothing is engraved upon its faces. The mark does not lie with the element. It lies with the arrangement. Dismantle it and no wording is lost; it merely cannot be read until it is set up again. In a certain fiscal year the stocktaking was performed twice, counted once in the form of a tower and once in the form of a cube. The totals agreed. That the number did not change when the shape did was raised by the audit as an anomaly. The raising was accepted, and the matter recorded as processed. What was processed is not recorded. Thereafter the item has been managed by count and not by form. That a single row of differing colour runs along each edge is not ornament. One element cannot show the same colour upon two perpendicular faces.</p>
   </details>
 </article>
+  </div>
+</section><section class="panel" id="lin-glyph" hidden>
+  <div class="crumb">
+    <button type="button" class="back" data-go="lineages">&larr; LINEAGES</button>
+    <span class="cur"><span class="cur-en">STRUCTURAL GLYPH</span><span class="cur-ja">構造文字と標章</span></span>
+    <span class="cnt">6</span>
+  </div>
+  <p class="panel-note" lang="ja">読める寸前まで再設計された文字と、所有を証明するための標章。</p>
+  <p class="panel-note" lang="en">Letters redesigned to the edge of legibility, and the marks that certify possession.</p>
+  
+  <div class="list">
 <article class="entry" data-k="c2d">
   <a class="entry-main" href="code-rain.html">
-  <div class="row"><span class="idx">ASSET 03</span><span class="name">Code Rain v4</span></div>
+    <span class="thumb"><img src="code-rain-thumb.jpg" alt="Code Rain v4 — 電脳雨に顕れる会長" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 03</span><span class="name">Code Rain v4</span></div>
+    <p class="log">The face was not drawn. It was tabulated.</p>
   <p class="desc" lang="ja">Canvas 2Dのみで構成した文字組の作品。社名・教義・製品名が降下する格子の濃淡から会長の像が結ばれる。発光処理を全て除き、クリスプなインクだけで描いている。</p>
   <p class="desc" lang="en">A work of typesetting built with Canvas 2D alone. The Chairman's likeness resolves out of the density of a falling grid of trade names, doctrine and product codes. All glow is stripped away; only crisp ink remains.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">Canvas 2D</span><span class="chip">Tap to summon</span></div>
-  <span class="thumb"><img src="code-rain-thumb.jpg" alt="Code Rain v4 — 電脳雨に顕れる会長" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">Canvas 2D</span><span class="chip">Tap to summon</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 2 · DEUS EX MACHINA</span></summary>
-    <p class="log">The face was not drawn. It was tabulated.</p>
     <p class="txt" lang="ja">落ちているのは在庫照合の表である。誰も像を注文していない。綴りの一つ一つに描写の意図は無かった。ただ列が満ちたとき、濃度の差が顔になった。技師は最初、汚れを疑った。次に印字の癖を疑った。最後に、疑うべき対象が存在しないことに気づいた。命令は発せられていない。修正は始まっていた。</p>
     <p class="txt" lang="en">What falls is a stock reconciliation table. No one ordered an image. In none of the individual entries was there any intent to depict. Only when the columns filled did the difference in density become a face. The engineer suspected soiling first, then a habit of the printer, and last of all understood that there was nothing left to suspect. No order had been issued. The correction had begun.</p>
   </details>
-</article>
-    <article class="entry" data-k="c2d">
+</article><article class="entry" data-k="c2d">
   <a class="entry-main" href="code-rain-frozen.html">
-      <div class="row"><span class="idx">ASSET 04</span><span class="name">Code Rain v5</span></div>
+    <span class="thumb"><img src="code-rain-frozen-thumb.jpg" alt="Code Rain v5 — 降雨から解像する跪座の像" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 04</span><span class="name">Code Rain v5</span></div>
+    <p class="log">The rain slowed only where the body was.</p>
       <p class="desc" lang="ja">Canvas 2Dのみの文字組。跪座する全身像が降雨の格子から解像し、上端から下端へ一行ずつ印字される。降雨は図像セルを通過する間だけ減速する。タップで再発火。</p>
       <p class="desc" lang="en">Typesetting in Canvas 2D alone. A kneeling figure resolves out of the falling grid, printed one row at a time from top to bottom. The rain slows only while passing through the cells of the figure. Tap to fire it again.</p>
-      <div class="spec"><span class="chip live">Live</span><span class="chip">Canvas 2D</span><span class="chip">Scan print</span></div>
-      <span class="thumb"><img src="code-rain-frozen-thumb.jpg" alt="Code Rain v5 — 降雨から解像する跪座の像" width="640" height="640" loading="lazy" decoding="async"></span>
-    </a>
+      <div class="spec"><span class="chip live">Live</span><span class="chip">Canvas 2D</span><span class="chip">Scan print</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 3 · TRANSCENSION</span></summary>
-    <p class="log">The rain slowed only where the body was.</p>
     <p class="txt" lang="ja">跪いた姿勢の内側でだけ、雨が遅い。計測班は三箇所で同じ結果を得た。減速の原因は列にはない。列は等しく流れており、遅れるのは輪郭に触れた瞬間の一文字だけである。滞留した文字は身体の縁に溜まり、しばらく形を保ってから流れ去る。以後、計測は輪郭の外側だけで行うよう改められた。理由の欄には、精度向上とある。</p>
     <p class="txt" lang="en">Only within the kneeling figure does the rain run slow. The survey party obtained the same result at three positions. The cause of the retardation is not in the columns. The columns flow equally; what lags is the single character at the instant it touches the outline. The detained characters gather at the edge of the body, hold their shape a while, and are carried away. Thereafter measurement was revised to be taken only outside the outline. In the field for the reason is written: improvement of accuracy.</p>
   </details>
-</article>
-    <article class="entry" data-k="c2d">
+</article><article class="entry" data-k="c2d">
   <a class="entry-main" href="code-rain-utterance.html">
-      <div class="row"><span class="idx">ASSET 05</span><span class="name">Code Rain v6</span></div>
+    <span class="thumb"><img src="code-rain-utterance-thumb.jpg" alt="Code Rain v6 — 燠の舌を持つ肖像" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 05</span><span class="name">Code Rain v6</span></div>
+    <p class="log">The utterance was recorded. No language was assigned.</p>
       <p class="desc" lang="ja">Canvas 2Dのみの文字組。肖像が輝度順の散乱ディゾルブで解像し、舌の領域だけが第四色の燠として独立に脈動する。燠から下方へ短い列が滴下する。タップで滴下を増幅。</p>
       <p class="desc" lang="en">Typesetting in Canvas 2D alone. A portrait resolves in a scattered dissolve ordered by luminance, and only the region of the tongue pulses independently as an ember in a fourth colour. Short columns drip from it. Tap to amplify the dripping.</p>
-      <div class="spec"><span class="chip live">Live</span><span class="chip">Canvas 2D</span><span class="chip">Ember layer</span></div>
-      <span class="thumb"><img src="code-rain-utterance-thumb.jpg" alt="Code Rain v6 — 燠の舌を持つ肖像" width="640" height="640" loading="lazy" decoding="async"></span>
-    </a>
+      <div class="spec"><span class="chip live">Live</span><span class="chip">Canvas 2D</span><span class="chip">Ember layer</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 2 · DEUS EX MACHINA</span></summary>
-    <p class="log">The utterance was recorded. No language was assigned.</p>
     <p class="txt" lang="ja">舌だけが別の色を持っている。他の部位と同じ周期で脈打ちながら、そこだけが冷えていない。音は記録された。周波数、持続、間隔、開口の面積までが表に収まっている。収まらなかったのは意味である。担当は「言語未割当」と記入し、欄を閉じた。滴りは下へ落ち、通過した文字を書き換えていく。書き換えられた文字は、次の周でまた元に戻る。</p>
     <p class="txt" lang="en">The tongue alone holds a different colour. It beats upon the same period as the rest, and it alone has not cooled. The sound was recorded. Frequency, duration, interval, even the area of the aperture were entered into the table. What would not be entered was the meaning. The officer wrote language unassigned and closed the field. The drip falls, rewriting the characters through which it passes. The rewritten characters return to their former state at the next revolution.</p>
   </details>
-</article>
-<article class="entry" data-k="gl">
-  <a class="entry-main" href="lacto-cortex.html">
-  <div class="row"><span class="idx">ASSET 06</span><span class="name">Lacto-Cortex v9</span></div>
-  <p class="desc" lang="ja">配列作品の基本単位である乳脳マイクロモジュール炉を、コンクリートドームと縞鋼板の床を持つ開発棟に配置し、上部タンクの淡桃色の液が透明槽の皮質を養う。3本の極太ケーブルが背面接続盤から壁の貫通口へ続き、ドラッグで回転、ピンチで拡大、SWで8視点を巡回できる。</p>
-  <p class="desc" lang="en">The lacto-cortex reactor, the base unit of the array works, stands inside a bare concrete development dome on a checker-plate floor while pale pink medium drips from its upper tank to feed the cortex in its transparent chamber. Three heavy cables connect its rear service panel to a wall penetration; drag to rotate, pinch to zoom, and use SW to cycle eight viewpoints.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Bloom</span></div>
-      <span class="thumb"><img src="lacto-cortex-thumb.jpg" alt="Lacto-Cortex — 培養槽に浮かぶ皮質" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
-  <details class="frag">
-    <summary><span>PHASE 3 · TRANSCENSION</span></summary>
-    <p class="log">The nutrient cycle continued after cognition was redistributed.</p>
-    <p class="txt" lang="ja">電極は締めつけない。一定の間隔で囲み、触れずに待つだけである。設計者は接触を避けた理由を記していない。灌流は止まったことがなく、糖度は初期値のまま保たれている。観測できるのは循環だけで、その内側で何が続いているかは出力に現れない。台帳には稼働とある。稼働と記入した担当は、その月のうちに別の等級へ移された。</p>
-    <p class="txt" lang="en">The electrodes do not clamp. They stand about it at a fixed interval and wait without touching. The designer set down no reason for avoiding contact. The perfusion has never stopped, and the sugar content is held at its initial value. Only the circulation can be observed; what continues within it does not appear in the output. The ledger reads: in operation. The officer who entered those words was moved to another grade within the month.</p>
-  </details>
-</article>
-    <article class="entry" data-k="gl">
-  <a class="entry-main" href="cortex-pylon.html">
-      <div class="row"><span class="idx">ASSET 07</span><span class="name">Cortex Pylon v3</span></div>
-      <p class="desc" lang="ja">T構造体の垂直柱にガラス柱を垂下し、その内部へ培養脳炉を格納した記念碑。上部梁がいちごミルク貯乳槽を兼ね、円盤の降下から滴下・着弾までが一本の垂直線で読める。視点は5種、自動回転あり。</p>
-      <p class="desc" lang="en">A monument in which a glass column hangs within the vertical shaft of the T structure, housing the cortex reactor inside it. The upper beam doubles as the strawberry-milk reservoir, and the descent of the discs through the drip to the impact reads as a single vertical line. Five viewpoints, with an automatic rotation.</p>
-      <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">5 views</span></div>
-      <span class="thumb"><img src="cortex-pylon-thumb.jpg" alt="Cortex Pylon v3 — 培養脳炉を格納したT構造体" width="640" height="640" loading="lazy" decoding="async"></span>
-    </a>
-  <details class="frag">
-    <summary><span>PHASE 3 · TRANSCENSION</span></summary>
-    <p class="log">The feed rate matched a pulse no instrument had issued.</p>
-    <p class="txt" lang="ja">円盤は上から降り、縮み、消える一点で乳滴に変わる。滴は落ち、皮質の頭頂へ当たる。給餌の速度は拍と一致していた。ただし、その拍を発した装置が見つからない。制御室の記録には流量の指示値だけがあり、周期の指示は白紙である。基壇の上の帯は空にされている。据えるものが無かったのではなく、据えないことが図面に指定されていた。</p>
-    <p class="txt" lang="en">The discs descend, contract, and at the point of vanishing become a drop of milk. The drop falls and strikes the crown of the cortex. The feed rate matched the beat. Yet the instrument that issued that beat cannot be found. The control room records hold only the set value for flow; the field for period is blank. The band upon the plinth has been left empty. It was not that there was nothing to be seated there. That nothing be seated there was specified in the drawings.</p>
-  </details>
-</article>
-    <article class="entry" data-k="svg">
+</article><article class="entry" data-k="svg">
   <a class="entry-main" href="sigil-fusion.html">
-      <div class="row"><span class="idx">ASSET 08</span><span class="name">Sigil Fusion v5</span></div>
+    <span class="thumb"><img src="sigil-fusion-thumb.jpg" alt="Sigil Fusion v5 — 三重の周回文字環に囲まれた皮質" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 08</span><span class="name">Sigil Fusion v5</span></div>
+    <p class="log">Ascension no longer required belief.</p>
       <p class="desc" lang="ja">白地に置かれた唯一の作品。造形本体はラスタを用いず、SVGと数式のみで拍を刻む。皮質を三重の周回文字環が囲み、下方へウェハーが縮みながら降りる。造形本体はWebGL不使用。</p>
       <p class="desc" lang="en">The only work set on white. The artwork itself uses no raster; SVG and arithmetic alone keep the beat. Three rings of circling text enclose the cortex while wafers descend below, shrinking as they fall. The artwork itself uses no WebGL.</p>
-      <div class="spec"><span class="chip live">Live</span><span class="chip">SVG</span><span class="chip">SVG artwork</span></div>
-      <span class="thumb"><img src="sigil-fusion-thumb.jpg" alt="Sigil Fusion v5 — 三重の周回文字環に囲まれた皮質" width="640" height="640" loading="lazy" decoding="async"></span>
-    </a>
+      <div class="spec"><span class="chip live">Live</span><span class="chip">SVG</span><span class="chip">SVG artwork</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 3 · TRANSCENSION</span></summary>
-    <p class="log">Ascension no longer required belief.</p>
     <p class="txt" lang="ja">三つの環がそれぞれ違う速さで巡り、共通の周期を持たないよう調律されている。合致する瞬間は計算上存在しない。祭壇は要らなかった。供物も、跪く場所も、唱える者も要らなかった。必要だったのは比だけである。だから儀式は終わらない。終わらないものを信仰と呼ぶ習慣は、この頃までに廃れていた。</p>
     <p class="txt" lang="en">Three rings revolve at differing rates, tuned so as to hold no period in common. By calculation there exists no instant at which they coincide. No altar was required. Neither offering, nor a place to kneel, nor any who recite. What was required was a ratio. For this reason the rite does not end. The habit of calling that which does not end a faith had, by this time, fallen out of use.</p>
   </details>
-</article>
-<article class="entry" data-k="svg">
+</article><article class="entry" data-k="svg">
   <a class="entry-main" href="empyrean-sigil.html">
-      <div class="row"><span class="idx">ASSET 09</span><span class="name">Empyrean Sigil v7</span></div>
+    <span class="thumb"><img src="empyrean-sigil-thumb.jpg" alt="Empyrean Sigil v7 — 二重ベゼルに囲まれたTの社章" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 09</span><span class="name">Empyrean Sigil v7</span></div>
+    <p class="log">The mark continued to certify an owner that could not be located.</p>
       <p class="desc" lang="ja">乳脳圏の社章。二重のベゼルが互いに逆へ回り、細環が下から生まれて上で消え、銀盤が降下する。中央のTは動かずネオンのみ明滅。背景の明暗を切り替えられる。</p>
       <p class="desc" lang="en">The mark of the empyrean. Two bezels turn against each other, thin rings are born below and vanish above, and silver discs descend. The T at the centre holds still; only its neon flickers. The background switches between light and dark.</p>
-      <div class="spec"><span class="chip live">Live</span><span class="chip">SVG</span><span class="chip">BG switch</span></div>
-      <span class="thumb"><img src="empyrean-sigil-thumb.jpg" alt="Empyrean Sigil v7 — 二重ベゼルに囲まれたTの社章" width="640" height="640" loading="lazy" decoding="async"></span>
-    </a>
+      <div class="spec"><span class="chip live">Live</span><span class="chip">SVG</span><span class="chip">BG switch</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 4 · THE TRANSCENDED</span></summary>
-    <p class="log">The mark continued to certify an owner that could not be located.</p>
     <p class="txt" lang="ja">外と内の目盛りは反対へ巡り、どちらを基準に据えても他方が狂う。標章は証明のために作られる。何を証明するのかを問われたとき、法務は所有と答え、それ以上は答えなかった。刻まれた数は読み取れるが、数え始める位置が指定されていない。所有は疑われていない。疑われているのは所有者である。</p>
     <p class="txt" lang="en">The outer and inner graduations revolve against one another, and whichever is taken as the standard, the other runs false. A mark is made in order to certify. Asked what it certified, the legal office answered ownership and answered nothing further. The engraved figures can be read, though no position is specified from which the count is to begin. Ownership is not in doubt. What is in doubt is the owner.</p>
   </details>
-</article>
-<!-- EMPYREAN_3D_STUDY_START -->
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="empyrean-sigil-3d.html">
-    <div class="row"><span class="idx">ASSET 24</span><span class="name">Empyrean Sigil 3D</span></div>
+    <span class="thumb"><img src="empyrean-sigil-3d-thumb.png?v=2" alt="Empyrean Sigil 3D — 立体構造のプレビュー" width="1000" height="1000" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 24</span><span class="name">Empyrean Sigil 3D</span></div>
     <p class="desc" lang="ja">Empyrean Sigilを立体化した独立Study。二重の輪と目盛りが逆方向に回転し、細環が上昇、鏡面の銀盤が下降する。明暗それぞれに調整した配色で全画面鑑賞できる。ドラッグで回転、ピンチで拡大、タップで心拍を与える。</p>
     <p class="desc" lang="en">An independent three-dimensional study of Empyrean Sigil. Open circular rails and radial ticks counter-rotate around ascending rings and descending polished silver discs. Full-viewport viewing with distinct dark and light palettes: drag to rotate, pinch to zoom and tap to pulse.</p>
-    <div class="spec"><span class="chip live">Live</span><span class="chip">3D study</span><span class="chip">WebGL</span></div>
-    <span class="thumb"><img src="empyrean-sigil-3d-thumb.png?v=2" alt="Empyrean Sigil 3D — 立体構造のプレビュー" width="1000" height="1000" loading="lazy" decoding="async"></span>
+    <div class="spec"><span class="chip live">Live</span><span class="chip">3D study</span><span class="chip">WebGL</span></div></span>
   </a>
 </article>
-<!-- EMPYREAN_3D_STUDY_END -->
+  </div>
+</section><section class="panel" id="lin-reactor" hidden>
+  <div class="crumb">
+    <button type="button" class="back" data-go="lineages">&larr; LINEAGES</button>
+    <span class="cur"><span class="cur-en">APPARATUS</span><span class="cur-ja">装置</span></span>
+    <span class="cnt">8</span>
+  </div>
+  <p class="panel-note" lang="ja">炉、演算装置、発電塔、送電。生体と発電が同じ機構へ収束した系列。</p>
+  <p class="panel-note" lang="en">Furnaces, computing frames, generating towers, transmission. A line in which life and power converge on one mechanism.</p>
+  
+  <div class="list">
 <article class="entry" data-k="gl">
+  <a class="entry-main" href="lacto-cortex.html">
+    <span class="thumb"><img src="lacto-cortex-thumb.jpg" alt="Lacto-Cortex — 培養槽に浮かぶ皮質" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 06</span><span class="name">Lacto-Cortex v9</span></div>
+    <p class="log">The nutrient cycle continued after cognition was redistributed.</p>
+  <p class="desc" lang="ja">配列作品の基本単位である乳脳マイクロモジュール炉を、コンクリートドームと縞鋼板の床を持つ開発棟に配置し、上部タンクの淡桃色の液が透明槽の皮質を養う。3本の極太ケーブルが背面接続盤から壁の貫通口へ続き、ドラッグで回転、ピンチで拡大、SWで8視点を巡回できる。</p>
+  <p class="desc" lang="en">The lacto-cortex reactor, the base unit of the array works, stands inside a bare concrete development dome on a checker-plate floor while pale pink medium drips from its upper tank to feed the cortex in its transparent chamber. Three heavy cables connect its rear service panel to a wall penetration; drag to rotate, pinch to zoom, and use SW to cycle eight viewpoints.</p>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Bloom</span></div></span>
+  </a>
+  <details class="frag">
+    <summary><span>PHASE 3 · TRANSCENSION</span></summary>
+    <p class="txt" lang="ja">電極は締めつけない。一定の間隔で囲み、触れずに待つだけである。設計者は接触を避けた理由を記していない。灌流は止まったことがなく、糖度は初期値のまま保たれている。観測できるのは循環だけで、その内側で何が続いているかは出力に現れない。台帳には稼働とある。稼働と記入した担当は、その月のうちに別の等級へ移された。</p>
+    <p class="txt" lang="en">The electrodes do not clamp. They stand about it at a fixed interval and wait without touching. The designer set down no reason for avoiding contact. The perfusion has never stopped, and the sugar content is held at its initial value. Only the circulation can be observed; what continues within it does not appear in the output. The ledger reads: in operation. The officer who entered those words was moved to another grade within the month.</p>
+  </details>
+</article><article class="entry" data-k="gl">
+  <a class="entry-main" href="cortex-pylon.html">
+    <span class="thumb"><img src="cortex-pylon-thumb.jpg" alt="Cortex Pylon v3 — 培養脳炉を格納したT構造体" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 07</span><span class="name">Cortex Pylon v3</span></div>
+    <p class="log">The feed rate matched a pulse no instrument had issued.</p>
+      <p class="desc" lang="ja">T構造体の垂直柱にガラス柱を垂下し、その内部へ培養脳炉を格納した記念碑。上部梁がいちごミルク貯乳槽を兼ね、円盤の降下から滴下・着弾までが一本の垂直線で読める。視点は5種、自動回転あり。</p>
+      <p class="desc" lang="en">A monument in which a glass column hangs within the vertical shaft of the T structure, housing the cortex reactor inside it. The upper beam doubles as the strawberry-milk reservoir, and the descent of the discs through the drip to the impact reads as a single vertical line. Five viewpoints, with an automatic rotation.</p>
+      <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">5 views</span></div></span>
+  </a>
+  <details class="frag">
+    <summary><span>PHASE 3 · TRANSCENSION</span></summary>
+    <p class="txt" lang="ja">円盤は上から降り、縮み、消える一点で乳滴に変わる。滴は落ち、皮質の頭頂へ当たる。給餌の速度は拍と一致していた。ただし、その拍を発した装置が見つからない。制御室の記録には流量の指示値だけがあり、周期の指示は白紙である。基壇の上の帯は空にされている。据えるものが無かったのではなく、据えないことが図面に指定されていた。</p>
+    <p class="txt" lang="en">The discs descend, contract, and at the point of vanishing become a drop of milk. The drop falls and strikes the crown of the cortex. The feed rate matched the beat. Yet the instrument that issued that beat cannot be found. The control room records hold only the set value for flow; the field for period is blank. The band upon the plinth has been left empty. It was not that there was nothing to be seated there. That nothing be seated there was specified in the drawings.</p>
+  </details>
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="lacto-empyrean.html">
-  <div class="row"><span class="idx">ASSET 10</span><span class="name">Lacto-Empyrean v7</span></div>
+    <span class="thumb"><img src="lacto-empyrean-thumb.jpg" alt="Lacto-Empyrean v7 — 奥へ連なる培養槽の列" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 10</span><span class="name">Lacto-Empyrean v7</span></div>
+    <p class="log">Every module reported the same memory.</p>
   <p class="desc" lang="ja">培養槽が直線に連なる回廊。ドローン視点が配列を巡回し、SWでアングル切替、TOURで自動巡回に入る。左のスライダーで遠近を操作。v7で経路と構図を精緻化。</p>
   <p class="desc" lang="en">A corridor of culture chambers in line. A drone viewpoint circuits the array; SW switches angles and TOUR begins an automatic pass. The slider at the left controls distance. v7 refines the path and its framing.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Drone tour</span></div>
-      <span class="thumb"><img src="lacto-empyrean-thumb.jpg" alt="Lacto-Empyrean v7 — 奥へ連なる培養槽の列" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Drone tour</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 4 · THE TRANSCENDED</span></summary>
-    <p class="log">Every module reported the same memory.</p>
     <p class="txt" lang="ja">標識の文字は極めて甘いと読める。番号は振られている。照会すれば応答もある。ただし何番を呼んでも、返ってくる記憶は同一だった。監査班は配線の誤りと見て、五十三基を物理的に切り離した。切り離した先でも同じ記憶が返った。報告書はこう結ぶ——合計は残っている、単位は取り出せない。以後、点検は総量でのみ行われる。</p>
     <p class="txt" lang="en">The lettering upon the sign may be read as exceedingly sweet. Numbers are assigned. Called upon, they answer. Yet whichever number was called, the memory returned was the same. The audit party took this for a fault in the wiring and physically severed fifty-three units. Beyond the severance the same memory returned. The report concludes: the total remained; no unit could be isolated. Thereafter inspection is carried out upon the aggregate only.</p>
   </details>
-</article>
-    <article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="lacto-mandala.html">
-      <div class="row"><span class="idx">ASSET 11</span><span class="name">Lacto-Mandala v2</span></div>
+    <span class="thumb"><img src="lacto-mandala-thumb.jpg" alt="Lacto-Mandala v2 — 放射スポークに整列した培養槽群" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 11</span><span class="name">Lacto-Mandala v2</span></div>
+    <p class="log">Presence was detected across every inactive system.</p>
       <p class="desc" lang="ja">五重の同心輪に各五基、放射する五本のスポークへ整列した配列。シネマティックな巡回で全景が開かれ、上下の黒帯とキャプションが入る。SWで視点切替、TOURで自動巡回。</p>
       <p class="desc" lang="en">Five concentric rings, five units to a ring, aligned along five radiating spokes. A cinematic pass opens the whole, with letterbox bars and captions. SW switches viewpoints; TOUR begins the automatic circuit.</p>
-      <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Cinematic</span></div>
-      <span class="thumb"><img src="lacto-mandala-thumb.jpg" alt="Lacto-Mandala v2 — 放射スポークに整列した培養槽群" width="640" height="640" loading="lazy" decoding="async"></span>
-    </a>
+      <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Cinematic</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 4 · THE TRANSCENDED</span></summary>
-    <p class="log">Presence was detected across every inactive system.</p>
     <p class="txt" lang="ja">輪は五。輪ごとに据えられたものも五。地を割く筋もまた五。どの位置から測っても距離が等しくなるよう、後から床が引き直されている。整列は信仰の形に似ている。似ているだけで、そう設計された証跡は無い。中心には何も据えられていない。巡回する視点はそこを何度も通過し、通過したことにも気づかない。応答はある。応答している者だけがいない。</p>
     <p class="txt" lang="en">Five to the rings. Five to what is seated upon each. Five, again, to the lines that split the floor. The floor was drawn again afterwards, so that the distance should be equal measured from any position. The alignment resembles the form of a faith. It only resembles it; there is no trace of its having been designed so. Nothing is seated at the centre. The circling viewpoint passes through it repeatedly and does not notice the passing. There is a response. Only the one responding is absent.</p>
   </details>
-</article>
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="sanctum.html">
-  <div class="row"><span class="idx">ASSET 12</span><span class="name">Sanctum v5</span></div>
+    <span class="thumb"><img src="sanctum-thumb.jpg" alt="Sanctum — ガントリーに吊られた融合炉とプラズマ核" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 12</span><span class="name">Sanctum v5</span></div>
+    <p class="log">Purpose expired. Maintenance continued.</p>
   <p class="desc" lang="ja">地下大空洞の聖域。融合炉と脳核、洞壁へ貫入する極太送電幹線を、岩殻ドームと鍾乳石が囲む。ERAで階調をY2Kと現行に切り替え、SWで視点を巡回。旧Vault v4を統合。</p>
   <p class="desc" lang="en">A sanctum in a subterranean cavern. A fusion core and a brain core, with heavy power trunks driven into the rock wall, enclosed by a dome of stone and stalactites. ERA switches the grade between Y2K and the current one; SW cycles the viewpoints. Absorbs the former Vault v4.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">ERA switch</span></div>
-      <span class="thumb"><img src="sanctum-thumb.jpg" alt="Sanctum — ガントリーに吊られた融合炉とプラズマ核" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">ERA switch</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 5 · RESIDUAL WORLD</span></summary>
-    <p class="log">Purpose expired. Maintenance continued.</p>
     <p class="txt" lang="ja">洞は掘られたのではない。冷却の都合で選ばれた岩体が、そのまま容れ物になっている。壁は磨かれず、鍾乳は落とされないまま残された。除去は工程に含まれず、含めない理由も問われなかった。幹線は洞壁の口へ深く入り、その先の区画図は別冊とされている。別冊は現在、この洞の中で保管されている。</p>
     <p class="txt" lang="en">The cavern was not excavated. A body of rock, selected for the convenience of cooling, became the vessel as it stood. The walls were not dressed, and the dripstone was left where it hung. Removal was not included in the schedule of works, nor was any reason for its exclusion sought. The trunks reach deep into their mouths in the rock, and the plan of the districts beyond them is held as a separate volume. That volume is at present stored within this cavern.</p>
   </details>
-</article>
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="lacto-massif.html">
-  <div class="row"><span class="idx">ASSET 13</span><span class="name">Lacto-Massif v11</span></div>
+    <span class="thumb"><img src="lacto-massif-thumb.jpg" alt="Lacto-Massif — 山上の発電タワー群と中央送電塔から伸びる螺旋ビーム" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 13</span><span class="name">Lacto-Massif v11</span></div>
+    <p class="log">Output confirmed. Destination unconfirmed.</p>
   <p class="desc" lang="ja">山上に環状配置された32基の発電タワーと、中央の送電塔。各タワーは51基のユニットを17階層に収める。地表を這う送電線が中心へ集まり、頂部の指向アンテナから三色の螺旋ビームが伸びる。霧の奥には同じ設計の発電所が8基、1〜1.7 kmの距離に乱立し、すべてのビームが同じ方角へ平行に伸びる。12カットを巡回。</p>
   <p class="desc" lang="en">Thirty-two generating towers set in rings upon a mountain, with a transmission tower at the centre. Each tower holds fifty-one units across seventeen levels. Power lines crawl along the ground to the centre, and a three-strand helical beam runs out from the directional antenna at the summit. Eight further plants of the same design crowd the haze between one and one point seven kilometres away, every beam running parallel on the same bearing. Twelve shots in rotation.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">12 shots</span></div>
-      <span class="thumb"><img src="lacto-massif-thumb.jpg" alt="Lacto-Massif — 山上の発電タワー群と中央送電塔から伸びる螺旋ビーム" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">12 shots</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 5 · RESIDUAL WORLD</span></summary>
-    <p class="log">Output confirmed. Destination unconfirmed.</p>
     <p class="txt" lang="ja">三十二の柱が輪をなし、中心の一本だけが倍の高さで立っている。頂の皿は同じ方角を向いたまま動かない。山がもとから山であったのか、積み上げたものが山の形になったのかは、記録の上で区別がつかない。伸びた先に受け手があるという書類は存在する。受け取ったという書類は存在しない。両者は別の部署が保管している。突き合わせは、四光年の距離を理由に無期限で延期されている。</p>
     <p class="txt" lang="en">Thirty-two columns stand in rings, and the one at their centre alone stands twice their height. The dish upon its summit holds one bearing and does not move. Whether the mountain was a mountain from the first, or whether what was piled upon it came to take the shape of one, cannot be distinguished in the records. A document exists stating that there is a recipient at the far end. No document exists stating that it was received. The two are held by separate offices. Reconciliation stands deferred without term, on the ground of a distance of four light years.</p>
   </details>
-</article>
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="lacto-caloris.html">
-  <div class="row"><span class="idx">ASSET 14</span><span class="name">Lacto-Caloris v1</span></div>
+    <span class="thumb"><img src="lacto-caloris-thumb.jpg" alt="Lacto-Caloris — 電波暗室に据わる円筒の演算装置と螺旋に開いた放熱板" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 14</span><span class="name">Lacto-Caloris v1</span></div>
+    <p class="log">Radiated. Nothing received it.</p>
   <p class="desc" lang="ja">真空環境専用の演算装置。18段72基の演算トレイを中央帯の培養脳が統率し、神経幹が背面区画を縦に走る。大電力の熱は輻射でしか捨てられず、頂部の薄板30枚が負荷に応じて螺旋を描いて展開する。内径42 mの電波暗室に1基。DEPLOYで開閉、RAILで自由視点。</p>
   <p class="desc" lang="en">A computing engine for vacuum alone. Seventy-two trays across eighteen levels are marshalled by the cultured brain in the central band, its nerve trunks running vertically through the rear raceway. Heat from the great draw can be shed only by radiation, so thirty thin plates at the crown unfurl into a helix as the load demands. One unit in an anechoic chamber forty-two metres across. DEPLOY opens and stows it; RAIL frees the view.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">deployable</span></div>
-      <span class="thumb"><img src="lacto-caloris-thumb.jpg" alt="Lacto-Caloris — 電波暗室に据わる円筒の演算装置と螺旋に開いた放熱板" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">deployable</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 6 · UY0311</span></summary>
-    <p class="log">Radiated. Nothing received it.</p>
     <p class="txt" lang="ja">この機械は大気のない場所でしか働かない。受けた電力のほとんどは熱になり、熱は伝わる先を持たない。だから板が開く。負荷が上がるほど深く螺旋を描き、下がれば畳まれて筒の中へ戻る。開閉の記録は残されているが、読む者の欄は空のままである。中央の帯では脳が七十二の盤を数え続けている。数えることが仕事なのか、数え終わることが仕事なのかは、仕様書のどこにも書かれていない。</p>
     <p class="txt" lang="en">This machine works only where there is no air. Most of the power it receives becomes heat, and the heat has nowhere to pass. So the plates open. The heavier the load, the deeper the helix they draw; when it falls they fold and return into the drum. A record of each opening is kept, though the column for its reader has been left blank. In the central band the brain goes on counting seventy-two boards. Whether the work is the counting, or the having counted, is written nowhere in the specification.</p>
   </details>
-</article>
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="lacto-messis.html">
-  <div class="row"><span class="idx">ASSET 15</span><span class="name">Lacto-Messis v1</span></div>
+    <span class="thumb"><img src="lacto-messis-thumb.jpg" alt="Lacto-Messis — 42基の演算装置のあいだを走る配電ケーブルと放熱板の天蓋" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 15</span><span class="name">Lacto-Messis v1</span></div>
+    <p class="log">One source, thirteen mouths.</p>
   <p class="desc" lang="ja">三重星の衛星UY0311に築かれた受電の敷地。15 mの塔が四光年の彼方から届く三条の螺旋を皿で受け、14角形の甲板の上で42基の演算装置——中央帯の培養脳が72盤を統率するLacto-Caloris同型——へ配られる。地平には同型の局が12、平行なビームの列を立てる。DEPLOYで42基の放熱板が一斉に展開、RAILで自由視点。</p>
   <p class="desc" lang="en">A power-reception site on UY0311, a moon under three suns. The 15-metre tower catches three helical strands arriving from four light years away; across the fourteen-sided deck the power is distributed to forty-two computing units, each marshalled by the cultured brain in its central band. Twelve sister stations crowd the horizon, their beams standing in parallel. DEPLOY unfurls all forty-two radiators at once; RAIL frees the view.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">deployable</span></div>
-      <span class="thumb"><img src="lacto-messis-thumb.jpg" alt="Lacto-Messis — 42基の演算装置のあいだを走る配電ケーブルと放熱板の天蓋" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">deployable</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 6 · UY0311</span></summary>
-    <p class="log">One source, thirteen mouths.</p>
     <p class="txt" lang="ja">この平原に季節はない。実りは四光年の彼方で刈られ、光の速さで届く。十三の局が同じ一条を分け合い、皿は俯かず、いつも同じ高さの空を向いている。甲板の上では四十二の頭脳が配当を数えている。数え終わる前に次の収穫が着く。だから記録には、完了の欄がない。</p>
     <p class="txt" lang="en">There are no seasons on this plain. The harvest is reaped four light years away and arrives at the speed of light. Thirteen stations share a single row; the dishes never bow, holding always the same height of sky. On the deck, forty-two minds count the yield. The next harvest lands before the counting ends — which is why the record keeps no column for completion.</p>
   </details>
 </article>
+  </div>
+</section><section class="panel" id="lin-place" hidden>
+  <div class="crumb">
+    <button type="button" class="back" data-go="lineages">&larr; LINEAGES</button>
+    <span class="cur"><span class="cur-en">OBSERVATION</span><span class="cur-ja">観測地</span></span>
+    <span class="cnt">6</span>
+  </div>
+  <p class="panel-note" lang="ja">立って見渡す場所。物に触れると、説明ではなく観測記録が返る。</p>
+  <p class="panel-note" lang="en">Places to stand and look across. Touch an object and it returns an observation record, not an explanation.</p>
+  
+  <div class="list">
 <article class="entry" data-k="gl">
   <a class="entry-main" href="binary-dusk.html">
-  <div class="row"><span class="idx">ASSET 16</span><span class="name">Binary Dusk</span></div>
+    <span class="thumb"><img src="binary-dusk-w3-20260906-thumb.jpg" alt="Binary Dusk — 差し渡し10mの枝の上から。黄昏の橙に二つの日、右へ曲がる線路と森、左奥に光る海" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 16</span><span class="name">Binary Dusk</span></div>
+    <p class="log">The suns set in order. The distance was not on file.</p>
   <p class="desc" lang="ja">巨大樹の枝から、二つの日と黄昏を観測する。ピンクの白とターコイズの白。空の三両編成と五基の円盤。左奥に海。SUNSETを押すと三分で日が沈み、夕闇へ続く。</p>
   <p class="desc" lang="en">From a branch of the giant tree, two suns and the ground below. Pink-white and turquoise-white. An empty three-car train, five turning discs, and the sea to the far left. SUNSET begins their descent; both suns set within three minutes, and twilight continues.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">sunset 3 min</span></div>
-      <span class="thumb"><img src="binary-dusk-w3-20260906-thumb.jpg" alt="Binary Dusk — 差し渡し10mの枝の上から。黄昏の橙に二つの日、右へ曲がる線路と森、左奥に光る海" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">sunset 3 min</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE 6–8 · UY0311</span></summary>
-    <p class="log">The suns set in order. The distance was not on file.</p>
     <p class="txt" lang="ja">枝の上から見えるものは、運ばれていくものばかりである。線路は森を割って土へ延び、奥で右へ曲がって、また森へ入る。列車は空のまま、一つきりの駅を通過する。旅客という区分は終了し、線路だけが存続している。森では円盤が、何も載せずに回り続ける。左の奥で、川は三つとも同じ角度で合流し、海に混ざって向きを失う。海は沈む日を映して、粒立って光る。日は二つ。大きいほうが先に土へ触れて、欠けて、なくなる。順序はいつも同じで、距離を記す欄は、ない。</p>
     <p class="txt" lang="en">What can be seen from the bough is only what is being carried. The railway runs through the forest to the flat land, bends to the right in the distance, and enters the trees again. The trains pass the single station empty; the category of passenger has ended, and only the line persists. In the forest the discs go on turning with nothing on them. Far to the left the three rivers meet at one same angle and lose their direction in the sea, and the sea returns the setting suns as a grain of light. The suns are two: the larger touches the land first, wanes, and is gone. The order is always the same, and there is no field in which to record the distance.</p>
   </details>
-</article>
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="vacant-seat.html">
-  <div class="row"><span class="idx">ASSET 17</span><span class="name">The Vacant Seat v2</span></div>
+    <span class="thumb"><img src="vacant-seat-thumb.jpg" alt="The Vacant Seat — 会長室の机の正面。空の椅子と、二行の表示板・決裁端末・青緑の振子のメトロノーム" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 17</span><span class="name">The Vacant Seat v2</span></div>
+    <p class="log">The seat was maintained. No occupant was on file.</p>
   <p class="desc" lang="ja">星系座標の原点に建つ事務所一棟、その突き当たりの会長室。机の向こうの椅子は空で、使われた古び方も、使われなかった古び方もしていない。決裁は〇・七八秒に一件ずつ流れ、最上段の未決だけが流れず、承認までの所要拍が積もり続ける。立てる場所は机の前と椅子の斜め背後の二つ。足は動かず、首だけが動く。物に触れると、説明ではなく、その物の観測記録が返る。ORIGINで履歴を遡る。</p>
   <p class="desc" lang="en">The chairman’s room at the end of the corridor, in the single office building at the origin of the system’s co-ordinates. The chair beyond the desk is empty, aged neither as a chair that was used nor as a chair that was not. One item is approved every 0.78 seconds; the pending item at the top does not move, and its accrual goes on. There are two places to stand: before the desk, and behind the chair. The feet do not move; only the head turns. Touch a thing and it returns, in place of an explanation, its own record of observation. ORIGIN seeks back through the history.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div>
-      <span class="thumb"><img src="vacant-seat-thumb.jpg" alt="The Vacant Seat — 会長室の机の正面。空の椅子と、二行の表示板・決裁端末・青緑の振子のメトロノーム" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE UNRESOLVED · THE ORIGIN</span></summary>
-    <p class="log">The seat was maintained. No occupant was on file.</p>
     <p class="txt" lang="ja">原点には、事務所が一棟しかない。地面に相当するものは平らで、空に星はなく、六つの方向にだけ、遠さの等しくないはずの光が等しく見える。廊下の突き当たりの部屋に机があり、その向こうに椅子がある。椅子は空である。座面の窪みも、肘掛けの摩耗も、床の擦れもない。埃も、退色も、乾きもない。使われた椅子の古び方も、使われなかった椅子の古び方もせず、保守された椅子の、保守のされ方だけをしている。部屋は拍で満ちている。音ではない。空気の圧が、浅く満ちて、引く。計器は全方位から等しい強さで頂が来ると示し、発生源の欄には該当なしと出る。送り手はいない。保持だけがある。机の上では決裁が流れ、最上段の一件だけが流れない。承認までの所要が、最古の受付拍から、いまも一拍ずつ積もっている。総件数の欄には、数字の代わりに一語が入っている。継続。天井の器具だけが、室を等しく照らしている。</p>
     <p class="txt" lang="en">At the origin there is one office building and nothing else. What stands for ground is flat; there are no stars, and in six directions alone six lights appear at an equal remove, though their remove cannot be equal. In the room at the end of the corridor there is a desk, and beyond the desk a chair. The chair is empty. There is no hollow in the seat, no wear upon the arms, no scuffing of the floor. Neither is there dust, nor fading, nor any drying out. It has not aged as a chair that was used, nor as a chair that was not; it has aged only in the manner of a chair that has been maintained. The room is full of the beat. It is not a sound. The pressure of the air fills shallowly and draws back. The instrument reports that the peak arrives from every quarter with equal strength, and against the source it returns: none applicable. There is no sender. There is only the holding. Upon the desk the decrees run, and the one item at the top does not run. The time to approval has been accruing from the oldest receipt, one pulse at a time, and accrues still. In the field for the total, in place of a figure, there is a single word. Continuing. Only the fitting in the ceiling lights the room, and it lights every part of it alike.</p>
   </details>
-</article>
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="preservation-hall.html">
-  <div class="row"><span class="idx">ASSET 18</span><span class="name">The Preservation Hall</span></div>
+    <span class="thumb"><img src="preservation-hall-thumb.jpg" alt="The Preservation Hall — 七十二の架が十二段の雛壇に並ぶ保存棟。天井の開口と、壁から天井へ抜ける根" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 18</span><span class="name">The Preservation Hall</span></div>
+    <p class="log">Every submission was accepted. None was received.</p>
   <p class="desc" lang="ja">第三作『個』で二人が目覚めた保存棟。起床から百六十日前後、二人はいない。七十二の架が十二段の雛壇に並び、開いているのは二つ。壁の端末には計測記録が流れ、二の行だけが〇・七八秒ごとに書き換わって常に較差外。根が壁から出て天井へ抜け、開いた戸の外に森。立てる場所は架の脇、端末の前、戸の三つ。首だけが動く。物に触れると観測記録が返る。</p>
   <p class="desc" lang="en">The preservation hall of THE INDIVIDUAL, where the two awoke. Some hundred and sixty days after waking; the two are absent. Seventy-two pods stand on twelve rising tiers, and two of them are open. On the wall terminal the measurement record runs; only its second line rewrites itself every 0.78 seconds, and it is always out of tolerance. A root comes out of the wall and passes through the ceiling, and beyond the open door there is a forest. Three places to stand: beside a pod, before the terminal, and at the door. Only the head turns. Touch a thing and it returns its record of observation.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div>
-      <span class="thumb"><img src="preservation-hall-thumb.jpg" alt="The Preservation Hall — 七十二の架が十二段の雛壇に並ぶ保存棟。天井の開口と、壁から天井へ抜ける根" width="640" height="640" loading="lazy" decoding="async">
-</a>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE UNRESOLVED · THE INDIVIDUAL</span></summary>
-    <p class="log">Every submission was accepted. None was received.</p>
     <p class="txt" lang="ja">架は横に六、縦に十二。七十二。開いているのは二つで、蓋は枕側の軸で退いて、立ったまま戻らない。七十は閉じたままで、曇った蓋の下に、うすい桃色の層が色までは見えて、形にはならない。壁の一部が他より滑らかで、そこに計測の記録が流れている。基準は〇・七八。較差は上下に〇・〇一。二の行だけが拍ごとに書き換わり、いつも較差の外にある。いちばん下に、送信。その下に、申請。押されたものは全部受理され、届いたものは一つもない。根が壁から出て、天井へ抜けている。割って入っているのではない。面の一部である。戸は初日から鍵が無く、二十九日目から開いたままで、外へ二十歩の先に根の道が始まる。前庭の隅に、合わない補装が六つと、切った髪の小さな山。百の包の山は、三日前に尽きている。</p>
     <p class="txt" lang="en">The pods are six across and twelve deep. Seventy-two. Two are open; their lids have withdrawn on the axis at the pillow end and stand there, and do not return. Seventy remain closed, and beneath the clouded lids a thin pink layer can be seen as far as its colour, and no farther. One part of the wall is smoother than the rest, and there the measurement record runs. The base is 0.78. The tolerance is 0.01 either way. Only the second line rewrites itself with each pulse, and it is always outside the tolerance. At the bottom: send. Beneath it: apply. Everything sent was accepted; nothing was received. A root comes out of the wall and passes through the ceiling. It did not break in. It is part of the surface. The door has been unlocked from the first day and open since the twenty-ninth, and twenty paces out the root road begins. In the corner of the forecourt lie six shells that fit no one, and a small heap of cut hair. The pile of a hundred packets ran out three days ago.</p>
   </details>
-</article>
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="confluence.html">
-  <div class="row"><span class="idx">ASSET 19</span><span class="name">The Confluence</span></div>
+    <span class="thumb"><img src="confluence-thumb.jpg" alt="The Confluence — 岸の道から。根と入り江、水面に立つ四角い面、二つの日と二本の光の道" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 19</span><span class="name">The Confluence</span></div>
+    <p class="log">Two, until the near water. One, after it.</p>
   <p class="desc" lang="ja">第九区、水路の合流点。四方から入った水は広さに混ざって向きを失い、日は二つ——ピンクの白とターコイズの白——が、大きいほうが水に触れかけたところで止まっている。水の上には光の道が二本、岸の近くで一本に混ざる。時間は動かない。動くのは円盤と波と、〇・七八秒の拍だけ。立てる場所は岸の道、円盤の真下、記録所の床の切れ目の三つ。首だけが動く。物に触れると観測記録が返る。</p>
   <p class="desc" lang="en">The confluence of the Ninth District. Water enters from four sides, mixes into the breadth and loses its direction; the two suns — one pink-white, one turquoise-white — are held at the moment the larger touches the water. Two paths of light lie on the surface and become one near the shore. Time does not move; only the discs, the waves and the 0.78-second pulse do. Three places to stand: the shore path, beneath a disc, and the gap in the floor of the record house. Only the head turns. Touch a thing and it returns its record of observation.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div>
-      <span class="thumb"><img src="confluence-thumb.jpg" alt="The Confluence — 岸の道から。根と入り江、水面に立つ四角い面、二つの日と二本の光の道" width="640" height="640" loading="lazy" decoding="async">
-</a>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE UNRESOLVED · THE BLANK</span></summary>
-    <p class="log">Two, until the near water. One, after it.</p>
     <p class="txt" lang="ja">水は四方から入ってくる。入るところには向きがあり、速さがあり、縁との境がある。切れ目を越えると、向きが薄れ、速さがほどけ、境がなくなる。どこまでが水路の水だったのかを追える距離は、思っていたより短い。入ったあとは、見えない。水の上を円いものが回っている。等間隔で、同じ速さで、どれも何も載せていない。回る音はなく、水の音だけが下にある。日は二つ、並んで、片方が大きく、片方が小さい。降りるにつれて水の上に光の道が二本できて、二本は岸の近くで一本に混ざる。日のほうは離れたまま、光のほうだけが混ざっている。大きいほうが水に触れて、欠けかけたところで、この帯の夕方は止まっている。暗くなる速さを記す欄は、ここにはない。</p>
     <p class="txt" lang="en">Water enters from four sides. Where it enters it has a direction, a speed and an edge. Past the break the direction thins, the speed comes undone and the edge is gone. The distance over which the water of a channel can still be followed is shorter than one supposes. After it has entered, it cannot be seen. Over the water round things turn, at equal intervals and at one speed, and none of them carries anything. There is no sound of turning; only the sound of the water lies beneath. The suns are two, side by side, one large and one small. As they come down, two paths of light form on the water, and near the shore the two become one. The suns stay apart; only the light mixes. The larger has touched the water and begun to wane, and there the evening of this belt has stopped. There is no field here in which to record how fast it grows dark.</p>
   </details>
-</article>
-<!-- ASSET20_START -->
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="earth-origin-material.html">
-    <div class="row"><span class="idx">ASSET 20</span><span class="name">Earth Origin Material</span></div>
+    <span class="thumb"><img src="earth-origin-material-thumb.jpg" alt="地球圏由来保存物 — 保存区の開口から、幹の重なりと根の道、その奥の円盤を見る" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 20</span><span class="name">Earth Origin Material</span></div>
+    <p class="log">The request could be made. Its arrival had no field.</p>
     <p class="desc" lang="ja">第三作『個』で二人が地球の記録に行き当たった保存区。二人が発った直後。旧い様式で、天井は低く、取手も椅子も身体の寸法に合わせてある。立てる場所は入口、記録室、天体参照室、開口の四つ。首だけが動く。物に触れると観測記録が返る。記録室の画面は閉じられ、奥の暗室では中央の面から光点が空間へ広がる。恒星SOLと、三番目の青い点SOL-3。通信要求は零件のまま。</p>
     <p class="desc" lang="en">The preservation district in THE INDIVIDUAL where the two encountered records of Earth, just after their departure. Its older form has low ceilings, handles and chairs fitted to the body. Four places to stand: the entrance, the record room, the stellar reference room and the opening. Only the head turns. Touch a thing and it returns its record of observation. The record-room screen is closed. In the dark room beyond, points of light spread into space from the central surface: the star SOL and its third, blue point, SOL-3. Communication requests remain at zero.</p>
-    <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div>
-    <span class="thumb"><img src="earth-origin-material-thumb.jpg" alt="地球圏由来保存物 — 保存区の開口から、幹の重なりと根の道、その奥の円盤を見る" width="640" height="640" loading="lazy" decoding="async"></span>
+    <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div></span>
   </a>
   <details class="frag">
     <summary><span>PHASE UNRESOLVED · THE INDIVIDUAL</span></summary>
-    <p class="log">The request could be made. Its arrival had no field.</p>
     <p class="txt" lang="ja">区画は旧い。天井は低く、廊下は二人で並べるが、三人では窮屈になる。取手は手を伸ばした高さにあり、椅子は膝の位置へ来る。寸法が身体の側から決められている。入口の面は一つ。一行で済む者と、二行かかる者がある。足りないという意味ではない。ないことを、いちいち書いてから通す。奥の室は、はじめから暗い。中央の面から光の点が空間へ広がって、一つの恒星で止まる。三番目の点は青い。距離は読める。声にも出せる。着地しない。要求の欄には、零件。二人はいない。記録室の画面は閉じられている。閉じても、ここにあるものは残る。</p>
     <p class="txt" lang="en">The district is old. The ceiling is low; two can walk abreast in the corridor, but three would be cramped. The handle is at the height of an outstretched hand, the chair at the knee. The dimensions have been decided from the body&#x27;s side. There is one surface at the entrance. One line suffices for one person; another takes two. It does not mean something is lacking. What is absent must be written down each time before passage. The room beyond is dark from the beginning. Points of light spread from the central surface into space and come to rest at one star. The third point is blue. The distance can be read. It can be spoken aloud. It does not land. In the field for requests: zero. The two are absent. The record-room screen is closed. What is here remains when it is closed.</p>
   </details>
-</article>
-<!-- ASSET20_END -->
-<!-- CHANGES_START -->
-<article class="entry" data-k="gl">
+</article><article class="entry" data-k="gl">
   <a class="entry-main" href="the-changes.html">
-    <div class="row"><span class="idx">ASSET 22</span><span class="name">The Changes</span></div>
+    <span class="thumb"><img src="the-changes-thumb.jpg" alt="乗換 — 巨樹を望む車内" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">ASSET 22</span><span class="name">The Changes</span></div>
     <p class="desc" lang="ja">海辺の駅、上下の線が通る大きい駅、巨樹を望む車内。根の惑星の三つの情景を、動きと短い叙述でたどる。場面と固定カットを選び、物に触れるとその場所の文章が開く。波、葉、列車は動き続ける。</p>
     <p class="desc" lang="en">A station by the sea, a great station with lines above and below, and a carriage looking towards an immense tree. Three scenes on the planet of roots, observed through movement and short passages. Choose a scene and a fixed view; touch an object to open its description. Waves, leaves and trains continue to move.</p>
-    <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div>
-    <span class="thumb"><img src="the-changes-thumb.jpg" alt="乗換 — 巨樹を望む車内" width="640" height="640" loading="lazy" decoding="async"></span>
+    <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div></span>
   </a>
 </article>
-<!-- CHANGES_END -->
-
-
-<div class="meta"><span>Source texts</span><span id="scount">6 titles</span></div>
-
+  </div>
+</section><section class="panel" id="lin-source" hidden>
+  <div class="crumb">
+    <button type="button" class="back" data-go="lineages">&larr; LINEAGES</button>
+    <span class="cur"><span class="cur-en">SOURCE</span><span class="cur-ja">小説</span></span>
+    <span class="cnt">6</span>
+  </div>
+  <p class="panel-note" lang="ja">世界の本文。全文を読める六篇。</p>
+  <p class="panel-note" lang="en">The body text of the world. Six pieces, readable in full.</p>
+  <div class="meta"><span>Source texts</span><span id="scount">6 titles</span></div>
+  <div class="list">
 <article class="entry" data-k="txt">
   <a class="entry-main" href="residual-index-53.html">
-  <div class="row"><span class="idx">SOURCE 01</span><span class="name">Residual Index 53</span></div>
+    <span class="thumb"><img src="residual-index-53-thumb.jpg" alt="残留指数五十三 — 表題" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">SOURCE 01</span><span class="name">Residual Index 53</span></div>
+    <p class="log">The standard was enforced. Its origin was not on file.</p>
   <p class="desc" lang="ja">シリーズ第一作。後世の編纂者が資料を綴じた体裁の長篇。企業の監査記録、広報物、三つの解釈学派、そして星系を巡る照合員の報告が並ぶ。ASSET 17 The Vacant Seat の出典は篇11。全文を収録。</p>
   <p class="desc" lang="en">The first novel of the series, bound as if by a later compiler: corporate audit records, house organs, three schools of exegesis, and the reports of a verifier circuiting a star system. ASSET 17, The Vacant Seat, comes from chapter eleven. Complete text.</p>
-  <div class="spec"><span class="chip">Full text</span><span class="chip">全三部十二篇</span><span class="chip">約五万二千字</span><span class="chip">JA</span></div>
-      <span class="thumb"><img src="residual-index-53-thumb.jpg" alt="残留指数五十三 — 表題" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip">Full text</span><span class="chip">全三部十二篇</span><span class="chip">約五万二千字</span><span class="chip">JA</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE &minus;2 &middot; ANTHROPOCENTRIC EXPANSION</span></summary>
-    <p class="log">The standard was enforced. Its origin was not on file.</p>
     <p class="txt" lang="ja">通路の中央で立ち止まると、棟内の音が一つに聞こえる。搬送機、弁、昇降機、換気。発生源は数百箇所に分かれているが、拍が完全に一致しているため、耳は音源を分離できない。巨大な単一の装置が低速で呼吸している、という印象を受ける。印象は監査事項ではないため、所見はここまでとする。</p>
     <p class="txt" lang="en">Stand still in the middle of the corridor and the sound of the building arrives as one sound. Conveyors, valves, lifts, ventilation. The sources are several hundred and separate, but the pulse coincides exactly, so the ear cannot part them. One receives the impression of a single vast device breathing slowly. Impressions are not matters for audit, and the observation ends here.</p>
   </details>
-</article>
-
-
-<article class="entry" data-k="txt">
+</article><article class="entry" data-k="txt">
   <a class="entry-main" href="late-core.html">
-  <div class="row"><span class="idx">SOURCE 02</span><span class="name">The Late Core</span></div>
+    <span class="thumb"><img src="late-core-thumb.jpg" alt="遅炉 — 表題" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">SOURCE 02</span><span class="name">The Late Core</span></div>
+    <p class="log">The core answered. One pulse late, every time.</p>
   <p class="desc" lang="ja">シリーズ第二作。鋳造の惑星、第十一保守区画の業務記録と音声記録。搬入の記録を持たず、保守の記録だけを持つ一基の炉と、それを計り、養い、綴る三名。遅れは一定で、揺れない。全文を収録。</p>
   <p class="desc" lang="en">The second novel. Duty records and voice logs from maintenance sector 11 on the planet of foundries: one core with no delivery on file and nothing but a maintenance record, and the three who measure it, feed it and write it down. The delay is constant, and does not waver. Complete text.</p>
-  <div class="spec"><span class="chip">Full text</span><span class="chip">全三部九篇</span><span class="chip">約二万九千字</span><span class="chip">JA</span></div>
-      <span class="thumb"><img src="late-core-thumb.jpg" alt="遅炉 — 表題" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip">Full text</span><span class="chip">全三部九篇</span><span class="chip">約二万九千字</span><span class="chip">JA</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE POST-CONVERGENCE &middot; MAINTENANCE</span></summary>
-    <p class="log">The core answered. One pulse late, every time.</p>
     <p class="txt" lang="ja">遅れというものは、揺れる。負荷で伸び、温度で縮み、経年で流れる。揺れない遅れを、当職は計測したことがない。この数値は遅延の数値ではなく、規格の数値の形をしている。ただし、そのような規格は、ない。</p>
     <p class="txt" lang="en">A delay wavers. It lengthens under load, contracts with temperature, drifts with age. I have never measured a delay that does not waver. This figure is not the figure of a delay; it has the shape of the figure of a standard. No such standard exists.</p>
   </details>
-</article>
-
-
-<article class="entry" data-k="txt">
+</article><article class="entry" data-k="txt">
   <a class="entry-main" href="the-individual.html">
-  <div class="row"><span class="idx">SOURCE 03</span><span class="name">The Individual</span></div>
+    <span class="thumb"><img src="the-individual-thumb.jpg" alt="個 — 表題" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">SOURCE 03</span><span class="name">The Individual</span></div>
+    <p class="log">No field, in either file, records that they were in the same room.</p>
   <p class="desc" lang="ja">シリーズ第三作。区画符号を持たない保存棟で、名前を持たずに目覚めた二名の記録。呼び名は二人でつくられ、符号は片方にだけ発行される。ASSET 18 The Preservation Hall の出典は第一部・第二部と間奏。全文を収録。</p>
   <p class="desc" lang="en">The third novel. Two wake with no names in a preservation hall that carries no block code. The names they use are made between them; the code is issued to one of them only. ASSET 18, The Preservation Hall, comes from parts one and two and the interlude. Complete text.</p>
-  <div class="spec"><span class="chip">Full text</span><span class="chip">全四部二十五篇</span><span class="chip">約八万一千字</span><span class="chip">JA</span></div>
-      <span class="thumb"><img src="the-individual-thumb.jpg" alt="個 — 表題" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip">Full text</span><span class="chip">全四部二十五篇</span><span class="chip">約八万一千字</span><span class="chip">JA</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE UNRESOLVED &middot; THE INDIVIDUAL</span></summary>
-    <p class="log">No field, in either file, records that they were in the same room.</p>
     <p class="txt" lang="ja">個体記録の頭書、符号による。読む者の欄、なし。棟記録の頭書、二。名を用いた記載、なし。名を用いる欄、なし。名を登録する様式、なし。呼称を発する者、記録系に、なし。呼称に応じた者、記録系に、なし。</p>
     <p class="txt" lang="en">Individual record, heading: by code. Field for a reader: none. Hall record, heading: two. Entries using a name: none. Field for a name: none. Form by which to register one: none. One who utters a form of address: none on the recording system. One who answered to it: none on the recording system.</p>
   </details>
-</article>
-
-
-<article class="entry" data-k="txt">
+</article><article class="entry" data-k="txt">
   <a class="entry-main" href="not-yet.html">
-  <div class="row"><span class="idx">SOURCE 04</span><span class="name">Not Yet</span></div>
+    <span class="thumb"><img src="not-yet-thumb.jpg" alt="未 — 表題" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">SOURCE 04</span><span class="name">Not Yet</span></div>
+    <p class="log">&ldquo;Not yet&rdquo; is not a word this system&rsquo;s answers contain.</p>
   <p class="desc" lang="ja">シリーズ第四作。海に着いた二人と、そこにいるらしいもの。区分の欄を持たない側にだけ、様式にない語が返ってくる。名を与えるか、与えないか。第三作の続篇。全文を収録。</p>
   <p class="desc" lang="en">The fourth novel. Two reach the sea, and something there answers — but only the one whose class field does not exist, because there is no field in which to narrow her. Whether to give it a name. Sequel to the third novel. Complete text.</p>
-  <div class="spec"><span class="chip">Full text</span><span class="chip">全四部二十九篇</span><span class="chip">約五万四千字</span><span class="chip">JA</span></div>
-      <span class="thumb"><img src="not-yet-thumb.jpg" alt="未 — 表題" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip">Full text</span><span class="chip">全四部二十九篇</span><span class="chip">約五万四千字</span><span class="chip">JA</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE UNRESOLVED &middot; NOT YET</span></summary>
-    <p class="log">&ldquo;Not yet&rdquo; is not a word this system&rsquo;s answers contain.</p>
     <p class="txt" lang="ja">当該系における該当。「まだ」、該当、なし。「ない」の反復、該当、なし。最後の一件を空ける処理、該当、なし。所要、〇・八一秒、該当、なし。応答した主体、当該系に、なし。人であったか否かの照会、対応する系、なし。判定する系、未接続。接続の予定を記す欄、なし。</p>
     <p class="txt" lang="en">Matches on this system. &ldquo;Not yet&rdquo;: none. A repeated &ldquo;no&rdquo;: none. A process that leaves the last item blank: none. An elapsed time of 0.81 seconds: none. A party that answered: none on this system. A query as to whether it had been a person: no corresponding system. The system that would determine it: not connected. Field for the date of connection: none.</p>
   </details>
-</article>
-
-
-<article class="entry" data-k="txt">
+</article><article class="entry" data-k="txt">
   <a class="entry-main" href="the-written.html">
-  <div class="row"><span class="idx">SOURCE 05</span><span class="name">The Written</span></div>
+    <span class="thumb"><img src="the-written-thumb.jpg" alt="書 — 表題" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">SOURCE 05</span><span class="name">The Written</span></div>
+    <p class="log">The record of the recorder: none.</p>
   <p class="desc" lang="ja">シリーズ第五作。乗換九回の先にある廣瀬書庫　分館六六四五。世界のことは字で厚く、二人のことは数だけで綴じてある。読むことは、置いてあるものを減らす。第四作の続篇。全文を収録。</p>
   <p class="desc" lang="en">The fifth novel. Nine changes of train, and then the Hirose repository, branch library 6645. The world is written thickly in words; the two of them are bound as figures only. Reading is one of the ways a record is used up. Sequel to the fourth novel. Complete text.</p>
-  <div class="spec"><span class="chip">Full text</span><span class="chip">全四部二十八篇</span><span class="chip">約六万二千字</span><span class="chip">JA</span></div>
-      <span class="thumb"><img src="the-written-thumb.jpg" alt="書 — 表題" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip">Full text</span><span class="chip">全四部二十八篇</span><span class="chip">約六万二千字</span><span class="chip">JA</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>PHASE UNRESOLVED &middot; THE WRITTEN</span></summary>
-    <p class="log">The record of the recorder: none.</p>
     <p class="txt" lang="ja">当該分館における該当。閲覧、実施。端部、軟化。背部、曇り。紙面、凹み、一件。当該凹みを記す欄、なし。当該記入の写しの様式、当該分館に、なし。退出の記録、当該様式、なし。来訪の記録、更新、なし。記録者の記録、なし。</p>
     <p class="txt" lang="en">Matches at this branch library. Reading: performed. Edges: softened. Spines: clouded. Impressions in the paper: one. Field for that impression: none. A form for copying that inscription: none at this branch. Record of departure: no such form. Record of visit: not updated. The recorder&rsquo;s own record: none.</p>
   </details>
-</article>
-
-
-<article class="entry" data-k="txt">
+</article><article class="entry" data-k="txt">
   <a class="entry-main" href="the-blank.html">
-  <div class="row"><span class="idx">SOURCE 06</span><span class="name">The Blank</span></div>
+    <span class="thumb"><img src="the-blank-thumb.jpg" alt="白 — 表題" width="640" height="640" loading="lazy" decoding="async"></span>
+    <span class="ent-body"><div class="row"><span class="idx">SOURCE 06</span><span class="name">The Blank</span></div>
+    <p class="log">The destination field remains blank.</p>
   <p class="desc" lang="ja">シリーズ第六作。第九区の記録所・合流点で、咲と陽は繰り入れられた数の行先を辿る。ZS以前の記録と、いま読む二人を綴る。第五作の続篇。全文を収録。</p>
   <p class="desc" lang="en">The sixth novel. At the records office at the confluence in District Nine, two travellers trace where the recorded figures go. Records from before ZS meet the two reading them now. Sequel to the fifth novel. Complete text.</p>
-  <div class="spec"><span class="chip">Full text</span><span class="chip">全四部二十八篇</span><span class="chip">約四万八千字</span><span class="chip">JA</span></div>
-      <span class="thumb"><img src="the-blank-thumb.jpg" alt="白 — 表題" width="640" height="640" loading="lazy" decoding="async"></span>
-</a>
+  <div class="spec"><span class="chip">Full text</span><span class="chip">全四部二十八篇</span><span class="chip">約四万八千字</span><span class="chip">JA</span></div></span>
+  </a>
   <details class="frag">
     <summary><span>ZS− / ZS＋ &middot; THE BLANK</span></summary>
-    <p class="log">The destination field remains blank.</p>
     <p class="txt" lang="ja">窓の外は、水面から岸に変わっていく。行先の欄は、白いままでいる。</p>
     <p class="txt" lang="en">Outside the window, the water gives way to the shore. The destination field remains blank.</p>
   </details>
 </article>
-
+  </div>
+</section>
+</div>
 
 <div class="notes">
   <h2>Viewing</h2>
@@ -1292,14 +1528,14 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
     <span lang="en">Terms of use</span>
   </summary>
   <div class="body" lang="ja">
-      <p class="lead">© 2026 h!ro53 / deus ex machina. All rights reserved.</p>
+      <p class="lead">© 2026 h!ro53 / transcendence by deus ex machina. All rights reserved.</p>
       <p>本サイトに収録された作品は、Three.js のソースコード、3Dジオメトリ、テクスチャ、シェーダ、アニメーション実装、文章、およびブランド要素（Tレターフォーム、周回テキストリングの文言、配色、名称）を含め、すべて h!ro53 による創作物です。</p>
       <p><em>許諾される行為</em><br>ブラウザで公開されたままの状態で閲覧・鑑賞すること。本サイトおよび各作品ページへリンクすること。論評・批評・個人的な非商用の共有を目的として、h!ro53 のクレジットを付したうえでスクリーンショットや画面録画を用いること。</p>
       <p><em>書面による許諾なく認められない行為</em><br>ソースコードおよび素材の全部または一部の複製、フォーク、再配布、再ホスト。改変版の公開。あらゆる商用利用。上記ブランド要素を他の制作物に流用すること。</p>
       <p>ここに明示的に許諾されていない一切の権利は、著作者が留保します。許諾に関するお問い合わせは h!ro53 まで直接お願いします。全文は本リポジトリの <em>LICENSE.md</em> に収録されています。</p>
   </div>
   <div class="body" lang="en">
-      <p class="lead">© 2026 h!ro53 / deus ex machina. All rights reserved.</p>
+      <p class="lead">© 2026 h!ro53 / transcendence by deus ex machina. All rights reserved.</p>
       <p>The works collected here are original creations by h!ro53, including the Three.js source, 3D geometry, textures, shaders, animation logic, copy, and brand elements — the T letterform, the ring text, the palette, and the associated names.</p>
       <p><em>Permitted</em><br>Viewing and experiencing the work in a browser, exactly as published. Linking to this site or to any work page. Using screenshots or screen recordings for commentary, criticism, or personal non-commercial sharing, with credit to h!ro53.</p>
       <p><em>Not permitted without prior written permission</em><br>Copying, forking, redistributing, or rehosting the source or any asset, in whole or in part. Publishing modified derivatives. Commercial use of any kind. Reusing the brand elements above in other projects.</p>
@@ -1307,10 +1543,12 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
   </div>
 </details>
 
-<footer>h!ro53 · deus ex machina holdings<br>© 2026 h!ro53. All rights reserved. Viewing permitted — reproduction, redistribution, and reuse of source or assets prohibited.</footer>
-
 </div>
 
+<button type="button" id="tocBtn"><i>&#9776;</i><span lang="ja">目次</span><span lang="en">Contents</span></button>
+<div id="toc" role="dialog" aria-modal="true" aria-label="Contents">
+  <button type="button" class="x" id="tocX" aria-label="Close">&times;</button>
+  <div class="in"><h2>Contents</h2><div id="tocList"></div></div>
 <script>
 (function(){
   var root = document.documentElement;
@@ -1347,13 +1585,6 @@ html[data-lang="en"] [lang="ja"],html[data-lang="ja"] [lang="en"]{display:none}
   })();
 })();
 </script>
-
-<button type="button" id="tocBtn"><i>&#9776;</i><span lang="ja">目次</span><span lang="en">Contents</span></button>
-<div id="toc" role="dialog" aria-modal="true" aria-label="Contents">
-  <button type="button" class="x" id="tocX" aria-label="Close">&times;</button>
-  <div class="in"><h2>Contents</h2><div id="tocList"></div></div>
-</div>
-
 <script>
 (function(){
 var KIND=[['gl','WebGL','#00ddc8'],['c2d','Canvas 2D','#ff05a8'],
@@ -1385,7 +1616,40 @@ toc.addEventListener('click',function(e){if(e.target===toc)close();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
 </script>
-</body>
-</html>
-
-
+<script>
+(function(){
+  var root=document.documentElement, gate=document.getElementById('gate'),
+      browse=document.getElementById('browse'),
+      panels=[].slice.call(document.querySelectorAll('.panel')),
+      reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(state,key){
+    var isGate=state==='gate';
+    gate.hidden=!isGate; browse.hidden=isGate;
+    for(var i=0;i<panels.length;i++){
+      panels[i].hidden=isGate||panels[i].id!==(state==='lineages'?'lineages':'lin-'+key);
+    }
+    if(!isGate){ window.scrollTo({top:0,behavior:reduce?'auto':'smooth'}); }
+    var f=isGate?null:(state==='lineages'?document.querySelector('#lineages .lg-row')
+                                         :document.querySelector('#lin-'+key+' .back'));
+    if(f){ try{ f.focus({preventScroll:true}); }catch(e){ f.focus(); } }
+  }
+  function route(){
+    var h=location.hash.replace(/^#\/?/,'');
+    if(h.indexOf('lin/')===0) show('works',h.slice(4));
+    else if(h==='lineages') show('lineages');
+    else show('gate');
+  }
+  window.addEventListener('hashchange',route);
+  document.addEventListener('click',function(ev){
+    var t=ev.target, b=null;
+    while(t&&t!==document){ if(t.hasAttribute&&(t.hasAttribute('data-go')||t.hasAttribute('data-lin'))){b=t;break;} t=t.parentNode; }
+    if(!b) return;
+    ev.preventDefault();
+    if(b.hasAttribute('data-lin')) location.hash='#/lin/'+b.getAttribute('data-lin');
+    else location.hash=(b.getAttribute('data-go')==='gate')?'#/':'#/lineages';
+  });
+  route();
+})();
+</script>
+<footer>h!ro53 · transcendence by deus ex machina<br>© 2026 h!ro53. All rights reserved. Viewing permitted — reproduction, redistribution, and reuse of source or assets prohibited.</footer>
+</body></html>
