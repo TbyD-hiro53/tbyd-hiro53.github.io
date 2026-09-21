@@ -426,6 +426,13 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
 .wrap .langbar button[aria-pressed="true"]{border-color:var(--turq);color:var(--turq);background:transparent}
 .wrap .langbar button:focus-visible{outline:2px solid var(--turq);outline-offset:2px}
 
+/* 断章を持たない作品の位相。折り畳みの summary と同じ字面・余白にそろえ、
+   開く印（+）だけを持たない */
+.list .phase-only{margin:0 0 10px 168px;padding:8px 0;min-height:36px;
+  display:flex;align-items:center;
+  font:400 9.5px/1.4 var(--mono);letter-spacing:.08em;color:var(--faint)}
+@media(max-width:600px){.list .phase-only{margin-left:0}}
+
 /* ── 図版の縁を地へ溶かす ──
    明側では、暗い作品画像と淡い地とのあいだで値が一気に跳ね、貼り付けた板に見える。
    画像そのものは一切変えず、四辺の 6% だけを地へ逃がす。
@@ -611,6 +618,8 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <p class="desc" lang="en">The structure and motion of Cyberwafer v25, recast in polished metal and solid luminous lettering. A pink-to-red T, turquoise text rings and circulating chrome wafers. Drag to orbit, pinch to zoom, tap to pulse. Switch to the high-resolution photograph to view the rendered scene.</p>
     <div class="spec"><span class="chip live">Live</span><span class="chip">Blender</span><span class="chip">Physical materials</span></div></span>
   </a>
+
+  <p class="phase-only">PHASE −1 · PRE-CAUSAL ANOMALIES</p>
 </article><article class="entry" data-k="gl">
   <a class="entry-main" href="coastal-glass.html">
     <span class="thumb"><img src="coastal-glass-thumb.jpg" alt="Coastal Glass — 浮遊ガラス物体の観測記録" width="640" height="640" loading="lazy" decoding="async"></span>
@@ -621,6 +630,8 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <p class="desc" lang="en">An observation of one of the unidentified cyberwafers that have suddenly appeared around the world, together with its surroundings. Switch between sunset and night, and touch an object to open its observation record.</p>
     <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div></span>
   </a>
+
+  <p class="phase-only">PHASE 1 · THE FIRST T</p>
 </article><article class="entry" data-k="gl">
   <a class="entry-main" href="object.html">
     <span class="thumb"><img src="object-thumb.jpg" alt="Object — Tレターフォームと四重周回テキストリング" width="640" height="640" loading="lazy" decoding="async"></span>
@@ -741,6 +752,8 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <p class="desc" lang="en">An independent three-dimensional study of Empyrean Sigil. Open circular rails and radial ticks counter-rotate around ascending rings and descending polished silver discs. Full-viewport viewing with distinct dark and light palettes: drag to rotate, pinch to zoom and tap to pulse.</p>
     <div class="spec"><span class="chip live">Live</span><span class="chip">3D study</span><span class="chip">WebGL</span></div></span>
   </a>
+
+  <p class="phase-only">PHASE 4 · THE TRANSCENDED</p>
 </article>
   </div>
 </section><section class="grp" data-lin="reactor">
@@ -959,6 +972,8 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <p class="desc" lang="en">A station by the sea, a great station with lines above and below, and a carriage looking towards an immense tree. Three scenes on the planet of roots, observed through movement and short passages. Choose a scene and a fixed view; touch an object to open its description. Waves, leaves and trains continue to move.</p>
     <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div></span>
   </a>
+
+  <p class="phase-only">PHASE UNRESOLVED · THE CHANGES</p>
 </article>
   </div>
 </section><section class="grp" data-lin="source">
