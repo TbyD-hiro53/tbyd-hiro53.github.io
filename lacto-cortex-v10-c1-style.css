@@ -1,0 +1,15 @@
+/* The common compositor/host/Coastal surface files remain byte-identical to the saved live Cortex UI. */
+:root{color-scheme:dark;--sans:'Helvetica Neue',Arial,'Hiragino Sans','Yu Gothic',sans-serif;font-family:var(--sans);background:#080b0b;color:#f3f4f5}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}button,select{font:inherit}button,a,select{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid #e3f9ff;outline-offset:3px}
+#stage{position:fixed;inset:0;touch-action:none}#stage canvas{display:block;width:100%;height:100%;outline:none}
+#cortexUIShell{z-index:40}.composer-shell button:disabled{opacity:.5;cursor:default}
+#composerMenu{max-width:calc(100vw - 32px - env(safe-area-inset-left) - env(safe-area-inset-right))}
+#composerMenuContent{scrollbar-gutter:stable}#composerMenuContent>*{flex-shrink:0}
+.cortex-view-label{display:flex;flex-direction:column;gap:8px;font-size:11px;padding:10px 17px}
+#cortexViewSelect{width:100%;min-width:0;min-height:44px;padding:9px 10px;border-radius:12px;border:1px solid #d1e3ef55;background:#1a222c;color:#f3f4f5;font-size:12px;cursor:pointer}
+.cortex-zoom-row{display:flex;gap:2px;padding:0 4px}.cortex-zoom-row>button{flex:1;min-height:44px;padding:0 13px!important;justify-content:center!important}
+#cortexSafeArea{position:fixed;inset:0;visibility:hidden;pointer-events:none;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);contain:strict}
+#viewer-status{position:fixed;z-index:45;left:50%;top:50%;transform:translate(-50%,-50%);font-size:12px;color:#e4edf3;padding:14px 18px;background:#182128f5;border-radius:16px;max-width:calc(100vw - 40px);line-height:1.7;text-align:center}
+#viewer-error,.noscript-message{position:fixed;z-index:50;left:50%;top:50%;transform:translate(-50%,-50%);width:min(440px,calc(100% - 36px));padding:20px 22px;border:1px solid #967779;border-radius:20px;background:#21191bf5;color:#ffedee;font-size:14px;line-height:1.8;overflow-wrap:anywhere}[hidden]{display:none!important}
+@media(max-height:520px) and (orientation:landscape){#composerMenu{max-width:calc(100vw - 128px - env(safe-area-inset-left) - env(safe-area-inset-right))}.composer-title{bottom:calc(28px + env(safe-area-inset-bottom))}}
+@media(prefers-contrast:more),(forced-colors:active){#cortexViewSelect{background:Canvas;color:CanvasText;border-color:CanvasText}}

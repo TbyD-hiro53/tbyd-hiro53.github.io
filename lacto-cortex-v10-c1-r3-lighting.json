@@ -1,0 +1,16 @@
+{
+  "environment": {
+    "width": 512,
+    "height": 256,
+    "sha256": "d0ebea656ea12e719760cf08cd0dc442796ad03cfe24328ce69fe4022f21222d",
+    "source_metadata": "production/lighting/lacto-cortex-v10-r3-env-512.json",
+    "format": "RGBA16F linear, bottom-first, alpha1"
+  },
+  "vat": {
+    "width": 512,
+    "height": 256,
+    "sha256": "efc2f5d49a6e651ca6d918535fb0b1bde9081292e8820cef8fa98168eea5e485",
+    "source_metadata": "production/lighting/lacto-cortex-v10-r3-vat-secondary-preserved.json",
+    "format": "RGBA16F linear, bottom-first, alpha1"
+  }
+}
