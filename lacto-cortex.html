@@ -227,7 +227,7 @@
 </script>
 
 <div class="h53-copy">© 2026 h!ro53 · transcendence by deus ex machina &mdash; viewing permitted, reuse prohibited</div>
-<div id="app"><main id="stage" aria-label="Lacto-Cortex 作品"></main></div><div class="ui" hidden><div id="title">LACTO CORTEX</div><button id="sw">タンク</button><button id="reset">脳</button><button id="spin">下部</button><button id="tour">電源盤</button><button id="era">回転台</button><button id="dp" class="on">motion</button><input id="zoom" type="range" min="0" max="100" step="1" value="50" aria-label="zoom"><select id="view-select" aria-label="view" disabled></select><span id="current-view"></span></div><p class="obs" hidden>炉は一基で足りる。配列の単位はここで決まり、以後の増設はこの寸法の複製でしかない。皮質は三本の管から養われ、管の中を膨らみが下る。膨らみの間隔は〇・七八秒、これは心拍ではなく送液機の周期である。制御部の灯は不規則に明滅するが、誰かに向けた合図ではない。盤へ向かう三本のケーブルは床を這い、壁の貫通口へ消える。電力がどこから来るのかは、この部屋の記録には無い。</p><div id="cortexSafeArea" aria-hidden="true"></div><div id="viewer-status" role="status">作品を読み込んでいます…</div><div id="viewer-error" role="alert" hidden></div><noscript><div class="noscript-message">この作品の表示にはJavaScriptが必要です。ブラウザの設定を確認してください。</div></noscript>
+<div id="app"><main id="stage" aria-label="Lacto-Cortex 作品"></main></div><div class="ui" hidden><div id="title">LACTO CORTEX</div><button id="sw">タンク</button><button id="reset">脳</button><button id="spin">下部</button><button id="tour">電源盤</button><button id="era">回転台</button><button id="dp" class="on">motion</button><select id="view-select" aria-label="view" disabled></select><span id="current-view"></span></div><p class="obs" hidden>炉は一基で足りる。配列の単位はここで決まり、以後の増設はこの寸法の複製でしかない。皮質は三本の管から養われ、管の中を膨らみが下る。膨らみの間隔は〇・七八秒、これは心拍ではなく送液機の周期である。制御部の灯は不規則に明滅するが、誰かに向けた合図ではない。盤へ向かう三本のケーブルは床を這い、壁の貫通口へ消える。電力がどこから来るのかは、この部屋の記録には無い。</p><div id="cortexSafeArea" aria-hidden="true"></div><div id="viewer-status" role="status">作品を読み込んでいます…</div><div id="viewer-error" role="alert" hidden></div><noscript><div class="noscript-message">この作品の表示にはJavaScriptが必要です。ブラウザの設定を確認してください。</div></noscript>
 <script>
 (function(){'use strict';
   function show(m){var e=document.getElementById('viewer-error'),s=document.getElementById('viewer-status');if(s)s.hidden=true;if(e){e.hidden=false;e.textContent=m;}}
@@ -242,7 +242,7 @@
   new MutationObserver(function(){var r=document.documentElement.getAttribute('data-error');if(r)show('作品を表示できませんでした。'+r);}).observe(document.documentElement,{attributes:true,attributeFilter:['data-error']});
 })();
 </script>
-<script src="lacto-cortex-v10-c1-three-r128.js"></script><script src="lacto-cortex-v10-c1-rect-area-r128.js"></script><script src="lacto-cortex-v10-c1-ui-copy.js"></script><script src="lacto-cortex-v10-c2-ui.js"></script><script src="lacto-cortex-v10-c2-app.js"></script>
+<script src="lacto-cortex-v10-c1-three-r128.js"></script><script src="lacto-cortex-v10-c1-rect-area-r128.js"></script><script src="lacto-cortex-v10-c1-ui-copy.js"></script><script src="lacto-cortex-v10-c3-ui.js"></script><script src="lacto-cortex-v10-c3-app.js"></script>
 <style id="h53glass">/* h53 canonical glass — controls */
 .btn{-webkit-appearance:none;appearance:none;box-sizing:border-box;
 display:inline-flex;align-items:center;justify-content:center;
@@ -263,6 +263,39 @@ color:#eafffc;border-color:rgba(0,221,200,.5)}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
 .btn{background:#2b2f38}.btn.on{background:#135954}}
 </style>
+
+<style id="h53fit">
+/* 著作権帯の高さは文字の折返しで 25px にも 37px にもなる（実測）。
+   推定せず、実測値を --h53-copy-h に入れて、その上へ操作の段と作品名を置く。 */
+:root{--h53-copy-h:26px}
+body.h53-direct-layout .h53-primary-controls{
+  bottom:calc(12px + var(--h53-copy-h) + env(safe-area-inset-bottom))!important}
+body.h53-direct-layout .composer-title{
+  bottom:calc(16px + var(--h53-copy-h) + env(safe-area-inset-bottom) + var(--h53-primary-height))}
+/* 面（メニュー）は操作の段の上で止める。中身が増えても釦に被せない */
+body.h53-direct-layout #composerMenu{
+  max-height:calc(100dvh - 88px - var(--h53-copy-h) - env(safe-area-inset-top)
+                - env(safe-area-inset-bottom) - var(--h53-primary-height))!important}
+@media(max-height:520px) and (orientation:landscape){
+  body.h53-direct-layout .h53-primary-controls{
+    bottom:calc(8px + var(--h53-copy-h) + env(safe-area-inset-bottom))!important}
+  body.h53-direct-layout #composerMenu{
+    max-height:calc(100dvh - 32px - var(--h53-copy-h) - env(safe-area-inset-top)
+                  - env(safe-area-inset-bottom) - var(--h53-primary-height))!important}
+}
+</style>
+<script>
+(function(){'use strict';
+  /* 帯の実測高さを CSS へ返す。折返し・セーフエリア・文字サイズの違いを吸収する */
+  var band=document.querySelector('.h53-copy');if(!band)return;
+  function put(){var h=Math.ceil(band.getBoundingClientRect().height);
+    if(h>0)document.documentElement.style.setProperty('--h53-copy-h',h+'px');}
+  put();
+  if(typeof ResizeObserver==='function')new ResizeObserver(put).observe(band);
+  addEventListener('resize',put);addEventListener('orientationchange',function(){setTimeout(put,220);});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(put);
+})();
+</script>
 <script defer src="h53-dismiss-v1-20260921.js"></script>
 </body>
 </html>
