@@ -267,19 +267,40 @@ color:#eafffc;border-color:rgba(0,221,200,.5)}
 <style id="h53fit">
 /* 著作権帯の高さは文字の折返しで 25px にも 37px にもなる（実測）。
    推定せず、実測値を --h53-copy-h に入れて、その上へ操作の段と作品名を置く。 */
-:root{--h53-copy-h:26px}
-body.h53-direct-layout .h53-primary-controls{
-  bottom:calc(12px + var(--h53-copy-h) + env(safe-area-inset-bottom))!important}
-body.h53-direct-layout .composer-title{
-  bottom:calc(16px + var(--h53-copy-h) + env(safe-area-inset-bottom) + var(--h53-primary-height))}
+:root{--h53-copy-h:26px;--h53-primary-height:44px}
+
+/* 操作の段の位置は自前で決める。
+   共有の h53-direct-controls が（読み込み順・失敗などで）効かないと、
+   #composerPrimary は .composer-shell の左上に流れ込み、タンクが戻るに重なる（実測）。
+   同じ値をここにも書いて、効いても効かなくても下に置く。 */
+#composerPrimary{
+  position:fixed!important;top:auto!important;
+  left:calc(16px + env(safe-area-inset-left))!important;
+  right:calc(16px + env(safe-area-inset-right))!important;
+  bottom:calc(12px + var(--h53-copy-h) + env(safe-area-inset-bottom))!important;
+  width:auto!important;max-width:none!important;transform:none!important;
+  display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;
+  align-items:center;justify-content:center;gap:8px!important;
+  pointer-events:none;box-sizing:border-box;z-index:6}
+#composerPrimary>button{
+  position:relative!important;inset:auto!important;transform:none!important;
+  flex:0 1 auto;min-height:44px;max-width:100%;box-sizing:border-box;
+  pointer-events:auto;touch-action:manipulation;
+  display:inline-flex;align-items:center;justify-content:center;white-space:normal;
+  padding:0 14px;border:1px solid #ffffff33;border-radius:999px;color:inherit;
+  font:12px/1.35 var(--mono,-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino Sans',sans-serif);
+  letter-spacing:.04em}
+#composerPrimary>button[aria-pressed=true]{color:#b7fff2;border-color:#b7fff277}
+.composer-title{
+  bottom:calc(16px + var(--h53-copy-h) + env(safe-area-inset-bottom) + var(--h53-primary-height))!important}
 /* 面（メニュー）は操作の段の上で止める。中身が増えても釦に被せない */
-body.h53-direct-layout #composerMenu{
+#composerMenu{
   max-height:calc(100dvh - 88px - var(--h53-copy-h) - env(safe-area-inset-top)
                 - env(safe-area-inset-bottom) - var(--h53-primary-height))!important}
 @media(max-height:520px) and (orientation:landscape){
-  body.h53-direct-layout .h53-primary-controls{
+  #composerPrimary{
     bottom:calc(8px + var(--h53-copy-h) + env(safe-area-inset-bottom))!important}
-  body.h53-direct-layout #composerMenu{
+  #composerMenu{
     max-height:calc(100dvh - 32px - var(--h53-copy-h) - env(safe-area-inset-top)
                   - env(safe-area-inset-bottom) - var(--h53-primary-height))!important}
 }
@@ -288,12 +309,26 @@ body.h53-direct-layout #composerMenu{
 (function(){'use strict';
   /* 帯の実測高さを CSS へ返す。折返し・セーフエリア・文字サイズの違いを吸収する */
   var band=document.querySelector('.h53-copy');if(!band)return;
+  var root=document.documentElement;
   function put(){var h=Math.ceil(band.getBoundingClientRect().height);
-    if(h>0)document.documentElement.style.setProperty('--h53-copy-h',h+'px');}
+    if(h>0)root.style.setProperty('--h53-copy-h',h+'px');}
   put();
   if(typeof ResizeObserver==='function')new ResizeObserver(put).observe(band);
   addEventListener('resize',put);addEventListener('orientationchange',function(){setTimeout(put,220);});
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(put);
+  /* 操作の段の高さも自前で測る。共有の直接操作scriptが効かなくても作品名が段に被らない */
+  function watch(dock){
+    function h(){var v=Math.ceil(dock.getBoundingClientRect().height);
+      if(v>0)root.style.setProperty('--h53-primary-height',v+'px');}
+    h();if(typeof ResizeObserver==='function')new ResizeObserver(h).observe(dock);
+  }
+  var dock=document.getElementById('composerPrimary');
+  if(dock)watch(dock);
+  else if(typeof MutationObserver==='function'){
+    var mo=new MutationObserver(function(){var d=document.getElementById('composerPrimary');
+      if(d){mo.disconnect();watch(d);}});
+    mo.observe(document.body,{childList:true,subtree:true});
+  }
 })();
 </script>
 <script defer src="h53-dismiss-v1-20260921.js"></script>
