@@ -223,23 +223,34 @@ The tongue alone holds a different colour. It beats upon the same period as the 
 
 ---
 
-## ASSET 06 — Lacto-Cortex v9
+## ASSET 06 — Lacto-Cortex v10
 
 **位相** PHASE 3 · TRANSCENSION
 
 **観測ログ** `The nutrient cycle continued after cognition was redistributed.`
 
 **説明 JA**
-配列作品の基本単位である乳脳マイクロモジュール炉を、コンクリートドームと縞鋼板の床を持つ開発棟に配置し、上部タンクの淡桃色の液が透明槽の皮質を養う。3本の極太ケーブルが背面接続盤から壁の貫通口へ続き、ドラッグで回転、ピンチで拡大、SWで8視点を巡回できる。
+配列作品の基本単位である乳脳マイクロモジュール炉。内径42 mの電波暗室に1基を据え、円形の回転台に載せる。上部タンクの淡桃色の液が三本の管を下り、培養槽の皮質へ直接つながる。給養は管を流れる脈動で示される。背面の接続盤へは三本の極太ケーブルが床を這う。視点は自由に回してよい。
 
 **説明 EN**
-The lacto-cortex reactor, the base unit of the array works, stands inside a bare concrete development dome on a checker-plate floor while pale pink medium drips from its upper tank to feed the cortex in its transparent chamber. Three heavy cables connect its rear service panel to a wall penetration; drag to rotate, pinch to zoom, and use SW to cycle eight viewpoints.
+The lacto-cortex reactor, the base unit of the array works. One unit stands on a circular turntable in an anechoic chamber forty-two metres across. Pale pink medium from the upper tank descends through three tubes and meets the cortex in its culture chamber directly; the feeding shows as a swell travelling the length of each tube. Three heavy cables run along the floor to the service panel behind it. The view turns freely.
 
 **断章 JA**
 電極は締めつけない。一定の間隔で囲み、触れずに待つだけである。設計者は接触を避けた理由を記していない。灌流は止まったことがなく、糖度は初期値のまま保たれている。観測できるのは循環だけで、その内側で何が続いているかは出力に現れない。台帳には稼働とある。稼働と記入した担当は、その月のうちに別の等級へ移された。
 
 **断章 EN**
 The electrodes do not clamp. They stand about it at a fixed interval and wait without touching. The designer set down no reason for avoiding contact. The perfusion has never stopped, and the sugar content is held at its initial value. Only the circulation can be observed; what continues within it does not appear in the output. The ledger reads: in operation. The officer who entered those words was moved to another grade within the month.
+
+**v10（2026-09-22）— v9 からの差分**
+- 制作を Blender で作り直し、web は同じ立体を three.js r128 で実時間描画する分割構成（HTML＋JS＋立体データ 12.3 MB・床の焼き込み 12.4 MB をそれぞれ 4 分割）
+- 室をコンクリートドームから**内径42 mの電波暗室**へ。lacto-caloris v2 と同一の室・円形台座（径 3.600 m ／ 厚 55 mm）・天井の円環照明・壁面ロゴ
+- 給養：培養液への滴下をやめ、既存の立ち下がり管三本（φ64 mm）をそのまま槽内へ延長し、三本とも同じ口金で皮質へ直接接続。頭頂の冠と供給コラムは伏せた
+- 給養の表示：管の全長を流れる膨らみの脈動（PUMP_PERIOD 0.78 s に同期）
+- 接続盤：caloris と共通の円筒盤を後方 5.00 m に。ケーブルは降下 1.056 m → 床を這う 0.58–0.70 m（床上 7.0 mm）→ 立ち上がり 0.468 m。曲げは一定曲率・半径は外径の 6.0 倍
+- 機械を 55 mm 持ち上げ、回転台の上へ（隙間 0.00 mm）
+- 制御部：回転文字（LCD 1行）の回転を 7 割へ、発光 11 → 5.5。LED の発光 2.4 → 1.05 とし、不規則な明滅を与えた
+- 操作：8視点の巡回を廃止。view / reset / motion と遠近スライダー、回転・ズームは常に自由
+- 上の断章は v9 のまま。v10 の正準値は制作文書側にある
 
 ---
 
