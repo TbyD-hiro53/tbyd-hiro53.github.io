@@ -355,23 +355,30 @@ Five to the rings. Five to what is seated upon each. Five, again, to the lines t
 
 ---
 
-## ASSET 12 — Sanctum v5
+## ASSET 12 — Sanctum v6
 
 **位相** PHASE 5 · RESIDUAL WORLD
 
 **観測ログ** `Purpose expired. Maintenance continued.`
 
 **説明 JA**
-地下大空洞の聖域。融合炉と脳核、洞壁へ貫入する極太送電幹線を、岩殻ドームと鍾乳石が囲む。Eraで階調をY2Kと現行に切り替え、Next viewで視点を巡回。旧Vault v4を統合。
+光学ガラスの環状管に、三周ねじれて巡る三条の光を封じた装置。内径11.2 mの円形の室の中央、黒御影の基壇に三本の脚で据える。光条は流れ続け、細かな火花を管の中に散らす。視点は自由に回してよい。
 
 **説明 EN**
-A sanctum in a subterranean cavern. A fusion core and a brain core, with heavy power trunks driven into the rock wall, enclosed by a dome of stone and stalactites. Era switches the grade between Y2K and the current one; Next view cycles the viewpoints. Absorbs the former Vault v4.
+A device that seals three strands of light, each winding three times around its circuit, inside an annular tube of optical glass. It stands on three legs upon a black granite dais at the centre of a circular room 11.2 metres across. The strands flow without pause and scatter fine sparks within the tube. The view turns freely.
 
 **断章 JA**
-洞は掘られたのではない。冷却の都合で選ばれた岩体が、そのまま容れ物になっている。壁は磨かれず、鍾乳は落とされないまま残された。除去は工程に含まれず、含めない理由も問われなかった。幹線は洞壁の口へ深く入り、その先の区画図は別冊とされている。別冊は現在、この洞の中で保管されている。
+環は開けられたことがない。封じた日の記録はあるが、封じる前に何が入っていたかの記録は無い。三条の光は封じられた時から巡っており、巡る速さはどの頁にも同じ値で書き写されている。その値を測った計器の型番は、台帳の余白に鉛筆で残されている。計器はこの室には無い。室は毎朝掃かれ、天井の輪は定刻に点く。点ける者は環を見上げない。見上げてはならないとは、どこにも書かれていない。ただ、見上げた者の記録も無い。停止の手順書は綴りの最後に綴じられ、その頁だけが一度も開かれていない。
 
 **断章 EN**
-The cavern was not excavated. A body of rock, selected for the convenience of cooling, became the vessel as it stood. The walls were not dressed, and the dripstone was left where it hung. Removal was not included in the schedule of works, nor was any reason for its exclusion sought. The trunks reach deep into their mouths in the rock, and the plan of the districts beyond them is held as a separate volume. That volume is at present stored within this cavern.
+The ring has never been opened. There is a record of the day it was sealed, but no record of what it held before. The three strands have circulated since the sealing, and the rate of their circulation is copied out as the same value on every page. The model number of the instrument that measured it remains in pencil in the margin of the ledger. The instrument is not in this room. The room is swept each morning, and the ring overhead is lit at the appointed hour. The one who lights it does not look up at the ring. Nowhere is it written that one must not. Yet there is no record of anyone who did. The procedure for stopping is bound at the end of the file, and that page alone has never been opened.
+
+**v6（2026-09-23）— v5 からの差分**
+- 作り直し。主題をトーラス（三周ねじれて巡る三条の光）一つに絞った。融合炉・脳核・送電幹線・T字の塔・文字環・ジンバル・岩殻ドームと鍾乳石は外した（ジンバルは別作品として独立させる）
+- 光条を光学ガラスの環状管（主半径 1.10 m・管の外半径 0.34 m・肉厚 38 mm）に封じ、黒御影の基壇に三本の脚と PTFE 当ての受けで据える
+- 室は内径 11.2 m・天井高 4.4 m の円形の石室（付柱 40 本・天井際の間接照明・環と同じ半径の円環灯）
+- 制作を Blender で行い、web は同じ立体を three.js r128 で実時間描画（室の照度は焼き込み、光条・火花・ガラス・床と基壇の映り込みは実時間）
+- Era（Y2K／現行の階調切替）は廃止。視点は 全景・斜め・真上・環・受け の五つで、自由に回せる
 
 ---
 

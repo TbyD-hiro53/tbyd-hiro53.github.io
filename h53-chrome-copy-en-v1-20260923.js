@@ -169,10 +169,10 @@ window.H53_CHROME_EN={
 "phase": "PHASE −2 · ANTHROPOCENTRIC EXPANSION"
 },
 "sanctum": {
-"desc": "A sanctum in a subterranean cavern. A fusion core and a brain core, with heavy power trunks driven into the rock wall, enclosed by a dome of stone and stalactites. Era switches the grade between Y2K and the current one; Next view cycles the viewpoints. Absorbs the former Vault v4.",
-"frag": "The cavern was not excavated. A body of rock, selected for the convenience of cooling, became the vessel as it stood. The walls were not dressed, and the dripstone was left where it hung. Removal was not included in the schedule of works, nor was any reason for its exclusion sought. The trunks reach deep into their mouths in the rock, and the plan of the districts beyond them is held as a separate volume. That volume is at present stored within this cavern.",
+"desc": "A device that seals three strands of light, each winding three times around its circuit, inside an annular tube of optical glass. It stands on three legs upon a black granite dais at the centre of a circular room 11.2 metres across. The strands flow without pause and scatter fine sparks within the tube. The view turns freely.",
+"frag": "The ring has never been opened. There is a record of the day it was sealed, but no record of what it held before. The three strands have circulated since the sealing, and the rate of their circulation is copied out as the same value on every page. The model number of the instrument that measured it remains in pencil in the margin of the ledger. The instrument is not in this room. The room is swept each morning, and the ring overhead is lit at the appointed hour. The one who lights it does not look up at the ring. Nowhere is it written that one must not. Yet there is no record of anyone who did. The procedure for stopping is bound at the end of the file, and that page alone has never been opened.",
 "log": "Purpose expired. Maintenance continued.",
-"name": "Sanctum v5",
+"name": "Sanctum v6",
 "phase": "PHASE 5 · RESIDUAL WORLD"
 },
 "sigil-fusion": {
