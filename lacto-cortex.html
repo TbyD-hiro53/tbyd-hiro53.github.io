@@ -235,7 +235,7 @@
   window.addEventListener('error',function(ev){
     if(ev.target&&ev.target.tagName==='SCRIPT'){
       var src=ev.target.getAttribute('src')||'';
-      if(/(?:h53-liquid-|h53-direct-|h53-dismiss-|composer-liquid-|-c1-ui)/.test(src)){document.documentElement.dataset.uiError='操作表示のファイルを読み込めませんでした。';return;}
+      if(/(?:h53-liquid-|h53-direct-|h53-dismiss-|composer-liquid-|-c[0-9]-ui)/.test(src)){document.documentElement.dataset.uiError='操作表示のファイルを読み込めませんでした。';return;}
       show('作品の表示ファイルを読み込めませんでした。ページを再読み込みしてください。');
     }else if(ev.message)show('作品を表示できませんでした。'+ev.message);
   },true);
@@ -243,7 +243,7 @@
   new MutationObserver(function(){var r=document.documentElement.getAttribute('data-error');if(r)show('作品を表示できませんでした。'+r);}).observe(document.documentElement,{attributes:true,attributeFilter:['data-error']});
 })();
 </script>
-<script src="lacto-cortex-v10-c1-three-r128.js"></script><script src="lacto-cortex-v10-c1-rect-area-r128.js"></script><script src="lacto-cortex-v10-c1-ui-copy.js"></script><script src="lacto-cortex-v10-c3-ui.js"></script><script src="lacto-cortex-v10-c3-app.js"></script>
+<script src="lacto-cortex-v10-c1-three-r128.js"></script><script src="lacto-cortex-v10-c1-rect-area-r128.js"></script><script src="lacto-cortex-v10-c1-ui-copy.js"></script><script src="lacto-cortex-v10-c5-ui.js"></script><script src="lacto-cortex-v10-c3-app.js"></script>
 <style id="h53glass">/* h53 canonical glass — controls */
 .btn{-webkit-appearance:none;appearance:none;box-sizing:border-box;
 display:inline-flex;align-items:center;justify-content:center;
