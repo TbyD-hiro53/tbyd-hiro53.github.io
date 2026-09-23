@@ -1,0 +1,52 @@
+{
+ "version": "sanctum-v6-w1",
+ "axes": "three = (blender.x, blender.z, -blender.y)",
+ "roles": {
+  "floor": 0,
+  "wall": 1,
+  "ceiling": 2,
+  "dark": 3,
+  "dais": 4,
+  "steel": 10,
+  "pad": 11,
+  "lamp": 12,
+  "inlay": 13
+ },
+ "groups": {
+  "room": {
+   "count": 27498,
+   "position": [
+    0,
+    82494
+   ],
+   "normal": [
+    329976,
+    82494
+   ],
+   "role": [
+    659952,
+    27498
+   ],
+   "uv": [
+    769944,
+    54996
+   ]
+  },
+  "parts": {
+   "count": 26436,
+   "position": [
+    989928,
+    79308
+   ],
+   "normal": [
+    1307160,
+    79308
+   ],
+   "role": [
+    1624392,
+    26436
+   ]
+  }
+ },
+ "bytes": 1730136
+}
