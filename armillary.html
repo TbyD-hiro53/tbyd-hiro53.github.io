@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="description" content="外洋の孤島、その山頂に据わる渾天儀。地面に少し沈んだ球電の殻の中で、青緑・桃・白・灰の四重のガラスの環が、向きも速さも定めずに回り続ける。中心の黒いもやからは文字の雨が降り、脳核、会長室のメトロノーム、ウエハーの三つの形を順に結ぶ。視点は自由に回してよい。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="h!ro53 — creation archive">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="The Armillary v1 — h!ro53 / transcendence by deus ex machina">
+<meta property="og:description" content="外洋の孤島、その山頂に据わる渾天儀。地面に少し沈んだ球電の殻の中で、青緑・桃・白・灰の四重のガラスの環が、向きも速さも定めずに回り続ける。中心の黒いもやからは文字の雨が降り、脳核、会長室のメトロノーム、ウエハーの三つの形を順に結ぶ。視点は自由に回してよい。">
+<meta property="og:url" content="https://tbyd-hiro53.github.io/armillary.html">
+<meta property="og:image" content="https://tbyd-hiro53.github.io/armillary-v1-og-20260923.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Armillary v1">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Armillary v1 — h!ro53 / transcendence by deus ex machina">
+<meta name="twitter:description" content="外洋の孤島、その山頂に据わる渾天儀。地面に少し沈んだ球電の殻の中で、青緑・桃・白・灰の四重のガラスの環が、向きも速さも定めずに回り続ける。中心の黒いもやからは文字の雨が降り、脳核、会長室のメトロノーム、ウエハーの三つの形を順に結ぶ。視点は自由に回してよい。">
+<meta name="twitter:image" content="https://tbyd-hiro53.github.io/armillary-v1-og-20260923.jpg">
+<link rel="canonical" href="https://tbyd-hiro53.github.io/armillary.html">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<script src="h53-diag-v1-20260923.js"></script>
+<!-- © 2026 h!ro53 / transcendence by deus ex machina. All rights reserved.
+     Viewing permitted. Reproduction, redistribution, and reuse of source code
+     or assets — in whole or in part — is prohibited without written permission. -->
+<meta name="author" content="h!ro53" />
+<title>The Armillary v1 — h!ro53 / transcendence by deus ex machina</title>
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+<style id="h53-copyright-css">
+.h53-copy{position:fixed;left:0;right:0;bottom:0;z-index:99999;pointer-events:none;
+  padding:6px 10px calc(6px + env(safe-area-inset-bottom));
+  font:9px/1.4 ui-monospace,"SF Mono",Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;letter-spacing:.04em;
+  color:rgba(255,218,221,.42);text-align:center;
+  background:linear-gradient(0deg,rgba(0,0,0,.35),transparent);
+  text-shadow:0 1px 2px rgba(0,0,0,.6)}
+</style>
+
+<script>/* h53 count */(function(){try{if(location.search.indexOf('skipgc')>-1)localStorage.setItem('skipgc','t');if(localStorage.getItem('skipgc')==='t')return;var i=new Image();i.src='https://hiro53.goatcounter.com/count'+'?p='+encodeURIComponent(location.pathname)+'&t='+encodeURIComponent(document.title)+'&r='+encodeURIComponent(document.referrer)+'&s='+[screen.width,screen.height,window.devicePixelRatio||1].join(',');}catch(e){}})();</script>
+
+<!-- Coastal-derived shared UI; original artwork renderer remains unchanged. -->
+<link rel="stylesheet" href="h53-liquid-ui-v1-20260919.css">
+<link rel="stylesheet" href="h53-liquid-layout-v1-20260919.css">
+<link rel="stylesheet" href="composer-liquid-v1-20260919.css">
+<script defer src="h53-chrome-copy-en-v1-20260923.js"></script><script defer src="h53-chrome-v1-20260923.js"></script>
+<script defer src="h53-liquid-ui-v1-20260919.js"></script>
+<script defer src="h53-liquid-glass-optics-v1.js"></script>
+<script defer src="h53-liquid-host-v1-20260919.js"></script>
+<link rel="stylesheet" href="h53-direct-controls-v1-20260919.css">
+<script defer src="h53-direct-controls-v1-20260919.js"></script>
+<link rel="stylesheet" href="armillary-v1-w1-style.css">
+</head>
+<body class="armillary-v1">
+<script>
+(function(){
+  // ---- h!ro53 index return button v2 ----
+  // v1の失敗：(1) CSSの静的走査では全幅バーや左上HUDを検出できず重なった
+  //           (2) 作品側のハンドラへイベントが渡り click が成立しない場合があった
+  // v2：実行時に他要素の矩形を測って空いた隅へ置く。遷移は明示ハンドラで行う。
+  var PAD = 12;
+  var CSS = '#h53idx{position:fixed;z-index:2147483600;display:inline-flex;align-items:center;'
+    + 'box-sizing:border-box;gap:7px;min-height:44px;padding:0 17px;border-radius:999px;'
+    + 'font:11px/1 ui-monospace,"SF Mono",Menlo,"Courier New","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;'
+    + 'letter-spacing:.12em;text-transform:lowercase;text-decoration:none;'
+    + 'color:#ece3eb;text-shadow:0 1px 2px rgba(0,0,0,.45);'
+    + 'background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));'
+    + 'border:1px solid rgba(242,230,242,.23);'
+    + 'box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -1px 0 rgba(255,255,255,.04),0 8px 26px rgba(0,0,0,.20);'
+    + '-webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);backdrop-filter:blur(22px) saturate(1.55) brightness(.62);'
+    + 'pointer-events:auto;cursor:pointer;transition:transform .18s ease;'
+    + '-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;'
+    + '-webkit-user-select:none;user-select:none;touch-action:manipulation}'
+    + '#h53idx:active{transform:scale(.96);color:#eafffc;border-color:rgba(0,221,200,.55)}'
+    + '#h53idx:focus-visible{outline:2px solid #76e2d4;outline-offset:4px}'
+    + '#h53idx b{font-weight:400;opacity:.55}'
+    + '@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px)))'
+    + '{#h53idx{background:#2b2f38}}';
+
+  var st = document.createElement('style');
+  st.id = 'h53idxcss';
+  st.appendChild(document.createTextNode(CSS));
+  (document.head || document.documentElement).appendChild(st);
+
+  var A = document.createElement('a');
+  A.id = 'h53idx';
+  A.setAttribute('aria-label', 'registry');
+  A.innerHTML = '<b>&#8592;</b>index';
+
+  function url(){
+    try { return new URL('index.html', location.href).href; }
+    catch (e) { return 'index.html'; }
+  }
+  A.href = url();
+
+  // 遷移：click が潰される環境でも touchend で確実に飛ばす
+  var fired = 0;
+  function go(e){
+    var now = Date.now();
+    if (now - fired < 700) { if (e && e.preventDefault) e.preventDefault(); return false; }
+    fired = now;
+    if (e){ if (e.preventDefault) e.preventDefault(); if (e.stopPropagation) e.stopPropagation(); }
+    var u = url();
+    try { location.assign(u); } catch (err) { location.href = u; }
+    return false;
+  }
+  function eat(e){ if (e && e.stopPropagation) e.stopPropagation(); }
+  A.addEventListener('click', go, false);
+  try { A.addEventListener('touchend', go, { passive: false }); }
+  catch (e) { A.addEventListener('touchend', go, false); }
+  try { A.addEventListener('touchstart', eat, { passive: true }); }
+  catch (e) { A.addEventListener('touchstart', eat, false); }
+  A.addEventListener('pointerdown', eat, false);
+  A.addEventListener('mousedown', eat, false);
+
+  function attach(){
+    if (document.body && A.parentNode !== document.body) document.body.appendChild(A);
+  }
+  attach();
+
+  // セーフエリアの実寸を測る
+  var safe = { t: 0, r: 0, b: 0, l: 0 };
+  function measureSafe(){
+    if (!document.body) return;
+    var p = document.createElement('div');
+    p.style.cssText = 'position:fixed;left:0;top:0;width:0;height:0;visibility:hidden;'
+      + 'padding-top:env(safe-area-inset-top,0px);padding-right:env(safe-area-inset-right,0px);'
+      + 'padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);';
+    document.body.appendChild(p);
+    var cs = window.getComputedStyle(p);
+    safe.t = parseFloat(cs.paddingTop) || 0;
+    safe.r = parseFloat(cs.paddingRight) || 0;
+    safe.b = parseFloat(cs.paddingBottom) || 0;
+    safe.l = parseFloat(cs.paddingLeft) || 0;
+    document.body.removeChild(p);
+  }
+
+  // 画面上で実際に「何かが描かれている」要素の矩形を集める
+  function occupied(){
+    var out = [], i, j, el, cs, r, ch, ink, bg;
+    if (!document.body) return out;
+    var all = document.body.querySelectorAll('*');
+    for (i = 0; i < all.length; i++){
+      el = all[i];
+      if (el === A || el === st) continue;
+      var tn = el.tagName;
+      if (tn === 'CANVAS' || tn === 'SCRIPT' || tn === 'STYLE' || tn === 'LINK') continue;
+      cs = window.getComputedStyle(el);
+      if (!cs || cs.display === 'none' || cs.visibility === 'hidden') continue;
+      if ((parseFloat(cs.opacity) || 1) < 0.06) continue;
+      r = el.getBoundingClientRect();
+      if (r.width < 6 || r.height < 6) continue;
+      if (r.right < 0 || r.bottom < 0 || r.left > innerWidth || r.top > innerHeight) continue;
+      // 全画面の器は避けたい対象ではない
+      if (r.width > innerWidth * 0.94 && r.height > innerHeight * 0.90) continue;
+      ink = false;
+      ch = el.childNodes;
+      for (j = 0; j < ch.length; j++){
+        if (ch[j].nodeType === 3 && ch[j].nodeValue && ch[j].nodeValue.replace(/\s+/g,'')) { ink = true; break; }
+      }
+      if (!ink){
+        bg = cs.backgroundColor || '';
+        if (bg && bg.indexOf('rgba(0, 0, 0, 0)') < 0 && bg !== 'transparent') ink = true;
+        if (!ink && (parseFloat(cs.borderTopWidth) || 0) > 0) ink = true;
+        if (!ink && (parseFloat(cs.borderBottomWidth) || 0) > 0) ink = true;
+        if (!ink && tn === 'IMG') ink = true;
+      }
+      if (!ink) continue;
+      out.push(r);
+    }
+    return out;
+  }
+
+  function overlapArea(x, y, w, h, rs){
+    var s = 0, i, r, ow, oh;
+    for (i = 0; i < rs.length; i++){
+      r = rs[i];
+      ow = Math.min(x + w, r.right) - Math.max(x, r.left);
+      oh = Math.min(y + h, r.bottom) - Math.max(y, r.top);
+      if (ow > 0 && oh > 0) s += ow * oh;
+    }
+    return s;
+  }
+
+  function place(){
+    attach();
+    if (!document.body) return;
+    measureSafe();
+    A.style.left = ''; A.style.right = ''; A.style.top = ''; A.style.bottom = '';
+    A.style.top = '-999px'; A.style.left = '0px';
+    var w = A.offsetWidth || 76, h = A.offsetHeight || 30;
+    var rs = occupied();
+    // 隅は 右上 → 左上 → 右下 → 左下 の順に選好。各隅で縦に4段まで逃がす
+    var best = null, corner, step, x, y, s, pref;
+    for (corner = 0; corner < 4; corner++){
+      for (step = 0; step < 4; step++){
+        x = (corner % 2 === 0) ? (innerWidth - PAD - safe.r - w) : (PAD + safe.l);
+        y = (corner < 2) ? (PAD + safe.t + step * (h + 8))
+                         : (innerHeight - PAD - safe.b - h - step * (h + 8));
+        if (y < 0 || y + h > innerHeight) continue;
+        s = overlapArea(x, y, w, h, rs);
+        pref = corner * 3 + step;                 // 面積が同点なら選好順
+        if (!best || s < best.s - 0.5 || (Math.abs(s - best.s) <= 0.5 && pref < best.pref)){
+          best = { x: x, y: y, s: s, pref: pref, corner: corner };
+        }
+        if (s === 0 && step === 0 && corner === 0) { best = { x: x, y: y, s: 0, pref: 0, corner: 0 }; corner = 9; break; }
+      }
+    }
+    if (!best) best = { x: innerWidth - PAD - w, y: PAD, corner: 0 };
+    if (best.corner < 2){ A.style.top = best.y + 'px'; A.style.bottom = ''; }
+    else { A.style.bottom = (innerHeight - best.y - h) + 'px'; A.style.top = ''; }
+    if (best.corner % 2 === 0){ A.style.right = (PAD + safe.r) + 'px'; A.style.left = ''; }
+    else { A.style.left = (PAD + safe.l) + 'px'; A.style.right = ''; }
+  }
+
+  function boot(){ place(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+  addEventListener('load', place);
+  addEventListener('resize', place);
+  addEventListener('orientationchange', function(){ setTimeout(place, 220); });
+  setTimeout(place, 400);
+  setTimeout(place, 1400);
+  setTimeout(place, 3600);
+})();
+
+</script>
+
+<div class="h53-copy">© 2026 h!ro53 · transcendence by deus ex machina &mdash; viewing permitted, reuse prohibited</div>
+<div id="app"><main id="stage" aria-label="The Armillary 作品"></main></div><div class="ui" hidden><div id="title">THE ARMILLARY</div><button id="sw">全景</button><button id="reset">中景</button><button id="spin">環</button><button id="tour">核</button><button id="era">縁</button><button id="dp" class="on">motion</button><select id="view-select" aria-label="view" disabled></select><span id="current-view"></span></div><p class="obs" hidden>島には港がない。測量の記録では、山頂には草と岩しかない。球はある日の黄昏に届き、地面を丸く抉って止まった。抉られた縁は、いまも冷えきらない。環は四つあり、互いに指一本ぶんの隙間を保って入れ子になっている。どの環にも軸は無く、回る向きも速さも一定しない。回す力の出どころを調べた者は、欄に「該当なし」と書いた。中心のもやには社の物だけが映る。脳核、会長室の卓上の振子、最初のウエハー。振子は毎分七十七拍で振れ、映像の側にも速さを変える手段は無い。映る順は台帳と一致し、映らない物の一覧は作られていない。観測は沖に停めた船から行われている。日が落ちると、環の色だけが海に落ちる。</p><div id="armillarySafeArea" aria-hidden="true"></div><div id="viewer-status" role="status">作品を読み込んでいます…</div><div id="viewer-error" role="alert" hidden></div><noscript><div class="noscript-message">この作品の表示にはJavaScriptが必要です。ブラウザの設定を確認してください。</div></noscript>
+<script>
+(function(){'use strict';
+  function show(m){var e=document.getElementById('viewer-error'),s=document.getElementById('viewer-status');if(s)s.hidden=true;if(e){e.hidden=false;e.textContent=m;}}
+  window.addEventListener('error',function(ev){
+    if(ev.target&&ev.target.tagName==='SCRIPT'){
+      var src=ev.target.getAttribute('src')||'';
+      if(/(?:h53-liquid-|h53-direct-|h53-dismiss-|composer-liquid-|-w[0-9]-ui)/.test(src)){document.documentElement.dataset.uiError='操作表示のファイルを読み込めませんでした。';return;}
+      show('作品の表示ファイルを読み込めませんでした。ページを再読み込みしてください。');
+    }else if(ev.message)show('作品を表示できませんでした。'+ev.message);
+  },true);
+  window.addEventListener('unhandledrejection',function(ev){var why=ev.reason&&ev.reason.message||String(ev.reason||'');show('作品を読み込めませんでした。'+why);});
+  new MutationObserver(function(){var r=document.documentElement.getAttribute('data-error');if(r)show('作品を表示できませんでした。'+r);}).observe(document.documentElement,{attributes:true,attributeFilter:['data-error']});
+})();
+</script>
+<script src="armillary-v1-w1-three-r128.js"></script><script src="armillary-v1-w1-ui-copy.js"></script><script src="armillary-v1-w1-ui.js"></script><script src="armillary-v1-w1-app.js"></script>
+<style id="h53glass">/* h53 canonical glass — controls */
+.btn{-webkit-appearance:none;appearance:none;box-sizing:border-box;
+display:inline-flex;align-items:center;justify-content:center;
+min-height:44px;padding:0 17px;border-radius:999px;
+font:11px/1 ui-monospace,"SF Mono",Menlo,"Courier New","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;
+letter-spacing:.10em;text-transform:lowercase;white-space:nowrap;
+color:#ece3eb;text-shadow:0 1px 2px rgba(0,0,0,.45);
+background:linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66));
+border:1px solid rgba(242,230,242,.23);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -1px 0 rgba(255,255,255,.04),0 8px 26px rgba(0,0,0,.20);
+-webkit-backdrop-filter:blur(22px) saturate(1.55) brightness(.62);backdrop-filter:blur(22px) saturate(1.55) brightness(.62);
+cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;opacity:1;
+transition:transform .18s ease,background .25s ease,border-color .25s ease}
+.btn:active{transform:scale(.96);opacity:1;color:#eafffc;border-color:rgba(0,221,200,.55)}
+.btn.on{background:linear-gradient(150deg,rgba(0,221,200,.30),rgba(9,67,65,.72));
+color:#eafffc;border-color:rgba(0,221,200,.5)}
+.btn:focus-visible{outline:2px solid #76e2d4;outline-offset:4px}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+.btn{background:#2b2f38}.btn.on{background:#135954}}
+</style>
+
+<style id="h53fit">
+/* 著作権帯の高さは文字の折返しで 25px にも 37px にもなる（実測）。
+   推定せず、実測値を --h53-copy-h に入れて、その上へ操作の段と作品名を置く。 */
+:root{--h53-copy-h:26px;--h53-primary-height:44px}
+
+/* 操作の段の位置は自前で決める。
+   共有の h53-direct-controls が（読み込み順・失敗などで）効かないと、
+   #composerPrimary は .composer-shell の左上に流れ込み、タンクが戻るに重なる（実測）。
+   同じ値をここにも書いて、効いても効かなくても下に置く。 */
+#composerPrimary{
+  position:fixed!important;top:auto!important;
+  left:calc(16px + env(safe-area-inset-left))!important;
+  right:calc(16px + env(safe-area-inset-right))!important;
+  bottom:calc(12px + var(--h53-copy-h) + env(safe-area-inset-bottom))!important;
+  width:auto!important;max-width:none!important;transform:none!important;
+  display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;
+  align-items:center;justify-content:center;gap:8px!important;
+  pointer-events:none;box-sizing:border-box;z-index:6}
+#composerPrimary>button{
+  position:relative!important;inset:auto!important;transform:none!important;
+  flex:0 1 auto;min-height:44px;max-width:100%;box-sizing:border-box;
+  pointer-events:auto;touch-action:manipulation;
+  display:inline-flex;align-items:center;justify-content:center;white-space:normal;
+  padding:0 14px;border:1px solid #ffffff33;border-radius:999px;color:inherit;
+  font:12px/1.35 var(--mono,-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino Sans',sans-serif);
+  letter-spacing:.04em}
+#composerPrimary>button[aria-pressed=true]{color:#b7fff2;border-color:#b7fff277}
+.composer-title{
+  bottom:calc(16px + var(--h53-copy-h) + env(safe-area-inset-bottom) + var(--h53-primary-height))!important}
+/* 面（メニュー）は操作の段の上で止める。中身が増えても釦に被せない */
+#composerMenu{
+  max-height:calc(100dvh - 88px - var(--h53-copy-h) - env(safe-area-inset-top)
+                - env(safe-area-inset-bottom) - var(--h53-primary-height))!important}
+@media(max-height:520px) and (orientation:landscape){
+  #composerPrimary{
+    bottom:calc(8px + var(--h53-copy-h) + env(safe-area-inset-bottom))!important}
+  #composerMenu{
+    max-height:calc(100dvh - 32px - var(--h53-copy-h) - env(safe-area-inset-top)
+                  - env(safe-area-inset-bottom) - var(--h53-primary-height))!important}
+}
+</style>
+<script>
+(function(){'use strict';
+  /* 帯の実測高さを CSS へ返す。折返し・セーフエリア・文字サイズの違いを吸収する */
+  var band=document.querySelector('.h53-copy');if(!band)return;
+  var root=document.documentElement;
+  function put(){var h=Math.ceil(band.getBoundingClientRect().height);
+    if(h>0)root.style.setProperty('--h53-copy-h',h+'px');}
+  put();
+  if(typeof ResizeObserver==='function')new ResizeObserver(put).observe(band);
+  addEventListener('resize',put);addEventListener('orientationchange',function(){setTimeout(put,220);});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(put);
+  /* 操作の段の高さも自前で測る。共有の直接操作scriptが効かなくても作品名が段に被らない */
+  function watch(dock){
+    function h(){var v=Math.ceil(dock.getBoundingClientRect().height);
+      if(v>0)root.style.setProperty('--h53-primary-height',v+'px');}
+    h();if(typeof ResizeObserver==='function')new ResizeObserver(h).observe(dock);
+  }
+  var dock=document.getElementById('composerPrimary');
+  if(dock)watch(dock);
+  else if(typeof MutationObserver==='function'){
+    var mo=new MutationObserver(function(){var d=document.getElementById('composerPrimary');
+      if(d){mo.disconnect();watch(d);}});
+    mo.observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+<script defer src="h53-dismiss-v1-20260921.js"></script>
+</body>
+</html>

@@ -20,6 +20,7 @@ function merge(){var o={};for(var i=0;i<arguments.length;i++){var m=arguments[i]
 /* ② 操作釦。言語に関わらず英語にする */
 var CONTROLS={
  '*':{'SW':'Next view','TOUR':'Tour','ERA':'Era','視点リセット':'Reset view','next shot':'Next shot','deploy':'Deploy','stow':'Stow','遠 ⟷ 近':'Far ⟷ Near','origin':'Origin','視線を戻す':'Reset view'},
+ 'armillary':{'全景':'Overview','中景':'Middle','環':'Rings','核':'Core','縁':'Rim','motion':'Pause','paused':'Resume'},
  'sanctum':{'全景':'Overview','斜め':'Oblique','真上':'From above','環':'Ring','受け':'Cradle','motion':'Pause','paused':'Resume'},
  'lacto-cortex':{'タンク':'Tank','脳':'Brain','下部':'Lower','電源盤':'Power panel','回転台':'Turntable','motion':'Pause','paused':'Resume'},
  /* 四つ目の視点は機械の背後（z −3.3）の接続盤を映している。説明文の語に合わせる */
@@ -50,6 +51,7 @@ var VIEWS={
  'cortex-pylon':{'上部梁':'Upper beam','全景':'Overview','文字リング':'Text ring','炉心':'Core','見上げ':'Looking up'},
  'lacto-empyrean':merge(VIEWS_A,{'ラック滑走':'Rack glide','低空滑走':'Low glide','単体':'Single unit','回廊':'Corridor','大聖堂':'Cathedral'}),
  'lacto-mandala':merge(VIEWS_A,{'供給ライン':'Supply line','供給網':'Supply network','円環軸':'Ring axis','参道低空':'Low over the approach','外周回廊':'Outer corridor','曼荼羅':'Mandala','直径縦断':'Across the diameter'}),
+ 'armillary':{'全景':'Overview','中景':'Middle','環':'Rings','核':'Core','縁':'Rim'},
  'sanctum':{'全景':'Overview','斜め':'Oblique','真上':'From above','環':'Ring','受け':'Cradle'}
 };
 /* ③ 共通の表記 */

@@ -387,6 +387,33 @@ The ring has never been opened. There is a record of the day it was sealed, but 
 
 ---
 
+## ASSET 25 — The Armillary v1
+
+**位相** PHASE 5 · RESIDUAL WORLD
+
+**観測ログ** `Arrival was logged. Departure was not scheduled.`
+
+**説明 JA**
+外洋の孤島、その山頂に据わる渾天儀。地面に少し沈んだ球電の殻の中で、青緑・桃・白・灰の四重のガラスの環が、向きも速さも定めずに回り続ける。中心の黒いもやからは文字の雨が降り、脳核、会長室のメトロノーム、ウエハーの三つの形を順に結ぶ。視点は自由に回してよい。
+
+**説明 EN**
+An armillary sphere set upon the summit of a lone island in the open ocean. Within a shell of ball lightning sunk a little into the ground, four rings of glass — turquoise, pink, white and grey — turn without any fixed direction or speed. From the black haze at its centre a rain of characters falls, and resolves three forms in turn: the brain core, the metronome from the chairman's room, and the wafer. The view turns freely.
+
+**断章 JA**
+島には港がない。測量の記録では、山頂には草と岩しかない。球はある日の黄昏に届き、地面を丸く抉って止まった。抉られた縁は、いまも冷えきらない。環は四つあり、互いに指一本ぶんの隙間を保って入れ子になっている。どの環にも軸は無く、回る向きも速さも一定しない。回す力の出どころを調べた者は、欄に「該当なし」と書いた。中心のもやには社の物だけが映る。脳核、会長室の卓上の振子、最初のウエハー。振子は毎分七十七拍で振れ、映像の側にも速さを変える手段は無い。映る順は台帳と一致し、映らない物の一覧は作られていない。観測は沖に停めた船から行われている。日が落ちると、環の色だけが海に落ちる。
+
+**断章 EN**
+The island has no harbour. By the survey, the summit holds nothing but grass and rock. The sphere arrived one evening at dusk, cut the ground into a round hollow and came to rest. The rim of the hollow has not cooled even now. There are four rings, nested one within another with the width of a finger between them. None of them has an axle, and neither the direction nor the rate of their turning holds constant. The one who looked for the source of the force that turns them wrote in the field: none applicable. Only the company's things appear in the haze at the centre: the brain core, the pendulum from the desk in the chairman's room, the first wafer. The pendulum swings at seventy-seven beats a minute, and the image, too, has no means of changing its rate. The order in which they appear agrees with the ledger; no list has been made of the things that do not appear. Observation is carried out from a ship lying offshore. When the sun goes down, only the colours of the rings fall upon the sea.
+
+**v1（2026-09-23）**
+- Sanctum v5 のジンバル（『コンタクト』由来の構造）を独立させた新作。Sanctum v6 はトーラスだけの作品になった
+- 外洋の孤島の山頂、黄昏。地面に 0.6 m めり込んだ半径 3.2 m の球電の殻が地面を球面に抉り、縁は冷えかけの赤熱
+- 環は着色ガラスの球帯（軸方向の幅 0.24 m・径方向の厚み 0.06 m、外面は環と同じ直径の球面）を四本、12 mm の隙間で同心に入れ子にする。色は青緑 #00ddc8・桃 #ff05a8・白 #f2dbe9・灰 #525761。軸を持たず、環ごとに回転軸の向きも速さも不規則に変わる
+- 中心の黒いもやから、コードレインのホログラムが脳核・会長室のメトロノーム（毎分七十七拍）・Cyberwafer の順に浮かぶ
+- 制作を Blender で行い、web は three.js r128 で実時間描画（地面と岩の照らされ方は焼き込み、環・殻・放電・もや・文字は実時間）。視点は 全景・中景・環・核・縁 の五つで、自由に回せる
+
+---
+
 ## ASSET 13 — Lacto-Massif v11
 
 **位相** PHASE 5 · RESIDUAL WORLD
