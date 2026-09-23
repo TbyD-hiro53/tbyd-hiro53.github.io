@@ -1,18 +1,18 @@
 /* Only controls participate in this layout; scene/camera containers are unchanged. */
 .h53-direct-layout{--h53-primary-height:44px}
-.h53-direct-layout .h53-primary-controls{position:fixed!important;left:calc(16px + env(safe-area-inset-left))!important;right:calc(16px + env(safe-area-inset-right))!important;bottom:calc(30px + env(safe-area-inset-bottom))!important;top:auto!important;width:auto!important;max-width:none!important;transform:none!important;display:flex;flex-direction:row!important;flex-wrap:wrap!important;align-items:center;justify-content:center;gap:8px!important;pointer-events:none;box-sizing:border-box;z-index:6}
+.h53-direct-layout .h53-primary-controls{position:fixed!important;left:calc(16px + env(safe-area-inset-left))!important;right:calc(16px + env(safe-area-inset-right))!important;bottom:var(--h53-copy-clear,calc(30px + env(safe-area-inset-bottom)))!important;top:auto!important;width:auto!important;max-width:none!important;transform:none!important;display:flex;flex-direction:row!important;flex-wrap:wrap!important;align-items:center;justify-content:center;gap:8px!important;pointer-events:none;box-sizing:border-box;z-index:6}
 .h53-direct-layout .h53-primary-controls[hidden]{display:none!important}
 .h53-direct-layout .h53-primary-controls>button,.h53-direct-layout .h53-primary-controls>label{position:relative!important;inset:auto!important;transform:none!important;flex:0 1 auto;min-height:44px;max-width:100%;box-sizing:border-box;pointer-events:auto;touch-action:manipulation}
 .h53-direct-layout .h53-primary-controls>button{display:inline-flex;align-items:center;justify-content:center;white-space:normal;padding:0 14px;border:1px solid #ffffff33;border-radius:999px;color:inherit;font:12px/1.35 var(--mono,-apple-system,BlinkMacSystemFont,'Helvetica Neue','Hiragino Sans',sans-serif);letter-spacing:.04em}
 .h53-direct-layout .h53-primary-controls>button[aria-pressed=true]{color:#b7fff2;border-color:#b7fff277}
-.h53-direct-layout .composer-title,.h53-direct-layout .legacy-three-title{bottom:calc(46px + env(safe-area-inset-bottom) + var(--h53-primary-height));max-width:calc(100% - 44px)}
+.h53-direct-layout .composer-title,.h53-direct-layout .legacy-three-title{bottom:calc(var(--h53-copy-clear,calc(30px + env(safe-area-inset-bottom))) + 16px + var(--h53-primary-height));max-width:calc(100% - 44px)}
 .h53-direct-layout .composer-zoom{width:230px;max-width:100%;padding:0 12px;min-height:44px;gap:10px}
 .h53-direct-layout .composer-zoom input{min-height:44px}
 .h53-direct-layout #composerPrimary,.h53-direct-layout #legacyThreePrimary{color:#f3f4f5}
 .h53-direct-layout #composerMenuContent>button,.h53-direct-layout #legacyThreeContent>button{box-sizing:border-box;max-width:100%}
 .h53-direct-layout #svgPrimary{color:inherit}
 .h53-direct-layout #svgPrimary #bgbtn{display:inline-flex!important;visibility:visible!important;min-width:88px}
-.h53-direct-layout #svgPrimary{left:calc(128px + env(safe-area-inset-left))!important;right:calc(88px + env(safe-area-inset-right))!important;bottom:calc(36px + env(safe-area-inset-bottom))!important}
+.h53-direct-layout #svgPrimary{left:calc(128px + env(safe-area-inset-left))!important;right:calc(88px + env(safe-area-inset-right))!important;bottom:var(--h53-copy-clear,calc(36px + env(safe-area-inset-bottom)))!important}
 .h53-direct-layout #h53-menu-toggle{top:calc(14px + env(safe-area-inset-top));bottom:auto}
 .h53-direct-layout #h53-menu-panel{top:calc(70px + env(safe-area-inset-top));bottom:auto}
 .h53-direct-layout[data-h53-work=earth-origin-material] #back{top:calc(14px + env(safe-area-inset-top));left:calc(16px + env(safe-area-inset-left));bottom:auto}
@@ -30,4 +30,14 @@
 .h53-direct-layout[data-h53-work=the-changes] #view-next{display:none!important}
 .h53-direct-layout[data-h53-work=the-changes] #hud{right:calc(100px + env(safe-area-inset-right));max-width:calc(100% - 142px)}
 .h53-direct-layout[data-h53-work=binary-dusk] #menu,.h53-direct-layout[data-h53-work=binary-dusk] #info{bottom:calc(48px + env(safe-area-inset-bottom) + var(--h53-primary-height))}
-@media(max-height:520px) and (orientation:landscape){.h53-direct-layout .composer-title,.h53-direct-layout .legacy-three-title{left:calc(120px + env(safe-area-inset-left));right:calc(130px + env(safe-area-inset-right));top:calc(18px + env(safe-area-inset-top));bottom:auto;max-width:none}.h53-direct-layout .composer-title small,.h53-direct-layout .legacy-three-title small{display:none}.h53-direct-layout[data-h53-work=chrome-liturgy] #editionPicker{bottom:calc(38px + env(safe-area-inset-bottom) + var(--h53-primary-height))}.h53-direct-layout .h53-primary-controls{bottom:calc(22px + env(safe-area-inset-bottom))!important}}
+@media(max-height:520px) and (orientation:landscape){.h53-direct-layout .composer-title,.h53-direct-layout .legacy-three-title{left:calc(120px + env(safe-area-inset-left));right:calc(130px + env(safe-area-inset-right));top:calc(18px + env(safe-area-inset-top));bottom:auto;max-width:none}.h53-direct-layout .composer-title small,.h53-direct-layout .legacy-three-title small{display:none}.h53-direct-layout[data-h53-work=chrome-liturgy] #editionPicker{bottom:calc(38px + env(safe-area-inset-bottom) + var(--h53-primary-height))}.h53-direct-layout .h53-primary-controls{bottom:var(--h53-copy-clear,calc(22px + env(safe-area-inset-bottom)))!important}}
+/* 著作権表記が画面の左右端に接していた（Vacant Seat・Preservation Hall）。角の丸い端末で欠けないよう内側に余白を取る */
+.h53-direct-layout #cr{box-sizing:border-box;padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
+/* 「遠 ⟷ 近」の札が狭い画面で縦三行に潰れていた。札は折り返さず、残りの幅をつまみに渡す */
+.h53-direct-layout .composer-zoom{white-space:nowrap}
+/* The Changes：上下二段がどちらも「海の駅」から始まり、段の違い（視点／場所）が見分けられなかった。各段の上に小さく名を置く（行頭に置くと上段が折り返して三段になる） */
+.h53-direct-layout[data-h53-work=the-changes] #views::before,.h53-direct-layout[data-h53-work=the-changes] #scenes::before{flex:0 0 100%;margin-bottom:-2px;font:600 10px/1 ui-monospace,"SF Mono",Menlo,"Hiragino Sans",sans-serif;letter-spacing:.2em;color:#ffffffb3;text-shadow:0 1px 3px #000b;text-align:center;pointer-events:none}
+.h53-direct-layout[data-h53-work=the-changes] #views::before{content:"視点"}
+.h53-direct-layout[data-h53-work=the-changes] #scenes::before{content:"場所"}
+/* 明るい場面（Messis の床、Mandala の光柱）で白い釦の字が背景に溶けていた。ガラスの見え方は変えず、字にだけ薄い影を敷く */
+.h53-direct-layout .h53-primary-controls>button,.h53-direct-layout .composer-zoom,.h53-direct-layout .composer-top>*,.h53-direct-layout .legacy-three-top>*,.h53-direct-layout .composer-title,.h53-direct-layout .legacy-three-title{text-shadow:0 1px 2px #000000b3,0 0 10px #00000080}

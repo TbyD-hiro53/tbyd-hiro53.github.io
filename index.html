@@ -382,6 +382,16 @@ body{background:var(--ground);color:var(--ink);
 .phase:active{transform:scale(.94)}
 .phase:focus-visible{outline:2px solid var(--turq);outline-offset:3px}
 @media (prefers-reduced-motion: reduce){.phase{transition:none}}
+/* 狭い画面では帯が一行に収まらず、相の釦が画面の外へ押し出されていた
+   （実測：375px で +10px、360px で +25px の横はみ出し）。
+   札を「Plate 00」だけにし、間を詰めて収める */
+.rail>span:first-child{white-space:nowrap}
+@media(max-width:520px){
+  .rail{gap:8px}
+  .rail>span:nth-child(2),.rail>span:nth-child(3){display:none}
+}
+/* 起動ログの一行（約40字）が 360px 幅で折り返さないよう、字を少しだけ詰める */
+@media(max-width:400px){.term{font-size:10.5px;padding-inline:12px}}
 
 /* ── 登録簿。頁は移らない。系統はその場で開く ── */
 .arch{padding-block:clamp(16px,4vw,26px) 0}
@@ -801,8 +811,8 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <span class="thumb"><img src="lacto-empyrean-thumb.jpg" alt="Lacto-Empyrean v7 — 奥へ連なる培養槽の列" width="640" height="640" loading="lazy" decoding="async"></span>
     <span class="ent-body"><div class="row"><span class="idx">ASSET 10</span><span class="name">Lacto-Empyrean v7</span></div>
     <p class="log">Every module reported the same memory.</p>
-  <p class="desc" lang="ja">培養槽が直線に連なる回廊。ドローン視点が配列を巡回し、SWでアングル切替、TOURで自動巡回に入る。左のスライダーで遠近を操作。v7で経路と構図を精緻化。</p>
-  <p class="desc" lang="en">A corridor of culture chambers in line. A drone viewpoint circuits the array; SW switches angles and TOUR begins an automatic pass. The slider at the left controls distance. v7 refines the path and its framing.</p>
+  <p class="desc" lang="ja">培養槽が直線に連なる回廊。ドローン視点が配列を巡回し、Next viewでアングル切替、Tourで自動巡回に入る。スライダーで遠近を操作。v7で経路と構図を精緻化。</p>
+  <p class="desc" lang="en">A corridor of culture chambers in line. A drone viewpoint circuits the array; Next view switches angles and Tour begins an automatic pass. The slider controls distance. v7 refines the path and its framing.</p>
   <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Drone tour</span></div></span>
   </a>
   <details class="frag">
@@ -815,8 +825,8 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <span class="thumb"><img src="lacto-mandala-thumb.jpg" alt="Lacto-Mandala v2 — 放射スポークに整列した培養槽群" width="640" height="640" loading="lazy" decoding="async"></span>
     <span class="ent-body"><div class="row"><span class="idx">ASSET 11</span><span class="name">Lacto-Mandala v2</span></div>
     <p class="log">Presence was detected across every inactive system.</p>
-      <p class="desc" lang="ja">五重の同心輪に各五基、放射する五本のスポークへ整列した配列。シネマティックな巡回で全景が開かれ、上下の黒帯とキャプションが入る。SWで視点切替、TOURで自動巡回。</p>
-      <p class="desc" lang="en">Five concentric rings, five units to a ring, aligned along five radiating spokes. A cinematic pass opens the whole, with letterbox bars and captions. SW switches viewpoints; TOUR begins the automatic circuit.</p>
+      <p class="desc" lang="ja">五重の同心輪に各五基、放射する五本のスポークへ整列した配列。シネマティックな巡回で全景が開かれ、上下の黒帯とキャプションが入る。Next viewで視点切替、Tourで自動巡回。</p>
+      <p class="desc" lang="en">Five concentric rings, five units to a ring, aligned along five radiating spokes. A cinematic pass opens the whole, with letterbox bars and captions. Next view switches viewpoints; Tour begins the automatic circuit.</p>
       <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Cinematic</span></div></span>
   </a>
   <details class="frag">
@@ -829,9 +839,9 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <span class="thumb"><img src="sanctum-thumb.jpg" alt="Sanctum — ガントリーに吊られた融合炉とプラズマ核" width="640" height="640" loading="lazy" decoding="async"></span>
     <span class="ent-body"><div class="row"><span class="idx">ASSET 12</span><span class="name">Sanctum v5</span></div>
     <p class="log">Purpose expired. Maintenance continued.</p>
-  <p class="desc" lang="ja">地下大空洞の聖域。融合炉と脳核、洞壁へ貫入する極太送電幹線を、岩殻ドームと鍾乳石が囲む。ERAで階調をY2Kと現行に切り替え、SWで視点を巡回。旧Vault v4を統合。</p>
-  <p class="desc" lang="en">A sanctum in a subterranean cavern. A fusion core and a brain core, with heavy power trunks driven into the rock wall, enclosed by a dome of stone and stalactites. ERA switches the grade between Y2K and the current one; SW cycles the viewpoints. Absorbs the former Vault v4.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">ERA switch</span></div></span>
+  <p class="desc" lang="ja">地下大空洞の聖域。融合炉と脳核、洞壁へ貫入する極太送電幹線を、岩殻ドームと鍾乳石が囲む。Eraで階調をY2Kと現行に切り替え、Next viewで視点を巡回。旧Vault v4を統合。</p>
+  <p class="desc" lang="en">A sanctum in a subterranean cavern. A fusion core and a brain core, with heavy power trunks driven into the rock wall, enclosed by a dome of stone and stalactites. Era switches the grade between Y2K and the current one; Next view cycles the viewpoints. Absorbs the former Vault v4.</p>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Era switch</span></div></span>
   </a>
   <details class="frag">
     <summary><span>PHASE 5 · RESIDUAL WORLD</span></summary>
@@ -857,8 +867,8 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <span class="thumb"><img src="lacto-caloris-thumb.jpg" alt="Lacto-Caloris — 電波暗室に据わる円筒の演算装置と螺旋に開いた放熱板" width="640" height="640" loading="lazy" decoding="async"></span>
     <span class="ent-body"><div class="row"><span class="idx">ASSET 14</span><span class="name">Lacto-Caloris v2</span></div>
     <p class="log">Radiated. Nothing received it.</p>
-  <p class="desc" lang="ja">真空環境専用の演算装置。18段72基の演算トレイを中央帯の培養脳が統率し、神経幹が背面区画を縦に走る。大電力の熱は輻射でしか捨てられず、頂部の薄板30枚が負荷に応じて螺旋を描いて展開する。内径42 mの電波暗室に1基。DEPLOYで開閉。脳・回転台・放熱板・接続盤の四つを軸に、視点は自由に回してよい。</p>
-  <p class="desc" lang="en">A computing engine for vacuum alone. Seventy-two trays across eighteen levels are marshalled by the cultured brain in the central band, its nerve trunks running vertically through the rear raceway. Heat from the great draw can be shed only by radiation, so thirty thin plates at the crown unfurl into a helix as the load demands. One unit in an anechoic chamber forty-two metres across. DEPLOY opens and stows it; four subjects — brain, turntable, radiator, pedestal — anchor a view that turns freely.</p>
+  <p class="desc" lang="ja">真空環境専用の演算装置。18段72基の演算トレイを中央帯の培養脳が統率し、神経幹が背面区画を縦に走る。大電力の熱は輻射でしか捨てられず、頂部の薄板30枚が負荷に応じて螺旋を描いて展開する。内径42 mの電波暗室に1基。Deployで開閉。脳・回転台・放熱板・接続盤の四つを軸に、視点は自由に回してよい。</p>
+  <p class="desc" lang="en">A computing engine for vacuum alone. Seventy-two trays across eighteen levels are marshalled by the cultured brain in the central band, its nerve trunks running vertically through the rear raceway. Heat from the great draw can be shed only by radiation, so thirty thin plates at the crown unfurl into a helix as the load demands. One unit in an anechoic chamber forty-two metres across. Deploy opens and stows it; four subjects — brain, turntable, radiator, connector panel — anchor a view that turns freely.</p>
   <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">deployable</span></div></span>
   </a>
   <details class="frag">
@@ -871,8 +881,8 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <span class="thumb"><img src="lacto-messis-thumb.jpg" alt="Lacto-Messis — 42基の演算装置のあいだを走る配電ケーブルと放熱板の天蓋" width="640" height="640" loading="lazy" decoding="async"></span>
     <span class="ent-body"><div class="row"><span class="idx">ASSET 15</span><span class="name">Lacto-Messis v1</span></div>
     <p class="log">One source, thirteen mouths.</p>
-  <p class="desc" lang="ja">三重星の衛星UY0311に築かれた受電の敷地。15 mの塔が四光年の彼方から届く三条の螺旋を皿で受け、14角形の甲板の上で42基の演算装置——中央帯の培養脳が72盤を統率するLacto-Caloris同型——へ配られる。地平には同型の局が12、平行なビームの列を立てる。DEPLOYで42基の放熱板が一斉に展開、RAILで自由視点。</p>
-  <p class="desc" lang="en">A power-reception site on UY0311, a moon under three suns. The 15-metre tower catches three helical strands arriving from four light years away; across the fourteen-sided deck the power is distributed to forty-two computing units, each marshalled by the cultured brain in its central band. Twelve sister stations crowd the horizon, their beams standing in parallel. DEPLOY unfurls all forty-two radiators at once; RAIL frees the view.</p>
+  <p class="desc" lang="ja">三重星の衛星UY0311に築かれた受電の敷地。15 mの塔が四光年の彼方から届く三条の螺旋を皿で受け、14角形の甲板の上で42基の演算装置——中央帯の培養脳が72盤を統率するLacto-Caloris同型——へ配られる。地平には同型の局が12、平行なビームの列を立てる。Deployで42基の放熱板が一斉に展開する。</p>
+  <p class="desc" lang="en">A power-reception site on UY0311, a moon under three suns. The 15-metre tower catches three helical strands arriving from four light years away; across the fourteen-sided deck the power is distributed to forty-two computing units, each marshalled by the cultured brain in its central band. Twelve sister stations crowd the horizon, their beams standing in parallel. Deploy unfurls all forty-two radiators at once.</p>
   <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">deployable</span></div></span>
   </a>
   <details class="frag">
@@ -1646,8 +1656,25 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     var g=h?key(h):null;
     if(g) set(g,true);
   }
+  /* 作品から戻ってきたときは、その作品の系統を開き、その作品の札まで下ろす。
+     遷移元は同じサイトの作品ページ（referrer）で見る。再読込・履歴移動では何もしない
+     （そのときはブラウザ自身が位置を戻す）。 */
+  function back(){
+    if(location.hash) return false;
+    var nav=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];
+    if(nav&&nav.type!=='navigate') return false;
+    var m=/^https?:\/\/[^\/]+\/([a-z0-9-]+\.html)(?:[?#].*)?$/.exec(document.referrer||'');
+    if(!m||document.referrer.indexOf(location.origin+'/')!==0||m[1]==='index.html') return false;
+    var a=document.querySelector('.entry-main[href="'+m[1]+'"]'),g=a&&a.closest('.grp');
+    if(!g) return false;
+    set(g,false); hash(g.getAttribute('data-lin'));
+    var y=a.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop)-Math.round(innerHeight*0.25);
+    window.scrollTo(0,Math.max(0,y));
+    try{ a.focus({preventScroll:true}); }catch(e){}
+    return true;
+  }
   window.addEventListener('hashchange',route);
-  route();
+  if(!back()) route();
 })();
 
 /* 明暗の切替。押すまでは端末の設定に従い、押した相は次に来たときも保たれる */

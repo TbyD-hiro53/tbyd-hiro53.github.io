@@ -322,10 +322,10 @@ The outer and inner graduations revolve against one another, and whichever is ta
 **観測ログ** `Every module reported the same memory.`
 
 **説明 JA**
-培養槽が直線に連なる回廊。ドローン視点が配列を巡回し、SWでアングル切替、TOURで自動巡回に入る。左のスライダーで遠近を操作。v7で経路と構図を精緻化。
+培養槽が直線に連なる回廊。ドローン視点が配列を巡回し、Next viewでアングル切替、Tourで自動巡回に入る。スライダーで遠近を操作。v7で経路と構図を精緻化。
 
 **説明 EN**
-A corridor of culture chambers in line. A drone viewpoint circuits the array; SW switches angles and TOUR begins an automatic pass. The slider at the left controls distance. v7 refines the path and its framing.
+A corridor of culture chambers in line. A drone viewpoint circuits the array; Next view switches angles and Tour begins an automatic pass. The slider controls distance. v7 refines the path and its framing.
 
 **断章 JA**
 標識の文字は極めて甘いと読める。番号は振られている。照会すれば応答もある。ただし何番を呼んでも、返ってくる記憶は同一だった。監査班は配線の誤りと見て、五十三基を物理的に切り離した。切り離した先でも同じ記憶が返った。報告書はこう結ぶ——合計は残っている、単位は取り出せない。以後、点検は総量でのみ行われる。
@@ -342,10 +342,10 @@ The lettering upon the sign may be read as exceedingly sweet. Numbers are assign
 **観測ログ** `Presence was detected across every inactive system.`
 
 **説明 JA**
-五重の同心輪に各五基、放射する五本のスポークへ整列した配列。シネマティックな巡回で全景が開かれ、上下の黒帯とキャプションが入る。SWで視点切替、TOURで自動巡回。
+五重の同心輪に各五基、放射する五本のスポークへ整列した配列。シネマティックな巡回で全景が開かれ、上下の黒帯とキャプションが入る。Next viewで視点切替、Tourで自動巡回。
 
 **説明 EN**
-Five concentric rings, five units to a ring, aligned along five radiating spokes. A cinematic pass opens the whole, with letterbox bars and captions. SW switches viewpoints; TOUR begins the automatic circuit.
+Five concentric rings, five units to a ring, aligned along five radiating spokes. A cinematic pass opens the whole, with letterbox bars and captions. Next view switches viewpoints; Tour begins the automatic circuit.
 
 **断章 JA**
 輪は五。輪ごとに据えられたものも五。地を割く筋もまた五。どの位置から測っても距離が等しくなるよう、後から床が引き直されている。整列は信仰の形に似ている。似ているだけで、そう設計された証跡は無い。中心には何も据えられていない。巡回する視点はそこを何度も通過し、通過したことにも気づかない。応答はある。応答している者だけがいない。
@@ -362,10 +362,10 @@ Five to the rings. Five to what is seated upon each. Five, again, to the lines t
 **観測ログ** `Purpose expired. Maintenance continued.`
 
 **説明 JA**
-地下大空洞の聖域。融合炉と脳核、洞壁へ貫入する極太送電幹線を、岩殻ドームと鍾乳石が囲む。ERAで階調をY2Kと現行に切り替え、SWで視点を巡回。旧Vault v4を統合。
+地下大空洞の聖域。融合炉と脳核、洞壁へ貫入する極太送電幹線を、岩殻ドームと鍾乳石が囲む。Eraで階調をY2Kと現行に切り替え、Next viewで視点を巡回。旧Vault v4を統合。
 
 **説明 EN**
-A sanctum in a subterranean cavern. A fusion core and a brain core, with heavy power trunks driven into the rock wall, enclosed by a dome of stone and stalactites. ERA switches the grade between Y2K and the current one; SW cycles the viewpoints. Absorbs the former Vault v4.
+A sanctum in a subterranean cavern. A fusion core and a brain core, with heavy power trunks driven into the rock wall, enclosed by a dome of stone and stalactites. Era switches the grade between Y2K and the current one; Next view cycles the viewpoints. Absorbs the former Vault v4.
 
 **断章 JA**
 洞は掘られたのではない。冷却の都合で選ばれた岩体が、そのまま容れ物になっている。壁は磨かれず、鍾乳は落とされないまま残された。除去は工程に含まれず、含めない理由も問われなかった。幹線は洞壁の口へ深く入り、その先の区画図は別冊とされている。別冊は現在、この洞の中で保管されている。
@@ -409,10 +409,10 @@ Thirty-two columns stand in rings, and the one at their centre alone stands twic
 **観測ログ** `Radiated. Nothing received it.`
 
 **説明 JA**
-真空環境専用の演算装置。18段72基の演算トレイを中央帯の培養脳が統率し、神経幹が背面区画を縦に走る。大電力の熱は輻射でしか捨てられず、頂部の薄板30枚が負荷に応じて螺旋を描いて展開する。内径42 mの電波暗室に1基。DEPLOYで開閉。脳・回転台・放熱板・接続盤の四つを軸に、視点は自由に回してよい。
+真空環境専用の演算装置。18段72基の演算トレイを中央帯の培養脳が統率し、神経幹が背面区画を縦に走る。大電力の熱は輻射でしか捨てられず、頂部の薄板30枚が負荷に応じて螺旋を描いて展開する。内径42 mの電波暗室に1基。Deployで開閉。脳・回転台・放熱板・接続盤の四つを軸に、視点は自由に回してよい。
 
 **説明 EN**
-A computing engine for vacuum alone. Seventy-two trays across eighteen levels are marshalled by the cultured brain in the central band, its nerve trunks running vertically through the rear raceway. Heat from the great draw can be shed only by radiation, so thirty thin plates at the crown unfurl into a helix as the load demands. One unit in an anechoic chamber forty-two metres across. DEPLOY opens and stows it; four subjects — brain, turntable, radiator, pedestal — anchor a view that turns freely.
+A computing engine for vacuum alone. Seventy-two trays across eighteen levels are marshalled by the cultured brain in the central band, its nerve trunks running vertically through the rear raceway. Heat from the great draw can be shed only by radiation, so thirty thin plates at the crown unfurl into a helix as the load demands. One unit in an anechoic chamber forty-two metres across. Deploy opens and stows it; four subjects — brain, turntable, radiator, connector panel — anchor a view that turns freely.
 
 **断章 JA**
 この機械は大気のない場所でしか働かない。受けた電力のほとんどは熱になり、熱は伝わる先を持たない。だから板が開く。負荷が上がるほど深く螺旋を描き、下がれば畳まれて筒の中へ戻る。開閉の記録は残されているが、読む者の欄は空のままである。中央の帯では脳が七十二の盤を数え続けている。数えることが仕事なのか、数え終わることが仕事なのかは、仕様書のどこにも書かれていない。
@@ -448,10 +448,10 @@ This machine works only where there is no air. Most of the power it receives bec
 **観測ログ** `One source, thirteen mouths.`
 
 **説明 JA**
-三重星の衛星UY0311に築かれた受電の敷地。15 mの塔が四光年の彼方から届く三条の螺旋を皿で受け、14角形の甲板の上で42基の演算装置——中央帯の培養脳が72盤を統率するLacto-Caloris同型——へ配られる。地平には同型の局が12、平行なビームの列を立てる。DEPLOYで42基の放熱板が一斉に展開、RAILで自由視点。
+三重星の衛星UY0311に築かれた受電の敷地。15 mの塔が四光年の彼方から届く三条の螺旋を皿で受け、14角形の甲板の上で42基の演算装置——中央帯の培養脳が72盤を統率するLacto-Caloris同型——へ配られる。地平には同型の局が12、平行なビームの列を立てる。Deployで42基の放熱板が一斉に展開する。
 
 **説明 EN**
-A power-reception site on UY0311, a moon under three suns. The 15-metre tower catches three helical strands arriving from four light years away; across the fourteen-sided deck the power is distributed to forty-two computing units, each marshalled by the cultured brain in its central band. Twelve sister stations crowd the horizon, their beams standing in parallel. DEPLOY unfurls all forty-two radiators at once; RAIL frees the view.
+A power-reception site on UY0311, a moon under three suns. The 15-metre tower catches three helical strands arriving from four light years away; across the fourteen-sided deck the power is distributed to forty-two computing units, each marshalled by the cultured brain in its central band. Twelve sister stations crowd the horizon, their beams standing in parallel. Deploy unfurls all forty-two radiators at once.
 
 **断章 JA**
 この平原に季節はない。実りは四光年の彼方で刈られ、光の速さで届く。十三の局が同じ一条を分け合い、皿は俯かず、いつも同じ高さの空を向いている。甲板の上では四十二の頭脳が配当を数えている。数え終わる前に次の収穫が着く。だから記録には、完了の欄がない。

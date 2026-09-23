@@ -11,6 +11,20 @@ function boot(){
   var last=-1;function size(){var height=Math.ceil(dock.getBoundingClientRect().height);if(last!==height){last=height;body.style.setProperty('--h53-primary-height',height+'px');}}
   new ResizeObserver(size).observe(dock);size();
  }
+ /* 著作権表記は狭い画面で二行になり、固定 30px の上に置いた操作列へ食い込んでいた。
+    表記の上端を測り、操作列（と、その上の作品名）をそこから 6px 上に置く */
+ function clearCopy(dock){
+  /* 表記の要素は作品ごとに違う。Chrome Liturgy だけは body 直下の footer が表記（Binary Dusk の footer は操作列なので含めない） */
+  var copy=document.querySelector('.h53-copy,#cr,#copyright,body[data-h53-work=chrome-liturgy]>footer');
+  if(!copy||copy===dock||copy.contains(dock))return;
+  var last=-1;function size(){
+   var r=copy.getBoundingClientRect(),shown=r.height>0&&getComputedStyle(copy).display!=='none';
+   var clear=shown?Math.max(30,Math.ceil(innerHeight-r.top)+6):-1;
+   if(clear===last)return;last=clear;
+   if(clear<0)body.style.removeProperty('--h53-copy-clear');else body.style.setProperty('--h53-copy-clear',clear+'px');
+  }
+  new ResizeObserver(size).observe(copy);addEventListener('resize',size);size();
+ }
  function install(){
   if(done)return;
   var dock=by('composerPrimary')||by('legacyThreePrimary'),anchor=null;
@@ -24,7 +38,7 @@ function boot(){
   else if(slug==='binary-dusk'&&body.classList.contains('h53-liquid-host'))dock=by('controls');
   else if(body.classList.contains('code-rain-liquid')||(slug==='sigil-fusion'&&window.__svgLiquid)){done=true;observer.disconnect();return;}
   if(!dock)return;
-  done=true;observer.disconnect();dock.classList.add('h53-primary-controls');measure(dock);
+  done=true;observer.disconnect();dock.classList.add('h53-primary-controls');measure(dock);clearCopy(dock);
   // Direct controls do not bubble into legacy document/window gesture handlers.
   for(var type of ['pointerdown','pointerup','mousedown','mouseup','touchstart','touchend','wheel','click'])dock.addEventListener(type,function(e){e.stopPropagation();},{passive:true});
   window.__h53DirectControls={dock:dock,ready:true,report:function(){return {slug:slug,buttons:Array.from(dock.querySelectorAll('button,input')).filter(function(e){return !e.hidden;}).map(function(e){var r=e.getBoundingClientRect();return {id:e.id||e.dataset.legacyId||e.textContent.trim(),x:r.x,y:r.y,width:r.width,height:r.height};})};}};
