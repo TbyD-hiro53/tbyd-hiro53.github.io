@@ -34,7 +34,12 @@ var PLACES={
  'vacant-seat':{'机の前':'Before the desk','椅子の背後':'Behind the chair'},
  'preservation-hall':{'架の脇':'Beside a pod','端末の前':'Before the terminal','戸':'The door'},
  'confluence':{'岸の道':'Shore path','円盤の真下':'Beneath a disc','床の切れ目':'Gap in the floor'},
- 'the-changes':{'海の駅':'Station by the sea','大きい駅':'Great station','車内':'Carriage'},
+ /* 視点の名は正典の英語の札（station by the sea / lines above and below / looking towards an immense tree）と、
+    各場面の叙述（低い建物と長い廊下、壁の刻み、包の載った給養口）に合わせて付けた */
+ 'the-changes':{'海の駅':'Station by the sea','大きい駅':'Great station','車内':'Carriage',
+  '旧い建物':'The old building','元の部屋':'The former room','隣の刻み':'The next recess',
+  '上下の線':'Lines above and below','待合':'Waiting room','給養口':'Feed hatch',
+  '樹を望む席':'Seat facing the tree','根のそば':'Beside the roots'},
  /* 四つの立ち場所は漢数字の札。英語表示では算用数字にする（名は正典の英語の札にあるが、釦は番号のまま） */
  'earth-origin-material':{'一':'1','二':'2','三':'3','四':'4'}
 };

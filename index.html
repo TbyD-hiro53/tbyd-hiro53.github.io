@@ -592,7 +592,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
   <h2 class="sec">Lineages</h2>
   <p class="sec-d" lang="ja">五つの系統。番号順ではなく、造形の血筋で束ねてある。系統を押すと、その群だけが開く。</p>
   <p class="sec-d" lang="en">Five lineages. Grouped by descent of form, not by number. Press one and that group alone opens.</p>
-  <div class="meta"><span>Creation archive</span><span id="count">25 assets</span></div>
+  <div class="meta"><span>Creation archive</span><span id="count">31 works</span></div>
   <div class="ledger">
 <section class="grp" data-lin="wafer">
   <button type="button" class="lg-row" aria-expanded="false" aria-controls="lin-wafer">
@@ -1600,6 +1600,9 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
 })();
 (function(){
   var holdingsCount = document.querySelectorAll('.entry[data-k]').length;
+  /* 件数は総数だけを出す（ASSET と SOURCE を分けた数を並べると、どれが作品数か迷う） */
+  var countEl = document.getElementById('count');
+  if (countEl) countEl.textContent = holdingsCount + ' works';
   var lines = [
     "> mounting registry ......... <b>ok</b>",
     "> integrity check .......... <b>" + holdingsCount + " / " + holdingsCount + " sealed</b>",
