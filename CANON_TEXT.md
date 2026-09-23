@@ -13,10 +13,10 @@
 h!ro53による、ブラウザで鑑賞する生成アートとインタラクティブな3D作品群。
 
 **Viewing JA**
-各作品はブラウザ上で鑑賞できます。3D作品にはWebGL対応ブラウザが必要です。作品によっては画像や立体データの読み込みに時間がかかります。通信できる環境でご覧ください。
+各作品はブラウザ上で鑑賞できます。3D作品にはWebGL対応ブラウザが必要です。作品によっては画像や立体データの読み込みに時間がかかります。読み込み量が5 MBを超える作品には、一覧にその量を示しています。通信できる環境でご覧ください。
 
 **Viewing EN**
-The works can be viewed in a web browser. A WebGL-capable browser is required for 3D works. Some works may take time to load images and geometry data. Please view them with an internet connection.
+The works can be viewed in a web browser. A WebGL-capable browser is required for 3D works. Some works may take time to load images and geometry data. Works that load more than 5 MB show the amount in the list. Please view them with an internet connection.
 
 **制作・保存方針**
 単一HTMLを全作品の必須条件とせず、作品ごとに形式を選ぶ。承認済みの適用範囲・保存・検証・並行作業の規則は [TECHNICAL_POLICY.md](TECHNICAL_POLICY.md) を参照する。

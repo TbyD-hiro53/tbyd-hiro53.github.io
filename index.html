@@ -488,6 +488,8 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
 .list .entry-main .chip{font:600 8.5px/1 var(--mono);letter-spacing:.12em;padding:4px 7px;
   border-radius:99px;border:1px solid var(--line);color:var(--faint);background:transparent}
 .list .entry-main .chip.live{border-color:var(--turq);color:var(--turq)}
+/* 読み込み量の札（5 MB を超える作品だけ。2026-09-23 スマートフォン表示で実測） */
+.list .entry-main .chip.size{color:var(--mag);border-color:color-mix(in srgb,var(--mag) 45%,var(--line))}
 .list .frag{margin:0 0 10px 168px}
 .list .frag summary{font:400 9.5px/1.4 var(--mono);letter-spacing:.08em;color:var(--faint);
   cursor:pointer;padding:8px 0;min-height:36px;display:flex;align-items:center}
@@ -626,7 +628,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <span class="ent-body"><div class="row"><span class="idx">ASSET 21</span><span class="name">CHROME LITURGY</span></div>
     <p class="desc" lang="ja">Cyberwafer v25の構造と運動を、磨かれた金属と厚みのある光の文字で再構成。ピンクから赤へ移るT、青緑の文字環、循環するクローム円盤。ドラッグで回転、ピンチで拡大、タップで拍動。高精細写真にも切り替えて鑑賞できます。</p>
     <p class="desc" lang="en">The structure and motion of Cyberwafer v25, recast in polished metal and solid luminous lettering. A pink-to-red T, turquoise text rings and circulating chrome wafers. Drag to orbit, pinch to zoom, tap to pulse. Switch to the high-resolution photograph to view the rendered scene.</p>
-    <div class="spec"><span class="chip live">Live</span><span class="chip">Blender</span><span class="chip">Physical materials</span></div></span>
+    <div class="spec"><span class="chip live">Live</span><span class="chip">Blender</span><span class="chip">Physical materials</span><span class="chip size" title="読み込み量（スマートフォン表示での実測） / Data to load (measured on a phone)">6 MB</span></div></span>
   </a>
 
   <p class="phase-only">PHASE −1 · PRE-CAUSAL ANOMALIES</p>
@@ -638,7 +640,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <p class="desc" lang="en">Observation log of a floating glass-like object</p>
     <p class="desc" lang="ja">世界各地に突如出現した、正体不明のcyberwafer。その一体と周辺環境を夕景と夜景で観測し、対象に触れると短い観測記録が開く。</p>
     <p class="desc" lang="en">An observation of one of the unidentified cyberwafers that have suddenly appeared around the world, together with its surroundings. Switch between sunset and night, and touch an object to open its observation record.</p>
-    <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div></span>
+    <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span><span class="chip size" title="読み込み量（スマートフォン表示での実測） / Data to load (measured on a phone)">12 MB</span></div></span>
   </a>
 
   <p class="phase-only">PHASE 1 · THE FIRST T</p>
@@ -785,7 +787,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <p class="log">The nutrient cycle continued after cognition was redistributed.</p>
   <p class="desc" lang="ja">配列作品の基本単位である乳脳マイクロモジュール炉。内径42 mの電波暗室に1基を据え、円形の回転台に載せる。上部タンクの淡桃色の液が三本の管を下り、培養槽の皮質へ直接つながる。給養は管を流れる脈動で示される。背面の接続盤へは三本の極太ケーブルが床を這う。視点は自由に回してよい。</p>
   <p class="desc" lang="en">The lacto-cortex reactor, the base unit of the array works. One unit stands on a circular turntable in an anechoic chamber forty-two metres across. Pale pink medium from the upper tank descends through three tubes and meets the cortex in its culture chamber directly; the feeding shows as a swell travelling the length of each tube. Three heavy cables run along the floor to the service panel behind it. The view turns freely.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Bloom</span></div></span>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">Bloom</span><span class="chip size" title="読み込み量（スマートフォン表示での実測） / Data to load (measured on a phone)">23 MB</span></div></span>
   </a>
   <details class="frag">
     <summary><span>PHASE 3 · TRANSCENSION</span></summary>
@@ -869,7 +871,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <p class="log">Radiated. Nothing received it.</p>
   <p class="desc" lang="ja">真空環境専用の演算装置。18段72基の演算トレイを中央帯の培養脳が統率し、神経幹が背面区画を縦に走る。大電力の熱は輻射でしか捨てられず、頂部の薄板30枚が負荷に応じて螺旋を描いて展開する。内径42 mの電波暗室に1基。Deployで開閉。脳・回転台・放熱板・接続盤の四つを軸に、視点は自由に回してよい。</p>
   <p class="desc" lang="en">A computing engine for vacuum alone. Seventy-two trays across eighteen levels are marshalled by the cultured brain in the central band, its nerve trunks running vertically through the rear raceway. Heat from the great draw can be shed only by radiation, so thirty thin plates at the crown unfurl into a helix as the load demands. One unit in an anechoic chamber forty-two metres across. Deploy opens and stows it; four subjects — brain, turntable, radiator, connector panel — anchor a view that turns freely.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">deployable</span></div></span>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">deployable</span><span class="chip size" title="読み込み量（スマートフォン表示での実測） / Data to load (measured on a phone)">6 MB</span></div></span>
   </a>
   <details class="frag">
     <summary><span>PHASE 6 · UY0311</span></summary>
@@ -911,7 +913,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <p class="log">The suns set in order. The distance was not on file.</p>
   <p class="desc" lang="ja">巨大樹の枝から、二つの日と黄昏を観測する。ピンクの白とターコイズの白。空の三両編成と五基の円盤。左奥に海。SUNSETを押すと三分で日が沈み、夕闇へ続く。</p>
   <p class="desc" lang="en">From a branch of the giant tree, two suns and the ground below. Pink-white and turquoise-white. An empty three-car train, five turning discs, and the sea to the far left. SUNSET begins their descent; both suns set within three minutes, and twilight continues.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">sunset 3 min</span></div></span>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">sunset 3 min</span><span class="chip size" title="読み込み量（スマートフォン表示での実測） / Data to load (measured on a phone)">16 MB</span></div></span>
   </a>
   <details class="frag">
     <summary><span>PHASE 6–8 · UY0311</span></summary>
@@ -939,7 +941,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <p class="log">Every submission was accepted. None was received.</p>
   <p class="desc" lang="ja">第三作『個』で二人が目覚めた保存棟。起床から百六十日前後、二人はいない。七十二の架が十二段の雛壇に並び、開いているのは二つ。壁の端末には計測記録が流れ、二の行だけが〇・七八秒ごとに書き換わって常に較差外。根が壁から出て天井へ抜け、開いた戸の外に森。立てる場所は架の脇、端末の前、戸の三つ。首だけが動く。物に触れると観測記録が返る。</p>
   <p class="desc" lang="en">The preservation hall of THE INDIVIDUAL, where the two awoke. Some hundred and sixty days after waking; the two are absent. Seventy-two pods stand on twelve rising tiers, and two of them are open. On the wall terminal the measurement record runs; only its second line rewrites itself every 0.78 seconds, and it is always out of tolerance. A root comes out of the wall and passes through the ceiling, and beyond the open door there is a forest. Three places to stand: beside a pod, before the terminal, and at the door. Only the head turns. Touch a thing and it returns its record of observation.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div></span>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span><span class="chip size" title="読み込み量（スマートフォン表示での実測） / Data to load (measured on a phone)">25 MB</span></div></span>
   </a>
   <details class="frag">
     <summary><span>PHASE UNRESOLVED · THE INDIVIDUAL</span></summary>
@@ -953,7 +955,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <p class="log">Two, until the near water. One, after it.</p>
   <p class="desc" lang="ja">第九区、水路の合流点。四方から入った水は広さに混ざって向きを失い、日は二つ——ピンクの白とターコイズの白——が、大きいほうが水に触れかけたところで止まっている。水の上には光の道が二本、岸の近くで一本に混ざる。時間は動かない。動くのは円盤と波と、〇・七八秒の拍だけ。立てる場所は岸の道、円盤の真下、記録所の床の切れ目の三つ。首だけが動く。物に触れると観測記録が返る。</p>
   <p class="desc" lang="en">The confluence of the Ninth District. Water enters from four sides, mixes into the breadth and loses its direction; the two suns — one pink-white, one turquoise-white — are held at the moment the larger touches the water. Two paths of light lie on the surface and become one near the shore. Time does not move; only the discs, the waves and the 0.78-second pulse do. Three places to stand: the shore path, beneath a disc, and the gap in the floor of the record house. Only the head turns. Touch a thing and it returns its record of observation.</p>
-  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div></span>
+  <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span><span class="chip size" title="読み込み量（スマートフォン表示での実測） / Data to load (measured on a phone)">15 MB</span></div></span>
   </a>
   <details class="frag">
     <summary><span>PHASE UNRESOLVED · THE BLANK</span></summary>
@@ -980,7 +982,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     <span class="ent-body"><div class="row"><span class="idx">ASSET 22</span><span class="name">The Changes</span></div>
     <p class="desc" lang="ja">海辺の駅、上下の線が通る大きい駅、巨樹を望む車内。根の惑星の三つの情景を、動きと短い叙述でたどる。場面と固定カットを選び、物に触れるとその場所の文章が開く。波、葉、列車は動き続ける。</p>
     <p class="desc" lang="en">A station by the sea, a great station with lines above and below, and a carriage looking towards an immense tree. Three scenes on the planet of roots, observed through movement and short passages. Choose a scene and a fixed view; touch an object to open its description. Waves, leaves and trains continue to move.</p>
-    <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span></div></span>
+    <div class="spec"><span class="chip live">Live</span><span class="chip">WebGL</span><span class="chip">tap to inspect</span><span class="chip size" title="読み込み量（スマートフォン表示での実測） / Data to load (measured on a phone)">11 MB</span></div></span>
   </a>
 
   <p class="phase-only">PHASE UNRESOLVED · THE CHANGES</p>
@@ -1544,8 +1546,8 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
 
 <div class="notes">
   <h2>Viewing</h2>
-  <p lang="ja">各作品はブラウザ上で鑑賞できます。3D作品にはWebGL対応ブラウザが必要です。作品によっては画像や立体データの読み込みに時間がかかります。通信できる環境でご覧ください。</p>
-  <p lang="en">The works can be viewed in a web browser. A WebGL-capable browser is required for 3D works. Some works may take time to load images and geometry data. Please view them with an internet connection.</p>
+  <p lang="ja">各作品はブラウザ上で鑑賞できます。3D作品にはWebGL対応ブラウザが必要です。作品によっては画像や立体データの読み込みに時間がかかります。読み込み量が5 MBを超える作品には、一覧にその量を示しています。通信できる環境でご覧ください。</p>
+  <p lang="en">The works can be viewed in a web browser. A WebGL-capable browser is required for 3D works. Some works may take time to load images and geometry data. Works that load more than 5 MB show the amount in the list. Please view them with an internet connection.</p>
 </div>
 
 <details class="lore lic">

@@ -232,6 +232,14 @@ function css(){
   /* 著作権表記：作品ごとに 8〜9px で読めなかった。色の控えめさはそのまま、字だけ 10px にそろえる。
      下の操作列は表記の上端を実測して避ける（h53-direct-controls）ので、高さが増えても重ならない */
   '.h53-copy,#cr,#copyright,body[data-h53-chrome=chrome-liturgy]>footer{font-size:10px!important;letter-spacing:.02em!important}',
+  /* Chrome Liturgy：521px 以上と横向きでは題字が右上に並ぶ。右上へ移したメニューの下へ一段下げる */
+  '@media(min-width:521px),(max-height:500px){body[data-h53-chrome=chrome-liturgy] header #title{margin-top:52px}}',
+  /* 横向き（高さ 520px 以下）の重なり。Caloris は視点の釦を上に置くので作品名は左下のまま、
+     The Changes は右上の案内をメニューの手前で折り返す */
+  '@media(max-height:520px) and (orientation:landscape){body[data-h53-chrome=lacto-caloris] .composer-title{top:auto!important;right:auto!important;left:calc(22px + env(safe-area-inset-left))!important;bottom:calc(var(--h53-copy-clear,30px) + 4px)!important;max-width:40%}',
+  'body[data-h53-chrome=the-changes] #hud{right:calc(112px + env(safe-area-inset-right))!important;max-width:none!important}}',
+  /* Caloris：作品名は左下。著作権表記（10px・狭い画面で二行）の上端を実測した値の上に置く */
+  'body[data-h53-chrome=lacto-caloris] .composer-title{bottom:calc(var(--h53-copy-clear,32px) + 2px)!important}',
   /* Cellwafer：漢字と英字を重ねた札を、英語の一語にする */
   'body[data-h53-chrome=cellwafer] #cvBtn .jp{display:none}',
   'body[data-h53-chrome=cellwafer] #cvBtn .en{font-size:13px;letter-spacing:.08em}',
@@ -242,10 +250,34 @@ function css(){
  document.head.appendChild(s);
 }
 
+/* Code Rain 三作：左下の観測記録（#hudBL）・中央の案内（#hint）が著作権表記と同じ高さに固定されていて、
+   狭い画面では三つが重なっていた。表記の上端を測り、その上に置く。記録と案内が横に重なるときだけ案内を一段上げる */
+function stackCodeRain(){
+ if(slug.indexOf('code-rain')!==0)return;
+ var copy=document.querySelector('.h53-copy'),hud=document.getElementById('hudBL'),hint=document.getElementById('hint');
+ function shown(e){return e&&!e.hidden&&getComputedStyle(e).display!=='none'&&e.getBoundingClientRect().height>0;}
+ /* 値が変わるときだけ書く（書いた変更で監視が再び呼ぶので、同じ値の書き直しで循環させない） */
+ function set(e,v){if(e&&e.style.bottom!==v)e.style.bottom=v;}
+ function lay(){
+  var base=shown(copy)?Math.ceil(innerHeight-copy.getBoundingClientRect().top)+6:34,up=base;
+  if(shown(hud))set(hud,base+'px');
+  if(!hint)return;
+  if(shown(hud)&&shown(hint)){
+   /* 案内の字の幅は、いまの位置に関係なく横方向だけで判定できる */
+   var a=hud.getBoundingClientRect(),r=document.createRange();r.selectNodeContents(hint);var t=r.getBoundingClientRect();
+   if(t.left<a.right+8&&t.right>a.left)up=base+Math.ceil(a.height)+6;
+  }
+  set(hint,up+'px');
+ }
+ lay();addEventListener('resize',lay);
+ if(window.ResizeObserver){var ro=new ResizeObserver(lay);[copy,hud,hint].forEach(function(e){if(e)ro.observe(e);});}
+ /* 案内と記録は作品側が後から出し入れする。出入りのたびに測り直す */
+ [hud,hint].forEach(function(e){if(e)new MutationObserver(lay).observe(e,{attributes:true,childList:true,characterData:true,subtree:true});});
+}
 function start(){
  document.body.setAttribute('data-h53-chrome',slug);
  document.body.setAttribute('data-h53-lang',lang);
- css();pass(document.body);place();
+ css();pass(document.body);place();stackCodeRain();
  new MutationObserver(function(list){
   place();
   for(var i=0;i<list.length;i++){
