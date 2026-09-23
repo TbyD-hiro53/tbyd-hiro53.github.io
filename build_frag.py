@@ -7,6 +7,14 @@ Run with Python 3 from the repository root. No third-party dependencies.
 Use --viewing-only to update shared viewing notices and description metadata.
 Use --coastal-glass-only to register Coastal Glass without changing other works.
 Use --liquid-glass-sigil-scope-only to clarify SVG artwork/UI technical scope.
+Use --site-ux-only to reapply the holdings total and the data-size chips (2026-09-23).
+
+2026-09-23: the holdings count shows the total of all works ("31 works"), not the
+ASSET count. Every mode that writes index.html now goes through site_ux(), which
+rewrites the total and re-adds the data-size chips, so rebuilding a card never
+drops them. The START/END markers used by the registration modes are no longer
+present in index.html (cards were restructured on 2026-09-19); those modes stop
+with an "Unmanaged ..." error instead of duplicating cards.
 """
 from pathlib import Path
 import html
@@ -15,6 +23,40 @@ import sys
 
 root = Path(__file__).resolve().parent
 canon = (root / 'CANON_TEXT.md').read_text(encoding='utf-8')
+
+# Data to load, measured on a phone (2026-09-23, compressed transfer). Only works over 5 MB.
+# Re-measure when a work's assets are replaced.
+DATA_SIZE_MB = {'preservation-hall': 25, 'lacto-cortex': 23, 'binary-dusk': 16, 'confluence': 15,
+                'coastal-glass': 12, 'the-changes': 11, 'chrome-liturgy': 6, 'lacto-caloris': 6}
+SIZE_TITLE = '読み込み量（スマートフォン表示での実測） / Data to load (measured on a phone)'
+COUNT_PATTERN = r'(id="count">)(?:\d+ assets(?: \+ 1 study)?|\d+ works)(</span>)'
+
+
+def holdings_total(source):
+    return len(re.findall(r'<a class="entry-main" href="[^"]+\.html">', source))
+
+
+def site_ux(source):
+    """Holdings total (all works) and data-size chips. Idempotent."""
+    total = holdings_total(source)
+    source, count = re.subn(COUNT_PATTERN, lambda m: m[1] + str(total) + ' works' + m[2], source)
+    if count != 1:
+        raise ValueError('Expected one holdings count')
+    for slug, mb in DATA_SIZE_MB.items():
+        match = re.search(r'<a class="entry-main" href="' + re.escape(slug) + r'\.html">[\s\S]*?<div class="spec">([\s\S]*?)</div>', source)
+        if not match:
+            raise ValueError('Missing card for data size: ' + slug)
+        chips = re.sub(r'<span class="chip size"[^>]*>[^<]*</span>', '', match[1])
+        chips += '<span class="chip size" title="' + SIZE_TITLE + '">' + str(mb) + ' MB</span>'
+        source = source[:match.start(1)] + chips + source[match.end(1):]
+    return source
+
+
+if sys.argv[1:] == ['--site-ux-only']:
+    path = root / 'index.html'
+    path.write_text(site_ux(path.read_text(encoding='utf-8')), encoding='utf-8')
+    print('Reapplied holdings total and data-size chips.')
+    raise SystemExit(0)
 
 # Liquid Glass is a UI renderer; preserve the native SVG artwork description.
 if sys.argv[1:] == ['--liquid-glass-sigil-scope-only']:
@@ -90,12 +132,7 @@ if sys.argv[1:] == ['--coastal-glass-only']:
             raise ValueError('Expected one Chrome Liturgy card')
         offset = source.index(anchor) + len(anchor)
         source = source[:offset] + '\n' + card + source[offset:]
-    # Preserve existing identifiers; CANON counts as one asset, as in other modes.
-    total = len(re.findall(r'<span class="idx">(?:ASSET \d+|CANON)</span>', source))
-    source, count = re.subn(r'(id="count">)\d+ assets(?: \+ 1 study)?(</span>)',
-                            lambda m: m[1] + str(total) + ' assets' + m[2], source)
-    if count != 1:
-        raise ValueError('Expected one holdings count')
+    source = site_ux(source)
     path.write_text(source, encoding='utf-8')
     print('Registered Coastal Glass from CANON_TEXT; all other entries preserved.')
     raise SystemExit(0)
@@ -128,9 +165,7 @@ if sys.argv[1:] == ['--changes-only']:
         if 'href="the-changes.html"' in source: raise ValueError('Unmanaged Changes card')
         at = source.index('<!-- ASSET20_END -->') + len('<!-- ASSET20_END -->')
         source = source[:at] + '\n' + card + source[at:]
-    total = len(re.findall(r'<span class="idx">(?:ASSET \d+|CANON)</span>', source))
-    source, count = re.subn(r'(id="count">)\d+ assets(?: \+ 1 study)?(</span>)', lambda m: m[1] + str(total) + ' assets' + m[2], source)
-    if count != 1: raise ValueError('Expected one holdings count')
+    source = site_ux(source)
     p.write_text(source, encoding='utf-8')
     print('Registered The Changes; all other entries preserved.')
     raise SystemExit(0)
@@ -175,11 +210,7 @@ if sys.argv[1:] == ['--asset20-only']:
             raise ValueError('Unmanaged ASSET 20 already exists')
         offset = source.index('</article>', source.index('href="confluence.html"')) + len('</article>')
         source = source[:offset] + '\n' + card + source[offset:]
-    # The CANON card is counted as a holding alongside numbered ASSET cards.
-    total = len(re.findall(r'<span class="idx">(?:ASSET \d+|CANON)</span>', source))
-    source, count = re.subn(r'(id="count">)\d+ assets(?: \+ 1 study)?(</span>)', lambda m: m[1] + str(total) + ' assets' + m[2], source)
-    if count != 1:
-        raise ValueError('Expected one holdings count')
+    source = site_ux(source)
     path.write_text(source, encoding='utf-8')
     print('Registered ASSET 20 from CANON_TEXT; all other entries preserved.')
     raise SystemExit(0)
@@ -242,14 +273,11 @@ if start in source:
     if n != 1:
         raise ValueError('Unexpected duplicate study block')
 else:
+    if 'href="empyrean-sigil-3d.html"' in source:
+        raise ValueError('Unmanaged Empyrean Sigil 3D card already exists; refusing to add a duplicate')
     target = source.index('href="empyrean-sigil.html"')
     position = source.index('</article>', target) + len('</article>')
     source = source[:position] + '\n' + card + source[position:]
-total = len(re.findall(r'<span class="idx">(?:ASSET \d+|CANON)</span>', source))
-source, n = re.subn(r'(id="count">)\d+ assets(?: \+ 1 study)?(</span>)',
-                    lambda m: m[1] + str(total) + ' assets' + m[2], source)
-if n != 1:
-    raise ValueError('Expected exactly one holdings count')
 source = source.replace('シリーズ 18 点。', 'シリーズ 18 点と独立Study 1 点。')
 lacto_title = re.search(r'^## ASSET 06 — (Lacto-Cortex v\d+)\s*$', canon, re.M)
 if not lacto_title:
@@ -273,5 +301,5 @@ for lang, field_name in [('ja', '説明 JA'), ('en', '説明 EN')]:
 # The existing thumbnail remains an earlier illustration of the asset.
 asset = re.sub(r'alt="Lacto-Cortex v\d+ —', 'alt="Lacto-Cortex —', asset)
 source = source[:asset_start] + asset + source[asset_end:]
-path.write_text(source, encoding='utf-8')
+path.write_text(site_ux(source), encoding='utf-8')
 print('Updated canonical study and Lacto-Cortex fields; preserved narrative.')
