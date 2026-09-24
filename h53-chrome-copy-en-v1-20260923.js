@@ -7,6 +7,13 @@ window.H53_CHROME_EN={
 "name": "The Armillary v1",
 "phase": "PHASE 5 · RESIDUAL WORLD"
 },
+"armillary-v2": {
+"desc": "An armillary sphere without rings, floating above the summit of a lone island in the open ocean. Within a shell of ball lightning held half a metre off the ground, four unseen spherical shells — turquoise, pink, white and grey — each carry a pair of triangular glass lenses set on opposite sides of the sphere, turning without any fixed direction or speed. From the black haze at its centre a rain of characters falls, and resolves three forms in turn: the brain core, the metronome from the chairman's room, and the wafer. The view turns freely.",
+"frag": "At the second survey, the sphere was not touching the ground. The grass on the summit lay unflattened, and there was no hollow cut into it. No rings could be counted. In their place are eight triangles of glass, two to each of four unseen shells, each set on the far side of the sphere from its partner. The two are apart, yet they turn the same way at the same rate. Nothing that joins them has been recorded. The gap between one shell and the next is two centimetres, and no pane has ever touched another shell. Now and then lightning crosses from beneath the shell to the ground and vanishes without scorching the grass. The things that appear in the haze at the centre, and their order, are unchanged from the previous record. In the ship's log, the name of the same island is written twice.",
+"log": "Second survey. No contact with the ground was recorded.",
+"name": "The Armillary v2",
+"phase": "PHASE 5 · RESIDUAL WORLD"
+},
 "binary-dusk": {
 "desc": "From a branch of the giant tree, two suns and the ground below. Pink-white and turquoise-white. An empty three-car train, five turning discs, and the sea to the far left. SUNSET begins their descent; both suns set within three minutes, and twilight continues.",
 "frag": "What can be seen from the bough is only what is being carried. The railway runs through the forest to the flat land, bends to the right in the distance, and enters the trees again. The trains pass the single station empty; the category of passenger has ended, and only the line persists. In the forest the discs go on turning with nothing on them. Far to the left the three rivers meet at one same angle and lose their direction in the sea, and the sea returns the setting suns as a grain of light. The suns are two: the larger touches the land first, wanes, and is gone. The order is always the same, and there is no field in which to record the distance.",

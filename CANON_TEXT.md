@@ -393,6 +393,8 @@ The ring has never been opened. There is a record of the day it was sealed, but 
 
 **観測ログ** `Arrival was logged. Departure was not scheduled.`
 
+**クレジット** 歴年のSF作品への熱烈なオマージュ（An ardent homage to the science fiction of years past）。作品ページの題の下と、一覧の札（Homage）に示す（2026-09-24）
+
 **説明 JA**
 外洋の孤島、その山頂に据わる渾天儀。地面に少し沈んだ球電の殻の中で、青緑・桃・白・灰の四重のガラスの環が、向きも速さも定めずに回り続ける。中心の黒いもやからは文字の雨が降り、脳核、会長室のメトロノーム、ウエハーの三つの形を順に結ぶ。視点は自由に回してよい。
 
@@ -411,6 +413,33 @@ The island has no harbour. By the survey, the summit holds nothing but grass and
 - 環は着色ガラスの球帯（軸方向の幅 0.24 m・径方向の厚み 0.06 m、外面は環と同じ直径の球面）を四本、12 mm の隙間で同心に入れ子にする。色は青緑 #00ddc8・桃 #ff05a8・白 #f2dbe9・灰 #525761。軸を持たず、環ごとに回転軸の向きも速さも不規則に変わる
 - 中心の黒いもやから、コードレインのホログラムが脳核・会長室のメトロノーム（毎分七十七拍）・Cyberwafer の順に浮かぶ
 - 制作を Blender で行い、web は three.js r128 で実時間描画（地面と岩の照らされ方は焼き込み、環・殻・放電・もや・文字は実時間）。視点は 全景・中景・環・核・縁 の五つで、自由に回せる
+
+---
+
+## ASSET 26 — The Armillary v2
+
+**位相** PHASE 5 · RESIDUAL WORLD
+
+**観測ログ** `Second survey. No contact with the ground was recorded.`
+
+**説明 JA**
+外洋の孤島、その山頂に浮かぶ、環を持たない渾天儀。地面から半メートルほど浮いた球電の殻の中で、青緑・桃・白・灰の四つの見えない球殻に、球の反対側どうしで対になった三角形のガラスのレンズが一組ずつ据わり、向きも速さも定めずに回り続ける。中心の黒いもやからは文字の雨が降り、脳核、会長室のメトロノーム、ウエハーの三つの形を順に結ぶ。視点は自由に回してよい。
+
+**説明 EN**
+An armillary sphere without rings, floating above the summit of a lone island in the open ocean. Within a shell of ball lightning held half a metre off the ground, four unseen spherical shells — turquoise, pink, white and grey — each carry a pair of triangular glass lenses set on opposite sides of the sphere, turning without any fixed direction or speed. From the black haze at its centre a rain of characters falls, and resolves three forms in turn: the brain core, the metronome from the chairman's room, and the wafer. The view turns freely.
+
+**断章 JA**
+二度目の測量では、球は地面に触れていなかった。山頂の草は伏してもおらず、抉られた跡もない。環は数えられなかった。代わりに三角形のガラスが八枚、四つの見えない殻に二枚ずつ、互いに球の裏側に据わっている。二枚は離れているのに、同じ向きへ、同じ速さで回る。つなぐものは記録されていない。殻と殻の隙間は二センチで、どの一枚もほかの殻に触れたことがない。稲妻はときおり殻の下から地面へ渡り、草を焦がさずに消える。中心のもやに映る物と、その順は、前の記録と変わらない。観測船の日誌には、同じ島の名が二度書かれている。
+
+**断章 EN**
+At the second survey, the sphere was not touching the ground. The grass on the summit lay unflattened, and there was no hollow cut into it. No rings could be counted. In their place are eight triangles of glass, two to each of four unseen shells, each set on the far side of the sphere from its partner. The two are apart, yet they turn the same way at the same rate. Nothing that joins them has been recorded. The gap between one shell and the next is two centimetres, and no pane has ever touched another shell. Now and then lightning crosses from beneath the shell to the ground and vanishes without scorching the grass. The things that appear in the haze at the centre, and their order, are unchanged from the previous record. In the ship's log, the name of the same island is written twice.
+
+**v2（2026-09-24）**
+- The Armillary v1 と並べる別の版（v1 は映画の視覚要素への露骨なオマージュに見えるため、作者の指示で作った）
+- 球電の殻（半径 3.2 m）は地面に接せず 0.5 m 浮かぶ。抉れ・縁の赤熱はなく、稲妻はときおり殻の下から隙間を渡って地面へ落ちる
+- 環の代わりに、環のあった四つの仮想球殻に、中心について点対称なレンズを一対ずつ。レンズは球殻の球面三角形（辺は大円の弧、各辺 1.3309 rad・立体角 0.991 sr）、厚み 90 mm、仮想球殻どうしの隙間 20 mm（外面の半径 2.70 / 2.59 / 2.48 / 2.37 m）。色は外から青緑 #00ddc8・桃 #ff05a8・白 #f2dbe9・灰 #525761。ガラスの色は厚みを通る吸収だけで出す。一対は一体で、向きも速さも不規則に回る
+- 中心の黒いもやとホログラム（脳核・会長室のメトロノーム・Cyberwafer）は v1 と同じ
+- 制作を Blender（build_g6.py）で行い、web は three.js r128 で実時間描画。視点は 全景・中景・レンズ・核・縁 の五つで、自由に回せる
 
 ---
 
