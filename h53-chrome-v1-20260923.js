@@ -26,7 +26,6 @@ var CONTROLS={
  'lacto-cortex':{'タンク':'Tank','脳':'Brain','下部':'Lower','電源盤':'Power panel','回転台':'Turntable','motion':'Pause','paused':'Resume'},
  /* 四つ目の視点は機械の背後（z −3.3）の接続盤を映している。説明文の語に合わせる */
  'lacto-caloris':{'brain':'Brain','turntable':'Turntable','radiator':'Radiator','pedestal':'Connector panel'},
- 'cortex-pylon':{'視点':'Next view','リセット':'Reset view','自動回転':'Auto-rotate'},
  'object':{'背景: サイバー':'Background: Cyber','背景: 暗':'Background: Dark','背景: グラデ':'Background: Gradient'},
  /* 釦は「収束」と「CONVERGE」を重ねた札。共有の操作列はその字を連ねて写すので、漢字の側を空にする */
  'cellwafer':{'CONVERGE':'Converge','収束':''},
@@ -47,11 +46,7 @@ var PLACES={
  'earth-origin-material':{'一':'1','二':'2','三':'3','四':'4'}
 };
 /* 視点の名（メニューの状態欄・巡回の字幕に出る）。英語表示のときだけ替える。短い語でも作品固有の語なので場所を問わない */
-var VIEWS_A={'タンク&ネオン':'Tank & neon','ネオン':'Neon','冷却ファン':'Cooling fan','回転LCD':'Rotating LCD','正対':'Head-on','脳核':'Brain core','脳核一周':'Brain core orbit','送電網':'Power grid'};
 var VIEWS={
- 'cortex-pylon':{'上部梁':'Upper beam','全景':'Overview','文字リング':'Text ring','炉心':'Core','見上げ':'Looking up'},
- 'lacto-empyrean':merge(VIEWS_A,{'ラック滑走':'Rack glide','低空滑走':'Low glide','単体':'Single unit','回廊':'Corridor','大聖堂':'Cathedral'}),
- 'lacto-mandala':merge(VIEWS_A,{'供給ライン':'Supply line','供給網':'Supply network','円環軸':'Ring axis','参道低空':'Low over the approach','外周回廊':'Outer corridor','曼荼羅':'Mandala','直径縦断':'Across the diameter'}),
  'armillary':{'全景':'Overview','中景':'Middle','環':'Rings','核':'Core','縁':'Rim'},
  'armillary-v2':{'全景':'Overview','中景':'Middle','レンズ':'Lenses','核':'Core','縁':'Rim'},
  'sanctum':{'全景':'Overview','斜め':'Oblique','真上':'From above','環':'Ring','受け':'Cradle'}

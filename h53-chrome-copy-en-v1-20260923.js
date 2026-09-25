@@ -70,13 +70,6 @@ window.H53_CHROME_EN={
 "name": "The Confluence",
 "phase": "PHASE UNRESOLVED · THE BLANK"
 },
-"cortex-pylon": {
-"desc": "A monument in which a glass column hangs within the vertical shaft of the T structure, housing the cortex reactor inside it. The upper beam doubles as the strawberry-milk reservoir, and the descent of the discs through the drip to the impact reads as a single vertical line. Five viewpoints, with an automatic rotation.",
-"frag": "The discs descend, contract, and at the point of vanishing become a drop of milk. The drop falls and strikes the crown of the cortex. The feed rate matched the beat. Yet the instrument that issued that beat cannot be found. The control room records hold only the set value for flow; the field for period is blank. The band upon the plinth has been left empty. It was not that there was nothing to be seated there. That nothing be seated there was specified in the drawings.",
-"log": "The feed rate matched a pulse no instrument had issued.",
-"name": "Cortex Pylon v3",
-"phase": "PHASE 3 · TRANSCENSION"
-},
 "cyberwafer": {
 "desc": "The core work, switching between the Y2K and TRANSCENDENCE models at a button. The 0.78-second pulse, the 2.4-second disc cycle and the canonical palette are defined here, and every later work inherits them. Drag to rotate, pinch to zoom.",
 "frag": "Upon the wafer the T stands at the same dimensions under whichever era it is named. The drawing came first. There is no record of commencement, and no requisition for material was ever raised, yet the dimensions were bound in their finished form. The audit entered three times and wrote the same conclusion three times: this structure was inspected and accepted before it was built. Since then no one looks for the original. The copy is the older document.",
@@ -118,34 +111,6 @@ window.H53_CHROME_EN={
 "log": "The nutrient cycle continued after cognition was redistributed.",
 "name": "Lacto-Cortex v10",
 "phase": "PHASE 3 · TRANSCENSION"
-},
-"lacto-empyrean": {
-"desc": "A corridor of culture chambers in line. A drone viewpoint circuits the array; Next view switches angles and Tour begins an automatic pass. The slider controls distance. v7 refines the path and its framing.",
-"frag": "The lettering upon the sign may be read as exceedingly sweet. Numbers are assigned. Called upon, they answer. Yet whichever number was called, the memory returned was the same. The audit party took this for a fault in the wiring and physically severed fifty-three units. Beyond the severance the same memory returned. The report concludes: the total remained; no unit could be isolated. Thereafter inspection is carried out upon the aggregate only.",
-"log": "Every module reported the same memory.",
-"name": "Lacto-Empyrean v7",
-"phase": "PHASE 4 · THE TRANSCENDED"
-},
-"lacto-mandala": {
-"desc": "Five concentric rings, five units to a ring, aligned along five radiating spokes. A cinematic pass opens the whole, with letterbox bars and captions. Next view switches viewpoints; Tour begins the automatic circuit.",
-"frag": "Five to the rings. Five to what is seated upon each. Five, again, to the lines that split the floor. The floor was drawn again afterwards, so that the distance should be equal measured from any position. The alignment resembles the form of a faith. It only resembles it; there is no trace of its having been designed so. Nothing is seated at the centre. The circling viewpoint passes through it repeatedly and does not notice the passing. There is a response. Only the one responding is absent.",
-"log": "Presence was detected across every inactive system.",
-"name": "Lacto-Mandala v2",
-"phase": "PHASE 4 · THE TRANSCENDED"
-},
-"lacto-massif": {
-"desc": "Thirty-two generating towers set in rings upon a mountain, with a transmission tower at the centre. Each tower holds fifty-one units across seventeen levels. Power lines crawl along the ground to the centre, and a three-strand helical beam runs out from the directional antenna at the summit. Eight further plants of the same design crowd the haze between one and one point seven kilometres away, every beam running parallel on the same bearing. Twelve shots in rotation.",
-"frag": "Thirty-two columns stand in rings, and the one at their centre alone stands twice their height. The dish upon its summit holds one bearing and does not move. Whether the mountain was a mountain from the first, or whether what was piled upon it came to take the shape of one, cannot be distinguished in the records. A document exists stating that there is a recipient at the far end. No document exists stating that it was received. The two are held by separate offices. Reconciliation stands deferred without term, on the ground of a distance of four light years.",
-"log": "Output confirmed. Destination unconfirmed.",
-"name": "Lacto-Massif v11",
-"phase": "PHASE 5 · RESIDUAL WORLD"
-},
-"lacto-messis": {
-"desc": "A power-reception site on UY0311, a moon under three suns. The 15-metre tower catches three helical strands arriving from four light years away; across the fourteen-sided deck the power is distributed to forty-two computing units, each marshalled by the cultured brain in its central band. Twelve sister stations crowd the horizon, their beams standing in parallel. Deploy unfurls all forty-two radiators at once.",
-"frag": "There are no seasons on this plain. The harvest is reaped four light years away and arrives at the speed of light. Thirteen stations share a single row; the dishes never bow, holding always the same height of sky. On the deck, forty-two minds count the yield. The next harvest lands before the counting ends — which is why the record keeps no column for completion.",
-"log": "One source, thirteen mouths.",
-"name": "Lacto-Messis v1",
-"phase": "PHASE 6 · UY0311"
 },
 "late-core": {
 "desc": "The second novel. Duty records and voice logs from maintenance sector 11 on the planet of foundries: one core with no delivery on file and nothing but a maintenance record, and the three who measure it, feed it and write it down. The delay is constant, and does not waver. Complete text.",
