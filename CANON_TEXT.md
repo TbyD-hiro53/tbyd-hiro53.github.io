@@ -605,6 +605,37 @@ A station by the sea, a great station with lines above and below, and a carriage
 
 ---
 
+## ASSET 27 — Core No.37
+
+**位相** PHASE POST-CONVERGENCE · MAINTENANCE
+
+**観測ログ** `The lamp lit where no one stood.`
+
+**説明 JA**
+第十一保守区画の炉室を中央通路から観測する固定視点で、百二十八基の培養脳微小組立炉が〇・七八秒の拍で打ち、三七号炉だけが一拍遅れて応答する。物に触れると記録が開き、ONE YEARを押すと三分で一年が過ぎる。
+
+**説明 EN**
+A fixed view from the central aisle of the reactor hall in maintenance sector 11, where 128 cultured-brain micro-assembly cores beat on a 0.78-second pulse and core 37 alone answers one pulse late. Touch an object to open its record; press ONE YEAR and a year passes in three minutes.
+
+**断章 JA**
+巡回の記録には、灯の順が書かれている。三六が点り、三八が点り、九一が点る。三七の欄だけは、時刻が一拍ぶん後ろへずれて記される。記した者は、そのとき既に次の座の前にいた。灯を見るには、振り返らねばならない位置である。振り返った記録は無い。灯は、誰もいない位置を照らしている。一年ののち、同じ巡回の同じ欄で、三七の時刻は他と並んだ。灯が早まったのではない。欄を埋める手の方が、一拍遅れて書くようになったのだと、編纂者は注記している。その注記の末尾にも、一拍ぶんの空白がある。遅れは置き場所を持たないまま、毎拍、一つずつ計られている。
+
+**断章 EN**
+The patrol record lists the lamps in order. Thirty-six lights, thirty-eight lights, ninety-one lights. In the column for thirty-seven alone, the time is entered one pulse later. The one who entered it was by then already before the next seat, at a place from which the lamp could be seen only by turning round. There is no record of anyone turning round. The lamp lights a place where no one stands. A year on, in the same column of the same patrol, the time for thirty-seven fell into line with the rest. The lamp had not come earlier. The compiler notes that it was the hand filling in the column that had begun to write one pulse late. At the end of that note, too, there is a blank the length of one pulse. The delay, with nowhere to be kept, is measured, one pulse at a time.
+
+**v1（2026-09-25）— 実装記録（世界内の新事実ではない）**
+- 原作『遅炉 / THE LATE CORE』総合推敲版（2026-09-13）の炉室を、Binary Dusk と同じ型（固定視点一つ、触れると記録が開く、戻せない時間の釦一つ）で作品化
+- 八列十六段の配置は床に 8 × 16 と読み、番号は段ごとに振った（三七号 = 5 段目の 5 列目）。炉の寸法・室の大きさ・検拍門を中央 2 列をまたぐ大門にしたこと・監視室の位置・母管は作品の造形判断
+- Blender（Cycles）の一枚を光源ごとの層に分けて描き、Web で拍（0.78 s）と循環（2.4 s）の重みを掛けて合成する。動く立体は無い
+- ONE YEAR：約三分で ZS+02290D から 02656D へ進む。次の三段で構成する。
+  - 巡回が日ごとに通路を駆け抜け、三七号の灯だけが一拍遅れて点る。
+  - 127 基の光が落ち、闇の中で三七号だけが打つ。
+  - 四十拍の揃い直しで、127 基が三七号の拍で一斉に点り直す。
+  - 状態の欄に、原作の記録を日付つきで流す。
+- 説明の面の文言（三七号炉・栄養槽・応答灯・検拍門・中央監視室）は原作の記述に拠る新しい記述で、小説本文の引用ではない
+
+---
+
 ## ASSET 24 — Empyrean Sigil 3D
 
 **公開パス** `empyrean-sigil-3d.html`

@@ -70,6 +70,13 @@ window.H53_CHROME_EN={
 "name": "The Confluence",
 "phase": "PHASE UNRESOLVED · THE BLANK"
 },
+"core-37": {
+"desc": "A fixed view from the central aisle of the reactor hall in maintenance sector 11, where 128 cultured-brain micro-assembly cores beat on a 0.78-second pulse and core 37 alone answers one pulse late. Touch an object to open its record; press ONE YEAR and a year passes in three minutes.",
+"frag": "The patrol record lists the lamps in order. Thirty-six lights, thirty-eight lights, ninety-one lights. In the column for thirty-seven alone, the time is entered one pulse later. The one who entered it was by then already before the next seat, at a place from which the lamp could be seen only by turning round. There is no record of anyone turning round. The lamp lights a place where no one stands. A year on, in the same column of the same patrol, the time for thirty-seven fell into line with the rest. The lamp had not come earlier. The compiler notes that it was the hand filling in the column that had begun to write one pulse late. At the end of that note, too, there is a blank the length of one pulse. The delay, with nowhere to be kept, is measured, one pulse at a time.",
+"log": "The lamp lit where no one stood.",
+"name": "Core No.37",
+"phase": "PHASE POST-CONVERGENCE · MAINTENANCE"
+},
 "cyberwafer": {
 "desc": "The core work, switching between the Y2K and TRANSCENDENCE models at a button. The 0.78-second pulse, the 2.4-second disc cycle and the canonical palette are defined here, and every later work inherits them. Drag to rotate, pinch to zoom.",
 "frag": "Upon the wafer the T stands at the same dimensions under whichever era it is named. The drawing came first. There is no record of commencement, and no requisition for material was ever raised, yet the dimensions were bound in their finished form. The audit entered three times and wrote the same conclusion three times: this structure was inspected and accepted before it was built. Since then no one looks for the original. The copy is the older document.",
