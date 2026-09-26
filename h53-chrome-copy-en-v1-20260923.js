@@ -176,10 +176,10 @@ window.H53_CHROME_EN={
 "phase": "ZS− / ZS＋ · THE BLANK"
 },
 "the-changes": {
-"desc": "A station by the sea, a great station with lines above and below, and a carriage looking towards an immense tree. Three scenes on the planet of roots, observed through movement and short passages. Choose a scene and a fixed view; touch an object to open its description. Waves, leaves and trains continue to move.",
+"desc": "A night carriage of facing seats. Far off and low beyond the window, long vertical lines of light stand in a row. However many stations pass, that alone stays in the same place in the window. The line above the door counts down the stations to the end of the line, one at a time.",
 "frag": "",
 "log": "",
-"name": "The Changes",
+"name": "The Carriage Window",
 "phase": "PHASE UNRESOLVED · THE CHANGES"
 },
 "the-individual": {

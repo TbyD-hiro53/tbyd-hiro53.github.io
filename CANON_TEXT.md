@@ -591,17 +591,17 @@ The district is old. The ceiling is low; two can walk abreast in the corridor, b
 ---
 
 
-## ASSET 22 — The Changes
+## ASSET 22 — The Carriage Window
 
-**和題** 乗換
+**和題** 車窓
 
 **公開パス** `the-changes.html`
 
 **説明 JA**
-海辺の駅、上下の線が通る大きい駅、巨樹を望む車内。根の惑星の三つの情景を、動きと短い叙述でたどる。場面と固定カットを選び、物に触れるとその場所の文章が開く。波、葉、列車は動き続ける。
+向かい合わせの座席が並ぶ夜の車内。窓の外の遠く低いところに、縦に長い筋が並んで光っている。駅をいくつ過ぎても、それだけは窓の同じところにある。扉の上の行が、終点までの駅の数を一つずつ減らしていく。
 
 **説明 EN**
-A station by the sea, a great station with lines above and below, and a carriage looking towards an immense tree. Three scenes on the planet of roots, observed through movement and short passages. Choose a scene and a fixed view; touch an object to open its description. Waves, leaves and trains continue to move.
+A night carriage of facing seats. Far off and low beyond the window, long vertical lines of light stand in a row. However many stations pass, that alone stays in the same place in the window. The line above the door counts down the stations to the end of the line, one at a time.
 
 ---
 

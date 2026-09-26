@@ -36,12 +36,9 @@ var PLACES={
  'vacant-seat':{'机の前':'Before the desk','椅子の背後':'Behind the chair'},
  'preservation-hall':{'架の脇':'Beside a pod','端末の前':'Before the terminal','戸':'The door'},
  'confluence':{'岸の道':'Shore path','円盤の真下':'Beneath a disc','床の切れ目':'Gap in the floor'},
- /* 視点の名は正典の英語の札（station by the sea / lines above and below / looking towards an immense tree）と、
-    各場面の叙述（低い建物と長い廊下、壁の刻み、包の載った給養口）に合わせて付けた */
- 'the-changes':{'海の駅':'Station by the sea','大きい駅':'Great station','車内':'Carriage',
-  '旧い建物':'The old building','元の部屋':'The former room','隣の刻み':'The next recess',
-  '上下の線':'Lines above and below','待合':'Waiting room','給養口':'Feed hatch',
-  '樹を望む席':'Seat facing the tree','根のそば':'Beside the roots'},
+ /* 車窓（2026-09-26、旧 The Changes）：一視点。釦と触れる対象の名 */
+ 'the-changes':{'はじめから':'From the beginning','遠い光':'The distant light','扉の上の面':'The panel above the door',
+  '窓':'Window','座席':'Seats','袋':'The bag'},
  /* 四つの立ち場所は漢数字の札。英語表示では算用数字にする（名は正典の英語の札にあるが、釦は番号のまま） */
  'earth-origin-material':{'一':'1','二':'2','三':'3','四':'4'}
 };
@@ -91,7 +88,7 @@ var UI_PREFIX=[
  ['作品を読み込んでいます','Loading the work'],['素材と光を読み込んでいます','Loading materials and light'],
  ['景観を準備しています','Preparing the view'],['風景を整えています','Preparing the view'],
  ['空間を開いています','Opening the space'],['空間を準備しています','Preparing the space'],
- ['画面の向きを調整しています','Adjusting to the screen orientation']
+ ['画面の向きを調整しています','Adjusting to the screen orientation'],['車内を準備しています','Preparing the carriage']
 ];
 
 var controls=merge(CONTROLS['*'],CONTROLS[slug]);
