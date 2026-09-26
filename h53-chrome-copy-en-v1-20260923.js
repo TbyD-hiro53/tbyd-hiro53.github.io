@@ -202,5 +202,12 @@ window.H53_CHROME_EN={
 "log": "The seat was maintained. No occupant was on file.",
 "name": "The Vacant Seat v2",
 "phase": "PHASE UNRESOLVED · THE ORIGIN"
+},
+"xerophyte": {
+"desc": "One of the cyberwafer-shaped plants observed, one after another, in barren lands around the world, seen from a fixed point in the desert. Touch an object to open its record; press SANDSTORM and a sandstorm passes in three minutes.",
+"frag": "On the survey map of the day before, only dunes are drawn. The next morning, at the same co-ordinates, it was in bloom. The trunk stands in the form of a T with sharp edges, its surface worn by several centuries of wind. Growth rings show at the broken rims of the stacked shelves, and as many different counts were entered as there were people who counted them. The roots do not reach the ground, and the sand beneath them stays dry. It was registered as a plant, yet none of the fields of classification could be filled. Outside the fields, two flowers remain, unclosed. The observer writes of having seen the form before. Where, is not written. A storm passed over the site once. The dunes moved downwind, the stakes leaned, the instrument stopped recording. When the record resumed, not a grain of sand clung to the specimen.",
+"log": "It was found in bloom.",
+"name": "Xerophyte",
+"phase": "PHASE 1 · THE FIRST T"
 }
 };

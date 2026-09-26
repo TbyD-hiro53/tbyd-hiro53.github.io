@@ -637,6 +637,33 @@ The patrol record lists the lamps in order. Thirty-six lights, thirty-eight ligh
 
 ---
 
+## ASSET 28 — Xerophyte
+
+**位相** PHASE 1 · THE FIRST T
+
+**観測ログ** `It was found in bloom.`
+
+**説明 JA**
+世界各地の不毛地帯で相次いで観測された、cyberwaferの形をした植物。その一体を砂漠の固定視点で観測する。物に触れると記録が開き、SANDSTORMを押すと三分で砂嵐が通り過ぎる。
+
+**説明 EN**
+One of the cyberwafer-shaped plants observed, one after another, in barren lands around the world, seen from a fixed point in the desert. Touch an object to open its record; press SANDSTORM and a sandstorm passes in three minutes.
+
+**断章 JA**
+前日の測量図には、砂丘しか描かれていない。翌朝、同じ座標に、それは咲いていた。幹は角の立った T の形をして、表は数百年ぶんの風に削られている。段になった棚の欠けた縁には年輪が出ていて、数えた者の数だけ、違う数が記された。根は地面に届かず、真下の砂は乾いたままである。植物として登録されたが、分類の欄はどれも埋まらなかった。欄の外で、花が二輪、閉じずにいる。観測者は、その形を以前にも見たことがあると書いている。どこで見たかは書かれていない。嵐が一度、観測地を通り過ぎた。砂丘は風下へ移り、杭は傾き、計測器は記録を止めた。記録が戻ったとき、個体の表面には砂が一粒も付いていなかった。
+
+**断章 EN**
+On the survey map of the day before, only dunes are drawn. The next morning, at the same co-ordinates, it was in bloom. The trunk stands in the form of a T with sharp edges, its surface worn by several centuries of wind. Growth rings show at the broken rims of the stacked shelves, and as many different counts were entered as there were people who counted them. The roots do not reach the ground, and the sand beneath them stays dry. It was registered as a plant, yet none of the fields of classification could be filled. Outside the fields, two flowers remain, unclosed. The observer writes of having seen the form before. Where, is not written. A storm passed over the site once. The dunes moved downwind, the stakes leaned, the instrument stopped recording. When the record resumed, not a grain of sand clung to the specimen.
+
+**v1（2026-09-26）— 実装記録（世界内の新事実ではない）**
+- Coastal Glass に似た現象として、世界各地の不毛地帯で観測された cyberwafer の形の植物を、Core No.37 と同じ型（固定視点一つ、触れると記録が開く、戻せない時間の釦一つ）で作品化。全体が植物で、T と円盤も木質化した体（作者裁定）
+- T・円盤の寸法は Cyberwafer v25 の形から換算した（T の高さ 4.77 単位を 9 m に。円盤は止めた一瞬の 6 枚、根の先は円盤が消える枠）。蔓・葉・花・苔の造形、杭と計測器、嵐の後の地面の変わり方は作品の造形判断
+- Blender（Cycles）の一枚を光源ごとの層に分けて描き、Web で拍（0.78 s、維管束を昇る）と循環（2.4 s、段を下る）の重みを掛けて合成する。嵐の前・嵐（二つの地面）・嵐の後の原版を画素ごとに混ぜ、画面を横切る砂の筋だけを実時間で描く。動く立体は無い
+- SANDSTORM：約三分で砂嵐が通り過ぎる（戻らない）。最も濃い時の一吹きの陰で地面を替え、晴れた後は砂丘・杭・計測器だけが変わる。嵐の色は赤茶（作者裁定）
+- 説明の面の文（幹・花・円盤の段・根と地面・杭と計測器）と嵐のあいだの記録は、この作品のための新しい記述
+
+---
+
 ## ASSET 24 — Empyrean Sigil 3D
 
 **公開パス** `empyrean-sigil-3d.html`
