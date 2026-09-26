@@ -1,0 +1,61 @@
+{
+  "schema": "05-hybrid-water-reflection-view-v1",
+  "orientation": "landscape",
+  "frame": [
+    1280,
+    720
+  ],
+  "rect": {
+    "x": 559,
+    "y": 0,
+    "width": 721,
+    "height": 313,
+    "origin": "bottom-left"
+  },
+  "rectUV": [
+    0.43671875,
+    0.0,
+    0.56328125,
+    0.43472222222222223
+  ],
+  "file": "reflection.f16",
+  "gzip": "reflection.f16.gz",
+  "bytes": 1805384,
+  "gzipBytes": 1231831,
+  "sha256": "e3a6c86b0a33908a4d0486fff671cdc20a2c127e91a2a5b7fc86a9a08616f0c4",
+  "encoding": "float16 LE RGBA scene-linear Rec.709, rows bottom-to-top, A=source water mask",
+  "meaning": "Cycles radiance of a white metallic mirror at source roughness on the flat water Basis, cargo hidden; add as indirect specular radiance",
+  "sourceUnit": "outputs/hybrid-20260925/nave006-landscape-B/status.json",
+  "sourceUnitSHA256": "4b28857d90edbefa63ed3e9d6611ab745854895024290a6e4dce4460f2204800",
+  "waterMirror": {
+    "sourceMaterial": "Dark moving water",
+    "roughness": 0.17000000178813934,
+    "metallic": 1,
+    "baseColor": [
+      1,
+      1,
+      1
+    ],
+    "transmission": 0,
+    "bump": "none (normal unlinked)",
+    "passIndex": 1,
+    "mesh": "Basis only (show_only_shape_key): flat z=-0.3 plane; waves come from the live 3D water"
+  },
+  "validation": {
+    "waterPixels": 127729,
+    "meanLinearRGB": [
+      0.08878201246261597,
+      0.1033235415816307,
+      0.07872402667999268
+    ],
+    "maxLinear": 2.3686604499816895,
+    "float16MaxAbsError": 0.0009701251983642578
+  },
+  "transport": {
+    "file": "reflection.f16z",
+    "bytes": 874953,
+    "sha256": "74080ad594d27dca31d77b6bcd3e77575936b5cc7cca2d74b0b652281f657363",
+    "encoding": "gzip-byteplanes-f16",
+    "lossless": true
+  }
+}

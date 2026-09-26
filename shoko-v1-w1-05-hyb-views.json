@@ -1,0 +1,21 @@
+{
+  "schema": "05-hybrid-views-v1",
+  "views": {
+    "landscape": {
+      "directory": "landscape",
+      "viewSHA256": "0c9521bf60ad966c77fc86e9b812d7a70402540a1fe044717af273f5a7b5abc8",
+      "reflection": {
+        "file": "reflection.json",
+        "sha256": "ee5b566f3feae993682e60882643f0824dedc71abe2d41e82cac4a1992afddf3"
+      }
+    },
+    "portrait": {
+      "directory": "portrait",
+      "viewSHA256": "cf4ea9cee7ceec4cc62dbceb8fe68d6f592a48167a7926d6b7eaaa7fb1d15616",
+      "reflection": {
+        "file": "reflection.json",
+        "sha256": "91c9f969c708b69bdbae856e521b475812d58f4514690769b924bc7d98cd5c74"
+      }
+    }
+  }
+}

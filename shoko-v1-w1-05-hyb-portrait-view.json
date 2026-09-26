@@ -1,0 +1,106 @@
+{
+  "schema": "05-hybrid-view-v1",
+  "orientation": "portrait",
+  "width": 720,
+  "height": 1280,
+  "near": 0.10000000149011612,
+  "far": 500.0,
+  "projection": [
+    2.567901372909546,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.4444444179534912,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0004000663757324,
+    -0.20004001259803772,
+    0.0,
+    0.0,
+    -1.0,
+    0.0
+  ],
+  "cameraWorldBlender": [
+    0.995875895023346,
+    -0.00516007374972105,
+    -0.09057911485433578,
+    -2.3499999046325684,
+    -0.09072598069906235,
+    -0.056640759110450745,
+    -0.9942638874053955,
+    -5.599999904632568,
+    4.634616246335099e-09,
+    0.9983813166618347,
+    -0.0568753220140934,
+    1.649999976158142,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "sourceUnit": "outputs/hybrid-20260925/nave006-portrait-A/status.json",
+  "sourceUnitSHA256": "fa72bf567764747c6c16b4cca9f04aa3800252237ebadfc4c60199b974b9ba6d",
+  "sourceSHA256": "da76093bb4a5beaa8b9f946533acf7f6657eb738d1836bacc981804e11722998",
+  "dynamicSetSHA256": "4de81fd15b570e708eef466c31f59a41af0e667c0f726388d72d125c2bb1b940",
+  "frame": 1,
+  "colour": {
+    "file": "plate.jpg",
+    "encoding": "sRGB display after source AgX + Medium High Contrast; never re-tone-map",
+    "jpeg": {
+      "quality": 90,
+      "subsampling": "4:4:4",
+      "progressive": true
+    }
+  },
+  "depth": {
+    "file": "depth.f32",
+    "gzip": "depth.f32.gz",
+    "encoding": "float32 LE camera-forward metres (Cycles Depth, planar)",
+    "rows": "bottom-to-top (WebGL texture v=0 first)",
+    "invalid": 0,
+    "axis": "Blender camera -Z forward",
+    "transport": {
+      "file": "depth.u16z",
+      "bytes": 273667,
+      "sha256": "94adb0edd2396617881f87b9e4ac9f315eafcce5f43eb1977e6a48d156181a5f",
+      "encoding": "gzip-byteplanes-rowdelta-u16-inverse-z",
+      "zNear": 2.5899999141693115,
+      "zFar": 125.0,
+      "maxAbsErrorM": 0.04436492919921875,
+      "maxAbsErrorUnder30mM": 0.0025844573974609375,
+      "invalidPreserved": true
+    }
+  },
+  "files": {
+    "plate.jpg": {
+      "file": "plate.jpg",
+      "bytes": 163990,
+      "sha256": "05330046908352527bd9a81bb4bdee83bf8ccc60574bdf38268e88e96076465a"
+    },
+    "depth.f32": {
+      "file": "depth.f32",
+      "bytes": 3686400,
+      "sha256": "2424c47bbe3d7f5ccd9400f1ae135d11194aaa32982b9629ea60f2af247b9a61"
+    },
+    "depth.f32.gz": {
+      "file": "depth.f32.gz",
+      "bytes": 1941297,
+      "sha256": "52b3b014aa3dbf3a5ced4197e76e2f4122cff13cdb123c18d7d232b93dcef964"
+    }
+  },
+  "validation": {
+    "validPixels": 741106,
+    "pixels": 921600,
+    "maxPositionReprojectionPixels": 1.1356580233901044,
+    "p99PositionReprojectionPixels": 0.0020783834384766253,
+    "edgeOnlyOutliersOver1_5px": 0,
+    "maxDepthMinusPositionZ": 1.7525862375578072e-05,
+    "zRange": [
+      2.5939957344234643,
+      124.14532679175595
+    ]
+  }
+}

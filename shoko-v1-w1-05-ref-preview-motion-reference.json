@@ -1,0 +1,2875 @@
+{
+  "source": "/Users/ryota/binary-dusk-blender/shoko-scene-production/05_lower/scene/05-lower-root-candidate-003.blend",
+  "fps": 24,
+  "fps_base": 1.0,
+  "frame_range": [
+    1,
+    288
+  ],
+  "unit_system": "METRIC",
+  "scale_length": 1.0,
+  "rigs": [
+    {
+      "name": "Cargo 00 / individual upper-girder carrier",
+      "parent": null,
+      "drivers": [
+        {
+          "path": "location",
+          "index": 1,
+          "expression": "((-24.0+26+(frame-1)/24*.8)%105.6)-24",
+          "driver_type": "SCRIPTED",
+          "valid": true,
+          "variables": []
+        }
+      ],
+      "matrix_basis_f1": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -22.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "matrix_parent_inverse": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "parent_world": null,
+      "children": [
+        {
+          "name": "Carrier bearing shoe",
+          "type": "MESH",
+          "parent": "Cargo 00 / individual upper-girder carrier",
+          "data": "Carrier bearing shoe",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.25
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              3.243499994277954
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Carrier bearing shoe.001",
+          "type": "MESH",
+          "parent": "Cargo 00 / individual upper-girder carrier",
+          "data": "Carrier bearing shoe.001",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.6499999761581421
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              3.243499994277954
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Low rectangular saddle",
+          "type": "MESH",
+          "parent": "Cargo 00 / individual upper-girder carrier",
+          "data": "Low rectangular saddle",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.44999998807907104
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              3.2844998836517334
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "V3 transported complete binding 0",
+          "type": "EMPTY",
+          "parent": "Cargo 00 / individual upper-girder carrier",
+          "data": null,
+          "matrix_basis": [
+            [
+              -4.371138828673793e-08,
+              0.0,
+              1.0,
+              0.1850000023841858
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              -1.0,
+              0.0,
+              -4.371138828673793e-08,
+              3.4135000705718994
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "V3 transported complete binding 0 continuous rounded spine",
+          "type": "MESH",
+          "parent": "V3 transported complete binding 0",
+          "data": "V3 transported complete binding 0 continuous rounded spine sealed cover",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "V3 transported complete binding 0 cover",
+          "type": "MESH",
+          "parent": "V3 transported complete binding 0",
+          "data": "V3 transported complete binding 0 cover",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.1014999970793724
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.26499998569488525
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "V3 transported complete binding 0 cover.001",
+          "type": "MESH",
+          "parent": "V3 transported complete binding 0",
+          "data": "V3 transported complete binding 0 cover.001",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.1014999970793724
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.26499998569488525
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "V3 transported complete binding 0 headband",
+          "type": "MESH",
+          "parent": "V3 transported complete binding 0",
+          "data": "V3 transported complete binding 0 headband",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              -0.3160000145435333
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.009999999776482582
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "V3 transported complete binding 0 headband.001",
+          "type": "MESH",
+          "parent": "V3 transported complete binding 0",
+          "data": "V3 transported complete binding 0 headband.001",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              -0.3160000145435333
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.5180000066757202
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "V3 transported complete binding 0 paper block",
+          "type": "MESH",
+          "parent": "V3 transported complete binding 0",
+          "data": "V3 transported complete binding 0 paper block",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0495867729187012,
+              0.0,
+              -0.0020000000949949026
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.26499998569488525
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "representative_shoe": "Carrier bearing shoe"
+    },
+    {
+      "name": "Cargo 21 / individual upper-girder carrier",
+      "parent": null,
+      "drivers": [
+        {
+          "path": "location",
+          "index": 1,
+          "expression": "((76.8+26+(frame-1)/24*.8)%105.6)-24",
+          "driver_type": "SCRIPTED",
+          "valid": true,
+          "variables": []
+        }
+      ],
+      "matrix_basis_f1": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          78.80000305175781
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "matrix_parent_inverse": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "parent_world": null,
+      "children": [
+        {
+          "name": "Cargo fitted lid.010",
+          "type": "MESH",
+          "parent": "Cargo 21 / individual upper-girder carrier",
+          "data": "Cargo fitted lid.010",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.44999998807907104
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              3.819499969482422
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Carrier bearing shoe.042",
+          "type": "MESH",
+          "parent": "Cargo 21 / individual upper-girder carrier",
+          "data": "Carrier bearing shoe.042",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.25
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              3.243499994277954
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Carrier bearing shoe.043",
+          "type": "MESH",
+          "parent": "Cargo 21 / individual upper-girder carrier",
+          "data": "Carrier bearing shoe.043",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.6499999761581421
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              3.243499994277954
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Low rectangular saddle.021",
+          "type": "MESH",
+          "parent": "Cargo 21 / individual upper-girder carrier",
+          "data": "Low rectangular saddle.021",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.44999998807907104
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              3.2844998836517334
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Single closed cargo container.010",
+          "type": "MESH",
+          "parent": "Cargo 21 / individual upper-girder carrier",
+          "data": "Single closed cargo container.010",
+          "matrix_basis": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.44999998807907104
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              3.559499979019165
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "matrix_parent_inverse": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "representative_shoe": "Carrier bearing shoe.042"
+    }
+  ],
+  "water": {
+    "name": "Irregular directional water",
+    "matrix_world": [
+      [
+        1.350000023841858,
+        0.0,
+        0.0,
+        -0.33250001072883606
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "vertices_total": 26353,
+    "use_relative": true,
+    "drivers": [
+      {
+        "path": "key_blocks[\"wave 0 sin\"].value",
+        "index": 0,
+        "expression": "cos((frame-1)/24*2*pi*7/12)",
+        "driver_type": "SCRIPTED",
+        "valid": true,
+        "variables": []
+      },
+      {
+        "path": "key_blocks[\"wave 0 cos\"].value",
+        "index": 0,
+        "expression": "-sin((frame-1)/24*2*pi*7/12)",
+        "driver_type": "SCRIPTED",
+        "valid": true,
+        "variables": []
+      },
+      {
+        "path": "key_blocks[\"wave 1 sin\"].value",
+        "index": 0,
+        "expression": "cos((frame-1)/24*2*pi*11/12)",
+        "driver_type": "SCRIPTED",
+        "valid": true,
+        "variables": []
+      },
+      {
+        "path": "key_blocks[\"wave 1 cos\"].value",
+        "index": 0,
+        "expression": "-sin((frame-1)/24*2*pi*11/12)",
+        "driver_type": "SCRIPTED",
+        "valid": true,
+        "variables": []
+      },
+      {
+        "path": "key_blocks[\"wave 2 sin\"].value",
+        "index": 0,
+        "expression": "cos((frame-1)/24*2*pi*19/12)",
+        "driver_type": "SCRIPTED",
+        "valid": true,
+        "variables": []
+      },
+      {
+        "path": "key_blocks[\"wave 2 cos\"].value",
+        "index": 0,
+        "expression": "-sin((frame-1)/24*2*pi*19/12)",
+        "driver_type": "SCRIPTED",
+        "valid": true,
+        "variables": []
+      },
+      {
+        "path": "key_blocks[\"wave 3 sin\"].value",
+        "index": 0,
+        "expression": "cos((frame-1)/24*2*pi*23/12)",
+        "driver_type": "SCRIPTED",
+        "valid": true,
+        "variables": []
+      },
+      {
+        "path": "key_blocks[\"wave 3 cos\"].value",
+        "index": 0,
+        "expression": "-sin((frame-1)/24*2*pi*23/12)",
+        "driver_type": "SCRIPTED",
+        "valid": true,
+        "variables": []
+      }
+    ],
+    "samples": [
+      {
+        "vertex_index": 8784,
+        "basis_local": [
+          0.2666666805744171,
+          11.199999809265137,
+          -0.30000001192092896
+        ],
+        "deltas": {
+          "wave 0 sin": [
+            0.0,
+            0.0,
+            -0.00869646668434143
+          ],
+          "wave 0 cos": [
+            0.0,
+            0.0,
+            0.019929349422454834
+          ],
+          "wave 1 sin": [
+            0.0,
+            0.0,
+            -0.012241095304489136
+          ],
+          "wave 1 cos": [
+            0.0,
+            0.0,
+            0.0010969936847686768
+          ],
+          "wave 2 sin": [
+            0.0,
+            0.0,
+            -0.0011636316776275635
+          ],
+          "wave 2 cos": [
+            0.0,
+            0.0,
+            0.005551755428314209
+          ],
+          "wave 3 sin": [
+            0.0,
+            0.0,
+            0.0014816522598266602
+          ],
+          "wave 3 cos": [
+            0.0,
+            0.0,
+            0.002418428659439087
+          ]
+        }
+      },
+      {
+        "vertex_index": 13176,
+        "basis_local": [
+          0.949999988079071,
+          28.799999237060547,
+          -0.30000001192092896
+        ],
+        "deltas": {
+          "wave 0 sin": [
+            0.0,
+            0.0,
+            0.007881522178649902
+          ],
+          "wave 0 cos": [
+            0.0,
+            0.0,
+            0.011203527450561523
+          ],
+          "wave 1 sin": [
+            0.0,
+            0.0,
+            -0.00425228476524353
+          ],
+          "wave 1 cos": [
+            0.0,
+            0.0,
+            -0.00647011399269104
+          ],
+          "wave 2 sin": [
+            0.0,
+            0.0,
+            -0.0034791231155395508
+          ],
+          "wave 2 cos": [
+            0.0,
+            0.0,
+            0.0008154213428497314
+          ],
+          "wave 3 sin": [
+            0.0,
+            0.0,
+            0.0007716119289398193
+          ],
+          "wave 3 cos": [
+            0.0,
+            0.0,
+            0.0016115009784698486
+          ]
+        }
+      },
+      {
+        "vertex_index": 17568,
+        "basis_local": [
+          1.6333333253860474,
+          46.400001525878906,
+          -0.30000001192092896
+        ],
+        "deltas": {
+          "wave 0 sin": [
+            0.0,
+            0.0,
+            0.016401290893554688
+          ],
+          "wave 0 cos": [
+            0.0,
+            0.0,
+            -0.0010225474834442139
+          ],
+          "wave 1 sin": [
+            0.0,
+            0.0,
+            0.004467874765396118
+          ],
+          "wave 1 cos": [
+            0.0,
+            0.0,
+            -0.008143126964569092
+          ],
+          "wave 2 sin": [
+            0.0,
+            0.0,
+            -0.0026369094848632812
+          ],
+          "wave 2 cos": [
+            0.0,
+            0.0,
+            -0.0033799707889556885
+          ],
+          "wave 3 sin": [
+            0.0,
+            0.0,
+            0.0007126331329345703
+          ],
+          "wave 3 cos": [
+            0.0,
+            0.0,
+            0.0020215213298797607
+          ]
+        }
+      }
+    ],
+    "keys": [
+      {
+        "name": "Basis",
+        "relative_key": "Basis",
+        "mute": false,
+        "vertex_group": "",
+        "value_f1": 1.0
+      },
+      {
+        "name": "wave 0 sin",
+        "relative_key": "Basis",
+        "mute": false,
+        "vertex_group": "",
+        "value_f1": 1.0
+      },
+      {
+        "name": "wave 0 cos",
+        "relative_key": "Basis",
+        "mute": false,
+        "vertex_group": "",
+        "value_f1": 0.0
+      },
+      {
+        "name": "wave 1 sin",
+        "relative_key": "Basis",
+        "mute": false,
+        "vertex_group": "",
+        "value_f1": 1.0
+      },
+      {
+        "name": "wave 1 cos",
+        "relative_key": "Basis",
+        "mute": false,
+        "vertex_group": "",
+        "value_f1": 0.0
+      },
+      {
+        "name": "wave 2 sin",
+        "relative_key": "Basis",
+        "mute": false,
+        "vertex_group": "",
+        "value_f1": 1.0
+      },
+      {
+        "name": "wave 2 cos",
+        "relative_key": "Basis",
+        "mute": false,
+        "vertex_group": "",
+        "value_f1": 0.0
+      },
+      {
+        "name": "wave 3 sin",
+        "relative_key": "Basis",
+        "mute": false,
+        "vertex_group": "",
+        "value_f1": 1.0
+      },
+      {
+        "name": "wave 3 cos",
+        "relative_key": "Basis",
+        "mute": false,
+        "vertex_group": "",
+        "value_f1": 0.0
+      }
+    ]
+  },
+  "material": {
+    "name": "Dark moving water",
+    "drivers": [
+      {
+        "path": "nodes[\"Math.001\"].inputs[1].default_value",
+        "index": 0,
+        "expression": "(frame-1)/24*2*pi*1/12",
+        "driver_type": "SCRIPTED",
+        "valid": true,
+        "variables": []
+      },
+      {
+        "path": "nodes[\"Math.005\"].inputs[1].default_value",
+        "index": 0,
+        "expression": "(frame-1)/24*2*pi*2/12",
+        "driver_type": "SCRIPTED",
+        "valid": true,
+        "variables": []
+      },
+      {
+        "path": "nodes[\"Math.009\"].inputs[1].default_value",
+        "index": 0,
+        "expression": "(frame-1)/24*2*pi*3/12",
+        "driver_type": "SCRIPTED",
+        "valid": true,
+        "variables": []
+      }
+    ],
+    "nodes": [
+      {
+        "name": "Principled BSDF",
+        "type": "ShaderNodeBsdfPrincipled",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Base Color",
+            "default": [
+              0.008999999612569809,
+              0.02500000037252903,
+              0.023000000044703484,
+              1.0
+            ]
+          },
+          {
+            "index": 1,
+            "name": "Metallic",
+            "default": 0.20000000298023224
+          },
+          {
+            "index": 2,
+            "name": "Roughness",
+            "default": 0.17000000178813934
+          },
+          {
+            "index": 3,
+            "name": "IOR",
+            "default": 1.3329999446868896
+          },
+          {
+            "index": 4,
+            "name": "Alpha",
+            "default": 1.0
+          },
+          {
+            "index": 5,
+            "name": "Thin Wall",
+            "default": false
+          },
+          {
+            "index": 6,
+            "name": "Normal",
+            "default": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "index": 7,
+            "name": "Weight",
+            "default": 0.0
+          },
+          {
+            "index": 8,
+            "name": "Diffuse Roughness",
+            "default": 0.0
+          },
+          {
+            "index": 9,
+            "name": "Subsurface Weight",
+            "default": 0.0
+          },
+          {
+            "index": 10,
+            "name": "Subsurface Radius",
+            "default": [
+              1.0,
+              0.20000000298023224,
+              0.10000000149011612
+            ]
+          },
+          {
+            "index": 11,
+            "name": "Subsurface Scale",
+            "default": 0.004999999888241291
+          },
+          {
+            "index": 12,
+            "name": "Subsurface IOR",
+            "default": 1.399999976158142
+          },
+          {
+            "index": 13,
+            "name": "Subsurface Anisotropy",
+            "default": 0.0
+          },
+          {
+            "index": 14,
+            "name": "Specular IOR Level",
+            "default": 0.5
+          },
+          {
+            "index": 15,
+            "name": "Specular Tint",
+            "default": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "index": 16,
+            "name": "Anisotropic",
+            "default": 0.0
+          },
+          {
+            "index": 17,
+            "name": "Anisotropic Rotation",
+            "default": 0.0
+          },
+          {
+            "index": 18,
+            "name": "Tangent",
+            "default": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "index": 19,
+            "name": "Transmission Weight",
+            "default": 0.2800000011920929
+          },
+          {
+            "index": 20,
+            "name": "Coat Weight",
+            "default": 0.0
+          },
+          {
+            "index": 21,
+            "name": "Coat Roughness",
+            "default": 0.029999999329447746
+          },
+          {
+            "index": 22,
+            "name": "Coat IOR",
+            "default": 1.5
+          },
+          {
+            "index": 23,
+            "name": "Coat Tint",
+            "default": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "index": 24,
+            "name": "Coat Normal",
+            "default": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "index": 25,
+            "name": "Sheen Weight",
+            "default": 0.0
+          },
+          {
+            "index": 26,
+            "name": "Sheen Roughness",
+            "default": 0.5
+          },
+          {
+            "index": 27,
+            "name": "Sheen Tint",
+            "default": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "index": 28,
+            "name": "Emission Color",
+            "default": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "index": 29,
+            "name": "Emission Strength",
+            "default": 0.0
+          },
+          {
+            "index": 30,
+            "name": "Thin Film Thickness",
+            "default": 0.0
+          },
+          {
+            "index": 31,
+            "name": "Thin Film IOR",
+            "default": 1.3300000429153442
+          }
+        ]
+      },
+      {
+        "name": "Material Output",
+        "type": "ShaderNodeOutputMaterial",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Surface",
+            "default": null
+          },
+          {
+            "index": 1,
+            "name": "Volume",
+            "default": null
+          },
+          {
+            "index": 2,
+            "name": "Displacement",
+            "default": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "index": 3,
+            "name": "Thickness",
+            "default": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Texture Coordinate",
+        "type": "ShaderNodeTexCoord",
+        "inputs": []
+      },
+      {
+        "name": "Separate XYZ",
+        "type": "ShaderNodeSeparateXYZ",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Vector",
+            "default": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Math",
+        "type": "ShaderNodeMath",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 1,
+            "name": "Value",
+            "default": 0.3490658402442932
+          },
+          {
+            "index": 2,
+            "name": "Value",
+            "default": 0.5
+          }
+        ],
+        "operation": "MULTIPLY"
+      },
+      {
+        "name": "Math.001",
+        "type": "ShaderNodeMath",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 1,
+            "name": "Value",
+            "default": 0.0
+          },
+          {
+            "index": 2,
+            "name": "Value",
+            "default": 0.5
+          }
+        ],
+        "operation": "SUBTRACT"
+      },
+      {
+        "name": "Math.002",
+        "type": "ShaderNodeMath",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 1,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 2,
+            "name": "Value",
+            "default": 0.5
+          }
+        ],
+        "operation": "SINE"
+      },
+      {
+        "name": "Math.003",
+        "type": "ShaderNodeMath",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 1,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 2,
+            "name": "Value",
+            "default": 0.5
+          }
+        ],
+        "operation": "COSINE"
+      },
+      {
+        "name": "Combine XYZ",
+        "type": "ShaderNodeCombineXYZ",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "X",
+            "default": 0.0
+          },
+          {
+            "index": 1,
+            "name": "Y",
+            "default": 0.0
+          },
+          {
+            "index": 2,
+            "name": "Z",
+            "default": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Noise Texture",
+        "type": "ShaderNodeTexNoise",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Vector",
+            "default": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "index": 1,
+            "name": "W",
+            "default": 0.0
+          },
+          {
+            "index": 2,
+            "name": "Scale",
+            "default": 6.5
+          },
+          {
+            "index": 3,
+            "name": "Detail",
+            "default": 3.700000047683716
+          },
+          {
+            "index": 4,
+            "name": "Roughness",
+            "default": 0.75
+          },
+          {
+            "index": 5,
+            "name": "Lacunarity",
+            "default": 2.0
+          },
+          {
+            "index": 6,
+            "name": "Offset",
+            "default": 0.0
+          },
+          {
+            "index": 7,
+            "name": "Gain",
+            "default": 1.0
+          },
+          {
+            "index": 8,
+            "name": "Distortion",
+            "default": 0.0
+          }
+        ],
+        "noise_dimensions": "3D"
+      },
+      {
+        "name": "Bump",
+        "type": "ShaderNodeBump",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Strength",
+            "default": 0.44999998807907104
+          },
+          {
+            "index": 1,
+            "name": "Distance",
+            "default": 0.03999999910593033
+          },
+          {
+            "index": 2,
+            "name": "Filter Width",
+            "default": 0.10000000149011612
+          },
+          {
+            "index": 3,
+            "name": "Height",
+            "default": 1.0
+          },
+          {
+            "index": 4,
+            "name": "Normal",
+            "default": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Math.004",
+        "type": "ShaderNodeMath",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 1,
+            "name": "Value",
+            "default": 0.4363323152065277
+          },
+          {
+            "index": 2,
+            "name": "Value",
+            "default": 0.5
+          }
+        ],
+        "operation": "MULTIPLY"
+      },
+      {
+        "name": "Math.005",
+        "type": "ShaderNodeMath",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 1,
+            "name": "Value",
+            "default": 0.0
+          },
+          {
+            "index": 2,
+            "name": "Value",
+            "default": 0.5
+          }
+        ],
+        "operation": "SUBTRACT"
+      },
+      {
+        "name": "Math.006",
+        "type": "ShaderNodeMath",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 1,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 2,
+            "name": "Value",
+            "default": 0.5
+          }
+        ],
+        "operation": "SINE"
+      },
+      {
+        "name": "Math.007",
+        "type": "ShaderNodeMath",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 1,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 2,
+            "name": "Value",
+            "default": 0.5
+          }
+        ],
+        "operation": "COSINE"
+      },
+      {
+        "name": "Combine XYZ.001",
+        "type": "ShaderNodeCombineXYZ",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "X",
+            "default": 0.0
+          },
+          {
+            "index": 1,
+            "name": "Y",
+            "default": 0.0
+          },
+          {
+            "index": 2,
+            "name": "Z",
+            "default": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Noise Texture.001",
+        "type": "ShaderNodeTexNoise",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Vector",
+            "default": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "index": 1,
+            "name": "W",
+            "default": 0.0
+          },
+          {
+            "index": 2,
+            "name": "Scale",
+            "default": 17.0
+          },
+          {
+            "index": 3,
+            "name": "Detail",
+            "default": 3.700000047683716
+          },
+          {
+            "index": 4,
+            "name": "Roughness",
+            "default": 0.75
+          },
+          {
+            "index": 5,
+            "name": "Lacunarity",
+            "default": 2.0
+          },
+          {
+            "index": 6,
+            "name": "Offset",
+            "default": 0.0
+          },
+          {
+            "index": 7,
+            "name": "Gain",
+            "default": 1.0
+          },
+          {
+            "index": 8,
+            "name": "Distortion",
+            "default": 0.0
+          }
+        ],
+        "noise_dimensions": "3D"
+      },
+      {
+        "name": "Bump.001",
+        "type": "ShaderNodeBump",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Strength",
+            "default": 0.44999998807907104
+          },
+          {
+            "index": 1,
+            "name": "Distance",
+            "default": 0.019999999552965164
+          },
+          {
+            "index": 2,
+            "name": "Filter Width",
+            "default": 0.10000000149011612
+          },
+          {
+            "index": 3,
+            "name": "Height",
+            "default": 1.0
+          },
+          {
+            "index": 4,
+            "name": "Normal",
+            "default": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Math.008",
+        "type": "ShaderNodeMath",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 1,
+            "name": "Value",
+            "default": 0.5235987901687622
+          },
+          {
+            "index": 2,
+            "name": "Value",
+            "default": 0.5
+          }
+        ],
+        "operation": "MULTIPLY"
+      },
+      {
+        "name": "Math.009",
+        "type": "ShaderNodeMath",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 1,
+            "name": "Value",
+            "default": 0.0
+          },
+          {
+            "index": 2,
+            "name": "Value",
+            "default": 0.5
+          }
+        ],
+        "operation": "SUBTRACT"
+      },
+      {
+        "name": "Math.010",
+        "type": "ShaderNodeMath",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 1,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 2,
+            "name": "Value",
+            "default": 0.5
+          }
+        ],
+        "operation": "SINE"
+      },
+      {
+        "name": "Math.011",
+        "type": "ShaderNodeMath",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 1,
+            "name": "Value",
+            "default": 0.5
+          },
+          {
+            "index": 2,
+            "name": "Value",
+            "default": 0.5
+          }
+        ],
+        "operation": "COSINE"
+      },
+      {
+        "name": "Combine XYZ.002",
+        "type": "ShaderNodeCombineXYZ",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "X",
+            "default": 0.0
+          },
+          {
+            "index": 1,
+            "name": "Y",
+            "default": 0.0
+          },
+          {
+            "index": 2,
+            "name": "Z",
+            "default": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Noise Texture.002",
+        "type": "ShaderNodeTexNoise",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Vector",
+            "default": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "index": 1,
+            "name": "W",
+            "default": 0.0
+          },
+          {
+            "index": 2,
+            "name": "Scale",
+            "default": 39.0
+          },
+          {
+            "index": 3,
+            "name": "Detail",
+            "default": 3.700000047683716
+          },
+          {
+            "index": 4,
+            "name": "Roughness",
+            "default": 0.75
+          },
+          {
+            "index": 5,
+            "name": "Lacunarity",
+            "default": 2.0
+          },
+          {
+            "index": 6,
+            "name": "Offset",
+            "default": 0.0
+          },
+          {
+            "index": 7,
+            "name": "Gain",
+            "default": 1.0
+          },
+          {
+            "index": 8,
+            "name": "Distortion",
+            "default": 0.0
+          }
+        ],
+        "noise_dimensions": "3D"
+      },
+      {
+        "name": "Bump.002",
+        "type": "ShaderNodeBump",
+        "inputs": [
+          {
+            "index": 0,
+            "name": "Strength",
+            "default": 0.44999998807907104
+          },
+          {
+            "index": 1,
+            "name": "Distance",
+            "default": 0.00800000037997961
+          },
+          {
+            "index": 2,
+            "name": "Filter Width",
+            "default": 0.10000000149011612
+          },
+          {
+            "index": 3,
+            "name": "Height",
+            "default": 1.0
+          },
+          {
+            "index": 4,
+            "name": "Normal",
+            "default": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "from_node": "Principled BSDF",
+        "from_socket": "BSDF",
+        "to_node": "Material Output",
+        "to_socket": "Surface"
+      },
+      {
+        "from_node": "Texture Coordinate",
+        "from_socket": "Object",
+        "to_node": "Separate XYZ",
+        "to_socket": "Vector"
+      },
+      {
+        "from_node": "Separate XYZ",
+        "from_socket": "Y",
+        "to_node": "Math",
+        "to_socket": "Value"
+      },
+      {
+        "from_node": "Math",
+        "from_socket": "Value",
+        "to_node": "Math.001",
+        "to_socket": "Value"
+      },
+      {
+        "from_node": "Math.001",
+        "from_socket": "Value",
+        "to_node": "Math.002",
+        "to_socket": "Value"
+      },
+      {
+        "from_node": "Math.001",
+        "from_socket": "Value",
+        "to_node": "Math.003",
+        "to_socket": "Value"
+      },
+      {
+        "from_node": "Separate XYZ",
+        "from_socket": "X",
+        "to_node": "Combine XYZ",
+        "to_socket": "X"
+      },
+      {
+        "from_node": "Math.002",
+        "from_socket": "Value",
+        "to_node": "Combine XYZ",
+        "to_socket": "Y"
+      },
+      {
+        "from_node": "Math.003",
+        "from_socket": "Value",
+        "to_node": "Combine XYZ",
+        "to_socket": "Z"
+      },
+      {
+        "from_node": "Combine XYZ",
+        "from_socket": "Vector",
+        "to_node": "Noise Texture",
+        "to_socket": "Vector"
+      },
+      {
+        "from_node": "Noise Texture",
+        "from_socket": "Factor",
+        "to_node": "Bump",
+        "to_socket": "Height"
+      },
+      {
+        "from_node": "Separate XYZ",
+        "from_socket": "Y",
+        "to_node": "Math.004",
+        "to_socket": "Value"
+      },
+      {
+        "from_node": "Math.004",
+        "from_socket": "Value",
+        "to_node": "Math.005",
+        "to_socket": "Value"
+      },
+      {
+        "from_node": "Math.005",
+        "from_socket": "Value",
+        "to_node": "Math.006",
+        "to_socket": "Value"
+      },
+      {
+        "from_node": "Math.005",
+        "from_socket": "Value",
+        "to_node": "Math.007",
+        "to_socket": "Value"
+      },
+      {
+        "from_node": "Separate XYZ",
+        "from_socket": "X",
+        "to_node": "Combine XYZ.001",
+        "to_socket": "X"
+      },
+      {
+        "from_node": "Math.006",
+        "from_socket": "Value",
+        "to_node": "Combine XYZ.001",
+        "to_socket": "Y"
+      },
+      {
+        "from_node": "Math.007",
+        "from_socket": "Value",
+        "to_node": "Combine XYZ.001",
+        "to_socket": "Z"
+      },
+      {
+        "from_node": "Combine XYZ.001",
+        "from_socket": "Vector",
+        "to_node": "Noise Texture.001",
+        "to_socket": "Vector"
+      },
+      {
+        "from_node": "Noise Texture.001",
+        "from_socket": "Factor",
+        "to_node": "Bump.001",
+        "to_socket": "Height"
+      },
+      {
+        "from_node": "Bump",
+        "from_socket": "Normal",
+        "to_node": "Bump.001",
+        "to_socket": "Normal"
+      },
+      {
+        "from_node": "Separate XYZ",
+        "from_socket": "Y",
+        "to_node": "Math.008",
+        "to_socket": "Value"
+      },
+      {
+        "from_node": "Math.008",
+        "from_socket": "Value",
+        "to_node": "Math.009",
+        "to_socket": "Value"
+      },
+      {
+        "from_node": "Math.009",
+        "from_socket": "Value",
+        "to_node": "Math.010",
+        "to_socket": "Value"
+      },
+      {
+        "from_node": "Math.009",
+        "from_socket": "Value",
+        "to_node": "Math.011",
+        "to_socket": "Value"
+      },
+      {
+        "from_node": "Separate XYZ",
+        "from_socket": "X",
+        "to_node": "Combine XYZ.002",
+        "to_socket": "X"
+      },
+      {
+        "from_node": "Math.010",
+        "from_socket": "Value",
+        "to_node": "Combine XYZ.002",
+        "to_socket": "Y"
+      },
+      {
+        "from_node": "Math.011",
+        "from_socket": "Value",
+        "to_node": "Combine XYZ.002",
+        "to_socket": "Z"
+      },
+      {
+        "from_node": "Combine XYZ.002",
+        "from_socket": "Vector",
+        "to_node": "Noise Texture.002",
+        "to_socket": "Vector"
+      },
+      {
+        "from_node": "Noise Texture.002",
+        "from_socket": "Factor",
+        "to_node": "Bump.002",
+        "to_socket": "Height"
+      },
+      {
+        "from_node": "Bump.001",
+        "from_socket": "Normal",
+        "to_node": "Bump.002",
+        "to_socket": "Normal"
+      },
+      {
+        "from_node": "Bump.002",
+        "from_socket": "Normal",
+        "to_node": "Principled BSDF",
+        "to_socket": "Normal"
+      }
+    ]
+  },
+  "evaluated_samples": [
+    {
+      "seconds": 0.0,
+      "frame": 1.0,
+      "rigs": {
+        "Cargo 00 / individual upper-girder carrier": {
+          "location": [
+            0.0,
+            -22.0,
+            0.0
+          ],
+          "world_position": [
+            0.0,
+            -22.0,
+            0.0
+          ]
+        },
+        "Cargo 21 / individual upper-girder carrier": {
+          "location": [
+            0.0,
+            78.80000305175781,
+            0.0
+          ],
+          "world_position": [
+            0.0,
+            78.80000305175781,
+            0.0
+          ]
+        }
+      },
+      "shoes": {
+        "Carrier bearing shoe": {
+          "world_position": [
+            0.25,
+            -22.0,
+            3.243499994277954
+          ]
+        },
+        "Carrier bearing shoe.042": {
+          "world_position": [
+            0.25,
+            78.80000305175781,
+            3.243499994277954
+          ]
+        }
+      },
+      "shape_key_values": {
+        "wave 0 sin": 1.0,
+        "wave 0 cos": 0.0,
+        "wave 1 sin": 1.0,
+        "wave 1 cos": 0.0,
+        "wave 2 sin": 1.0,
+        "wave 2 cos": 0.0,
+        "wave 3 sin": 1.0,
+        "wave 3 cos": 0.0
+      },
+      "water_vertices_world": {
+        "8784": [
+          0.027500003576278687,
+          11.199999809265137,
+          -0.3206195533275604
+        ],
+        "13176": [
+          0.9500000476837158,
+          28.799999237060547,
+          -0.2990782856941223
+        ],
+        "17568": [
+          1.872499942779541,
+          46.400001525878906,
+          -0.28105512261390686
+        ]
+      },
+      "material_values": [
+        {
+          "path": "nodes[\"Math.001\"].inputs[1].default_value",
+          "index": 0,
+          "value": 0.0
+        },
+        {
+          "path": "nodes[\"Math.005\"].inputs[1].default_value",
+          "index": 0,
+          "value": 0.0
+        },
+        {
+          "path": "nodes[\"Math.009\"].inputs[1].default_value",
+          "index": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "seconds": 1.0,
+      "frame": 25.0,
+      "rigs": {
+        "Cargo 00 / individual upper-girder carrier": {
+          "location": [
+            0.0,
+            -21.200000762939453,
+            0.0
+          ],
+          "world_position": [
+            0.0,
+            -21.200000762939453,
+            0.0
+          ]
+        },
+        "Cargo 21 / individual upper-girder carrier": {
+          "location": [
+            0.0,
+            79.5999984741211,
+            0.0
+          ],
+          "world_position": [
+            0.0,
+            79.5999984741211,
+            0.0
+          ]
+        }
+      },
+      "shoes": {
+        "Carrier bearing shoe": {
+          "world_position": [
+            0.25,
+            -21.200000762939453,
+            3.243499994277954
+          ]
+        },
+        "Carrier bearing shoe.042": {
+          "world_position": [
+            0.25,
+            79.5999984741211,
+            3.243499994277954
+          ]
+        }
+      },
+      "shape_key_values": {
+        "wave 0 sin": -0.8660253882408142,
+        "wave 0 cos": 0.4999999403953552,
+        "wave 1 sin": 0.8660253882408142,
+        "wave 1 cos": 0.4999999403953552,
+        "wave 2 sin": -0.8660253882408142,
+        "wave 2 cos": 0.4999999403953552,
+        "wave 3 sin": 0.8660253882408142,
+        "wave 3 cos": 0.4999999403953552
+      },
+      "water_vertices_world": {
+        "8784": [
+          0.027500003576278687,
+          11.199999809265137,
+          -0.28628063201904297
+        ],
+        "13176": [
+          0.9500000476837158,
+          28.799999237060547,
+          -0.30324679613113403
+        ],
+        "17568": [
+          1.872499942779541,
+          46.400001525878906,
+          -0.3126959204673767
+        ]
+      },
+      "material_values": [
+        {
+          "path": "nodes[\"Math.001\"].inputs[1].default_value",
+          "index": 0,
+          "value": 0.5235987901687622
+        },
+        {
+          "path": "nodes[\"Math.005\"].inputs[1].default_value",
+          "index": 0,
+          "value": 1.0471975803375244
+        },
+        {
+          "path": "nodes[\"Math.009\"].inputs[1].default_value",
+          "index": 0,
+          "value": 1.5707963705062866
+        }
+      ]
+    },
+    {
+      "seconds": 3.495833333333333,
+      "frame": 84.89999999999999,
+      "rigs": {
+        "Cargo 00 / individual upper-girder carrier": {
+          "location": [
+            0.0,
+            -19.203332901000977,
+            0.0
+          ],
+          "world_position": [
+            0.0,
+            -19.203332901000977,
+            0.0
+          ]
+        },
+        "Cargo 21 / individual upper-girder carrier": {
+          "location": [
+            0.0,
+            81.59666442871094,
+            0.0
+          ],
+          "world_position": [
+            0.0,
+            81.59666442871094,
+            0.0
+          ]
+        }
+      },
+      "shoes": {
+        "Carrier bearing shoe": {
+          "world_position": [
+            0.25,
+            -19.203332901000977,
+            3.243499994277954
+          ]
+        },
+        "Carrier bearing shoe.042": {
+          "world_position": [
+            0.25,
+            81.59666442871094,
+            3.243499994277954
+          ]
+        }
+      },
+      "shape_key_values": {
+        "wave 0 sin": 0.9697655439376831,
+        "wave 0 cos": -0.2440384030342102,
+        "wave 1 sin": 0.28192248940467834,
+        "wave 1 cos": -0.9594371914863586,
+        "wave 2 sin": -0.9758213758468628,
+        "wave 2 cos": 0.21856965124607086,
+        "wave 3 sin": -0.30694064497947693,
+        "wave 3 cos": 0.9517286419868469
+      },
+      "water_vertices_world": {
+        "8784": [
+          0.027500003576278687,
+          11.199999809265137,
+          -0.31360477209091187
+        ],
+        "13176": [
+          0.9500000476837158,
+          28.799999237060547,
+          -0.2852119505405426
+        ],
+        "17568": [
+          1.872499942779541,
+          46.400001525878906,
+          -0.27123305201530457
+        ]
+      },
+      "material_values": [
+        {
+          "path": "nodes[\"Math.001\"].inputs[1].default_value",
+          "index": 0,
+          "value": 1.830414056777954
+        },
+        {
+          "path": "nodes[\"Math.005\"].inputs[1].default_value",
+          "index": 0,
+          "value": 3.660828113555908
+        },
+        {
+          "path": "nodes[\"Math.009\"].inputs[1].default_value",
+          "index": 0,
+          "value": 5.491242408752441
+        }
+      ]
+    },
+    {
+      "seconds": 3.504166666666667,
+      "frame": 85.10000000000001,
+      "rigs": {
+        "Cargo 00 / individual upper-girder carrier": {
+          "location": [
+            0.0,
+            -19.196666717529297,
+            0.0
+          ],
+          "world_position": [
+            0.0,
+            -19.196666717529297,
+            0.0
+          ]
+        },
+        "Cargo 21 / individual upper-girder carrier": {
+          "location": [
+            0.0,
+            -23.996665954589844,
+            0.0
+          ],
+          "world_position": [
+            0.0,
+            -23.996665954589844,
+            0.0
+          ]
+        }
+      },
+      "shoes": {
+        "Carrier bearing shoe": {
+          "world_position": [
+            0.25,
+            -19.196666717529297,
+            3.243499994277954
+          ]
+        },
+        "Carrier bearing shoe.042": {
+          "world_position": [
+            0.25,
+            -23.996665954589844,
+            3.243499994277954
+          ]
+        }
+      },
+      "shape_key_values": {
+        "wave 0 sin": 0.9618608355522156,
+        "wave 0 cos": -0.27353933453559875,
+        "wave 1 sin": 0.23556654155254364,
+        "wave 1 cos": -0.9718582034111023,
+        "wave 2 sin": -0.95437091588974,
+        "wave 2 cos": 0.2986237704753876,
+        "wave 3 sin": -0.2100459337234497,
+        "wave 3 cos": 0.9776915311813354
+      },
+      "water_vertices_world": {
+        "8784": [
+          0.027500003576278687,
+          11.199999809265137,
+          -0.31294432282447815
+        ],
+        "13176": [
+          0.9500000476837158,
+          28.799999237060547,
+          -0.2852199673652649
+        ],
+        "17568": [
+          1.872499942779541,
+          46.400001525878906,
+          -0.27164411544799805
+        ]
+      },
+      "material_values": [
+        {
+          "path": "nodes[\"Math.001\"].inputs[1].default_value",
+          "index": 0,
+          "value": 1.8347773551940918
+        },
+        {
+          "path": "nodes[\"Math.005\"].inputs[1].default_value",
+          "index": 0,
+          "value": 3.6695547103881836
+        },
+        {
+          "path": "nodes[\"Math.009\"].inputs[1].default_value",
+          "index": 0,
+          "value": 5.504332065582275
+        }
+      ]
+    },
+    {
+      "seconds": 12.0,
+      "frame": 289.0,
+      "rigs": {
+        "Cargo 00 / individual upper-girder carrier": {
+          "location": [
+            0.0,
+            -12.399999618530273,
+            0.0
+          ],
+          "world_position": [
+            0.0,
+            -12.399999618530273,
+            0.0
+          ]
+        },
+        "Cargo 21 / individual upper-girder carrier": {
+          "location": [
+            0.0,
+            -17.200000762939453,
+            0.0
+          ],
+          "world_position": [
+            0.0,
+            -17.200000762939453,
+            0.0
+          ]
+        }
+      },
+      "shoes": {
+        "Carrier bearing shoe": {
+          "world_position": [
+            0.25,
+            -12.399999618530273,
+            3.243499994277954
+          ]
+        },
+        "Carrier bearing shoe.042": {
+          "world_position": [
+            0.25,
+            -17.200000762939453,
+            3.243499994277954
+          ]
+        }
+      },
+      "shape_key_values": {
+        "wave 0 sin": 1.0,
+        "wave 0 cos": 0.0,
+        "wave 1 sin": 1.0,
+        "wave 1 cos": -4.41120444073231e-15,
+        "wave 2 sin": 1.0,
+        "wave 2 cos": 0.0,
+        "wave 3 sin": 1.0,
+        "wave 3 cos": 0.0
+      },
+      "water_vertices_world": {
+        "8784": [
+          0.027500003576278687,
+          11.199999809265137,
+          -0.3206195533275604
+        ],
+        "13176": [
+          0.9500000476837158,
+          28.799999237060547,
+          -0.2990782856941223
+        ],
+        "17568": [
+          1.872499942779541,
+          46.400001525878906,
+          -0.28105512261390686
+        ]
+      },
+      "material_values": [
+        {
+          "path": "nodes[\"Math.001\"].inputs[1].default_value",
+          "index": 0,
+          "value": 6.2831854820251465
+        },
+        {
+          "path": "nodes[\"Math.005\"].inputs[1].default_value",
+          "index": 0,
+          "value": 12.566370964050293
+        },
+        {
+          "path": "nodes[\"Math.009\"].inputs[1].default_value",
+          "index": 0,
+          "value": 18.84955596923828
+        }
+      ]
+    }
+  ],
+  "status": "complete_scoped_reference",
+  "source_stat_unchanged": true,
+  "elapsed_s": 0.344,
+  "scope": "2 representative rigs and one shoe each, 3 water vertices, keys/material drivers at 5 times; no bearing inspection"
+}

@@ -1,0 +1,1678 @@
+{
+  "source_sha256": "94f952d3a1fb5f58a9429fae6661f00442ec44167f2749d9856c16f8d3ea365c",
+  "source_blend": "/Users/ryota/binary-dusk-blender/shoko-scene-production/05_lower/scene/05-lower-root-candidate-003.blend",
+  "frame": 1,
+  "build_hash": "9e2066aef7ef",
+  "source_preserved": true,
+  "materials": {
+    "Binding cover 02": {
+      "material_animation_data": null,
+      "node_tree_animation_data": null
+    },
+    "Binding cover 01": {
+      "material_animation_data": null,
+      "node_tree_animation_data": null
+    },
+    "Dark warm rail metal": {
+      "material_animation_data": null,
+      "node_tree_animation_data": null
+    },
+    "V3 Binding cover 2": {
+      "material_animation_data": null,
+      "node_tree_animation_data": null
+    },
+    "V11 sewn paper 0": {
+      "material_animation_data": null,
+      "node_tree_animation_data": null,
+      "object_coordinate": {
+        "node": "テクスチャ座標",
+        "type": "ShaderNodeTexCoord",
+        "object": null,
+        "from_instancer": false
+      }
+    }
+  },
+  "generated_objects": {
+    "V3 transported complete binding 0 continuous rounded spine": {
+      "data": "V3 transported complete binding 0 continuous rounded spine sealed cover",
+      "texture_space_location": [
+        0.0,
+        -0.32499998807907104,
+        0.26499998569488525
+      ],
+      "texture_space_size": [
+        0.1029599979519844,
+        0.006999999284744263,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Cover thickness",
+          "type": "SOLIDIFY",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 0 cover": {
+      "data": "V3 transported complete binding 0 cover",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 0 cover.001": {
+      "data": "V3 transported complete binding 0 cover.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 0 headband": {
+      "data": "V3 transported complete binding 0 headband",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 0 headband.001": {
+      "data": "V3 transported complete binding 0 headband.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 10 continuous rounded spine": {
+      "data": "V3 transported complete binding 10 continuous rounded spine sealed cover",
+      "texture_space_location": [
+        0.0,
+        -0.32499998807907104,
+        0.26499998569488525
+      ],
+      "texture_space_size": [
+        0.1029599979519844,
+        0.006999999284744263,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Cover thickness",
+          "type": "SOLIDIFY",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 10 cover": {
+      "data": "V3 transported complete binding 10 cover",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 10 cover.001": {
+      "data": "V3 transported complete binding 10 cover.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 10 headband": {
+      "data": "V3 transported complete binding 10 headband",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 10 headband.001": {
+      "data": "V3 transported complete binding 10 headband.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 12 continuous rounded spine": {
+      "data": "V3 transported complete binding 12 continuous rounded spine sealed cover",
+      "texture_space_location": [
+        0.0,
+        -0.32499998807907104,
+        0.26499998569488525
+      ],
+      "texture_space_size": [
+        0.1029599979519844,
+        0.006999999284744263,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Cover thickness",
+          "type": "SOLIDIFY",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 12 cover": {
+      "data": "V3 transported complete binding 12 cover",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 12 cover.001": {
+      "data": "V3 transported complete binding 12 cover.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 12 headband": {
+      "data": "V3 transported complete binding 12 headband",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 12 headband.001": {
+      "data": "V3 transported complete binding 12 headband.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 14 continuous rounded spine": {
+      "data": "V3 transported complete binding 14 continuous rounded spine sealed cover",
+      "texture_space_location": [
+        0.0,
+        -0.32499998807907104,
+        0.26499998569488525
+      ],
+      "texture_space_size": [
+        0.1029599979519844,
+        0.006999999284744263,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Cover thickness",
+          "type": "SOLIDIFY",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 14 cover": {
+      "data": "V3 transported complete binding 14 cover",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 14 cover.001": {
+      "data": "V3 transported complete binding 14 cover.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 14 headband": {
+      "data": "V3 transported complete binding 14 headband",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 14 headband.001": {
+      "data": "V3 transported complete binding 14 headband.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 16 continuous rounded spine": {
+      "data": "V3 transported complete binding 16 continuous rounded spine sealed cover",
+      "texture_space_location": [
+        0.0,
+        -0.32499998807907104,
+        0.26499998569488525
+      ],
+      "texture_space_size": [
+        0.1029599979519844,
+        0.006999999284744263,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Cover thickness",
+          "type": "SOLIDIFY",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 16 cover": {
+      "data": "V3 transported complete binding 16 cover",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 16 cover.001": {
+      "data": "V3 transported complete binding 16 cover.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 16 headband": {
+      "data": "V3 transported complete binding 16 headband",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 16 headband.001": {
+      "data": "V3 transported complete binding 16 headband.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 18 continuous rounded spine": {
+      "data": "V3 transported complete binding 18 continuous rounded spine sealed cover",
+      "texture_space_location": [
+        0.0,
+        -0.32499998807907104,
+        0.26499998569488525
+      ],
+      "texture_space_size": [
+        0.1029599979519844,
+        0.006999999284744263,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Cover thickness",
+          "type": "SOLIDIFY",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 18 cover": {
+      "data": "V3 transported complete binding 18 cover",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 18 cover.001": {
+      "data": "V3 transported complete binding 18 cover.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 18 headband": {
+      "data": "V3 transported complete binding 18 headband",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 18 headband.001": {
+      "data": "V3 transported complete binding 18 headband.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 2 continuous rounded spine": {
+      "data": "V3 transported complete binding 2 continuous rounded spine sealed cover",
+      "texture_space_location": [
+        0.0,
+        -0.32499998807907104,
+        0.26499998569488525
+      ],
+      "texture_space_size": [
+        0.1029599979519844,
+        0.006999999284744263,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Cover thickness",
+          "type": "SOLIDIFY",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 2 cover": {
+      "data": "V3 transported complete binding 2 cover",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 2 cover.001": {
+      "data": "V3 transported complete binding 2 cover.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 2 headband": {
+      "data": "V3 transported complete binding 2 headband",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 2 headband.001": {
+      "data": "V3 transported complete binding 2 headband.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 20 continuous rounded spine": {
+      "data": "V3 transported complete binding 20 continuous rounded spine sealed cover",
+      "texture_space_location": [
+        0.0,
+        -0.32499998807907104,
+        0.26499998569488525
+      ],
+      "texture_space_size": [
+        0.1029599979519844,
+        0.006999999284744263,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Cover thickness",
+          "type": "SOLIDIFY",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 20 cover": {
+      "data": "V3 transported complete binding 20 cover",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 20 cover.001": {
+      "data": "V3 transported complete binding 20 cover.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 20 headband": {
+      "data": "V3 transported complete binding 20 headband",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 20 headband.001": {
+      "data": "V3 transported complete binding 20 headband.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 4 continuous rounded spine": {
+      "data": "V3 transported complete binding 4 continuous rounded spine sealed cover",
+      "texture_space_location": [
+        0.0,
+        -0.32499998807907104,
+        0.26499998569488525
+      ],
+      "texture_space_size": [
+        0.1029599979519844,
+        0.006999999284744263,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Cover thickness",
+          "type": "SOLIDIFY",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 4 cover": {
+      "data": "V3 transported complete binding 4 cover",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 4 cover.001": {
+      "data": "V3 transported complete binding 4 cover.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 4 headband": {
+      "data": "V3 transported complete binding 4 headband",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 4 headband.001": {
+      "data": "V3 transported complete binding 4 headband.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 6 continuous rounded spine": {
+      "data": "V3 transported complete binding 6 continuous rounded spine sealed cover",
+      "texture_space_location": [
+        0.0,
+        -0.32499998807907104,
+        0.26499998569488525
+      ],
+      "texture_space_size": [
+        0.1029599979519844,
+        0.006999999284744263,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Cover thickness",
+          "type": "SOLIDIFY",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 6 cover": {
+      "data": "V3 transported complete binding 6 cover",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 6 cover.001": {
+      "data": "V3 transported complete binding 6 cover.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 6 headband": {
+      "data": "V3 transported complete binding 6 headband",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 6 headband.001": {
+      "data": "V3 transported complete binding 6 headband.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 8 continuous rounded spine": {
+      "data": "V3 transported complete binding 8 continuous rounded spine sealed cover",
+      "texture_space_location": [
+        0.0,
+        -0.32499998807907104,
+        0.26499998569488525
+      ],
+      "texture_space_size": [
+        0.1029599979519844,
+        0.006999999284744263,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Cover thickness",
+          "type": "SOLIDIFY",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 8 cover": {
+      "data": "V3 transported complete binding 8 cover",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 8 cover.001": {
+      "data": "V3 transported complete binding 8 cover.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0024999999441206455,
+        0.3310000002384186,
+        0.2680000066757202
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 8 headband": {
+      "data": "V3 transported complete binding 8 headband",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    },
+    "V3 transported complete binding 8 headband.001": {
+      "data": "V3 transported complete binding 8 headband.001",
+      "texture_space_location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "texture_space_size": [
+        0.0925000011920929,
+        0.0044999998062849045,
+        0.0017500000540167093
+      ],
+      "auto_texspace": true,
+      "texco_mesh": null,
+      "shape_keys": null,
+      "mesh_animation_data": null,
+      "modifiers": [
+        {
+          "name": "Worked softened edges",
+          "type": "BEVEL",
+          "show_render": true,
+          "show_viewport": true
+        },
+        {
+          "name": "Weighted face normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_render": true,
+          "show_viewport": true
+        }
+      ]
+    }
+  },
+  "scope": "Five material/node-tree animation presence; paper coordinate pointer; V3 source texture-space, texco_mesh, shape key and modifier dependency metadata only. No evaluated mesh, export or rendering.",
+  "script_elapsed_seconds": 0.5710239592008293
+}

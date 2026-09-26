@@ -1,0 +1,17 @@
+{
+  "source_sha256": "94f952d3a1fb5f58a9429fae6661f00442ec44167f2749d9856c16f8d3ea365c",
+  "source_blend": "/Users/ryota/binary-dusk-blender/shoko-scene-production/05_lower/scene/05-lower-root-candidate-003.blend",
+  "frame": 1,
+  "build_hash": "9e2066aef7ef",
+  "source_preserved": true,
+  "record": {
+    "material": "Dark moving water",
+    "node": "Texture Coordinate",
+    "type": "ShaderNodeTexCoord",
+    "object": null,
+    "from_instancer": false,
+    "object_world": null
+  },
+  "scope": "One missing ShaderNodeTexCoord.object pointer; from_instancer cross-checked. No geometry read/export/render.",
+  "script_elapsed_seconds": 0.1671863328665495
+}
