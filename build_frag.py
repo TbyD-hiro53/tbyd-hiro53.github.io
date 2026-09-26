@@ -25,8 +25,8 @@ root = Path(__file__).resolve().parent
 canon = (root / 'CANON_TEXT.md').read_text(encoding='utf-8')
 
 # Data to load, measured on a phone (2026-09-23, compressed transfer). Only works over 5 MB.
-# Re-measure when a work's assets are replaced.
-DATA_SIZE_MB = {'preservation-hall': 25, 'lacto-cortex': 23, 'binary-dusk': 16, 'confluence': 15,
+# Re-measure when a work's assets are replaced. (2026-09-26: preservation-hall 25 -> 3.8 MB, chip removed)
+DATA_SIZE_MB = {'lacto-cortex': 23, 'binary-dusk': 16, 'confluence': 15,
                 'coastal-glass': 12, 'the-changes': 11, 'chrome-liturgy': 6, 'lacto-caloris': 6}
 SIZE_TITLE = '読み込み量（スマートフォン表示での実測） / Data to load (measured on a phone)'
 COUNT_PATTERN = r'(id="count">)(?:\d+ assets(?: \+ 1 study)?|\d+ works)(</span>)'
