@@ -1,0 +1,342 @@
+{
+ "schema": "shoko-jpeg-pilot-v1",
+ "native_8k": false,
+ "scenes": {
+  "03": {
+   "landscape": {
+    "source": "03_room/outputs/production/20260924-cycles-native-128/landscape-v2/03-room-web.png",
+    "source_bytes": 1733850,
+    "source_sha256": "494fe3dced6d059a6f4ca2ecb7c1eb3879e005fe10526db64d88f18bff2f225b",
+    "native_size": [
+     1920,
+     1080
+    ],
+    "variants": [
+     {
+      "url": "./shoko-v1-w1-03-landscape-960.jpg",
+      "width": 960,
+      "height": 540,
+      "longEdge": 960,
+      "bytes": 49595,
+      "sha256": "bffda846819f51b1986ca7eff7feac1c9ad8584d48d9ec9196be497e998daf64"
+     },
+     {
+      "url": "./shoko-v1-w1-03-landscape-1920.jpg",
+      "width": 1920,
+      "height": 1080,
+      "longEdge": 1920,
+      "bytes": 161736,
+      "sha256": "842c689fb7fda92f5bec0b15d358751f1ebdd14c16b247cff106853d2bbb06c1"
+     }
+    ]
+   },
+   "portrait": {
+    "source": "03_room/outputs/production/20260924-cycles-native-128/portrait-v1/03-room-web.png",
+    "source_bytes": 1732792,
+    "source_sha256": "948db7c690b76de7482c6791fce3b21c1eed3c60a14f2b51420184edccd7758d",
+    "native_size": [
+     1080,
+     1920
+    ],
+    "variants": [
+     {
+      "url": "./shoko-v1-w1-03-portrait-960.jpg",
+      "width": 540,
+      "height": 960,
+      "longEdge": 960,
+      "bytes": 49933,
+      "sha256": "c12a19b688a361be3e96f19dd87454d7df2176d5a462478c0b2496c1b12221ee"
+     },
+     {
+      "url": "./shoko-v1-w1-03-portrait-1920.jpg",
+      "width": 1080,
+      "height": 1920,
+      "longEdge": 1920,
+      "bytes": 166196,
+      "sha256": "d655b467d4131f42ad71606d4a113df235972800b4cc9ec05d5b9f671acfb220"
+     }
+    ]
+   }
+  },
+  "04": {
+   "landscape": {
+    "source": "04_reading/outputs/production/20260926-carved-shelves-001/04-landscape.png",
+    "source_bytes": 2181130,
+    "source_sha256": "45d415bef66d7f37a0eb192ff5e5fbc38d6ead2cad2a6ae01aea495dd75a706b",
+    "native_size": [
+     1920,
+     1080
+    ],
+    "variants": [
+     {
+      "url": "./shoko-v1-w1-04-landscape-960.jpg",
+      "width": 960,
+      "height": 540,
+      "longEdge": 960,
+      "bytes": 82591,
+      "sha256": "54a5b1ce6dcbda8663519f54902bb29a3015cbf80b7b5c0880e346136a5d05ca"
+     },
+     {
+      "url": "./shoko-v1-w1-04-landscape-1920.jpg",
+      "width": 1920,
+      "height": 1080,
+      "longEdge": 1920,
+      "bytes": 254054,
+      "sha256": "c125c84353ce21cc9eb1895ef4c80f722e237db569126240f9d2f5891b843162"
+     }
+    ]
+   },
+   "portrait": {
+    "source": "04_reading/outputs/production/20260926-carved-shelves-001/04-portrait.png",
+    "source_bytes": 2227326,
+    "source_sha256": "b01dc48a212ad79d11740c3501a56933798eace386f9f6756e825317c86e9212",
+    "native_size": [
+     1080,
+     1920
+    ],
+    "variants": [
+     {
+      "url": "./shoko-v1-w1-04-portrait-960.jpg",
+      "width": 540,
+      "height": 960,
+      "longEdge": 960,
+      "bytes": 83807,
+      "sha256": "ad3a8585275ef8b21ae5287e62bf5b492d964cd7d52d54347a4f2c97f3be348f"
+     },
+     {
+      "url": "./shoko-v1-w1-04-portrait-1920.jpg",
+      "width": 1080,
+      "height": 1920,
+      "longEdge": 1920,
+      "bytes": 268798,
+      "sha256": "8daaa0f876e8a5980fb9fde3a55fffea2694f24c8603625b2fba982489c7c945"
+     }
+    ]
+   }
+  },
+  "07": {
+   "landscape": {
+    "source": "07_branch/outputs/production/20260926-sunlit-001/landscape/web.png",
+    "source_bytes": 2371168,
+    "source_sha256": "a3f4d1d1a4539b533f10a51d5fdcde9a92646dfe21fd95639b0054a9fdf084b5",
+    "native_size": [
+     1920,
+     1080
+    ],
+    "variants": [
+     {
+      "url": "./shoko-v1-w1-07-landscape-960.jpg",
+      "width": 960,
+      "height": 540,
+      "longEdge": 960,
+      "bytes": 111089,
+      "sha256": "bd02c84fd0a606a83ef16fe6ea909a5c71389b5f144c4475dc2c7bad47c818e2"
+     },
+     {
+      "url": "./shoko-v1-w1-07-landscape-1920.jpg",
+      "width": 1920,
+      "height": 1080,
+      "longEdge": 1920,
+      "bytes": 346670,
+      "sha256": "879b3cf6654085b53e9bd952a98fd8c91a6085bbe5a7cb07e20463c322339480"
+     }
+    ]
+   },
+   "portrait": {
+    "source": "07_branch/outputs/production/20260926-sunlit-001/portrait/web.png",
+    "source_bytes": 2281900,
+    "source_sha256": "91caa29ee0a2bc11be2d4824624e550b4cf72f842b04222731df793988eeca77",
+    "native_size": [
+     1080,
+     1920
+    ],
+    "variants": [
+     {
+      "url": "./shoko-v1-w1-07-portrait-960.jpg",
+      "width": 540,
+      "height": 960,
+      "longEdge": 960,
+      "bytes": 99121,
+      "sha256": "9ddc0612ca2024b0825d7198c192f4ae8cffb9dc89fedb76ceae975049dbd8c4"
+     },
+     {
+      "url": "./shoko-v1-w1-07-portrait-1920.jpg",
+      "width": 1080,
+      "height": 1920,
+      "longEdge": 1920,
+      "bytes": 326439,
+      "sha256": "df50e759ab8659597bce0722a1b9377a3aec7eb35d12fa52592889255f8f4f70"
+     }
+    ]
+   }
+  },
+  "01": {
+   "landscape": {
+    "source": "01_02_entrance/outputs/production/20260926-daylight-006/01-landscape.png",
+    "source_bytes": 3474859,
+    "source_sha256": "dfb4f92c63f62b136183a14e4ea1f168dcd05d2152b9fcb4b823420e6a27c60b",
+    "native_size": [
+     1920,
+     1080
+    ],
+    "variants": [
+     {
+      "url": "./shoko-v1-w1-01-landscape-960.jpg",
+      "width": 960,
+      "height": 540,
+      "longEdge": 960,
+      "bytes": 200404,
+      "sha256": "a4a157708439eb002d6abfba42e1858d77c45ae2d02cfe38cd1e891c617b8a94"
+     },
+     {
+      "url": "./shoko-v1-w1-01-landscape-1920.jpg",
+      "width": 1920,
+      "height": 1080,
+      "longEdge": 1920,
+      "bytes": 685913,
+      "sha256": "ad4f0566114fcb979a6161d77081751f0d03a3c198d84e623b8d452a4da198db"
+     }
+    ]
+   },
+   "portrait": {
+    "source": "01_02_entrance/outputs/production/20260926-daylight-006/01-portrait.png",
+    "source_bytes": 3227850,
+    "source_sha256": "af442cfcb297019f19456aae4610aed4166d504914fa4d4a4bab067699f75698",
+    "native_size": [
+     1080,
+     1920
+    ],
+    "variants": [
+     {
+      "url": "./shoko-v1-w1-01-portrait-960.jpg",
+      "width": 540,
+      "height": 960,
+      "longEdge": 960,
+      "bytes": 181237,
+      "sha256": "b4f8cefc51a8f2d8b75fb7c22332074e7a738e1d0f984e46fc585b121468f5ca"
+     },
+     {
+      "url": "./shoko-v1-w1-01-portrait-1920.jpg",
+      "width": 1080,
+      "height": 1920,
+      "longEdge": 1920,
+      "bytes": 640289,
+      "sha256": "31ee768e78ad08b475ada624bcc1448073282bc9cd5830bf6fddfa06363fb54b"
+     }
+    ]
+   }
+  },
+  "02": {
+   "landscape": {
+    "source": "01_02_entrance/outputs/production/20260926-daylight-006/02-landscape.png",
+    "source_bytes": 2199116,
+    "source_sha256": "f6135ef9cdd7553dbb99b8099552a0b9e51df8daaf50730d759cbfd4f43af743",
+    "native_size": [
+     1920,
+     1080
+    ],
+    "variants": [
+     {
+      "url": "./shoko-v1-w1-02-landscape-960.jpg",
+      "width": 960,
+      "height": 540,
+      "longEdge": 960,
+      "bytes": 68196,
+      "sha256": "608f4244b85da717b0bd8fea33b6e966b9a2e692cfd6c1c6cbba39b19aca8f68"
+     },
+     {
+      "url": "./shoko-v1-w1-02-landscape-1920.jpg",
+      "width": 1920,
+      "height": 1080,
+      "longEdge": 1920,
+      "bytes": 248188,
+      "sha256": "296dc1d1a51767d59a4dbdf324d53a4169545c4885bf8135050fba310c459220"
+     }
+    ]
+   },
+   "portrait": {
+    "source": "01_02_entrance/outputs/production/20260926-daylight-006/02-portrait.png",
+    "source_bytes": 2315115,
+    "source_sha256": "a904ab7fc6c66d41aa64f111e26b076d4890d3ee9281e2dbf5ab3b1bdf0547b5",
+    "native_size": [
+     1080,
+     1920
+    ],
+    "variants": [
+     {
+      "url": "./shoko-v1-w1-02-portrait-960.jpg",
+      "width": 540,
+      "height": 960,
+      "longEdge": 960,
+      "bytes": 75186,
+      "sha256": "df89afc0f941a8a37b84d6e5c1417d0012172ea1d3310b99ed870b7f9e511b5a"
+     },
+     {
+      "url": "./shoko-v1-w1-02-portrait-1920.jpg",
+      "width": 1080,
+      "height": 1920,
+      "longEdge": 1920,
+      "bytes": 272956,
+      "sha256": "de2f7cf353b0717f3bb0b2f4bc2ff729556ea507aa4c2df541eba83696ca9e95"
+     }
+    ]
+   }
+  },
+  "06": {
+   "landscape": {
+    "source": "06_daylight/outputs/production/20260926-daylight-002/06-landscape.png",
+    "source_bytes": 2818651,
+    "source_sha256": "e5bc4162f508932ab600dd1daf18c5e9f1fad753964cca4eb9af09b54d3807f2",
+    "native_size": [
+     1920,
+     1080
+    ],
+    "variants": [
+     {
+      "url": "./shoko-v1-w1-06-landscape-960.jpg",
+      "width": 960,
+      "height": 540,
+      "longEdge": 960,
+      "bytes": 113230,
+      "sha256": "a77f4df0b76afea696b8c190992d1f45b56ce9f2ec282de54fa54572ef842f5a"
+     },
+     {
+      "url": "./shoko-v1-w1-06-landscape-1920.jpg",
+      "width": 1920,
+      "height": 1080,
+      "longEdge": 1920,
+      "bytes": 393408,
+      "sha256": "5a01a6aa13e00305fe507f107587302e259f1f1a34a97d5ce74a526914ae0aa1"
+     }
+    ]
+   },
+   "portrait": {
+    "source": "06_daylight/outputs/production/20260926-daylight-002/06-portrait.png",
+    "source_bytes": 2715809,
+    "source_sha256": "c9a6fe9fcc58229be83c2f138ad6071c0edd208b6dffc3a2c2a7ddb6cf4c943c",
+    "native_size": [
+     1080,
+     1920
+    ],
+    "variants": [
+     {
+      "url": "./shoko-v1-w1-06-portrait-960.jpg",
+      "width": 540,
+      "height": 960,
+      "longEdge": 960,
+      "bytes": 95594,
+      "sha256": "d955be9ada0f1b01a7a7ecbaee728eed6f49830e95b33b0c4a07aedfcb375e21"
+     },
+     {
+      "url": "./shoko-v1-w1-06-portrait-1920.jpg",
+      "width": 1080,
+      "height": 1920,
+      "longEdge": 1920,
+      "bytes": 356767,
+      "sha256": "52706832dda417a1463c8bab5b057b1a589dfd5648db4442212bc963b540fb7d"
+     }
+    ]
+   }
+  }
+ }
+}
