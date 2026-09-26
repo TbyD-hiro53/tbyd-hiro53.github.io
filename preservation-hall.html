@@ -4240,12 +4240,16 @@ var H53 = (function () {
 
   function cloneRep(t, rx, ry) { var c = t.clone(); c.needsUpdate = true; c.repeat.set(rx, ry); return c; }
 
+  // v6：森の材は使わない（外は背景板）。材の組み立てが参照するので 1 画素の代用を渡す
+  function stubTex() { var t = new THREE.DataTexture(new Uint8Array([128, 128, 128, 255]), 1, 1); t.needsUpdate = true; return t; }
+  function stubSet() { var t = stubTex(); return { map: t, normal: t, rough: t, emissive: t }; }
+
   function buildTex() {
     if (TEX) return TEX;
     TEX = {
-      floor: buildFloorTex(), pale: buildPaleTex(), ground: buildGroundTex(),
-      bark: buildBarkTex(), root: buildRootTex(), sky: buildSkyTex(), back: buildBackdropTex(),
-      tuft: buildTuftTex(), leaf: buildLeafTex(), spray: buildLeafAtlas(),
+      floor: buildFloorTex(), pale: buildPaleTex(), ground: stubSet(),
+      bark: stubSet(), root: stubSet(), sky: stubTex(), back: stubTex(),
+      tuft: stubTex(), leaf: stubTex(), spray: stubTex(),
       decalR: buildDecalTex(true), decalE: buildDecalTex(false), disc: discTexture()
     };
     // 戸の uv は 0..1（0.92 × 2.10）
@@ -4563,281 +4567,11 @@ var H53 = (function () {
   }
 
   function buildOutside(g) {
-    var i, k, j;
-    // 地面。半径 200。低周波の斑を頂点色に（踏み跡と道の縁は apron が受け持つ）
-    var gr = put(groundGeo(GROUND_R, 30, 64, -20, groundCol), M.ground, 0, GROUND_Y, 0, 'ground');
-    g.add(gr);
-
-    // 道の両側の土。地面と溶けるように、外縁で高さ 0・色は地面と同一
-    var ap = put(apronGeo(pathSamples(-13.6, 0.50, 1.20, 2.50)), M.apron, 0, 0, 0, 'apron');
-    ap.receiveShadow = true;
-    g.add(ap);
-
-    // 根の道。太い根が編まれて、上面が歩幅の高さに揃う。一枚の幾何に束ねる
-    var A = { pos: [], uv: [], idx: [] };
-    for (i = 0; i < N_ROOT_BASE; i++) rootStrand(A, 53100 + i * 7, 0, -1 + 2 * i / (N_ROOT_BASE - 1));
-    for (i = 0; i < N_ROOT_CROSS; i++) rootStrand(A, 53170 + i * 11, 1, (i % 2 ? 1 : -1) * 0.25);
-    for (i = 0; i < N_ROOT_STRAY; i++) strayRoot(A, 53230 + i * 13);
-    var rgeo = finishGeo(A);
-    // 頂点色：下ほど暗い（接地）／道の縁の外は土に近づける
-    var pa = rgeo.attributes.position, rc = new Float32Array(pa.count * 3);
-    for (i = 0; i < pa.count; i++) {
-      var vy = pa.getY(i), vx = pa.getX(i), vz = pa.getZ(i);
-      var s = PATH_Z0 - vz, hw = pathHW(Math.max(0, Math.min(PATH_LEN, s)));
-      var top = GROUND_Y + pathCrown(Math.max(0, Math.min(PATH_LEN, s)));
-      var dn = clamp01((top - vy) / 0.26);                       // 上面 0 → 下面 1
-      var kk = 0.46 + 0.52 * (1 - dn * dn);                      // 下ほど暗い（土に接する側）
-      kk *= 1 - 0.22 * clamp01((Math.abs(vx - pathCX(Math.max(0, s))) - hw) / 0.6);
-      rc[i * 3] = kk; rc[i * 3 + 1] = kk * 0.99; rc[i * 3 + 2] = kk * 0.97;
-    }
-    rgeo.setAttribute('color', new THREE.BufferAttribute(rc, 3));
-    var rp = new THREE.Mesh(rgeo, M.root);
-    rp.name = 'root-path'; parts['root-path'] = rp;
-    rp.castShadow = true; rp.receiveShadow = true;
-    rp.frustumCulled = false;
-    g.add(rp);
-
-    // ── 幹の候補。近 r<20（実形）／中 20〜58（簡略）／遠 58〜112（幹のみ）。中心は戸の少し先
-    var near = [], mid = [], far = [], ix, iz, tx, tz, ts, rot, sh, rr;
-    function place(list, R0, R1, pitch, jit, s0, s1, seed) {
-      rseed(seed);
-      var n = Math.ceil(R1 * 2 / pitch);
-      for (iz = 0; iz < n; iz++) for (ix = 0; ix < n; ix++) {
-        tx = FOREST_CX - R1 + pitch * (ix + 0.5) + (rnd() - 0.5) * 2 * jit;
-        tz = FOREST_CZ - R1 + pitch * (iz + 0.5) + (rnd() - 0.5) * 2 * jit;
-        ts = s0 + (s1 - s0) * rnd(); rot = rnd() * Math.PI * 2; sh = 0.60 + 0.32 * rnd();
-        rr = Math.sqrt((tx - FOREST_CX) * (tx - FOREST_CX) + (tz - FOREST_CZ) * (tz - FOREST_CZ));
-        if (rr < R0 || rr >= R1) continue;
-        if (inHall(tx, tz, 1.1 + ts * 0.9)) continue;
-        if (inPathCorridor(tx, tz, ts * 1.05)) continue;
-        if (Math.sqrt((tx - DISC_POS[0]) * (tx - DISC_POS[0]) + (tz - DISC_POS[2]) * (tz - DISC_POS[2])) < DISC_CLEAR + ts) continue;
-        list.push([tx, tz, ts, rot, sh]);
-      }
-    }
-    place(near, 0, NEAR_R, NEAR_PITCH, NEAR_JIT, S_NEAR0, S_NEAR1, 53200);
-    place(mid, NEAR_R, MID_R, MID_PITCH, 1.4, S_MID0, S_MID1, 53300);
-    place(far, MID_R, FAR_R, FAR_PITCH, 2.2, S_FAR0, S_FAR1, 53350);
-
-    var trunks = new THREE.Group(); trunks.name = 'trunks'; parts.trunks = trunks;
-    var mtx = new THREE.Matrix4(), q = new THREE.Quaternion(), q2 = new THREE.Quaternion();
-    var pv = new THREE.Vector3(), sv = new THREE.Vector3();
-    var up = new THREE.Vector3(0, 1, 0), col = new THREE.Color();
-
-    // ── LOD は「戸口からの距離」で決める（森の中心からの距離ではない）。
-    //    近 L0：gen 3 まで＋小枝の葉。中近 L1：gen 2 まで。中 L2：幹＋梢の房。遠 L3：幹だけ
-    var DOOR_PT = [0, -OZ - 0.5];
-    function dDoor(x, z) { var a2 = x - DOOR_PT[0], b2 = z - DOOR_PT[1]; return Math.sqrt(a2 * a2 + b2 * b2); }
-
-    var NEAR_ROWS = [-0.70, -0.34, -0.12, 0, 0.10, 0.24, 0.44, 0.72, 1.10, 1.70, 2.70, 4.40, 7.20, 10.20, 13.20, 15.60, 17.00];
-    var L1_ROWS   = [-0.70, -0.20, 0, 0.30, 1.20, 3.50, 8.00, 13.00, 17.00];
-    var MID_ROWS  = [-0.70, -0.20, 0, 0.90, 4.00, 17.00];
-    var FAR_ROWS  = [-0.70, 0, 17.00];
-
-    // prm[gen] = [重力屈性, 先端の光屈性, 横揺れ, 各点の乱れ（長さ比）]
-    var CFG_L0 = {
-      rows: NEAR_ROWS, nBlade: 7, maxGen: 3,
-      NA: [18, 8, 6, 4], np: [0, 5, 4, 3],
-      nlat: [[0, 0], [1, 2], [1, 2], [0, 0]],
-      prm: [null, [0.52, 0.34, 0.26, 0.024], [0.44, 0.30, 0.34, 0.028], [0.34, 0.26, 0.42, 0.032]],
-      nMain: [7, 9], leafN: [10, 15], leafS: 1.30, crownCard: [6, 1.25, 0.30, 1.30]
-    };
-    var CFG_L1 = {
-      rows: L1_ROWS, nBlade: 6, maxGen: 2,
-      NA: [10, 5, 4, 4], np: [0, 4, 3, 3],
-      nlat: [[0, 0], [0, 1], [0, 0], [0, 0]],
-      prm: [null, [0.50, 0.32, 0.24, 0.022], [0.42, 0.28, 0.32, 0.026], [0.30, 0.24, 0.40, 0.030]],
-      nMain: [5, 7], leafN: [4, 7], leafS: 1.55, crownCard: [4, 1.60, 0.35, 1.50]
-    };
-    var CFG_L2 = {
-      rows: MID_ROWS, nBlade: 5, maxGen: 0,
-      NA: [6], np: [0], nlat: [[0, 0]], prm: [null],
-      nMain: [0, 0], leafN: 0, leafS: 0, crownCard: [7, 3.10, 1.35, 6.40]
-    };
-    var CFG_L3 = {
-      rows: FAR_ROWS, nBlade: 4, maxGen: 0,
-      NA: [4], np: [0], nlat: [[0, 0]], prm: [null],
-      nMain: [0, 0], leafN: 0, leafS: 0, crownCard: [3, 3.40, 1.50, 6.00]
-    };
-
-    // 別形状：近景 4 本・中近 3 本・中景 2 本・遠景 1 本（同じ形の繰り返しを消す）
-    var V0 = [treeGeo(53601, CFG_L0), treeGeo(53613, CFG_L0), treeGeo(53627, CFG_L0), treeGeo(53639, CFG_L0)];
-    var V1 = [treeGeo(53701, CFG_L1), treeGeo(53713, CFG_L1), treeGeo(53727, CFG_L1)];
-    var V2 = [treeGeo(53641, CFG_L2), treeGeo(53653, CFG_L2)];
-    var V3 = [treeGeo(53667, CFG_L3)];
-
-    // 近・中の候補をまとめ、戸口に近い順に L0（26 本）→ L1（60 本）→ L2 と割る。
-    // 距離で切ると本数が読めず三角形の予算が守れないので、本数で切る（上限の距離も併せて掛ける）
-    var cand = near.concat(mid), lst0 = [], lst1 = [], lst2 = [], lst3 = [];
-    cand.sort(function (a, b) { return dDoor(a[0], a[1]) - dDoor(b[0], b[1]); });
-    for (i = 0; i < cand.length; i++) {
-      var dq = dDoor(cand[i][0], cand[i][1]);
-      if (lst0.length < L0_N && dq < L0_R) lst0.push(cand[i]);
-      else if (lst1.length < L1_N && dq < L1_R) lst1.push(cand[i]);
-      else lst2.push(cand[i]);
-    }
-    for (i = 0; i < far.length; i++) lst3.push(far[i]);
-
-    var leafI = [], leafX = [];           // アトラスの区画ごとの葉のカード（leafX は交差 2 枚）
-    for (i = 0; i < LEAF_NV; i++) { leafI.push([]); leafX.push([]); }
-    var qc = new THREE.Quaternion();
-    function fillSet(list, variants, name, shadow) {
-      var buckets = [], v;
-      for (v = 0; v < variants.length; v++) buckets.push([]);
-      for (i = 0; i < list.length; i++) buckets[i % variants.length].push(list[i]);
-      for (v = 0; v < variants.length; v++) {
-        var b = buckets[v], geo = variants[v].geo, cards = variants[v].cards;
-        if (!b.length) continue;
-        var im = new THREE.InstancedMesh(geo, geo.groups.length ? [M.trunk, M.branch] : M.trunk, b.length);
-        im.name = name + '-' + v;
-        for (i = 0; i < b.length; i++) {
-          var cd = b[i], cs = Math.cos(cd[3]), sn = Math.sin(cd[3]);
-          var LX = dDoor(cd[0], cd[1]) < LEAF_X_R ? leafX : leafI;   // 戸口から 12 m 以内は交差 2 枚
-          pv.set(cd[0], GROUND_Y, cd[1]);
-          q.setFromAxisAngle(up, cd[3]);
-          sv.set(cd[2], cd[2], cd[2]);
-          mtx.compose(pv, q, sv);
-          im.setMatrixAt(i, mtx);
-          col.setRGB(cd[4] * 0.97, cd[4] * 1.0, cd[4] * 0.99);
-          im.setColorAt(i, col);
-          // 葉のカードは木の局所座標で持っている。instance の向きと拡大を掛けて世界へ置く
-          for (k = 0; k < cards.length; k++) {
-            var cc = cards[k];
-            var wx = cd[0] + cd[2] * (cc[0] * cs + cc[2] * sn);
-            var wy = GROUND_Y + cd[2] * cc[1];
-            var wz = cd[1] + cd[2] * (-cc[0] * sn + cc[2] * cs);
-            LX[cc[9]].push([wx, wy, wz, cc[3], cc[4], cc[5], cc[6], cc[7] * cd[2], cc[8], cd[3]]);
-          }
-        }
-        im.instanceMatrix.needsUpdate = true;
-        if (im.instanceColor) im.instanceColor.needsUpdate = true;
-        im.castShadow = shadow; im.receiveShadow = true;
-        im.frustumCulled = false;
-        trunks.add(im);
-      }
-    }
-    fillSet(lst0, V0, 'trunks-near', true);
-    fillSet(lst1, V1, 'trunks-midnear', false);
-    fillSet(lst2, V2, 'trunks-mid', false);
-    fillSet(lst3, V3, 'trunks-far', false);
-
-    // 幹の根元の土の盛り。板根の裾に土が寄って、幹が地面を直線で切らない
-    function fillMound(list, geo, name) {
-      if (!list.length) return;
-      var im = new THREE.InstancedMesh(geo, M.mound, list.length);
-      im.name = name;
-      for (i = 0; i < list.length; i++) {
-        var cd = list[i];
-        pv.set(cd[0], GROUND_Y + 0.004, cd[1]);
-        q.setFromAxisAngle(up, cd[3]);
-        sv.set(cd[2], cd[2], cd[2]);
-        mtx.compose(pv, q, sv);
-        im.setMatrixAt(i, mtx);
-        var gc = groundCol(cd[0], cd[1]);
-        im.setColorAt(i, col.setRGB(gc[0], gc[1], gc[2]));
-      }
-      im.instanceMatrix.needsUpdate = true;
-      if (im.instanceColor) im.instanceColor.needsUpdate = true;
-      im.frustumCulled = false; im.receiveShadow = true; im.castShadow = false;
-      trunks.add(im);
-    }
-    fillMound(lst0, moundGeo(53681, 14, 3, 1.85, 0.32), 'mound-near');
-    fillMound(lst1.concat(lst2), moundGeo(53687, 9, 2, 1.65, 0.28), 'mound-mid');
-    g.add(trunks);
-
-    // ── 葉。小枝に付いたカードを、アトラスの区画ごとに一つの InstancedMesh へ
-    var leaves = new THREE.Group(); leaves.name = 'leaves'; parts.leaves = leaves;
-    function fillLeaf(list, geo2, name) {
-      if (!list.length) return;
-      var lm = new THREE.InstancedMesh(geo2, M.spray, list.length);
-      lm.name = name; parts[name] = lm;
-      for (i = 0; i < list.length; i++) {
-        var sp = list[i];
-        q.setFromAxisAngle(up, sp[9]);              // 木の向き
-        qc.set(sp[3], sp[4], sp[5], sp[6]);         // カードの向き（局所）
-        q2.copy(q).multiply(qc);
-        pv.set(sp[0], sp[1], sp[2]);
-        sv.set(sp[7] * 0.88, sp[7], sp[7]);
-        mtx.compose(pv, q2, sv);
-        lm.setMatrixAt(i, mtx);
-        var bq = 0.46 + 0.54 * sp[8];               // 樹冠の下ほど暗く、上ほど明るい
-        lm.setColorAt(i, col.setRGB(bq * 0.86, bq * 1.0, bq * 0.90));
-      }
-      lm.instanceMatrix.needsUpdate = true;
-      if (lm.instanceColor) lm.instanceColor.needsUpdate = true;
-      lm.frustumCulled = false; lm.receiveShadow = false; lm.castShadow = false;
-      leaves.add(lm);
-    }
-    for (j = 0; j < LEAF_NV; j++) {
-      fillLeaf(leafI[j], leafCardGeo(j), 'leaf-' + j);
-      fillLeaf(leafX[j], leafCardGeoX(j), 'leafx-' + j);
-    }
-    g.add(leaves);
-
-    // 林冠の面。上を覆って空を切り取る。真っ暗にはしない（「奥は暗くない」）
-    var can = [];
-    rseed(53400);
-    var cn = Math.ceil(2 * FAR_R / CAN_PITCH);
-    for (iz = 0; iz < cn; iz++) for (ix = 0; ix < cn; ix++) {
-      tx = FOREST_CX - FAR_R + CAN_PITCH * (ix + 0.5) + (rnd() - 0.5) * 3.2;
-      tz = FOREST_CZ - FAR_R + CAN_PITCH * (iz + 0.5) + (rnd() - 0.5) * 3.2;
-      var rr2 = Math.sqrt((tx - FOREST_CX) * (tx - FOREST_CX) + (tz - FOREST_CZ) * (tz - FOREST_CZ));
-      if (rr2 > FAR_R) continue;
-      if (inHall(tx, tz, 3.0)) continue;                                        // 棟の上は空ける
-      var sd = 0.55 + 0.6 * rnd(), yy = CAN_Y0 + (CAN_Y1 - CAN_Y0) * rnd();
-      can.push([tx, yy, tz, 9 + 6 * rnd(), (rnd() - 0.5) * 0.16, 9 + 6 * rnd(), rnd() * Math.PI * 2, sd]);
-    }
-    var canopy = new THREE.InstancedMesh(new THREE.PlaneGeometry(1, 1), M.canopy, can.length);
-    canopy.name = 'canopy'; parts.canopy = canopy;
-    var eu = new THREE.Euler();
-    for (i = 0; i < can.length; i++) {
-      var cc = can[i];
-      pv.set(cc[0], cc[1], cc[2]);
-      eu.set(-Math.PI / 2 + cc[4], 0, cc[6], 'ZYX'); q.setFromEuler(eu);
-      sv.set(cc[3], cc[5], 1);
-      mtx.compose(pv, q, sv);
-      canopy.setMatrixAt(i, mtx);
-      canopy.setColorAt(i, col.setRGB(cc[7] * 0.27, cc[7] * 0.32, cc[7] * 0.30));
-    }
-    canopy.instanceMatrix.needsUpdate = true;
-    if (canopy.instanceColor) canopy.instanceColor.needsUpdate = true;
-    canopy.frustumCulled = false; canopy.receiveShadow = false;
-    g.add(canopy);
-
-    // 下生え。地面全体に低い株。踏み跡と道の幅は空ける。棟の中は置かない
-    var uf = [];
-    rseed(53500);
-    var ux = Math.ceil(UNDER_X * 2 / UNDER_PITCH), uz = Math.ceil((UNDER_Z1 - UNDER_Z0) / UNDER_PITCH);
-    for (iz = 0; iz < uz; iz++) for (ix = 0; ix < ux; ix++) {
-      tx = -UNDER_X + UNDER_PITCH * (ix + 0.5) + (rnd() - 0.5) * 1.5; tz = UNDER_Z0 + UNDER_PITCH * (iz + 0.5) + (rnd() - 0.5) * 1.5;
-      var us = 0.6 + 0.9 * rnd(), ur = rnd() * Math.PI, ut = 0.55 + 0.4 * rnd();
-      if (inHall(tx, tz, 0.35)) continue;
-      if (inPathCorridor(tx, tz, 0.10)) continue;
-      if (rnd() < 0.18) continue;                                                                   // 疎らに
-      uf.push([tx, GROUND_Y, tz, us, ur, ut]);
-    }
-    // 道の縁に寄る株。apron の外縁を崩して、土と道の境を線にしない
-    rseed(53520);
-    for (var s2 = -6.0; s2 < EDGE_S1; s2 += EDGE_STEP) {
-      for (k = 0; k < 2; k++) {
-        if (rnd() < 0.30) continue;
-        var side2 = k ? 1 : -1, tt = side2 * (0.62 + 0.34 * rnd());
-        var qa = apronAt(s2, tt);
-        uf.push([qa[0], GROUND_Y + qa[1] * 0.65, qa[2], 0.42 + 0.42 * rnd(), rnd() * Math.PI, 0.50 + 0.35 * rnd()]);
-      }
-    }
-    var under = new THREE.InstancedMesh(tuftGeo(0.55, 0.30), M.under, uf.length);
-    under.name = 'undergrowth'; parts.undergrowth = under;
-    for (i = 0; i < uf.length; i++) {
-      pv.set(uf[i][0], uf[i][1], uf[i][2]); q.setFromAxisAngle(up, uf[i][4]);
-      sv.set(uf[i][3], uf[i][3] * (0.8 + 0.4 * (i % 3) / 2), uf[i][3]);
-      mtx.compose(pv, q, sv);
-      under.setMatrixAt(i, mtx);
-      under.setColorAt(i, col.setRGB(uf[i][5] * 0.44, uf[i][5] * 0.45, uf[i][5] * 0.35));   // 地面に近い、乾いた緑褐
-    }
-    under.instanceMatrix.needsUpdate = true;
-    if (under.instanceColor) under.instanceColor.needsUpdate = true;
-    under.frustumCulled = false; under.receiveShadow = true;
-    g.add(under);
+    // v6（2026-09-26）：外の森は立ち位置ごとに Cycles で焼いた背景板（preservation-hall-v6-*）で描く。
+    // ここでは円盤だけを実時間で置く。app 側が名前で印を付ける部品は空の組として残す
+    ['ground', 'apron', 'root-path', 'trunks', 'leaves', 'canopy', 'undergrowth', 'backdrop', 'sky'].forEach(function (k) {
+      var o = new THREE.Group(); o.name = k; parts[k] = o; g.add(o);
+    });
 
     // 円盤。水平のまま、ゆっくり一巡する。何も載っていない
     var disc = new THREE.Mesh(new THREE.CylinderGeometry(DISC_R, DISC_R, DISC_T, 48, 1, false),
@@ -4846,18 +4580,6 @@ var H53 = (function () {
     disc.castShadow = true;
     disc.name = 'disc'; parts.disc = disc;
     g.add(disc);
-
-    // 遠景の影絵。半径 120 の円筒の内側。遠景の幹（112）と重なり、霧の中で境目が消える
-    var back = new THREE.Mesh(new THREE.CylinderGeometry(BACK_R, BACK_R, BACK_Y1 - BACK_Y0, 96, 1, true), M.backdrop);
-    back.position.set(0, (BACK_Y0 + BACK_Y1) / 2, BACK_CZ);
-    back.name = 'backdrop'; parts.backdrop = back;
-    g.add(back);
-
-    // 空。曇り
-    var sky = new THREE.Mesh(new THREE.SphereGeometry(SKY_R, 32, 16), M.sky);
-    sky.position.set(0, 0, BACK_CZ);
-    sky.name = 'sky'; parts.sky = sky;
-    g.add(sky);
   }
 
   function build() {
@@ -5001,131 +4723,124 @@ color:#eafffc;border-color:rgba(0,221,200,.5)}
   else start();
 })();
 </script><script>
+/* ASSET 18 — 保存棟 v6 / 戸の外（2026-09-26）
+ * 足は動かず首だけが回るので、外は立ち位置ごとに Cycles で焼いた一枚（目を中心にした透視）で描く。
+ * 板は目から D m 先、焼いたカメラと同じ向き・画角に置く。棟の壁と戸は実時間で手前に重なる。
+ * 動くもの：円盤（棟の部品 F が実時間で一巡させる。焼いた森に隠れる所は、焼いた「見える範囲」で抜く）
+ *           高い葉の擦れ（一定の間隔＝円盤と同じ 二・四秒。葉の範囲だけ、絵を一画素ほど揺らす）
+ */
 (function () {
   'use strict';
-  const PREFIX = './preservation-hall-v5-20260913-';
-  const resources = { geometries: [], materials: [], textures: [] };
-  async function response(path) {
-    const r = await fetch(path);
-    if (!r.ok) throw new Error('森林の表示データを取得できませんでした');
-    return r;
-  }
-  function attribute(buffer, a) {
-    const Type = { float32: Float32Array, int16: Int16Array, int8: Int8Array, uint16: Uint16Array, uint8: Uint8Array, uint32: Uint32Array }[a.type];
-    if (!Type || a.offset % Type.BYTES_PER_ELEMENT || a.offset + a.count * a.size * Type.BYTES_PER_ELEMENT > buffer.byteLength) throw new Error('森林の形状データが不完全です');
-    return new THREE.BufferAttribute(new Type(buffer, a.offset, a.count * a.size), a.size, a.normalized);
-  }
-  function texture(name, repeat, srgb) {
+  var PLATES = {"pod":{"eye":[4.93,1.24,-9.7],"forward":[-0.435107,-0.016769,-0.900222],"right":[0.900349,-0.0,-0.435169],"up":[-0.007297,0.999859,-0.015098],"tanX":0.101111,"tanY":0.155556,"width":364,"height":560,"fpx":1800.0},"term":{"eye":[-4.34,2.39,-7.6],"forward":[0.330998,-0.102197,-0.938081],"right":[0.943019,0.0,0.33274],"up":[0.034005,0.994764,-0.096374],"tanX":0.096111,"tanY":0.142222,"width":346,"height":512,"fpx":1800.0},"door":{"eye":[0.0,1.1,-18.6],"forward":[0.0,-0.038433,-0.999261],"right":[1.0,0.0,0.0],"up":[0.0,0.999261,-0.038433],"tanX":0.456111,"tanY":0.960556,"width":1642,"height":3458,"fpx":1800.0}};
+  var PREFIX = './preservation-hall-v6-20260926-';
+  var D = 90;                 // 板までの距離（m）。棟の奥行き 40 より遠く、描画の遠端 160 より近い
+  var PERIOD = 2.4;           // 葉の擦れの間隔（円盤の一巡と同じ）
+  var SWAY_PX = 0.9;          // 揺れの振幅（焼いた絵の画素）
+  var ORDER = ['pod', 'term', 'door'];
+  var clockT = 0;
+
+  function vec(a) { return new THREE.Vector3(a[0], a[1], a[2]); }
+  function texture(url, srgbRaw) {
     return new Promise(function (resolve, reject) {
-      new THREE.TextureLoader().load('./' + name, function (t) {
-        t.encoding = srgb ? THREE.sRGBEncoding : THREE.LinearEncoding;
-        t.wrapS = t.wrapT = repeat ? THREE.RepeatWrapping : THREE.ClampToEdgeWrapping;
+      new THREE.TextureLoader().load(url, function (t) {
+        t.encoding = THREE.LinearEncoding;          // 絵の値をそのまま画面へ（AgX で表示変換済み）
+        t.minFilter = THREE.LinearMipmapLinearFilter; t.magFilter = THREE.LinearFilter;
+        t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
         t.anisotropy = Math.min(4, window.__H53M.renderer.capabilities.getMaxAnisotropy());
-        resources.textures.push(t); resolve(t);
-      }, undefined, function () { reject(new Error('森林の素材を取得できませんでした')); });
+        resolve(t);
+      }, undefined, function () { reject(new Error('森の絵を取得できませんでした')); });
     });
   }
+
+  var VS = 'varying vec2 vUv;\nvoid main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }';
+  var FS = [
+    'uniform sampler2D map; uniform sampler2D leaf; uniform float t; uniform vec2 texel; uniform float amp;',
+    'varying vec2 vUv;',
+    'void main(){',
+    '  float m = texture2D(leaf, vUv).r;',
+    // 一定の間隔で来る擦れ：立ち上がり速く、ゆっくり収まる
+    '  float p = fract(t / ' + PERIOD.toFixed(2) + ');',
+    '  float g = smoothstep(0.0, 0.10, p) * exp(-3.2 * p);',
+    '  vec2 w = vec2(sin(t * 2.3 + vUv.y * 190.0 + vUv.x * 70.0), cos(t * 1.9 + vUv.x * 160.0 - vUv.y * 40.0));',
+    '  vec2 uv = vUv + w * texel * amp * m * (0.25 + 0.75 * g);',
+    '  gl_FragColor = vec4(texture2D(map, uv).rgb, 1.0);',
+    '}'].join('\n');
+
+  function plate(key, p, map, leaf) {
+    var geo = new THREE.PlaneGeometry(2 * D * p.tanX, 2 * D * p.tanY);
+    var mat = new THREE.ShaderMaterial({
+      uniforms: { map: { value: map }, leaf: { value: leaf }, t: { value: 0 },
+                  texel: { value: new THREE.Vector2(1 / p.width, 1 / p.height) }, amp: { value: SWAY_PX } },
+      vertexShader: VS, fragmentShader: FS, depthWrite: true
+    });
+    var mesh = new THREE.Mesh(geo, mat);
+    var r = vec(p.right), u = vec(p.up), f = vec(p.forward);
+    mesh.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(r, u, f.clone().negate()));
+    mesh.position.copy(vec(p.eye).addScaledVector(f, D));
+    mesh.name = 'forest-plate-' + key; mesh.renderOrder = -1; mesh.frustumCulled = false;
+    mesh.visible = false; mesh.userData.eye = vec(p.eye);
+    return mesh;
+  }
+
+  // 円盤：戸から見て焼いた森の陰になる所を抜く（円盤は軸まわりに回るだけなので、輪郭は変わらない）
+  function maskDisc(bridge, mask) {
+    var hm = H53.hall.M, p = PLATES.door;
+    var U = { discMask: { value: mask }, discOn: { value: 0 },
+              pEye: { value: vec(p.eye) }, pF: { value: vec(p.forward) }, pR: { value: vec(p.right) }, pU: { value: vec(p.up) },
+              pT: { value: new THREE.Vector2(p.tanX, p.tanY) } };
+    [hm.discSide, hm.discTop].forEach(function (m) {
+      var prev = m.onBeforeCompile;
+      m.onBeforeCompile = function (sh) {
+        if (prev) prev.call(this, sh);
+        Object.assign(sh.uniforms, U);
+        sh.vertexShader = 'varying vec3 vDiscW;\n' + sh.vertexShader.replace('#include <begin_vertex>',
+          '#include <begin_vertex>\nvDiscW = (modelMatrix * vec4(transformed, 1.0)).xyz;');
+        sh.fragmentShader = 'varying vec3 vDiscW;\nuniform sampler2D discMask; uniform float discOn; uniform vec3 pEye, pF, pR, pU; uniform vec2 pT;\n' +
+          sh.fragmentShader.replace('void main() {', 'void main() {\n  if (discOn > 0.5) {\n    vec3 d = vDiscW - pEye; float f = dot(d, pF);\n' +
+          '    vec2 q = vec2(dot(d, pR), dot(d, pU)) / (f * pT) * 0.5 + 0.5;\n    if (texture2D(discMask, q).a < 0.5) discard;\n  }');
+      };
+      m.customProgramCacheKey = function () { return 'preservation-v6-disc-mask'; };
+      m.needsUpdate = true;
+    });
+    return U;
+  }
+
   async function load() {
-    const bridge = window.__H53M, hall = bridge.scene.getObjectByName('hall');
-    if (!hall) throw new Error('森林の表示位置を確認できません');
-    const manifest = await (await response(PREFIX + 'forest.json')).json();
-    if (manifest.version !== 5) throw new Error('森林の表示データを確認できません');
-    const crowns = await (await response(PREFIX + 'crowns.json')).json();
-    const compressed = typeof DecompressionStream !== 'undefined';
-    const dataPromise = response('./' + manifest.file + (compressed ? '.meshpack' : '')).then(async function (r) {
-      return compressed ? await new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).arrayBuffer() : await r.arrayBuffer();
-    });
-    const crownPromise = response('./' + crowns.file + (compressed ? '.meshpack' : '')).then(async function(r) { return compressed ? await new Response(r.body.pipeThrough(new DecompressionStream('gzip'))).arrayBuffer() : await r.arrayBuffer(); });
-    const ts = {}, texturePromises = Object.keys(manifest.textures).map(async function (key) {
-      ts[key] = await texture(manifest.textures[key], !/leaves|branches/.test(key), ['bark','soil','leaves','branches'].indexOf(key) !== -1);
-    });
-    // Wait for every request to settle before disposing any resource on failure.
-    const results = await Promise.allSettled([dataPromise, crownPromise].concat(texturePromises));
-    const failed = results.find(function (r) { return r.status === 'rejected'; });
-    if (failed) throw failed.reason;
-    const buffer = results[0].value, crownBuffer = results[1].value;
-    if(crownBuffer.byteLength !== crowns.bytes) throw new Error('枝葉の形状データが不完全です');
-    if (buffer.byteLength !== manifest.bytes) throw new Error('森林の形状データが不完全です');
-    const oldGround = hall.children.find(function(o) { return o.name === 'ground'; });
-    const env = oldGround && oldGround.material.envMap;
-    function mat(options) {
-      const m = new THREE.MeshStandardMaterial(Object.assign({ vertexColors: true, roughness: .87, metalness: 0, envMap: env || null, envMapIntensity: .85 }, options));
-      resources.materials.push(m); return m;
-    }
-    const bark = { map: ts.bark, roughnessMap: ts['bark-rough'], bumpMap: ts.bark, bumpScale: .021 };
-    const materials = {
-      trunk: mat(bark), root: mat(bark),
-      soil: mat({ map: ts.soil, roughnessMap: ts['soil-rough'], bumpMap: ts['soil-bump'], bumpScale: .055 }),
-      leaf: mat({ map: ts.leaves, normalMap: ts['leaves-normal'], normalScale: new THREE.Vector2(.36,.36), alphaTest: .38, side: THREE.DoubleSide, roughness: .73, envMapIntensity: 1.15 }),
-      branch: mat({ map: ts.branches, alphaTest: .4, side: THREE.DoubleSide }),
-      plant: mat({ side: THREE.DoubleSide, roughness: .8 }),
-      moss: mat({ side: THREE.DoubleSide, roughness: .96 }),
-      litter: mat({ map: ts.soil, side: THREE.DoubleSide, roughness: .94 }),
-      stone: mat({ color: 0x777568, roughness: .95, bumpMap: ts['soil-bump'], bumpScale: .012 })
+    var bridge = window.__H53M, hall = bridge.scene.getObjectByName('hall');
+    if (!hall || !PLATES) throw new Error('森の表示位置を確認できません');
+    var plates = {}, discU = null;
+    // 板は目の位置が合うときだけ描く（ほかの目からは歪む）
+    var prevBR = bridge.scene.onBeforeRender;
+    bridge.scene.onBeforeRender = function (r, sc, cam) {
+      if (prevBR) prevBR.apply(this, arguments);
+      var at = null;
+      ORDER.forEach(function (k) {
+        var m = plates[k]; if (!m) return;
+        var on = cam.position.distanceToSquared(m.userData.eye) < 1e-4;
+        m.visible = on; if (on) { at = k; m.material.uniforms.t.value = clockT; }
+      });
+      if (discU) discU.discOn.value = at === 'door' ? 1 : 0;
     };
-    materials.trunk.bumpScale = 0;
-    materials.trunk.onBeforeCompile = function(shader) {
-      shader.vertexShader = 'varying vec3 vForestP; varying vec3 vForestN;\n' + shader.vertexShader;
-      shader.vertexShader = shader.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\nvForestP = (modelMatrix * vec4(position,1.0)).xyz; vForestN = normalize(mat3(modelMatrix) * normal);');
-      shader.fragmentShader = 'varying vec3 vForestP; varying vec3 vForestN;\n' + shader.fragmentShader;
-      shader.fragmentShader = shader.fragmentShader.replace('#include <map_fragment>', 'vec3 w = pow(abs(normalize(vForestN)),vec3(4.0)); w /= (w.x+w.y+w.z); vec3 p = vForestP * vec3(.8,.49,.8); vec4 c1=mapTexelToLinear(texture2D(map,p.zy)); vec4 c2=mapTexelToLinear(texture2D(map,p.xz)); vec4 c3=mapTexelToLinear(texture2D(map,p.xy)); diffuseColor *= c1*w.x+c2*w.y+c3*w.z;');
-    };
-    materials.trunk.customProgramCacheKey = function() { return 'forest-v5-triplanar'; };
-    const forest = new THREE.Group(); forest.name = 'forest-v5';
-    function build(entry, buffer) {
-      if (!materials[entry.material]) throw new Error('森林の素材を確認できません');
-      const geometry = new THREE.BufferGeometry(); resources.geometries.push(geometry);
-      Object.keys(entry.attributes).forEach(function (key) { geometry.setAttribute(key, attribute(buffer, entry.attributes[key])); });
-      const packedUV = geometry.getAttribute('uv'), uv = new Float32Array(packedUV.count * 2);
-      for (let i=0;i<uv.length;i++) uv[i] = packedUV.array[i] * entry.uvScale[i%2] + entry.uvOrigin[i%2];
-      geometry.setAttribute('uv', new THREE.BufferAttribute(uv,2));
-      geometry.setIndex(attribute(buffer, entry.index)); geometry.computeBoundingBox(); geometry.computeBoundingSphere();
-      if (!Number.isFinite(geometry.boundingSphere.radius)) throw new Error('森林の形状を確認できません');
-      let mesh;
-      if (entry.instances) {
-        const material = materials[entry.material].clone(); resources.materials.push(material);
-        material.onBeforeCompile = function(shader) {
-          shader.vertexShader = 'attribute vec3 growth;\n' + shader.vertexShader;
-          shader.vertexShader = shader.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\ntransformed.xz += growth.xy * pow(max(0.0,position.y*growth.z-1.2),1.5);');
-          shader.vertexShader = shader.vertexShader.replace('#include <beginnormal_vertex>', '#include <beginnormal_vertex>\nobjectNormal.y -= dot(objectNormal.xz,growth.xy)*1.5*growth.z*sqrt(max(0.0,position.y*growth.z-1.2));');
-        };
-        material.customProgramCacheKey = function() { return 'forest-v5-botanical-growth'; };
-        mesh = new THREE.InstancedMesh(geometry,material,entry.instances.length);
-        const growth = new Float32Array(entry.instances.length*3);
-        entry.instances.forEach(function(instance,i) {
-          mesh.setMatrixAt(i,new THREE.Matrix4().fromArray(instance.matrix));
-          mesh.setColorAt(i,new THREE.Color(1,1,1)); growth.set(instance.growth,i*3);
-        });
-        geometry.setAttribute('growth',new THREE.InstancedBufferAttribute(growth,3));
-        mesh.instanceMatrix.needsUpdate=true; mesh.instanceColor.needsUpdate=true; mesh.frustumCulled=false;
-        geometry.boundingSphere.radius+=2;
-      } else mesh = new THREE.Mesh(geometry, materials[entry.material]); mesh.position.fromArray(entry.origin); mesh.scale.setScalar(entry.scale); mesh.name = entry.name; mesh.receiveShadow = true; forest.add(mesh);
+    // 小さい二枚を先に、戸の一枚を最後に
+    for (var i = 0; i < ORDER.length; i++) {
+      var k = ORDER[i], p = PLATES[k];
+      var got = await Promise.all([texture(PREFIX + k + '.jpg'), texture(PREFIX + k + '-leaf.jpg')]);
+      var mesh = plate(k, p, got[0], got[1]);
+      hall.add(mesh); plates[k] = mesh;
+      bridge.registerRefinedMesh(mesh, 'forest');
+      if (k === 'door') discU = maskDisc(bridge, await texture(PREFIX + 'door-disc.png'));
     }
-    manifest.meshes.forEach(function(entry) { build(entry,buffer); });
-    crowns.meshes.forEach(function(entry) { build(entry,crownBuffer); });
-    // Atomic replacement: the existing view stays intact until all geometry and maps are ready.
-    hall.add(forest);
-    ['ground','apron','root-path','trunks','leaves','canopy','undergrowth','near-blades','backdrop'].forEach(function (name) {
-      const old = hall.children.find(function (o) { return o.name === name; });
-      if (!old) return;
-      old.visible = false;
-      old.traverse(function(o) { if (o.isMesh) { o.raycast = function() {}; o.geometry.dispose(); o.geometry = new THREE.BufferGeometry(); } });
-    });
-    forest.children.forEach(function (mesh) { bridge.registerRefinedMesh(mesh, 'forest'); });
-    forest.userData.ready = true;
+    hall.userData.forestV6 = true;
   }
-  function start() {
-    load().catch(function (e) {
-      resources.geometries.forEach(function(x) { x.dispose(); });
-      resources.materials.forEach(function(x) { x.dispose(); });
-      resources.textures.forEach(function(x) { x.dispose(); });
-      window.dispatchEvent(new CustomEvent('h53-display-error', { detail: e.message }));
-    });
-  }
+
+  // 時刻は棟の tick と同じもの（setTime にも従う）
+  var tick = H53.hall.tick;
+  H53.hall.tick = function (t) { clockT = t; return tick.apply(this, arguments); };
+
+  function start() { load().catch(function (e) { window.dispatchEvent(new CustomEvent('h53-display-error', { detail: e.message })); }); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
   else start();
 })();
-
 </script><link rel="stylesheet" href="h53-liquid-ui-v1-20260919.css"><link rel="stylesheet" href="h53-liquid-layout-v1-20260919.css"><link rel="stylesheet" href="h53-liquid-menu-v1-20260919.css"><link rel="stylesheet" href="halls-liquid-v1-20260919.css"><script defer src="h53-dismiss-v1-20260921.js"></script>
 </body>
 </html>
