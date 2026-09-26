@@ -40,7 +40,9 @@ var PLACES={
  'the-changes':{'はじめから':'From the beginning','遠い光':'The distant light','扉の上の面':'The panel above the door',
   '窓':'Window','座席':'Seats','袋':'The bag'},
  /* 四つの立ち場所は漢数字の札。英語表示では算用数字にする（名は正典の英語の札にあるが、釦は番号のまま） */
- 'earth-origin-material':{'一':'1','二':'2','三':'3','四':'4'}
+ 'earth-origin-material':{'一':'1','二':'2','三':'3','四':'4'},
+ /* 書庫 SHOKO（2026-09-27）：七つの場所。英語は一覧の英語の札の語（outer bark・lower level・branch）に合わせた */
+ 'shoko':{'外皮':'Outer bark','受入':'Intake','居室':'Quarters','閲覧層':'Reading level','下層':'Lower level','外光層':'Daylit level','枝の内部':'Inside the branch'}
 };
 /* 視点の名（メニューの状態欄・巡回の字幕に出る）。英語表示のときだけ替える。短い語でも作品固有の語なので場所を問わない */
 var VIEWS={
@@ -75,7 +77,7 @@ var UI={
  '全画面表示を開始できませんでした。単独ページでお試しください。':'Fullscreen could not be started. Please try the work on its own page.',
  'TAP — 会長召喚':'TAP — summon the Chairman','TAP — 走査印字':'TAP — fire it again','TAP — 滴下増幅':'TAP — amplify the drip',
  '浮遊ガラス物体の観測記録':'Observation log of a floating glass-like object',
- '対象一覧':'Objects',
+ '対象一覧':'Objects','もう一度読み込む':'Reload',
  'ドラッグで見渡す · 対象に触れて記録を読む':'Drag to look around · touch a thing to read its record',
  'ドラッグ・矢印キーで見渡す':'Drag or use the arrow keys to look around','対象に触れて記録を読む':'Touch a thing to read its record',
  '1–3：移動　Space：一時停止':'1–3: move   Space: pause','R：視線を戻す　H：操作表示':'R: reset view   H: controls',
@@ -191,6 +193,7 @@ function enAbout(){if(!copy)return '';var s=copy.desc;if(copy.frag)s+='\n\n'+(co
 /* 作品独自の説明面で、ページの説明文とは別の日本語を出す作品。値は英語の札から作る */
 var ABOUT={
  'coastal-glass':{'世界各地に突如出現したcyberwafer。世間には、その正体が分からない浮遊ガラス物体として認識されている。本作は、その一体と周辺環境を記録した観測ログである。':function(){return copy.desc.replace(/^Observation log of a floating glass-like object\s*/,'');}},
+ 'shoko':{'h!ro53 / deus ex machina\n\n七つの固定した情景を巡る。\n画面下で場所を選び、対象に触れて文章を読む。':function(){return copy.desc;}},
  'binary-dusk':{'巨大樹の枝から、二つの日と地上を観測する。日が沈んだ後も、列車と円盤は運動を続ける。':function(){return copy.desc;},'SUNSETで日没を開始。三分で小さい日が沈み、その後は夕闇が続く。':function(){return '';}}
 }[slug]||{};
 function about(n){

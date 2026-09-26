@@ -474,6 +474,32 @@ What can be seen from the bough is only what is being carried. The railway runs 
 - 代表画像はWeb版 v3の実描画へ更新。サムネイル `binary-dusk-w3-20260906-thumb.jpg`、OG `binary-dusk-w3-20260906-og.jpg`。
 
 
+## ASSET 29 — 書庫 SHOKO
+
+**位相** PHASE UNRESOLVED · THE WRITTEN
+
+**観測ログ** `The bindings were numbered in order. The reader was not.`
+
+**説明 JA**
+巨大樹の中の書庫を、外皮の裂け目から枝の内部まで、七つの固定した情景で巡る。下層では水路の水と搬送桁の荷が動く。物に触れると記録が開く。
+
+**説明 EN**
+An archive inside the giant tree, visited in seven fixed views, from the split in the outer bark to the inside of a branch. In the lower level the channel water runs and loads move along the gantry. Touch an object to open its record.
+
+**断章 JA**
+外皮の口は、切って作ったものではない。縦に広がった割れ目が、そのまま入口に使われている。受入面に手を置けば、紙の票が一枚出る。床は票を持つ者だけを上の層へ運ぶ。架は人の背より高く、等間隔に続き、並びの終わりは暗さへ入る。戻された綴じの背には、指を当てた跡が残る。下の層では、水と同じ向きへ、荷が等間隔に進む。底の連番は、上の背と同じ振り方をしている。高い層では壁が縦に割れ、横からの光が床へ斜めの影を落とす。枝の奥では架が減り、最後の棚に三冊が残る。外側の一冊ほど字は薄い。白く見える端にも、字のあった跡だけは浅く残っている。
+
+**断章 EN**
+The mouth in the outer bark was not cut. A split that widened upward is used, as it is, for an entrance. A hand laid on the intake face returns one paper slip, and the floor carries only those who hold a slip to the level above. The stacks stand higher than a person, at equal intervals, and each row ends by entering the dark. On the spine of a binding put back, the mark of a finger remains. On the level below, loads move at equal intervals in the same direction as the water; the serials on their bases are assigned the same way as the spines above. Higher up, the wall splits vertically, and light from the side lays slanting shadows on the floor. Deep in the branch the stacks thin out, and three volumes remain on the last shelf. The further out the volume, the fainter its script; even at the edge that looks white, a shallow trace of where the letters were remains.
+
+**実装記録（世界内の新事実ではない）**
+- 原典：『書』篇08〜26（巨大樹の中の書庫の七つの場所：外皮・受入・居室・閲覧層・下層・外光層・枝の内部）。作品内の対象説明は、原典の記述に拠る短い常体の新しい記述で、断章や小説本文の引用ではない。
+- 外光層の外景は、作者の指示（2026-09-23・09-26）でBinary Duskの森・線路・搬送円盤に替え、見せるための脚色として駅・町・海岸線を足した。原典の外景ではない。
+- 巨大樹の寸法（地上からの高さなど）は作品の造形判断で、世界の設定ではない。
+- 方式：静止する六景はCycles描画のJPEG一枚。下層だけは、同じ視点の静止部をJPEGと深度にし、水路の水と搬送の荷を実時間3Dで重ねる。
+- 公開：Web版 v1 w1（2026-09-27）。作品スクリプトは three.js r186 を含む一本のIIFE（`shoko-v1-w1-app.js`）。r128固定の規則に対する作品固有の例外で、作者承認済み（2026-09-27）。素材はルート直下、`shoko-v1-w1-` の付いた名前。
+- 旧 `shoko-prototype.html`（v14暫定版）は一覧外のまま残す。
+
 ## ASSET 17 — The Vacant Seat v2
 
 **位相** PHASE UNRESOLVED · THE ORIGIN

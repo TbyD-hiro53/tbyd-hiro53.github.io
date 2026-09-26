@@ -161,6 +161,13 @@ window.H53_CHROME_EN={
 "name": "Sanctum v6",
 "phase": "PHASE 5 · RESIDUAL WORLD"
 },
+"shoko": {
+"desc": "An archive inside the giant tree, visited in seven fixed views, from the split in the outer bark to the inside of a branch. In the lower level the channel water runs and loads move along the gantry. Touch an object to open its record.",
+"frag": "The mouth in the outer bark was not cut. A split that widened upward is used, as it is, for an entrance. A hand laid on the intake face returns one paper slip, and the floor carries only those who hold a slip to the level above. The stacks stand higher than a person, at equal intervals, and each row ends by entering the dark. On the spine of a binding put back, the mark of a finger remains. On the level below, loads move at equal intervals in the same direction as the water; the serials on their bases are assigned the same way as the spines above. Higher up, the wall splits vertically, and light from the side lays slanting shadows on the floor. Deep in the branch the stacks thin out, and three volumes remain on the last shelf. The further out the volume, the fainter its script; even at the edge that looks white, a shallow trace of where the letters were remains.",
+"log": "The bindings were numbered in order. The reader was not.",
+"name": "書庫 SHOKO",
+"phase": "PHASE UNRESOLVED · THE WRITTEN"
+},
 "sigil-fusion": {
 "desc": "The only work set on white. The artwork itself uses no raster; SVG and arithmetic alone keep the beat. Three rings of circling text enclose the cortex while wafers descend below, shrinking as they fall. The artwork itself uses no WebGL.",
 "frag": "Three rings revolve at differing rates, tuned so as to hold no period in common. By calculation there exists no instant at which they coincide. No altar was required. Neither offering, nor a place to kneel, nor any who recite. What was required was a ratio. For this reason the rite does not end. The habit of calling that which does not end a faith had, by this time, fallen out of use.",
