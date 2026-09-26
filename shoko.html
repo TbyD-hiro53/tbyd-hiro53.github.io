@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#121819">
+<meta name="author" content="h!ro53">
+<title>書庫 SHOKO — h!ro53 / transcendence by deus ex machina</title>
+<meta name="description" content="巨大樹の中の書庫を、外皮の裂け目から枝の内部まで、七つの固定した情景で巡る。下層では水路の水と搬送桁の荷が動く。物に触れると記録が開く。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="h!ro53 — creation archive">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="書庫 SHOKO — h!ro53 / transcendence by deus ex machina">
+<meta property="og:description" content="巨大樹の中の書庫を、外皮の裂け目から枝の内部まで、七つの固定した情景で巡る。下層では水路の水と搬送桁の荷が動く。物に触れると記録が開く。">
+<meta property="og:url" content="https://tbyd-hiro53.github.io/shoko.html">
+<meta property="og:image" content="https://tbyd-hiro53.github.io/shoko-v1-og-20260927.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="書庫 SHOKO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="書庫 SHOKO — h!ro53 / transcendence by deus ex machina">
+<meta name="twitter:description" content="巨大樹の中の書庫を、外皮の裂け目から枝の内部まで、七つの固定した情景で巡る。下層では水路の水と搬送桁の荷が動く。物に触れると記録が開く。">
+<meta name="twitter:image" content="https://tbyd-hiro53.github.io/shoko-v1-og-20260927.jpg">
+<link rel="canonical" href="https://tbyd-hiro53.github.io/shoko.html">
+<script src="h53-diag-v1-20260923.js"></script>
+<!-- © 2026 h!ro53 / transcendence by deus ex machina. All rights reserved.
+     Viewing permitted. Reproduction, redistribution, and reuse of source code
+     or assets — in whole or in part — is prohibited without written permission. -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style id="h53-copyright-css">
+.h53-copy{position:fixed;left:0;right:0;bottom:0;z-index:99999;pointer-events:none;
+  padding:6px 10px calc(6px + env(safe-area-inset-bottom));
+  font:9px/1.4 ui-monospace,"SF Mono",Menlo,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,monospace;letter-spacing:.04em;
+  color:rgba(255,218,221,.42);text-align:center;
+  background:linear-gradient(0deg,rgba(0,0,0,.35),transparent);
+  text-shadow:0 1px 2px rgba(0,0,0,.6)}
+body #navigation{--nav-bottom:calc(var(--h53-copy-h,22px) + 6px)}
+</style>
+<script>/* h53 count */(function(){try{if(location.search.indexOf('skipgc')>-1)localStorage.setItem('skipgc','t');if(localStorage.getItem('skipgc')==='t')return;var i=new Image();i.src='https://hiro53.goatcounter.com/count'+'?p='+encodeURIComponent(location.pathname)+'&t='+encodeURIComponent(document.title)+'&r='+encodeURIComponent(document.referrer)+'&s='+[screen.width,screen.height,window.devicePixelRatio||1].join(',');}catch(e){}})();</script>
+<link rel="stylesheet" href="h53-liquid-ui-v1-20260919.css"><link rel="stylesheet" href="h53-liquid-layout-v1-20260919.css">
+<script defer src="h53-chrome-copy-en-v1-20260923.js"></script><script defer src="h53-chrome-v1-20260923.js"></script>
+<link rel="stylesheet" href="shoko-v1-w1-style.css">
+</head><body><main id="app" aria-label="書庫の鑑賞画面">
+<div id="stage" aria-busy="true"><div id="frame"><div id="live" aria-label="書庫の情景"></div><div id="hotspots" aria-label="この場面の説明対象"></div></div></div>
+<header id="hud"><div class="signature">h!ro53 / deus ex machina</div><h1>書庫 <span>SHOKO</span></h1></header>
+<a id="back" class="pill" href="index.html" aria-label="作品一覧へ戻る">戻る</a>
+<button id="menuToggle" class="pill" type="button" aria-controls="menu" aria-expanded="false">メニュー</button>
+<button id="showUI" class="pill" type="button" hidden>操作を表示</button>
+<aside id="menu" class="panel h53-liquid-menu" role="dialog" aria-label="補助メニュー" hidden><button id="closeMenu" type="button" aria-label="メニューを閉じる">閉じる</button><button id="pause" type="button" hidden>Pause</button><button id="targets" type="button">対象一覧</button><button id="about" type="button">作品について</button><button id="fullscreen" type="button" aria-pressed="false">全画面</button><button id="hideUI" type="button">操作表示を隠す</button><p id="menuStatus" role="status" hidden></p></aside>
+<section id="info" class="panel" role="dialog" aria-labelledby="infoTitle" hidden><div class="panel-head"><h2 id="infoTitle"></h2><button id="closeInfo" class="pill circle" type="button" aria-label="文章を閉じる">×</button></div><div id="infoBody" tabindex="0"></div></section>
+<div id="loading" class="notice" role="status">空間を開いています</div><div id="failure" class="notice" hidden><p id="failureText"></p><button id="retry" class="pill" type="button">もう一度読み込む</button></div><p id="motionNote" role="status" hidden></p>
+<footer id="navigation"><p id="scene-current" aria-live="polite"></p><nav id="scenes" aria-label="場所"></nav></footer>
+</main>
+<div class="h53-copy">© 2026 h!ro53 · transcendence by deus ex machina &mdash; viewing permitted, reuse prohibited</div><noscript><div class="no-script">この作品の表示にはJavaScriptが必要です。ブラウザの設定を確認してください。</div></noscript>
+<script>/* the copyright line's measured height lifts the scene row above it */(function(){var c=document.querySelector('.h53-copy');if(!c)return;function m(){document.documentElement.style.setProperty('--h53-copy-h',c.getBoundingClientRect().height+'px');}m();if(window.ResizeObserver)new ResizeObserver(m).observe(c);addEventListener('resize',m);})();</script>
+<script src="h53-liquid-glass-optics-v1.js"></script><script src="h53-liquid-ui-v1-20260919.js"></script><script src="h53-liquid-host-v1-20260919.js"></script><script src="shoko-v1-w1-app.js"></script>
+<script defer src="h53-dismiss-v1-20260921.js"></script>
+</body></html>
