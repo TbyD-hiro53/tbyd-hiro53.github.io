@@ -48,7 +48,8 @@ var PLACES={
 var VIEWS={
  'armillary':{'全景':'Overview','中景':'Middle','環':'Rings','核':'Core','縁':'Rim'},
  'armillary-v2':{'全景':'Overview','中景':'Middle','レンズ':'Lenses','核':'Core','縁':'Rim'},
- 'sanctum':{'全景':'Overview','斜め':'Oblique','真上':'From above','環':'Ring','受け':'Cradle'}
+ 'sanctum':{'全景':'Overview','斜め':'Oblique','真上':'From above','環':'Ring','受け':'Cradle'},
+ 'lacto-tricore':{'全景':'Overview','脳':'Brains','加速':'Acceleration'}
 };
 /* ③ 共通の表記 */
 var UI={
@@ -63,7 +64,7 @@ var UI={
  '目次':'Contents','目次を閉じる':'Close contents',
  '再開':'Resume','一時停止':'Pause','動きを止める':'Pause motion','動きを再生':'Play motion','動きを再開する':'Resume motion',
  '動く風景へ':'Moving view','静止画で見る':'View as a still',
- '画質・動き':'Quality & motion','画質':'Quality','自動':'Auto','高':'High','軽量':'Light','風と水面の細かな動きを減らす':'Reduce fine motion of wind and water',
+ '画質・動き':'Quality & motion','脈と拍の明滅を弱める':'Soften the pulses and beats','画質':'Quality','自動':'Auto','高':'High','軽量':'Light','風と水面の細かな動きを減らす':'Reduce fine motion of wind and water',
  '観測する対象':'Objects to observe','立ち場所':'Places to stand','場面':'Scene','場所':'Scene','視点':'View','遠近':'Distance',
  '夕景':'Evening','日没':'Sunset','残照':'Afterglow','夕闇':'Twilight',
  '決裁履歴を遡る':'Seek back through the approvals','ページの先頭へ':'Back to top',
@@ -90,7 +91,8 @@ var UI_PREFIX=[
  ['作品を読み込んでいます','Loading the work'],['素材と光を読み込んでいます','Loading materials and light'],
  ['景観を準備しています','Preparing the view'],['風景を整えています','Preparing the view'],
  ['空間を開いています','Opening the space'],['空間を準備しています','Preparing the space'],
- ['画面の向きを調整しています','Adjusting to the screen orientation'],['車内を準備しています','Preparing the carriage']
+ ['画面の向きを調整しています','Adjusting to the screen orientation'],['車内を準備しています','Preparing the carriage'],
+ ['装置を準備しています','Preparing the apparatus']
 ];
 
 var controls=merge(CONTROLS['*'],CONTROLS[slug]);

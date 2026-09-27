@@ -119,6 +119,13 @@ window.H53_CHROME_EN={
 "name": "Lacto-Cortex v10",
 "phase": "PHASE 3 · TRANSCENSION"
 },
+"lacto-tricore": {
+"desc": "A life accelerator that pours strawberry milk into three cultured brains. The flow descending from a strawberry-milk tank of some eighty-five cubic metres is quickened stage by stage by a flow accelerator of three stacked rings of the Sanctum type, then driven down a narrowing tube into the medulla of each brain. The beat stays at 0.78 seconds; only the gap between pulses widens toward the lower stages. The three brains are bound to one another by bundles of nerve, and their colour deepens and pales every eight beats. Observed from three views: whole, brains and acceleration.",
+"frag": "The supply has never been reduced. Only its increases are on record. At each of the three rings the flow runs faster. The beat has not changed. The ledger column reads only \"acceleration\"; there is no column for what is being accelerated. Every eight beats the colour of the three brains deepens. Whether the deepening is wear or growth, the one who made the entry circled neither.",
+"log": "The interval held. Only the flow was raised.",
+"name": "Lacto-Tricore v1",
+"phase": "PHASE 3 · TRANSCENSION"
+},
 "late-core": {
 "desc": "The second novel. Duty records and voice logs from maintenance sector 11 on the planet of foundries: one core with no delivery on file and nothing but a maintenance record, and the three who measure it, feed it and write it down. The delay is constant, and does not waver. Complete text.",
 "frag": "A delay wavers. It lengthens under load, contracts with temperature, drifts with age. I have never measured a delay that does not waver. This figure is not the figure of a delay; it has the shape of the figure of a standard. No such standard exists.",

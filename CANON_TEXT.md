@@ -255,6 +255,35 @@ The electrodes do not clamp. They stand about it at a fixed interval and wait wi
 
 ---
 
+## ASSET 30 — Lacto-Tricore v1
+
+**位相** PHASE 3 · TRANSCENSION
+
+**観測ログ** `The interval held. Only the flow was raised.`
+
+**説明 JA**
+三つの培養脳に苺乳を注ぐ生命加速装置。約八十五立方メートルの苺乳タンクから降りる流れを、Sanctum と同型の環を三段に積んだ流速加速装置が段ごとに速め、細る管で三つの脳の延髄へ送り込む。拍は〇・七八秒のまま変わらず、脈と脈の間だけが下の段ほど開く。三つの脳は互いに神経の束で結ばれ、色は八拍ごとに濃くなり、また淡くなる。全景・脳・加速の三つの視点で観測する。
+
+**説明 EN**
+A life accelerator that pours strawberry milk into three cultured brains. The flow descending from a strawberry-milk tank of some eighty-five cubic metres is quickened stage by stage by a flow accelerator of three stacked rings of the Sanctum type, then driven down a narrowing tube into the medulla of each brain. The beat stays at 0.78 seconds; only the gap between pulses widens toward the lower stages. The three brains are bound to one another by bundles of nerve, and their colour deepens and pales every eight beats. Observed from three views: whole, brains and acceleration.
+
+**断章 JA**
+供給は減らされたことがない。増やされたことだけが記録にある。三段の環を通るたび、流れは速くなる。拍は変わっていない。台帳の欄は「加速」とだけあり、何を加速しているのかを書く欄はない。三つの脳の色は八拍ごとに濃くなる。濃くなることが消耗なのか成長なのか、記入した者はどちらにも丸をつけていない。
+
+**断章 EN**
+The supply has never been reduced. Only its increases are on record. At each of the three rings the flow runs faster. The beat has not changed. The ledger column reads only "acceleration"; there is no column for what is being accelerated. Every eight beats the colour of the three brains deepens. Whether the deepening is wear or growth, the one who made the entry circled neither.
+
+**v1（2026-09-27）— 実装記録（世界内の新事実ではない）**
+- Blender（Cycles）の一枚を光源ごとの層に分けて描き、Web ではその層に時間の重みを掛けて足す（Core No.37 と同じ光源グループ合成）。視点は全景・脳・加速の三つで、どれも固定。素材は全景 3.2 MB（最初に読む）、脳 5.4 MB、加速 3.2 MB
+- 構成は一本の縦の塔：光るガラスの苺乳タンク（直径 3.9 m・高さ 7.1 m）→ 流速加速装置 → 三つの脳の円筒槽 → 黒い基部と三色の帯・環文字。人物は置かない
+- 流速加速装置：公開中の Sanctum v6 の正本から環と光条だけを 0.5 倍で三段に積み、降下管の周りの三本のレールと C 字の抱き金具で支える。光条は 2 拍（1.56 s）周期で強く明滅する（毎秒 0.64 回）
+- 加速区間：管は段ごとに細る（内径の半径 16 → 13 → 10 cm）。脈は拍 0.78 s ごとに一つ送られ、間隔は 0.12 → 0.26 → 0.55 m と下の段ほど開く
+- 脳：長さ約 0.5 m（参照脳の 3 倍）。形は Brain, Female（Human Reference Atlas / NIH 3D 3DPX-020959、CC BY 4.0）を改変して用いた。延髄の先へカニューレで灌流し、細い棒三本の受け皿で支える。脳だけを照らす薔薇色の灯の重みを 8 拍（6.24 s）周期で振り、色の濃度を変える
+- 数値（容量・寸法・流量）は作品の造形判断であり、世界の設定ではない
+- 物に触れると観測記録が開く（8 対象）。一度きりの仕掛けは無い
+
+---
+
 ## ASSET 08 — Sigil Fusion v5
 
 **位相** PHASE 3 · TRANSCENSION
