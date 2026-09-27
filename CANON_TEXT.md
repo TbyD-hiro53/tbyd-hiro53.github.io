@@ -529,10 +529,10 @@ At the origin there is one office building and nothing else. What stands for gro
 **観測ログ** `Every submission was accepted. None was received.`
 
 **説明 JA**
-第三作『個』で二人が目覚めた保存棟。起床から百六十日前後、二人はいない。七十二の架が十二段の雛壇に並び、開いているのは二つ。壁の端末には計測記録が流れ、二の行だけが〇・七八秒ごとに書き換わって常に較差外。根が壁から出て天井へ抜け、開いた戸の外に森。立てる場所は架の脇、端末の前、戸の三つ。首だけが動く。物に触れると観測記録が返る。
+第三作『個』で二人が目覚めた保存棟。起床から百六十日前後、二人はいない。七十二の架が十二段の雛壇に並び、開いているのは二つ。壁の端末には計測記録が流れ、二の行だけが〇・七八秒ごとに書き換わって常に較差外。根が壁から出て天井へ抜け、開いた戸の外に森。立てる場所は架の脇、端末の前、戸、隅、棟の五つ。どれも一枚の動かない眺め。物に触れると観測記録が返る。
 
 **説明 EN**
-The preservation hall of THE INDIVIDUAL, where the two awoke. Some hundred and sixty days after waking; the two are absent. Seventy-two pods stand on twelve rising tiers, and two of them are open. On the wall terminal the measurement record runs; only its second line rewrites itself every 0.78 seconds, and it is always out of tolerance. A root comes out of the wall and passes through the ceiling, and beyond the open door there is a forest. Three places to stand: beside a pod, before the terminal, and at the door. Only the head turns. Touch a thing and it returns its record of observation.
+The preservation hall of THE INDIVIDUAL, where the two awoke. Some hundred and sixty days after waking; the two are absent. Seventy-two pods stand on twelve rising tiers, and two of them are open. On the wall terminal the measurement record runs; only its second line rewrites itself every 0.78 seconds, and it is always out of tolerance. A root comes out of the wall and passes through the ceiling, and beyond the open door there is a forest. Five fixed views: beside a pod, before the terminal, at the door, the corner, and the hall. Touch a thing and it returns its record of observation.
 
 **断章 JA**
 架は横に六、縦に十二。七十二。開いているのは二つで、蓋は枕側の軸で退いて、立ったまま戻らない。七十は閉じたままで、曇った蓋の下に、うすい桃色の層が色までは見えて、形にはならない。壁の一部が他より滑らかで、そこに計測の記録が流れている。基準は〇・七八。較差は上下に〇・〇一。二の行だけが拍ごとに書き換わり、いつも較差の外にある。いちばん下に、送信。その下に、申請。押されたものは全部受理され、届いたものは一つもない。根が壁から出て、天井へ抜けている。割って入っているのではない。面の一部である。戸は初日から鍵が無く、二十九日目から開いたままで、外へ二十歩の先に根の道が始まる。前庭の隅に、合わない補装が六つと、切った髪の小さな山。百の包の山は、三日前に尽きている。
@@ -545,11 +545,11 @@ The pods are six across and twelve deep. Seventy-two. Two are open; their lids h
 - 架 外寸 2.24 × 0.92 × 0.64。六列（ピッチ 1.60）× 十二段 = 七十二。開放二つ（蓋は 78° で立つ）、閉止七十（曇り硝子）
 - 端末 段 3・面 0.42 × 0.60。基準 〇・七八／較差 ±〇・〇一。二の行だけが拍ごとに書き換わり常に較差外。包の口・水の口が並ぶ
 - 根 主根 径 0.60 が壁 y=5.2 から出て天井 9.6 へ抜け、細い根が面へ溶ける。天井は面そのものが光る。開口 2.40 × 1.60
-- 立ち場所 三つ。架の脇（眼高 段の床 +0.32）／端末の前（+1.55）／戸（座った高さ 1.10）。位置固定・向き自在
+- 視点 五つ（v7、2026-09-27）。架の脇・端末の前・戸・隅・棟。どれも固定の一枚で、向きも動かない。戸は座った高さ 1.10 の目（旧：立ち場所 三つ・向き自在）
 - 外 戸の外は太い根が編まれた足場で、二十歩の先から根の道。道は見える先の百八十歩で幹を回って曲がる。幹は光を透かし、色は青緑に近く青緑ではない。円盤が二・四秒で一巡
-- 外の描き方（v6、2026-09-26）立ち位置ごとに、戸口から見える外だけを Cycles で焼いた一枚を目の先に置く（首だけが回るので視差は出ない）。日差しと光の筋は作者の裁定で、原作の曇天から離れる。動くのは円盤と、高い葉の擦れ（二・四秒ごと）
+- 描き方（v7、2026-09-27）棟の中も外も Cycles の一枚。光を base（天井の面の光・戸口の外の光）・床の面・開口の空の層に分けて焼き、Web で時間の重みを掛けて足す（光源グループ合成）。動くのは床の呼吸（〇・七八秒）、端末の二の行（原版の 30 通りの画面を拍ごとに差し替える）、開口の空の色（240 秒）、戸の外の高い葉の擦れ（二・四秒ごと）。円盤は下から見上げる向きで回っても形が変わらないので、焼いた一枚に含めた。日差しと光の筋は作者の裁定で、原作の曇天から離れる（v6 から）
 - 拍 0.78 s（床の面の明るさが浅く息をする）／2.4 s ／三色 #ff05a8 / #f2dbe9 / #00ddc8
-- 実測（v6、Mac Chrome 1280×800・戸の視点）読み込み 3.8 MB・三角形 635,678・描画 25・外部リクエスト 0
+- 実測（v7、Mac Chrome）読み込み 一視点 0.5〜2.5 MB（五視点で計 6.3 MB。開いた視点だけ読む）・描画 一回（四角形一枚）・外部リクエスト 0
 
 ---
 

@@ -34,7 +34,7 @@ var CONTROLS={
 /* 立ち場所・場面の名。英語は正典の英語の札にある語 */
 var PLACES={
  'vacant-seat':{'机の前':'Before the desk','椅子の背後':'Behind the chair'},
- 'preservation-hall':{'架の脇':'Beside a pod','端末の前':'Before the terminal','戸':'The door'},
+ 'preservation-hall':{'架の脇':'Beside a pod','端末の前':'Before the terminal','戸':'The door','隅':'The corner','棟':'The hall'},
  'confluence':{'岸の道':'Shore path','円盤の真下':'Beneath a disc','床の切れ目':'Gap in the floor'},
  /* 車窓（2026-09-26、旧 The Changes）：一視点。釦と触れる対象の名 */
  'the-changes':{'はじめから':'From the beginning','遠い光':'The distant light','扉の上の面':'The panel above the door',
