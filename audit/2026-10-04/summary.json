@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-04",
+  "base": "59c7c744aef19afc0c4fc3290925a197cb06e910",
+  "sourceHead": "5eeacda8419991ab9b185aa371b5db2bd7941dd3",
+  "static": {
+    "references": 1400,
+    "dependencies": 496,
+    "javascriptSyntaxChecks": 227,
+    "confirmedMissing": 0
+  },
+  "chromium": {
+    "pages": 43,
+    "viewports": 86,
+    "pageerrors": 0,
+    "httpFailures": 0,
+    "consoleErrors": 0,
+    "horizontalOverflow": 0,
+    "softwareGPU": true,
+    "rafCallbackDelayMs": 250,
+    "initialScreenshotTimeouts": 4,
+    "timeoutCapturesSupplemented": true
+  },
+  "linuxWebKit": {
+    "engine": "WebKitGTK 2.52.6 / MiniBrowser / Xvfb / software GL",
+    "pages": 43,
+    "viewports": 86,
+    "capturedExceptions": 0,
+    "resourceErrors": 0,
+    "localHttpFailures": 0,
+    "horizontalOverflow": 0,
+    "rawTextProtectionCases": 6,
+    "fontIncreaseCases": 6,
+    "contentsOpenCloseStates": 36,
+    "jaEnNoWebglCases": 8,
+    "sceneReadyCases": 4,
+    "firstPassExcluded": true
+  },
+  "physicalSafari": "UNTESTED",
+  "deployed": false
+}
