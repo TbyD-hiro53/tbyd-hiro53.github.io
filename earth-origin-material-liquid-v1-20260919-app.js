@@ -4639,6 +4639,7 @@ window.EO.baked={"uv":{"0-0":{"map":0,"uv2":[0.097053,0.9575105,0.0991474,0.9562
 
   // ─────────────────────────── 場
   var renderer, scene, camera, clock, root;
+  var artworkRAF=0, artworkTime=0, pageAway=false;
   var station = 0, yaw = 0, pit = 0, pitAdj = 0;
   var drag = false, px = 0, py = 0, moved = 0, tdown = 0, lastTouch = 0;
   var ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
@@ -4780,11 +4781,23 @@ window.EO.baked={"uv":{"0-0":{"map":0,"uv2":[0.097053,0.9575105,0.0991474,0.9562
     bind();
     applyStation(0, false);
     onResize();
-    animate();
+    scheduleArtwork();
   }
 
   function bind() {
     window.addEventListener('resize', onResize, false);
+    function resetGesture(){drag=false;moved=15;}
+    cv.addEventListener('touchcancel',resetGesture,{passive:true});
+    window.addEventListener('blur',resetGesture);
+    function suspend(){
+      resetGesture();cancelPending();
+      if(artworkRAF){cancelAnimationFrame(artworkRAF);artworkRAF=0;}
+      clock.stop();
+    }
+    function resume(){if(document.hidden||pageAway)return;clock.start();scheduleArtwork();}
+    document.addEventListener('visibilitychange',function(){if(document.hidden)suspend();else resume();});
+    window.addEventListener('pagehide',function(){pageAway=true;suspend();});
+    window.addEventListener('pageshow',function(){pageAway=false;resume();});
 
     cv.addEventListener('mousedown', function (e) {
       if (Date.now() - lastTouch < 800) return;
@@ -4851,8 +4864,10 @@ window.EO.baked={"uv":{"0-0":{"map":0,"uv2":[0.097053,0.9575105,0.0991474,0.9562
   }
 
   function animate() {
-    requestAnimationFrame(animate);
-    var t = window.__EO_FIXED_TIME !== undefined ? window.__EO_FIXED_TIME : clock.getElapsedTime();
+    artworkRAF=0;
+    if(document.hidden||pageAway)return;
+    artworkTime+=clock.getDelta();
+    var t = window.__EO_FIXED_TIME !== undefined ? window.__EO_FIXED_TIME : artworkTime;
     EO.U.uT.value = t;
     /* 拍：面の明るさが浅く息をする */
     EO.U.uPump.value = 0.5 - 0.5 * Math.cos((t % PUMP) / PUMP * Math.PI * 2);
@@ -4863,7 +4878,9 @@ window.EO.baked={"uv":{"0-0":{"map":0,"uv2":[0.097053,0.9575105,0.0991474,0.9562
     }
     look();
     renderer.render(scene, camera);liquid.afterRender(performance.now());
+    scheduleArtwork();
   }
+  function scheduleArtwork(){if(!artworkRAF&&!document.hidden&&!pageAway)artworkRAF=requestAnimationFrame(animate);}
 
   window.__H53M = {
     get scene() { return scene; },

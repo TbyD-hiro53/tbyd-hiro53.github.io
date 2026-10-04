@@ -95,7 +95,9 @@
       var d=document.createElement('div');
       d.style.cssText='position:fixed;inset:0;display:flex;align-items:center;justify-content:center;'+
         'color:#f0f;background:#000;font:12px/1.8 -apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,sans-serif;text-align:center;padding:24px;z-index:9999';
-      d.textContent='WebGL initialization failed. Safariで開き直してください。';
+      var en=false;try{en=localStorage.getItem('h53lang')==='en';}catch(e){}
+      d.setAttribute('role','alert');
+      d.textContent=en?'The artwork could not be displayed. Reload the page or try a WebGL-compatible browser.':'作品を表示できない。ページを再読み込みするか、WebGL対応ブラウザで開く。';
       document.body.appendChild(d);
     }, 2500);
   });
@@ -988,7 +990,8 @@ function pKeys(){ var a = []; for (var k in pointers) a.push(k); return a; }
 
 renderer.domElement.addEventListener('pointerdown', function(e){
   pointers[e.pointerId] = { x: e.clientX, y: e.clientY };
-  pCount++;
+  pCount = pKeys().length;
+  if (renderer.domElement.setPointerCapture) renderer.domElement.setPointerCapture(e.pointerId);
   if (pCount === 1){
     dragX = e.clientX; dragY = e.clientY;
     downX = e.clientX; downY = e.clientY;
@@ -996,6 +999,7 @@ renderer.domElement.addEventListener('pointerdown', function(e){
     moved = false;
     yawVel = 0; pitchVel = 0;
   } else if (pCount === 2){
+    moved = true;
     var ks = pKeys();
     var a = pointers[ks[0]], b = pointers[ks[1]];
     pinchDist = Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
@@ -1022,7 +1026,7 @@ renderer.domElement.addEventListener('pointermove', function(e){
     var a = pointers[ks[0]], b = pointers[ks[1]];
     var nd = Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
     if (pinchDist > 0){
-      dist *= pinchDist / nd;
+      dist *= pinchDist / Math.max(nd, 1);
       if (dist < MIN_DIST) dist = MIN_DIST;
       if (dist > MAX_DIST) dist = MAX_DIST;
     }
@@ -1032,17 +1036,30 @@ renderer.domElement.addEventListener('pointermove', function(e){
   lastInteract = clockTime;
 });
 
+function resetPointers(){
+  pointers = {}; pCount = 0; pinchDist = 0; moved = true;
+  yawVel = 0; pitchVel = 0;
+}
 function releasePointer(e){
-  if (pointers[e.pointerId]){ delete pointers[e.pointerId]; pCount--; if (pCount < 0) pCount = 0; }
+  if (!pointers[e.pointerId]) return;
+  delete pointers[e.pointerId];
+  pCount = pKeys().length;
   if (pCount < 2) pinchDist = 0;
-  if (pCount === 0){
+  if (pCount === 1){
+    var remaining = pointers[pKeys()[0]];
+    dragX = remaining.x; dragY = remaining.y;
+    moved = true;
+  } else if (pCount === 0){
     var dtDown = performance.now() - downTime;
-    if (!moved && dtDown < 260) pumpBeat();
+    if (e.type === 'pointerup' && !moved && dtDown < 260) pumpBeat();
   }
   lastInteract = clockTime;
 }
 renderer.domElement.addEventListener('pointerup', releasePointer);
 renderer.domElement.addEventListener('pointercancel', releasePointer);
+renderer.domElement.addEventListener('lostpointercapture', releasePointer);
+window.addEventListener('blur', resetPointers);
+document.addEventListener('visibilitychange', function(){ if(document.hidden) resetPointers(); });
 
 renderer.domElement.addEventListener('wheel', function(e){
   e.preventDefault();

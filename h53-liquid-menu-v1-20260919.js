@@ -14,7 +14,9 @@ function H53LiquidMenu(host,options){
   const full=make('button','h53-menu-fullscreen','全画面');full.onclick=()=>{open(false);host.fullscreen(full,()=>{const note=panel.querySelector('.h53-fullscreen-note')||make('p','','この環境ではブラウザ全画面を利用できない。作品を単独で開いても、OSやブラウザの操作欄が残る場合がある。');note.className='h53-fullscreen-note';if(!note.parentNode){const link=make('a','','作品を単独で開く');link.href=location.pathname+(location.search.includes('skipgc')?'?skipgc':'');link.target='_blank';link.rel='noopener';note.append(document.createElement('br'),link);panel.append(note);}open(true);});};
   const hide=make('button','h53-menu-hide','操作表示を隠す');panel.append(full,hide);rootEl.append(toggle,panel,restore);
   const prior=new Map();function visibility(on){if(host.blocked)return;shown=on;host.ui.hide(panel);toggle.setAttribute('aria-expanded','false');for(const e of rootEl.querySelectorAll(options.hideSelector||'#back,#hud,#title,#views,#origin')){if(!on){prior.set(e,e.hidden);e.hidden=true;}else if(prior.has(e)){e.hidden=prior.get(e);prior.delete(e);}}toggle.hidden=!on;restore.hidden=on;(on?toggle:restore).focus();host.requestFrame();}
-  toggle.onclick=()=>open(panel.hidden);hide.onclick=()=>visibility(false);restore.onclick=()=>visibility(true);
+  // hidden stays false during the closing animation. Use the requested state so
+  // another press can reopen immediately and cancel that pending close.
+  toggle.onclick=()=>open(toggle.getAttribute('aria-expanded')!=='true');hide.onclick=()=>visibility(false);restore.onclick=()=>visibility(true);
   panel.addEventListener('keydown',e=>{if(e.key==='Escape'){e.stopPropagation();open(false);toggle.focus();}});
   for(const e of [toggle,panel,restore])for(const type of ['pointerdown','pointerup','mousedown','mouseup','touchstart','touchend','click'])e.addEventListener(type,x=>x.stopPropagation());
   host.ui.discover();this.toggle=toggle;this.panel=panel;this.restore=restore;this.open=open;this.show=visibility;this.shown=()=>shown;
