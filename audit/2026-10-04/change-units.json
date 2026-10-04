@@ -1,0 +1,76 @@
+[
+  {
+    "sha": "c27a13b5b63f45aad7648c8abdb5cdd25e077f30",
+    "subject": "Fix archive controls and preserve source reading",
+    "files": [
+      "index.html",
+      "reader-liquid-v1-20260919.js",
+      "h53-chrome-v1-20260923.js",
+      "late-core.html",
+      "not-yet.html",
+      "residual-index-53.html",
+      "the-blank.html",
+      "the-written.html",
+      "the-individual.html"
+    ]
+  },
+  {
+    "sha": "4097a17f931f1ac84b7652a45c5587503df58085",
+    "subject": "Fix legacy gesture cancellation and drawing suspension",
+    "files": [
+      "h53-liquid-menu-v1-20260919.js",
+      "object.html",
+      "cyberwafer.html",
+      "cellwafer.html",
+      "lacto-caloris-v2-c15-app.js",
+      "earth-origin-material-liquid-v1-20260919-app.js",
+      "code-rain.html"
+    ]
+  },
+  {
+    "sha": "8f9b2722b3d0e514903b8256a38e96ee7f3c3434",
+    "subject": "Keep the latest scene choice during asynchronous loads",
+    "files": [
+      "confluence-liquid-v3-20260923-viewer.js",
+      "confluence-v2-20260909-viewer.js",
+      "confluence-v3-20260909-viewer.js",
+      "confluence-v4-20260909-viewer.js",
+      "lacto-tricore-v1-w1-app.js"
+    ]
+  },
+  {
+    "sha": "cfeb8027f11a05c9ba0319c5af481a17947a2e69",
+    "subject": "Handle 3D failures and suspend background rendering",
+    "files": [
+      "armillary-v1-w1-app.js",
+      "armillary-v2-w1-app.js",
+      "sanctum-v6-w7-app.js",
+      "chrome-liturgy-liquid-v1-20260919.js",
+      "chrome-liturgy-r1.css",
+      "chrome-liturgy-r1.js",
+      "coastal-glass-observation-v3-app.js",
+      "coastal-glass-observation-v3.css",
+      "cyberwafer-r2.css",
+      "cyberwafer-r2.js",
+      "cyberwafer-r3-liquid-v1-20260919.js",
+      "cyberwafer-r3.css"
+    ]
+  },
+  {
+    "sha": "5eeacda8419991ab9b185aa371b5db2bd7941dd3",
+    "subject": "Improve scene reading controls and lifecycle recovery",
+    "files": [
+      "binary-dusk-liquid-v1-20260919-app.js",
+      "binary-dusk-ui-v4-20260907.css",
+      "binary-dusk.html",
+      "shoko-prototype-v12-20260917-viewer-d1ed9d7418.css",
+      "the-changes-v16-w1-style.css",
+      "the-changes-v16-w2-app.js",
+      "the-changes.html",
+      "vacant-seat-liquid-v1-20260919-app.js",
+      "xerophyte-v1-w1-style.css",
+      "xerophyte-v1-w3-app.js",
+      "xerophyte.html"
+    ]
+  }
+]

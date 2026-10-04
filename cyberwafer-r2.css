@@ -4,3 +4,8 @@
 @media(max-height:500px){header{top:8px}#title{position:static;transform:none;padding-top:8px}#title span{display:none}#controls{bottom:26px}footer{font-size:9px;bottom:5px}#menu{top:60px;max-height:calc(100dvh - 100px)}}
 
 #editionPicker{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom));display:flex;padding:4px;border-radius:999px;gap:3px;white-space:nowrap;max-width:calc(100% - 24px)}#editionPicker button{appearance:none;border:1px solid transparent;border-radius:999px;background:transparent;color:#d9e4e7;font-size:12px;min-height:40px;padding:0 12px}#editionPicker button[aria-pressed=true]{background:rgba(150,216,212,.18);border-color:rgba(194,239,235,.28);color:white}.immersive #editionPicker{display:none!important}@media(max-height:500px){#editionPicker{left:16px;bottom:26px;transform:none}#controls{left:auto;right:16px;transform:none}#editionPicker button{font-size:11px;padding:0 9px}}
+
+/* A failed model keeps a photograph and clear recovery links. */
+body.model-unavailable #editionPicker,body.model-unavailable #reset,body.model-unavailable #photo{display:none!important}
+body.model-unavailable #loading.failed{max-height:calc(100dvh - 150px);overflow:auto}
+body.model-unavailable button:disabled{opacity:.5;cursor:default}

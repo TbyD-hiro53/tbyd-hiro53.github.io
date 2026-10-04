@@ -59,7 +59,8 @@ var U={time:{value:0},clipY:{value:-1e3},beat:{value:0}};
 var roomMat,partsMat,backGlassMat,frontGlassMat,copyMat,depthMat,bloomPre,bloomDown,finalMat;
 var strandObjs=[],sparkObjs=[],backGlass,frontGlass,roomMesh,partsMesh,plasma;
 var mirrorCam=new T.PerspectiveCamera(),texMat0=new T.Matrix4(),texMat1=new T.Matrix4();
-var black=null,playing=true,clock={t:0,last:0,rate:1};
+var motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
+var black=null,playing=!motionPreference.matches,clock={t:0,last:0,rate:1};
 var frameHandle=0,pageAway=false,stats={frames:0,ms:[]};
 /* 計測表示（?diag）。&off=ui,mirror,glass,strands,bloom で部分を止めて比べる。?diag=gpu は GPU の完了待ちも測る */
 var DIAG={on:query.has('diag'),gpu:query.get('diag')==='gpu',off:(query.get('off')||'').split(','),el:null,t0:0,frames:0,gaps:[],cpu:[],ui:[],gpuMs:[],resizes:0,resizeEvents:0,vv:0,
@@ -93,6 +94,7 @@ var quality={scale:1,gaps:[],t0:0,last:0};
 
 function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
 function status(msg){var s=document.getElementById('viewer-status');if(s){s.hidden=!msg;if(msg)s.textContent=msg;}}
+function localized(ja,en){try{return localStorage.getItem('h53lang')==='en'?en:ja;}catch(e){return ja;}}
 function fail(msg){var e=document.getElementById('viewer-error'),s=document.getElementById('viewer-status');if(s)s.hidden=true;if(e){e.hidden=false;e.textContent=msg;}document.documentElement.setAttribute('data-error',msg);}
 
 /* ---------------------------------------------------------------- 読み込み */
@@ -623,11 +625,12 @@ function render(){
 
 /* ---------------------------------------------------------------- 時間 */
 function setPlaying(v){playing=!!v;clock.last=performance.now();needsRender=true;requestFrame();if(window.SanctumUI)window.SanctumUI.sync();}
-/* 非表示の間はブラウザが RAF を止めるので、ここでは document.hidden を見ない */
+/* 非表示・履歴退避中は予約を解除し、復帰時に一本だけ再開する */
 /* 予約は常に 1 本だけ。frame() の途中で呼ばれても、予約が既にあれば重ねない */
-function requestFrame(){needsRender=true;if(!frameHandle&&!pageAway)frameHandle=requestAnimationFrame(frame);}
+function stopFrame(){if(frameHandle)cancelAnimationFrame(frameHandle);frameHandle=0;}
+function requestFrame(){needsRender=true;if(!frameHandle&&!pageAway&&!document.hidden&&ready)frameHandle=requestAnimationFrame(frame);}
 function frame(now){
-  frameHandle=0;if(pageAway)return;
+  frameHandle=0;if(pageAway||document.hidden||!ready)return;
   var gap=now-(clock.last||now),dt=Math.min(0.1,Math.max(0,gap/1000));clock.last=now;
   if(playing&&ready&&gap>0&&gap<1000){quality.gaps.push(gap);
     if(!quality.t0)quality.t0=now;
@@ -651,11 +654,12 @@ function frame(now){
     diagTick(now,gap,t1-t0,t3-t2,gms);
   }
   /* 途中で requestFrame() が予約を取っていたら、ここでは取らない（w4 まではここで二重に取り、ループが増殖していた） */
-  if((playing||needsRender)&&!frameHandle&&!pageAway)frameHandle=requestAnimationFrame(frame);
+  if((playing||needsRender)&&!frameHandle&&!pageAway&&!document.hidden&&ready)frameHandle=requestAnimationFrame(frame);
 }
-document.addEventListener('visibilitychange',function(){if(!document.hidden){clock.last=performance.now();requestFrame();}});
-window.addEventListener('pagehide',function(){pageAway=true;});
+document.addEventListener('visibilitychange',function(){clock.last=performance.now();if(document.hidden)stopFrame();else requestFrame();});
+window.addEventListener('pagehide',function(){pageAway=true;stopFrame();});
 window.addEventListener('pageshow',function(){pageAway=false;clock.last=performance.now();requestFrame();});
+if(motionPreference.addEventListener)motionPreference.addEventListener('change',function(e){if(e.matches)setPlaying(false);});
 
 /* ---------------------------------------------------------------- 起動 */
 function init(){
@@ -663,7 +667,7 @@ function init(){
   try{renderer=new T.WebGLRenderer({antialias:false,alpha:false,powerPreference:'high-performance',preserveDrawingBuffer:query.has('shot')});}
   catch(e){fail('WebGL を初期化できませんでした。Safari や Chrome の最新版で開き直してください。');return;}
   renderer.outputEncoding=T.LinearEncoding;renderer.toneMapping=T.NoToneMapping;renderer.autoClear=false;
-  renderer.domElement.addEventListener('webglcontextlost',function(e){e.preventDefault();},false);
+  renderer.domElement.addEventListener('webglcontextlost',function(e){e.preventDefault();ready=false;stopFrame();fail(localized('描画が中断されました。復帰を待つか、ページを再読み込みしてください。','Rendering was interrupted. Wait for recovery or reload the page.'));},false);
   renderer.domElement.addEventListener('webglcontextrestored',function(){location.reload();},false);
   stage.appendChild(renderer.domElement);
   camera=new T.PerspectiveCamera(40,innerWidth/innerHeight,0.02,40);

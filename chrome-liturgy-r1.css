@@ -2,3 +2,8 @@
 
 .immersive header,.immersive #controls,.immersive #menu,.immersive footer{display:none!important}#restore{position:fixed;right:16px;bottom:calc(20px + env(safe-area-inset-bottom));z-index:20}
 @media(max-height:500px){header{top:8px}#title{position:static;transform:none;padding-top:8px}#title span{display:none}#controls{bottom:26px}footer{font-size:9px;bottom:5px}#menu{top:60px;max-height:calc(100dvh - 100px)}}
+
+/* A failed model keeps a photograph and clear recovery links. */
+body.model-unavailable #editionPicker,body.model-unavailable #reset,body.model-unavailable #photo{display:none!important}
+body.model-unavailable #loading.failed{max-height:calc(100dvh - 150px);overflow:auto}
+body.model-unavailable button:disabled{opacity:.5;cursor:default}

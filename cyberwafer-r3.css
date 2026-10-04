@@ -16,3 +16,8 @@ body.photographic #editionPicker,body.photographic #quality{opacity:1}
 @media(max-width:520px){#editionPicker{bottom:calc(74px + env(safe-area-inset-bottom))}#controls{bottom:calc(22px + env(safe-area-inset-bottom))}#controls button{font-size:12px;padding:0 11px}#editionPicker button{font-size:11px;padding:0 10px}}
 @media(max-height:500px){#editionPicker{left:16px;bottom:22px;transform:none}#controls{left:auto;right:16px;bottom:22px;transform:none}#editionPicker button{font-size:11px;padding:0 9px}}
 @media(prefers-reduced-motion:reduce){#editionPicker,#controls{transition:none}body.idle #editionPicker,body.idle #controls,body.idle footer{opacity:1}}
+
+/* A failed model keeps a photograph and clear recovery links. */
+body.model-unavailable #editionPicker,body.model-unavailable #reset,body.model-unavailable #photo{display:none!important}
+body.model-unavailable #loading.failed{max-height:calc(100dvh - 150px);overflow:auto}
+body.model-unavailable button:disabled{opacity:.5;cursor:default}

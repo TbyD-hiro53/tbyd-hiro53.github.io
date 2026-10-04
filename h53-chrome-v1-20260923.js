@@ -15,6 +15,11 @@
 var slug=location.pathname.split('/').pop().replace('.html','')||'index';
 var lang='ja';try{if(localStorage.getItem('h53lang')==='en')lang='en';}catch(e){}
 var en=lang==='en';
+var READER_SLUGS=['late-core','not-yet','residual-index-53','the-blank','the-written','the-individual'];
+/* A chapter name can also be a UI word (for example 戻る). Source prose and
+   its contents entries are authored text, regardless of the chrome language. */
+function authored(el){return !!(el&&el.closest&&
+ (el.closest('.source-content')||(READER_SLUGS.indexOf(slug)>=0&&el.closest('.wrap,#toc a'))));}
 function merge(){var o={};for(var i=0;i<arguments.length;i++){var m=arguments[i];if(m)for(var k in m)o[k]=m[k];}return o;}
 
 /* ② 操作釦。言語に関わらず英語にする */
@@ -121,6 +126,7 @@ function textIn(el,fn){
 }
 function relabelText(n){
  var p=n.parentElement;if(!p||p.closest('script,style,noscript'))return;
+ if(authored(p))return;
  var inControl=!!p.closest(CONTROL_SEL);
  if(inControl&&swap(n,controls))return;
  if(!en)return;
@@ -133,7 +139,7 @@ function relabelText(n){
  about(n);
 }
 function relabelAttrs(el){
- if(!en)return;
+ if(!en||authored(el))return;
  ['aria-label','title'].forEach(function(a){var v=el.getAttribute(a);if(v&&Object.prototype.hasOwnProperty.call(ui,v))el.setAttribute(a,ui[v]);});
 }
 /* Code Rain 三作と白地の図像二作（svg）は、戻る・メニューが下の隅にあった。
@@ -163,6 +169,7 @@ function place(){
  });
 }
 function unify(el){
+ if(authored(el))return;
  var nm=NAMED[el.id];if(nm&&!el.getAttribute('aria-label'))el.setAttribute('aria-label',nm[en?1:0]);
  if(isBack(el)){
   el.classList.add('h53-back');

@@ -30,7 +30,7 @@ const panels={
 const TARGETS=[['trunk','幹'],['flower','花'],['discs','円盤の段'],['roots','根と地面'],['stakes','杭と計測器']];
 const ID_NAME={1:'trunk',2:'flower',3:'discs',4:'roots',5:'stakes'};
 
-let meta=null,gl=null,prog=null,U={},ids=null,ready=false,raf=0,shown=true,returnFocus=null,lastPointer=null;
+let meta=null,gl=null,prog=null,U={},ids=null,ready=false,raf=0,shown=true,returnFocus=null,lastPointer=null,pageActive=true;
 let reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,quality='auto',scale=1;
 const crop={x:0,y:0,w:1,h:1};
 const clock={t:0,running:false,last:null,stormAt:null};
@@ -199,7 +199,7 @@ function layout(){
 
 /* ---------------------------------------------------------------- 面 */
 function menu(open){if(liquid.blocked)return;if(open)liquid.ui.open('#menu',$('menuToggle'));else liquid.ui.close('#menu');$('menuToggle').setAttribute('aria-expanded',String(open));$('menuToggle').setAttribute('aria-label',open?'補助メニューを閉じる':'補助メニューを開く');if(open)$('pause').focus();schedule();}
-function openInfo(title){if(!liquid.blocked){returnFocus=document.activeElement;menu(false);}$('infoTitle').textContent=title;$('infoBody').replaceChildren();liquid.ui.open('#info',lastPointer||$('menuToggle'));lastPointer=null;liquid.lock($('info'));$('closeInfo').focus();schedule();}
+function openInfo(title){if(!liquid.blocked){returnFocus=document.activeElement;menu(false);}$('infoTitle').textContent=title;$('infoBody').replaceChildren();$('info').scrollTop=0;$('infoBody').scrollTop=0;liquid.ui.open('#info',lastPointer||$('menuToggle'));lastPointer=null;liquid.lock($('info'));$('closeInfo').focus();schedule();}
 function paragraph(text){const p=document.createElement('p');p.textContent=text;$('infoBody').append(p);}
 function selectTarget(id){const d=panels[id];if(!d)return;openInfo(d.title);paragraph(done()&&d.after?d.after:d.text);schedule();}
 function closeInfo(){liquid.ui.close('#info',()=>{liquid.unlock();if(returnFocus&&returnFocus.isConnected&&!returnFocus.closest('[hidden]'))returnFocus.focus();else $('menuToggle').focus();schedule();});schedule();}
@@ -225,7 +225,7 @@ $('pause').onclick=()=>{clock.running?pause():play();syncUI();schedule();};
 function showUI(on){shown=on;for(const id of ['masthead','controls','back','menuToggle'])$(id).hidden=!on;$('showUI').hidden=on;menu(false);if(!on){liquid.ui.hide('#info');liquid.unlock();}(on?$('menuToggle'):$('showUI')).focus();schedule();}
 $('hideUI').onclick=()=>showUI(false);$('showUI').onclick=()=>showUI(true);
 $('fullscreen').onclick=()=>{menu(false);liquid.fullscreen($('fullscreen'),()=>{openInfo('全画面表示');paragraph('この環境ではブラウザ全画面を利用できない。作品を単独で開いても、OSやブラウザの操作欄が残る場合がある。');});};
-addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('info').hidden)closeInfo();else if(!$('menu').hidden){menu(false);$('menuToggle').focus();}else showUI(!shown);}if(e.code==='Space'&&!['BUTTON','INPUT','SELECT','A'].includes(document.activeElement.tagName)&&ready){e.preventDefault();$('pause').click();}});
+addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('info').hidden)closeInfo();else if(!$('menu').hidden){menu(false);$('menuToggle').focus();}else showUI(!shown);}if(e.code==='Space'&&!liquid.blocked&&!['BUTTON','INPUT','SELECT','A'].includes(document.activeElement.tagName)&&ready){e.preventDefault();$('pause').click();}});
 
 /* ---------------------------------------------------------------- 判定（的は出さない。触れた位置の対象を開く）
    細い対象（花・杭と計測器・根）は指の幅（半径 22 px）の中にあれば、それを優先する */
@@ -243,7 +243,7 @@ $('canvas').addEventListener('pointerup',e=>{if(!ready||!e.isPrimary||liquid.blo
 
 /* ---------------------------------------------------------------- 一本の描画ループ */
 function frame(now){
- raf=0;if(!ready||document.hidden)return;
+ raf=0;if(!ready||!pageActive||document.hidden)return;
  const before=clock.t;advance(now);
  if(clock.running&&clock.t>before){frameSamples.push(now);if(frameSamples.length>240)frameSamples.shift();}
  render();liquid.afterRender(performance.now());
@@ -251,7 +251,7 @@ function frame(now){
  if(quality==='auto'&&now-adaptAt>5000&&frameSamples.length>120){const d=[];for(let i=1;i<frameSamples.length;i++)d.push(frameSamples[i]-frameSamples[i-1]);d.sort((a,b)=>a-b);const p95=d[Math.floor(d.length*.95)];if(p95>38&&scale>.6){scale=Math.max(.6,scale*.85);layout();}adaptAt=now;}
  if(clock.running||liquid.ui.busy())schedule();
 }
-function schedule(){if(!raf&&ready&&!document.hidden)raf=requestAnimationFrame(frame);}
+function schedule(){if(!raf&&ready&&pageActive&&!document.hidden)raf=requestAnimationFrame(frame);}
 addEventListener('resize',()=>{layout();schedule();});if(window.visualViewport)visualViewport.addEventListener('resize',()=>{layout();schedule();});
 document.addEventListener('visibilitychange',()=>{clock.last=null;if(document.hidden){cancelAnimationFrame(raf);raf=0;}else schedule();});
 
@@ -264,4 +264,7 @@ load(n=>{$('loadProgress').value=n*100;$('loadText').textContent='観測地を�
  for(const id of ['pause','targets'])$(id).disabled=false;play();syncUI();schedule();
  window.__xero={clock,crop,meta:()=>meta,pick,wStorm,veil,wind,visibility,after,done};
 }).catch(error);
+// Suspend drawing when leaving; preserve state for a back/forward cache return.
+addEventListener('pagehide',()=>{pageActive=false;cancelAnimationFrame(raf);raf=0;});
+addEventListener('pageshow',()=>{pageActive=true;clock.last=null;schedule();});
 })();

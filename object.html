@@ -299,7 +299,9 @@
       var d=document.createElement('div');
       d.style.cssText='position:fixed;inset:0;display:flex;align-items:center;justify-content:center;'+
         'color:#f0f;background:#000;font:12px/1.8 -apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic",YuGothic,sans-serif;text-align:center;padding:24px;z-index:9999';
-      d.textContent='WebGL initialization failed. Safariで開き直してください。';
+      var en=false;try{en=localStorage.getItem('h53lang')==='en';}catch(e){}
+      d.setAttribute('role','alert');
+      d.textContent=en?'The artwork could not be displayed. Reload the page or try a WebGL-compatible browser.':'作品を表示できない。ページを再読み込みするか、WebGL対応ブラウザで開く。';
       document.body.appendChild(d);
     }, 2500);
   });
@@ -514,7 +516,16 @@ dom.addEventListener('touchstart',e=>{if(e.touches.length===1){drag=true;lx=e.to
   else if(e.touches.length===2){drag=false;pinch=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);}},{passive:true});
 dom.addEventListener('touchmove',e=>{if(e.touches.length===1&&drag){theta-=(e.touches[0].clientX-lx)*0.006;phi=clamp(phi-(e.touches[0].clientY-ly)*0.006,0.5,1.9);lx=e.touches[0].clientX;ly=e.touches[0].clientY;}
   else if(e.touches.length===2){const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);radius=clamp(radius-(d-pinch)*0.03,9,40);pinch=d;}},{passive:true});
-addEventListener('touchend',()=>drag=false);
+function resetGesture(){drag=false;pinch=0;}
+addEventListener('touchend',e=>{
+  const active=drag||pinch>0;
+  pinch=0;
+  if(active&&e.touches.length===1){drag=true;lx=e.touches[0].clientX;ly=e.touches[0].clientY;}
+  else drag=false;
+});
+addEventListener('touchcancel',resetGesture);
+addEventListener('blur',resetGesture);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)resetGesture();});
 
 // ---------- UI ----------
 document.getElementById('bg').onclick=function(){bgIdx=(bgIdx+1)%BGS.length;scene.background=BGS[bgIdx].tex;this.textContent='背景: '+BGS[bgIdx].name;};

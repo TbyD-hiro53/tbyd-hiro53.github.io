@@ -32,7 +32,7 @@ const panels={
 const TARGETS=[['tank','苺乳タンク'],['accel','流速加速装置'],['pipe','加速区間'],['vat','生体槽'],['brains','三つの脳'],['links','核間の神経束'],['perfusion','灌流の接続'],['base','基部']];
 const SMALL=new Set(['pipe','links','perfusion']);   /* 細い物は、指の幅（半径 22 px）の中にあれば優先する */
 
-let meta=null,gl=null,prog=null,U={},ready=false,raf=0,shown=true,returnFocus=null,lastPointer=null,view='main',lut=null,ids=null;const cache={};
+let meta=null,gl=null,prog=null,U={},ready=false,raf=0,shown=true,returnFocus=null,lastPointer=null,view='main',lut=null,ids=null;const cache={},viewLoads={};let viewRequest=0;
 let reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,quality='auto',scale=1;
 const crop={x:0,y:0,w:1,h:1};
 const clock={t:0,running:false,last:null};
@@ -94,16 +94,24 @@ function unrle(buf,n){
  return a;
 }
 /* 視点ごとの素材（層 7 枚と meta）を読む。一度読んだ視点は手元に残す */
-async function fetchView(id,progress){
+async function prepareView(id,progress){
  if(cache[id])return cache[id];
  const pre=P+id+'-';const r=await fetch(pre+'meta.json');if(!r.ok)throw new Error('meta '+r.status);const m=await r.json();progress(.05);
  let n=0;const imgs=await Promise.all(LAYERS.map(([k])=>loadImage(m.layers[k].file).then(i=>{progress(.05+.9*(++n)/LAYERS.length);return i;})));
  const tex=LAYERS.map(([k,u,rr,lin],i)=>{const tx=texture(imgs[i],i,lin);if(imgs[i].close)imgs[i].close();return tx;});
  /* 判定：画素ごとの対象番号（原版の寸法）。(番号 u8, 長さ u16 LE) の列。画像にしないのは、Safari（Mac・iOS）が
     灰色の PNG を 2D キャンバスで読むときに色を変換し、番号が隣の物へずれるため（Core No.37 w2 の実測 2026-09-27） */
+ try{
  const ri=await fetch(m.layers.ids.file);if(!ri.ok)throw new Error('読み込めませんでした：'+m.layers.ids.file+' '+ri.status);
  const map=unrle(await ri.arrayBuffer(),m.width*m.height);
  return cache[id]={meta:m,tex,ids:map};
+ }catch(e){for(const t of tex)gl.deleteTexture(t);throw e;}
+}
+function fetchView(id,progress){
+ if(cache[id])return Promise.resolve(cache[id]);
+ if(viewLoads[id])return viewLoads[id];
+ const pending=prepareView(id,progress);viewLoads[id]=pending;
+ return pending.finally(()=>{delete viewLoads[id];});
 }
 function bindView(id){
  const v=cache[id];meta=v.meta;view=id;ids=v.ids;
@@ -129,8 +137,12 @@ async function load(progress){
  progress(1);
 }
 async function switchView(id){
- if(id===view||!ready)return;
- if(!cache[id]){$('phase').textContent='読み込み中…';try{await fetchView(id,()=>{});}catch(e){error(e);return;}}
+ if(!ready)return;
+ const revision=++viewRequest;
+ // Selecting the visible view also cancels an earlier pending choice.
+ if(id===view){syncUI();schedule();return;}
+ if(!cache[id]){$('phase').textContent='読み込み中…';try{await fetchView(id,()=>{});}catch(e){if(revision===viewRequest)error(e);return;}}
+ if(revision!==viewRequest)return;
  bindView(id);syncUI();schedule();
 }
 

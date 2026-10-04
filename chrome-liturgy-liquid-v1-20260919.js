@@ -4,7 +4,7 @@ var byId=function(id){return document.getElementById(id);},shown=true,menuOpen=f
 var photoCanvas=document.createElement('canvas'),photoKey='',photoDraws=0;
 photoCanvas.className='chrome-liquid-photo-source';photoCanvas.setAttribute('aria-hidden','true');document.body.appendChild(photoCanvas);
 var photoContext=photoCanvas.getContext('2d',{alpha:false});
-var host=new H53LiquidHost({root:document.body,source:function(){return document.body.classList.contains('photographic')?photoCanvas:artCanvas;},backdropColor:[13/255,16/255,18/255],surfaces:[
+var host=new H53LiquidHost({requestFrame:function(){if(root.ChromeLiturgyLiquid&&root.ChromeLiturgyLiquid.requestFrame)root.ChromeLiturgyLiquid.requestFrame();},root:document.body,source:function(){return document.body.classList.contains('photographic')?photoCanvas:artCanvas;},backdropColor:[13/255,16/255,18/255],surfaces:[
  {selector:'#back,#menuToggle,#showUI',kind:'control'},
  {selector:'#editionPicker',kind:'control'},
  {selector:'#menu',kind:'panel',anchor:'#menuToggle'},
@@ -14,7 +14,7 @@ var host=new H53LiquidHost({root:document.body,source:function(){return document
 function blocked(){return !!host.blocked||performance.now()<host.blockedUntil;}
 function menu(on){
  if(blocked())return;menuOpen=on;byId('menuToggle').setAttribute('aria-expanded',String(on));byId('menuToggle').setAttribute('aria-label',on?'補助メニューを閉じる':'補助メニューを開く');
- if(on){host.ui.open(byId('menu'),byId('menuToggle'));byId('pause').focus({preventScroll:true});}
+ if(on){host.ui.open(byId('menu'),byId('menuToggle'));var first=byId('menu').querySelector('button:not(:disabled),a');if(first)first.focus({preventScroll:true});}
  else host.ui.close(byId('menu'));
 }
 function closeMenuImmediately(){menuOpen=false;host.ui.hide(byId('menu'));byId('menuToggle').setAttribute('aria-expanded','false');byId('menuToggle').setAttribute('aria-label','補助メニューを開く');}

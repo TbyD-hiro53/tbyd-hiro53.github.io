@@ -1,7 +1,7 @@
 (function(){'use strict';
 const $=id=>document.getElementById(id),C=BinaryDuskCore,clock=new C.Clock(),world=new BinaryDuskWorld();
 let ready=false,raf=0,previous=null,shown=true,lastReadout=0,returnFocus=null,reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-let lastPointer=null;
+let lastPointer=null,pageActive=true;
 const liquid=new H53LiquidHost({source:$('canvas'),requestFrame:schedule,night:()=>clock.sunsetSeconds>225,surfaces:[{selector:'#back,#sunset,#menuToggle,#showUI',kind:'control'},{selector:'#menu',kind:'panel',anchor:'#menuToggle'},{selector:'#info',kind:'panel',anchor:'#menuToggle'},{selector:'#closeInfo',kind:'control',parent:'#info'}]});
 window.__h53Liquid=liquid;
 const panels={
@@ -17,7 +17,7 @@ document.body.classList.toggle('reduce-ui-motion',reduced);
 function error(e){$('error').hidden=false;$('error').textContent='景観を表示できませんでした。接続を確認して、もう一度お試しください。\n'+(e.message||String(e));$('loadText').textContent='読み込みを完了できませんでした';$('retry').hidden=false;$('loading').hidden=false;}
 addEventListener('error',e=>error(e.error||e.message));addEventListener('unhandledrejection',e=>error(e.reason));$('retry').onclick=()=>location.reload();
 function menu(open){if(liquid.blocked)return;if(open)liquid.ui.open('#menu',$('menuToggle'));else liquid.ui.close('#menu');$('menuToggle').setAttribute('aria-expanded',String(open));$('menuToggle').setAttribute('aria-label',open?'補助メニューを閉じる':'補助メニューを開く');if(open){$('pause').focus();}schedule();}
-function openInfo(title){if(!liquid.blocked){returnFocus=document.activeElement;menu(false);} $('infoTitle').textContent=title;$('infoBody').replaceChildren();liquid.ui.open('#info',lastPointer||$('menuToggle'));lastPointer=null;liquid.lock($('info'));$('closeInfo').focus();schedule();}
+function openInfo(title){if(!liquid.blocked){returnFocus=document.activeElement;menu(false);} $('infoTitle').textContent=title;$('infoBody').replaceChildren();$('info').scrollTop=0;$('infoBody').scrollTop=0;liquid.ui.open('#info',lastPointer||$('menuToggle'));lastPointer=null;liquid.lock($('info'));$('closeInfo').focus();schedule();}
 function paragraph(text){const p=document.createElement('p');p.textContent=text;$('infoBody').append(p);}
 function selectAsset(id){const key=id.startsWith('carrier-')?'carrier':id,data=panels[key];if(!data)return;openInfo(data.title);paragraph(data.text);schedule();}
 function closeInfo(){liquid.ui.close('#info',()=>{liquid.unlock();if(returnFocus&&returnFocus.isConnected&&!returnFocus.closest('[hidden]'))returnFocus.focus();else $('menuToggle').focus();schedule();});schedule();}
@@ -30,7 +30,7 @@ $('sunset').onclick=()=>{clock.beginSunset(performance.now());syncUI();schedule(
 $('pause').onclick=()=>{clock.running?clock.pause(performance.now()):clock.play(performance.now());previous=null;syncUI();schedule();};
 function showUI(on){shown=on;for(const id of ['masthead','controls','back'])$(id).hidden=!on;$('showUI').hidden=on;menu(false);if(!on){liquid.ui.hide('#info');liquid.unlock();}(on?$('menuToggle'):$('showUI')).focus();schedule();}
 $('hideUI').onclick=()=>showUI(false);$('showUI').onclick=()=>showUI(true);
-addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('info').hidden)closeInfo();else if(!$('menu').hidden){menu(false);$('menuToggle').focus();}else showUI(!shown);}if(e.code==='Space'&&!['BUTTON','INPUT','SELECT','A'].includes(document.activeElement.tagName)&&ready){e.preventDefault();$('pause').click();}});
+addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('info').hidden)closeInfo();else if(!$('menu').hidden){menu(false);$('menuToggle').focus();}else showUI(!shown);}if(e.code==='Space'&&!liquid.blocked&&!['BUTTON','INPUT','SELECT','A'].includes(document.activeElement.tagName)&&ready){e.preventDefault();$('pause').click();}});
 $('canvas').addEventListener('pointerup',e=>{if(!ready||!e.isPrimary||liquid.blocked||performance.now()<liquid.blockedUntil)return;const r=$('canvas').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)return;const id=world.pick((e.clientX-r.left)/r.width*2-1,1-(e.clientY-r.top)/r.height*2);if(id){lastPointer={x:e.clientX,y:e.clientY};selectAsset(id);}});
 let changingView=false;
 function resize(){const h=innerHeight,w=innerWidth,portrait=h>w,width=portrait?w:Math.min(w,h*16/9),height=portrait?h:width*9/16;$('stage').style.width=width+'px';$('stage').style.height=height+'px';if(ready)world.resize(width,height,devicePixelRatio);}
@@ -38,8 +38,11 @@ async function ensureView(){if(!ready||changingView)return;const desired=innerHe
 addEventListener('resize',()=>{resize();ensureView();schedule();});if(window.visualViewport)visualViewport.addEventListener('resize',()=>{resize();schedule();});document.addEventListener('visibilitychange',()=>{clock.visibility(document.hidden,performance.now());previous=null;if(document.hidden){cancelAnimationFrame(raf);raf=0;}else schedule();});
 $('fullscreen').onclick=()=>{menu(false);liquid.fullscreen($('fullscreen'),()=>{openInfo('全画面表示');paragraph('この環境ではブラウザ全画面を利用できない。作品を単独で開いても、OSやブラウザの操作欄が残る場合がある。');const link=document.createElement('a');link.href='binary-dusk.html'+(location.search.includes('skipgc')?'?skipgc':'');link.target='_blank';link.rel='noopener';link.textContent='作品を単独で開く';$('infoBody').append(link);});};
 const measures={normal:[],panel:[],menu:[],hiddenUI:[]};let adaptAt=0;
-function frame(now){raf=0;if(!ready||document.hidden)return;clock.advance(now);if(previous!==null&&clock.running){const dt=now-previous;world.frameSamples.push(dt);if(world.frameSamples.length>18000)world.frameSamples.shift();const group=!shown?'hiddenUI':!$('info').hidden?'panel':!$('menu').hidden?'menu':'normal';measures[group].push(dt);if(measures[group].length>18000)measures[group].shift();if(dt>50)world.longFrames.push({at:clock.sunsetSeconds,ms:dt,group});}previous=now;world.update(clock.sunsetSeconds,reduced,clock.motionSeconds);world.render();liquid.afterRender(performance.now());if(now-lastReadout>400){syncUI();lastReadout=now;}
+function frame(now){raf=0;if(!ready||!pageActive||document.hidden)return;clock.advance(now);if(previous!==null&&clock.running){const dt=now-previous;world.frameSamples.push(dt);if(world.frameSamples.length>18000)world.frameSamples.shift();const group=!shown?'hiddenUI':!$('info').hidden?'panel':!$('menu').hidden?'menu':'normal';measures[group].push(dt);if(measures[group].length>18000)measures[group].shift();if(dt>50)world.longFrames.push({at:clock.sunsetSeconds,ms:dt,group});}previous=now;world.update(clock.sunsetSeconds,reduced,clock.motionSeconds);world.render();liquid.afterRender(performance.now());if(now-lastReadout>400){syncUI();lastReadout=now;}
 if(world.quality==='auto'&&now-adaptAt>5000&&world.frameSamples.length>120){const last=C.stats(world.frameSamples.slice(-120));if(last.p95>38&&world.scale>.6){world.scale=Math.max(.6,world.scale*.85);resize();}adaptAt=now;}if(clock.running||liquid.ui.busy())schedule();}
-function schedule(){if(!raf&&ready&&!document.hidden)raf=requestAnimationFrame(frame);}
+function schedule(){if(!raf&&ready&&pageActive&&!document.hidden)raf=requestAnimationFrame(frame);}
 resize();world.load($('canvas'),n=>{$('loadProgress').value=n*100;$('loadText').textContent='景観を準備しています · '+Math.round(n*100)+'%';}).then(()=>{ready=true;resize();world.update(0,reduced,0);world.render();liquid.afterRender(performance.now());world.readyFromNavigationMs=performance.now();world.readyMs=world.readyFromNavigationMs-world.loadStarted;document.body.classList.add('ready');$('loading').hidden=true;for(const id of ['pause','targets'])$(id).disabled=false;clock.play(performance.now());syncUI();ensureView();schedule();}).catch(error);
+// Suspend drawing when leaving; preserve state for a back/forward cache return.
+addEventListener('pagehide',()=>{pageActive=false;clock.visibility(true,performance.now());cancelAnimationFrame(raf);raf=0;});
+addEventListener('pageshow',()=>{pageActive=true;clock.visibility(document.hidden,performance.now());previous=null;schedule();});
 })();

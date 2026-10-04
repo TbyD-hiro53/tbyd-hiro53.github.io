@@ -1210,9 +1210,11 @@ function paint(){
   }
   if(++tick%12===0){ try{localStorage.setItem(K+':y',Math.round(window.pageYOffset))}catch(e){} }
 }
-var lastY=0, hideT=0;
+var lastY=0, hideT=0, sizeUntil=0;
 function chrome(){
   var y=window.pageYOffset;
+  // Font reflow moves the scroll anchor without a reading gesture.
+  if(performance.now()<sizeUntil){bd.classList.remove('hide');lastY=y;return;}
   if(y<180){ bd.classList.remove('hide'); }
   else if(y>lastY+8){ bd.classList.add('hide'); }
   else if(y<lastY-8){ bd.classList.remove('hide'); }
@@ -1232,8 +1234,8 @@ document.getElementById('tocBtn').onclick=function(){toc.classList.add('on');bd.
 document.getElementById('tocX').onclick=function(){toc.classList.remove('on');bd.style.overflow='';};
 for(var i=0;i<links.length;i++){links[i].onclick=function(){
   toc.classList.remove('on');bd.style.overflow='';};}
-document.getElementById('szDn').onclick=function(){if(si>0){si--;applySize();cur=-1;paint();}};
-document.getElementById('szUp').onclick=function(){if(si<3){si++;applySize();cur=-1;paint();}};
+document.getElementById('szDn').onclick=function(){if(si>0){si--;sizeUntil=performance.now()+350;bd.classList.remove('hide');applySize();cur=-1;paint();lastY=window.pageYOffset;}};
+document.getElementById('szUp').onclick=function(){if(si<3){si++;sizeUntil=performance.now()+350;bd.classList.remove('hide');applySize();cur=-1;paint();lastY=window.pageYOffset;}};
 document.getElementById('upBtn').onclick=function(){scrollTo({top:0,behavior:'smooth'});};
 
 var saved=0; try{saved=+(localStorage.getItem(K+':y')||0)}catch(e){}
