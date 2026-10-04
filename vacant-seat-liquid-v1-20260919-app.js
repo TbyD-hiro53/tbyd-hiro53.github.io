@@ -19,6 +19,7 @@
   var EPOCH_MS = Date.UTC(1887, 0, 1, 0, 0, 0);
 
   var renderer, scene, camera, clock, fog, t0 = 0,liquid,liquidMenu,lastPointer=null;
+  var renderFrame = 0, pageActive = true;
   var roots = {}, pickables = [];
   var station = 0, seeking = false, seekT = 0, seekPaint = 0;
 
@@ -152,7 +153,7 @@
   function init() {
     var cv = document.getElementById('c');
     document.getElementById('panel').hidden=true;
-    liquid=new H53LiquidHost({source:cv,surfaces:[{selector:'#back,#views button,#origin',kind:'control'},{selector:'#panel',kind:'panel'},{selector:'#px',kind:'control',parent:'#panel'}]});window.__h53Liquid=liquid;liquidMenu=new H53LiquidMenu(liquid,{hideSelector:'#back,#hud,#views,#origin'});
+    liquid=new H53LiquidHost({source:cv,requestFrame:schedule,surfaces:[{selector:'#back,#views button,#origin',kind:'control'},{selector:'#panel',kind:'panel'},{selector:'#px',kind:'control',parent:'#panel'}]});window.__h53Liquid=liquid;liquidMenu=new H53LiquidMenu(liquid,{hideSelector:'#back,#hud,#views,#origin'});
     renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -385,8 +386,25 @@
     return Math.floor((Date.now() - EPOCH_MS) / (PUMP * 1000)) + extra;
   }
 
+  function schedule() {
+    if (!renderFrame && pageActive && !document.hidden && clock) renderFrame = requestAnimationFrame(animate);
+  }
+  function suspend() {
+    cancelAnimationFrame(renderFrame);renderFrame = 0;
+    resetGesture();modalPointers.clear();
+  }
+  function resume() {
+    if (clock) clock.getDelta(); // Discard elapsed time while the page was suspended.
+    schedule();
+  }
+  document.addEventListener('visibilitychange', function () { if (document.hidden) suspend(); else resume(); });
+  window.addEventListener('pagehide', function () { pageActive = false;suspend(); });
+  window.addEventListener('pageshow', function () { pageActive = true;resume(); });
+
   function animate() {
-    requestAnimationFrame(animate);
+    renderFrame = 0;
+    if (!pageActive || document.hidden) return;
+    schedule();
     var dt = Math.min(clock.getDelta(), 0.1);
     t0 += dt;
 

@@ -64,3 +64,5 @@ label{display:block;font:12px/1.9 var(--sans);margin-top:15px}input{accent-color
 @media(max-width:360px){#masthead{left:calc(16px + env(safe-area-inset-left))}#info{padding:18px}.target-list{gap:6px}.target-list button{padding:0 10px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 body.reduce-ui-motion *{transition:none!important}
+
+#infoBody:focus-visible{outline:2px solid #76e2d4;outline-offset:3px}

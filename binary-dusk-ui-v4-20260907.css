@@ -50,3 +50,5 @@ label{display:block;font:12px/1.9 var(--sans);margin-top:15px}input{accent-color
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 body.reduce-ui-motion *{transition:none!important}
 #preview{object-fit:cover}
+
+#infoBody:focus-visible{outline:2px solid #76e2d4;outline-offset:3px}
