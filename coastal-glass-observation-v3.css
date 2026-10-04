@@ -42,3 +42,6 @@ body.liquid-ready #menu button,body.liquid-ready #timeMenu button{background:tra
 }
 @media(max-width:360px){#info{padding:20px}#infoBody p{font-size:14px}.subtitle{font-size:9px}}
 @media(prefers-contrast:more),(forced-colors:active){body.liquid-ready :is(.pill,.glass,#menu,#closeInfo){background:Canvas!important;color:CanvasText!important;border:1px solid CanvasText!important;text-shadow:none}#infoBody p,#infoTitle{color:CanvasText!important;text-shadow:none}}
+
+/* Keep failure notices behind the modal reading shield. */
+body.reading #error,body.reading #loading{visibility:hidden;pointer-events:none}
