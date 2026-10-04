@@ -338,22 +338,26 @@ body{background:var(--ground);color:var(--ink);
 /* 明側ではガラスが地の色を写して明るくなるため、正準の白い字では浮く。
    帯の中だけ、字を墨へ落とす（選択中の言語はターコイズのまま）。
    共有一式が !important を使う分岐を持つので、こちらも同じ強さで当てる */
-@media (prefers-color-scheme: light){
-  :root:not([data-theme="dark"]) .rail .h53-liquid-surface{
+@media (prefers-color-scheme: light) and (prefers-contrast: no-preference) and (forced-colors: none){
+  :root:not([data-theme="dark"]) body:not(.h53-liquid-simple) .rail .h53-liquid-surface{
     color:var(--ink)!important;text-shadow:0 1px 1px rgba(255,255,255,.5)!important}
 }
-:root[data-theme="light"] .rail .h53-liquid-surface{
-  color:var(--ink)!important;text-shadow:0 1px 1px rgba(255,255,255,.5)!important}
+@media (prefers-contrast: no-preference) and (forced-colors: none){
+  :root[data-theme="light"] body:not(.h53-liquid-simple) .rail .h53-liquid-surface{
+    color:var(--ink)!important;text-shadow:0 1px 1px rgba(255,255,255,.5)!important}
+}
 /* 選択中の言語。太字と、ターコイズの下線で示す。
    明側は地が中間で、10px の字をターコイズにすると 4.5:1 に届かない。
    正典どおり、三色は字ではなく印として使う（暗側だけ字にも乗せる）*/
 .rail .langbar button[aria-pressed="true"]{font-weight:700;
   text-decoration:underline;text-decoration-color:var(--turq);
   text-underline-offset:4px;text-decoration-thickness:1.6px}
-@media (prefers-color-scheme: dark){
+@media (prefers-color-scheme: dark) and (prefers-contrast: no-preference) and (forced-colors: none){
   :root:not([data-theme="light"]) .rail .langbar button[aria-pressed="true"]{color:var(--turq)!important}
 }
-:root[data-theme="dark"] .rail .langbar button[aria-pressed="true"]{color:var(--turq)!important}
+@media (prefers-contrast: no-preference) and (forced-colors: none){
+  :root[data-theme="dark"] .rail .langbar button[aria-pressed="true"]{color:var(--turq)!important}
+}
 
 /* 目次の器は置くが、見せない。理由は本体側の註のとおり */
 .toc-gone{display:none!important}
@@ -496,7 +500,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
 .list .frag summary::-webkit-details-marker{display:none}
 .list .frag summary::after{content:"+";margin-left:auto;padding-left:12px;
   font:400 13px/1 var(--mono);color:var(--faint)}
-.list .frag[open] summary::after{content:"2"}
+.list .frag[open] summary::after{content:"\2212"}
 .list .frag summary:hover{color:var(--dim)}
 .list .frag summary:focus-visible{outline:2px solid var(--turq);outline-offset:2px}
 .list .frag .txt{font-size:12px;line-height:1.85;color:var(--dim);margin:6px 0 10px}
@@ -1598,6 +1602,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
   <button type="button" class="x" id="tocX" aria-label="Close">&times;</button>
   <div class="in"><h2>Contents</h2><div id="tocList"></div></div>
 </div>
+</div>
 
 <script>
 (function(){
@@ -1676,6 +1681,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
     var h=(location.hash||'').replace(/^#\/?/,'').replace(/^lin\//,'');
     var g=h?key(h):null;
     if(g) set(g,true);
+    else if(!h) set(null,false);
   }
   /* 作品から戻ってきたときは、その作品の系統を開き、その作品の札まで下ろす。
      遷移元は同じサイトの作品ページ（referrer）で見る。再読込・履歴移動では何もしない
