@@ -6,48 +6,62 @@
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="data:,">
 <title>Object — 空間表示テスト | h!ro53</title>
-<meta name="description" content="Objectの静止したUSDZを空間に置き、形・文字・材質を確認するテストページ。">
+<meta name="description" content="Objectの運動・静止USDZを空間に置き、形・文字・材質を確認するテストページ。">
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0c1219;color:#edf1f4;font:16px/1.75 system-ui,sans-serif}main{max-width:960px;margin:auto;padding:32px 24px}h1{font-size:30px;line-height:1.3;margin:8px 0 12px}p{color:#b6c4cf}.brand{color:#71d4ba;font-size:13px;letter-spacing:.1em}nav,.links{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}button,a.action{border:1px solid #49636d;background:#172932;color:#edf1f4;border-radius:12px;padding:12px 18px;font:inherit;cursor:pointer;text-decoration:none}button[aria-pressed=true]{background:#b8ebd5;color:#0c211b;border-color:#b8ebd5}button:focus-visible,a:focus-visible{outline:3px solid #b8ebd5;outline-offset:3px}model{display:block;width:100%;height:min(64vh,620px);min-height:260px;background:#101b25;border-radius:18px;overflow:hidden}model img{display:block;width:100%;height:100%;object-fit:contain}.ar-icon{width:1px;height:1px;vertical-align:middle}.note{padding:16px 20px;background:#13212a;border-radius:12px}.small{font-size:14px}a{color:#98e3d2}footer{margin-top:32px;color:#8b9ba7;font-size:12px}@media(max-width:480px){main{padding:24px 16px}h1{font-size:26px}.links a{flex-grow:1;text-align:center}}
 </style>
 </head>
 <body>
 <main>
-<div class="brand">h!ro53 / OBJECT · SPATIAL TEST 01</div>
+<div class="brand">h!ro53 / OBJECT · SPATIAL TEST 02</div>
 <h1>空間に置いて、見回す</h1>
-<p>visionOS 26.0.1向けの静止モデルの試作です。まず全体を開き、Tの厚み・四行の文字環・円盤を正面と背面から確認してください。</p>
-<nav aria-label="表示する静止モデル">
-<button type="button" data-file="object-static-80cm-v1.usdz" aria-pressed="true">全体・高さ80 cm</button>
-<button type="button" data-file="object-material-sample-v1.usdz" aria-pressed="false">材質サンプル・約46 cm</button>
+<p>文字の表示と運動を修正した、visionOS 26.0.1向けの試作です。文字環の回転と円盤の下降を見た後、静止版で正面・背面の文字を確認してください。修正版は実機での再確認待ちです。</p>
+<nav aria-label="表示するモデル">
+<button type="button" data-file="object-motion-loop-691s-v2.usdz" data-motion="true" aria-pressed="true">全体・運動</button>
+<button type="button" data-file="object-static-glyph-v2.usdz" aria-pressed="false">全体・静止</button>
+<button type="button" data-file="object-material-glyph-v2.usdz" aria-pressed="false">文字・材質サンプル</button>
 </nav>
-<model id="objectModel" src="object-static-80cm-v1.usdz" stagemode="orbit" aria-label="Objectの静止した立体モデル">
-<img src="object-spatial-preview-v1.png" width="1440" height="900" alt="Objectの参考描画。全体の前方・側面と、T・文字環一行・円盤の材質サンプル。">
+<model id="objectModel" src="object-motion-loop-691s-v2.usdz" environmentmap="object-studio-v2.hdr" stagemode="orbit" autoplay loop aria-label="Objectの文字環が回り、円盤が下降する立体モデル">
+<img src="object-spatial-preview-v2.png" width="720" height="900" alt="修正版Objectのデスクトップ参考描画。T、四行の文字、下降する円盤。">
 </model>
 <p id="status" role="status">立体モデルを読み込んでいます。</p>
 <div class="links">
-<a id="quickLook" class="action" rel="ar" href="object-static-80cm-v1.usdz"><img class="ar-icon" width="1" height="1" alt="" src="object-spatial-preview-v1.png">空間で見る</a>
-<a id="download" class="action" href="object-static-80cm-v1.usdz" download="object-static-80cm-v1.usdz">USDZを保存</a>
+<a id="quickLook" class="action" rel="ar" href="object-motion-loop-691s-v2.usdz"><img class="ar-icon" width="1" height="1" alt="" src="object-spatial-preview-v2.png">空間で見る</a>
+<a id="download" class="action" href="object-motion-loop-691s-v2.usdz" download="object-motion-loop-691s-v2.usdz">USDZを保存</a>
+<button id="playPause" type="button" disabled>運動を一時停止</button>
 </div>
-<noscript><p>JavaScriptなしでも全体のUSDZを開けます。<a rel="ar" href="object-material-sample-v1.usdz"><img class="ar-icon" width="1" height="1" alt="" src="object-spatial-preview-v1.png">材質サンプルを開く</a> / <a download="object-material-sample-v1.usdz" href="object-material-sample-v1.usdz">材質サンプルを保存</a></p></noscript>
-<p class="note">実寸を確認するには「空間で見る」を選ぶか、USDZを保存してVision Proの「ファイル」から開いてください。ページ内の表示は枠に合う大きさです。全体は高さ80 cm、材質サンプルは同じ縮尺で約46 cm。配置・回転・拡縮はOSの操作を使います。</p>
-<p class="small">文字の向き、透明な部分の抜け、裏面、円盤の明るさを確かめてください。照明と反射は元のWeb作品と異なります。画像はデスクトップでの参考描画で、Vision Pro実機での表示・材質・操作は未確認です。</p>
-<p class="small">このページは静止版2種だけのテストです。元の作品は引き続き<a href="object.html">Object</a>で鑑賞できます。</p>
+<noscript><p>JavaScriptなしでもUSDZを開けます。<a download="object-static-glyph-v2.usdz" href="object-static-glyph-v2.usdz">静止版を保存</a> / <a download="object-material-glyph-v2.usdz" href="object-material-glyph-v2.usdz">材質サンプルを保存</a></p></noscript>
+<p class="note">実寸を確認するには「空間で見る」を選ぶか、USDZを保存してVision Proの「ファイル」から開いてください。ページ内の表示は枠に合う大きさです。静止版は高さ80 cm、材質サンプルは同じ縮尺で約46 cm、運動版も同じ縮尺です。配置・回転・拡縮はOSの操作を使います。</p>
+<p class="small">文字は元の画像の輪郭を面にし、文字以外の筒状面をなくしました。Tの色も画像に焼き直しています。文字の向きと穴、裏面、円盤の明るさを確かめてください。照明と反射は元のWeb作品と異なり、ページ内とQuick Lookでも変わります。画像はデスクトップの参考描画です。</p>
+<p class="small">運動版は691.2秒で反復します。円盤の2.4秒周期を保ち、継ぎ目がつながるよう文字回転とTの浮遊を0.0072%だけ遅くしています。ページでは自動再生と反復を設定していますが、Quick Lookの再生・反復は実機での再確認が必要です。</p>
+<p class="small">元の作品は引き続き<a href="object.html">Object</a>で鑑賞できます。</p>
+<p class="small">修正前のv1も保存できます：<a href="https://tbyd-hiro53.github.io/object-static-80cm-v1.usdz" download="object-static-80cm-v1.usdz">旧静止版</a> / <a href="https://tbyd-hiro53.github.io/object-material-sample-v1.usdz" download="object-material-sample-v1.usdz">旧材質サンプル</a>。</p>
 <footer>© 2026 h!ro53 / transcendence by deus ex machina. All rights reserved.</footer>
 </main>
 <script>
 (function(){'use strict';
-var model=document.getElementById('objectModel'),status=document.getElementById('status'),token=0;
+var model=document.getElementById('objectModel'),status=document.getElementById('status'),control=document.getElementById('playPause'),token=0;
 function update(){
- var current=++token;
+ var current=++token;control.disabled=true;
  if(!window.HTMLModelElement){status.textContent='このブラウザでは参考画像を表示します。USDZを保存するか、対応する端末で「空間で見る」を選んでください。';return;}
  status.textContent='立体モデルを読み込んでいます。';
- model.ready.then(function(){if(current===token)status.textContent='読み込み完了。モデルを回して見るか、「空間で見る」を選んでください。';}).catch(function(){if(current===token)status.textContent='立体モデルを読み込めませんでした。「USDZを保存」からファイルを開いてください。';});
+ model.ready.then(function(){
+  if(current!==token)return;
+  if(model.hasAttribute('autoplay')){
+   return Promise.resolve(model.play()).then(function(){if(current===token){control.disabled=false;control.textContent='運動を一時停止';status.textContent='運動を再生しています。空間で見る場合はOS側の再生操作を使ってください。';}});
+  }
+  status.textContent='静止モデルの読み込み完了。「空間で見る」から配置できます。';
+ }).catch(function(){if(current===token)status.textContent='立体表示または再生を開始できませんでした。「USDZを保存」からファイルを開いてください。';});
 }
 document.querySelectorAll('nav button').forEach(function(button){button.addEventListener('click',function(){
  document.querySelectorAll('nav button').forEach(function(b){b.setAttribute('aria-pressed',String(b===button));});
- var file=button.dataset.file;model.setAttribute('src',file);document.getElementById('quickLook').href=file;
+ if(window.HTMLModelElement)model.pause();
+ var file=button.dataset.file,motion=button.dataset.motion==='true';
+ if(motion){model.setAttribute('autoplay','');model.setAttribute('loop','');}else{model.removeAttribute('autoplay');model.removeAttribute('loop');}
+ model.setAttribute('src',file);document.getElementById('quickLook').href=file;
  var download=document.getElementById('download');download.href=file;download.setAttribute('download',file);update();
 });});
+control.addEventListener('click',function(){if(model.paused){Promise.resolve(model.play()).then(function(){control.textContent='運動を一時停止';}).catch(function(){status.textContent='運動を再開できませんでした。USDZを保存して開いてください。';});}else{model.pause();control.textContent='運動を再生';}});
 update();
 })();
 </script>
