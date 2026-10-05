@@ -13,27 +13,28 @@
 </head>
 <body>
 <main>
-<div class="brand">h!ro53 / OBJECT · SPATIAL TEST 02</div>
+<div class="brand">h!ro53 / OBJECT · SPATIAL TEST 03</div>
 <h1>空間に置いて、見回す</h1>
-<p>文字の表示と運動を修正した、visionOS 26.0.1向けの試作です。文字環の回転と円盤の下降を見た後、静止版で正面・背面の文字を確認してください。修正版は実機での再確認待ちです。</p>
+<p>円盤の運動の境目を修正した、visionOS 26.0.1向けの試作です。文字環の回転と円盤の下降を見た後、静止版で正面・背面の文字を確認してください。修正版は実機での再確認待ちです。</p>
 <nav aria-label="表示するモデル">
-<button type="button" data-file="object-motion-loop-691s-v2.usdz" data-motion="true" aria-pressed="true">全体・運動</button>
+<button type="button" data-file="object-motion-paired-691s-v3.usdz" data-motion="true" aria-pressed="true">全体・運動</button>
 <button type="button" data-file="object-static-glyph-v2.usdz" aria-pressed="false">全体・静止</button>
 <button type="button" data-file="object-material-glyph-v2.usdz" aria-pressed="false">文字・材質サンプル</button>
 </nav>
-<model id="objectModel" src="object-motion-loop-691s-v2.usdz" environmentmap="object-studio-v2.hdr" stagemode="orbit" autoplay loop aria-label="Objectの文字環が回り、円盤が下降する立体モデル">
+<model id="objectModel" src="object-motion-paired-691s-v3.usdz" environmentmap="object-studio-v2.hdr" stagemode="orbit" autoplay loop aria-label="Objectの文字環が回り、円盤が下降する立体モデル">
 <img src="object-spatial-preview-v2.png" width="720" height="900" alt="修正版Objectのデスクトップ参考描画。T、四行の文字、下降する円盤。">
 </model>
 <p id="status" role="status">立体モデルを読み込んでいます。</p>
 <div class="links">
-<a id="quickLook" class="action" rel="ar" href="object-motion-loop-691s-v2.usdz"><img class="ar-icon" width="1" height="1" alt="" src="object-spatial-preview-v2.png">空間で見る</a>
-<a id="download" class="action" href="object-motion-loop-691s-v2.usdz" download="object-motion-loop-691s-v2.usdz">USDZを保存</a>
+<a id="quickLook" class="action" rel="ar" href="object-motion-paired-691s-v3.usdz"><img class="ar-icon" width="1" height="1" alt="" src="object-spatial-preview-v2.png">空間で見る</a>
+<a id="download" class="action" href="object-motion-paired-691s-v3.usdz" download="object-motion-paired-691s-v3.usdz">USDZを保存</a>
 <button id="playPause" type="button" disabled>運動を一時停止</button>
 </div>
 <noscript><p>JavaScriptなしでもUSDZを開けます。<a download="object-static-glyph-v2.usdz" href="object-static-glyph-v2.usdz">静止版を保存</a> / <a download="object-material-glyph-v2.usdz" href="object-material-glyph-v2.usdz">材質サンプルを保存</a></p></noscript>
 <p class="note">実寸を確認するには「空間で見る」を選ぶか、USDZを保存してVision Proの「ファイル」から開いてください。ページ内の表示は枠に合う大きさです。静止版は高さ80 cm、材質サンプルは同じ縮尺で約46 cm、運動版も同じ縮尺です。配置・回転・拡縮はOSの操作を使います。</p>
 <p class="small">文字は元の画像の輪郭を面にし、文字以外の筒状面をなくしました。Tの色も画像に焼き直しています。文字の向きと穴、裏面、円盤の明るさを確かめてください。照明と反射は元のWeb作品と異なり、ページ内とQuick Lookでも変わります。画像はデスクトップの参考描画です。</p>
 <p class="small">運動版は691.2秒で反復します。円盤の2.4秒周期を保ち、継ぎ目がつながるよう文字回転とTの浮遊を0.0072%だけ遅くしています。ページでは自動再生と反復を設定していますが、Quick Lookの再生・反復は実機での再確認が必要です。</p>
+<p class="small">修正前の<a href="object-motion-loop-691s-v2.usdz" download="object-motion-loop-691s-v2.usdz">v2運動版を保存</a>して比較できます。</p>
 <p class="small">元の作品は引き続き<a href="object.html">Object</a>で鑑賞できます。</p>
 <p class="small">修正前のv1も保存できます：<a href="https://tbyd-hiro53.github.io/object-static-80cm-v1.usdz" download="object-static-80cm-v1.usdz">旧静止版</a> / <a href="https://tbyd-hiro53.github.io/object-material-sample-v1.usdz" download="object-material-sample-v1.usdz">旧材質サンプル</a>。</p>
 <footer>© 2026 h!ro53 / transcendence by deus ex machina. All rights reserved.</footer>
