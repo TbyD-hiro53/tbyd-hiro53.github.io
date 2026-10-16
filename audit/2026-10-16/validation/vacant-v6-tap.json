@@ -1,0 +1,14 @@
+{
+  "tapped": [
+    "terminal",
+    "board",
+    "metronome",
+    "chair",
+    "window",
+    "desk",
+    "room"
+  ],
+  "dragChangesViewWithoutOpeningRecord": true,
+  "errors": [],
+  "missing": []
+}

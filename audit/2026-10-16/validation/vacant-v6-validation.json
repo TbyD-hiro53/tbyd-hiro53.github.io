@@ -1,0 +1,96 @@
+[
+  {
+    "size": [
+      1024,
+      768
+    ],
+    "report": {
+      "design": {
+        "revision": "v6",
+        "mergedDecorationMeshes": 14,
+        "instrumentsRetained": [
+          "terminal",
+          "board",
+          "metronome"
+        ],
+        "windowOpening": [
+          1.72,
+          0.8
+        ],
+        "deskTop": 0.72
+      },
+      "materials": [
+        null,
+        "",
+        "board.foot",
+        "crt.case.v6",
+        "crt.bezel",
+        "crt.tube",
+        "crt.glass",
+        "crt.glass.edge",
+        "crt.dark",
+        "crt.mag",
+        "crt.trim.v6",
+        "metro.pend",
+        "metro.trim.v6",
+        "metro.mag"
+      ],
+      "stats": {
+        "frame": 78,
+        "calls": 66,
+        "triangles": 111186,
+        "points": 0,
+        "lines": 0
+      },
+      "nonFinite": 0
+    },
+    "errors": []
+  },
+  {
+    "size": [
+      390,
+      844
+    ],
+    "report": {
+      "design": {
+        "revision": "v6",
+        "mergedDecorationMeshes": 14,
+        "instrumentsRetained": [
+          "terminal",
+          "board",
+          "metronome"
+        ],
+        "windowOpening": [
+          1.72,
+          0.8
+        ],
+        "deskTop": 0.72
+      },
+      "materials": [
+        null,
+        "",
+        "board.foot",
+        "crt.case.v6",
+        "crt.bezel",
+        "crt.tube",
+        "crt.glass",
+        "crt.glass.edge",
+        "crt.dark",
+        "crt.mag",
+        "crt.trim.v6",
+        "metro.pend",
+        "metro.trim.v6",
+        "metro.mag"
+      ],
+      "stats": {
+        "frame": 78,
+        "calls": 52,
+        "triangles": 105084,
+        "points": 0,
+        "lines": 0
+      },
+      "nonFinite": 0
+    },
+    "errors": []
+  }
+]

@@ -1,0 +1,80 @@
+{
+  "sameAsW10": [
+    "time scale 3.0",
+    "all three radii",
+    "core emission 9.0",
+    "helix centerline",
+    "smooth flow noise",
+    "gaps and taper"
+  ],
+  "hazeEmission": [
+    0.4,
+    0.06
+  ],
+  "glowEmission": [
+    7,
+    4.2
+  ],
+  "outerFalloffExponent": [
+    1,
+    2.5
+  ],
+  "bloom": [
+    0.07,
+    0.025
+  ],
+  "browser": [
+    {
+      "revision": "w11",
+      "width": 1024,
+      "report": {
+        "ready": true,
+        "view": "ring",
+        "frames": 4,
+        "quality": 1,
+        "cpuMsMedian": 3.5999999940395355,
+        "size": [
+          1024,
+          768
+        ],
+        "pixelRatio": 1,
+        "webgl2": true,
+        "half": true,
+        "calls": 1,
+        "camera": [
+          2.35,
+          1.62,
+          2.55
+        ]
+      },
+      "errors": [],
+      "missing": []
+    },
+    {
+      "revision": "w11",
+      "width": 390,
+      "report": {
+        "ready": true,
+        "view": "ring",
+        "frames": 5,
+        "quality": 1,
+        "cpuMsMedian": 1.9000000059604645,
+        "size": [
+          390,
+          844
+        ],
+        "pixelRatio": 1,
+        "webgl2": true,
+        "half": true,
+        "calls": 1,
+        "camera": [
+          2.6946638581709674,
+          1.6399227663682638,
+          2.934509390907495
+        ]
+      },
+      "errors": [],
+      "missing": []
+    }
+  ]
+}
