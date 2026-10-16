@@ -1,0 +1,77 @@
+{
+  "contacts": [
+    {
+      "lower": "desk-pad",
+      "upper": "desk-base",
+      "gapMetres": 9.313225746154785e-10
+    },
+    {
+      "lower": "desk-base",
+      "upper": "desk-pier",
+      "gapMetres": 7.450580596923828e-09
+    },
+    {
+      "lower": "desk-pier",
+      "upper": "desk-crossbeam",
+      "gapMetres": -0.0
+    },
+    {
+      "lower": "desk-crossbeam",
+      "upper": "desk-edge",
+      "gapMetres": -0.0
+    },
+    {
+      "lower": "desk-edge",
+      "upper": "desk-top",
+      "gapMetres": -0.0
+    },
+    {
+      "lower": "chair-pad",
+      "upper": "chair-base",
+      "gapMetres": -0.0
+    },
+    {
+      "lower": "chair-base",
+      "upper": "chair-pedestal",
+      "gapMetres": -3.725290298461914e-09
+    },
+    {
+      "lower": "chair-pedestal",
+      "upper": "chair-saddle",
+      "gapMetres": -2.9802322387695312e-08
+    },
+    {
+      "lower": "chair-saddle",
+      "upper": "chair-pan",
+      "gapMetres": -0.0
+    },
+    {
+      "lower": "chair-pan",
+      "upper": "chair-seat",
+      "gapMetres": -0.0
+    },
+    {
+      "lower": "ceiling-diffuser",
+      "upper": "ceiling-flange",
+      "gapMetres": -0.0
+    },
+    {
+      "lower": "ceiling-flange",
+      "upper": "ceiling-housing",
+      "gapMetres": -0.0
+    }
+  ],
+  "nonfinite": 0,
+  "badNormals": 0,
+  "degenerate": 0,
+  "doorPocketDepth": 0.037999868392944336,
+  "instrumentFeet": {
+    "terminal": 0.7200000000596046,
+    "board": 0.72,
+    "metronome": 0.720000000017779
+  },
+  "seatHeight": 0.4749999940395355,
+  "underside": 0.6159999966621399,
+  "thighClearance": 0.14100000262260437,
+  "meshes": 16
+}
