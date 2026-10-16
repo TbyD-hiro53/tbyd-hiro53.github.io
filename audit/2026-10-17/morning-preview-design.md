@@ -47,3 +47,9 @@ Cortexの観測UIを専用版として移植。培養脳、培養槽、30枚の�
 - Chromium / Linux SwiftShaderでの検証。実機iPhone/Safari、VoiceOver、端末の発熱・GPUメモリ上限、すべての端末での表示は未検証。画面寸法に追随する実装と検査結果を、全実機の保証とは表現しない。
 - 保存ZIPは別ディレクトリに展開しHTTPで起動確認する。`file://`起動は対象外。
 - Coastal Glassの全方向事前遮蔽による回転灯は別の残作業。今回のCoastalプレビューは説明UI調整のみ。
+
+## 保存一式の検証結果
+
+ソースcommit `94fc4555becbcbd01503524e08c147fbb388edb2`を保存。ZIP 510,060,116 bytes / 971 files、SHA-256 `b0e166d61b632828ec5ce1b409826e49994a062a353dc6a973b758dcad2a117c`。CRC検査後 `/tmp/h53-morning-extracted` へ展開し、独立したHTTPサーバーで3作品の起動・操作・4寸法での説明表示を再確認。捕捉例外・HTTP失敗0。詳細は `validation/morning-archive-results.json`。この結果記録のみが保存ソースcommitより後の追記となる。
+
+公開サーバーとGitHub APIへのHTTPS接続はこの環境のプロキシで403となる。ローカルHTTPとGitへの送信の確認を、GitHub Pagesの配信確認とは呼ばない。

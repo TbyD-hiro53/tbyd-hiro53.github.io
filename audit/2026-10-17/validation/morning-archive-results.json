@@ -1,0 +1,81 @@
+{
+  "archive": "/workspace/previews/2026-10-17/morning/h53-morning-review-site-20261017.zip",
+  "sha256": "b0e166d61b632828ec5ce1b409826e49994a062a353dc6a973b758dcad2a117c",
+  "bytes": 510060116,
+  "files": 971,
+  "sourceCommit": "94fc4555becbcbd01503524e08c147fbb388edb2",
+  "extracted": "/tmp/h53-morning-extracted",
+  "crc": "passed",
+  "startupAndResponsiveValidation": [
+    {
+      "work": "confluence",
+      "errors": [],
+      "failedResources": [],
+      "readingViewports": [
+        [
+          320,
+          568
+        ],
+        [
+          390,
+          844
+        ],
+        [
+          844,
+          390
+        ],
+        [
+          568,
+          320
+        ]
+      ]
+    },
+    {
+      "work": "earth-origin-material",
+      "errors": [],
+      "failedResources": [],
+      "readingViewports": [
+        [
+          320,
+          568
+        ],
+        [
+          390,
+          844
+        ],
+        [
+          844,
+          390
+        ],
+        [
+          568,
+          320
+        ]
+      ]
+    },
+    {
+      "work": "lacto-caloris",
+      "errors": [],
+      "failedResources": [],
+      "readingViewports": [
+        [
+          320,
+          568
+        ],
+        [
+          390,
+          844
+        ],
+        [
+          844,
+          390
+        ],
+        [
+          568,
+          320
+        ]
+      ]
+    }
+  ],
+  "publicDelivery": "Not verified: cloud HTTPS CONNECT to GitHub Pages and GitHub API denied (403). Git push is verified separately."
+}
