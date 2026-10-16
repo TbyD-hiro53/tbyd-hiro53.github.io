@@ -1,0 +1,453 @@
+{
+  "ids": {
+    "1": {
+      "count": 396338,
+      "x": 489,
+      "y": 0
+    },
+    "2": {
+      "count": 880,
+      "x": 341,
+      "y": 243
+    },
+    "3": {
+      "count": 8962,
+      "x": 627,
+      "y": 123
+    },
+    "4": {
+      "count": 7536,
+      "x": 3,
+      "y": 354
+    },
+    "5": {
+      "count": 697,
+      "x": 365,
+      "y": 249
+    },
+    "6": {
+      "count": 2490,
+      "x": 352,
+      "y": 200
+    },
+    "7": {
+      "count": 1397,
+      "x": 174,
+      "y": 277
+    },
+    "8": {
+      "count": 427,
+      "x": 676,
+      "y": 324
+    },
+    "9": {
+      "count": 678,
+      "x": 111,
+      "y": 321
+    },
+    "10": {
+      "count": 231,
+      "x": 183,
+      "y": 350
+    },
+    "11": {
+      "count": 1493,
+      "x": 625,
+      "y": 398
+    },
+    "12": {
+      "count": 153344,
+      "x": 0,
+      "y": 0
+    },
+    "13": {
+      "count": 91370,
+      "x": 3,
+      "y": 0
+    },
+    "14": {
+      "count": 30347,
+      "x": 553,
+      "y": 346
+    }
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "canvas": {
+    "x": 0,
+    "y": 40,
+    "width": 1280,
+    "height": 720,
+    "top": 40,
+    "right": 1280,
+    "bottom": 760,
+    "left": 0
+  },
+  "report": {
+    "version": "web-v4",
+    "view": "landscape",
+    "uvScale": [
+      1,
+      1
+    ],
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "webgl2": true,
+    "sunsetSeconds": 0,
+    "motionSeconds": 0,
+    "readyMs": 772.5,
+    "readyFromNavigationMs": 1502,
+    "cssSize": [
+      1280,
+      720
+    ],
+    "renderSize": [
+      1280,
+      720
+    ],
+    "quality": "auto",
+    "drawCpuMs": {
+      "count": 6,
+      "mean": 12.849999984105429,
+      "p50": 1.199999988079071,
+      "p95": 71.89999997615814,
+      "p99": 71.89999997615814,
+      "max": 71.89999997615814,
+      "over33": 1,
+      "over50": 1
+    },
+    "gpuMs": {
+      "count": 5,
+      "mean": 553.8712854,
+      "p50": 563.859676,
+      "p95": 653.680929,
+      "p99": 653.680929,
+      "max": 653.680929,
+      "over33": 5,
+      "over50": 5
+    },
+    "frameMs": null,
+    "longFrames": [],
+    "renderer": {
+      "calls": 28,
+      "triangles": 867246,
+      "geometries": 18,
+      "textures": 18
+    },
+    "meshTriangles": [
+      {
+        "name": "carrier-1",
+        "triangles": 6356
+      },
+      {
+        "name": "carrier-1-rim",
+        "triangles": 2048
+      },
+      {
+        "name": "carrier-2",
+        "triangles": 6356
+      },
+      {
+        "name": "carrier-2-rim",
+        "triangles": 2048
+      },
+      {
+        "name": "carrier-3",
+        "triangles": 6356
+      },
+      {
+        "name": "carrier-3-rim",
+        "triangles": 2048
+      },
+      {
+        "name": "carrier-4",
+        "triangles": 6356
+      },
+      {
+        "name": "carrier-4-rim",
+        "triangles": 2048
+      },
+      {
+        "name": "carrier-5",
+        "triangles": 6356
+      },
+      {
+        "name": "carrier-5-rim",
+        "triangles": 2048
+      },
+      {
+        "name": "train-car-1",
+        "triangles": 4596
+      },
+      {
+        "name": "train-car-2",
+        "triangles": 4596
+      },
+      {
+        "name": "train-car-3",
+        "triangles": 4408
+      },
+      {
+        "name": "attached-leaf-blades",
+        "triangles": 179116
+      },
+      {
+        "name": "attached-fine-branches",
+        "triangles": 134151
+      },
+      {
+        "name": "giant-tree-lowpoly",
+        "triangles": 74910
+      }
+    ],
+    "resources": [
+      {
+        "name": "binary-dusk-ui-v4-20260907.css",
+        "transferSize": 9514,
+        "encodedBodySize": 9214,
+        "duration": 27.099999994039536
+      },
+      {
+        "name": "h53-liquid-ui-v1-20260919.css",
+        "transferSize": 2966,
+        "encodedBodySize": 2666,
+        "duration": 28.30000001192093
+      },
+      {
+        "name": "h53-direct-controls-v1-20260919.css",
+        "transferSize": 6490,
+        "encodedBodySize": 6190,
+        "duration": 29.400000005960464
+      },
+      {
+        "name": "h53-liquid-layout-v1-20260919.css",
+        "transferSize": 2295,
+        "encodedBodySize": 1995,
+        "duration": 33
+      },
+      {
+        "name": "h53-chrome-copy-en-v1-20260923.js",
+        "transferSize": 32328,
+        "encodedBodySize": 32028,
+        "duration": 63.5
+      },
+      {
+        "name": "h53-chrome-v1-20260923.js",
+        "transferSize": 24583,
+        "encodedBodySize": 24283,
+        "duration": 66.69999998807907
+      },
+      {
+        "name": "h53-direct-controls-v1-20260919.js",
+        "transferSize": 4066,
+        "encodedBodySize": 3766,
+        "duration": 67.09999999403954
+      },
+      {
+        "name": "binary-dusk-w3-20260906-preview.webp",
+        "transferSize": 49304,
+        "encodedBodySize": 49004,
+        "duration": 31.69999998807907
+      },
+      {
+        "name": "binary-dusk-w3-20260906-three-r128.min.js",
+        "transferSize": 603747,
+        "encodedBodySize": 603447,
+        "duration": 32.099999994039536
+      },
+      {
+        "name": "binary-dusk-w3-20260906-core.js",
+        "transferSize": 2763,
+        "encodedBodySize": 2463,
+        "duration": 49.20000001788139
+      },
+      {
+        "name": "h53-liquid-ui-v1-20260919.js",
+        "transferSize": 23519,
+        "encodedBodySize": 23219,
+        "duration": 57.70000001788139
+      },
+      {
+        "name": "h53-liquid-glass-optics-v1.js",
+        "transferSize": 16257,
+        "encodedBodySize": 15957,
+        "duration": 58
+      },
+      {
+        "name": "binary-dusk-w4-20261016-shaders.js",
+        "transferSize": 7603,
+        "encodedBodySize": 7303,
+        "duration": 62
+      },
+      {
+        "name": "binary-dusk-w4-20261016-renderer.js",
+        "transferSize": 19519,
+        "encodedBodySize": 19219,
+        "duration": 62.10000002384186
+      },
+      {
+        "name": "h53-liquid-host-v1-20260919.js",
+        "transferSize": 5778,
+        "encodedBodySize": 5478,
+        "duration": 59.099999994039536
+      },
+      {
+        "name": "h53-dismiss-v1-20260921.js",
+        "transferSize": 4040,
+        "encodedBodySize": 3740,
+        "duration": 66.89999997615814
+      },
+      {
+        "name": "binary-dusk-liquid-v2-20261016-app.js",
+        "transferSize": 12613,
+        "encodedBodySize": 12313,
+        "duration": 86.59999999403954
+      },
+      {
+        "name": "binary-dusk-w3-20260906-scene.json",
+        "transferSize": 36483,
+        "encodedBodySize": 36183,
+        "duration": 8.299999982118607
+      },
+      {
+        "name": "binary-dusk-w3-20260906-geometry.bin.gz",
+        "transferSize": 8990780,
+        "encodedBodySize": 8990480,
+        "duration": 124
+      },
+      {
+        "name": "binary-dusk-w3-20260906-surface.bin.gz",
+        "transferSize": 528088,
+        "encodedBodySize": 527788,
+        "duration": 36.5
+      },
+      {
+        "name": "binary-dusk-w3-20260906-surface-depth-id.bin.gz",
+        "transferSize": 4207921,
+        "encodedBodySize": 4207621,
+        "duration": 88.90000000596046
+      },
+      {
+        "name": "binary-dusk-w3-20260906-ambient-000.webp",
+        "transferSize": 142448,
+        "encodedBodySize": 142148,
+        "duration": 28.400000005960464
+      },
+      {
+        "name": "binary-dusk-w3-20260906-ambient-060.webp",
+        "transferSize": 128098,
+        "encodedBodySize": 127798,
+        "duration": 36.5
+      },
+      {
+        "name": "binary-dusk-w3-20260906-surface-albedo.png",
+        "transferSize": 860281,
+        "encodedBodySize": 859981,
+        "duration": 40.400000005960464
+      },
+      {
+        "name": "binary-dusk-w3-20260906-surface-normal-roughness.png",
+        "transferSize": 3029309,
+        "encodedBodySize": 3029009,
+        "duration": 75.2999999821186
+      },
+      {
+        "name": "binary-dusk-w3-20260906-ambient-120.webp",
+        "transferSize": 111994,
+        "encodedBodySize": 111694,
+        "duration": 44.5
+      },
+      {
+        "name": "binary-dusk-w3-20260906-ambient-185.webp",
+        "transferSize": 94386,
+        "encodedBodySize": 94086,
+        "duration": 45
+      },
+      {
+        "name": "binary-dusk-w3-20260906-ambient-225.webp",
+        "transferSize": 78514,
+        "encodedBodySize": 78214,
+        "duration": 49.80000001192093
+      },
+      {
+        "name": "binary-dusk-w3-20260906-ambient-270.webp",
+        "transferSize": 42874,
+        "encodedBodySize": 42574,
+        "duration": 54.19999998807907
+      },
+      {
+        "name": "binary-dusk-w3-20260906-sky-000.webp",
+        "transferSize": 4818,
+        "encodedBodySize": 4518,
+        "duration": 54.30000001192093
+      },
+      {
+        "name": "binary-dusk-w3-20260906-sky-060.webp",
+        "transferSize": 4230,
+        "encodedBodySize": 3930,
+        "duration": 57.30000001192093
+      },
+      {
+        "name": "binary-dusk-w3-20260906-sky-120.webp",
+        "transferSize": 4176,
+        "encodedBodySize": 3876,
+        "duration": 60.20000001788139
+      },
+      {
+        "name": "binary-dusk-w3-20260906-sky-185.webp",
+        "transferSize": 3600,
+        "encodedBodySize": 3300,
+        "duration": 59.79999998211861
+      },
+      {
+        "name": "binary-dusk-w3-20260906-sky-225.webp",
+        "transferSize": 3596,
+        "encodedBodySize": 3296,
+        "duration": 64.69999998807907
+      },
+      {
+        "name": "binary-dusk-w3-20260906-sky-270.webp",
+        "transferSize": 3368,
+        "encodedBodySize": 3068,
+        "duration": 65.40000000596046
+      },
+      {
+        "name": "binary-dusk-w3-20260906-surface-roughness.png",
+        "transferSize": 204886,
+        "encodedBodySize": 204586,
+        "duration": 69.19999998807907
+      },
+      {
+        "name": "binary-dusk-w4-20261016-landscape-buildings.png",
+        "transferSize": 1022821,
+        "encodedBodySize": 1022521,
+        "duration": 78.2000000178814
+      },
+      {
+        "name": "favicon.ico",
+        "transferSize": 0,
+        "encodedBodySize": 0,
+        "duration": 12.100000023841858
+      }
+    ],
+    "camera": {
+      "position": [
+        -3.779919147491455,
+        29.997303009033203,
+        56.87928009033203
+      ],
+      "quaternion": [
+        0.7463061809539795,
+        0.6654338240623474,
+        0.009979262948036194,
+        0.011192074976861477
+      ],
+      "verticalFov": 55,
+      "aspect": 1.7777777777777777,
+      "near": 0.3,
+      "far": 20000
+    },
+    "footingHeight": 54.423523
+  }
+}

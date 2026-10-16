@@ -21,6 +21,9 @@
 Viewing permitted. Reproduction, redistribution, and reuse of source code
 or assets — in whole or in part — is prohibited without written permission. -->
 <script>/* h53 count */(function(){try{if(location.search.indexOf('skipgc')>-1)localStorage.setItem('skipgc','t');if(localStorage.getItem('skipgc')==='t')return;var i=new Image();i.src='https://hiro53.goatcounter.com/count'+'?p='+encodeURIComponent(location.pathname)+'&t='+encodeURIComponent(document.title)+'&r='+encodeURIComponent(document.referrer)+'&s='+[screen.width,screen.height,window.devicePixelRatio||1].join(',');}catch(e){}})();</script>
+<script>/* Preview navigation returns to the reviewed set of works. */
+(function(){function back(){document.querySelectorAll('#back,#composerBack').forEach(function(a){if(a.tagName==='A')a.setAttribute('href','preview/20261016/index.html?skipgc');});}document.addEventListener('DOMContentLoaded',function(){back();new MutationObserver(back).observe(document.body,{childList:true,subtree:true});});})();
+</script>
 </head><body>
 <div id="artwork"><header id="masthead"><span class="title">Coastal Glass</span><span class="subtitle">浮遊ガラス物体の観測記録</span><span class="credit">h!ro53 / transcendence by deus ex machina</span></header>
 <a id="back" class="pill" href="index.html" aria-label="入口へ戻る">← index</a>

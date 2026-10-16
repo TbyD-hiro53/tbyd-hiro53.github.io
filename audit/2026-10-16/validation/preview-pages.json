@@ -1,0 +1,44 @@
+[
+  {
+    "artwork": "lacto-cortex",
+    "ready": true,
+    "errors": [],
+    "missing": []
+  },
+  {
+    "artwork": "lacto-caloris",
+    "ready": true,
+    "errors": [],
+    "missing": []
+  },
+  {
+    "artwork": "coastal-glass",
+    "ready": true,
+    "errors": [],
+    "missing": []
+  },
+  {
+    "artwork": "sanctum",
+    "ready": true,
+    "errors": [],
+    "missing": []
+  },
+  {
+    "artwork": "armillary",
+    "ready": true,
+    "errors": [],
+    "missing": []
+  },
+  {
+    "artwork": "armillary-v2",
+    "ready": true,
+    "errors": [],
+    "missing": []
+  },
+  {
+    "artwork": "binary-dusk",
+    "ready": true,
+    "errors": [],
+    "missing": []
+  }
+]

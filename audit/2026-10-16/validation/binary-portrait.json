@@ -1,0 +1,453 @@
+{
+  "ids": {
+    "1": {
+      "count": 92993,
+      "x": 168,
+      "y": 0
+    },
+    "2": {
+      "count": 141,
+      "x": 105,
+      "y": 450
+    },
+    "3": {
+      "count": 2434,
+      "x": 323,
+      "y": 356
+    },
+    "4": {
+      "count": 926,
+      "x": 24,
+      "y": 503
+    },
+    "5": {
+      "count": 109,
+      "x": 118,
+      "y": 451
+    },
+    "6": {
+      "count": 380,
+      "x": 111,
+      "y": 432
+    },
+    "7": {
+      "count": 207,
+      "x": 46,
+      "y": 464
+    },
+    "8": {
+      "count": 77,
+      "x": 240,
+      "y": 480
+    },
+    "9": {
+      "count": 94,
+      "x": 17,
+      "y": 483
+    },
+    "10": {
+      "count": 34,
+      "x": 45,
+      "y": 494
+    },
+    "11": {
+      "count": 302,
+      "x": 222,
+      "y": 513
+    },
+    "12": {
+      "count": 80347,
+      "x": 178,
+      "y": 47
+    },
+    "13": {
+      "count": 51974,
+      "x": 0,
+      "y": 0
+    },
+    "14": {
+      "count": 26825,
+      "x": 194,
+      "y": 489
+    }
+  },
+  "size": [
+    390,
+    844
+  ],
+  "canvas": {
+    "x": 0,
+    "y": 0,
+    "width": 390,
+    "height": 844,
+    "top": 0,
+    "right": 390,
+    "bottom": 844,
+    "left": 0
+  },
+  "report": {
+    "version": "web-v4",
+    "view": "portrait",
+    "uvScale": [
+      1,
+      0.9738461538461539
+    ],
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "webgl2": true,
+    "sunsetSeconds": 0,
+    "motionSeconds": 0,
+    "readyMs": 721.9000000059605,
+    "readyFromNavigationMs": 953.9000000059605,
+    "cssSize": [
+      390,
+      844
+    ],
+    "renderSize": [
+      390,
+      844
+    ],
+    "quality": "auto",
+    "drawCpuMs": {
+      "count": 6,
+      "mean": 13.633333330353102,
+      "p50": 0.9000000059604645,
+      "p95": 77.19999998807907,
+      "p99": 77.19999998807907,
+      "max": 77.19999998807907,
+      "over33": 1,
+      "over50": 1
+    },
+    "gpuMs": {
+      "count": 5,
+      "mean": 358.4287604,
+      "p50": 352.010111,
+      "p95": 440.352746,
+      "p99": 440.352746,
+      "max": 440.352746,
+      "over33": 5,
+      "over50": 5
+    },
+    "frameMs": null,
+    "longFrames": [],
+    "renderer": {
+      "calls": 28,
+      "triangles": 854286,
+      "geometries": 18,
+      "textures": 18
+    },
+    "meshTriangles": [
+      {
+        "name": "carrier-1",
+        "triangles": 6356
+      },
+      {
+        "name": "carrier-1-rim",
+        "triangles": 2048
+      },
+      {
+        "name": "carrier-2",
+        "triangles": 6356
+      },
+      {
+        "name": "carrier-2-rim",
+        "triangles": 2048
+      },
+      {
+        "name": "carrier-3",
+        "triangles": 6356
+      },
+      {
+        "name": "carrier-3-rim",
+        "triangles": 2048
+      },
+      {
+        "name": "carrier-4",
+        "triangles": 6356
+      },
+      {
+        "name": "carrier-4-rim",
+        "triangles": 2048
+      },
+      {
+        "name": "carrier-5",
+        "triangles": 6356
+      },
+      {
+        "name": "carrier-5-rim",
+        "triangles": 2048
+      },
+      {
+        "name": "train-car-1",
+        "triangles": 4596
+      },
+      {
+        "name": "train-car-2",
+        "triangles": 4596
+      },
+      {
+        "name": "train-car-3",
+        "triangles": 4408
+      },
+      {
+        "name": "attached-leaf-blades",
+        "triangles": 179116
+      },
+      {
+        "name": "attached-fine-branches",
+        "triangles": 134151
+      },
+      {
+        "name": "giant-tree-lowpoly",
+        "triangles": 74910
+      }
+    ],
+    "resources": [
+      {
+        "name": "binary-dusk-ui-v4-20260907.css",
+        "transferSize": 9514,
+        "encodedBodySize": 9214,
+        "duration": 32.20000001788139
+      },
+      {
+        "name": "h53-liquid-layout-v1-20260919.css",
+        "transferSize": 2295,
+        "encodedBodySize": 1995,
+        "duration": 32.39999997615814
+      },
+      {
+        "name": "h53-liquid-ui-v1-20260919.css",
+        "transferSize": 2966,
+        "encodedBodySize": 2666,
+        "duration": 34
+      },
+      {
+        "name": "h53-direct-controls-v1-20260919.css",
+        "transferSize": 6490,
+        "encodedBodySize": 6190,
+        "duration": 35
+      },
+      {
+        "name": "h53-chrome-copy-en-v1-20260923.js",
+        "transferSize": 32328,
+        "encodedBodySize": 32028,
+        "duration": 79.80000001192093
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-preview.webp",
+        "transferSize": 46880,
+        "encodedBodySize": 46580,
+        "duration": 34.20000001788139
+      },
+      {
+        "name": "h53-chrome-v1-20260923.js",
+        "transferSize": 24583,
+        "encodedBodySize": 24283,
+        "duration": 79.80000001192093
+      },
+      {
+        "name": "h53-direct-controls-v1-20260919.js",
+        "transferSize": 4066,
+        "encodedBodySize": 3766,
+        "duration": 99.7000000178814
+      },
+      {
+        "name": "binary-dusk-w3-20260906-core.js",
+        "transferSize": 2763,
+        "encodedBodySize": 2463,
+        "duration": 55.80000001192093
+      },
+      {
+        "name": "binary-dusk-w4-20261016-shaders.js",
+        "transferSize": 7603,
+        "encodedBodySize": 7303,
+        "duration": 65.7000000178814
+      },
+      {
+        "name": "binary-dusk-w3-20260906-three-r128.min.js",
+        "transferSize": 603747,
+        "encodedBodySize": 603447,
+        "duration": 36
+      },
+      {
+        "name": "binary-dusk-w4-20261016-renderer.js",
+        "transferSize": 19519,
+        "encodedBodySize": 19219,
+        "duration": 59.599999994039536
+      },
+      {
+        "name": "h53-liquid-glass-optics-v1.js",
+        "transferSize": 16257,
+        "encodedBodySize": 15957,
+        "duration": 65.69999998807907
+      },
+      {
+        "name": "h53-liquid-host-v1-20260919.js",
+        "transferSize": 5778,
+        "encodedBodySize": 5478,
+        "duration": 65.90000000596046
+      },
+      {
+        "name": "h53-liquid-ui-v1-20260919.js",
+        "transferSize": 23519,
+        "encodedBodySize": 23219,
+        "duration": 72.90000000596046
+      },
+      {
+        "name": "binary-dusk-liquid-v2-20261016-app.js",
+        "transferSize": 12613,
+        "encodedBodySize": 12313,
+        "duration": 68.69999998807907
+      },
+      {
+        "name": "h53-dismiss-v1-20260921.js",
+        "transferSize": 4040,
+        "encodedBodySize": 3740,
+        "duration": 99.90000000596046
+      },
+      {
+        "name": "binary-dusk-w3-20260906-scene.json",
+        "transferSize": 36483,
+        "encodedBodySize": 36183,
+        "duration": 12.199999988079071
+      },
+      {
+        "name": "binary-dusk-w3-20260906-geometry.bin.gz",
+        "transferSize": 8990780,
+        "encodedBodySize": 8990480,
+        "duration": 226.40000000596046
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-surface.bin.gz",
+        "transferSize": 418679,
+        "encodedBodySize": 418379,
+        "duration": 46.89999997615814
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-surface-depth-id.bin.gz",
+        "transferSize": 2835002,
+        "encodedBodySize": 2834702,
+        "duration": 123.69999998807907
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-surface-normal-roughness.png",
+        "transferSize": 2243642,
+        "encodedBodySize": 2243342,
+        "duration": 81.40000000596046
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-surface-albedo.png",
+        "transferSize": 704401,
+        "encodedBodySize": 704101,
+        "duration": 53
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-ambient-000.webp",
+        "transferSize": 141002,
+        "encodedBodySize": 140702,
+        "duration": 37.099999994039536
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-ambient-060.webp",
+        "transferSize": 126194,
+        "encodedBodySize": 125894,
+        "duration": 51.79999998211861
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-ambient-120.webp",
+        "transferSize": 110898,
+        "encodedBodySize": 110598,
+        "duration": 67.69999998807907
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-ambient-185.webp",
+        "transferSize": 91522,
+        "encodedBodySize": 91222,
+        "duration": 81.5
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-ambient-225.webp",
+        "transferSize": 74206,
+        "encodedBodySize": 73906,
+        "duration": 76.40000000596046
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-ambient-270.webp",
+        "transferSize": 31394,
+        "encodedBodySize": 31094,
+        "duration": 88.2000000178814
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-sky-000.webp",
+        "transferSize": 3824,
+        "encodedBodySize": 3524,
+        "duration": 95.7999999821186
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-sky-060.webp",
+        "transferSize": 3620,
+        "encodedBodySize": 3320,
+        "duration": 95.90000000596046
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-sky-120.webp",
+        "transferSize": 3484,
+        "encodedBodySize": 3184,
+        "duration": 96.40000000596046
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-sky-185.webp",
+        "transferSize": 3186,
+        "encodedBodySize": 2886,
+        "duration": 100.90000000596046
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-sky-225.webp",
+        "transferSize": 2964,
+        "encodedBodySize": 2664,
+        "duration": 101.09999999403954
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-sky-270.webp",
+        "transferSize": 2468,
+        "encodedBodySize": 2168,
+        "duration": 101.09999999403954
+      },
+      {
+        "name": "binary-dusk-w3-20260906-portrait-surface-roughness.png",
+        "transferSize": 204782,
+        "encodedBodySize": 204482,
+        "duration": 104.2000000178814
+      },
+      {
+        "name": "binary-dusk-w4-20261016-portrait-buildings.png",
+        "transferSize": 749444,
+        "encodedBodySize": 749144,
+        "duration": 108
+      },
+      {
+        "name": "favicon.ico",
+        "transferSize": 0,
+        "encodedBodySize": 0,
+        "duration": 14.699999988079071
+      }
+    ],
+    "camera": {
+      "position": [
+        -6.779919147491455,
+        34.9973030090332,
+        56.87928009033203
+      ],
+      "quaternion": [
+        0.8249959945678711,
+        0.5611164569854736,
+        0.03785150498151779,
+        0.055652156472206116
+      ],
+      "verticalFov": 114.54499830407337,
+      "aspect": 0.45,
+      "near": 0.3,
+      "far": 20000
+    },
+    "footingHeight": 54.423523
+  }
+}
