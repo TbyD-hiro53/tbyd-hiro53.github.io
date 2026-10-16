@@ -1,0 +1,22 @@
+{
+  "previous": {
+    "speed": 1.0,
+    "core": 0.0169,
+    "glow": 0.0416,
+    "haze": 0.0975
+  },
+  "current": {
+    "speed": 3.0,
+    "core": 0.02535,
+    "glow": 0.0624,
+    "haze": 0.14625
+  },
+  "browser": [
+    {
+      "artwork": "sanctum",
+      "ready": true,
+      "errors": [],
+      "missing": []
+    }
+  ]
+}
