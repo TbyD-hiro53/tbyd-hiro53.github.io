@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja"><head>
+<base href="../../">
+<meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101417"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2313181c'/%3E%3Ccircle cx='24' cy='33' r='15' fill='%23f2dbe9'/%3E%3Ccircle cx='49' cy='28' r='9' fill='%23bceae5'/%3E%3C/svg%3E"><title>The Confluence — h!ro53 / transcendence by deus ex machina</title><meta name="description" content="白い床の先に広がる水面。触れて生まれる波と、音もなく回る円盤の影。"><link rel="stylesheet" href="confluence-v5-20260909-viewer.css?v=0646b541e614">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="h!ro53 — creation archive">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="The Confluence — h!ro53 / transcendence by deus ex machina">
+<meta property="og:description" content="白い床の先に広がる水面。触れて生まれる波と、音もなく回る円盤の影。">
+<meta property="og:url" content="https://tbyd-hiro53.github.io/confluence.html">
+<meta property="og:image" content="https://tbyd-hiro53.github.io/confluence-v6-20261017-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Confluence">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Confluence — h!ro53 / transcendence by deus ex machina">
+<meta name="twitter:description" content="白い床の先に広がる水面。触れて生まれる波と、音もなく回る円盤の影。">
+<meta name="twitter:image" content="https://tbyd-hiro53.github.io/confluence-v6-20261017-og.jpg">
+<link rel="canonical" href="https://tbyd-hiro53.github.io/confluence.html">
+<!-- © 2026 h!ro53 / transcendence by deus ex machina. All rights reserved.
+     Viewing permitted. Reproduction, redistribution, and reuse of source code
+     or assets — in whole or in part — is prohibited without written permission. -->
+<meta name="author" content="h!ro53" />
+<link rel="stylesheet" href="h53-liquid-ui-v1-20260919.css"><link rel="stylesheet" href="h53-liquid-layout-v1-20260919.css"><link rel="stylesheet" href="h53-direct-controls-v1-20260919.css">
+<script defer src="confluence-v6-20261017-copy-en.js"></script><script defer src="h53-chrome-v2-20261016.js"></script>
+<script defer src="h53-direct-controls-v1-20260919.js"></script>
+<link rel="stylesheet" href="confluence-liquid-v2-20260919.css">
+<style id="h53-hint-under-menu">/* メニューが開いている間は題字を消す（半透明の面越しに釦の字と重なるため） */#hint{transition:opacity .18s ease}body:has(#menu:not([hidden])) #hint{opacity:0;visibility:hidden}</style>
+<style>
+body[data-h53-chrome=confluence] #hint{color:#304c53!important;text-shadow:0 1px 5px #ffffffa0}body[data-h53-chrome=confluence] #hint span{color:#304c53!important}
+#record-text{white-space:pre-line}.record-choice{display:block;width:100%;min-height:48px;text-align:left;border-bottom:1px solid #b7d0cf30;padding:10px 8px}
+#gesture-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+#still[hidden]{display:none!important}
+</style>
+<script>document.addEventListener('DOMContentLoaded',function(){document.getElementById('back').href='preview/20261017/index.html?skipgc';});</script>
+</head>
+<body>
+<span id="gesture-status" role="status" aria-live="polite"></span><main id="experience" aria-label="合流点の風景">
+<canvas id="view" tabindex="0" aria-label="ドラッグまたは矢印キーで見渡す。水面へのタップで波を起こす。建物に触れると観測。Enterで中央へ操作。1、2、3で移動。スペースで一時停止。"></canvas>
+<a id="back" class="glass pill chrome" href="preview/20261017/index.html?skipgc">← index</a>
+<div id="hint" class="chrome">THE CONFLUENCE <span>水面に触れて波を起こす · ドラッグで見渡す</span></div>
+<div id="status" class="glass" role="status" aria-live="polite"><span class="loader"></span><span id="status-text">床の切れ目を開いています</span></div>
+<div id="error" class="glass" hidden role="alert"><p>風景を読み込めませんでした。</p><button id="retry" class="glass pill">もう一度開く</button></div>
+<nav id="ui" class="chrome" aria-label="立ち場所">
+<button class="spot glass pill selected" data-spot="0" aria-pressed="true">床の切れ目</button>
+<button class="spot glass pill" data-spot="1" aria-pressed="false">円盤の真下</button>
+<button class="spot glass pill" data-spot="2" aria-pressed="false">岸の道</button>
+<button id="more" class="glass pill" aria-label="その他の操作" aria-expanded="false" aria-controls="menu">•••</button>
+</nav>
+<aside id="panel" class="glass chrome" role="dialog" aria-labelledby="record-name" aria-describedby="record-text" hidden>
+<div class="panel-head"><div class="hd"><span id="record-name"></span></div><button id="px" class="glass" aria-label="観測記録を閉じる">×</button></div>
+<div id="record-text" class="lg" lang="ja"></div>
+</aside>
+<aside id="menu" class="glass chrome h53-liquid-menu" aria-label="その他の操作" hidden>
+<button id="motion" aria-pressed="true" disabled>動きを止める</button><button id="still" disabled hidden>静止画で見る</button><button id="observe-list">観測する対象</button><button id="reset">視線を戻す</button>
+<fieldset><legend>画質</legend><div class="qualities"><button data-quality="auto" aria-pressed="true">自動</button><button data-quality="high" aria-pressed="false">高</button><button data-quality="low" aria-pressed="false">軽量</button></div></fieldset>
+<button id="fullscreen">全画面にする</button><button id="hide">操作表示を隠す</button>
+<p>ドラッグ・矢印キーで見渡す<br>水面に触れて波を起こす<br>建物や円盤に触れて記録を読む<br>1–3：移動　Space：一時停止<br>R：視線を戻す　H：操作表示</p></aside>
+<div id="notice" class="glass" role="status" hidden><span id="notice-text"></span><button id="motion-retry">動く風景を再読込</button></div><button id="restore" class="glass pill" hidden>操作を表示</button>
+<div class="h53-copy">© 2026 h!ro53 · transcendence by deus ex machina — viewing permitted, reuse prohibited</div>
+<noscript><p class="noscript">この鑑賞画面にはJavaScriptとWebGLが必要です。</p></noscript>
+</main><script src="confluence-v5-20260909-three.min.js"></script><script src="confluence-v6-20261017-engine.js"></script><script src="h53-liquid-glass-optics-v1.js"></script><script src="h53-liquid-ui-v1-20260919.js"></script><script src="h53-liquid-host-v1-20260919.js"></script><script src="confluence-v6-20261017-viewer.js"></script><script defer src="h53-dismiss-v1-20260921.js"></script>
+</body></html>
