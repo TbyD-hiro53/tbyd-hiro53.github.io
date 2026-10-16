@@ -27,7 +27,7 @@ canon = (root / 'CANON_TEXT.md').read_text(encoding='utf-8')
 # Data to load, measured on a phone (2026-09-23, compressed transfer). Only works over 5 MB.
 # Re-measure when a work's assets are replaced. (2026-09-26: preservation-hall 25 -> 3.8 MB, chip removed)
 DATA_SIZE_MB = {'lacto-cortex': 23, 'binary-dusk': 16, 'confluence': 15,
-                'coastal-glass': 12, 'the-changes': 11, 'chrome-liturgy': 6, 'lacto-caloris': 6}
+                'coastal-glass': 12, 'the-changes': 11, 'lacto-caloris': 6}
 SIZE_TITLE = '読み込み量（スマートフォン表示での実測） / Data to load (measured on a phone)'
 COUNT_PATTERN = r'(id="count">)(?:\d+ assets(?: \+ 1 study)?|\d+ works)(</span>)'
 
@@ -50,6 +50,32 @@ def site_ux(source):
         chips += '<span class="chip size" title="' + SIZE_TITLE + '">' + str(mb) + ' MB</span>'
         source = source[:match.start(1)] + chips + source[match.end(1):]
     return source
+
+
+if sys.argv[1:] == ['--remove-chrome-liturgy-only']:
+    section = canon.split('## ASSET 21 — CHROME LITURGY', 1)[1].split('\n## ', 1)[0]
+    if '**公開状態** ボツ・公開終了。' not in section:
+        raise ValueError('Chrome Liturgy retirement must be recorded in CANON_TEXT')
+    path = root / 'index.html'
+    source = path.read_text(encoding='utf-8')
+    card = r'<article\b[^>]*>(?:(?!</article>)[\s\S])*?</article>'
+    source = re.sub(card, lambda m: '' if 'href="chrome-liturgy.html"' in m[0] else m[0], source)
+    group = r'(<section class="grp" data-lin="wafer">)([\s\S]*?)(</section>)'
+    def update_wafer_count(match):
+        body, count = re.subn(r'(<span class="lg-n">)\d+(</span>)',
+                             lambda m: m[1] + str(holdings_total(match[2])) + m[2], match[2])
+        if count != 1:
+            raise ValueError('Expected one Cyberwafer group count')
+        return match[1] + body + match[3]
+    source, count = re.subn(group, update_wafer_count, source)
+    if count != 1:
+        raise ValueError('Expected one Cyberwafer group')
+    source, count = re.subn(COUNT_PATTERN, lambda m: m[1] + str(holdings_total(source)) + ' works' + m[2], source)
+    if count != 1:
+        raise ValueError('Expected one holdings count')
+    path.write_text(source, encoding='utf-8')
+    print('Removed retired Chrome Liturgy card; updated group and holdings counts.')
+    raise SystemExit(0)
 
 
 if sys.argv[1:] == ['--site-ux-only']:
@@ -127,10 +153,10 @@ if sys.argv[1:] == ['--coastal-glass-only']:
     else:
         if 'href="coastal-glass.html"' in source or '<span class="idx">ASSET 23</span>' in source:
             raise ValueError('Coastal Glass path or ASSET 23 already registered')
-        anchor = '<!-- CHROME_LITURGY_END -->'
-        if source.count(anchor) != 1:
-            raise ValueError('Expected one Chrome Liturgy card')
-        offset = source.index(anchor) + len(anchor)
+        anchor = re.search(r'<article\b[^>]*>\s*<a class="entry-main" href="cyberwafer\.html">[\s\S]*?</article>', source)
+        if not anchor:
+            raise ValueError('Expected the Cyberwafer card')
+        offset = anchor.end()
         source = source[:offset] + '\n' + card + source[offset:]
     source = site_ux(source)
     path.write_text(source, encoding='utf-8')

@@ -74,15 +74,7 @@ Upon the wafer the T stands at the same dimensions under whichever era it is nam
 
 ## ASSET 21 — CHROME LITURGY
 
-**制作上の仮題** 作者の命名確認後に変更可能。独立した作品としてCANONの直後、一覧2番目に配置。
-
-**説明 JA**
-Cyberwafer v25の構造と運動を、磨かれた金属と厚みのある光の文字で再構成。ピンクから赤へ移るT、青緑の文字環、循環するクローム円盤。ドラッグで回転、ピンチで拡大、タップで拍動。高精細写真にも切り替えて鑑賞できます。
-
-**説明 EN**
-The structure and motion of Cyberwafer v25, recast in polished metal and solid luminous lettering. A pink-to-red T, turquoise text rings and circulating chrome wafers. Drag to orbit, pinch to zoom, tap to pulse. Switch to the high-resolution photograph to view the rendered scene.
-
-**制作記録** Cyberwafer v25 の元形状、リング角速度、Tの浮遊、円盤のスロット循環、タップ時の0.78秒の拍動を継承。素材・照明・背景は本作独自。新しい世界設定・断章は追加していない。WebGLはBlenderの評価済み形状・ベイク画像・HDR照明を使用する近似PBR表示。高精細写真はCyclesによるパストレーシング。
+**公開状態** ボツ・公開終了。2026-10-16、作者の指示により公開作品から削除。ASSET 21は欠番とし、再利用・再掲載しない。
 
 ---
 
@@ -106,7 +98,7 @@ An observation of one of the unidentified cyberwafers that have suddenly appeare
 世界各地に突如出現したcyberwafer。世間には、その正体が分からない浮遊ガラス物体として認識されている。本作は、その一体と周辺環境を記録した観測ログである。
 
 **登録記録**
-2026-09-18。作者確認済みのリアルタイム3D版を公開。Cyberwaferの構造と運動を異なる材質・環境で観測する作品として、CHROME LITURGYの直後、一覧3番目に配置。既存ASSETの識別子は変更せず、未使用のASSET 23を付与する。新しい位相・断章・由来の説明は追加しない。公開カードは `build_frag.py --coastal-glass-only` で生成する。
+2026-09-18。作者確認済みのリアルタイム3D版を公開。Cyberwaferの構造と運動を異なる材質・環境で観測する作品として、Cyberwafer v25の直後に配置（2026-10-16、ASSET 21の公開終了に伴い一覧2番目）。既存ASSETの識別子は変更せず、未使用のASSET 23を付与する。新しい位相・断章・由来の説明は追加しない。公開カードは `build_frag.py --coastal-glass-only` で生成する。
 
 ---
 

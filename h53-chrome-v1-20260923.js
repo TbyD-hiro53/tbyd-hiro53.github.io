@@ -149,7 +149,7 @@ function relabelAttrs(el){
    すでに上端の帯（composer・legacy・liquid-menu 等）に並んでいるものは動かさない
    （帯は flex で左右に振り分けているので、片方だけ抜くと並びが崩れる） */
 var MOVE={
- 'chrome-liturgy':{tr:'menuToggle'},'coastal-glass':{tr:'menuToggle'},'binary-dusk':{tr:'menuToggle'},'confluence':{tr:'more'}
+ 'coastal-glass':{tr:'menuToggle'},'binary-dusk':{tr:'menuToggle'},'confluence':{tr:'more'}
 }[slug]||{};
 var corners={};
 function corner(side){
@@ -240,9 +240,7 @@ function css(){
   '@media(max-width:620px){body[data-h53-chrome=confluence] #hint{top:calc(68px + env(safe-area-inset-top))!important;left:16px!important;right:16px!important}}',
   /* 著作権表記：作品ごとに 8〜9px で読めなかった。色の控えめさはそのまま、字だけ 10px にそろえる。
      下の操作列は表記の上端を実測して避ける（h53-direct-controls）ので、高さが増えても重ならない */
-  '.h53-copy,#cr,#copyright,body[data-h53-chrome=chrome-liturgy]>footer{font-size:10px!important;letter-spacing:.02em!important}',
-  /* Chrome Liturgy：521px 以上と横向きでは題字が右上に並ぶ。右上へ移したメニューの下へ一段下げる */
-  '@media(min-width:521px),(max-height:500px){body[data-h53-chrome=chrome-liturgy] header #title{margin-top:52px}}',
+  '.h53-copy,#cr,#copyright{font-size:10px!important;letter-spacing:.02em!important}',
   /* 横向き（高さ 520px 以下）の重なり。Caloris は視点の釦を上に置くので作品名は左下のまま、
      The Changes は右上の案内をメニューの手前で折り返す */
   '@media(max-height:520px) and (orientation:landscape){body[data-h53-chrome=lacto-caloris] .composer-title{top:auto!important;right:auto!important;left:calc(22px + env(safe-area-inset-left))!important;bottom:calc(var(--h53-copy-clear,30px) + 4px)!important;max-width:40%}',

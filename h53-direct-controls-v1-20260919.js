@@ -14,8 +14,7 @@ function boot(){
  /* 著作権表記は狭い画面で二行になり、固定 30px の上に置いた操作列へ食い込んでいた。
     表記の上端を測り、操作列（と、その上の作品名）をそこから 6px 上に置く */
  function clearCopy(dock){
-  /* 表記の要素は作品ごとに違う。Chrome Liturgy だけは body 直下の footer が表記（Binary Dusk の footer は操作列なので含めない） */
-  var copy=document.querySelector('.h53-copy,#cr,#copyright,body[data-h53-work=chrome-liturgy]>footer');
+  var copy=document.querySelector('.h53-copy,#cr,#copyright');
   if(!copy||copy===dock||copy.contains(dock))return;
   var last=-1;function size(){
    var r=copy.getBoundingClientRect(),shown=r.height>0&&getComputedStyle(copy).display!=='none';
@@ -28,8 +27,7 @@ function boot(){
  function install(){
   if(done)return;
   var dock=by('composerPrimary')||by('legacyThreePrimary'),anchor=null;
-  if(slug==='chrome-liturgy'&&window.ChromeLiturgyLiquid){dock=by('controls');move('reset',dock);move('photo',dock);}
-  else if(slug==='empyrean-sigil'&&window.__svgLiquid){
+  if(slug==='empyrean-sigil'&&window.__svgLiquid){
    dock=document.createElement('div');dock.id='svgPrimary';dock.className='h53-primary-controls';dock.setAttribute('role','group');dock.setAttribute('aria-label','作品の操作');by('svgLiquidControls').append(dock);move('bgbtn',dock);anchor=by('menuToggle');followVisibility(dock,anchor);
   }
   else if(slug==='vacant-seat'&&window.__h53Liquid){dock=by('views');move('origin',dock);}

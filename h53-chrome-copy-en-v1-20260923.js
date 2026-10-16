@@ -28,13 +28,6 @@ window.H53_CHROME_EN={
 "name": "Cellwafer v1",
 "phase": "PHASE 1 · THE FIRST T"
 },
-"chrome-liturgy": {
-"desc": "The structure and motion of Cyberwafer v25, recast in polished metal and solid luminous lettering. A pink-to-red T, turquoise text rings and circulating chrome wafers. Drag to orbit, pinch to zoom, tap to pulse. Switch to the high-resolution photograph to view the rendered scene.",
-"frag": "",
-"log": "",
-"name": "CHROME LITURGY",
-"phase": "PHASE −1 · PRE-CAUSAL ANOMALIES"
-},
 "coastal-glass": {
 "desc": "Observation log of a floating glass-like object An observation of one of the unidentified cyberwafers that have suddenly appeared around the world, together with its surroundings. Switch between sunset and night, and touch an object to open its observation record.",
 "frag": "",

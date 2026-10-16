@@ -21,7 +21,7 @@
 
 作品のHTML headにcanonical・OG・SNS・著作権・既定の計数断片を追加した。戻る操作と可視の著作権は既存UIを使い、二重注入しない。`?skipgc` は同一オリジンのlocalStorageへ検証除外を保存する。計数以外に第三者依存はない。
 
-ポータルは `CANON_TEXT.md` を正本に `python3 build_frag.py --coastal-glass-only` で生成する。ASSET 23、CHROME LITURGYの直後。既存作品のIDは変更しない。
+ポータルは `CANON_TEXT.md` を正本に `python3 build_frag.py --coastal-glass-only` で生成する。ASSET 23、Cyberwafer v25の直後（2026-10-16、ASSET 21の公開終了に伴う配置）。既存作品のIDは変更しない。
 
 ## 保存・再開
 
