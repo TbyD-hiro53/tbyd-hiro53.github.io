@@ -1,0 +1,54 @@
+[
+  {
+    "revision": "w12",
+    "width": 1024,
+    "report": {
+      "ready": true,
+      "view": "above",
+      "frames": 5,
+      "quality": 1,
+      "cpuMsMedian": 1.4000000059604645,
+      "size": [
+        1024,
+        768
+      ],
+      "pixelRatio": 1,
+      "webgl2": true,
+      "half": true,
+      "calls": 1,
+      "camera": [
+        1.2,
+        3.9,
+        1.8000000000000003
+      ]
+    },
+    "errors": [],
+    "missing": []
+  },
+  {
+    "revision": "w12",
+    "width": 390,
+    "report": {
+      "ready": true,
+      "view": "above",
+      "frames": 6,
+      "quality": 1,
+      "cpuMsMedian": 2.2000000178813934,
+      "size": [
+        390,
+        844
+      ],
+      "pixelRatio": 1,
+      "webgl2": true,
+      "half": true,
+      "calls": 1,
+      "camera": [
+        1.2597682991047918,
+        3.8003861681586804,
+        1.8896524486571882
+      ]
+    },
+    "errors": [],
+    "missing": []
+  }
+]
