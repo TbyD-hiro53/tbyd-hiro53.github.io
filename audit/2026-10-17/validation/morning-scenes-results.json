@@ -1,0 +1,71 @@
+[
+  {
+    "work": "confluence",
+    "errors": [],
+    "failedResources": [],
+    "readingViewports": [
+      [
+        320,
+        568
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        568,
+        320
+      ]
+    ]
+  },
+  {
+    "work": "earth-origin-material",
+    "errors": [],
+    "failedResources": [],
+    "readingViewports": [
+      [
+        320,
+        568
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        568,
+        320
+      ]
+    ]
+  },
+  {
+    "work": "lacto-caloris",
+    "errors": [],
+    "failedResources": [],
+    "readingViewports": [
+      [
+        320,
+        568
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        568,
+        320
+      ]
+    ]
+  }
+]

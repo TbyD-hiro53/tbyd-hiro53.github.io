@@ -1,0 +1,42 @@
+[
+  {
+    "viewport": [
+      1100,
+      800
+    ],
+    "errors": [],
+    "failedResources": [],
+    "terminalTap": true,
+    "centralFaceConvergence": true,
+    "cancelOnMove": true,
+    "pause": true
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "errors": [],
+    "failedResources": [],
+    "terminalTap": true,
+    "centralFaceConvergence": true,
+    "cancelOnMove": true,
+    "pause": true
+  },
+  {
+    "viewport": [
+      844,
+      390
+    ],
+    "errors": [],
+    "failedResources": [],
+    "terminalTap": true,
+    "centralFaceConvergence": true,
+    "cancelOnMove": true,
+    "pause": true
+  },
+  {
+    "reducedMotion": true,
+    "keyboard": true
+  }
+]

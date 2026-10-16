@@ -1,0 +1,207 @@
+[
+  {
+    "page": "armillary-v2.html",
+    "family": "composer",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "armillary.html",
+    "family": "composer",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "binary-dusk.html",
+    "family": "scene",
+    "staticPanels": [
+      "info"
+    ],
+    "preview": true
+  },
+  {
+    "page": "cellwafer.html",
+    "family": "scene",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "coastal-glass.html",
+    "family": "scene",
+    "staticPanels": [
+      "info"
+    ],
+    "preview": true
+  },
+  {
+    "page": "code-rain-frozen.html",
+    "family": "scene",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "code-rain-utterance.html",
+    "family": "scene",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "code-rain.html",
+    "family": "scene",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "confluence.html",
+    "family": "scene",
+    "staticPanels": [
+      "panel"
+    ],
+    "preview": true
+  },
+  {
+    "page": "core-37.html",
+    "family": "scene",
+    "staticPanels": [
+      "info"
+    ],
+    "preview": true
+  },
+  {
+    "page": "cyberwafer.html",
+    "family": "scene",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "earth-origin-material.html",
+    "family": "scene",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "empyrean-sigil-3d.html",
+    "family": "scene",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "empyrean-sigil.html",
+    "family": "scene",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "lacto-caloris.html",
+    "family": "composer",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "lacto-cortex.html",
+    "family": "composer",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "lacto-tricore.html",
+    "family": "scene",
+    "staticPanels": [
+      "info"
+    ],
+    "preview": true
+  },
+  {
+    "page": "late-core.html",
+    "family": "scene",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "not-yet.html",
+    "family": "reader",
+    "staticPanels": [],
+    "preview": false
+  },
+  {
+    "page": "object.html",
+    "family": "reader",
+    "staticPanels": [],
+    "preview": false
+  },
+  {
+    "page": "preservation-hall.html",
+    "family": "scene",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "residual-index-53.html",
+    "family": "scene",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "sanctum.html",
+    "family": "composer",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "shoko.html",
+    "family": "reader",
+    "staticPanels": [
+      "menu",
+      "info"
+    ],
+    "preview": false
+  },
+  {
+    "page": "sigil-fusion.html",
+    "family": "scene",
+    "staticPanels": [],
+    "preview": true
+  },
+  {
+    "page": "the-blank.html",
+    "family": "reader",
+    "staticPanels": [],
+    "preview": false
+  },
+  {
+    "page": "the-changes.html",
+    "family": "scene",
+    "staticPanels": [
+      "info"
+    ],
+    "preview": true
+  },
+  {
+    "page": "the-individual.html",
+    "family": "reader",
+    "staticPanels": [],
+    "preview": false
+  },
+  {
+    "page": "the-written.html",
+    "family": "reader",
+    "staticPanels": [],
+    "preview": false
+  },
+  {
+    "page": "vacant-seat.html",
+    "family": "scene",
+    "staticPanels": [
+      "panel"
+    ],
+    "preview": true
+  },
+  {
+    "page": "xerophyte.html",
+    "family": "scene",
+    "staticPanels": [
+      "info"
+    ],
+    "preview": true
+  }
+]

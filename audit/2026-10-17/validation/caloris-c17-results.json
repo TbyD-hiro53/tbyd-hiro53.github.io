@@ -1,0 +1,101 @@
+{
+  "raycastTargets": {
+    "brain": {
+      "service": {
+        "x": 200,
+        "y": 160
+      },
+      "compute": {
+        "x": 245,
+        "y": 160
+      },
+      "culture": {
+        "x": 290,
+        "y": 250
+      },
+      "chamber": {
+        "x": 695,
+        "y": 295
+      },
+      "brain": {
+        "x": 380,
+        "y": 340
+      },
+      "band": {
+        "x": 200,
+        "y": 475
+      }
+    },
+    "turntable": {
+      "chamber": {
+        "x": 200,
+        "y": 160
+      },
+      "radiator": {
+        "x": 470,
+        "y": 160
+      },
+      "service": {
+        "x": 425,
+        "y": 250
+      },
+      "compute": {
+        "x": 425,
+        "y": 295
+      },
+      "band": {
+        "x": 425,
+        "y": 385
+      },
+      "base": {
+        "x": 380,
+        "y": 430
+      }
+    },
+    "radiator": {
+      "chamber": {
+        "x": 290,
+        "y": 160
+      },
+      "radiator": {
+        "x": 470,
+        "y": 205
+      },
+      "service": {
+        "x": 470,
+        "y": 430
+      }
+    },
+    "pedestal": {
+      "chamber": {
+        "x": 200,
+        "y": 205
+      },
+      "service": {
+        "x": 335,
+        "y": 250
+      }
+    }
+  },
+  "actualTapEachView": true,
+  "dragDoesNotOpen": true,
+  "keyboardList": true,
+  "eightEntries": true,
+  "english": true,
+  "state": {
+    "method": "B",
+    "T": 68.32990000000001,
+    "deploySeconds": 6,
+    "statusLampCount": 648,
+    "statusOnOffRatio": 30,
+    "dep": 1,
+    "target": 1,
+    "view": "pedestal",
+    "orbit": {
+      "az": -0.010000000000000064,
+      "el": 0.33000000000000007,
+      "d": 2
+    }
+  },
+  "errors": []
+}
