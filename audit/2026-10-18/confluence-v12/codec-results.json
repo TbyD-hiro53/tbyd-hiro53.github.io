@@ -1,0 +1,110 @@
+[
+  {
+    "prefix": "gap-pano-color",
+    "codec": "rgba-sub",
+    "bytes": 9058713,
+    "decodedSHA256": "15222faa76466c72b8832086e4d37a97fc90071eb58bcdd4405e6425c65eb919"
+  },
+  {
+    "prefix": "gap-pano-depth",
+    "codec": "rgba-sub",
+    "bytes": 3767664,
+    "decodedSHA256": "6980cb92950ffcf00596ae44e84f730c972c79a8729083ad654b2453df61d457"
+  },
+  {
+    "prefix": "gap-detail-color",
+    "codec": "rgba-sub",
+    "bytes": 12160536,
+    "decodedSHA256": "2a0a73ca2056c5ebcaf7aa86be78930ff2e4de2774ee3b1b030160b7c464b0d4"
+  },
+  {
+    "prefix": "gap-detail-depth",
+    "codec": "rgba-sub",
+    "bytes": 6250941,
+    "decodedSHA256": "a1f161e6c3a63d351914ac56d02c01ab61c0280809955313ed06a67b5d8bd124"
+  },
+  {
+    "prefix": "gap-mirror-color",
+    "codec": "rgba-sub",
+    "bytes": 1280732,
+    "decodedSHA256": "30fb01940ac6433156a5f2a0122bdd727c134c6fb6964d6de32fc08d5868574a"
+  },
+  {
+    "prefix": "gap-mirror-depth",
+    "codec": "rgba-sub",
+    "bytes": 474395,
+    "decodedSHA256": "ed50182a2eb5c89e86c9678ae047bc1c0cb5add67114b05092fba85e8d06973a"
+  },
+  {
+    "prefix": "under-pano-color",
+    "codec": "rgba-sub",
+    "bytes": 5265084,
+    "decodedSHA256": "48058e9c23763da725bd6af8585cde1703922866db56ba52ca09c8ce3af9839a"
+  },
+  {
+    "prefix": "under-pano-depth",
+    "codec": "rgba-sub",
+    "bytes": 2748100,
+    "decodedSHA256": "2ccffd1e6bb385b1dff25795b4c5a74bf776b1c0cccfeed929c209e9ebf9eb6d"
+  },
+  {
+    "prefix": "under-detail-color",
+    "codec": "rgba-sub",
+    "bytes": 4720226,
+    "decodedSHA256": "e57af79658f9637cca886540550d00ad61d80116e169f5f84a4c60d68fe47317"
+  },
+  {
+    "prefix": "under-detail-depth",
+    "codec": "rgba-sub",
+    "bytes": 1833921,
+    "decodedSHA256": "a10d1030a952128c589639f5055394d4abb6aa409e77cb55b9f6f461a1de5644"
+  },
+  {
+    "prefix": "under-mirror-color",
+    "codec": "rgba-sub",
+    "bytes": 1329277,
+    "decodedSHA256": "d5a6707f324757b8143f0681dc8f2d2f0f5cb04f0e5637333accab83af2661cb"
+  },
+  {
+    "prefix": "under-mirror-depth",
+    "codec": "rgba-sub",
+    "bytes": 545006,
+    "decodedSHA256": "ffb4b0e4f98d29e85ead18924af45d294d3477a92f765a098e5ed2626662bf31"
+  },
+  {
+    "prefix": "bank-pano-color",
+    "codec": "rgba-sub",
+    "bytes": 5521160,
+    "decodedSHA256": "9ea5429b380e39f62474e4c8e3712f030a7763b5eb946f682ac03858f50406ae"
+  },
+  {
+    "prefix": "bank-pano-depth",
+    "codec": "rgba-sub",
+    "bytes": 2374027,
+    "decodedSHA256": "b68bfaa376897c640a65a67aeb1ef827e46ef051726414a68da96f860041591e"
+  },
+  {
+    "prefix": "bank-detail-color",
+    "codec": "rgba-sub",
+    "bytes": 14585899,
+    "decodedSHA256": "8b7d14d6dadcc864d4b8d767180206b34577e58b8dc8063d1b114891b92571df"
+  },
+  {
+    "prefix": "bank-detail-depth",
+    "codec": "rgba-sub",
+    "bytes": 7034556,
+    "decodedSHA256": "337be850840a0c8d18a3157184398a62214cb4388b5862f3c487f71e7118a496"
+  },
+  {
+    "prefix": "bank-mirror-color",
+    "codec": "rgba-sub",
+    "bytes": 1369968,
+    "decodedSHA256": "22574a1af35ade8c2ef99b736e032452237611dc38de98471a6cdef605cc898c"
+  },
+  {
+    "prefix": "bank-mirror-depth",
+    "codec": "rgba-sub",
+    "bytes": 536103,
+    "decodedSHA256": "2f3147a828616307a0e7b8d18aaa401fc6e5fe096fa9b1a4efc9b562bb52574d"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "yaw": 179.85,
+    "maxColumnError": 0.0,
+    "column": 0,
+    "changedColumnsAbove1": 0
+  },
+  {
+    "yaw": 180.25,
+    "maxColumnError": 25.592694063926942,
+    "column": 221,
+    "changedColumnsAbove1": 2
+  },
+  {
+    "yaw": 180.65,
+    "maxColumnError": 16.562100456621003,
+    "column": 217,
+    "changedColumnsAbove1": 2
+  }
+]
