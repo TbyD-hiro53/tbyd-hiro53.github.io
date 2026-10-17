@@ -50,3 +50,12 @@ Confluenceの検討は `confluence-hybrid-feasibility.md`。同作品はこの�
 - Cyclesの全球深度と元形状のray_castを139方向で照合し、最大差0.0000122m。深度PNGをWeb配信する方式は採用せず、実形状の輪郭を使う。
 
 記録室の端末の輪郭、開口の枠、森の円盤との前後関係を画像でも確認した。旧版の原本と素材は残し、通常公開版のEarthは切り替えない。
+
+
+## 独立保存版の確認
+
+ソース558b811b8d1c4c6e0e8e17ccc689f82c009a2c66からサイトの全追跡ファイル・依存素材、Earthの編集可能な室内と森のBlenderシーンをZIPへ保存した。Tricore w2とEarth v7を同梱。通常公開版の両作品は切り替えていない。
+
+`/workspace/previews/2026-10-17/earth-v7/h53-earth-tricore-preview.zip`（547,124,768バイト、1,083項目）。SHA-256: `9afcc0293281dad6ed16e19b398cc9f0b4e1c4915d495b5e6bc8a15b07759683`。
+
+CRC検査後、別のディレクトリへ展開しHTTP起動。390×844でEarthの4視点・森・端末の実タップ、Tricoreの加速視点への直接起動・3視点・配管の実タップを確認。JavaScript/描画エラーと失敗リソースなし。結果はvalidation/earth-tricore-archive-results.json。GitHub Pagesへの配信完了は接続制限のため別途未確認。
