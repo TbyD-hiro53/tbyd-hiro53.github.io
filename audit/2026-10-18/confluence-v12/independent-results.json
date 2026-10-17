@@ -1,0 +1,264 @@
+[
+  {
+    "viewport": [
+      1100,
+      800,
+      1
+    ],
+    "view": "gap",
+    "report": {
+      "ready": true,
+      "revision": "v12",
+      "bake": {
+        "enabled": true,
+        "active": true,
+        "view": 0,
+        "error": null,
+        "gpuBytes": 254454442.66666663
+      },
+      "view": 0,
+      "time": 0,
+      "impulses": 0,
+      "memory": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        1100,
+        800
+      ],
+      "drawCalls": 14,
+      "triangles": 66244,
+      "frameStats": {
+        "frames": 6,
+        "milliseconds": 4826.9000000059605
+      }
+    }
+  },
+  {
+    "viewport": [
+      1100,
+      800,
+      1
+    ],
+    "view": "under",
+    "report": {
+      "ready": true,
+      "revision": "v12",
+      "bake": {
+        "enabled": true,
+        "active": true,
+        "view": 1,
+        "error": null,
+        "gpuBytes": 254454442.66666663
+      },
+      "view": 1,
+      "time": 14400,
+      "impulses": 0,
+      "memory": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        1100,
+        800
+      ],
+      "drawCalls": 14,
+      "triangles": 66244,
+      "frameStats": {
+        "frames": 10,
+        "milliseconds": 4961.200000010431
+      }
+    }
+  },
+  {
+    "viewport": [
+      1100,
+      800,
+      1
+    ],
+    "view": "bank",
+    "report": {
+      "ready": true,
+      "revision": "v12",
+      "bake": {
+        "enabled": true,
+        "active": true,
+        "view": 2,
+        "error": null,
+        "gpuBytes": 254454442.66666663
+      },
+      "view": 2,
+      "time": 14400,
+      "impulses": 0,
+      "memory": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        1100,
+        800
+      ],
+      "drawCalls": 2,
+      "triangles": 4,
+      "frameStats": {
+        "frames": 14,
+        "milliseconds": 5089.500000014901
+      }
+    }
+  },
+  {
+    "viewport": [
+      1100,
+      800,
+      1
+    ],
+    "waterTap": true,
+    "textureCounts": [
+      13,
+      13,
+      13,
+      13
+    ],
+    "errors": []
+  },
+  {
+    "viewport": [
+      390,
+      844,
+      2
+    ],
+    "view": "gap",
+    "report": {
+      "ready": true,
+      "revision": "v12",
+      "bake": {
+        "enabled": true,
+        "active": true,
+        "view": 0,
+        "error": null,
+        "gpuBytes": 254454442.66666663
+      },
+      "view": 0,
+      "time": 0,
+      "impulses": 0,
+      "memory": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        780,
+        1688
+      ],
+      "drawCalls": 8,
+      "triangles": 33124,
+      "frameStats": {
+        "frames": 6,
+        "milliseconds": 3437.2999999970198
+      }
+    }
+  },
+  {
+    "viewport": [
+      390,
+      844,
+      2
+    ],
+    "view": "under",
+    "report": {
+      "ready": true,
+      "revision": "v12",
+      "bake": {
+        "enabled": true,
+        "active": true,
+        "view": 1,
+        "error": null,
+        "gpuBytes": 254454442.66666663
+      },
+      "view": 1,
+      "time": 14400,
+      "impulses": 0,
+      "memory": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        780,
+        1688
+      ],
+      "drawCalls": 11,
+      "triangles": 49684,
+      "frameStats": {
+        "frames": 10,
+        "milliseconds": 3576.5
+      }
+    }
+  },
+  {
+    "viewport": [
+      390,
+      844,
+      2
+    ],
+    "view": "bank",
+    "report": {
+      "ready": true,
+      "revision": "v12",
+      "bake": {
+        "enabled": true,
+        "active": true,
+        "view": 2,
+        "error": null,
+        "gpuBytes": 254454442.66666663
+      },
+      "view": 2,
+      "time": 14400,
+      "impulses": 0,
+      "memory": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        780,
+        1688
+      ],
+      "drawCalls": 2,
+      "triangles": 4,
+      "frameStats": {
+        "frames": 14,
+        "milliseconds": 3715.6999999955297
+      }
+    }
+  },
+  {
+    "viewport": [
+      390,
+      844,
+      2
+    ],
+    "waterTap": true,
+    "textureCounts": [
+      13,
+      13,
+      13,
+      13
+    ],
+    "errors": []
+  },
+  {
+    "noDecompressionStream": "live fallback",
+    "errors": []
+  }
+]

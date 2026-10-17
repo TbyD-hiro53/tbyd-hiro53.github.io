@@ -23,3 +23,5 @@ All 18 maps were rebuilt at full dimensions. Lossless RGBA delta/gzip encoding r
 Chromium passed desktop 1100×800 / DPR1 and mobile 390×844 / DPR2 through all three views, repeated viewpoint switching, texture lifetime, live water touch, explanation bounds and long water clocks. With DecompressionStream unavailable, the existing real-time fallback rendered without script errors. The final v12 scene also passed dismissal-followed-by-double-click/reset gesture tests at all views, preserving the camera; a later explicit reset works. Screenshots were inspected.
 
 The scene uses three varied growth families, tapered branches and curved leaves, kept entirely in the baked static scene. The user's requested preview remains separate from the production root.
+
+Independent archive from e5ef837: full dependencies and the packed editable Blender scene, 966711952 bytes, SHA256 2052d5196ac66e327302368d3d678bd89f06bb5f3b77695136153e665330a9c7, CRC passed. The complete desktop/mobile/view-switch/water/fallback checks passed again after extraction to a separate directory.
