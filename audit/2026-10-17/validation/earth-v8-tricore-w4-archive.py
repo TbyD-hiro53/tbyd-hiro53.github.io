@@ -28,7 +28,7 @@ with sync_playwright() as p:
    point=pg.evaluate('()=>{for(let y=150;y<innerHeight-130;y+=12)for(let x=35;x<innerWidth-35;x+=12)if(document.elementFromPoint(x,y)?.id==="canvas"&&__lactoTricore.pick(x,y)==="pipe")return {x,y}}');assert point
    pg.touchscreen.tap(point['x'],point['y']);pg.wait_for_selector('#info[data-h53-reading-fit]');assert '加速区間' in pg.locator('#infoTitle').inner_text();pg.locator('#closeInfo').tap()
    assert pg.evaluate('__lactoTricore.revision')=='w4'
-   pg.evaluate('document.querySelector("#pause").click()');pg.wait_for_timeout(100);before=pg.evaluate('__lactoTricore.fluid().steps');pg.wait_for_timeout(400);assert pg.evaluate('__lactoTricore.fluid().steps')==before;assert pg.evaluate('__lactoTricore.fluid().finite')
+   pg.wait_for_function('!__h53Liquid.blocked&&performance.now()>__h53Liquid.blockedUntil',timeout=30000);pg.locator('#menuToggle').tap();pg.locator('#pause').tap();assert not pg.evaluate('__lactoTricore.clock.running');pg.wait_for_timeout(100);before=pg.evaluate('__lactoTricore.fluid().steps');pg.wait_for_timeout(400);assert pg.evaluate('__lactoTricore.fluid().steps')==before;assert pg.evaluate('__lactoTricore.fluid().finite')
    rows.append({'pause':True,'work':work,'directSanc':True,'threeViews':True,'pipeTap':True})
   assert not errors,errors;rows[-1]['errors']=errors;pg.screenshot(path=str(out/(work+'-archive.png')),timeout=120000);pg.close();print(work,'PASS',flush=True)
  b.close()
