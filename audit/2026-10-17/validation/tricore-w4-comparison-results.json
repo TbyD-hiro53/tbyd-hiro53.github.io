@@ -1,0 +1,14 @@
+[
+  {
+    "version": "w3",
+    "samplePixels": 3857,
+    "meanTemporalChange": 7.260133091349062,
+    "pixelsOver10": 794
+  },
+  {
+    "version": "w4",
+    "samplePixels": 3857,
+    "meanTemporalChange": 17.34327197303604,
+    "pixelsOver10": 2305
+  }
+]

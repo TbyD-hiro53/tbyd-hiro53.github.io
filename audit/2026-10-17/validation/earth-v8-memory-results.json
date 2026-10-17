@@ -1,0 +1,24 @@
+{
+  "textureCountsAfterReturn": [
+    41,
+    41,
+    41
+  ],
+  "noTextureGrowth": true,
+  "staleViewIgnored": true,
+  "current": {
+    "current": 0,
+    "pending": -1,
+    "active": true,
+    "failed": [],
+    "width": 4096,
+    "detailWidth": 2048,
+    "detailActive": true,
+    "staticObjects": 134,
+    "dynamicObjects": 24,
+    "depthTriangles": 27032,
+    "geometryBytes": 973152,
+    "decodedBytes": 50331648
+  },
+  "errors": []
+}

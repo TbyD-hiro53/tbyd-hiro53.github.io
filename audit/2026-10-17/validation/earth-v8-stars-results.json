@@ -1,0 +1,35 @@
+[
+  {
+    "viewport": [
+      1100,
+      800
+    ],
+    "view": 2,
+    "detail": true,
+    "convergenceLive": true,
+    "cancelOnMove": true,
+    "errors": []
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "view": 2,
+    "detail": true,
+    "convergenceLive": true,
+    "cancelOnMove": true,
+    "errors": []
+  },
+  {
+    "viewport": [
+      844,
+      390
+    ],
+    "view": 2,
+    "detail": true,
+    "convergenceLive": true,
+    "cancelOnMove": true,
+    "errors": []
+  }
+]
