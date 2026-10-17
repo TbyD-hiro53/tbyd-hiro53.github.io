@@ -13,3 +13,5 @@ The selected excerpt is 10:15–11:45. Wind uses high-pass 110 Hz, low-pass 5.5 
 Local Chromium functional checks passed at 390×844, 320×568 and 844×390: no audio request before a gesture, correct speaker state/placement, one-tap play/mute, hide/restore UI, page lifecycle and cross-tab exclusivity. Source/license links are present, and the decoded player reports revision v4.
 
 Independent functional checks passed. The first archive contained a verbatim external source page; GitHub push protection detected an embedded Mapbox key. That page was removed from the unpublished commits and replaced with a minimal source/license record. The archive will be rebuilt and rechecked from the sanitized commit; protection is not bypassed.
+
+Sanitized archive rebuilt from cb54c6b; all three viewport sizes and functional checks passed again from its independent extraction. Archive SHA256 67e213da7e1c2d386120bc964c770f15183ab9a4a312495ac5692ed5a9b85d5f, 736859595 bytes, 1352 entries, CRC pass.
