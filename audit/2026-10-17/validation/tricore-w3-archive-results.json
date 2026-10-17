@@ -1,0 +1,19 @@
+{
+  "threeViews": true,
+  "pipeTap": true,
+  "fluid": {
+    "particles": 1344,
+    "steps": 103,
+    "time": 2.5665666666666636,
+    "field": [
+      128,
+      1024
+    ],
+    "model": "2D position-based fluid",
+    "finite": true,
+    "minX": -0.9599999785423279,
+    "maxX": 0.9599999785423279,
+    "meanDownVelocity": 1.3218285387293214
+  },
+  "errors": []
+}
