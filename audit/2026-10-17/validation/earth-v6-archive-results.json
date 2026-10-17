@@ -1,0 +1,23 @@
+{
+  "archive": {
+    "archive": "/workspace/previews/2026-10-17/earth-v6/h53-earth-v6-preview.zip",
+    "source": "f04e86736d09418c40ac7f208dce74b64d5884cc",
+    "bytes": 533646997,
+    "sha256": "a3e1e08dfdd70ee4acadfcb9a9b7a784812163742f8b62f1c024c78ec25318e4",
+    "files": 1029,
+    "crc": true
+  },
+  "independentHTTP": {
+    "startup": true,
+    "apertureBake": {
+      "current": 3,
+      "pending": -1,
+      "failed": [],
+      "active": true,
+      "decodedBytes": 29360128,
+      "hiddenDrawObjects": 44
+    },
+    "rootRoadTap": true,
+    "errors": []
+  }
+}
