@@ -1,0 +1,198 @@
+{
+  "views": {
+    "4x3": {
+      "depth": "coastal-glass-beacon-v3-4x3-scene-depth-delta.bin.gz",
+      "projection": [
+        [
+          0.719298243522644,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1.138730764389038,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1.0000040531158447,
+          -0.20000040531158447
+        ],
+        [
+          0,
+          0,
+          -1,
+          0
+        ]
+      ],
+      "times": {
+        "mid-sunset": {
+          "linear": "coastal-glass-beacon-v3-4x3-sunset-log8.bin.gz",
+          "width": 2400,
+          "height": 1516
+        },
+        "night": {
+          "linear": "coastal-glass-beacon-v2-4x3-night-log8.bin.gz",
+          "width": 2400,
+          "height": 1516,
+          "surface": "coastal-glass-beacon-v2-4x3-surface-delta.bin.gz",
+          "surfaceWidth": 1200,
+          "surfaceHeight": 758
+        }
+      },
+      "depthWidth": 2400,
+      "depthHeight": 1516
+    },
+    "iphone-portrait": {
+      "depth": "coastal-glass-beacon-v3-iphone-portrait-scene-depth-delta.bin.gz",
+      "projection": [
+        [
+          0.804093599319458,
+          0,
+          -0.05789472907781601,
+          0
+        ],
+        [
+          0,
+          0.44091129302978516,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1.0000040531158447,
+          -0.20000040531158447
+        ],
+        [
+          0,
+          0,
+          -1,
+          0
+        ]
+      ],
+      "times": {
+        "mid-sunset": {
+          "linear": "coastal-glass-beacon-v3-iphone-portrait-sunset-log8.bin.gz",
+          "width": 1316,
+          "height": 2400
+        },
+        "night": {
+          "linear": "coastal-glass-beacon-v2-iphone-portrait-night-log8.bin.gz",
+          "width": 1316,
+          "height": 2400,
+          "surface": "coastal-glass-beacon-v2-iphone-portrait-surface-delta.bin.gz",
+          "surfaceWidth": 658,
+          "surfaceHeight": 1200
+        }
+      },
+      "depthWidth": 1316,
+      "depthHeight": 2400
+    },
+    "iphone-landscape": {
+      "depth": "coastal-glass-beacon-v3-iphone-landscape-scene-depth-delta.bin.gz",
+      "projection": [
+        [
+          0.5701754689216614,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1.4666892290115356,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1.0000040531158447,
+          -0.20000040531158447
+        ],
+        [
+          0,
+          0,
+          -1,
+          0
+        ]
+      ],
+      "times": {
+        "mid-sunset": {
+          "linear": "coastal-glass-beacon-v3-iphone-landscape-sunset-log8.bin.gz",
+          "width": 2400,
+          "height": 933
+        },
+        "night": {
+          "linear": "coastal-glass-beacon-v2-iphone-landscape-night-log8.bin.gz",
+          "width": 2400,
+          "height": 933,
+          "surface": "coastal-glass-beacon-v2-iphone-landscape-surface-delta.bin.gz",
+          "surfaceWidth": 1200,
+          "surfaceHeight": 466
+        }
+      },
+      "depthWidth": 2400,
+      "depthHeight": 933
+    },
+    "3x4": {
+      "depth": "coastal-glass-beacon-v3-3x4-scene-depth-delta.bin.gz",
+      "projection": [
+        [
+          0.8040935397148132,
+          0,
+          -0.010526303201913834,
+          0
+        ],
+        [
+          0,
+          0.7161458134651184,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1.0000040531158447,
+          -0.20000040531158447
+        ],
+        [
+          0,
+          0,
+          -1,
+          0
+        ]
+      ],
+      "times": {
+        "mid-sunset": {
+          "linear": "coastal-glass-beacon-v3-3x4-sunset-log8.bin.gz",
+          "width": 2052,
+          "height": 2304
+        },
+        "night": {
+          "linear": "coastal-glass-beacon-v2-3x4-night-log8.bin.gz",
+          "width": 2052,
+          "height": 2304,
+          "surface": "coastal-glass-beacon-v2-3x4-surface-delta.bin.gz",
+          "surfaceWidth": 1026,
+          "surfaceHeight": 1152
+        }
+      },
+      "depthWidth": 2052,
+      "depthHeight": 2304
+    }
+  },
+  "environments": {
+    "mid-sunset": {
+      "linear": "coastal-glass-rt-v2-env-linear-mid-sunset.bin.gz",
+      "reflection": "coastal-glass-rt-v2-reflection-linear-mid-sunset.bin.gz"
+    },
+    "night": {
+      "linear": "coastal-glass-rt-v2-env-linear-night.bin.gz",
+      "reflection": "coastal-glass-beacon-v2-reflection-night-log8.bin.gz"
+    }
+  }
+}

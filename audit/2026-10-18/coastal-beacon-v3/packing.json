@@ -1,0 +1,145 @@
+{
+  "status": "candidate",
+  "seconds": 16.343050417024642,
+  "originalAssetBytes": 49229394,
+  "compactAssetBytes": 9485475,
+  "files": [
+    {
+      "file": "coastal-glass-beacon-v2-4x3-night-log8.bin.gz",
+      "bytes": 1720340,
+      "decodedBytes": 14553600,
+      "sha256": "efe46fdc2351b8c5403b312f5b80fcba6548c4d0fac18b535d46bb1e85c7efaf",
+      "rawSHA256": "fd232ad2dcb8364fe48c6d6296aca20485f3fa7f86ea8c78845da916690f5ee0",
+      "shape": [
+        2400,
+        1516,
+        4
+      ],
+      "sourceHalfFloatBytes": 8848186,
+      "linearRGBMAE": 3.4073227652697824e-06,
+      "alphaMaxError": 0.0019607843137254832
+    },
+    {
+      "file": "coastal-glass-beacon-v2-4x3-surface-delta.bin.gz",
+      "bytes": 781036,
+      "decodedBytes": 3638400,
+      "sha256": "b8c51178c5d14b46252882bf0854396f5132752c5feb715c13e13e135546d1e8",
+      "rawSHA256": "5fae021309854e80b0821fdcae6b61bc2cfd2bcc324ad35aedd8e2d6d6eb94f8",
+      "shape": [
+        1200,
+        758,
+        4
+      ]
+    },
+    {
+      "file": "coastal-glass-beacon-v2-iphone-portrait-night-log8.bin.gz",
+      "bytes": 1190323,
+      "decodedBytes": 12633600,
+      "sha256": "f92515a9832dfb6d7bb4d0c1744feb2453cfb65ca95a4f9cfcd2b318fd3ff67f",
+      "rawSHA256": "e096c607d3292d3710d4097cc590952a8c34f75669fb9b24e81efbf04bbe641b",
+      "shape": [
+        1316,
+        2400,
+        4
+      ],
+      "sourceHalfFloatBytes": 7384419,
+      "linearRGBMAE": 2.6348734536441043e-06,
+      "alphaMaxError": 0.0019607843137254832
+    },
+    {
+      "file": "coastal-glass-beacon-v2-iphone-portrait-surface-delta.bin.gz",
+      "bytes": 655836,
+      "decodedBytes": 3158400,
+      "sha256": "a4008d1cb546649e7d5544b68b985cd2db19f38329b807ea28de206069052429",
+      "rawSHA256": "6e28f8048999681e29c26b529eaecfc441a7d606e4e1c3c3db47253314fdf893",
+      "shape": [
+        658,
+        1200,
+        4
+      ]
+    },
+    {
+      "file": "coastal-glass-beacon-v2-iphone-landscape-night-log8.bin.gz",
+      "bytes": 1172778,
+      "decodedBytes": 8956800,
+      "sha256": "c62edaf87938e1a2c121b0778ad804034c0dacfa3bd443553501605587075b2e",
+      "rawSHA256": "ba87a0c32cb984cd3be64ca6f1b3a353fac4f3827013d50718fdc0d2bf433240",
+      "shape": [
+        2400,
+        933,
+        4
+      ],
+      "sourceHalfFloatBytes": 5478603,
+      "linearRGBMAE": 3.0916385185264517e-06,
+      "alphaMaxError": 0.0019607843137254832
+    },
+    {
+      "file": "coastal-glass-beacon-v2-iphone-landscape-surface-delta.bin.gz",
+      "bytes": 489033,
+      "decodedBytes": 2236800,
+      "sha256": "ce9879a79a0606ff355598831ba427ed90e4bdde94cdeda00fbd557abe95fe81",
+      "rawSHA256": "22debf08cef9c72d928eac1178ada3763c27a7486ac5ee2c1e791bca2ab2782f",
+      "shape": [
+        1200,
+        466,
+        4
+      ]
+    },
+    {
+      "file": "coastal-glass-beacon-v2-3x4-night-log8.bin.gz",
+      "bytes": 1969151,
+      "decodedBytes": 18911232,
+      "sha256": "352774edb2f28a7020755f80a059359b9121b86130b4721334d03dc33001a72d",
+      "rawSHA256": "18c6aefe90e344ffa7545930d34780fcd191e77154fcd2e1b9a8a7bc93669ace",
+      "shape": [
+        2052,
+        2304,
+        4
+      ],
+      "sourceHalfFloatBytes": 11624295,
+      "linearRGBMAE": 3.186069307048456e-06,
+      "alphaMaxError": 0.0019607843137254832
+    },
+    {
+      "file": "coastal-glass-beacon-v2-3x4-surface-delta.bin.gz",
+      "bytes": 1013471,
+      "decodedBytes": 4727808,
+      "sha256": "c75f96eeb8389e77406a06cd7499a5528435fc98842c31180300cd4483b6a378",
+      "rawSHA256": "20919136b37942f8f604b4bf9d06f94174c793964cbba692f871b9e9a68e8165",
+      "shape": [
+        1026,
+        1152,
+        4
+      ]
+    },
+    {
+      "file": "coastal-glass-beacon-v2-reflection-night-log8.bin.gz",
+      "bytes": 72132,
+      "decodedBytes": 524288,
+      "sha256": "6df6b4578aeeb3df88daf5b9ab2f3663d13b92a5f7e9fe951043f677828cbda2",
+      "rawSHA256": "c4920fe6a55a9eaa9baa1ded50340a0f24f2d1cf2dc778e12994abd2f34cccd1",
+      "shape": [
+        512,
+        256,
+        4
+      ],
+      "sourceHalfFloatBytes": 378420,
+      "linearRGBMAE": 3.717762228916399e-05,
+      "alphaMaxError": 0.0
+    },
+    {
+      "file": "coastal-glass-beacon-v2-depth-delta.bin.gz",
+      "bytes": 421375,
+      "decodedBytes": 6340704,
+      "sha256": "37322b982a57566f20f3806531bd8fa56ff138182544ebe67ce56bbfed5ba0ee",
+      "rawSHA256": "55d111dc0fae27ddb48b30bc686362a6a339cc7fff4ff958af6c1a456e524b15",
+      "shape": [
+        1542,
+        1028,
+        4
+      ]
+    }
+  ],
+  "shadowRawIdentical": true,
+  "renderingPerformed": false
+}

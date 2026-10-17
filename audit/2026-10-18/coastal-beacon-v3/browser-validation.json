@@ -1,0 +1,745 @@
+{
+  "frames": [
+    {
+      "view": "4x3",
+      "seconds": 0,
+      "mae": 0.044256172839506176,
+      "psnr": 61.670883341231914,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 9,
+        "textures": 12
+      },
+      "candidateDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 9,
+        "textures": 13
+      }
+    },
+    {
+      "view": "4x3",
+      "seconds": 6,
+      "mae": 0.04383796296296296,
+      "psnr": 61.71223880193501,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 9,
+        "textures": 12
+      },
+      "candidateDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 9,
+        "textures": 13
+      }
+    },
+    {
+      "view": "4x3",
+      "seconds": 12,
+      "mae": 0.04363981481481481,
+      "psnr": 61.72203420873981,
+      "p99": 1,
+      "p999": 1,
+      "max": 17,
+      "fractionOver2": 9.259259259259259e-7,
+      "referenceDraws": {
+        "calls": 35,
+        "triangles": 333666,
+        "geometries": 9,
+        "textures": 12
+      },
+      "candidateDraws": {
+        "calls": 35,
+        "triangles": 333666,
+        "geometries": 9,
+        "textures": 13
+      }
+    },
+    {
+      "view": "4x3",
+      "seconds": 18,
+      "mae": 0.04398333333333333,
+      "psnr": 61.69786125969761,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 40,
+        "triangles": 362084,
+        "geometries": 10,
+        "textures": 12
+      },
+      "candidateDraws": {
+        "calls": 40,
+        "triangles": 362084,
+        "geometries": 10,
+        "textures": 13
+      }
+    },
+    {
+      "view": "3x4",
+      "seconds": 0,
+      "mae": 0.04354012345679013,
+      "psnr": 61.74184547626322,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 10,
+        "textures": 13
+      },
+      "candidateDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 10,
+        "textures": 13
+      }
+    },
+    {
+      "view": "3x4",
+      "seconds": 6,
+      "mae": 0.04305432098765432,
+      "psnr": 61.79057389953726,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 10,
+        "textures": 13
+      },
+      "candidateDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 10,
+        "textures": 13
+      }
+    },
+    {
+      "view": "3x4",
+      "seconds": 12,
+      "mae": 0.043195987654320984,
+      "psnr": 61.776245402647504,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 35,
+        "triangles": 333666,
+        "geometries": 10,
+        "textures": 13
+      },
+      "candidateDraws": {
+        "calls": 35,
+        "triangles": 333666,
+        "geometries": 10,
+        "textures": 13
+      }
+    },
+    {
+      "view": "3x4",
+      "seconds": 18,
+      "mae": 0.04347870370370371,
+      "psnr": 61.747852763926886,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 40,
+        "triangles": 362084,
+        "geometries": 10,
+        "textures": 13
+      },
+      "candidateDraws": {
+        "calls": 40,
+        "triangles": 362084,
+        "geometries": 10,
+        "textures": 13
+      }
+    },
+    {
+      "view": "iphone-portrait",
+      "seconds": 0,
+      "mae": 0.038092473321541254,
+      "psnr": 62.322104016118175,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 10,
+        "textures": 13
+      },
+      "candidateDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 10,
+        "textures": 13
+      }
+    },
+    {
+      "view": "iphone-portrait",
+      "seconds": 6,
+      "mae": 0.03777471723759244,
+      "psnr": 62.35848092586238,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 10,
+        "textures": 13
+      },
+      "candidateDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 10,
+        "textures": 13
+      }
+    },
+    {
+      "view": "iphone-portrait",
+      "seconds": 12,
+      "mae": 0.03768425127034922,
+      "psnr": 62.36889349260744,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 35,
+        "triangles": 333666,
+        "geometries": 10,
+        "textures": 13
+      },
+      "candidateDraws": {
+        "calls": 35,
+        "triangles": 333666,
+        "geometries": 10,
+        "textures": 13
+      }
+    },
+    {
+      "view": "iphone-portrait",
+      "seconds": 18,
+      "mae": 0.038042514503809924,
+      "psnr": 62.32780318375439,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 40,
+        "triangles": 362084,
+        "geometries": 10,
+        "textures": 13
+      },
+      "candidateDraws": {
+        "calls": 40,
+        "triangles": 362084,
+        "geometries": 10,
+        "textures": 13
+      }
+    },
+    {
+      "view": "iphone-landscape",
+      "seconds": 0,
+      "mae": 0.03541765121543952,
+      "psnr": 62.63860604070228,
+      "p99": 1,
+      "p999": 1,
+      "max": 1,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 10,
+        "textures": 13
+      },
+      "candidateDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 10,
+        "textures": 13
+      }
+    },
+    {
+      "view": "iphone-landscape",
+      "seconds": 6,
+      "mae": 0.03524392055197743,
+      "psnr": 62.659961472975056,
+      "p99": 1,
+      "p999": 1,
+      "max": 1,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 10,
+        "textures": 13
+      },
+      "candidateDraws": {
+        "calls": 38,
+        "triangles": 361316,
+        "geometries": 10,
+        "textures": 13
+      }
+    },
+    {
+      "view": "iphone-landscape",
+      "seconds": 12,
+      "mae": 0.03518270974827057,
+      "psnr": 62.66751075393971,
+      "p99": 1,
+      "p999": 1,
+      "max": 1,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 35,
+        "triangles": 333666,
+        "geometries": 10,
+        "textures": 13
+      },
+      "candidateDraws": {
+        "calls": 35,
+        "triangles": 333666,
+        "geometries": 10,
+        "textures": 13
+      }
+    },
+    {
+      "view": "iphone-landscape",
+      "seconds": 18,
+      "mae": 0.035270025159440645,
+      "psnr": 62.65663507512628,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0,
+      "referenceDraws": {
+        "calls": 40,
+        "triangles": 362084,
+        "geometries": 10,
+        "textures": 13
+      },
+      "candidateDraws": {
+        "calls": 40,
+        "triangles": 362084,
+        "geometries": 10,
+        "textures": 13
+      }
+    }
+  ],
+  "errors": [],
+  "finished": true,
+  "sunset": {
+    "mae": 0.07927530864197531,
+    "psnr": 59.13692247743228,
+    "p99": 1,
+    "p999": 1,
+    "max": 2,
+    "fractionOver2": 0
+  },
+  "sunsets": [
+    {
+      "view": "4x3",
+      "mae": 0.07927530864197531,
+      "psnr": 59.13692247743228,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0
+    },
+    {
+      "view": "3x4",
+      "mae": 0.08541358024691358,
+      "psnr": 58.814875279012924,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0
+    },
+    {
+      "view": "iphone-portrait",
+      "mae": 0.07969196563193404,
+      "psnr": 59.115775307000796,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0
+    },
+    {
+      "view": "iphone-landscape",
+      "mae": 0.06268616410796506,
+      "psnr": 60.15871248965254,
+      "p99": 1,
+      "p999": 1,
+      "max": 2,
+      "fractionOver2": 0
+    }
+  ],
+  "shadowRawIdentical": true,
+  "renderer": {
+    "type": "realtime WebGL meshes and analytic water; static depth-baked environment",
+    "view": "iphone-landscape",
+    "projection": {
+      "aspect": 2.164102564102564,
+      "referenceAspect": 2.1664315937940763,
+      "expansion": [
+        1,
+        1.0010762104024762
+      ]
+    },
+    "time": "night",
+    "seconds": 18,
+    "frames": 26,
+    "renderSize": [
+      1266,
+      585
+    ],
+    "readyMs": 156.20000004768372,
+    "cpuMs": {
+      "count": 26,
+      "mean": 8.007692291186405,
+      "p50": 3.6999998092651367,
+      "p95": 15.800000190734863,
+      "max": 78.79999995231628
+    },
+    "gpuMs": {
+      "count": 25,
+      "mean": 3.0779095199999995,
+      "p50": 2.89925,
+      "p95": 5.173041,
+      "max": 5.451333
+    },
+    "renderer": {
+      "calls": 40,
+      "triangles": 362084,
+      "geometries": 10,
+      "textures": 13
+    },
+    "textureCache": 6,
+    "webgl2": true,
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2 Max, Unspecified Version)",
+    "resources": [
+      {
+        "name": "coastal-glass-rt-v2-h53glass.css",
+        "bytes": 9143,
+        "duration": 0
+      },
+      {
+        "name": "coastal-glass-observation-v3.css",
+        "bytes": 5821,
+        "duration": 0
+      },
+      {
+        "name": "coastal-glass-rt-v2-loading-landscape.jpg",
+        "bytes": 198159,
+        "duration": 0
+      },
+      {
+        "name": "h53-chrome-copy-en-v1-20260923.js",
+        "bytes": 32028,
+        "duration": 0
+      },
+      {
+        "name": "h53-chrome-v2-20261016.js",
+        "bytes": 24283,
+        "duration": 0
+      },
+      {
+        "name": "coastal-glass-rt-v2-three-r128.min.js",
+        "bytes": 603447,
+        "duration": 0
+      },
+      {
+        "name": "coastal-glass-rt-v2-motion.js",
+        "bytes": 3954,
+        "duration": 0
+      },
+      {
+        "name": "coastal-glass-observation-v3-material.js",
+        "bytes": 10083,
+        "duration": 0
+      },
+      {
+        "name": "coastal-glass-observation-v3-ui.js",
+        "bytes": 14175,
+        "duration": 0
+      },
+      {
+        "name": "coastal-glass-beacon-v2-night.js",
+        "bytes": 6606,
+        "duration": 3.5
+      },
+      {
+        "name": "h53-reading-layout-v3-20261018.js",
+        "bytes": 5338,
+        "duration": 4.699999809265137
+      },
+      {
+        "name": "coastal-glass-beacon-v2-picking.js",
+        "bytes": 11794,
+        "duration": 3.9000000953674316
+      },
+      {
+        "name": "coastal-glass-beacon-v3-renderer.js",
+        "bytes": 33848,
+        "duration": 4.900000095367432
+      },
+      {
+        "name": "h53-dismiss-v1-20260921.js",
+        "bytes": 3740,
+        "duration": 0
+      },
+      {
+        "name": "coastal-glass-beacon-v2-app.js",
+        "bytes": 16065,
+        "duration": 5.5
+      },
+      {
+        "name": "coastal-glass-observation-v3-w3-catalog.json",
+        "bytes": 6707,
+        "duration": 0.7999999523162842
+      },
+      {
+        "name": "coastal-glass-rt-v2-scene.json",
+        "bytes": 29627,
+        "duration": 1
+      },
+      {
+        "name": "coastal-glass-beacon-v3-bakes.json",
+        "bytes": 4533,
+        "duration": 4.5
+      },
+      {
+        "name": "coastal-glass-beacon-v2-night-config.json",
+        "bytes": 9807,
+        "duration": 3.1000001430511475
+      },
+      {
+        "name": "coastal-glass-beacon-v3-geometry.bin.gz",
+        "bytes": 1384272,
+        "duration": 5
+      },
+      {
+        "name": "coastal-glass-beacon-v2-depth-delta.bin.gz",
+        "bytes": 421375,
+        "duration": 2.200000047683716
+      },
+      {
+        "name": "coastal-glass-rt-v2-agx-lut33.png",
+        "bytes": 6834,
+        "duration": 0
+      },
+      {
+        "name": "coastal-glass-beacon-v2-4x3-night-log8.bin.gz",
+        "bytes": 1720340,
+        "duration": 7.099999904632568
+      },
+      {
+        "name": "coastal-glass-beacon-v3-4x3-scene-depth-delta.bin.gz",
+        "bytes": 1878684,
+        "duration": 9.5
+      },
+      {
+        "name": "coastal-glass-rt-v2-env-linear-night.bin.gz",
+        "bytes": 76962,
+        "duration": 1.9000000953674316
+      },
+      {
+        "name": "coastal-glass-beacon-v2-reflection-night-log8.bin.gz",
+        "bytes": 72132,
+        "duration": 4
+      },
+      {
+        "name": "coastal-glass-beacon-v2-4x3-surface-delta.bin.gz",
+        "bytes": 781036,
+        "duration": 5.799999952316284
+      },
+      {
+        "name": "coastal-glass-observation-v3-w2-targets.json",
+        "bytes": 1372,
+        "duration": 1.3000001907348633
+      },
+      {
+        "name": "coastal-glass-observation-v3-w2-ids-4x3.bin",
+        "bytes": 37680,
+        "duration": 0.7999999523162842
+      },
+      {
+        "name": "coastal-glass-beacon-v3-4x3-sunset-log8.bin.gz",
+        "bytes": 1755307,
+        "duration": 8.100000143051147
+      },
+      {
+        "name": "coastal-glass-rt-v2-env-linear-mid-sunset.bin.gz",
+        "bytes": 295905,
+        "duration": 2.299999952316284
+      },
+      {
+        "name": "coastal-glass-rt-v2-reflection-linear-mid-sunset.bin.gz",
+        "bytes": 567749,
+        "duration": 2.5999999046325684
+      },
+      {
+        "name": "coastal-glass-beacon-v3-3x4-sunset-log8.bin.gz",
+        "bytes": 2027971,
+        "duration": 9.199999809265137
+      },
+      {
+        "name": "coastal-glass-beacon-v3-3x4-scene-depth-delta.bin.gz",
+        "bytes": 2012261,
+        "duration": 8.700000047683716
+      },
+      {
+        "name": "coastal-glass-observation-v3-w2-ids-3x4.bin",
+        "bytes": 38637,
+        "duration": 1.4000000953674316
+      },
+      {
+        "name": "coastal-glass-beacon-v3-iphone-portrait-scene-depth-delta.bin.gz",
+        "bytes": 1083019,
+        "duration": 6.6000001430511475
+      },
+      {
+        "name": "coastal-glass-beacon-v3-iphone-portrait-sunset-log8.bin.gz",
+        "bytes": 1161352,
+        "duration": 6.800000190734863
+      },
+      {
+        "name": "coastal-glass-observation-v3-w2-ids-iphone-portrait.bin",
+        "bytes": 24813,
+        "duration": 1.2000000476837158
+      },
+      {
+        "name": "coastal-glass-beacon-v3-iphone-landscape-sunset-log8.bin.gz",
+        "bytes": 1197837,
+        "duration": 7.299999952316284
+      },
+      {
+        "name": "coastal-glass-beacon-v3-iphone-landscape-scene-depth-delta.bin.gz",
+        "bytes": 1331389,
+        "duration": 8.099999904632568
+      },
+      {
+        "name": "coastal-glass-observation-v3-w2-ids-iphone-landscape.bin",
+        "bytes": 24042,
+        "duration": 1
+      },
+      {
+        "name": "coastal-glass-beacon-v2-4x3-night-log8.bin.gz",
+        "bytes": 1720340,
+        "duration": 4.699999809265137
+      },
+      {
+        "name": "coastal-glass-beacon-v3-4x3-scene-depth-delta.bin.gz",
+        "bytes": 1878684,
+        "duration": 5.299999952316284
+      },
+      {
+        "name": "coastal-glass-rt-v2-env-linear-night.bin.gz",
+        "bytes": 76962,
+        "duration": 2
+      },
+      {
+        "name": "coastal-glass-beacon-v2-reflection-night-log8.bin.gz",
+        "bytes": 72132,
+        "duration": 2
+      },
+      {
+        "name": "coastal-glass-beacon-v2-4x3-surface-delta.bin.gz",
+        "bytes": 781036,
+        "duration": 4
+      },
+      {
+        "name": "coastal-glass-observation-v3-w2-ids-4x3.bin",
+        "bytes": 37680,
+        "duration": 1.7999999523162842
+      },
+      {
+        "name": "coastal-glass-beacon-v2-3x4-night-log8.bin.gz",
+        "bytes": 1969151,
+        "duration": 7.5
+      },
+      {
+        "name": "coastal-glass-beacon-v3-3x4-scene-depth-delta.bin.gz",
+        "bytes": 2012261,
+        "duration": 3.6000001430511475
+      },
+      {
+        "name": "coastal-glass-beacon-v2-3x4-surface-delta.bin.gz",
+        "bytes": 1013471,
+        "duration": 5.200000047683716
+      },
+      {
+        "name": "coastal-glass-observation-v3-w2-ids-3x4.bin",
+        "bytes": 38637,
+        "duration": 1.2999999523162842
+      },
+      {
+        "name": "coastal-glass-beacon-v2-iphone-portrait-night-log8.bin.gz",
+        "bytes": 1190323,
+        "duration": 5.1000001430511475
+      },
+      {
+        "name": "coastal-glass-beacon-v3-iphone-portrait-scene-depth-delta.bin.gz",
+        "bytes": 1083019,
+        "duration": 2.5999999046325684
+      },
+      {
+        "name": "coastal-glass-beacon-v2-iphone-portrait-surface-delta.bin.gz",
+        "bytes": 655836,
+        "duration": 4.700000047683716
+      },
+      {
+        "name": "coastal-glass-observation-v3-w2-ids-iphone-portrait.bin",
+        "bytes": 24813,
+        "duration": 1.2000000476837158
+      },
+      {
+        "name": "coastal-glass-beacon-v3-iphone-landscape-scene-depth-delta.bin.gz",
+        "bytes": 1331389,
+        "duration": 2.799999952316284
+      },
+      {
+        "name": "coastal-glass-beacon-v2-iphone-landscape-night-log8.bin.gz",
+        "bytes": 1172778,
+        "duration": 5.299999952316284
+      },
+      {
+        "name": "coastal-glass-beacon-v2-iphone-landscape-surface-delta.bin.gz",
+        "bytes": 489033,
+        "duration": 4.700000047683716
+      },
+      {
+        "name": "coastal-glass-observation-v3-w2-ids-iphone-landscape.bin",
+        "bytes": 24042,
+        "duration": 2.9000000953674316
+      }
+    ]
+  }
+}

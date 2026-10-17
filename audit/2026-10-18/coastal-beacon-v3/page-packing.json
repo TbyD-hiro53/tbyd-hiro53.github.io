@@ -1,0 +1,71 @@
+{
+  "seconds": 17.82839808310382,
+  "files": [
+    {
+      "file": "coastal-glass-beacon-v3-4x3-sunset-log8.bin.gz",
+      "bytes": 1755307,
+      "decodedBytes": 14553600,
+      "sha256": "ca70e038d922460ab3e64de72aaaf1030003a4efd2bb71ff4e3fc39d045bce54",
+      "rawSHA256": "ca2f62a3fba8a1ef4c578ba9840df8f0089b9fe8f1f65bae6304e859b02fef68"
+    },
+    {
+      "file": "coastal-glass-beacon-v3-4x3-scene-depth-delta.bin.gz",
+      "bytes": 1878684,
+      "decodedBytes": 14553600,
+      "sha256": "ac0273a284caef95f263521b1c3a7b4ec5002257ae69dafa6bd5695295588afc",
+      "rawSHA256": "32dd76e58766481c69c613ec6c26a16104df9cd9d6b7dce33cbf4dd8aa682217"
+    },
+    {
+      "file": "coastal-glass-beacon-v3-iphone-portrait-sunset-log8.bin.gz",
+      "bytes": 1161352,
+      "decodedBytes": 12633600,
+      "sha256": "a6bec3b243020bf9e85772d309c885dd827232d60651c5577db0a532f7ff9b35",
+      "rawSHA256": "f307a7a2147fee345645327ef5cb863a9c94bc470d3548990751202b2c1c2e63"
+    },
+    {
+      "file": "coastal-glass-beacon-v3-iphone-portrait-scene-depth-delta.bin.gz",
+      "bytes": 1083019,
+      "decodedBytes": 12633600,
+      "sha256": "1496c750f94484ae6c6be4afe58cab84987e99956315747d6af4f99a50c9d555",
+      "rawSHA256": "1d2d61423eeafe895d22285676c56e8964c61bfc9353853724500d75f2a8e1cf"
+    },
+    {
+      "file": "coastal-glass-beacon-v3-iphone-landscape-sunset-log8.bin.gz",
+      "bytes": 1197837,
+      "decodedBytes": 8956800,
+      "sha256": "cff25dc69601bd2feb23dd6ba0a28cdcd3693b2794865446c1513a9215e0cd4f",
+      "rawSHA256": "4a75c1e4ad5fe634369f47432db30564b6f0662bfdc9ee6b804e475f386ac00b"
+    },
+    {
+      "file": "coastal-glass-beacon-v3-iphone-landscape-scene-depth-delta.bin.gz",
+      "bytes": 1331389,
+      "decodedBytes": 8956800,
+      "sha256": "f6662149195aa0dbc284168a33e2e89f51bc5675c19e3a36638c41c3f369ec4d",
+      "rawSHA256": "fbc3eae17f015ba7ad3de40fa49fd7427e9cf8ba75df7338d47b9bdb1a3afab2"
+    },
+    {
+      "file": "coastal-glass-beacon-v3-3x4-sunset-log8.bin.gz",
+      "bytes": 2027971,
+      "decodedBytes": 18911232,
+      "sha256": "41a2638c0412402795be7ad2005963071cb7cdd1c2324cb9f83ce2c136230fae",
+      "rawSHA256": "0d757743702bee44caa5c063681706cf065d25671d718ecb7925002c687df02b"
+    },
+    {
+      "file": "coastal-glass-beacon-v3-3x4-scene-depth-delta.bin.gz",
+      "bytes": 2012261,
+      "decodedBytes": 18911232,
+      "sha256": "d323a6343d138c1f09b9ef313b15b416252d601d6225ae76512c41d5b023b68f",
+      "rawSHA256": "da22fffb27f11d0e84d1063a4f48d123a85bce9772a1ae5025257db5ead276ca"
+    },
+    {
+      "file": "coastal-glass-beacon-v3-geometry.bin.gz",
+      "bytes": 1384272,
+      "decodedBytes": 2658668,
+      "sha256": "92b9af1885051169a72cba610a35fdae6878ae1bd32e74b3fa29bc44a42b0c4d",
+      "rawSHA256": "868a74f4355789765b7cc9fa5e57a836bdbb0c99da7c22597dc083b48c441b15"
+    }
+  ],
+  "extraCompactBytes": 13832092,
+  "geometryAndSceneDepthLossless": true,
+  "renderingPerformed": false
+}

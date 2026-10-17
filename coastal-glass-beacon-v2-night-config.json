@@ -1,0 +1,371 @@
+{
+  "version": 1,
+  "scope": "Compact rotating-beacon review: same full-resolution lighting/shadow layout, log8 radiance and half-size static diffuse receiver maps.",
+  "coordinateSystem": "Original Blender Z-up world metres. Azimuth atan2(x,y), elevation asin(z).",
+  "timeAssumption": {
+    "label": "\u591c\u9593",
+    "independentFromSunset": true,
+    "illustrativeHoursAfterReferenceSunset": 9,
+    "statement": "A separate later-night view, approximately nine hours after the reference sunset as an artistic assumption. No location, season, calendar date or astronomical timetable is claimed.",
+    "fullMoonPhaseAssumption": "The late-night Sun is below the horizon, opposite the Moon; no low sunset Sun or warm sunset reflection remains."
+  },
+  "exposure": 3,
+  "viewTransform": "AgX",
+  "look": "AgX - Medium Low Contrast",
+  "moon": {
+    "azimuthDegrees": -26,
+    "elevationDegrees": 25.5,
+    "worldDirection": [
+      -0.39566734617539395,
+      0.8112382798508955,
+      0.43051109680829514
+    ],
+    "angularDiameterDegrees": 0.52,
+    "angularRadiusRadians": 0.004537856055185257,
+    "solidAngleSteradians": 6.469199712345156e-05,
+    "directIrradianceScalar": 0.008,
+    "colorLinearRGB": [
+      0.8,
+      0.86,
+      1
+    ],
+    "discRadianceLinearRGB": [
+      98.93032035766183,
+      106.35009438448645,
+      123.66290044707728
+    ],
+    "temperatureKelvinReference": 6500,
+    "temperatureNote": "Neutral daylight-scale illuminant reference with a modest cool appearance tint; RGB above is authoritative, not a measured lunar spectrum.",
+    "lightType": "SUN",
+    "lightAngleRadians": 0.009075712110370514,
+    "screenCenterTopOrigin": {
+      "4x3": [
+        0.13772662862422452,
+        0.2478326315224602
+      ],
+      "iphone-portrait": [
+        0.08483562513611659,
+        0.402353660265416
+      ],
+      "iphone-landscape": [
+        0.2192413299737856,
+        0.21258239203398732
+      ],
+      "3x4": [
+        0.04825333768024936,
+        0.34142788823908976
+      ]
+    },
+    "fixedAcrossCameras": true,
+    "independentTapTarget": false
+  },
+  "lateNightSun": {
+    "worldDirection": [
+      0.39566734617539395,
+      -0.8112382798508955,
+      -0.43051109680829514
+    ],
+    "elevationDegrees": -25.5,
+    "visible": false,
+    "directIrradianceScalar": 0,
+    "note": "Antipodal full-phase construction only; below-horizon Sun contributes no retained sunset disc/stripe."
+  },
+  "world": {
+    "strength": 2,
+    "gradientInput": "normalized world-ray Z",
+    "interpolation": "linear",
+    "stops": [
+      {
+        "z": -1,
+        "radianceLinearRGB": [
+          0.00035,
+          0.00065,
+          0.0012
+        ]
+      },
+      {
+        "z": 0,
+        "radianceLinearRGB": [
+          0.0025,
+          0.0045,
+          0.009
+        ]
+      },
+      {
+        "z": 1,
+        "radianceLinearRGB": [
+          0.0006,
+          0.00125,
+          0.0035
+        ]
+      }
+    ]
+  },
+  "beacon": {
+    "sourceGeometry": "Existing source lighthouse decagonal glazed lantern, existing opaque mullions/roof/floor unchanged",
+    "internalSourcePosition": [
+      12.655214309692383,
+      22,
+      11.005817413330078
+    ],
+    "glazingBottomTopZ": [
+      10.77702808380127,
+      11.234606742858887
+    ],
+    "beamAzimuthDegrees": -72,
+    "beamElevationDegrees": -3,
+    "worldDirection": [
+      -0.9497531263931349,
+      0.30859349732391056,
+      -0.052335956242943835
+    ],
+    "exitPupilPosition": [
+      12.303450609457942,
+      22.114294954625937,
+      10.986433544920779
+    ],
+    "exitDistanceFromSource": 0.3703738271126625,
+    "exitPupilRadiusMetres": 0.015,
+    "colorLinearRGB": [
+      1,
+      0.67,
+      0.32
+    ],
+    "sourcePowerWatts": 12,
+    "glazingTransmissionApprox": 0.88,
+    "emittedPowerWattsAfterGlazing": 10.56,
+    "outerFullAngleDegrees": 5.6,
+    "innerFullAngleDegrees": 4.2,
+    "outerHalfAngleRadians": 0.048869219055841226,
+    "innerHalfAngleRadians": 0.03665191429188092,
+    "rangeMetres": 220,
+    "nearMetres": 0.015,
+    "lanternGlazingEmissionStrength": 1,
+    "lightType": "SPOT",
+    "spotBlend": 0.25,
+    "stationary": false,
+    "independentTapTarget": false,
+    "volume": {
+      "extinctionPerMetre": 0.0022,
+      "scatteringPerMetre": 0.00075,
+      "henyeyGreensteinG": 0.28,
+      "colorLinearRGB": [
+        1,
+        1,
+        1
+      ],
+      "rangeFadeStartMetres": 180,
+      "rangeFadeEndMetres": 220,
+      "assumption": "Weak homogeneous maritime haze for the narrow beacon only. Single scattering with inverse-square irradiance and Beer attenuation; no global opaque fog or surface overlay.",
+      "airOnlyAboveMeanSeaZ": -1.52
+    },
+    "shadow": {
+      "version": 1,
+      "sourceSHA256": "024b97f4343a7e4046468e0f3a97ef543c0d2bc157f83e31487966a5dc257179",
+      "internalSourcePosition": [
+        12.655214309692383,
+        22.0,
+        11.005817413330078
+      ],
+      "resolution": 512,
+      "padding": 1,
+      "tileSize": 514,
+      "width": 1542,
+      "height": 1028,
+      "faces": [
+        {
+          "name": "+x",
+          "forward": [
+            1,
+            0,
+            0
+          ],
+          "right": [
+            0,
+            -1,
+            0
+          ],
+          "up": [
+            0,
+            0,
+            1
+          ],
+          "tile": [
+            0,
+            0
+          ],
+          "min": 0.2922346591949463,
+          "max": 220.0
+        },
+        {
+          "name": "-x",
+          "forward": [
+            -1,
+            0,
+            0
+          ],
+          "right": [
+            0,
+            1,
+            0
+          ],
+          "up": [
+            0,
+            0,
+            1
+          ],
+          "tile": [
+            1,
+            0
+          ],
+          "min": 0.2922346293926239,
+          "max": 220.0
+        },
+        {
+          "name": "+y",
+          "forward": [
+            0,
+            1,
+            0
+          ],
+          "right": [
+            1,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            0,
+            1
+          ],
+          "tile": [
+            2,
+            0
+          ],
+          "min": 0.2922346591949463,
+          "max": 220.0
+        },
+        {
+          "name": "-y",
+          "forward": [
+            0,
+            -1,
+            0
+          ],
+          "right": [
+            -1,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            0,
+            1
+          ],
+          "tile": [
+            0,
+            1
+          ],
+          "min": 0.2922346591949463,
+          "max": 220.0
+        },
+        {
+          "name": "+z",
+          "forward": [
+            0,
+            0,
+            1
+          ],
+          "right": [
+            1,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            1,
+            0
+          ],
+          "tile": [
+            1,
+            1
+          ],
+          "min": 0.20699959993362427,
+          "max": 0.35899949073791504
+        },
+        {
+          "name": "-z",
+          "forward": [
+            0,
+            0,
+            -1
+          ],
+          "right": [
+            1,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            -1,
+            0
+          ],
+          "tile": [
+            2,
+            1
+          ],
+          "min": 0.20684319734573364,
+          "max": 0.358728289604187
+        }
+      ],
+      "rangeMetres": 220.0,
+      "biasMetres": 0.004,
+      "format": "After transport reconstruction: raw RGBA8, RGB24 round(radial metres / 220 * 16777215), alpha255; bottom-to-top rows, nearest filtering, no mipmaps or colour conversion.",
+      "file": "coastal-glass-beacon-v2-depth-delta.bin.gz",
+      "bytes": 421375,
+      "decodedBytes": 6340704,
+      "sha256": "37322b982a57566f20f3806531bd8fa56ff138182544ebe67ce56bbfed5ba0ee",
+      "rawSHA256": "55d111dc0fae27ddb48b30bc686362a6a339cc7fff4ff958af6c1a456e524b15",
+      "periodSeconds": 24,
+      "initialAzimuthDegrees": -72,
+      "elevationDegrees": -3,
+      "pupilDistanceMetres": 0.3703738271126625,
+      "glazingTransmission": 0.88,
+      "scope": "Evaluated static opaque meshes/curves; source geometry retained. Water and moving glass omitted. Lantern glazing transmits .88. Vegetation instances excluded as in the previous depth proxy.",
+      "bakeSeconds": 4.342052875086665,
+      "peakRSSBytes": 1842003968,
+      "transport": "gzip planar byte channels with horizontal modulo-256 predictor; reconstruct identical RGBA8 before use"
+    },
+    "effectiveBeamSolidAngleSteradians": 0.005860543328624288,
+    "radiantIntensityCenterRGB": [
+      1801.8807144420293,
+      1207.2600786761598,
+      576.6018286214495
+    ],
+    "initialPhaseApertureReference": {
+      "existingGlazingPanel": "Lantern glazing panel.004",
+      "worldPoint": [
+        12.327203750610352,
+        22.106576919555664,
+        10.98774242401123
+      ],
+      "worldNormal": [
+        0.9510573744773865,
+        -0.30901452898979187,
+        0
+      ],
+      "rayDistanceFromInternalLamp": 0.345363974571228,
+      "coneRaysVerified": 513,
+      "allConeRaysPassOpeningBeforeOpaqueGeometry": true,
+      "centerHeightAboveGlazingBottom": 0.21071434020996094,
+      "centerHeightBelowGlazingTop": 0.24686431884765625
+    },
+    "rotation": {
+      "periodSeconds": 24,
+      "initialAzimuthDegrees": -72,
+      "elevationDegrees": -3,
+      "clock": "full scene seconds; pause/reduced motion/hidden tab inherited from W3 app"
+    }
+  },
+  "lightingUnitsNote": "Scene-linear working radiometric units. Moon directional irradiance and visible disc radiance are linked by the disc solid angle. These are design assumptions, not measurements of an actual site."
+}

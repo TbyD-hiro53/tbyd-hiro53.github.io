@@ -1,0 +1,185 @@
+{
+  "base_main": "9100957a77870d420ba2aa96df3ed8e4ba87ebc4",
+  "files": [
+    {
+      "path": "audit/2026-10-18/coastal-beacon-v3/README.md",
+      "bytes": 3727,
+      "sha256": "b78668511f8e84f56b312eefb51c688160c4e79f90a092ab056eafe82b3b2c94"
+    },
+    {
+      "path": "audit/2026-10-18/coastal-beacon-v3/browser-validation.json",
+      "bytes": 17771,
+      "sha256": "aede9f0237ccc5f452f42f19287ab7f89815c5909286594729f8aafdbd726d64"
+    },
+    {
+      "path": "audit/2026-10-18/coastal-beacon-v3/packing.json",
+      "bytes": 4546,
+      "sha256": "b718b23a4b68d6cf434b0dd5efc769a72070edc116cb5e9b51c6bcbf4bf0df10"
+    },
+    {
+      "path": "audit/2026-10-18/coastal-beacon-v3/page-packing.json",
+      "bytes": 2948,
+      "sha256": "859e061c9ad5d559488c2501abefcda4c08bab4e32143e5e938fb213cbca719a"
+    },
+    {
+      "path": "audit/2026-10-18/coastal-beacon-v3/page-transfer-sizes.json",
+      "bytes": 3776,
+      "sha256": "d6f8ac4582a915e7b0a51cf1be0251437fd7730c4da71965c9e7b814d912c204"
+    },
+    {
+      "path": "audit/2026-10-18/coastal-beacon-v3/tools/build_compact.py",
+      "bytes": 5556,
+      "sha256": "393eaaa8ad07ccbea96c204ecc4b70b266509d96f11a2613f64a76362b99c744"
+    },
+    {
+      "path": "audit/2026-10-18/coastal-beacon-v3/tools/build_compact_page.py",
+      "bytes": 3750,
+      "sha256": "171a49a652cc6e3bb3c60d71b80b04c5a368ad83ae92bc97a2b7224cbe714753"
+    },
+    {
+      "path": "build_frag.py",
+      "bytes": 18263,
+      "sha256": "93c06a8b26978790eb0fee92ee867dbcce074ac719e1377a70334261d7b421bc"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-3x4-night-log8.bin.gz",
+      "bytes": 1969151,
+      "sha256": "352774edb2f28a7020755f80a059359b9121b86130b4721334d03dc33001a72d"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-3x4-surface-delta.bin.gz",
+      "bytes": 1013471,
+      "sha256": "c75f96eeb8389e77406a06cd7499a5528435fc98842c31180300cd4483b6a378"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-4x3-night-log8.bin.gz",
+      "bytes": 1720340,
+      "sha256": "efe46fdc2351b8c5403b312f5b80fcba6548c4d0fac18b535d46bb1e85c7efaf"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-4x3-surface-delta.bin.gz",
+      "bytes": 781036,
+      "sha256": "b8c51178c5d14b46252882bf0854396f5132752c5feb715c13e13e135546d1e8"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-app.js",
+      "bytes": 16065,
+      "sha256": "03bb25e9cfa45c5923016ce42b009d84363f7c5df1175f4119f01374b7dcd768"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-depth-delta.bin.gz",
+      "bytes": 421375,
+      "sha256": "37322b982a57566f20f3806531bd8fa56ff138182544ebe67ce56bbfed5ba0ee"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-iphone-landscape-night-log8.bin.gz",
+      "bytes": 1172778,
+      "sha256": "c62edaf87938e1a2c121b0778ad804034c0dacfa3bd443553501605587075b2e"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-iphone-landscape-surface-delta.bin.gz",
+      "bytes": 489033,
+      "sha256": "ce9879a79a0606ff355598831ba427ed90e4bdde94cdeda00fbd557abe95fe81"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-iphone-portrait-night-log8.bin.gz",
+      "bytes": 1190323,
+      "sha256": "f92515a9832dfb6d7bb4d0c1744feb2453cfb65ca95a4f9cfcd2b318fd3ff67f"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-iphone-portrait-surface-delta.bin.gz",
+      "bytes": 655836,
+      "sha256": "a4008d1cb546649e7d5544b68b985cd2db19f38329b807ea28de206069052429"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-night-config.json",
+      "bytes": 9807,
+      "sha256": "59b2418f1e99e841187415217435286365d93abcde9f98cfb96c6ba02ed9d7c1"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-night.js",
+      "bytes": 6606,
+      "sha256": "62c51ab56f40d11b77ed655b965a1b094d766991f62e343ed8b13bd791479ef7"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-picking.js",
+      "bytes": 11794,
+      "sha256": "4e5edb60318a3cf8d88df5833d9beb663442c89277447cbb663496e79cc199d9"
+    },
+    {
+      "path": "coastal-glass-beacon-v2-reflection-night-log8.bin.gz",
+      "bytes": 72132,
+      "sha256": "6df6b4578aeeb3df88daf5b9ab2f3663d13b92a5f7e9fe951043f677828cbda2"
+    },
+    {
+      "path": "coastal-glass-beacon-v3-3x4-scene-depth-delta.bin.gz",
+      "bytes": 2012261,
+      "sha256": "d323a6343d138c1f09b9ef313b15b416252d601d6225ae76512c41d5b023b68f"
+    },
+    {
+      "path": "coastal-glass-beacon-v3-3x4-sunset-log8.bin.gz",
+      "bytes": 2027971,
+      "sha256": "41a2638c0412402795be7ad2005963071cb7cdd1c2324cb9f83ce2c136230fae"
+    },
+    {
+      "path": "coastal-glass-beacon-v3-4x3-scene-depth-delta.bin.gz",
+      "bytes": 1878684,
+      "sha256": "ac0273a284caef95f263521b1c3a7b4ec5002257ae69dafa6bd5695295588afc"
+    },
+    {
+      "path": "coastal-glass-beacon-v3-4x3-sunset-log8.bin.gz",
+      "bytes": 1755307,
+      "sha256": "ca70e038d922460ab3e64de72aaaf1030003a4efd2bb71ff4e3fc39d045bce54"
+    },
+    {
+      "path": "coastal-glass-beacon-v3-bakes.json",
+      "bytes": 4533,
+      "sha256": "25e2559c4a225a1bd6e2768dcb51e8451117084abadbb98aae4603961d284119"
+    },
+    {
+      "path": "coastal-glass-beacon-v3-geometry.bin.gz",
+      "bytes": 1384272,
+      "sha256": "92b9af1885051169a72cba610a35fdae6878ae1bd32e74b3fa29bc44a42b0c4d"
+    },
+    {
+      "path": "coastal-glass-beacon-v3-iphone-landscape-scene-depth-delta.bin.gz",
+      "bytes": 1331389,
+      "sha256": "f6662149195aa0dbc284168a33e2e89f51bc5675c19e3a36638c41c3f369ec4d"
+    },
+    {
+      "path": "coastal-glass-beacon-v3-iphone-landscape-sunset-log8.bin.gz",
+      "bytes": 1197837,
+      "sha256": "cff25dc69601bd2feb23dd6ba0a28cdcd3693b2794865446c1513a9215e0cd4f"
+    },
+    {
+      "path": "coastal-glass-beacon-v3-iphone-portrait-scene-depth-delta.bin.gz",
+      "bytes": 1083019,
+      "sha256": "1496c750f94484ae6c6be4afe58cab84987e99956315747d6af4f99a50c9d555"
+    },
+    {
+      "path": "coastal-glass-beacon-v3-iphone-portrait-sunset-log8.bin.gz",
+      "bytes": 1161352,
+      "sha256": "a6bec3b243020bf9e85772d309c885dd827232d60651c5577db0a532f7ff9b35"
+    },
+    {
+      "path": "coastal-glass-beacon-v3-preview.html",
+      "bytes": 5902,
+      "sha256": "79782b65be4c17fb89da5b171bd1b8303a6afa2b71831d315cfa8de114c18d5a"
+    },
+    {
+      "path": "coastal-glass-beacon-v3-renderer.js",
+      "bytes": 33865,
+      "sha256": "f8decc05ab5c90c494ddc3bd85353b4c6bd58b6a23c9119d9cd35f55f00acefa"
+    },
+    {
+      "path": "coastal-glass.html",
+      "bytes": 5863,
+      "sha256": "8aa5877f03255034c0bf862e8c9f0a0f23b4c2129712e655d520253d558e8647"
+    },
+    {
+      "path": "index.html",
+      "bytes": 213966,
+      "sha256": "4d0350d48d9030495e16ef8a0896c5c85e69c104a284fceb0eea6a211a82c6d3"
+    }
+  ]
+}
