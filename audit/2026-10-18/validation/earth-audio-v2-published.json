@@ -1,0 +1,50 @@
+[
+  {
+    "path": "earth-origin-material.html",
+    "status": 200,
+    "reference": "earth-origin-material-v11-20261018-forest.js",
+    "found": true
+  },
+  {
+    "path": "preview/20261017/coastal-glass.html",
+    "status": 200,
+    "reference": "h53-audio-trial-v2-20261018.js",
+    "found": true
+  },
+  {
+    "path": "preview/20261017/the-changes.html",
+    "status": 200,
+    "reference": "h53-audio-trial-v2-20261018.js",
+    "found": true
+  },
+  {
+    "path": "preview/20261017/confluence.html",
+    "status": 200,
+    "reference": "confluence-v11-20261018-bake.js",
+    "found": true
+  },
+  {
+    "path": "h53-audio-trial-v2-20261018-coastal.mp3",
+    "status": 200,
+    "sha256": "8c79a273010c58ce67449de9ebbb763dbfe86f49e283ad2ba4bd95083891955e",
+    "matchesLocal": true
+  },
+  {
+    "path": "h53-audio-trial-v2-20261018.js",
+    "status": 200,
+    "sha256": "cbc5311562d3a987558df9dd85c84bd34fdf8a683969b7615e418e94a9b0ec21",
+    "matchesLocal": true
+  },
+  {
+    "path": "h53-dismiss-v2-20261018.js",
+    "status": 200,
+    "sha256": "40f76617d6a59fdc2e9c306b76d8ef0d16ec0a16e71413f459db01244c5fefba",
+    "matchesLocal": true
+  },
+  {
+    "path": "earth-origin-material-v11-20261018-forest.js",
+    "status": 200,
+    "sha256": "fc0eb00ff8f0d07e8f1518184821b4de6424fd9994ed8f5ee632fcf06e4ca486",
+    "matchesLocal": true
+  }
+]
