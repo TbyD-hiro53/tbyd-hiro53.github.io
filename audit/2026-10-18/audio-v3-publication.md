@@ -11,3 +11,7 @@ Water is placed at equal-power pan −0.55 (left about 8.66dB above right), keep
 The recording replaces synthetic gust generation; this is source selection and processing, not a claim to have measured perceived realism. Real Safari/headphone listening remains distinct from Chromium interaction checks.
 
 At initial preparation, the local rotating-beacon task was still uploading its approved derivative files. The Coastal root must only be promoted after acquiring that implementation and preserving its scene references. The v3 preview audio is prepared independently in the meantime.
+
+Local validation passed for both works: three screen sizes, speaker adjacency and slash state, one-tap operation, hide/restore, page lifecycle and cross-tab exclusion. English landscape with HTTP 503/retry also passed. The complete site snapshot is preserved in h53-audio-v3-site.zip (source 6936049), SHA256 687b9b7d19d8b3d157082bbc6800c504d3b99fc5a98f24f995030c1c95707798, 696,962,405 bytes, 1,290 entries, CRC verified. Independent extraction testing uses port 8051.
+
+Independent extracted-site verification passed for both works, including Carriage at the production root URL. No JS errors. Coastal remains the audio preview while the approved beacon upload is pending.

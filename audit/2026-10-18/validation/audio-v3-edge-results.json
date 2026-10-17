@@ -1,0 +1,38 @@
+[
+  {
+    "work": "the-changes",
+    "size": [
+      844,
+      390
+    ],
+    "english": true,
+    "failedAudioLeavesArtReady": true,
+    "retry": true,
+    "pausedLoadSilent": true,
+    "menu": {
+      "x": 484,
+      "y": 70,
+      "width": 344,
+      "height": 308
+    },
+    "errors": []
+  },
+  {
+    "work": "coastal-glass",
+    "size": [
+      844,
+      390
+    ],
+    "english": true,
+    "failedAudioLeavesArtReady": true,
+    "retry": true,
+    "pausedLoadSilent": true,
+    "menu": {
+      "x": 468,
+      "y": 70,
+      "width": 360,
+      "height": 231
+    },
+    "errors": []
+  }
+]

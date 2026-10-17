@@ -1,0 +1,156 @@
+[
+  {
+    "work": "the-changes",
+    "size": [
+      390,
+      844
+    ],
+    "speaker": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 285.90625,
+      "y": 14,
+      "width": 88.09375,
+      "height": 44
+    }
+  },
+  {
+    "work": "the-changes",
+    "size": [
+      320,
+      568
+    ],
+    "speaker": {
+      "x": 163.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 215.90625,
+      "y": 14,
+      "width": 88.09375,
+      "height": 44
+    }
+  },
+  {
+    "work": "the-changes",
+    "size": [
+      844,
+      390
+    ],
+    "speaker": {
+      "x": 687.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 739.90625,
+      "y": 14,
+      "width": 88.09375,
+      "height": 44
+    }
+  },
+  {
+    "work": "the-changes",
+    "oneTapWithoutMenu": true,
+    "hideRestoreUI": true,
+    "otherTabClaim": true,
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loaded": true,
+      "seconds": 46.07512471655329,
+      "decodedBytes": 16255304,
+      "volume": 0.55,
+      "error": null,
+      "source": "carriage",
+      "revision": "v2",
+      "wind": false
+    },
+    "errors": []
+  },
+  {
+    "work": "coastal-glass",
+    "size": [
+      390,
+      844
+    ],
+    "speaker": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 285.90625,
+      "y": 14,
+      "width": 88.09375,
+      "height": 44
+    }
+  },
+  {
+    "work": "coastal-glass",
+    "size": [
+      320,
+      568
+    ],
+    "speaker": {
+      "x": 163.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 215.90625,
+      "y": 14,
+      "width": 88.09375,
+      "height": 44
+    }
+  },
+  {
+    "work": "coastal-glass",
+    "size": [
+      844,
+      390
+    ],
+    "speaker": {
+      "x": 687.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 739.90625,
+      "y": 14,
+      "width": 88.09375,
+      "height": 44
+    }
+  },
+  {
+    "work": "coastal-glass",
+    "oneTapWithoutMenu": true,
+    "hideRestoreUI": true,
+    "otherTabClaim": true,
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loaded": true,
+      "seconds": 80,
+      "decodedBytes": 28224000,
+      "volume": 0.55,
+      "error": null,
+      "source": "coastal",
+      "revision": "v3",
+      "wind": true
+    },
+    "errors": []
+  }
+]
