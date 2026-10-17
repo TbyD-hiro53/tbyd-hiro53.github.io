@@ -1,0 +1,92 @@
+[
+  {
+    "page": "core-37",
+    "viewport": [
+      390,
+      844
+    ],
+    "actualObjectTap": true,
+    "narrationHiddenWithDialog": true,
+    "restored": true
+  },
+  {
+    "page": "core-37",
+    "viewport": [
+      844,
+      390
+    ],
+    "actualObjectTap": true,
+    "narrationHiddenWithDialog": true,
+    "restored": true
+  },
+  {
+    "page": "core-37",
+    "viewport": [
+      320,
+      568
+    ],
+    "actualObjectTap": true,
+    "narrationHiddenWithDialog": true,
+    "restored": true
+  },
+  {
+    "page": "the-changes",
+    "viewport": [
+      390,
+      844
+    ],
+    "actualObjectTap": true,
+    "narrationHiddenWithDialog": true,
+    "restored": true
+  },
+  {
+    "page": "the-changes",
+    "viewport": [
+      844,
+      390
+    ],
+    "actualObjectTap": true,
+    "narrationHiddenWithDialog": true,
+    "restored": true
+  },
+  {
+    "page": "the-changes",
+    "viewport": [
+      320,
+      568
+    ],
+    "actualObjectTap": true,
+    "narrationHiddenWithDialog": true,
+    "restored": true
+  },
+  {
+    "page": "xerophyte",
+    "viewport": [
+      390,
+      844
+    ],
+    "actualObjectTap": true,
+    "narrationHiddenWithDialog": true,
+    "restored": true
+  },
+  {
+    "page": "xerophyte",
+    "viewport": [
+      844,
+      390
+    ],
+    "actualObjectTap": true,
+    "narrationHiddenWithDialog": true,
+    "restored": true
+  },
+  {
+    "page": "xerophyte",
+    "viewport": [
+      320,
+      568
+    ],
+    "actualObjectTap": true,
+    "narrationHiddenWithDialog": true,
+    "restored": true
+  }
+]

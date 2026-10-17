@@ -48,11 +48,19 @@
 <script defer src="h53-liquid-ui-v1-20260919.js"></script>
 <script defer src="h53-liquid-glass-optics-v1.js"></script>
 <script defer src="h53-liquid-host-v1-20260919.js"></script>
-<script defer src="lacto-caloris-v2-c17-composer.js"></script>
+<script defer src="lacto-caloris-v2-c18-composer.js"></script>
 <link rel="stylesheet" href="h53-direct-controls-v1-20260919.css">
 <script defer src="h53-direct-controls-v1-20260919.js"></script>
 <link rel="stylesheet" href="lacto-caloris-v2-c15-style.css">
-<script defer src="h53-reading-layout-v1-20261017.js"></script></head>
+<script defer src="h53-reading-layout-v2-20261017.js"></script><style>
+/* Same liquid material; spacing, a directional icon and a verb distinguish the mechanism. */
+#composerPrimary>button[data-control-kind="transform"]{margin-inline-start:12px;border-radius:16px;letter-spacing:0;font-size:11px}
+#composerPrimary>button[data-control-kind="transform"]>svg{margin-right:8px;flex:0 0 16px}
+#composerPrimary>button[data-mechanism-action="deploy"]>svg{transform:rotate(180deg)}
+#composerMenu[data-h53-reading-fit]:not(#h53-reading-priority):not(#h53-reading-panel-priority){overflow:hidden!important;display:flex;flex-direction:column}
+#composerMenu[data-h53-reading-fit]>header{position:static!important;background:transparent!important;flex:0 0 auto}
+#composerMenuContent{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+</style></head>
 <body class="caloris-v2">
 <script>
 (function(){

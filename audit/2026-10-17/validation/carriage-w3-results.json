@@ -1,0 +1,40 @@
+{
+  "before": {
+    "5": {
+      "meanLuminance": 25.59439193,
+      "meanMotionDifference": 0.3713888888888889
+    },
+    "32": {
+      "meanLuminance": 25.59176307,
+      "meanMotionDifference": 0.3711777777777778
+    },
+    "100": {
+      "meanLuminance": 9.632849166666666,
+      "meanMotionDifference": 2.938972222222222
+    },
+    "280": {
+      "meanLuminance": 22.519060586666672,
+      "meanMotionDifference": 0.8484944444444444
+    }
+  },
+  "final": {
+    "5": {
+      "meanLuminance": 45.43799636333333,
+      "meanMotionDifference": 9.681027777777778
+    },
+    "32": {
+      "meanLuminance": 42.98939447,
+      "meanMotionDifference": 10.529027777777777
+    },
+    "100": {
+      "meanLuminance": 59.90429230333332,
+      "meanMotionDifference": 21.293411111111112
+    },
+    "280": {
+      "meanLuminance": 105.70509968333334,
+      "meanMotionDifference": 28.326777777777778
+    }
+  },
+  "errors": [],
+  "pauseResume": true
+}
