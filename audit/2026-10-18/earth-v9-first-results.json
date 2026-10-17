@@ -1,0 +1,22 @@
+{
+  "interior": {
+    "revision": "v9",
+    "current": 0,
+    "pending": -1,
+    "active": true,
+    "failed": [],
+    "width": 4096,
+    "detailWidth": 4096,
+    "detailActive": true,
+    "staticObjects": 134,
+    "dynamicObjects": 24,
+    "depthTriangles": 27032,
+    "geometryBytes": 973152,
+    "decodedBytes": 100663296
+  },
+  "canvas": [
+    2880,
+    2000
+  ],
+  "errors": []
+}

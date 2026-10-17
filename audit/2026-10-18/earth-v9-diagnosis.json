@@ -1,0 +1,122 @@
+[
+  {
+    "station": 0,
+    "canvas": [
+      2078,
+      1443
+    ],
+    "viewport": [
+      1440,
+      1000
+    ],
+    "dpr": 2,
+    "renderScale": 1.4433756729740645,
+    "interior": {
+      "current": 0,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 4096,
+      "detailWidth": 2048,
+      "detailActive": true,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 50331648
+    },
+    "camera": {
+      "fov": 46.91561670103404
+    }
+  },
+  {
+    "station": 3,
+    "canvas": [
+      2078,
+      1443
+    ],
+    "viewport": [
+      1440,
+      1000
+    ],
+    "dpr": 2,
+    "renderScale": 1.4433756729740645,
+    "interior": {
+      "current": 3,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 4096,
+      "detailWidth": 2048,
+      "detailActive": true,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 50331648
+    },
+    "camera": {
+      "fov": 46.91561670103404
+    }
+  },
+  {
+    "station": 0,
+    "canvas": [
+      780,
+      1688
+    ],
+    "viewport": [
+      390,
+      844
+    ],
+    "dpr": 2,
+    "renderScale": 2,
+    "interior": {
+      "current": 0,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 4096,
+      "detailWidth": 2048,
+      "detailActive": true,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 50331648
+    },
+    "camera": {
+      "fov": 68
+    }
+  },
+  {
+    "station": 3,
+    "canvas": [
+      780,
+      1688
+    ],
+    "viewport": [
+      390,
+      844
+    ],
+    "dpr": 2,
+    "renderScale": 2,
+    "interior": {
+      "current": 3,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 4096,
+      "detailWidth": 2048,
+      "detailActive": true,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 50331648
+    },
+    "camera": {
+      "fov": 68
+    }
+  }
+]

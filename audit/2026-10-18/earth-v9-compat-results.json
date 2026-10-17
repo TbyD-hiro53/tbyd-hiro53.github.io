@@ -1,0 +1,72 @@
+[
+  {
+    "webgl1": true,
+    "maximumTexture2048": false,
+    "interior": {
+      "revision": "v9",
+      "current": 3,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 4096,
+      "detailWidth": 4096,
+      "detailActive": true,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "gpuImageBytes": 123032917,
+      "decodedBytes": 100663296
+    },
+    "forest": {
+      "revision": "v9",
+      "heroSize": [
+        3072,
+        4096
+      ],
+      "current": 3,
+      "pending": -1,
+      "failed": [],
+      "active": true,
+      "gpuImageBytes": 104857600,
+      "decodedBytes": 104857600,
+      "hiddenDrawObjects": 44
+    },
+    "errors": []
+  },
+  {
+    "webgl1": true,
+    "maximumTexture2048": true,
+    "interior": {
+      "revision": "v9",
+      "current": 3,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 2048,
+      "detailWidth": 2048,
+      "detailActive": true,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "gpuImageBytes": 30758229,
+      "decodedBytes": 25165824
+    },
+    "forest": {
+      "revision": "v9",
+      "heroSize": [
+        1536,
+        2048
+      ],
+      "current": 3,
+      "pending": -1,
+      "failed": [],
+      "active": true,
+      "gpuImageBytes": 29360128,
+      "decodedBytes": 29360128,
+      "hiddenDrawObjects": 44
+    },
+    "errors": []
+  }
+]
