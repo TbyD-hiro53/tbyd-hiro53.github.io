@@ -1,0 +1,19 @@
+[
+  {
+    "path": "the-changes.html",
+    "status": 200,
+    "expected": "h53-audio-trial-v2-20261018.js",
+    "found": true
+  },
+  {
+    "path": "preview/20261017/coastal-glass.html",
+    "status": 200,
+    "expected": "h53-audio-trial-v3-20261018.js",
+    "found": true
+  },
+  {
+    "path": "h53-audio-trial-v3-20261018-coastal.mp3",
+    "sha256": "7dd50b09031ec75ce1b1541ec4b2d8254fc27263b13ed6a15623ee1a96c366ee",
+    "matchesLocal": true
+  }
+]
