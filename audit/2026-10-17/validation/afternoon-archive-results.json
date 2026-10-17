@@ -1,0 +1,38 @@
+{
+  "archive": "/workspace/previews/2026-10-17/afternoon/h53-afternoon-preview.zip",
+  "bytes": 510165039,
+  "sha256": "1fcf0c02bee8831dbd16a668d7a231f371768ce43fc30dc707fd4492319f95b5",
+  "files": 998,
+  "independentStartup": [
+    {
+      "page": "confluence",
+      "startup": true,
+      "dialog": true,
+      "failedResources": []
+    },
+    {
+      "page": "lacto-caloris",
+      "startup": true,
+      "dialog": true,
+      "failedResources": []
+    },
+    {
+      "page": "the-changes",
+      "startup": true,
+      "dialog": true,
+      "failedResources": []
+    },
+    {
+      "page": "core-37",
+      "startup": true,
+      "dialog": true,
+      "failedResources": []
+    },
+    {
+      "page": "xerophyte",
+      "startup": true,
+      "dialog": true,
+      "failedResources": []
+    }
+  ]
+}

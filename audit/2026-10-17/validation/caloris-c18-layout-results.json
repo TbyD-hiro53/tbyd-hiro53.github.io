@@ -1,0 +1,91 @@
+{
+  "sizes": [
+    {
+      "size": [
+        1100,
+        800
+      ],
+      "metrics": {
+        "r": [
+          754,
+          68,
+          1084,
+          788
+        ],
+        "bg": "rgba(0, 0, 0, 0)",
+        "scroll": true,
+        "head": 78
+      }
+    },
+    {
+      "size": [
+        390,
+        844
+      ],
+      "metrics": {
+        "r": [
+          44,
+          68,
+          374,
+          832
+        ],
+        "bg": "rgba(0, 0, 0, 0)",
+        "scroll": true,
+        "head": 78
+      }
+    },
+    {
+      "size": [
+        320,
+        568
+      ],
+      "metrics": {
+        "r": [
+          16,
+          68,
+          304,
+          556
+        ],
+        "bg": "rgba(0, 0, 0, 0)",
+        "scroll": true,
+        "head": 78
+      }
+    },
+    {
+      "size": [
+        844,
+        390
+      ],
+      "metrics": {
+        "r": [
+          410,
+          12,
+          740,
+          378
+        ],
+        "bg": "rgba(0, 0, 0, 0)",
+        "scroll": true,
+        "head": 20
+      }
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "metrics": {
+        "r": [
+          134,
+          12,
+          464,
+          308
+        ],
+        "bg": "rgba(0, 0, 0, 0)",
+        "scroll": true,
+        "head": 20
+      }
+    }
+  ],
+  "transformDoesNotChangeView": true,
+  "errors": []
+}
