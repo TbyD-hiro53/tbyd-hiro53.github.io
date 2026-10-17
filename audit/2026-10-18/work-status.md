@@ -5,13 +5,13 @@
 | Earth Origin Material | v10 UI修正公開済み。v11で視点1・4の入口側へ専用高精細ベイクを追加、独立保存一式から4条件で検証済み | 完了。b769c82の本番HTML参照と新モジュールのSHA256を配信先で確認 |
 | Lacto Tricore | w5作者承認。本番HTMLへ切替、3視点・管タップ・停止を独立保存一式から検証 | 完了（公開URLの新依存参照とHTTP 200を確認） |
 | The Confluence | v11で3視点のCycles背景・深度・反射と動的水面を合成。独立保存一式から操作・表示検証済み、プレビューへpush済み | v11の作者指摘を受け、植生の再制作・全球画像継ぎ目の縦線・説明を閉じた際のリセットを修正中 |
-| Coastal Glass 回転灯 | ローカルの軽量回転灯a8318b2を取得。作者の保留解除を受け、音v3と統合して独立検証済み | 統合版の本番配信確認 |
-| 環境音・効果音 | 車窓の音ボタンを作者承認、rootへ切替。Coastal v3は左寄りの水音と実録の強い風に更新、独立保存一式から検証済み | 車窓の配信確認済み。Coastalは保留解除後、回転灯と新音を本番HTMLに統合。配信確認へ。詳細はaudio-v3-publication.md |
+| Coastal Glass 回転灯 | ローカルの軽量回転灯a8318b2を取得。作者の保留解除を受け、音v3と統合して独立検証済み | 完了。c5bad4aの本番・プレビュー双方で回転灯v3と音v3の参照を確認 |
+| 環境音・効果音 | 車窓の音ボタンを作者承認、rootへ切替。Coastal v3は左寄りの水音と実録の強い風に更新、独立保存一式から検証済み | 車窓の配信確認済み。Coastalは保留解除後、回転灯と新音を本番HTMLに統合。本番・プレビューとも配信確認済み。詳細はaudio-v3-publication.md |
 | 共通説明UI v3 | 25作品へ本番反映。180レイアウト条件、独立保存一式の6作品36条件を検証 | 完了。実機Safari検証は別途 |
 
 Freesoundは初めプロキシ403で停止していたが、再確認時にはログイン・検索・個別ページがHTTP 200で取得でき、公開HQ MP3も取得できた。MacのSafari操作ツールはなく、Safariの認証情報はクラウドへ共有されない。作者の依頼でFreesoundログインページを開き、Safari専用のx-safari-httpsリンクを使ってSafariへ引き渡した。作者から「Safariで開いた」と確認を得た。Safariの起動は完了。画面操作・ダウンロード用接続や認証状態の共有ができたことは意味しない。
 
-共通UIの残差分は4317c0cで公開。Caloris、The Carriage Window、Core No.37、Xerophyte、Earth、Tricoreの承認済み改修も本番反映済み。Confluenceハイブリッドと音の試聴は引き続きプレビュー段階。
+共通UIの残差分は4317c0cで公開。Caloris、The Carriage Window、Core No.37、Xerophyte、Earth、Tricoreの承認済み改修も本番反映済み。Confluenceハイブリッドは引き続きプレビュー段階。車窓とCoastalの音は本番公開済み。
 
 通信許可の下書きへ freesound.org、cdn.freesound.org、tbyd-hiro53.github.io を追加して保存した。ツールの応答はrequires_publish:trueで、ツール自身による適用・公開は行っていない。その後に実接続が成功した事実と、設定公開の操作を実施したかは区別する。既存パッケージ管理用プリセットは維持。Chromeの標準版向け起動リンク google-chrome://https://freesound.org/home/login/ も送信したが、こちらは起動確認をまだ得ていない。
 
