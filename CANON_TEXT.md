@@ -274,6 +274,10 @@ The supply has never been reduced. Only its increases are on record. At each of 
 - 数値（容量・寸法・流量）は作品の造形判断であり、世界の設定ではない
 - 物に触れると観測記録が開く（8 対象）。一度きりの仕掛けは無い
 
+
+**2026-10-18 公開改修（作者承認）**
+w5を公開。静的な配管・支持部のベイクに、三段の光条の流れと中央管内の動的な粒子流・連続した乳液面を合成する。濃い苺色と明るい乳色の移流を強め、液体部分だけ静的な反射を抑えて降下を見やすくした。3視点・タップ・一時停止・独立した保存一式の検証はaudit/2026-10-18/tricore-w5-design.md。
+
 ---
 
 ## ASSET 08 — Sigil Fusion v5
@@ -635,6 +639,10 @@ The district is old. The ceiling is low; two can walk abreast in the corridor, b
 - 外 開口から約 12 m 先を根の道が斜めに横切る。曇天、光をかすかに透かす幹、円盤一巡 2.4 s。水面は置かない
 - 描画 Three.js r128／IIFE。承認済み v4：shell v5・face v4・fixture v4・star v4・outside v7・host v4。室内の焼き込み照明と屋外の霧を分離
 - 実測 形状三角形 156,278、点群 4,800 点。Mac の Chrome で四視点・十二記録・連続タップ・移動時取消を確認。iPhone／Safari 実機の測定は未確認
+
+
+**2026-10-18 公開改修（作者承認）**
+室内主要方向4枚を4K、開口の植生を3072×4096で再ベイクし、全球画像・深度と動的な光点を合成。室内の接合部と屋外植生、対象への視線案内を推敲。現在視点の画像のみを保持し、4K未対応時は旧解像度へ戻す。観測パネルの閉じる記号は小さく、操作領域は44pxを保持。読書中の下部クレジットは閉じるまで隠す。詳細・測定条件はaudit/2026-10-18/earth-v9-design.mdおよびearth-tricore-release.md。
 
 ---
 

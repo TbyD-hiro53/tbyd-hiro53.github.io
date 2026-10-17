@@ -1,0 +1,77 @@
+[
+  {
+    "size": [
+      1286,
+      700,
+      1
+    ],
+    "earth": {
+      "button": [
+        44,
+        44
+      ],
+      "font": "20px",
+      "border": "0px",
+      "optical": false,
+      "credit": "hidden",
+      "panel": [
+        323,
+        530.71875,
+        963,
+        688
+      ]
+    },
+    "closeRestoresCredit": true,
+    "errors": []
+  },
+  {
+    "size": [
+      390,
+      844,
+      2
+    ],
+    "earth": {
+      "button": [
+        44,
+        44
+      ],
+      "font": "20px",
+      "border": "0px",
+      "optical": false,
+      "credit": "hidden",
+      "panel": [
+        12,
+        647.421875,
+        378,
+        832
+      ]
+    },
+    "closeRestoresCredit": true,
+    "errors": []
+  },
+  {
+    "size": [
+      844,
+      390,
+      1
+    ],
+    "earth": {
+      "button": [
+        44,
+        44
+      ],
+      "font": "20px",
+      "border": "0px",
+      "optical": false,
+      "credit": "hidden",
+      "panel": [
+        102,
+        220.71875,
+        742,
+        378
+      ]
+    },
+    "closeRestoresCredit": true,
+    "errors": []
+  }
+]

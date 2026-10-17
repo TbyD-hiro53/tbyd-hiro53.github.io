@@ -1,0 +1,10 @@
+[
+  {
+    "pause": true,
+    "work": "lacto-tricore",
+    "directSanc": true,
+    "threeViews": true,
+    "pipeTap": true,
+    "errors": []
+  }
+]
