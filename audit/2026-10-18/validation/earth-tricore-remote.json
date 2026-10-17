@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://tbyd-hiro53.github.io/earth-origin-material.html?revision=f195ea4&verify=12",
+    "status": 200,
+    "expected": true,
+    "noPreviewBase": true,
+    "noRobotsNoindex": true
+  },
+  {
+    "url": "https://tbyd-hiro53.github.io/lacto-tricore.html?revision=f195ea4&verify=12",
+    "status": 200,
+    "expected": true,
+    "noPreviewBase": true,
+    "noRobotsNoindex": true
+  }
+]

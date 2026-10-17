@@ -1,0 +1,20 @@
+[
+  {
+    "url": "https://tbyd-hiro53.github.io/coastal-glass.html?revision=4317c0c",
+    "status": 200,
+    "expectedReference": "h53-reading-layout-v3-20261018.js",
+    "found": true
+  },
+  {
+    "url": "https://tbyd-hiro53.github.io/preview/20261017/coastal-glass.html?revision=4317c0c",
+    "status": 200,
+    "expectedReference": "h53-audio-trial-v1-20261018.js",
+    "found": true
+  },
+  {
+    "url": "https://tbyd-hiro53.github.io/preview/20261017/the-changes.html?revision=4317c0c",
+    "status": 200,
+    "expectedReference": "h53-audio-trial-v1-20261018.js",
+    "found": true
+  }
+]

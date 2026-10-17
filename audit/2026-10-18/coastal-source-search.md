@@ -1,0 +1,7 @@
+# Coastal Glass rotating beacon — source search
+
+The author approved precomputed full-direction occlusion and authorized retrieving source from the repository. Fetched all 17 remote heads and searched all 399 reachable commits, including deleted filenames and the contents of all five historical ZIP archives. There is no Coastal Glass `.blend`/GLB/OBJ/static landscape source or Coastal ZIP. GitHub Releases has no release assets. Other work's Blender archives were found and inspected; they do not contain Coastal.
+
+Available Coastal data: 12 live primary glass objects, four camera background/depth plates, a 256² opaque-occlusion image for a fixed 80° lighthouse view, lighting configuration and target bounding boxes. The publication README explicitly excludes original Blender and finished 8K images. A camera-depth plate does not recover hidden lantern mullions/terrain surfaces needed for a correct full rotation. Do not rotate the fixed shadow image and misrepresent its occluders.
+
+The author then identified a possible source folder on their Mac: the `binary dusk blender` folder beneath the Mac user home. This cloud Linux workspace cannot access the Mac filesystem and has no desktop file-control connection. Initially requested an attachment; the author subsequently requested delegation to the local Codex task because the master is too large. See coastal-local-task.md. The production fixed beacon is preserved; full rotation remains pending source delivery. This is a source-data limitation, not a request for additional publication approval.
