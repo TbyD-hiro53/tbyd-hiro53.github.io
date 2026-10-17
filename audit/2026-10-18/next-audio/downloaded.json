@@ -1,0 +1,62 @@
+[
+  {
+    "url": "https://freesound.org/people/Nox_Sound/sounds/479322/",
+    "licenses": [
+      "http://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "hq": [
+      "https://cdn.freesound.org/previews/479/479322_9250976-hq.mp3"
+    ],
+    "bytes": 675504,
+    "sha256": "ff8b9c68bc02e55cb98999e639d3ee46b439c11c74c526d8a98138f4525f08bf",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "48000",
+          "channels": 2,
+          "bit_rate": "217764",
+          "side_data_list": [
+            {}
+          ]
+        }
+      ],
+      "format": {
+        "duration": "24.816000"
+      }
+    },
+    "source": "public HQ preview, not original WAV"
+  },
+  {
+    "url": "https://freesound.org/people/peridactyloptrix/sounds/197705/",
+    "licenses": [
+      "http://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "hq": [
+      "https://cdn.freesound.org/previews/197/197705_2737063-hq.mp3"
+    ],
+    "bytes": 756816,
+    "sha256": "a3a555323d879e4d375685766641a3cb0ebb3d9cc22880bae2342282bba145f7",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "48000",
+          "channels": 2,
+          "bit_rate": "160478",
+          "side_data_list": [
+            {}
+          ]
+        }
+      ],
+      "format": {
+        "duration": "37.728000"
+      }
+    },
+    "source": "public HQ preview, not original WAV"
+  }
+]

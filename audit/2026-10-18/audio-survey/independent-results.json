@@ -1,0 +1,21 @@
+[
+  {
+    "width": 390,
+    "noOverflow": true
+  },
+  {
+    "width": 320,
+    "noOverflow": true
+  },
+  {
+    "width": 1100,
+    "noOverflow": true
+  },
+  {
+    "cards": 25,
+    "noAudioRequestBeforeGesture": true,
+    "playback": true,
+    "singlePlayer": true,
+    "errors": []
+  }
+]

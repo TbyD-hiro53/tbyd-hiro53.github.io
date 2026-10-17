@@ -1,0 +1,14 @@
+[
+  {
+    "query": "electrical",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "query": "pump motor",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "query": "wind trees",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

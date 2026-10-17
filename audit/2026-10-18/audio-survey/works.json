@@ -1,0 +1,122 @@
+[
+  {
+    "category": "装置",
+    "slug": "lacto-cortex",
+    "title": "Lacto-Cortex",
+    "sources": "S01・S02",
+    "direction": "静かな灌流と、ごく低い駆動音。脳に近い視点で液体を感じ、管の音だけが主役にならない。0.78秒の脈動へ軽く同期。",
+    "status": "実録の管内音を取得待ち。"
+  },
+  {
+    "category": "装置",
+    "slug": "lacto-tricore",
+    "title": "Lacto-Tricore",
+    "sources": "S01・S02",
+    "direction": "全景は低い循環音。加速視点は水流の密度を増やし、脳視点は静かに戻す。三段を別々の音量で競わせず、同じ流れが加速する音像にする。",
+    "status": "実録の管内音を取得待ち。"
+  },
+  {
+    "category": "装置",
+    "slug": "sanctum",
+    "title": "Sanctum",
+    "sources": "S06（空間の比較枠）",
+    "direction": "環の連続運動に合う、途切れない静かな低音。火花ごとの銃声や雷鳴は付けない。三条は音高で過剰に色分けしない。",
+    "status": "室内基礎音を取得待ち。電気設備の専用録音は未選定。S06を装置音として採用確定とはしない。"
+  },
+  {
+    "category": "装置",
+    "slug": "armillary",
+    "title": "The Armillary v1",
+    "sources": "S04・S10",
+    "direction": "山頂の風と草の擦れを主体にし、回転環は静かに保つ。回転数の変化に合わせた大げさな風切り音は入れない。",
+    "status": "S10取得済み、山の風S04は取得待ち。"
+  },
+  {
+    "category": "装置",
+    "slug": "armillary-v2",
+    "title": "The Armillary v2",
+    "sources": "S04・S10",
+    "direction": "v1と同じ島の外気を共有。浮遊するレンズは無接触なので機械的な擦れを付けない。放電音を入れるなら短く小さく、視覚イベントへ同期。",
+    "status": "風候補あり。放電の専用実録は未選定なので実装保留。"
+  },
+  {
+    "category": "装置",
+    "slug": "lacto-caloris",
+    "title": "Lacto-Caloris",
+    "sources": "S05（任意の接触音案）",
+    "direction": "真空の外部観測なので、空気を伝わるファン・風切り音は付けない。推奨は静寂。音を加えるなら、接触センサーを通した構造振動として明示し、展開・収縮時だけ小さく鳴らす。",
+    "status": "真空設定を優先。接触音モードの採否は未決。サーボ素材は取得待ち。"
+  },
+  {
+    "category": "観測地",
+    "slug": "binary-dusk",
+    "title": "Binary Dusk",
+    "sources": "S04・S10",
+    "direction": "高い枝上の外気、近い葉、左奥の海を遠くに置く。日の沈下に効果音を付けない。森の円盤を勝手にモーター音源にしない。",
+    "status": "草の風は取得待ち。海岸風は取得済みだが遠景用の比較に限定。"
+  },
+  {
+    "category": "観測地",
+    "slug": "shoko",
+    "title": "書庫 SHOKO",
+    "sources": "S06・S07・S08・S09",
+    "direction": "上層は静かな室内の空気。下層でだけ水路と搬送の低い擦れを聞かせ、視点変更時はクロスフェード。説明パネルを開くだけで紙をめくる音は付けない。",
+    "status": "流水2素材取得済み。搬送と室内音は取得待ち。"
+  },
+  {
+    "category": "観測地",
+    "slug": "vacant-seat",
+    "title": "The Vacant Seat",
+    "sources": "S06（比較のみ）",
+    "direction": "原典の拍は「音ではない」。0.78秒ごとの鼓動やビープへ置き換えない。静寂を主体に、必要ならごく薄い連続した室内音だけを検討する。",
+    "status": "室内音取得待ち。無音を保持する案を第一候補とする。"
+  },
+  {
+    "category": "観測地",
+    "slug": "preservation-hall",
+    "title": "The Preservation Hall",
+    "sources": "S04・S06",
+    "direction": "室内は薄い空気感、戸の視点で外の植生の風を近づける。人の声、足音、鳥の種類を勝手に足して世界設定を変えない。",
+    "status": "室内音と草の風の比較素材を取得待ち。"
+  },
+  {
+    "category": "観測地",
+    "slug": "confluence",
+    "title": "The Confluence",
+    "sources": "S08・S09",
+    "direction": "水だけが下にある。円盤の回転は無音を維持する。岸・円盤の真下・床の切れ目で水の距離と方向を変え、静かに連続させる。",
+    "status": "流水2素材を取得済み。プレビューへの音実装はまだ行っていない。"
+  },
+  {
+    "category": "観測地",
+    "slug": "earth-origin-material",
+    "title": "Earth Origin Material",
+    "sources": "S04・S06",
+    "direction": "室内の静けさと、開口から届く植生の風を分ける。天体参照室は静かに落とし、星や通信要求に電子音・宇宙音を付けない。",
+    "status": "室内と外気の比較素材を取得待ち。"
+  },
+  {
+    "category": "観測地",
+    "slug": "the-changes",
+    "title": "The Carriage Window",
+    "sources": "既存341208",
+    "direction": "作者合格・本番公開済み。メニュー隣のスピーカーを一度タップして切替。",
+    "status": "今回の未搭載作業の対象外。現行を維持。"
+  },
+  {
+    "category": "観測地",
+    "slug": "core-37",
+    "title": "Core No.37",
+    "sources": "S02・S07",
+    "direction": "多数の機器を一つの低い機械的な呼吸へまとめる。37号の遅れを音で示す場合も小さく、原典の観測の余白を残す。ナレーション表示中は音量を下げる案。",
+    "status": "駆動・搬送の録音を取得待ち。"
+  },
+  {
+    "category": "観測地",
+    "slug": "xerophyte",
+    "title": "Xerophyte",
+    "sources": "S03",
+    "direction": "平常時は乾いた弱い風。SANDSTORMの進行で風量と幅を変える。花そのものに機械音は付けない。砂の飛散は別の適合する実録が取れた場合だけ追加。",
+    "status": "強風の比較候補は取得待ち。砂の専用素材は未選定。"
+  }
+]

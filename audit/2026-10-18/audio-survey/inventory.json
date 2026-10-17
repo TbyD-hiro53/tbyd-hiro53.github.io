@@ -1,0 +1,307 @@
+[
+  {
+    "category": "reactor",
+    "file": "lacto-cortex.html",
+    "audioCode": [],
+    "scripts": [
+      "h53-diag-v1-20260923.js",
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v2-20261016.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-host-v1-20260919.js",
+      "h53-direct-controls-v1-20260919.js",
+      "h53-reading-layout-v3-20261018.js",
+      "lacto-cortex-v10-c1-three-r128.js",
+      "lacto-cortex-v10-c1-rect-area-r128.js",
+      "lacto-cortex-v10-c1-ui-copy.js",
+      "lacto-cortex-v10-c6-ui.js",
+      "lacto-cortex-v10-c6-observation.js",
+      "lacto-cortex-v10-c5-app.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false
+  },
+  {
+    "category": "reactor",
+    "file": "lacto-tricore.html",
+    "audioCode": [],
+    "scripts": [
+      "h53-diag-v1-20260923.js",
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v1-20260923.js",
+      "h53-reading-layout-v3-20261018.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-host-v1-20260919.js",
+      "lacto-tricore-v1-w4-fluid.js",
+      "lacto-tricore-v1-w5-app.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false
+  },
+  {
+    "category": "reactor",
+    "file": "sanctum.html",
+    "audioCode": [],
+    "scripts": [
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v2-20261016.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-host-v1-20260919.js",
+      "h53-direct-controls-v1-20260919.js",
+      "h53-reading-layout-v3-20261018.js",
+      "sanctum-v6-w1-three-r128.js",
+      "sanctum-v6-w1-ui-copy.js",
+      "sanctum-v6-w3-ui.js",
+      "sanctum-v6-w12-app.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false
+  },
+  {
+    "category": "reactor",
+    "file": "armillary.html",
+    "audioCode": [],
+    "scripts": [
+      "h53-diag-v1-20260923.js",
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v2-20261016.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-host-v1-20260919.js",
+      "h53-direct-controls-v1-20260919.js",
+      "h53-reading-layout-v3-20261018.js",
+      "armillary-v1-w1-three-r128.js",
+      "armillary-v1-w1-ui-copy.js",
+      "armillary-v1-w2-ui.js",
+      "armillary-v1-w2-app.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false
+  },
+  {
+    "category": "reactor",
+    "file": "armillary-v2.html",
+    "audioCode": [],
+    "scripts": [
+      "h53-diag-v1-20260923.js",
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v2-20261016.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-host-v1-20260919.js",
+      "h53-direct-controls-v1-20260919.js",
+      "h53-reading-layout-v3-20261018.js",
+      "armillary-v2-w1-three-r128.js",
+      "armillary-v2-w1-ui-copy.js",
+      "armillary-v2-w1-ui.js",
+      "armillary-v2-w2-app.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false
+  },
+  {
+    "category": "reactor",
+    "file": "lacto-caloris.html",
+    "audioCode": [],
+    "scripts": [
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v2-20261016.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-host-v1-20260919.js",
+      "lacto-caloris-v2-c18-composer.js",
+      "h53-direct-controls-v1-20260919.js",
+      "h53-reading-layout-v3-20261018.js",
+      "lacto-caloris-v2-c13-three-r128.js",
+      "lacto-caloris-v2-c13-fxaa.js",
+      "lacto-caloris-v2-c17-observation.js",
+      "lacto-caloris-v2-c17-app.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false
+  },
+  {
+    "category": "place",
+    "file": "binary-dusk.html",
+    "audioCode": [],
+    "scripts": [
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v2-20261016.js",
+      "h53-direct-controls-v1-20260919.js",
+      "h53-reading-layout-v3-20261018.js",
+      "binary-dusk-w3-20260906-three-r128.min.js",
+      "binary-dusk-w3-20260906-core.js",
+      "binary-dusk-w4-20261016-shaders.js",
+      "binary-dusk-w4-20261016-renderer.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-host-v1-20260919.js",
+      "binary-dusk-liquid-v2-20261016-app.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false
+  },
+  {
+    "category": "place",
+    "file": "shoko.html",
+    "audioCode": [],
+    "scripts": [
+      "h53-diag-v1-20260923.js",
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v1-20260923.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-host-v1-20260919.js",
+      "shoko-v1-w2-app.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false
+  },
+  {
+    "category": "place",
+    "file": "vacant-seat.html",
+    "audioCode": [
+      "vacant-seat-v4-20260913-r128.js"
+    ],
+    "scripts": [
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v2-20261016.js",
+      "h53-direct-controls-v1-20260919.js",
+      "h53-reading-layout-v3-20261018.js",
+      "vacant-seat-v4-20260913-r128.js",
+      "vacant-seat-v4-20260913-model-v1.js",
+      "vacant-seat-v4-20260913-origin-runtime-v3.js",
+      "vacant-seat-v4-20260913-blender-runtime-v2.js",
+      "vacant-seat-v7-20261016-design.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-host-v1-20260919.js",
+      "h53-liquid-menu-v1-20260919.js",
+      "vacant-seat-liquid-v3-20261016-app.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false,
+    "audioCodeFinding": "Only bundled Three.js audio classes; no artwork playback implementation found."
+  },
+  {
+    "category": "place",
+    "file": "preservation-hall.html",
+    "audioCode": [],
+    "scripts": [
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v1-20260923.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-host-v1-20260919.js",
+      "h53-liquid-menu-v1-20260919.js",
+      "h53-direct-controls-v1-20260919.js",
+      "h53-reading-layout-v3-20261018.js",
+      "preservation-hall-v7-w2-app.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false
+  },
+  {
+    "category": "place",
+    "file": "confluence.html",
+    "audioCode": [],
+    "scripts": [
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v1-20260923.js",
+      "h53-direct-controls-v1-20260919.js",
+      "h53-reading-layout-v3-20261018.js",
+      "confluence-v5-20260909-targets.js?v=f8e8a5bc5905",
+      "confluence-v5-20260909-three.min.js",
+      "confluence-v5-20260909-FXAAShader.js",
+      "confluence-v5-20260909-engine.js?v=60b8098d017f",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-host-v1-20260919.js",
+      "confluence-liquid-v3-20260923-viewer.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false
+  },
+  {
+    "category": "place",
+    "file": "earth-origin-material.html",
+    "audioCode": [
+      "earth-origin-material-v10-20261018-app.js"
+    ],
+    "scripts": [
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v1-20260923.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-host-v1-20260919.js",
+      "h53-liquid-menu-v1-20260919.js",
+      "h53-direct-controls-v1-20260919.js",
+      "h53-reading-layout-v3-20261018.js",
+      "earth-origin-material-v6-20261017-refine.js",
+      "earth-origin-material-v11-20261018-forest.js",
+      "earth-origin-material-v7-20261017-partition.js",
+      "earth-origin-material-v9-20261018-interior.js",
+      "earth-origin-material-v10-20261018-app.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false,
+    "audioCodeFinding": "Only bundled Three.js audio classes; no artwork playback implementation found."
+  },
+  {
+    "category": "place",
+    "file": "the-changes.html",
+    "audioCode": [
+      "h53-audio-trial-v2-20261018.js"
+    ],
+    "scripts": [
+      "h53-diag-v1-20260923.js",
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v1-20260923.js",
+      "h53-reading-layout-v3-20261018.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-host-v1-20260919.js",
+      "the-changes-v16-w3-app.js",
+      "h53-dismiss-v2-20261018.js",
+      "h53-audio-trial-v2-20261018.js"
+    ],
+    "audioImplemented": true
+  },
+  {
+    "category": "place",
+    "file": "core-37.html",
+    "audioCode": [],
+    "scripts": [
+      "h53-diag-v1-20260923.js",
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v1-20260923.js",
+      "h53-reading-layout-v3-20261018.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-host-v1-20260919.js",
+      "core-37-v1-w2-app.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false
+  },
+  {
+    "category": "place",
+    "file": "xerophyte.html",
+    "audioCode": [],
+    "scripts": [
+      "h53-diag-v1-20260923.js",
+      "h53-chrome-copy-en-v1-20260923.js",
+      "h53-chrome-v1-20260923.js",
+      "h53-reading-layout-v3-20261018.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-liquid-host-v1-20260919.js",
+      "xerophyte-v1-w3-app.js",
+      "h53-dismiss-v1-20260921.js"
+    ],
+    "audioImplemented": false
+  }
+]

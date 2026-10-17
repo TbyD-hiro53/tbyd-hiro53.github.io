@@ -1,0 +1,39 @@
+[
+  {
+    "query": "electric hum",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "query": "water pump",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "query": "forest wind",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "query": "page turn",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "query": "empty hall",
+    "links": [
+      "/people/one_moment/sounds/842225/",
+      "/people/kyles/sounds/451614/",
+      "/people/Dan_AudioFile/sounds/628309/",
+      "/people/klankbeeld/sounds/788451/",
+      "/people/leonelmail/sounds/427851/",
+      "/people/Anya_Media/sounds/647691/",
+      "/people/klankbeeld/sounds/735697/",
+      "/people/dobroide/sounds/15656/",
+      "/people/IanStarGem/sounds/478076/",
+      "/people/klankbeeld/sounds/735342/",
+      "/people/blaukreuz/sounds/79701/",
+      "/people/klankbeeld/sounds/369216/",
+      "/people/Kostrava/sounds/240895/",
+      "/people/HerbertBoland/sounds/43552/",
+      "/people/LilMati/sounds/657538/"
+    ],
+    "titles": []
+  }
+]
