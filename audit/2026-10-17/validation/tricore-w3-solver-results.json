@@ -1,0 +1,20 @@
+{
+  "report": {
+    "particles": 1344,
+    "steps": 359,
+    "time": 5.983333333333317,
+    "field": [
+      128,
+      1024
+    ],
+    "model": "2D position-based fluid",
+    "finite": true,
+    "minX": -0.9599999785423279,
+    "maxX": 0.9599999785423279,
+    "meanDownVelocity": 1.3160404795559035
+  },
+  "paused": true,
+  "cpuMedianMs": 3.6253279999999677,
+  "cpuP95Ms": 7.599713000000065,
+  "draws": 361
+}

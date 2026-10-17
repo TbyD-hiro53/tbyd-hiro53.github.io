@@ -1,0 +1,86 @@
+[
+  {
+    "viewport": [
+      1100,
+      800
+    ],
+    "threeViews": true,
+    "directSanc": true,
+    "pipeTap": true,
+    "pause": true,
+    "errors": [],
+    "draws": 2,
+    "error": 0,
+    "units": 32,
+    "fluid": {
+      "particles": 1344,
+      "steps": 238,
+      "time": 5.116699999999994,
+      "field": [
+        128,
+        1024
+      ],
+      "model": "2D position-based fluid",
+      "finite": true,
+      "minX": -0.9599999785423279,
+      "maxX": 0.9599999785423279,
+      "meanDownVelocity": 1.3163038357604473
+    }
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "threeViews": true,
+    "directSanc": true,
+    "pipeTap": true,
+    "pause": true,
+    "errors": [],
+    "draws": 2,
+    "error": 0,
+    "units": 32,
+    "fluid": {
+      "particles": 1344,
+      "steps": 256,
+      "time": 5.299899999999994,
+      "field": [
+        128,
+        1024
+      ],
+      "model": "2D position-based fluid",
+      "finite": true,
+      "minX": -0.9599999785423279,
+      "maxX": 0.9599999785423279,
+      "meanDownVelocity": 1.3184528319342506
+    }
+  },
+  {
+    "viewport": [
+      844,
+      390
+    ],
+    "threeViews": true,
+    "directSanc": true,
+    "pipeTap": true,
+    "pause": true,
+    "errors": [],
+    "draws": 2,
+    "error": 0,
+    "units": 32,
+    "fluid": {
+      "particles": 1344,
+      "steps": 240,
+      "time": 5.150033333333329,
+      "field": [
+        128,
+        1024
+      ],
+      "model": "2D position-based fluid",
+      "finite": true,
+      "minX": -0.9599999785423279,
+      "maxX": 0.9599999785423279,
+      "meanDownVelocity": 1.3168209227511571
+    }
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "view": "main",
+    "RGBUnchanged": true,
+    "width": 1765,
+    "height": 2407
+  },
+  {
+    "view": "brain",
+    "RGBUnchanged": true,
+    "width": 1804,
+    "height": 1809
+  },
+  {
+    "view": "sanc",
+    "RGBUnchanged": true,
+    "width": 1146,
+    "height": 1381
+  }
+]

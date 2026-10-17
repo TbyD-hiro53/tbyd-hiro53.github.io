@@ -1,0 +1,25 @@
+[
+  {
+    "final": "sanc",
+    "view": "sanc",
+    "latestChoicePreserved": true,
+    "errors": 0
+  },
+  {
+    "final": "main",
+    "view": "main",
+    "latestChoicePreserved": true,
+    "errors": 0
+  },
+  {
+    "inflightLoads": 1,
+    "latestChoicePreserved": true,
+    "errors": 0
+  },
+  {
+    "partialLoadCreated": 6,
+    "partialLoadDeleted": 6,
+    "latestChoicePreserved": true,
+    "errors": 0
+  }
+]
