@@ -1,0 +1,17 @@
+{
+  "w1": {
+    "milkMeanTemporalStd": 58.174373953153385,
+    "milkMeanDarkest": 77.83153347732181,
+    "energyEqualBeatMeanDelta": 0.33485858585858586,
+    "energyPixelsDeltaOver10": 0
+  },
+  "w2": {
+    "milkMeanTemporalStd": 3.5432090536788605,
+    "milkMeanDarkest": 201.38360931125513,
+    "energyEqualBeatMeanDelta": 18.761737373737375,
+    "energyPixelsDeltaOver10": 8360
+  },
+  "samplePixels": 2778,
+  "energyCirculationChanged": true,
+  "milkMoreContinuous": true
+}

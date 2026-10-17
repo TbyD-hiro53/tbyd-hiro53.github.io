@@ -1,0 +1,473 @@
+[
+  {
+    "station": 0,
+    "interior": {
+      "current": 0,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 4096,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 33554432
+    },
+    "forest": {
+      "current": 0,
+      "pending": -1,
+      "failed": [],
+      "active": true,
+      "decodedBytes": 16777216,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 95,
+      "calls": 18,
+      "triangles": 27436,
+      "points": 4800,
+      "lines": 0
+    },
+    "viewport": [
+      1100,
+      800
+    ]
+  },
+  {
+    "station": 1,
+    "interior": {
+      "current": 1,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 4096,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 33554432
+    },
+    "forest": {
+      "current": -1,
+      "pending": -1,
+      "failed": [],
+      "active": false,
+      "decodedBytes": 0,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 104,
+      "calls": 3,
+      "triangles": 27056,
+      "points": 0,
+      "lines": 0
+    },
+    "viewport": [
+      1100,
+      800
+    ]
+  },
+  {
+    "station": 2,
+    "interior": {
+      "current": 2,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 4096,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 33554432
+    },
+    "forest": {
+      "current": -1,
+      "pending": -1,
+      "failed": [],
+      "active": false,
+      "decodedBytes": 0,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 113,
+      "calls": 15,
+      "triangles": 27410,
+      "points": 4800,
+      "lines": 0
+    },
+    "viewport": [
+      1100,
+      800
+    ]
+  },
+  {
+    "station": 3,
+    "interior": {
+      "current": 3,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 4096,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 33554432
+    },
+    "forest": {
+      "current": 3,
+      "pending": -1,
+      "failed": [],
+      "active": true,
+      "decodedBytes": 29360128,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 125,
+      "calls": 3,
+      "triangles": 27594,
+      "points": 0,
+      "lines": 0
+    },
+    "viewport": [
+      1100,
+      800
+    ]
+  },
+  {
+    "viewport": [
+      1100,
+      800
+    ],
+    "terminalLive": true,
+    "entryLive": true,
+    "convergenceLive": true,
+    "cancelOnMove": true,
+    "pause": true,
+    "errors": []
+  },
+  {
+    "station": 0,
+    "interior": {
+      "current": 0,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 2048,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 8388608
+    },
+    "forest": {
+      "current": 0,
+      "pending": -1,
+      "failed": [],
+      "active": true,
+      "decodedBytes": 16777216,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 94,
+      "calls": 16,
+      "triangles": 27412,
+      "points": 4800,
+      "lines": 0
+    },
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "station": 1,
+    "interior": {
+      "current": 1,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 2048,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 8388608
+    },
+    "forest": {
+      "current": -1,
+      "pending": -1,
+      "failed": [],
+      "active": false,
+      "decodedBytes": 0,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 102,
+      "calls": 3,
+      "triangles": 27056,
+      "points": 0,
+      "lines": 0
+    },
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "station": 2,
+    "interior": {
+      "current": 2,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 2048,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 8388608
+    },
+    "forest": {
+      "current": -1,
+      "pending": -1,
+      "failed": [],
+      "active": false,
+      "decodedBytes": 0,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 108,
+      "calls": 15,
+      "triangles": 27410,
+      "points": 4800,
+      "lines": 0
+    },
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "station": 3,
+    "interior": {
+      "current": 3,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 2048,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 8388608
+    },
+    "forest": {
+      "current": 3,
+      "pending": -1,
+      "failed": [],
+      "active": true,
+      "decodedBytes": 29360128,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 123,
+      "calls": 3,
+      "triangles": 27594,
+      "points": 0,
+      "lines": 0
+    },
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "terminalLive": true,
+    "entryLive": true,
+    "convergenceLive": true,
+    "cancelOnMove": true,
+    "pause": true,
+    "errors": []
+  },
+  {
+    "station": 0,
+    "interior": {
+      "current": 0,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 2048,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 8388608
+    },
+    "forest": {
+      "current": 0,
+      "pending": -1,
+      "failed": [],
+      "active": true,
+      "decodedBytes": 16777216,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 95,
+      "calls": 18,
+      "triangles": 27436,
+      "points": 4800,
+      "lines": 0
+    },
+    "viewport": [
+      844,
+      390
+    ]
+  },
+  {
+    "station": 1,
+    "interior": {
+      "current": 1,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 2048,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 8388608
+    },
+    "forest": {
+      "current": -1,
+      "pending": -1,
+      "failed": [],
+      "active": false,
+      "decodedBytes": 0,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 104,
+      "calls": 3,
+      "triangles": 27056,
+      "points": 0,
+      "lines": 0
+    },
+    "viewport": [
+      844,
+      390
+    ]
+  },
+  {
+    "station": 2,
+    "interior": {
+      "current": 2,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 2048,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 8388608
+    },
+    "forest": {
+      "current": -1,
+      "pending": -1,
+      "failed": [],
+      "active": false,
+      "decodedBytes": 0,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 110,
+      "calls": 15,
+      "triangles": 27410,
+      "points": 4800,
+      "lines": 0
+    },
+    "viewport": [
+      844,
+      390
+    ]
+  },
+  {
+    "station": 3,
+    "interior": {
+      "current": 3,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 2048,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 8388608
+    },
+    "forest": {
+      "current": 3,
+      "pending": -1,
+      "failed": [],
+      "active": true,
+      "decodedBytes": 29360128,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 121,
+      "calls": 3,
+      "triangles": 27594,
+      "points": 0,
+      "lines": 0
+    },
+    "viewport": [
+      844,
+      390
+    ]
+  },
+  {
+    "viewport": [
+      844,
+      390
+    ],
+    "terminalLive": true,
+    "entryLive": true,
+    "convergenceLive": true,
+    "cancelOnMove": true,
+    "pause": true,
+    "errors": []
+  },
+  {
+    "reducedMotion": true,
+    "keyboard": true
+  },
+  {
+    "drawComparison": {
+      "baked": {
+        "frame": 89,
+        "calls": 18,
+        "triangles": 27436,
+        "points": 4800,
+        "lines": 0
+      },
+      "liveInterior": {
+        "frame": 91,
+        "calls": 139,
+        "triangles": 23944,
+        "points": 4800,
+        "lines": 0
+      }
+    },
+    "unknownEyeFallback": true
+  },
+  {
+    "missingTextureFallback": true,
+    "fallbackPicking": true
+  }
+]

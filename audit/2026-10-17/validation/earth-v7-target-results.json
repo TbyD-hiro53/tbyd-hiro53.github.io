@@ -1,0 +1,57 @@
+[
+  {
+    "station": 0,
+    "label": "入口の面の前 · 入口の面\n中央の対象に触れて観測",
+    "key": "entryface"
+  },
+  {
+    "station": 0,
+    "label": "入口の面の前 · 手すり\n中央の対象に触れて観測",
+    "key": "handrail"
+  },
+  {
+    "station": 0,
+    "label": "入口の面の前 · 照明\n中央の対象に触れて観測",
+    "key": "ceiling"
+  },
+  {
+    "station": 1,
+    "label": "記録室 · 端末\n中央の対象に触れて観測",
+    "key": "terminal"
+  },
+  {
+    "station": 1,
+    "label": "記録室 · もう一脚の椅子\n中央の対象に触れて観測",
+    "key": "chair"
+  },
+  {
+    "station": 1,
+    "label": "記録室 · 照明\n中央の対象に触れて観測",
+    "key": "ceiling"
+  },
+  {
+    "station": 2,
+    "label": "天体参照室 · 中央の面\n中央の対象に触れて観測",
+    "key": "centreface"
+  },
+  {
+    "station": 2,
+    "label": "天体参照室 · 光の点\n中央の対象に触れて観測",
+    "key": "points"
+  },
+  {
+    "station": 3,
+    "label": "開口 · 根の道\n中央の対象に触れて観測",
+    "key": "rootroad"
+  },
+  {
+    "station": 3,
+    "label": "開口 · 幹と下生え\n中央の対象に触れて観測",
+    "key": "forest"
+  },
+  {
+    "station": 3,
+    "label": "開口 · 円盤\n中央の対象に触れて観測",
+    "key": "disc"
+  }
+]

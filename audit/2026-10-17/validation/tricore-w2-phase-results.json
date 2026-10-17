@@ -1,0 +1,20 @@
+[
+  {
+    "view": "main",
+    "originalPhaseAndMaskExact": true,
+    "oldBytes": 21330,
+    "newBytes": 25991
+  },
+  {
+    "view": "brain",
+    "originalPhaseAndMaskExact": true,
+    "oldBytes": 189,
+    "newBytes": 70
+  },
+  {
+    "view": "sanc",
+    "originalPhaseAndMaskExact": true,
+    "oldBytes": 83374,
+    "newBytes": 101769
+  }
+]

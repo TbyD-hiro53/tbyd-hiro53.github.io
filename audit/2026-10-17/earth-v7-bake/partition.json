@@ -1,0 +1,127 @@
+{
+  "staticVisible": 119,
+  "staticIncludingHidden": 123,
+  "replacedContactDecals": 11,
+  "live": [
+    {
+      "type": "Mesh",
+      "name": "",
+      "key": "entryface"
+    },
+    {
+      "type": "Mesh",
+      "name": "",
+      "key": "entryface"
+    },
+    {
+      "type": "Mesh",
+      "name": "",
+      "key": "terminal"
+    },
+    {
+      "type": "Mesh",
+      "name": "",
+      "key": "terminal"
+    },
+    {
+      "type": "Mesh",
+      "name": "",
+      "key": "centreface"
+    },
+    {
+      "type": "Mesh",
+      "name": "",
+      "key": "centreface"
+    },
+    {
+      "type": "Mesh",
+      "name": "",
+      "key": null
+    },
+    {
+      "type": "Points",
+      "name": "star_field_t1",
+      "key": "points"
+    },
+    {
+      "type": "Points",
+      "name": "star_field_t2",
+      "key": "points"
+    },
+    {
+      "type": "Points",
+      "name": "star_field_t3",
+      "key": "points"
+    },
+    {
+      "type": "Points",
+      "name": "star_field_t4",
+      "key": "points"
+    },
+    {
+      "type": "Points",
+      "name": "star_field_t5",
+      "key": "points"
+    },
+    {
+      "type": "Sprite",
+      "name": "sol_halo",
+      "key": null
+    },
+    {
+      "type": "Sprite",
+      "name": "sol_mid",
+      "key": null
+    },
+    {
+      "type": "Sprite",
+      "name": "sol_core",
+      "key": null
+    },
+    {
+      "type": "Sprite",
+      "name": "sol3_halo",
+      "key": null
+    },
+    {
+      "type": "Sprite",
+      "name": "sol3_core",
+      "key": null
+    },
+    {
+      "type": "Mesh",
+      "name": "sol3_hit",
+      "key": "sol3"
+    },
+    {
+      "type": "Points",
+      "name": "star_field_t1_mirror",
+      "key": null
+    },
+    {
+      "type": "Points",
+      "name": "star_field_t2_mirror",
+      "key": null
+    },
+    {
+      "type": "Points",
+      "name": "star_field_t3_mirror",
+      "key": null
+    },
+    {
+      "type": "Points",
+      "name": "star_field_t4_mirror",
+      "key": null
+    },
+    {
+      "type": "Points",
+      "name": "star_field_t5_mirror",
+      "key": null
+    },
+    {
+      "type": "Mesh",
+      "name": "star_points_hit",
+      "key": "points"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "webgl1": true,
+    "interior": {
+      "current": 1,
+      "pending": -1,
+      "active": true,
+      "failed": [],
+      "width": 2048,
+      "staticObjects": 134,
+      "dynamicObjects": 24,
+      "depthTriangles": 27032,
+      "geometryBytes": 973152,
+      "decodedBytes": 8388608
+    },
+    "errors": []
+  }
+]
