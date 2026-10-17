@@ -1,0 +1,77 @@
+{
+  "files": [
+    {
+      "file": "confluence-v11-20261018-bank-detail-color.bin.gz",
+      "bytes": 19657677
+    },
+    {
+      "file": "confluence-v11-20261018-bank-detail-depth.bin.gz",
+      "bytes": 17067468
+    },
+    {
+      "file": "confluence-v11-20261018-bank-mirror-color.bin.gz",
+      "bytes": 1655456
+    },
+    {
+      "file": "confluence-v11-20261018-bank-mirror-depth.bin.gz",
+      "bytes": 879105
+    },
+    {
+      "file": "confluence-v11-20261018-bank-pano-color.bin.gz",
+      "bytes": 7273734
+    },
+    {
+      "file": "confluence-v11-20261018-bank-pano-depth.bin.gz",
+      "bytes": 3590638
+    },
+    {
+      "file": "confluence-v11-20261018-gap-detail-color.bin.gz",
+      "bytes": 15054060
+    },
+    {
+      "file": "confluence-v11-20261018-gap-detail-depth.bin.gz",
+      "bytes": 16245689
+    },
+    {
+      "file": "confluence-v11-20261018-gap-mirror-color.bin.gz",
+      "bytes": 1466612
+    },
+    {
+      "file": "confluence-v11-20261018-gap-mirror-depth.bin.gz",
+      "bytes": 682038
+    },
+    {
+      "file": "confluence-v11-20261018-gap-pano-color.bin.gz",
+      "bytes": 12817054
+    },
+    {
+      "file": "confluence-v11-20261018-gap-pano-depth.bin.gz",
+      "bytes": 6133793
+    },
+    {
+      "file": "confluence-v11-20261018-under-detail-color.bin.gz",
+      "bytes": 5692907
+    },
+    {
+      "file": "confluence-v11-20261018-under-detail-depth.bin.gz",
+      "bytes": 4408687
+    },
+    {
+      "file": "confluence-v11-20261018-under-mirror-color.bin.gz",
+      "bytes": 1615383
+    },
+    {
+      "file": "confluence-v11-20261018-under-mirror-depth.bin.gz",
+      "bytes": 858226
+    },
+    {
+      "file": "confluence-v11-20261018-under-pano-color.bin.gz",
+      "bytes": 6887443
+    },
+    {
+      "file": "confluence-v11-20261018-under-pano-depth.bin.gz",
+      "bytes": 3895453
+    }
+  ],
+  "totalBytes": 125881423
+}
