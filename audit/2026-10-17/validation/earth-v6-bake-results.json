@@ -1,0 +1,111 @@
+[
+  {
+    "station": 3,
+    "forest": {
+      "current": 3,
+      "pending": -1,
+      "failed": [],
+      "active": true,
+      "decodedBytes": 29360128,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 99,
+      "calls": 20,
+      "triangles": 9236,
+      "points": 4800,
+      "lines": 0
+    }
+  },
+  {
+    "station": 0,
+    "forest": {
+      "current": 0,
+      "pending": -1,
+      "failed": [],
+      "active": true,
+      "decodedBytes": 16777216,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 105,
+      "calls": 139,
+      "triangles": 23944,
+      "points": 4800,
+      "lines": 0
+    }
+  },
+  {
+    "station": 2,
+    "forest": {
+      "current": 2,
+      "pending": -1,
+      "failed": [],
+      "active": true,
+      "decodedBytes": 16777216,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 112,
+      "calls": 24,
+      "triangles": 9786,
+      "points": 4800,
+      "lines": 0
+    }
+  },
+  {
+    "station": 1,
+    "forest": {
+      "current": 2,
+      "pending": -1,
+      "failed": [],
+      "active": false,
+      "decodedBytes": 16777216,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 117,
+      "calls": 33,
+      "triangles": 13948,
+      "points": 4800,
+      "lines": 0
+    }
+  },
+  {
+    "station": 3,
+    "forest": {
+      "current": 3,
+      "pending": -1,
+      "failed": [],
+      "active": true,
+      "decodedBytes": 29360128,
+      "hiddenDrawObjects": 44
+    },
+    "render": {
+      "frame": 125,
+      "calls": 20,
+      "triangles": 9236,
+      "points": 4800,
+      "lines": 0
+    }
+  },
+  {
+    "liveRender": {
+      "frame": 127,
+      "calls": 57,
+      "triangles": 542860,
+      "points": 4800,
+      "lines": 0
+    }
+  },
+  {
+    "unknownEyeFallback": true,
+    "rotatedEyeBake": true,
+    "rapidStationSwitch": true,
+    "errors": [],
+    "failedResources": []
+  },
+  {
+    "missingTextureFallback": true
+  }
+]
