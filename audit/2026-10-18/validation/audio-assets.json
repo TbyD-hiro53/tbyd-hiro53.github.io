@@ -1,0 +1,24 @@
+[
+  {
+    "file": "h53-audio-trial-v1-20261018-carriage.mp3",
+    "source": "train-341208-preview.mp3",
+    "seconds": 46.07512471655329,
+    "channels": 2,
+    "rmsDB": -27.000003814697266,
+    "peakDB": -12.953261375427246,
+    "seamDelta": 0.008410627022385597,
+    "bytes": 922688,
+    "sha256": "22b1bb7a9a7b369b3d37b0aec6b5502a3b4e2d5125b93b9a99356720aa51e52e"
+  },
+  {
+    "file": "h53-audio-trial-v1-20261018-coastal.mp3",
+    "source": "waves-852826-preview.mp3",
+    "seconds": 20.269931972789117,
+    "channels": 1,
+    "rmsDB": -39.553016662597656,
+    "peakDB": -12.0,
+    "seamDelta": 0.00016954151215031743,
+    "bytes": 406509,
+    "sha256": "8074d2899df4705a3c0340bd935922fd6b054768c3e3b5fa50cac0481789b45a"
+  }
+]
