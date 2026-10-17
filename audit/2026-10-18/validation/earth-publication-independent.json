@@ -1,0 +1,27 @@
+[
+  {
+    "size": [
+      390,
+      844,
+      2
+    ],
+    "earth": {
+      "button": [
+        44,
+        44
+      ],
+      "font": "20px",
+      "border": "0px",
+      "optical": false,
+      "credit": "hidden",
+      "panel": [
+        12,
+        647.421875,
+        378,
+        832
+      ]
+    },
+    "closeRestoresCredit": true,
+    "errors": []
+  }
+]
