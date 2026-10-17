@@ -1,0 +1,14 @@
+{
+  "file": "h53-audio-trial-v2-20261018-coastal.mp3",
+  "sourceWaves": "https://freesound.org/people/kkenny101/sounds/852826/",
+  "sourceWind": "https://freesound.org/people/florianreichelt/sounds/459977/",
+  "license": "CC0 both individual pages verified",
+  "seconds": 80.0,
+  "channels": 2,
+  "windRelativeRMSdB": -4.000003814697266,
+  "rmsDB": -38.469520568847656,
+  "peakDB": -12.0,
+  "seamDelta": 0.0012436704710125923,
+  "bytes": 1921610,
+  "sha256": "8c79a273010c58ce67449de9ebbb763dbfe86f49e283ad2ba4bd95083891955e"
+}
