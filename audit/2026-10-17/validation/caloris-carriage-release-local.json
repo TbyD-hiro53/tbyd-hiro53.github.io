@@ -1,0 +1,14 @@
+[
+  {
+    "page": "lacto-caloris",
+    "startup": true,
+    "dialog": true,
+    "failedResources": []
+  },
+  {
+    "page": "the-changes",
+    "startup": true,
+    "dialog": true,
+    "failedResources": []
+  }
+]
