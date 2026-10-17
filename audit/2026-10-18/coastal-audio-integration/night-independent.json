@@ -1,0 +1,21 @@
+[
+  {
+    "rotationPeriod24s": true,
+    "quarterTurnChangesAxis": true,
+    "nightSound": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loaded": true,
+      "seconds": 80,
+      "decodedBytes": 28224000,
+      "volume": 0.55,
+      "error": null,
+      "source": "coastal",
+      "revision": "v3",
+      "wind": true
+    },
+    "pauseStopsClockAndSound": true,
+    "errors": []
+  }
+]
