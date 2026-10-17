@@ -1,0 +1,23 @@
+{
+  "file": "h53-audio-trial-v3-20261018-coastal.mp3",
+  "sources": {
+    "water": "https://freesound.org/people/kkenny101/sounds/852826/",
+    "wind": "https://freesound.org/people/swiftoid/sounds/84914/"
+  },
+  "sourceSha256": {
+    "water": "68cd94cdf360945f187e59ce583e45f7cd24dbf70e1cefac30b02e23a36035ed",
+    "wind": "c01314b0692bcf0b7dcf32b24e348c9420e4a45aec949a296433fd99af599750"
+  },
+  "license": "CC0 verified on both individual pages",
+  "windOriginalArtificialPanRemoved": true,
+  "waterPan": -0.55,
+  "waterLeftOverRightDB": 8.661368712301677,
+  "windOverWaterMonoRMSdB": 2.000000180303801,
+  "seconds": 80.0,
+  "mixRMSdB": -34.20653045775314,
+  "decodedPeakDB": -8.13182336860294,
+  "decodedLeftOverRightDB": 2.6222766866963503,
+  "seamDelta": 0.002125050872564316,
+  "bytes": 1921610,
+  "sha256": "7dd50b09031ec75ce1b1541ec4b2d8254fc27263b13ed6a15623ee1a96c366ee"
+}
