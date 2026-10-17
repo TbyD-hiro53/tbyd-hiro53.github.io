@@ -9,7 +9,7 @@ with sync_playwright() as p:
   assert pg.evaluate('__h53Audio.report().context') is None;assert not any('.mp3' in x for x in req)
   pg.locator('#menuToggle').click();pg.locator('#h53-audio-toggle').click();pg.wait_for_function('__h53Audio.report().playing',timeout=60000);first=pg.evaluate('__h53Audio.report()');pg.screenshot(path=str(D/(name+'-menu.png')))
   pg.locator('#h53-audio-toggle').click();pg.wait_for_function('!__h53Audio.report().playing');pg.locator('#h53-audio-toggle').click();pg.wait_for_function('__h53Audio.report().playing')
-  
+
   if name=='the-changes':pg.locator('#menuToggle').click()
   pg.locator('#pause').click();pg.wait_for_function('!__h53Audio.report().playing');pg.locator('#pause').click();pg.wait_for_function('__h53Audio.report().playing')
   pg.evaluate("window.dispatchEvent(new PageTransitionEvent('pagehide',{persisted:true}))");pg.wait_for_function("__h53Audio.report().context==='suspended'&&!__h53Audio.report().playing");pg.evaluate("window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}))");pg.wait_for_function('__h53Audio.report().playing');pg.evaluate("var c=new BroadcastChannel('h53-audition-audio');c.postMessage({type:'claim',id:'test-other-tab'});c.close()");pg.wait_for_function('!__h53Audio.report().enabled&&!__h53Audio.report().playing');assert not err,err

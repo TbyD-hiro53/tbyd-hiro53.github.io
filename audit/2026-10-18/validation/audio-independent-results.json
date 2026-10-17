@@ -1,0 +1,40 @@
+[
+  {
+    "work": "the-changes",
+    "initialMuteNoFetch": true,
+    "first": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loaded": true,
+      "seconds": 46.07512471655329,
+      "decodedBytes": 16255304,
+      "volume": 0.55,
+      "error": null,
+      "source": "carriage"
+    },
+    "pauseResume": true,
+    "pageLifecycleSynthetic": true,
+    "otherTabClaim": true,
+    "errors": []
+  },
+  {
+    "work": "coastal-glass",
+    "initialMuteNoFetch": true,
+    "first": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loaded": true,
+      "seconds": 20.269931972789117,
+      "decodedBytes": 3575616,
+      "volume": 0.55,
+      "error": null,
+      "source": "coastal"
+    },
+    "pauseResume": true,
+    "pageLifecycleSynthetic": true,
+    "otherTabClaim": true,
+    "errors": []
+  }
+]

@@ -1,0 +1,440 @@
+[
+  {
+    "page": "confluence.html",
+    "checks": [
+      {
+        "panel": "panel",
+        "viewport": [
+          320,
+          568
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "panel",
+        "viewport": [
+          390,
+          844
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": false
+      },
+      {
+        "panel": "panel",
+        "viewport": [
+          768,
+          1024
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": false
+      },
+      {
+        "panel": "panel",
+        "viewport": [
+          844,
+          390
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "panel",
+        "viewport": [
+          568,
+          320
+        ],
+        "textScale": 2,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "panel",
+        "viewport": [
+          1920,
+          1080
+        ],
+        "textScale": 2,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      }
+    ],
+    "startupErrors": [],
+    "scope": "actual DOM/CSS snapshot; geometry-only fixtures, not scene operation"
+  },
+  {
+    "page": "core-37.html",
+    "checks": [
+      {
+        "panel": "info",
+        "viewport": [
+          320,
+          568
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          390,
+          844
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": false
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          768,
+          1024
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": false
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          844,
+          390
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          568,
+          320
+        ],
+        "textScale": 2,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          1920,
+          1080
+        ],
+        "textScale": 2,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      }
+    ],
+    "startupErrors": [],
+    "scope": "actual DOM/CSS snapshot; geometry-only fixtures, not scene operation"
+  },
+  {
+    "page": "earth-origin-material.html",
+    "checks": [
+      {
+        "panel": "rec",
+        "viewport": [
+          320,
+          568
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "rec",
+        "viewport": [
+          390,
+          844
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": false
+      },
+      {
+        "panel": "rec",
+        "viewport": [
+          768,
+          1024
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": false
+      },
+      {
+        "panel": "rec",
+        "viewport": [
+          844,
+          390
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "rec",
+        "viewport": [
+          568,
+          320
+        ],
+        "textScale": 2,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "rec",
+        "viewport": [
+          1920,
+          1080
+        ],
+        "textScale": 2,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      }
+    ],
+    "startupErrors": [],
+    "scope": "actual DOM/CSS snapshot; geometry-only fixtures, not scene operation"
+  },
+  {
+    "page": "lacto-caloris.html",
+    "checks": [
+      {
+        "panel": "composerMenu",
+        "viewport": [
+          320,
+          568
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "composerMenu",
+        "viewport": [
+          390,
+          844
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "composerMenu",
+        "viewport": [
+          768,
+          1024
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": false
+      },
+      {
+        "panel": "composerMenu",
+        "viewport": [
+          844,
+          390
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "composerMenu",
+        "viewport": [
+          568,
+          320
+        ],
+        "textScale": 2,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "composerMenu",
+        "viewport": [
+          1920,
+          1080
+        ],
+        "textScale": 2,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      }
+    ],
+    "startupErrors": [],
+    "scope": "actual DOM/CSS snapshot; geometry-only fixtures, not scene operation"
+  },
+  {
+    "page": "the-changes.html",
+    "checks": [
+      {
+        "panel": "info",
+        "viewport": [
+          320,
+          568
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          390,
+          844
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": false
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          768,
+          1024
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": false
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          844,
+          390
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          568,
+          320
+        ],
+        "textScale": 2,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          1920,
+          1080
+        ],
+        "textScale": 2,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      }
+    ],
+    "startupErrors": [],
+    "scope": "actual DOM/CSS snapshot; geometry-only fixtures, not scene operation"
+  },
+  {
+    "page": "xerophyte.html",
+    "checks": [
+      {
+        "panel": "info",
+        "viewport": [
+          320,
+          568
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          390,
+          844
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": false
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          768,
+          1024
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": false
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          844,
+          390
+        ],
+        "textScale": 1,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          568,
+          320
+        ],
+        "textScale": 2,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      },
+      {
+        "panel": "info",
+        "viewport": [
+          1920,
+          1080
+        ],
+        "textScale": 2,
+        "bounds": true,
+        "outsideControlsHidden": true,
+        "scrollable": true
+      }
+    ],
+    "startupErrors": [],
+    "scope": "actual DOM/CSS snapshot; geometry-only fixtures, not scene operation"
+  }
+]
