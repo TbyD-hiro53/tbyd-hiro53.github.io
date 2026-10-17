@@ -1,0 +1,33 @@
+{
+  "file": "h53-audio-trial-v4-20261018-coastal.mp3",
+  "sources": {
+    "water": {
+      "url": "https://freesound.org/people/kkenny101/sounds/852826/",
+      "license": "CC0"
+    },
+    "wind": {
+      "url": "https://freesound.org/people/Kyster/sounds/165580/",
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "excerptSeconds": [
+        615,
+        705
+      ],
+      "acquisition": "public HQ preview, not original WAV"
+    }
+  },
+  "sourceSha256": {
+    "water": "68cd94cdf360945f187e59ce583e45f7cd24dbf70e1cefac30b02e23a36035ed",
+    "wind": "79f9d96b6c71559f82e622c5332fbaebe692ca804b59a3ee3c62a51e2c734b2e"
+  },
+  "waterPan": -0.55,
+  "waterLeftOverRightDB": 8.661368712301677,
+  "windStereoWidth": 0.65,
+  "windOverWaterStereoRMSdB": -0.046995523582125186,
+  "seconds": 80.0,
+  "mixRMSdB": -35.13140369847832,
+  "decodedPeakDB": -8.355530129357426,
+  "seamDelta": 0.0022605012636631727,
+  "bytes": 1921610,
+  "sha256": "fffa6e9b3930f0629ee42b6f83620e02ccecd5a50dce28fde5709508a354f585"
+}

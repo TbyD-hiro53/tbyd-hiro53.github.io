@@ -1,0 +1,254 @@
+[
+  {
+    "start": 615,
+    "hiOverLow": 0.0012818598952213617,
+    "peakHiOverLow": 0.0038751934938504747,
+    "gustDynamicRatio": 2.6128302394790657
+  },
+  {
+    "start": 630,
+    "hiOverLow": 0.0012247702716909968,
+    "peakHiOverLow": 0.0038773463980542548,
+    "gustDynamicRatio": 2.8374115822854398
+  },
+  {
+    "start": 600,
+    "hiOverLow": 0.0013558667069606721,
+    "peakHiOverLow": 0.004244473201727421,
+    "gustDynamicRatio": 2.2987403537954414
+  },
+  {
+    "start": 30,
+    "hiOverLow": 0.0018392319003422658,
+    "peakHiOverLow": 0.004600285642665822,
+    "gustDynamicRatio": 2.0531438349613915
+  },
+  {
+    "start": 15,
+    "hiOverLow": 0.0018785614619450215,
+    "peakHiOverLow": 0.004601058840528775,
+    "gustDynamicRatio": 1.9615976583861363
+  },
+  {
+    "start": 45,
+    "hiOverLow": 0.001853792570234523,
+    "peakHiOverLow": 0.004816067999274245,
+    "gustDynamicRatio": 2.0664989133518743
+  },
+  {
+    "start": 75,
+    "hiOverLow": 0.001795727692823938,
+    "peakHiOverLow": 0.005075903646269991,
+    "gustDynamicRatio": 2.1236849990180207
+  },
+  {
+    "start": 585,
+    "hiOverLow": 0.0014617195232801171,
+    "peakHiOverLow": 0.005171325716981148,
+    "gustDynamicRatio": 2.2654721350066054
+  },
+  {
+    "start": 60,
+    "hiOverLow": 0.0018577491927181413,
+    "peakHiOverLow": 0.005244559809166775,
+    "gustDynamicRatio": 2.178540177152762
+  },
+  {
+    "start": 405,
+    "hiOverLow": 0.0008988019573927019,
+    "peakHiOverLow": 0.005482938681231834,
+    "gustDynamicRatio": 4.769169076694765
+  },
+  {
+    "start": 90,
+    "hiOverLow": 0.0017896378688781875,
+    "peakHiOverLow": 0.005684740218513506,
+    "gustDynamicRatio": 2.0340148896402974
+  },
+  {
+    "start": 390,
+    "hiOverLow": 0.0011019451181637518,
+    "peakHiOverLow": 0.005748489397896153,
+    "gustDynamicRatio": 5.120848948197811
+  },
+  {
+    "start": 420,
+    "hiOverLow": 0.0009134985153682999,
+    "peakHiOverLow": 0.005750532404615398,
+    "gustDynamicRatio": 4.874960198331094
+  },
+  {
+    "start": 105,
+    "hiOverLow": 0.0018496477024240647,
+    "peakHiOverLow": 0.005998110998326756,
+    "gustDynamicRatio": 1.9882040909083498
+  },
+  {
+    "start": 120,
+    "hiOverLow": 0.001909705200992697,
+    "peakHiOverLow": 0.0060008788441875995,
+    "gustDynamicRatio": 1.9561369049753585
+  },
+  {
+    "start": 450,
+    "hiOverLow": 0.0009181530114911394,
+    "peakHiOverLow": 0.0060359839086626815,
+    "gustDynamicRatio": 4.942736779372878
+  },
+  {
+    "start": 465,
+    "hiOverLow": 0.000908747546889431,
+    "peakHiOverLow": 0.006136141239491366,
+    "gustDynamicRatio": 4.997684436772477
+  },
+  {
+    "start": 360,
+    "hiOverLow": 0.0015753229465065854,
+    "peakHiOverLow": 0.006437742035886173,
+    "gustDynamicRatio": 3.4918523272092106
+  },
+  {
+    "start": 345,
+    "hiOverLow": 0.0016622458165721093,
+    "peakHiOverLow": 0.006458752119435831,
+    "gustDynamicRatio": 2.7014895247917954
+  },
+  {
+    "start": 435,
+    "hiOverLow": 0.0009531363470384929,
+    "peakHiOverLow": 0.006634505234258551,
+    "gustDynamicRatio": 4.773255151914065
+  },
+  {
+    "start": 375,
+    "hiOverLow": 0.0013870008460519635,
+    "peakHiOverLow": 0.006680969518748685,
+    "gustDynamicRatio": 4.967907041605402
+  },
+  {
+    "start": 480,
+    "hiOverLow": 0.0011887414890862013,
+    "peakHiOverLow": 0.007048773190298025,
+    "gustDynamicRatio": 4.536409600451539
+  },
+  {
+    "start": 330,
+    "hiOverLow": 0.0019445596762065027,
+    "peakHiOverLow": 0.007339031754873107,
+    "gustDynamicRatio": 2.1895899701028694
+  },
+  {
+    "start": 135,
+    "hiOverLow": 0.0021892208659438296,
+    "peakHiOverLow": 0.007779785243720958,
+    "gustDynamicRatio": 1.9504069466462244
+  },
+  {
+    "start": 150,
+    "hiOverLow": 0.0022211532328548123,
+    "peakHiOverLow": 0.0077853255846170675,
+    "gustDynamicRatio": 1.8581712922463187
+  },
+  {
+    "start": 315,
+    "hiOverLow": 0.0023915938116025512,
+    "peakHiOverLow": 0.008396847111520368,
+    "gustDynamicRatio": 1.9950795260277414
+  },
+  {
+    "start": 570,
+    "hiOverLow": 0.0020436483678258274,
+    "peakHiOverLow": 0.009173553742287241,
+    "gustDynamicRatio": 2.1790327914874417
+  },
+  {
+    "start": 165,
+    "hiOverLow": 0.0026376642003751306,
+    "peakHiOverLow": 0.009380195606267381,
+    "gustDynamicRatio": 1.8830406473036667
+  },
+  {
+    "start": 510,
+    "hiOverLow": 0.0019217940441971526,
+    "peakHiOverLow": 0.009455359746361166,
+    "gustDynamicRatio": 3.2525257047899676
+  },
+  {
+    "start": 540,
+    "hiOverLow": 0.002019410971995347,
+    "peakHiOverLow": 0.009455359746361166,
+    "gustDynamicRatio": 2.432304551610398
+  },
+  {
+    "start": 555,
+    "hiOverLow": 0.002267383187762149,
+    "peakHiOverLow": 0.009455359746361166,
+    "gustDynamicRatio": 2.14925820657759
+  },
+  {
+    "start": 495,
+    "hiOverLow": 0.001768667785899874,
+    "peakHiOverLow": 0.009460353584995647,
+    "gustDynamicRatio": 3.392506116583447
+  },
+  {
+    "start": 525,
+    "hiOverLow": 0.0019740157427004424,
+    "peakHiOverLow": 0.009460353584995647,
+    "gustDynamicRatio": 2.7752532286139298
+  },
+  {
+    "start": 285,
+    "hiOverLow": 0.0030714622850068637,
+    "peakHiOverLow": 0.009674696345355284,
+    "gustDynamicRatio": 1.8725672036170156
+  },
+  {
+    "start": 300,
+    "hiOverLow": 0.002807665636589812,
+    "peakHiOverLow": 0.009674971521509531,
+    "gustDynamicRatio": 1.9646427185203141
+  },
+  {
+    "start": 180,
+    "hiOverLow": 0.002970693541807189,
+    "peakHiOverLow": 0.010075033600465012,
+    "gustDynamicRatio": 1.8742068287879337
+  },
+  {
+    "start": 270,
+    "hiOverLow": 0.0037241915036628956,
+    "peakHiOverLow": 0.01201858956804028,
+    "gustDynamicRatio": 1.8876224744280525
+  },
+  {
+    "start": 210,
+    "hiOverLow": 0.003758264183073985,
+    "peakHiOverLow": 0.012487812676516377,
+    "gustDynamicRatio": 1.8596977733792057
+  },
+  {
+    "start": 240,
+    "hiOverLow": 0.004209401072407097,
+    "peakHiOverLow": 0.012487812676516377,
+    "gustDynamicRatio": 1.9593557314541845
+  },
+  {
+    "start": 255,
+    "hiOverLow": 0.004015999189916591,
+    "peakHiOverLow": 0.012487812676516377,
+    "gustDynamicRatio": 1.940388696539858
+  },
+  {
+    "start": 195,
+    "hiOverLow": 0.0034918277254354525,
+    "peakHiOverLow": 0.012488188377211315,
+    "gustDynamicRatio": 1.9318336920543369
+  },
+  {
+    "start": 225,
+    "hiOverLow": 0.003995110728700308,
+    "peakHiOverLow": 0.012488188377211315,
+    "gustDynamicRatio": 1.910872356404636
+  }
+]
