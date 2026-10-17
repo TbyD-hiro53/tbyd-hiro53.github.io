@@ -1,0 +1,74 @@
+[
+  {
+    "file": "earth-origin-material-v11-20261018-forest-0-rear-color.jpg",
+    "size": [
+      3072,
+      4096
+    ],
+    "bytes": 4226197,
+    "sha256": "231c139c74e8a26e8d9455954414e9f9eee93bb37fc71f9630ac024add0ddd55"
+  },
+  {
+    "file": "earth-origin-material-v11-20261018-forest-0-rear-depth.png",
+    "size": [
+      3072,
+      4096
+    ],
+    "bytes": 3137337,
+    "sha256": "630e7ad9aeb58f6998064e4fa12c8393d0d753355bb8dfa06483163f3ad76ecc"
+  },
+  {
+    "file": "earth-origin-material-v11-20261018-forest-0-rear-small-color.jpg",
+    "size": [
+      1536,
+      2048
+    ],
+    "bytes": 983228,
+    "sha256": "aa594a19e8418de2757f7437dbae441de416bcb9cd721a4d637bb2bd51038aeb"
+  },
+  {
+    "file": "earth-origin-material-v11-20261018-forest-0-rear-small-depth.png",
+    "size": [
+      1536,
+      2048
+    ],
+    "bytes": 1036281,
+    "sha256": "95d8d9b93fb78526a0c0df954234eea2b82cba1fb6e4a06eedce436875394d6f"
+  },
+  {
+    "file": "earth-origin-material-v11-20261018-forest-3-rear-color.jpg",
+    "size": [
+      2048,
+      2048
+    ],
+    "bytes": 1372994,
+    "sha256": "e2d3af662fe850cbc2e075bc15d22227a609989f015a77301f4d49fe68baa7d1"
+  },
+  {
+    "file": "earth-origin-material-v11-20261018-forest-3-rear-depth.png",
+    "size": [
+      2048,
+      2048
+    ],
+    "bytes": 819342,
+    "sha256": "29b8d236d18c43ffb4ad5de54eaef947de9b173dc8f8f03f7c64ec0c34c6000c"
+  },
+  {
+    "file": "earth-origin-material-v11-20261018-forest-3-rear-small-color.jpg",
+    "size": [
+      1536,
+      1536
+    ],
+    "bytes": 634288,
+    "sha256": "67a59dcc6348580c875af085f3cfe1c33652dc019641d72aa25a5e0a74d02d16"
+  },
+  {
+    "file": "earth-origin-material-v11-20261018-forest-3-rear-small-depth.png",
+    "size": [
+      1536,
+      1536
+    ],
+    "bytes": 528018,
+    "sha256": "9852f842e0e6c81200c6de75b3419738d68762e0233088ed7283302174642c6b"
+  }
+]
