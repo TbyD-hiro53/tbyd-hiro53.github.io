@@ -1,0 +1,156 @@
+{
+  "preview": "v12",
+  "productionRootUnchanged": true,
+  "files": [
+    {
+      "file": "confluence-v12-20261018-bank-mirror-color.bin.gz",
+      "bytes": 1369968,
+      "sha256": "c5aa4fb9e4143791e7732ddddc30fd03a879748643bf0497917b7bb2deb0d0e1",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-under-detail-color.bin.gz",
+      "bytes": 4720226,
+      "sha256": "ed3474ef6fadbcb1a844c2ac3552bcc96af2aa3b2a1d082b343cad1a26af47ce",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-gap-pano-depth.bin.gz",
+      "bytes": 3767664,
+      "sha256": "652425223b94bbfb80924935726eb6eed5cfaeb00407ed6e0e87459b09e1610e",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-bank-pano-depth.bin.gz",
+      "bytes": 2374027,
+      "sha256": "16685b1a5ba7179e926e17d373d4844b7d44c7e36cf317267e0a60d501aa0e90",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-bank-mirror-depth.bin.gz",
+      "bytes": 536103,
+      "sha256": "cd4468b38deea7a0f0a63351be55038dbaf8ca94243008c14dd258b76fa36176",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-gap-detail-depth.bin.gz",
+      "bytes": 6250941,
+      "sha256": "120b3aa984429e950138484da1bc2567d3a1a7bd9e4a1a05f0006928da65d5f8",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-under-mirror-color.bin.gz",
+      "bytes": 1329277,
+      "sha256": "e893ba6264fe283a189bd5ffbe9b51ee359f466b0414f1e71051cdcff0dcf03a",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-viewer.js",
+      "bytes": 15556,
+      "sha256": "b96f189259ed03ed346b2f3fe90007023095a655677f13a2139d8e9e9d920747",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-gap-detail-color.bin.gz",
+      "bytes": 12160536,
+      "sha256": "2678b96b5127fb9977bc5216134d20a38b4bf9728e52755d16bb1996f9a77bde",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-bake.js",
+      "bytes": 8841,
+      "sha256": "8bb01cd253510f75c188099690f7476a8f27416b4510d618f30a9ec3de9a4593",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-under-mirror-depth.bin.gz",
+      "bytes": 545006,
+      "sha256": "1b4448654ebc849ce80f2fbbc8944fe9ed155b423c650b1101c3b497e62501c5",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-bank-detail-depth.bin.gz",
+      "bytes": 7034556,
+      "sha256": "badb7eb8622568475a2b7b6ad17a660fcd64ec53953195fe2dab319f0d7d5cc2",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-under-detail-depth.bin.gz",
+      "bytes": 1833921,
+      "sha256": "c5fde109c80e88266faecd7b7da79e4deaaab3caf414395743b0b6cf64f3ed9f",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-under-pano-depth.bin.gz",
+      "bytes": 2748100,
+      "sha256": "9af9554da7c2ad2fe2fc32234b1013f6c292edc7ed07b70195bef5dd05fe7539",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-gap-mirror-color.bin.gz",
+      "bytes": 1280732,
+      "sha256": "8c88bec92f242072322716a8cfc15638b3240f0890a4421a29d843f1cdb8bb78",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-bank-detail-color.bin.gz",
+      "bytes": 14585899,
+      "sha256": "a6fb60b436458f8fc68177e5ded14609dcdbedb0f1b420b4f08e46a51c11dd5b",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-gap-pano-color.bin.gz",
+      "bytes": 9058713,
+      "sha256": "9d5d79d676dbec46148fd6cee1804ac68a303f02d931fcc9db892b69e7f5cc58",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-under-pano-color.bin.gz",
+      "bytes": 5265084,
+      "sha256": "e23a71abda25dffa62a05f6c57847d0275cf6fa9173ba00b6b6aeb5f3aa36215",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-engine.js",
+      "bytes": 40797,
+      "sha256": "fec65220635a2d76fff6b5ccf2bd466a70b063253b3413a0545dedbdfa28e2bf",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-gap-mirror-depth.bin.gz",
+      "bytes": 474395,
+      "sha256": "672a76c2cb6e7b7e8da234753177dbdb8f56f41a71ee98c08349276d12b5d687",
+      "matched": true
+    },
+    {
+      "file": "confluence-v12-20261018-bank-pano-color.bin.gz",
+      "bytes": 5521160,
+      "sha256": "b59c9c82f5b3a82ff6ab7e2e006b7575d62a049ecc1a5ca2018a05673244a16c",
+      "matched": true
+    },
+    {
+      "file": "preview/20261017/audio-survey-479322.mp3",
+      "bytes": 321068,
+      "sha256": "1d509f59c03c6b67f92bb90779b4ea6562877c5185efbc2d976a9a17503e17b9",
+      "matched": true
+    },
+    {
+      "file": "preview/20261017/audio-survey.html",
+      "bytes": 16822,
+      "sha256": "7d04455c17f938ce1eba44780beaa276e2da9c7d698d40aa50b89fa5b49bacad",
+      "matched": true
+    },
+    {
+      "file": "preview/20261017/audio-survey-197705.mp3",
+      "bytes": 321068,
+      "sha256": "931114c76e0f9abf3675cc8396f8e6947408efaabc56d906cd21c75ea23ee39f",
+      "matched": true
+    },
+    {
+      "file": "preview/20261017/audio-survey-165580.mp3",
+      "bytes": 321035,
+      "sha256": "252ec6066d322a862dd06fbd0f5cd344a57a77738cd485a90020886c6dfcbd15",
+      "matched": true
+    }
+  ]
+}
