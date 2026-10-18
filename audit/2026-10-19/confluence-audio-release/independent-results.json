@@ -1,0 +1,43 @@
+{
+  "url": "http://127.0.0.1:8074/confluence.html?skipgc#under",
+  "audio": {
+    "enabled": true,
+    "playing": true,
+    "context": "running",
+    "loopSeconds": [
+      17,
+      17,
+      59
+    ],
+    "loaded": true,
+    "volume": 0.55,
+    "decodedBytes": 32810400,
+    "scene": {
+      "running": true,
+      "time": 10.332899999999999,
+      "view": 1,
+      "yaw": -25,
+      "eye": [
+        -7.6,
+        2.23,
+        -8.5
+      ]
+    },
+    "targets": {
+      "river": 0.06714817892959013,
+      "rill": 0.025826222665226974,
+      "wind": 0.7381151593893861,
+      "riverCutoff": 1600,
+      "rillCutoff": 1800,
+      "windCutoff": 4800,
+      "windPan": 0,
+      "riverPan": 0.0006475781269547875,
+      "rillPan": 0.0018132187554734049
+    },
+    "error": null,
+    "source": "confluence",
+    "revision": "audio-v2"
+  },
+  "errors": [],
+  "productionMetadata": "passed"
+}

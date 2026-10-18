@@ -7,7 +7,7 @@ Supersedes the audio progress statements in work-status.md and the historical au
 | The Carriage Window | Approved audio and speaker control published |
 | Coastal Glass | Approved wave/sea-wind mix published with rotating beacon |
 | Xerophyte | Approved sand/wind mix published at 94f0fd5 |
-| The Confluence | Downstream-current and wind-led water mix implemented in preview/20261017/confluence.html (2026-10-19 audio v2); artwork review pending |
+| The Confluence | Approved downstream-current and wind-led water mix promoted to production confluence.html (2026-10-19 audio v2) |
 | Lacto-Cortex / Lacto-Tricore / Core No.37 | Water/mechanical sources collected and auditioned; audio integration not started |
 | The Armillary v1 / v2 / Binary Dusk | Wind source approved; audio integration not started. v2 discharge recording not selected |
 | Earth Origin Material / The Preservation Hall | Interior and vegetation-wind sources approved; audio integration not started |
@@ -15,4 +15,4 @@ Supersedes the audio progress statements in work-status.md and the historical au
 | Sanctum | Interior comparison source available; dedicated equipment sound not selected |
 | Lacto-Caloris / The Vacant Seat | Scope of sound remains undecided in light of vacuum/silence setting |
 
-Confluence v13 visuals, Earth door-detail fixes, Tricore fluid improvements and the previously approved shared reading UI are already in production. This audio preview does not reopen or replace those visual changes.
+Confluence v13 visuals, Earth door-detail fixes, Tricore fluid improvements and the previously approved shared reading UI are already in production. The approved Confluence current/audio release retains those visual changes.
