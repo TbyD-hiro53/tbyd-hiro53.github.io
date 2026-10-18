@@ -1,0 +1,16 @@
+[
+  {
+    "key": "S04",
+    "sourceSHA": "c5286642430fb6cfd1750c2b671a2aec55582b746b68034054eec29ac44b814c",
+    "matchesLedger": true,
+    "originalSeconds": 269.04,
+    "excerptStartSeconds": 0
+  },
+  {
+    "key": "S06",
+    "sourceSHA": "fd2cb08fbb724b865c7114b84508b4ce360a937cc8d2b54ca92be9ad1faf4095",
+    "matchesLedger": true,
+    "originalSeconds": 426.048,
+    "excerptStartSeconds": 0
+  }
+]

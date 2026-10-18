@@ -1,0 +1,32 @@
+[
+  {
+    "file": "audio-survey-v3-S03-mix.mp3",
+    "duration": 30.040816,
+    "peakDB": -5.244124,
+    "channels": 2
+  },
+  {
+    "file": "audio-survey-v3-S03-grains.mp3",
+    "duration": 20.04,
+    "peakDB": -7.388101,
+    "channels": 2
+  },
+  {
+    "file": "audio-survey-v3-S06-clean.mp3",
+    "duration": 30.024,
+    "peakDB": -13.43986,
+    "channels": 2
+  },
+  {
+    "file": "audio-survey-v3-S06-raw.mp3",
+    "duration": 30.024,
+    "peakDB": -7.66846,
+    "channels": 2
+  },
+  {
+    "file": "audio-survey-v3-S04.mp3",
+    "duration": 30.024,
+    "peakDB": -4.769329,
+    "channels": 2
+  }
+]

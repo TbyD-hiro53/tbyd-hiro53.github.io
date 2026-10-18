@@ -1,0 +1,43 @@
+[
+  {
+    "width": 320,
+    "noOverflow": true
+  },
+  {
+    "width": 390,
+    "noOverflow": true
+  },
+  {
+    "width": 1100,
+    "noOverflow": true
+  },
+  {
+    "sample": "S03-mix",
+    "playback": true,
+    "singlePlayer": true
+  },
+  {
+    "sample": "S03-grains",
+    "playback": true,
+    "singlePlayer": true
+  },
+  {
+    "sample": "S04",
+    "playback": true,
+    "singlePlayer": true
+  },
+  {
+    "sample": "S06-clean",
+    "playback": true,
+    "singlePlayer": true
+  },
+  {
+    "sample": "S06-raw",
+    "playback": true,
+    "singlePlayer": true
+  },
+  {
+    "noAudioBeforeGesture": true,
+    "errors": []
+  }
+]

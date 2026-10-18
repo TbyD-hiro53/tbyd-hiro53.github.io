@@ -1,0 +1,18 @@
+{
+  "file": "audio-survey-v3-S03-mix.mp3",
+  "windSource": "376534",
+  "windStart": 1,
+  "windSeconds": 18,
+  "windCrossfadeSeconds": 1.5,
+  "windFilter": "highpass 40 Hz, lowpass 1800 Hz",
+  "windRmsTargetDB": -29,
+  "sandSource": "244967",
+  "sandStart": 40,
+  "sandSeconds": 30,
+  "sandFilter": "highpass 180 Hz, lowpass 9000 Hz",
+  "sandRmsTargetDB": -24,
+  "finalGain": 0.23324007571223654,
+  "fadeInSeconds": 0.5,
+  "fadeOutSeconds": 1,
+  "uncompressedPeakDB": -4.61226733052147
+}

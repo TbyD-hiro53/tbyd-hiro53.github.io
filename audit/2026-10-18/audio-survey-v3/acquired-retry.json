@@ -1,0 +1,42 @@
+[
+  {
+    "url": "https://freesound.org/people/klankbeeld/sounds/244967/",
+    "title": "sand against hydrophones 140809_0354.wav by klankbeeld",
+    "description": " sand against hydrophones 140809_0354.wav Overall rating (11 ratings) klankbeeld August 16th, 2014 Follow Sound effects > Natural elements and explosions contact microphone recordings Fine beach sand blown against two hydrophones. When you use this sound it would be nice if you spent a voluntarily donation to freesound. YOU ALWAYS HAVE TO CREDIT/ATTRIBUTE me (klankbeeld) and freesound.org in your work if you use this sound. Do not use an indirect link. Do not simply copy/past elsewhere on the internet please. Thank you. Gear chain: two Aquarian Audio Hydrophones H2a XLR, AB60 setting > Sound Devices 302 >Tascam dr-100 Mk2. To hear, you first have to listen Sound illegal or offensive? Flag it! blow blowing contact-microphone dessert gale gust gusts hit hitting nature sand sand-storm storm weather wind windy Type Wave (.wav) Duration 5:15.113 File size 86.5 MB Sample rate 48 kHz Bit depth 24 bit Channels Stereo ",
+    "licenses": [
+      "https://creativecommons.org/licenses/by/4.0/"
+    ],
+    "hq": [
+      "https://cdn.freesound.org/previews/244/244967_1648170-hq.mp3"
+    ],
+    "id": "244967",
+    "file": "244967-hq-preview.mp3",
+    "bytes": 8498976,
+    "sha256": "2a2a5e7538d8da917ffc7678868b0f5abb86961aa9f6fb182e69503e369d6ff7",
+    "duration": 315.144,
+    "originalAcquired": false
+  },
+  {
+    "id": "825860",
+    "url": "https://freesound.org/people/Vrymaa/sounds/825860/",
+    "hq": "https://cdn.freesound.org/previews/825/825860_13973196-hq.mp3",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://freesound.org/people/samwd/sounds/627055/",
+    "title": "dust storm.m4a by samwd",
+    "description": " dust storm.m4a Overall rating (29 ratings) S samwd April 7th, 2022 Follow Sound effects > Natural elements and explosions Lanjarón, Granada, Spain Recording of a Saharan dust storm at night in a farm in southern Spain. Sound illegal or offensive? Flag it! Spain blowing dust gale gusts howling polvo sand storm wind windy Type M4a (.m4a) Duration 2:13.653 File size 2.1 MB Sample rate 44.1 kHz Bitrate 132 kbps Channels Mono ",
+    "licenses": [
+      "http://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "hq": [
+      "https://cdn.freesound.org/previews/627/627055_2677090-hq.mp3"
+    ],
+    "id": "627055",
+    "file": "627055-hq-preview.mp3",
+    "bytes": 3041139,
+    "sha256": "16e05270c8181606ddba234710dd2fbedefca231402e59a1dd0bee692e53f8bd",
+    "duration": 133.694694,
+    "originalAcquired": false
+  }
+]

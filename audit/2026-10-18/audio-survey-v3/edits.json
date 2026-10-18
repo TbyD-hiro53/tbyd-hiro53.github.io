@@ -1,0 +1,23 @@
+[
+  {
+    "sourceID": "517995",
+    "start": 50,
+    "duration": 30,
+    "file": "audio-survey-v3-S04.mp3",
+    "filters": "highpass=f=45,volume=42dB"
+  },
+  {
+    "sourceID": "451614",
+    "start": 285,
+    "duration": 30,
+    "file": "audio-survey-v3-S06-raw.mp3",
+    "filters": "volume=-6dB"
+  },
+  {
+    "sourceID": "451614",
+    "start": 285,
+    "duration": 30,
+    "file": "audio-survey-v3-S06-clean.mp3",
+    "filters": "volume=-6dB,highpass=f=45,lowpass=f=3500,acompressor=threshold=0.12:ratio=2:attack=5:release=180:makeup=1,volume=2.8dB"
+  }
+]

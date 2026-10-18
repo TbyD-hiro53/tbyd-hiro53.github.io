@@ -1,0 +1,25 @@
+[
+  {
+    "id": "517995",
+    "duration": 269.0,
+    "speechCandidates": [
+      {
+        "start": 6.822,
+        "end": 9.088
+      },
+      {
+        "start": 9.088,
+        "end": 10.746
+      },
+      {
+        "start": 10.79,
+        "end": 14.202
+      }
+    ]
+  },
+  {
+    "id": "451614",
+    "duration": 426.0024375,
+    "speechCandidates": []
+  }
+]
