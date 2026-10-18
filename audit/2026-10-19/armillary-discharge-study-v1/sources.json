@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1107",
+    "title": "Electricity",
+    "author": "Mike Koenig",
+    "source": "https://soundbible.com/1107-Electricity.html",
+    "download": "https://soundbible.com/mp3/Electricity-SoundBible.com-965518507.mp3",
+    "license": "CC BY 3.0",
+    "licenseURL": "https://creativecommons.org/licenses/by/3.0/",
+    "inputSHA256": "eec7ec7529b6a9fe789f2c0dfbd967a0f14e1fcc0e18fc4d2e34456d66410dca",
+    "inputBytes": 112032,
+    "file": "armillary-discharge-study-v1-20261019-1107.mp3",
+    "sha256": "5bbcf9412a5464bc14014a3b8f133c7943f017bf9c4d068699370ab27452abbe",
+    "gainDB": -8.504630621692955,
+    "seconds": 4.689433106575963,
+    "processing": "Constant gain only; original timing/stereo retained; no reverb/pitch/loop; MP3 192k re-encode. No claim of field-recorded high-voltage discharge."
+  },
+  {
+    "id": "1320",
+    "title": "Short Circuit",
+    "author": "Mike Koenig",
+    "source": "https://soundbible.com/1320-Short-Circuit.html",
+    "download": "https://soundbible.com/mp3/Short%20Circuit-SoundBible.com-1450168875.mp3",
+    "license": "CC BY 3.0",
+    "licenseURL": "https://creativecommons.org/licenses/by/3.0/",
+    "inputSHA256": "0abf09cecf4d13298ae57131e1b0c0698248fa0cde7950ae3954fb8dd9c05e57",
+    "inputBytes": 14594,
+    "file": "armillary-discharge-study-v1-20261019-1320.mp3",
+    "sha256": "b6c296ba7717b56c2573a696c6f7c00d6a71b345b774839a048e2a1cbe5b2987",
+    "gainDB": 1.5842624467638688,
+    "seconds": 2.0,
+    "processing": "Constant gain only; original timing/stereo retained; no reverb/pitch/loop; MP3 192k re-encode. No claim of field-recorded high-voltage discharge."
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "clips": [
+    {
+      "duration": 4.689433,
+      "volume": 0.65
+    },
+    {
+      "duration": 2,
+      "volume": 0.65
+    }
+  ],
+  "requestsBeforePlay": 0,
+  "exclusivePlayback": true,
+  "pagehidePauses": true,
+  "responsiveWidths": [
+    320,
+    390,
+    844,
+    1100
+  ],
+  "errors": [],
+  "environment": "Chromium / independent ZIP extraction, not physical iPhone/Safari"
+}
