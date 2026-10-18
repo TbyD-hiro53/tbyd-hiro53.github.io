@@ -1,0 +1,10 @@
+{
+  "archive": "/workspace/previews/2026-10-19/armillary-audio-v3/h53-armillary-audio-v3-20261019.zip",
+  "bytes": 34404501,
+  "sha256": "b3570959e4ddaca5bda0d8c04173cd0b4b224ad699444b1f7454716787c07440",
+  "files": 98,
+  "extraction": "/workspace/verification/armillary-audio-v3",
+  "crc": "passed",
+  "extractedHashes": "all match",
+  "scope": "Both Armillary previews, runtime dependencies and five recorded source HQ MP3s"
+}

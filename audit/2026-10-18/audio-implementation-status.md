@@ -9,8 +9,8 @@ Supersedes the audio progress statements in work-status.md and the historical au
 | Xerophyte | Approved sand/wind mix published at 94f0fd5 |
 | The Confluence | Approved downstream-current and wind-led water mix promoted to production confluence.html (2026-10-19 audio v2) |
 | Lacto-Cortex / Lacto-Tricore | v3 preview: low mechanical layer +6.02 dB in both works; Tricore metallic clatter removed from playback/loading; listening review pending |
-| Core No.37 | v1 drive/transport audio preview unchanged; listening review pending |
-| The Armillary v1 / v2 | v2 previews: retained wind plus author-requested rotation, spark and hologram foley; artwork listening review pending |
+| Core No.37 | Approved v1 drive/transport audio promoted to production core-37.html |
+| The Armillary v1 / v2 | v3 previews: retained wind/rotation/hologram; rejected click sparks replaced with recorded electrical arcing; listening review pending |
 | Binary Dusk | v1 grass-wind and distant coastal-air preview unchanged; artwork listening review pending |
 | Earth Origin Material / The Preservation Hall | v2 previews: weak ventilation fan plus reduced exterior wind with microphone buffeting filtered; artwork listening review pending |
 | SHOKO | v2 preview: lower-floor water reduced, exterior air added to exterior/intake/daylight/branch openings; quiet closed rooms retained; listening review pending |

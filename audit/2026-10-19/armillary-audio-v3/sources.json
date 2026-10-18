@@ -1,0 +1,36 @@
+[
+  {
+    "url": "https://freesound.org/people/BMacZero/sounds/94128/",
+    "title": "Freesound - ContinuousSpark.wav by BMacZero",
+    "description": " ContinuousSpark.wav Overall rating (30 ratings) BMacZero April 5th, 2010 Follow Sound effects > Objects / House appliances A looping recording of a small Tesla generator sparking. Sound illegal or offensive? Flag it! electric electricity loop spark tesla Type Wave (.wav) Duration 0:00.217 File size 18.8 KB Sample rate 44.1 kHz Bit depth 16 bit Channels Mono ",
+    "licenses": [
+      "http://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "mp3": [
+      "https://cdn.freesound.org/previews/94/94128_1554918-hq.mp3"
+    ],
+    "file": "/workspace/previews/2026-10-19/armillary-audio-v3-sources/94128-hq-preview.mp3",
+    "bytes": 9081,
+    "sha256": "15f5dd478dee7a9f3c6cebfde290cf9e4b1ba0016557f42ba5aff1150b57e935",
+    "acquired": "Public HQ MP3 preview, original WAV not acquired",
+    "selected": false,
+    "usage": "Unused fallback candidate only"
+  },
+  {
+    "url": "https://freesound.org/people/InspectorJ/sounds/412313/",
+    "title": "Freesound - Electric Sparks, Railway, A.wav by InspectorJ",
+    "description": " Electric Sparks, Railway, A.wav Overall rating (57 ratings) InspectorJ December 2nd, 2017 Follow Soundscapes > Indoors Audio of electricity violently sparking from railroad contact with a commuter train at Milford Station, Surrey. There had been a heavy frost over night causing ice to appear on the lines and workmen were trying to de-ice them. Due to the track power lines being iced, this caused a more violent electric outburst than usual when they came in contact with a train, and this was what one sounded like as the train tried to leave the station. This sound is not in the public domain. Please attribute/credit the sound if you use it. If you would prefer to not have to give attribution, then take a look at the attribution-free license . An example of how you might credit is by putting this in the description/credits: \"Electric Sparks, Railway, A.wav\" by InspectorJ ( www.jshaw.co.uk ) of Freesound.org If any of these sounds have been of help, and you are feeling charitable, please do consider donating to Freesound to help keep the site running (a link is also on the home page). Any donations are greatly appreciated! And for more awesome sounds, do please check out my sound libraries or SFX store . Please comment on where you intend to use the sound, and feel free to post a link to the work where you used it if you want (I enjoy watching/listening to anything you create!) The sound was recorded using a \"H1 Zoom recorder\" on 25th November 2017. Note: Audio quality is always better when downloaded. Feel free to credit on IMDb | Patreon Sound illegal or offensive? Flag it! Electric Electricity Railroad Railway Spark Sparks Train electric electricity railroad railway spark sparks train Type Wave (.wav) Duration 0:12.339 File size 3.1 MB Sample rate 44.1 kHz Bit depth 24 bit Channels Stereo ",
+    "licenses": [
+      "https://creativecommons.org/licenses/by/4.0/"
+    ],
+    "mp3": [
+      "https://cdn.freesound.org/previews/412/412313_5121236-hq.mp3"
+    ],
+    "file": "/workspace/previews/2026-10-19/armillary-audio-v3-sources/412313-hq-preview.mp3",
+    "bytes": 285061,
+    "sha256": "3124611d3c79543fcbdbdcea0ecf03a23c311b9fd08fb52d9909c62853d21493",
+    "acquired": "Public HQ MP3 preview, original WAV not acquired",
+    "selected": true,
+    "usage": "Three real arcing excerpts; see audio-build.json"
+  }
+]

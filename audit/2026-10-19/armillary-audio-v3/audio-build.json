@@ -1,0 +1,53 @@
+[
+  {
+    "file": "armillary-audio-v3-20261019-spark1.mp3",
+    "source": "InspectorJ / 412313",
+    "sourceInterval": [
+      5.08,
+      5.51
+    ],
+    "duration": 0.43,
+    "filters": "highpass700Hz,lowpass10000Hz; mono fold; target-23dBFS;0.38*tanh(x/0.38);4ms edge fades;no pitch/reversal/generated noise",
+    "codecGuardSeconds": 0.1,
+    "bytes": 11327,
+    "sha256": "4f1cfd7384167ee8f104a6598cf53a7398126b195f98957c2ecbeb01da642752",
+    "rmsDBFS": -24.184171676635742,
+    "peak": 0.3229643702507019,
+    "rmsWindow5msRatio95to10": 6.483130931854248,
+    "sourceSHA256": "3124611d3c79543fcbdbdcea0ecf03a23c311b9fd08fb52d9909c62853d21493"
+  },
+  {
+    "file": "armillary-audio-v3-20261019-spark2.mp3",
+    "source": "InspectorJ / 412313",
+    "sourceInterval": [
+      5.54,
+      6.04
+    ],
+    "duration": 0.5,
+    "filters": "highpass700Hz,lowpass10000Hz; mono fold; target-23dBFS;0.38*tanh(x/0.38);4ms edge fades;no pitch/reversal/generated noise",
+    "codecGuardSeconds": 0.1,
+    "bytes": 12163,
+    "sha256": "490895d5e2937440f695987aa89d481600dea2bb022860be7a69862e0ea6563b",
+    "rmsDBFS": -24.115781784057617,
+    "peak": 0.3255242109298706,
+    "rmsWindow5msRatio95to10": 6.02137565612793,
+    "sourceSHA256": "3124611d3c79543fcbdbdcea0ecf03a23c311b9fd08fb52d9909c62853d21493"
+  },
+  {
+    "file": "armillary-audio-v3-20261019-spark3.mp3",
+    "source": "InspectorJ / 412313",
+    "sourceInterval": [
+      6.04,
+      6.49
+    ],
+    "duration": 0.45,
+    "filters": "highpass700Hz,lowpass10000Hz; mono fold; target-23dBFS;0.38*tanh(x/0.38);4ms edge fades;no pitch/reversal/generated noise",
+    "codecGuardSeconds": 0.1,
+    "bytes": 11327,
+    "sha256": "e92858a947538fb1377a0ccc86c4a496e817273b8739d60904c0a2f4c3fe2c22",
+    "rmsDBFS": -24.06887435913086,
+    "peak": 0.3272131085395813,
+    "rmsWindow5msRatio95to10": 4.805989742279053,
+    "sourceSHA256": "3124611d3c79543fcbdbdcea0ecf03a23c311b9fd08fb52d9909c62853d21493"
+  }
+]
