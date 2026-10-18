@@ -1,0 +1,24 @@
+[
+  {
+    "name": "wind",
+    "source": "165580",
+    "excerpt": [
+      615,
+      60
+    ],
+    "filters": [
+      110,
+      5500
+    ],
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "peakControl": "0.32*tanh(x/0.32)",
+    "file": "confluence-audio-v2-20261019-wind.mp3",
+    "bytes": 1185480,
+    "duration": 59.0,
+    "rmsDBFS": -28.60287857055664,
+    "peak": 0.20152151584625244,
+    "seamStep": 0.0020190365612506866,
+    "ordinaryStep99": 0.0051775481551885605
+  }
+]

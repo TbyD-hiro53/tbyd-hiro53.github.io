@@ -1,0 +1,285 @@
+[
+  {
+    "view": "gap",
+    "audio": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        17,
+        17,
+        59
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 32810400,
+      "scene": {
+        "running": true,
+        "time": 5.449700000000001,
+        "view": 0,
+        "yaw": 28,
+        "eye": [
+          -1.65,
+          2.23,
+          1.3
+        ]
+      },
+      "targets": {
+        "river": 0.09270927857050276,
+        "rill": 0.08240824761822468,
+        "wind": 0.1906580073411958,
+        "riverCutoff": 1800,
+        "rillCutoff": 2000,
+        "windCutoff": 2200,
+        "windPan": 0,
+        "riverPan": -0.01974094764938087,
+        "rillPan": -0.055274653418266435
+      },
+      "error": null,
+      "source": "confluence",
+      "revision": "audio-v2"
+    },
+    "reversePan": 0.05527465341826639,
+    "bake": {
+      "enabled": true,
+      "active": true,
+      "view": 0,
+      "error": null,
+      "gpuBytes": 254454442.66666663
+    }
+  },
+  {
+    "view": "under",
+    "audio": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        17,
+        17,
+        59
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 32810400,
+      "scene": {
+        "running": true,
+        "time": 12.916199999999996,
+        "view": 1,
+        "yaw": -25,
+        "eye": [
+          -7.6,
+          2.23,
+          -8.5
+        ]
+      },
+      "targets": {
+        "river": 0.0666040226361484,
+        "rill": 0.025616931783134,
+        "wind": 0.7309217795154087,
+        "riverCutoff": 1600,
+        "rillCutoff": 1800,
+        "windCutoff": 4800,
+        "windPan": 0,
+        "riverPan": 0.0006475781269547875,
+        "rillPan": 0.0018132187554734049
+      },
+      "error": null,
+      "source": "confluence",
+      "revision": "audio-v2"
+    },
+    "reversePan": -0.0018132187554735682,
+    "bake": {
+      "enabled": true,
+      "active": true,
+      "view": 1,
+      "error": null,
+      "gpuBytes": 254454442.66666663
+    }
+  },
+  {
+    "view": "bank",
+    "audio": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        17,
+        17,
+        59
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 32810400,
+      "scene": {
+        "running": true,
+        "time": 20.449099999999994,
+        "view": 2,
+        "yaw": 83,
+        "eye": [
+          11,
+          2.25,
+          15
+        ]
+      },
+      "targets": {
+        "river": 0.27336498474522003,
+        "rill": 0.5369669343209679,
+        "wind": 0.3454829795559564,
+        "riverCutoff": 3200,
+        "rillCutoff": 5800,
+        "windCutoff": 4200,
+        "windPan": 0,
+        "riverPan": -0.20211411379790042,
+        "rillPan": -0.5659195186341212
+      },
+      "error": null,
+      "source": "confluence",
+      "revision": "audio-v2"
+    },
+    "reversePan": 0.5659195186341214,
+    "bake": {
+      "enabled": true,
+      "active": true,
+      "view": 2,
+      "error": null,
+      "gpuBytes": 254454442.66666663
+    }
+  },
+  {
+    "viewport": [
+      320,
+      568
+    ],
+    "audioButton": {
+      "x": 163.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 24,
+      "y": 70,
+      "width": 280,
+      "height": 320
+    }
+  },
+  {
+    "viewport": [
+      390,
+      844
+    ],
+    "audioButton": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 94,
+      "y": 70,
+      "width": 280,
+      "height": 596
+    }
+  },
+  {
+    "viewport": [
+      844,
+      390
+    ],
+    "audioButton": {
+      "x": 687.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 548,
+      "y": 70,
+      "width": 280,
+      "height": 194
+    }
+  },
+  {
+    "viewport": [
+      1100,
+      800
+    ],
+    "audioButton": {
+      "x": 943.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 804,
+      "y": 70,
+      "width": 280,
+      "height": 604
+    }
+  },
+  {
+    "checks": "mute by default, no initial audio request, all views, opposite-facing pan, record dismissal, water tap, pause/resume, volume, hide/restore, persisted lifecycle, cross-tab claim, rapid toggles",
+    "errors": [],
+    "dependencies": [
+      "confluence-audio-v1-20261018-rill.mp3",
+      "confluence-audio-v1-20261018-river.mp3",
+      "confluence-audio-v2-20261019-wind.mp3",
+      "confluence-audio-v2-20261019.js",
+      "confluence-current-v1-20261019-engine.js",
+      "confluence-liquid-v2-20260919.css",
+      "confluence-v12-20261018-bank-detail-color.bin.gz",
+      "confluence-v12-20261018-bank-detail-depth.bin.gz",
+      "confluence-v12-20261018-bank-mirror-color.bin.gz",
+      "confluence-v12-20261018-bank-mirror-depth.bin.gz",
+      "confluence-v12-20261018-bank-pano-color.bin.gz",
+      "confluence-v12-20261018-bank-pano-depth.bin.gz",
+      "confluence-v12-20261018-gap-detail-color.bin.gz",
+      "confluence-v12-20261018-gap-detail-depth.bin.gz",
+      "confluence-v12-20261018-gap-mirror-color.bin.gz",
+      "confluence-v12-20261018-gap-mirror-depth.bin.gz",
+      "confluence-v12-20261018-gap-pano-color.bin.gz",
+      "confluence-v12-20261018-gap-pano-depth.bin.gz",
+      "confluence-v12-20261018-under-detail-color.bin.gz",
+      "confluence-v12-20261018-under-detail-depth.bin.gz",
+      "confluence-v12-20261018-under-mirror-color.bin.gz",
+      "confluence-v12-20261018-under-mirror-depth.bin.gz",
+      "confluence-v12-20261018-under-pano-color.bin.gz",
+      "confluence-v12-20261018-under-pano-depth.bin.gz",
+      "confluence-v13-20261018-bake.js",
+      "confluence-v13-20261018-bank-detail-color.bin.gz",
+      "confluence-v13-20261018-bank-detail-depth.bin.gz",
+      "confluence-v13-20261018-bank-mirror-color.bin.gz",
+      "confluence-v13-20261018-bank-mirror-depth.bin.gz",
+      "confluence-v13-20261018-bank-pano-color.bin.gz",
+      "confluence-v13-20261018-bank-pano-depth.bin.gz",
+      "confluence-v13-20261018-gap-detail-color.bin.gz",
+      "confluence-v13-20261018-gap-detail-depth.bin.gz",
+      "confluence-v13-20261018-gap-mirror-color.bin.gz",
+      "confluence-v13-20261018-gap-mirror-depth.bin.gz",
+      "confluence-v13-20261018-gap-pano-color.bin.gz",
+      "confluence-v13-20261018-gap-pano-depth.bin.gz",
+      "confluence-v13-20261018-under-detail-color.bin.gz",
+      "confluence-v13-20261018-under-detail-depth.bin.gz",
+      "confluence-v13-20261018-under-mirror-color.bin.gz",
+      "confluence-v13-20261018-under-mirror-depth.bin.gz",
+      "confluence-v13-20261018-under-pano-color.bin.gz",
+      "confluence-v13-20261018-under-pano-depth.bin.gz",
+      "confluence-v13-20261018-viewer.js",
+      "confluence-v5-20260909-three.min.js",
+      "confluence-v5-20260909-viewer.css",
+      "confluence-v7-20261017-copy-en.js",
+      "h53-chrome-v2-20261016.js",
+      "h53-direct-controls-v1-20260919.css",
+      "h53-direct-controls-v1-20260919.js",
+      "h53-dismiss-v1-20260921.js",
+      "h53-liquid-glass-optics-v1.js",
+      "h53-liquid-host-v1-20260919.js",
+      "h53-liquid-layout-v1-20260919.css",
+      "h53-liquid-ui-v1-20260919.css",
+      "h53-liquid-ui-v1-20260919.js",
+      "h53-reading-layout-v3-20261018.js",
+      "preview/20261017/confluence.html"
+    ]
+  }
+]

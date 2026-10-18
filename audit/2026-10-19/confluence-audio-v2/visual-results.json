@@ -1,0 +1,125 @@
+[
+  {
+    "seconds": 0,
+    "report": {
+      "ready": true,
+      "revision": "current-v1",
+      "bake": {
+        "enabled": true,
+        "active": true,
+        "view": 2,
+        "error": null,
+        "gpuBytes": 254454442.66666663
+      },
+      "view": 2,
+      "time": 0,
+      "impulses": 0,
+      "memory": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        1000,
+        700
+      ],
+      "drawCalls": 8,
+      "triangles": 33124,
+      "frameStats": {
+        "frames": 9,
+        "milliseconds": 3781.2999999970198
+      }
+    }
+  },
+  {
+    "seconds": 1,
+    "report": {
+      "ready": true,
+      "revision": "current-v1",
+      "bake": {
+        "enabled": true,
+        "active": true,
+        "view": 2,
+        "error": null,
+        "gpuBytes": 254454442.66666663
+      },
+      "view": 2,
+      "time": 1,
+      "impulses": 0,
+      "memory": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        1000,
+        700
+      ],
+      "drawCalls": 8,
+      "triangles": 33124,
+      "frameStats": {
+        "frames": 12,
+        "milliseconds": 3784.10000000149
+      }
+    }
+  },
+  {
+    "seconds": 14400,
+    "report": {
+      "ready": true,
+      "revision": "current-v1",
+      "bake": {
+        "enabled": true,
+        "active": true,
+        "view": 2,
+        "error": null,
+        "gpuBytes": 254454442.66666663
+      },
+      "view": 2,
+      "time": 14400,
+      "impulses": 0,
+      "memory": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "size": [
+        1000,
+        700
+      ],
+      "drawCalls": 8,
+      "triangles": 33124,
+      "frameStats": {
+        "frames": 15,
+        "milliseconds": 3786.89999999851
+      }
+    }
+  },
+  {
+    "gpuTransportPatch": {
+      "positions": [
+        [
+          357.1534793792576,
+          260.4578438770031
+        ],
+        [
+          315.6648732795578,
+          267.4035992541528
+        ],
+        [
+          395.3637984696609,
+          254.1163916722578
+        ]
+      ],
+      "mseStationaryDownstreamUpstream": [
+        0.0007787850505222322,
+        7.759981050716074e-06,
+        0.00303845815205804
+      ],
+      "downstreamBest": true
+    }
+  }
+]
