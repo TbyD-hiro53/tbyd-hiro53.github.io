@@ -1,0 +1,186 @@
+[
+  {
+    "work": "lacto-tricore",
+    "initial": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        24
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 8467200,
+      "scene": {
+        "running": true,
+        "time": 0.44999999999999973,
+        "view": "main"
+      },
+      "targets": {
+        "rumble": 1.1370129413734065,
+        "rumbleCutoff": 650,
+        "rumblePan": 0
+      },
+      "error": null,
+      "source": "lacto-tricore",
+      "layers": [
+        "rumble"
+      ],
+      "revision": "device-audio-v3"
+    },
+    "views": [
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          24
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 8467200,
+        "scene": {
+          "running": true,
+          "time": 1.2666000000000004,
+          "view": "brain"
+        },
+        "targets": {
+          "rumble": 0.7079794482941063,
+          "rumbleCutoff": 650,
+          "rumblePan": 0
+        },
+        "error": null,
+        "source": "lacto-tricore",
+        "layers": [
+          "rumble"
+        ],
+        "revision": "device-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          24
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 8467200,
+        "scene": {
+          "running": true,
+          "time": 1.7832999999999994,
+          "view": "sanc"
+        },
+        "targets": {
+          "rumble": 1.6039108767044958,
+          "rumbleCutoff": 650,
+          "rumblePan": 0
+        },
+        "error": null,
+        "source": "lacto-tricore",
+        "layers": [
+          "rumble"
+        ],
+        "revision": "device-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          24
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 8467200,
+        "scene": {
+          "running": true,
+          "time": 2.3665999999999987,
+          "view": "main"
+        },
+        "targets": {
+          "rumble": 1.1917551035192862,
+          "rumbleCutoff": 650,
+          "rumblePan": 0
+        },
+        "error": null,
+        "source": "lacto-tricore",
+        "layers": [
+          "rumble"
+        ],
+        "revision": "device-audio-v3"
+      }
+    ],
+    "audioRequests": [
+      "http://127.0.0.1:8077/device-audio-v2-20261019-rumble.mp3"
+    ],
+    "errors": [],
+    "pauseResumeMute": "passed",
+    "DPR": 0.25
+  },
+  {
+    "work": "lacto-cortex",
+    "initial": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        24
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 8467200,
+      "scene": {
+        "running": true,
+        "time": 51.802,
+        "view": "8k-phone"
+      },
+      "targets": {
+        "rumble": 0.6,
+        "rumbleCutoff": 480,
+        "rumblePan": 0
+      },
+      "error": null,
+      "source": "lacto-cortex",
+      "layers": [
+        "rumble"
+      ],
+      "revision": "device-audio-v3"
+    },
+    "views": [
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          24
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 8467200,
+        "scene": {
+          "running": true,
+          "time": 68.16320000000299,
+          "view": "c-brain"
+        },
+        "targets": {
+          "rumble": 0.44,
+          "rumbleCutoff": 480,
+          "rumblePan": 0
+        },
+        "error": null,
+        "source": "lacto-cortex",
+        "layers": [
+          "rumble"
+        ],
+        "revision": "device-audio-v3"
+      }
+    ],
+    "audioRequests": [
+      "http://127.0.0.1:8077/device-audio-v2-20261019-rumble.mp3"
+    ],
+    "errors": [],
+    "pauseResumeMute": "passed",
+    "DPR": 0.25
+  }
+]

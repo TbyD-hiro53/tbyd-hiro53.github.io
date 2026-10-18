@@ -1,0 +1,10 @@
+{
+  "archive": "/workspace/previews/2026-10-19/device-audio-v3/h53-cortex-tricore-audio-v3-20261019.zip",
+  "bytes": 36729453,
+  "sha256": "3c34ad97c37308ced6cff084c795a8ad9513f028b478ff8c31596147e5335cea",
+  "files": 89,
+  "extraction": "/workspace/verification/device-audio-v3",
+  "crc": "passed",
+  "extractedHashes": "all match",
+  "scope": "Cortex/Tricore dependencies and S07 HQ recording; not whole gallery"
+}

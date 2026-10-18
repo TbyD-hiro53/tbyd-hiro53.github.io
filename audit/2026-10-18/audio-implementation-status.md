@@ -8,7 +8,7 @@ Supersedes the audio progress statements in work-status.md and the historical au
 | Coastal Glass | Approved wave/sea-wind mix published with rotating beacon |
 | Xerophyte | Approved sand/wind mix published at 94f0fd5 |
 | The Confluence | Approved downstream-current and wind-led water mix promoted to production confluence.html (2026-10-19 audio v2) |
-| Lacto-Cortex / Lacto-Tricore | v2 preview: water sources removed; quiet mechanical rumble / unsettling rumble and metal foley; listening review pending |
+| Lacto-Cortex / Lacto-Tricore | v3 preview: low mechanical layer +6.02 dB in both works; Tricore metallic clatter removed from playback/loading; listening review pending |
 | Core No.37 | v1 drive/transport audio preview unchanged; listening review pending |
 | The Armillary v1 / v2 | v2 previews: retained wind plus author-requested rotation, spark and hologram foley; artwork listening review pending |
 | Binary Dusk | v1 grass-wind and distant coastal-air preview unchanged; artwork listening review pending |
