@@ -26,7 +26,7 @@ canon = (root / 'CANON_TEXT.md').read_text(encoding='utf-8')
 
 # Data to load, measured on a phone (2026-09-23, compressed transfer). Only works over 5 MB.
 # Re-measure when a work's assets are replaced. (2026-09-26: preservation-hall 25 -> 3.8 MB, chip removed)
-DATA_SIZE_MB = {'lacto-cortex': 23, 'binary-dusk': 16, 'confluence': 15,
+DATA_SIZE_MB = {'lacto-cortex': 23, 'binary-dusk': 16, 'confluence': 38,
                 'coastal-glass': 8, 'the-changes': 11, 'lacto-caloris': 6}
 SIZE_TITLE = '読み込み量（スマートフォン表示での実測） / Data to load (measured on a phone)'
 COUNT_PATTERN = r'(id="count">)(?:\d+ assets(?: \+ 1 study)?|\d+ works)(</span>)'
@@ -48,6 +48,8 @@ def site_ux(source):
             raise ValueError('Missing card for data size: ' + slug)
         chips = re.sub(r'<span class="chip size"[^>]*>[^<]*</span>', '', match[1])
         size_title = 'スマートフォン構図：夕景 約6 MB、夜景まで 約8 MB（390×844で読込資産を集計） / Phone framing: sunset ~6 MB, including night ~8 MB (assets totalled at 390×844)' if slug == 'coastal-glass' else SIZE_TITLE
+        if slug == 'confluence':
+            size_title = '初期表示の読込資産（390×844で集計、視点切替は追加読込） / Initial-view assets (totalled at 390×844; other views load separately)'
         chips += '<span class="chip size" title="' + size_title + '">' + str(mb) + ' MB</span>'
         source = source[:match.start(1)] + chips + source[match.end(1):]
     return source

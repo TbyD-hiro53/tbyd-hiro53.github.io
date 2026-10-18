@@ -585,10 +585,10 @@ The pods are six across and twelve deep. Seventy-two. Two are open; their lids h
 **観測ログ** `Two, until the near water. One, after it.`
 
 **説明 JA**
-第九区、水路の合流点。四方から入った水は広さに混ざって向きを失い、日は二つ——ピンクの白とターコイズの白——が、大きいほうが水に触れかけたところで止まっている。水の上には光の道が二本、岸の近くで一本に混ざる。時間は動かない。動くのは円盤と波と、〇・七八秒の拍だけ。立てる場所は岸の道、円盤の真下、記録所の床の切れ目の三つ。首だけが動く。物に触れると観測記録が返る。
+水路沿いの道から、白い記録所へ。床の先に広がる水面に触れると、波が起こり、周囲の流れへほどけていく。頭上では円盤が音もなく回り、影が水と室内を横切る。床の切れ目、円盤の真下、岸の道。三つの立ち場所から自由に見渡し、根や壁、円盤に触れて観測記録を読む。
 
 **説明 EN**
-The confluence of the Ninth District. Water enters from four sides, mixes into the breadth and loses its direction; the two suns — one pink-white, one turquoise-white — are held at the moment the larger touches the water. Two paths of light lie on the surface and become one near the shore. Time does not move; only the discs, the waves and the 0.78-second pulse do. Three places to stand: the shore path, beneath a disc, and the gap in the floor of the record house. Only the head turns. Touch a thing and it returns its record of observation.
+A path follows an inlet to a white record house on the shore. Water opens beyond the end of its floor. Touch the surface to make a wave; its shape disperses into the surrounding motion. Silent discs turn overhead, their shadows crossing the room and the water. Three fixed places to stand, with a freely turning view. Touch roots, walls or discs to read their records of observation.
 
 **断章 JA**
 水は四方から入ってくる。入るところには向きがあり、速さがあり、縁との境がある。切れ目を越えると、向きが薄れ、速さがほどけ、境がなくなる。どこまでが水路の水だったのかを追える距離は、思っていたより短い。入ったあとは、見えない。水の上を円いものが回っている。等間隔で、同じ速さで、どれも何も載せていない。回る音はなく、水の音だけが下にある。日は二つ、並んで、片方が大きく、片方が小さい。降りるにつれて水の上に光の道が二本できて、二本は岸の近くで一本に混ざる。日のほうは離れたまま、光のほうだけが混ざっている。大きいほうが水に触れて、欠けかけたところで、この帯の夕方は止まっている。暗くなる速さを記す欄は、ここにはない。

@@ -1,0 +1,6 @@
+from pathlib import Path
+import zipfile,json,hashlib,subprocess
+r=Path('/workspace/tbyd-hiro53.github.io');D=Path('/workspace/previews/2026-10-18/confluence-release');rev=subprocess.check_output(['git','rev-parse','HEAD'],cwd=r,text=True).strip();p=D/'h53-confluence-v13-production.zip';subprocess.run(['git','archive','--format=zip','-o',str(p),'HEAD'],cwd=r,check=True)
+with zipfile.ZipFile(p,'a',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as z:
+ z.write('/workspace/render-work/confluence-v13/landscape-refined.blend','blender-source/confluence-v13-landscape.blend');z.writestr('CONFLUENCE-README-ja.txt',f'Confluence v13 approved production release / {rev}\npython -m http.server 8066\nhttp://localhost:8066/confluence.html\n全依存物と編集可能なBlenderシーンを同梱。全3視点の背景・反射は事前計算、水面・円盤は実時間描画。ローカルサーバーが必要です。\n');names=z.namelist();z.writestr('CONFLUENCE-MANIFEST.json',json.dumps({'source':rev,'files':names}));assert z.testzip() is None;z.extractall('/workspace/verification/confluence-release')
+info={'source':rev,'archive':str(p),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'files':len(names)+1,'crc':True};(D/'archive-info.json').write_text(json.dumps(info,indent=2));print(json.dumps(info),flush=True)
