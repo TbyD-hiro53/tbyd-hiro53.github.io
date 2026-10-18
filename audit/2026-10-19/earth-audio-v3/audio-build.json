@@ -1,0 +1,50 @@
+[
+  {
+    "name": "wind",
+    "source": "523389",
+    "sourceFile": "/workspace/previews/2026-10-19/interiors-human-free-candidates/523389-hq-preview.mp3",
+    "sourceSHA256": "80eb06d3a6b4d8e00f89d9cd20f4d0262b90714ca7bf4603238ec5e51d8e5b2c",
+    "excerpt": [
+      85,
+      115
+    ],
+    "channels": 2,
+    "filters": "highpass=f=160:p=2,lowpass=f=3600:p=2",
+    "targetRMSDBFS": -34,
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "peakControl": ".20*tanh(x/.20)",
+    "file": "interiors-audio-v3-20261019-wind.mp3",
+    "bytes": 585186,
+    "sha256": "a3f3779fdee0872bdf6e0879b6feee34cf382e0eb71f895a35d5b78e89e8316e",
+    "loopSeconds": 29.0,
+    "rmsDBFS": -34.52635955810547,
+    "peak": 0.1374983787536621,
+    "seamStep": 0.0006841709837317467,
+    "ordinaryStep99": 0.010966460220515728
+  },
+  {
+    "name": "fan",
+    "source": "478643",
+    "sourceFile": "/workspace/previews/2026-10-19/interiors-human-free-candidates/478643-hq-preview.mp3",
+    "sourceSHA256": "057433ec4d1243ba0758c4765e737f2b181a333124ee334ba233fe78855c5fb1",
+    "excerpt": [
+      135,
+      165
+    ],
+    "channels": 1,
+    "filters": "pan=mono|c0=c0,highpass=f=85:p=2,lowpass=f=1800:p=2",
+    "targetRMSDBFS": -34,
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "peakControl": ".20*tanh(x/.20)",
+    "file": "interiors-audio-v3-20261019-fan.mp3",
+    "bytes": 468157,
+    "sha256": "3d52e65f883cf78f761faa0ca8f50bc0a4d083eb513f9e0c7f28d072cc5db7ca",
+    "loopSeconds": 29.0,
+    "rmsDBFS": -34.53169250488281,
+    "peak": 0.08873113989830017,
+    "seamStep": 5.3120777010917664e-05,
+    "ordinaryStep99": 0.003915183246135712
+  }
+]

@@ -1,0 +1,658 @@
+[
+  {
+    "work": "earth-origin-material",
+    "views": [
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 15346800,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.090500000014901,
+          "view": 0
+        },
+        "targets": {
+          "fan": 0.52,
+          "wind": 0.035,
+          "fanCutoff": 1400,
+          "windCutoff": 1700,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "earth-origin-material",
+        "revision": "interiors-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 15346800,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.3464000000059604,
+          "view": 1
+        },
+        "targets": {
+          "fan": 0.52,
+          "wind": 0.035,
+          "fanCutoff": 1400,
+          "windCutoff": 1700,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "earth-origin-material",
+        "revision": "interiors-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 15346800,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.6591000000089404,
+          "view": 2
+        },
+        "targets": {
+          "fan": 0.12,
+          "wind": 0.001,
+          "fanCutoff": 650,
+          "windCutoff": 700,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "earth-origin-material",
+        "revision": "interiors-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 15346800,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.9666000000089405,
+          "view": 3
+        },
+        "targets": {
+          "fan": 0.32,
+          "wind": 0.17,
+          "fanCutoff": 1400,
+          "windCutoff": 2400,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "earth-origin-material",
+        "revision": "interiors-audio-v3"
+      }
+    ],
+    "requestsBeforeGesture": 0,
+    "audioRequests": [
+      "http://127.0.0.1:8060/interiors-audio-v3-20261019-fan.mp3",
+      "http://127.0.0.1:8060/interiors-audio-v3-20261019-wind.mp3"
+    ],
+    "speaker": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 285.90625,
+      "y": 14,
+      "width": 88.09375,
+      "height": 44
+    },
+    "errors": [],
+    "checks": [
+      "new-recordings-only for indoor air/wind",
+      "gesture-only fetch",
+      "all viewpoints",
+      "pause/resume where present",
+      "volume",
+      "source credits",
+      "pagehide/pageshow",
+      "cross-tab claim",
+      "mute/re-enable",
+      "SHOKO lower mix unchanged"
+    ]
+  },
+  {
+    "work": "preservation-hall",
+    "views": [
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 15346800,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 0.8937999999970196,
+          "view": 0
+        },
+        "targets": {
+          "fan": 0.55,
+          "wind": 0.008,
+          "fanCutoff": 1400,
+          "windCutoff": 1200,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "preservation-hall",
+        "revision": "interiors-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 15346800,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.2670999999940395,
+          "view": 1
+        },
+        "targets": {
+          "fan": 0.52,
+          "wind": 0.006,
+          "fanCutoff": 1400,
+          "windCutoff": 1000,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "preservation-hall",
+        "revision": "interiors-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 15346800,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.6445999999940393,
+          "view": 2
+        },
+        "targets": {
+          "fan": 0.3,
+          "wind": 0.18,
+          "fanCutoff": 1400,
+          "windCutoff": 2400,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "preservation-hall",
+        "revision": "interiors-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 15346800,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 2.0501999999880787,
+          "view": 3
+        },
+        "targets": {
+          "fan": 0.48,
+          "wind": 0.016,
+          "fanCutoff": 1400,
+          "windCutoff": 1400,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "preservation-hall",
+        "revision": "interiors-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 15346800,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 2.445699999988079,
+          "view": 4
+        },
+        "targets": {
+          "fan": 0.42,
+          "wind": 0.035,
+          "fanCutoff": 1400,
+          "windCutoff": 1700,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "preservation-hall",
+        "revision": "interiors-audio-v3"
+      }
+    ],
+    "requestsBeforeGesture": 0,
+    "audioRequests": [
+      "http://127.0.0.1:8060/interiors-audio-v3-20261019-fan.mp3",
+      "http://127.0.0.1:8060/interiors-audio-v3-20261019-wind.mp3"
+    ],
+    "speaker": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 285.90625,
+      "y": 14,
+      "width": 88.09375,
+      "height": 44
+    },
+    "errors": [],
+    "checks": [
+      "new-recordings-only for indoor air/wind",
+      "gesture-only fetch",
+      "all viewpoints",
+      "pause/resume where present",
+      "volume",
+      "source credits",
+      "pagehide/pageshow",
+      "cross-tab claim",
+      "mute/re-enable",
+      "SHOKO lower mix unchanged"
+    ]
+  },
+  {
+    "work": "shoko",
+    "views": [
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29,
+          17,
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 33339600,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 0.8122000000029802,
+          "view": "exterior"
+        },
+        "targets": {
+          "room": 0,
+          "wind": 0.8,
+          "river": 0,
+          "rill": 0,
+          "conveyor": 0,
+          "roomCutoff": 2400,
+          "windCutoff": 3600,
+          "riverCutoff": 1800,
+          "rillCutoff": 2600,
+          "conveyorCutoff": 1600,
+          "roomPan": 0,
+          "windPan": 0,
+          "riverPan": 0.12,
+          "rillPan": 0.28,
+          "conveyorPan": -0.2
+        },
+        "error": null,
+        "source": "shoko",
+        "revision": "shoko-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29,
+          17,
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 33339600,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.1312999999970197,
+          "view": "intake"
+        },
+        "targets": {
+          "room": 0.36,
+          "wind": 0.28,
+          "river": 0,
+          "rill": 0,
+          "conveyor": 0,
+          "roomCutoff": 2400,
+          "windCutoff": 1800,
+          "riverCutoff": 1800,
+          "rillCutoff": 2600,
+          "conveyorCutoff": 1600,
+          "roomPan": 0,
+          "windPan": 0,
+          "riverPan": 0.12,
+          "rillPan": 0.28,
+          "conveyorPan": -0.2
+        },
+        "error": null,
+        "source": "shoko",
+        "revision": "shoko-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29,
+          17,
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 33339600,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.4562000000029802,
+          "view": "room"
+        },
+        "targets": {
+          "room": 0.38,
+          "wind": 0,
+          "river": 0,
+          "rill": 0,
+          "conveyor": 0,
+          "roomCutoff": 2400,
+          "windCutoff": 1000,
+          "riverCutoff": 1800,
+          "rillCutoff": 2600,
+          "conveyorCutoff": 1600,
+          "roomPan": 0,
+          "windPan": 0,
+          "riverPan": 0.12,
+          "rillPan": 0.28,
+          "conveyorPan": -0.2
+        },
+        "error": null,
+        "source": "shoko",
+        "revision": "shoko-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29,
+          17,
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 33339600,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.7826000000089406,
+          "view": "reading"
+        },
+        "targets": {
+          "room": 0.4,
+          "wind": 0,
+          "river": 0,
+          "rill": 0,
+          "conveyor": 0,
+          "roomCutoff": 2400,
+          "windCutoff": 1000,
+          "riverCutoff": 1800,
+          "rillCutoff": 2600,
+          "conveyorCutoff": 1600,
+          "roomPan": 0,
+          "windPan": 0,
+          "riverPan": 0.12,
+          "rillPan": 0.28,
+          "conveyorPan": -0.2
+        },
+        "error": null,
+        "source": "shoko",
+        "revision": "shoko-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29,
+          17,
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 33339600,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 2.10440000000596,
+          "view": "lower"
+        },
+        "targets": {
+          "room": 0.24,
+          "wind": 0,
+          "river": 0.08,
+          "rill": 0.115,
+          "conveyor": 0.1,
+          "roomCutoff": 2400,
+          "windCutoff": 1000,
+          "riverCutoff": 1800,
+          "rillCutoff": 2600,
+          "conveyorCutoff": 1600,
+          "roomPan": 0,
+          "windPan": 0,
+          "riverPan": 0.12,
+          "rillPan": 0.28,
+          "conveyorPan": -0.2
+        },
+        "error": null,
+        "source": "shoko",
+        "revision": "shoko-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29,
+          17,
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 33339600,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 3.4776000000089407,
+          "view": "daylight"
+        },
+        "targets": {
+          "room": 0.2,
+          "wind": 0.55,
+          "river": 0,
+          "rill": 0,
+          "conveyor": 0,
+          "roomCutoff": 2400,
+          "windCutoff": 2800,
+          "riverCutoff": 1800,
+          "rillCutoff": 2600,
+          "conveyorCutoff": 1600,
+          "roomPan": 0,
+          "windPan": 0,
+          "riverPan": 0.12,
+          "rillPan": 0.28,
+          "conveyorPan": -0.2
+        },
+        "error": null,
+        "source": "shoko",
+        "revision": "shoko-audio-v3"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29,
+          17,
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 33339600,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 3.7976000000089405,
+          "view": "branch"
+        },
+        "targets": {
+          "room": 0.27,
+          "wind": 0.12,
+          "river": 0,
+          "rill": 0,
+          "conveyor": 0,
+          "roomCutoff": 2400,
+          "windCutoff": 1000,
+          "riverCutoff": 1800,
+          "rillCutoff": 2600,
+          "conveyorCutoff": 1600,
+          "roomPan": 0,
+          "windPan": 0,
+          "riverPan": 0.12,
+          "rillPan": 0.28,
+          "conveyorPan": -0.2
+        },
+        "error": null,
+        "source": "shoko",
+        "revision": "shoko-audio-v3"
+      }
+    ],
+    "requestsBeforeGesture": 0,
+    "audioRequests": [
+      "http://127.0.0.1:8060/interiors-audio-v3-20261019-fan.mp3",
+      "http://127.0.0.1:8060/interiors-audio-v3-20261019-wind.mp3",
+      "http://127.0.0.1:8060/confluence-audio-v1-20261018-river.mp3",
+      "http://127.0.0.1:8060/confluence-audio-v1-20261018-rill.mp3",
+      "http://127.0.0.1:8060/interiors-audio-v1-20261019-conveyor.mp3"
+    ],
+    "speaker": {
+      "x": 235.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 287.90625,
+      "y": 14,
+      "width": 88.09375,
+      "height": 44
+    },
+    "errors": [],
+    "checks": [
+      "new-recordings-only for indoor air/wind",
+      "gesture-only fetch",
+      "all viewpoints",
+      "pause/resume where present",
+      "volume",
+      "source credits",
+      "pagehide/pageshow",
+      "cross-tab claim",
+      "mute/re-enable",
+      "SHOKO lower mix unchanged"
+    ]
+  }
+]

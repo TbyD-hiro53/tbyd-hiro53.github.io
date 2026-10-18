@@ -1,0 +1,41 @@
+{
+  "id": "523389",
+  "url": "https://freesound.org/people/Anya_Media/sounds/523389/",
+  "hqURL": "https://cdn.freesound.org/previews/523/523389_2010973-hq.mp3",
+  "licenseURL": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "file": "/workspace/previews/2026-10-19/interiors-human-free-candidates/523389-hq-preview.mp3",
+  "bytes": 3160704,
+  "sha256": "80eb06d3a6b4d8e00f89d9cd20f4d0262b90714ca7bf4603238ec5e51d8e5b2c",
+  "duration": "139.560000",
+  "sampleRate": "48000",
+  "channels": 2,
+  "author": "Anya_Media",
+  "title": "Forest, close up of trees rustling in the wind.wav",
+  "license": "CC0 1.0",
+  "originalAcquired": false,
+  "recordingDescription": "In the forest and at the lake: close-up branches and leaves rustling in gusts, with constant roar of distant swaying tree tops. Stereo Audio Technica BP4025 into Zoom F8. Location shown: Hexham, Northumberland, England, United Kingdom.",
+  "recommendedExcerpt": [
+    85,
+    115
+  ],
+  "selectionReason": "Most even 30-second window by 0.1-second midband RMS; avoids recording edges. Below-160Hz energy ratio 0.08334, 95th/50th short RMS ratio 1.269.",
+  "speechScreening": {
+    "method": "Silero through faster-whisper, threshold0.45, minimum250ms speech; signal amplified43.2659times to target−24dBFS for screening only",
+    "fullRecordingCandidates": []
+  },
+  "limitation": "Metadata, waveform and VAD screening do not establish subjective silence of every voice, footstep, handling sound, water sound or bird. No claim of human auditory approval.",
+  "rejectedComparisons": [
+    {
+      "id": "329560",
+      "reason": "CC BY-NC4.0 and author mentions background traffic; not acquired"
+    },
+    {
+      "id": "606960",
+      "reason": "Author flags microphone quality; HQ403; not chosen"
+    },
+    {
+      "id": "73723",
+      "reason": "Individual page403, no verified license, not acquired"
+    }
+  ]
+}

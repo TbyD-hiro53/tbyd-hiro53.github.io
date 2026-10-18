@@ -44,10 +44,7 @@
     "sha256": "c5286642430fb6cfd1750c2b671a2aec55582b746b68034054eec29ac44b814c",
     "previewWorks": [
       "armillary",
-      "armillary-v2",
-      "earth-origin-material",
-      "preservation-hall",
-      "shoko"
+      "armillary-v2"
     ],
     "originalAcquired": false,
     "acquiredFormat": "Public HQ MP3 preview",
@@ -85,9 +82,6 @@
     "file": "451614-hq-preview.mp3",
     "sha256": "fd2cb08fbb724b865c7114b84508b4ce360a937cc8d2b54ca92be9ad1faf4095",
     "previewWorks": [
-      "earth-origin-material",
-      "preservation-hall",
-      "shoko",
       "sanctum"
     ],
     "originalAcquired": false,
@@ -191,5 +185,43 @@
     "originalAcquired": false,
     "acquiredFormat": "Public HQ MP3 preview",
     "approval": "New recording and artwork mix awaiting author listening review"
+  },
+  {
+    "id": "478643",
+    "author": "peqdavid5",
+    "title": "VentilatorRT.wav",
+    "url": "https://freesound.org/people/peqdavid5/sounds/478643/",
+    "license": "CC0 1.0",
+    "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sha256": "057433ec4d1243ba0758c4765e737f2b181a333124ee334ba233fe78855c5fb1",
+    "key": "S12",
+    "file": "478643-hq-preview.mp3",
+    "previewWorks": [
+      "earth-origin-material",
+      "preservation-hall",
+      "shoko"
+    ],
+    "originalAcquired": false,
+    "acquiredFormat": "Public HQ MP3 preview",
+    "approval": "Replacement recording and artwork mix awaiting author listening review"
+  },
+  {
+    "id": "523389",
+    "author": "Anya_Media",
+    "title": "Forest, close up of trees rustling in the wind.wav",
+    "url": "https://freesound.org/people/Anya_Media/sounds/523389/",
+    "license": "CC0 1.0",
+    "licenseURL": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "sha256": "80eb06d3a6b4d8e00f89d9cd20f4d0262b90714ca7bf4603238ec5e51d8e5b2c",
+    "key": "S13",
+    "file": "523389-hq-preview.mp3",
+    "previewWorks": [
+      "earth-origin-material",
+      "preservation-hall",
+      "shoko"
+    ],
+    "originalAcquired": false,
+    "acquiredFormat": "Public HQ MP3 preview",
+    "approval": "Replacement recording and artwork mix awaiting author listening review"
   }
 ]

@@ -1,0 +1,195 @@
+{
+  "speechCandidates": [],
+  "windows": [
+    {
+      "start": 5,
+      "end": 35,
+      "speechCandidates": [],
+      "rmsDBFS": -59.56822204589844,
+      "lowEnergyRatio": 0.10233150562429233,
+      "shortRms95to50": 1.7354520372367348,
+      "largestEnergyStep": 0.00021183177810948364
+    },
+    {
+      "start": 10,
+      "end": 40,
+      "speechCandidates": [],
+      "rmsDBFS": -58.504295349121094,
+      "lowEnergyRatio": 0.11463743761744387,
+      "shortRms95to50": 1.758164993857208,
+      "largestEnergyStep": 0.00021183177810948364
+    },
+    {
+      "start": 15,
+      "end": 45,
+      "speechCandidates": [],
+      "rmsDBFS": -54.831905364990234,
+      "lowEnergyRatio": 0.18110102929086927,
+      "shortRms95to50": 2.823088259594877,
+      "largestEnergyStep": 0.00042237334966882057
+    },
+    {
+      "start": 20,
+      "end": 50,
+      "speechCandidates": [],
+      "rmsDBFS": -54.321781158447266,
+      "lowEnergyRatio": 0.17471708692103183,
+      "shortRms95to50": 2.4306215159340208,
+      "largestEnergyStep": 0.00042237334966882057
+    },
+    {
+      "start": 25,
+      "end": 55,
+      "speechCandidates": [],
+      "rmsDBFS": -54.169410705566406,
+      "lowEnergyRatio": 0.17271345568206806,
+      "shortRms95to50": 2.406444287084858,
+      "largestEnergyStep": 0.00042237334966882057
+    },
+    {
+      "start": 30,
+      "end": 60,
+      "speechCandidates": [],
+      "rmsDBFS": -54.18370819091797,
+      "lowEnergyRatio": 0.1739820115994931,
+      "shortRms95to50": 2.5806711453209648,
+      "largestEnergyStep": 0.00042237334966882057
+    },
+    {
+      "start": 35,
+      "end": 65,
+      "speechCandidates": [],
+      "rmsDBFS": -53.62379455566406,
+      "lowEnergyRatio": 0.1602461123377205,
+      "shortRms95to50": 2.475533724869686,
+      "largestEnergyStep": 0.00042237334966882057
+    },
+    {
+      "start": 40,
+      "end": 70,
+      "speechCandidates": [],
+      "rmsDBFS": -52.99761199951172,
+      "lowEnergyRatio": 0.14326525852668515,
+      "shortRms95to50": 1.9338213380447244,
+      "largestEnergyStep": 0.00042237334966882057
+    },
+    {
+      "start": 45,
+      "end": 75,
+      "speechCandidates": [],
+      "rmsDBFS": -54.56416702270508,
+      "lowEnergyRatio": 0.09055056264878121,
+      "shortRms95to50": 2.1499408608009145,
+      "largestEnergyStep": 0.0003650435201418053
+    },
+    {
+      "start": 50,
+      "end": 80,
+      "speechCandidates": [],
+      "rmsDBFS": -54.95018005371094,
+      "lowEnergyRatio": 0.08495780332596257,
+      "shortRms95to50": 2.3515043366542563,
+      "largestEnergyStep": 0.0003650435201418053
+    },
+    {
+      "start": 55,
+      "end": 85,
+      "speechCandidates": [],
+      "rmsDBFS": -54.960628509521484,
+      "lowEnergyRatio": 0.08289081190541774,
+      "shortRms95to50": 2.3250369662842374,
+      "largestEnergyStep": 0.0003650435201418053
+    },
+    {
+      "start": 60,
+      "end": 90,
+      "speechCandidates": [],
+      "rmsDBFS": -55.07658386230469,
+      "lowEnergyRatio": 0.08120470316487548,
+      "shortRms95to50": 2.338981794585296,
+      "largestEnergyStep": 0.0003650435201418053
+    },
+    {
+      "start": 65,
+      "end": 95,
+      "speechCandidates": [],
+      "rmsDBFS": -56.3144645690918,
+      "lowEnergyRatio": 0.0842848998187681,
+      "shortRms95to50": 2.2677529087227004,
+      "largestEnergyStep": 0.0003650435201418053
+    },
+    {
+      "start": 70,
+      "end": 100,
+      "speechCandidates": [],
+      "rmsDBFS": -58.531394958496094,
+      "lowEnergyRatio": 0.09196504167613105,
+      "shortRms95to50": 1.8229699909044002,
+      "largestEnergyStep": 0.0002422792549932819
+    },
+    {
+      "start": 75,
+      "end": 105,
+      "speechCandidates": [],
+      "rmsDBFS": -59.9822998046875,
+      "lowEnergyRatio": 0.08993950470932079,
+      "shortRms95to50": 1.3624698774098143,
+      "largestEnergyStep": 0.00017830077216988516
+    },
+    {
+      "start": 80,
+      "end": 110,
+      "speechCandidates": [],
+      "rmsDBFS": -60.22321701049805,
+      "lowEnergyRatio": 0.0884418680938896,
+      "shortRms95to50": 1.3240442349223247,
+      "largestEnergyStep": 0.00017830077216988516
+    },
+    {
+      "start": 85,
+      "end": 115,
+      "speechCandidates": [],
+      "rmsDBFS": -60.468746185302734,
+      "lowEnergyRatio": 0.08334163572576711,
+      "shortRms95to50": 1.2690326335755362,
+      "largestEnergyStep": 0.00017830077216988516
+    },
+    {
+      "start": 90,
+      "end": 120,
+      "speechCandidates": [],
+      "rmsDBFS": -58.31969451904297,
+      "lowEnergyRatio": 0.08551920938790926,
+      "shortRms95to50": 2.160475557663725,
+      "largestEnergyStep": 0.0002229993493649701
+    },
+    {
+      "start": 95,
+      "end": 125,
+      "speechCandidates": [],
+      "rmsDBFS": -58.116539001464844,
+      "lowEnergyRatio": 0.084695698333093,
+      "shortRms95to50": 2.095892706115809,
+      "largestEnergyStep": 0.0002229993493649701
+    },
+    {
+      "start": 100,
+      "end": 130,
+      "speechCandidates": [],
+      "rmsDBFS": -58.353904724121094,
+      "lowEnergyRatio": 0.08174354652736389,
+      "shortRms95to50": 2.177116828109664,
+      "largestEnergyStep": 0.0002229993493649701
+    },
+    {
+      "start": 105,
+      "end": 135,
+      "speechCandidates": [],
+      "rmsDBFS": -58.36399841308594,
+      "lowEnergyRatio": 0.08066154826324193,
+      "shortRms95to50": 2.170527405601723,
+      "largestEnergyStep": 0.0002229993493649701
+    }
+  ],
+  "limitation": "VAD and spectral metrics are screening aids; they do not prove absence of voices, footsteps, birds or equipment handling."
+}
