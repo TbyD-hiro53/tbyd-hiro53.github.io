@@ -18,3 +18,5 @@ The initial download of a correction map may also fetch its v12 base. GPU textur
 - At 448×1000: closing a description followed by a double tap preserves the look direction in all three views; a later explicit reset works.
 - The no-DecompressionStream real-time fallback loads successfully.
 - The three final desktop views were visually checked. Native Safari has not been tested.
+
+The complete preview archive (source e1df0cf) includes all dependencies and the packed editable Blender scene. ZIP CRC validation passed; the independently extracted copy passed the same desktop/touch-view tests without page, console or resource errors. Archive checksum and results are stored beside this document.
