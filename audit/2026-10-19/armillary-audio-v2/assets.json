@@ -1,0 +1,41 @@
+{
+  "files": [
+    {
+      "file": "outdoor-audio-v1-20261019-grass.mp3",
+      "bytes": 585186,
+      "sha256": "a13e0b63a55cf040be5381d4f28f528f7c8e1006f5ada2f3093f84fda4bf140d"
+    },
+    {
+      "file": "outdoor-audio-v1-20261019-coast.mp3",
+      "bytes": 1185480,
+      "sha256": "5e3f877951f868e22fca999388e409f87959173bf471b5a834115255d959f098"
+    },
+    {
+      "file": "device-audio-v2-20261019-rumble.mp3",
+      "bytes": 485399,
+      "sha256": "ac1c50a3bf7f4f5616494fe4d0578611155805aa0ec5169e0c132c6a65383d5a"
+    },
+    {
+      "file": "armillary-audio-v2-20261019-hologram.mp3",
+      "bytes": 285301,
+      "sha256": "f912527c1decbcc18a1721f722588ed2e741884d0ab9cb0286333beb2d4f6c17"
+    },
+    {
+      "file": "armillary-audio-v2-20261019-spark1.mp3",
+      "bytes": 8403,
+      "sha256": "7acb045332a349e93dffad4868756593217848a07f2330e574473d0c06d85e4e"
+    },
+    {
+      "file": "armillary-audio-v2-20261019-spark2.mp3",
+      "bytes": 8403,
+      "sha256": "18c6eaf8a9fae8b3ab9873b90f1d52802e492ff575723e0f0212b5be22af066e"
+    },
+    {
+      "file": "armillary-audio-v2-20261019-spark3.mp3",
+      "bytes": 8403,
+      "sha256": "6fd8b8488884b0d6e737c9f197a4f08fd8afa2ba249068a6c856697a3e954a75"
+    }
+  ],
+  "encodedBytes": 2566575,
+  "decodedBytesAt44100": 44623256
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "name": "wind",
+    "source": "517995",
+    "sourceFile": "/workspace/previews/2026-10-18/audio-survey/517995-hq-preview.mp3",
+    "sourceSHA256": "c5286642430fb6cfd1750c2b671a2aec55582b746b68034054eec29ac44b814c",
+    "excerpt": [
+      50,
+      80
+    ],
+    "filters": "highpass=f=320:p=2,highpass=f=320:p=2,lowpass=f=2600:p=2",
+    "targetRMSDBFS": -34,
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "peakControl": ".20*tanh(x/.20)",
+    "file": "interiors-audio-v2-20261019-wind.mp3",
+    "bytes": 585186,
+    "sha256": "5959f5bd59813feef0c97d8eb6ef3698041cf452ebc84b14f23002a90ac65978",
+    "loopSeconds": 29.0,
+    "rmsDBFS": -34.594757080078125,
+    "peak": 0.12393069267272949,
+    "seamStep": 0.0004983590915799141,
+    "ordinaryStep99": 0.011470889672636986,
+    "oldBelow160HzRMS": 0.027556264070113398,
+    "newBelow160HzRMS": 0.00042573819564014525,
+    "below160HzChangeDB": -36.2215544543233
+  },
+  {
+    "name": "fan",
+    "source": "451614",
+    "sourceFile": "/workspace/previews/2026-10-18/audio-survey/451614-hq-preview.mp3",
+    "sourceSHA256": "fd2cb08fbb724b865c7114b84508b4ce360a937cc8d2b54ca92be9ad1faf4095",
+    "excerpt": [
+      285,
+      315
+    ],
+    "filters": "volume=-6dB,highpass=f=45,lowpass=f=3500,acompressor=threshold=0.12:ratio=2:attack=5:release=180:makeup=1,volume=2.8dB,highpass=f=85:p=2,lowpass=f=1500:p=2,equalizer=f=240:t=q:w=0.8:g=2",
+    "targetRMSDBFS": -33,
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "peakControl": ".20*tanh(x/.20)",
+    "file": "interiors-audio-v2-20261019-fan.mp3",
+    "bytes": 585186,
+    "sha256": "2bba8b7726b0116d483c6ec34554e40ed7c72f4d168af65d6b576caa66499cd1",
+    "loopSeconds": 29.0,
+    "rmsDBFS": -33.5531005859375,
+    "peak": 0.11127554625272751,
+    "seamStep": 6.187707185745239e-05,
+    "ordinaryStep99": 0.003202717751264572
+  }
+]

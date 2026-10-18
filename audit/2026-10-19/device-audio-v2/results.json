@@ -1,0 +1,482 @@
+[
+  {
+    "slug": "lacto-tricore",
+    "initialAudio": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        24,
+        18
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 14817600,
+      "scene": {
+        "running": true,
+        "time": 0.6831999999999995,
+        "view": "main"
+      },
+      "targets": {
+        "rumble": 0.5726019043315783,
+        "metal": 0.2535469035671322,
+        "rumbleCutoff": 650,
+        "metalCutoff": 1500,
+        "rumblePan": 0,
+        "metalPan": 0
+      },
+      "error": null,
+      "source": "lacto-tricore",
+      "layers": [
+        "rumble",
+        "metal"
+      ],
+      "revision": "device-audio-v2"
+    },
+    "sizes": [
+      {
+        "size": [
+          320,
+          568
+        ],
+        "audio": [
+          163.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          215.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          390,
+          844
+        ],
+        "audio": [
+          233.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          285.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          844,
+          390
+        ],
+        "audio": [
+          687.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          739.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          1100,
+          800
+        ],
+        "audio": [
+          943.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          995.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      }
+    ],
+    "views": [
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          24,
+          18
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 14817600,
+        "scene": {
+          "running": true,
+          "time": 2.7332000000000027,
+          "view": "brain"
+        },
+        "targets": {
+          "rumble": 0.3623600083415065,
+          "metal": 0.11762232414823504,
+          "rumbleCutoff": 650,
+          "metalCutoff": 1500,
+          "rumblePan": 0,
+          "metalPan": 0
+        },
+        "error": null,
+        "source": "lacto-tricore",
+        "layers": [
+          "rumble",
+          "metal"
+        ],
+        "revision": "device-audio-v2"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          24,
+          18
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 14817600,
+        "scene": {
+          "running": true,
+          "time": 3.4832000000000027,
+          "view": "sanc"
+        },
+        "targets": {
+          "rumble": 0.8081126629740821,
+          "metal": 0.4065992835215398,
+          "rumbleCutoff": 650,
+          "metalCutoff": 2100,
+          "rumblePan": 0,
+          "metalPan": 0
+        },
+        "error": null,
+        "source": "lacto-tricore",
+        "layers": [
+          "rumble",
+          "metal"
+        ],
+        "revision": "device-audio-v2"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          24,
+          18
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 14817600,
+        "scene": {
+          "running": true,
+          "time": 3.9664000000000037,
+          "view": "main"
+        },
+        "targets": {
+          "rumble": 0.5922740691574884,
+          "metal": 0.2566664848524417,
+          "rumbleCutoff": 650,
+          "metalCutoff": 1500,
+          "rumblePan": 0,
+          "metalPan": 0
+        },
+        "error": null,
+        "source": "lacto-tricore",
+        "layers": [
+          "rumble",
+          "metal"
+        ],
+        "revision": "device-audio-v2"
+      }
+    ],
+    "errors": [],
+    "requests": 2,
+    "lifecycle": "pause/resume, mute, bfcache, cross-tab passed"
+  },
+  {
+    "slug": "lacto-cortex",
+    "initialAudio": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        24
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 8467200,
+      "scene": {
+        "running": true,
+        "time": 56.336,
+        "view": "8k-phone"
+      },
+      "targets": {
+        "rumble": 0.3,
+        "metal": 0,
+        "rumbleCutoff": 480,
+        "metalCutoff": 1900,
+        "rumblePan": 0,
+        "metalPan": 0
+      },
+      "error": null,
+      "source": "lacto-cortex",
+      "layers": [
+        "rumble"
+      ],
+      "revision": "device-audio-v2"
+    },
+    "sizes": [
+      {
+        "size": [
+          320,
+          568
+        ],
+        "audio": [
+          163.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          215.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          390,
+          844
+        ],
+        "audio": [
+          233.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          285.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          844,
+          390
+        ],
+        "audio": [
+          687.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          739.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          1100,
+          800
+        ],
+        "audio": [
+          943.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          995.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      }
+    ],
+    "views": [
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          24
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 8467200,
+        "scene": {
+          "running": true,
+          "time": 89.49019999999554,
+          "view": "c-tank"
+        },
+        "targets": {
+          "rumble": 0.3,
+          "metal": 0,
+          "rumbleCutoff": 480,
+          "metalCutoff": 1900,
+          "rumblePan": 0,
+          "metalPan": 0
+        },
+        "error": null,
+        "source": "lacto-cortex",
+        "layers": [
+          "rumble"
+        ],
+        "revision": "device-audio-v2"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          24
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 8467200,
+        "scene": {
+          "running": true,
+          "time": 109.04829999999703,
+          "view": "c-brain"
+        },
+        "targets": {
+          "rumble": 0.22,
+          "metal": 0,
+          "rumbleCutoff": 480,
+          "metalCutoff": 1900,
+          "rumblePan": 0,
+          "metalPan": 0
+        },
+        "error": null,
+        "source": "lacto-cortex",
+        "layers": [
+          "rumble"
+        ],
+        "revision": "device-audio-v2"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          24
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 8467200,
+        "scene": {
+          "running": true,
+          "time": 125.0361000000015,
+          "view": "c-lower"
+        },
+        "targets": {
+          "rumble": 0.3,
+          "metal": 0,
+          "rumbleCutoff": 480,
+          "metalCutoff": 1900,
+          "rumblePan": 0,
+          "metalPan": 0
+        },
+        "error": null,
+        "source": "lacto-cortex",
+        "layers": [
+          "rumble"
+        ],
+        "revision": "device-audio-v2"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          24
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 8467200,
+        "scene": {
+          "running": true,
+          "time": 139.38179999999704,
+          "view": "c-panel"
+        },
+        "targets": {
+          "rumble": 0.3,
+          "metal": 0,
+          "rumbleCutoff": 480,
+          "metalCutoff": 1900,
+          "rumblePan": 0,
+          "metalPan": 0
+        },
+        "error": null,
+        "source": "lacto-cortex",
+        "layers": [
+          "rumble"
+        ],
+        "revision": "device-audio-v2"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          24
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 8467200,
+        "scene": {
+          "running": true,
+          "time": 149.54979999999705,
+          "view": "c-turntable"
+        },
+        "targets": {
+          "rumble": 0.3,
+          "metal": 0,
+          "rumbleCutoff": 480,
+          "metalCutoff": 1900,
+          "rumblePan": 0,
+          "metalPan": 0
+        },
+        "error": null,
+        "source": "lacto-cortex",
+        "layers": [
+          "rumble"
+        ],
+        "revision": "device-audio-v2"
+      }
+    ],
+    "errors": [],
+    "requests": 1,
+    "lifecycle": "pause/resume, mute, bfcache, cross-tab passed"
+  }
+]

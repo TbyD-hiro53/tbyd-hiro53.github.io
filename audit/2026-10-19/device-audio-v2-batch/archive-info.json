@@ -1,0 +1,10 @@
+{
+  "archive": "/workspace/previews/2026-10-19/device-audio-v2-batch/h53-device-audio-v2-20261019.zip",
+  "bytes": 888819232,
+  "sha256": "e205c4b5ec5a7349110d2a2801f117b1d20c883c489f84931ebb33f9cd33b2f3",
+  "files": 1693,
+  "extraction": "/workspace/verification/device-audio-v2-batch",
+  "crc": "passed",
+  "extractedHashes": "all matched",
+  "scope": "Full site snapshot and nine recorded source HQ MP3s; no Git metadata or Blender source"
+}

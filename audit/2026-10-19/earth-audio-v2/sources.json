@@ -1,0 +1,70 @@
+[
+  {
+    "key": "S04",
+    "id": "517995",
+    "author": "waweee",
+    "title": "Wind in the grass by waweee",
+    "label": "山の長い草を抜ける風",
+    "url": "https://freesound.org/people/waweee/sounds/517995/",
+    "license": "CC0 1.0",
+    "licenseURL": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "hqURL": "https://cdn.freesound.org/previews/517/517995_5835751-hq.mp3",
+    "descriptionAndOriginalSpecs": " Wind in the grass Overall rating (16 ratings) W waweee May 12th, 2020 Follow Sound effects > Natural elements and explosions Wonosobo, Central Java, Indonesia Recording that I took on a mountain in Dieng (Indonesia). There was this long, strange kind of grass in which the wind sounded amazing. At least I think. :) Sound illegal or offensive? Flag it! grass natural-soundscape trees wind wind-chimes windy Type Wave (.wav) Duration 4:29.000 File size 74.3 MB Sample rate 48 kHz Bit depth 24 bit Channels Stereo ",
+    "works": "Armillary v1/v2・Binary Dusk・保存棟・Earth",
+    "note": "草の実録。巨木の葉と同じ音とは断定せず、外気の候補として比較する。",
+    "status": "音源試聴合格・本作品内の混合は確認用プレビュー",
+    "downloaded": true,
+    "originalAcquired": false,
+    "file": "517995-hq-preview.mp3",
+    "bytes": 6148848,
+    "sha256": "c5286642430fb6cfd1750c2b671a2aec55582b746b68034054eec29ac44b814c",
+    "duration": 269.04,
+    "sampleRate": 48000,
+    "channels": 2,
+    "auditionFile": "audio-survey-517995.mp3",
+    "auditionEdit": "元録音の最大20秒抜粋、冒頭0.2秒・末尾0.5秒フェード、128kbps MP3。音量正規化なし。開始0:00。",
+    "catalogStatus": "公開HQ MP3取得済み／原音WAV・FLAC未取得",
+    "approvedExcerptSeconds": [
+      50,
+      80
+    ],
+    "usedExcerptSeconds": [
+      50,
+      80
+    ]
+  },
+  {
+    "key": "S06",
+    "id": "451614",
+    "author": "kyles",
+    "title": "room tone large convention hall vent large almost empty.flac by kyles",
+    "label": "大きなほぼ空のホールの換気",
+    "url": "https://freesound.org/people/kyles/sounds/451614/",
+    "license": "CC0 1.0",
+    "licenseURL": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "hqURL": "https://cdn.freesound.org/previews/451/451614_612689-hq.mp3",
+    "descriptionAndOriginalSpecs": " room tone large convention hall vent large almost empty.flac Not enough ratings K kyles December 9th, 2018 Follow Soundscapes > Indoors random room tone large convention hall vent large almost empty.flac Sound illegal or offensive? Flag it! almost convention empty hall large room tone vent Type Flac (.flac) Duration 7:06.002 File size 38.6 MB Sample rate 48 kHz Bit depth 16 bit Channels Stereo ",
+    "works": "保存棟・Earth・書庫・会長室・Sanctum",
+    "note": "室内の空気感の比較候補。説明は almost empty。無人・無音声の保証はなく試聴選別が必要。",
+    "status": "音源試聴合格・本作品内の混合は確認用プレビュー",
+    "downloaded": true,
+    "originalAcquired": false,
+    "file": "451614-hq-preview.mp3",
+    "bytes": 9741984,
+    "sha256": "fd2cb08fbb724b865c7114b84508b4ce360a937cc8d2b54ca92be9ad1faf4095",
+    "duration": 426.048,
+    "sampleRate": 48000,
+    "channels": 2,
+    "auditionFile": "audio-survey-451614.mp3",
+    "auditionEdit": "元録音の最大20秒抜粋、冒頭0.2秒・末尾0.5秒フェード、128kbps MP3。音量正規化なし。開始0:00。",
+    "catalogStatus": "公開HQ MP3取得済み／原音WAV・FLAC未取得",
+    "approvedExcerptSeconds": [
+      285,
+      315
+    ],
+    "usedExcerptSeconds": [
+      285,
+      315
+    ]
+  }
+]

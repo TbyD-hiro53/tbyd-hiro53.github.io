@@ -1,0 +1,40 @@
+[
+  {
+    "layer": "rumble",
+    "source": "S07 / 538210",
+    "sourceInterval": [
+      1,
+      19
+    ],
+    "speed": 0.7,
+    "filters": "atrim=start=1:end=19,asetpts=PTS-STARTPTS,aresample=44100,asetrate=30869,aresample=44100,highpass=f=55,lowpass=f=800,atrim=duration=25",
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "duration": 24,
+    "bytes": 485399,
+    "sha256": "ac1c50a3bf7f4f5616494fe4d0578611155805aa0ec5169e0c132c6a65383d5a",
+    "rmsDBFS": -23.929365158081055,
+    "peak": 0.3199971616268158,
+    "seamStep": 1.0836869478225708e-05,
+    "ordinaryStep99": 0.004095301032066345
+  },
+  {
+    "layer": "metal",
+    "source": "S07 / 538210",
+    "sourceInterval": [
+      1,
+      19
+    ],
+    "speed": 0.9,
+    "filters": "atrim=start=1:end=19,asetpts=PTS-STARTPTS,aresample=44100,asetrate=39690,aresample=44100,highpass=f=340,lowpass=f=2600,atrim=duration=19",
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "duration": 18,
+    "bytes": 365235,
+    "sha256": "b3730dbeb67f826858e88ce077717d495978198beedb223d37743d4a7449650d",
+    "rmsDBFS": -28.16706085205078,
+    "peak": 0.38006043434143066,
+    "seamStep": 7.919850759208202e-05,
+    "ordinaryStep99": 0.028979726135730743
+  }
+]

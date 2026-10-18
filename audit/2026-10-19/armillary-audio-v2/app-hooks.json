@@ -1,0 +1,14 @@
+[
+  {
+    "file": "armillary-v1-audio-v2-20261019-app.js",
+    "base": "armillary-v1-w2-app.js",
+    "baseSHA256": "3723dd402a36e428a47d1bd228ac81e248fffcbb7e1d5ec434382bdbbd804ac2",
+    "changes": "Add bounded bolt-birth observation list and read-only audioState; no shader, geometry, RNG, motion schedule or camera changes."
+  },
+  {
+    "file": "armillary-v2-audio-v2-20261019-app.js",
+    "base": "armillary-v2-w2-app.js",
+    "baseSHA256": "7acca390f4af040c1683fc626748e28e054e4f99d0ec051fc6621169f5daefd5",
+    "changes": "Add bounded bolt-birth observation list and read-only audioState; no shader, geometry, RNG, motion schedule or camera changes."
+  }
+]

@@ -1,0 +1,327 @@
+[
+  {
+    "work": "earth-origin-material",
+    "views": [
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 20462400,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.01939999999851,
+          "view": 0
+        },
+        "targets": {
+          "fan": 0.52,
+          "wind": 0.035,
+          "fanCutoff": 1400,
+          "windCutoff": 1700,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "earth-origin-material",
+        "revision": "interiors-audio-v2"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 20462400,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.3298000000044705,
+          "view": 1
+        },
+        "targets": {
+          "fan": 0.5,
+          "wind": 0.008,
+          "fanCutoff": 1400,
+          "windCutoff": 1100,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "earth-origin-material",
+        "revision": "interiors-audio-v2"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 20462400,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.6628000000044707,
+          "view": 2
+        },
+        "targets": {
+          "fan": 0.12,
+          "wind": 0.001,
+          "fanCutoff": 650,
+          "windCutoff": 700,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "earth-origin-material",
+        "revision": "interiors-audio-v2"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 20462400,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 2.076500000007451,
+          "view": 3
+        },
+        "targets": {
+          "fan": 0.32,
+          "wind": 0.17,
+          "fanCutoff": 1400,
+          "windCutoff": 2400,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "earth-origin-material",
+        "revision": "interiors-audio-v2"
+      }
+    ],
+    "requestsBeforeGesture": 0,
+    "audioRequests": [
+      "http://127.0.0.1:8060/interiors-audio-v2-20261019-fan.mp3",
+      "http://127.0.0.1:8060/interiors-audio-v2-20261019-wind.mp3"
+    ],
+    "speaker": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 285.90625,
+      "y": 14,
+      "width": 88.09375,
+      "height": 44
+    },
+    "errors": [],
+    "checks": [
+      "gesture-only fetch",
+      "all viewpoints",
+      "Earth pause/resume where present",
+      "volume",
+      "pagehide/pageshow",
+      "cross-tab claim",
+      "mute/re-enable"
+    ]
+  },
+  {
+    "work": "preservation-hall",
+    "views": [
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 20462400,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 0.8711999999955297,
+          "view": 0
+        },
+        "targets": {
+          "fan": 0.55,
+          "wind": 0.008,
+          "fanCutoff": 1400,
+          "windCutoff": 1200,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "preservation-hall",
+        "revision": "interiors-audio-v2"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 20462400,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.1959999999925495,
+          "view": 1
+        },
+        "targets": {
+          "fan": 0.52,
+          "wind": 0.006,
+          "fanCutoff": 1400,
+          "windCutoff": 1000,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "preservation-hall",
+        "revision": "interiors-audio-v2"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 20462400,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.5295999999940395,
+          "view": 2
+        },
+        "targets": {
+          "fan": 0.3,
+          "wind": 0.18,
+          "fanCutoff": 1400,
+          "windCutoff": 2400,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "preservation-hall",
+        "revision": "interiors-audio-v2"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 20462400,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 1.8985999999940395,
+          "view": 3
+        },
+        "targets": {
+          "fan": 0.48,
+          "wind": 0.016,
+          "fanCutoff": 1400,
+          "windCutoff": 1400,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "preservation-hall",
+        "revision": "interiors-audio-v2"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          29,
+          29
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 20462400,
+        "scene": {
+          "running": true,
+          "ready": true,
+          "time": 2.2869999999925494,
+          "view": 4
+        },
+        "targets": {
+          "fan": 0.42,
+          "wind": 0.035,
+          "fanCutoff": 1400,
+          "windCutoff": 1700,
+          "fanPan": 0,
+          "windPan": 0
+        },
+        "error": null,
+        "source": "preservation-hall",
+        "revision": "interiors-audio-v2"
+      }
+    ],
+    "requestsBeforeGesture": 0,
+    "audioRequests": [
+      "http://127.0.0.1:8060/interiors-audio-v2-20261019-fan.mp3",
+      "http://127.0.0.1:8060/interiors-audio-v2-20261019-wind.mp3"
+    ],
+    "speaker": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "menu": {
+      "x": 285.90625,
+      "y": 14,
+      "width": 88.09375,
+      "height": 44
+    },
+    "errors": [],
+    "checks": [
+      "gesture-only fetch",
+      "all viewpoints",
+      "Earth pause/resume where present",
+      "volume",
+      "pagehide/pageshow",
+      "cross-tab claim",
+      "mute/re-enable"
+    ]
+  }
+]

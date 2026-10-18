@@ -9,10 +9,7 @@
     "licenseURL": "http://creativecommons.org/publicdomain/zero/1.0/",
     "file": "700254-hq-preview.mp3",
     "sha256": "21cdac7e15461df953d4107ff16913778f8e66dd8f3a170efb5aa67ca69fa7a9",
-    "previewWorks": [
-      "lacto-cortex",
-      "lacto-tricore"
-    ],
+    "previewWorks": [],
     "originalAcquired": false,
     "acquiredFormat": "Public HQ MP3 preview",
     "approval": "Source audition accepted; final artwork mixes require listening review"
@@ -28,8 +25,6 @@
     "file": "554314-hq-preview.mp3",
     "sha256": "0b8ac21c6b7aac5401378870031deead72a3b5081ea1b328b1c7c7d100dbcd4f",
     "previewWorks": [
-      "lacto-cortex",
-      "lacto-tricore",
       "core-37"
     ],
     "originalAcquired": false,
@@ -51,11 +46,30 @@
       "armillary-v2",
       "binary-dusk",
       "earth-origin-material",
-      "preservation-hall"
+      "preservation-hall",
+      "shoko"
     ],
     "originalAcquired": false,
     "acquiredFormat": "Public HQ MP3 preview",
     "approval": "Source audition accepted; final artwork mixes require listening review"
+  },
+  {
+    "key": "S05",
+    "id": "336556",
+    "author": "humanoide9000",
+    "title": "Camera lens servo",
+    "url": "https://freesound.org/people/humanoide9000/sounds/336556/",
+    "license": "CC BY 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+    "file": "336556-hq-preview.mp3",
+    "sha256": "651876a7cf212180e8f91bd21548e0925421351112f543eb2068df93ed000df5",
+    "previewWorks": [
+      "armillary",
+      "armillary-v2"
+    ],
+    "originalAcquired": false,
+    "acquiredFormat": "Public HQ MP3 preview",
+    "approval": "Source audition accepted; new edited effects await artwork mix review"
   },
   {
     "key": "S06",
@@ -89,11 +103,16 @@
     "sha256": "96aa42d6114b300a95cd955a65f5e45da1889f8915f839035a14f3cc96cd6f1e",
     "previewWorks": [
       "core-37",
-      "shoko"
+      "shoko",
+      "lacto-cortex",
+      "lacto-tricore",
+      "armillary",
+      "armillary-v2"
     ],
     "originalAcquired": false,
     "acquiredFormat": "Public HQ MP3 preview",
-    "approval": "Source audition accepted; final artwork mixes require listening review"
+    "approval": "Source audition accepted; final artwork mixes require listening review",
+    "currentMixNote": "Cortex / Tricore v2: water replaced with pitch/EQ-edited mechanical foley; artwork review pending."
   },
   {
     "key": "S08",

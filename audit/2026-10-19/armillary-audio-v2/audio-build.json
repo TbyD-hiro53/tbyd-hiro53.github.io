@@ -1,0 +1,56 @@
+[
+  {
+    "file": "armillary-audio-v2-20261019-hologram.mp3",
+    "source": "S05 / 336556",
+    "sourceSHA256": "651876a7cf212180e8f91bd21548e0925421351112f543eb2068df93ed000df5",
+    "edit": "S05 0.38\u20131.65s; recorded servo 0.34x forward +0.43x reverse +0.68x forward, band80\u20133200Hz, quiet crossed410ms recorded-sample delay, 15s bed then1s cyclic overlap ->14s; RMS-24 and soft peak. Artistic hologram sound, not a field recording of an electrical device.",
+    "loop": true,
+    "duration": 14.0,
+    "guardSeconds": 0.1,
+    "bytes": 285301,
+    "sha256": "f912527c1decbcc18a1721f722588ed2e741884d0ab9cb0286333beb2d4f6c17",
+    "rmsDBFS": -24.85405158996582,
+    "peak": 0.22374114394187927,
+    "seamStep": 0.0033533647656440735,
+    "ordinaryStep99": 0.034209948033094406
+  },
+  {
+    "file": "armillary-audio-v2-20261019-spark1.mp3",
+    "source": "S05 / 336556",
+    "sourceSHA256": "651876a7cf212180e8f91bd21548e0925421351112f543eb2068df93ed000df5",
+    "edit": "S05 0.215\u20130.4s mechanical contact transient; playback1.12x; band800\u20137800Hz, 65ms decay and8ms edge fades. Processed spark Foley, not an electrical field recording.",
+    "loop": false,
+    "duration": 0.16517006802721088,
+    "guardSeconds": 0.1,
+    "bytes": 8403,
+    "sha256": "7acb045332a349e93dffad4868756593217848a07f2330e574473d0c06d85e4e",
+    "rmsDBFS": -24.938669204711914,
+    "peak": 0.24149951338768005
+  },
+  {
+    "file": "armillary-audio-v2-20261019-spark2.mp3",
+    "source": "S05 / 336556",
+    "sourceSHA256": "651876a7cf212180e8f91bd21548e0925421351112f543eb2068df93ed000df5",
+    "edit": "S05 1.86\u20132.08s mechanical contact transient; playback1.36x; band800\u20137800Hz, 65ms decay and8ms edge fades. Processed spark Foley, not an electrical field recording.",
+    "loop": false,
+    "duration": 0.16174603174603175,
+    "guardSeconds": 0.1,
+    "bytes": 8403,
+    "sha256": "18c6eaf8a9fae8b3ab9873b90f1d52802e492ff575723e0f0212b5be22af066e",
+    "rmsDBFS": -25.139562606811523,
+    "peak": 0.2542015016078949
+  },
+  {
+    "file": "armillary-audio-v2-20261019-spark3.mp3",
+    "source": "S05 / 336556",
+    "sourceSHA256": "651876a7cf212180e8f91bd21548e0925421351112f543eb2068df93ed000df5",
+    "edit": "S05 5.7\u20135.95s mechanical contact transient; playback1.6x; band800\u20137800Hz, 65ms decay and8ms edge fades. Processed spark Foley, not an electrical field recording.",
+    "loop": false,
+    "duration": 0.15623582766439909,
+    "guardSeconds": 0.1,
+    "bytes": 8403,
+    "sha256": "6fd8b8488884b0d6e737c9f197a4f08fd8afa2ba249068a6c856697a3e954a75",
+    "rmsDBFS": -25.363121032714844,
+    "peak": 0.2431449294090271
+  }
+]

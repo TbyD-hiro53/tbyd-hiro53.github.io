@@ -1,0 +1,705 @@
+[
+  {
+    "slug": "lacto-tricore",
+    "url": "http://127.0.0.1:8076/preview/20261017/lacto-tricore.html?skipgc&revision=audio-batch-v1&check=1792345653",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        24,
+        18
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 14817600,
+      "scene": {
+        "running": true,
+        "time": 0.6335000000000001,
+        "view": "main"
+      },
+      "targets": {
+        "rumble": 0.5712590058840742,
+        "metal": 0.2533935891741949,
+        "rumbleCutoff": 650,
+        "metalCutoff": 1500,
+        "rumblePan": 0,
+        "metalPan": 0
+      },
+      "error": null,
+      "source": "lacto-tricore",
+      "layers": [
+        "rumble",
+        "metal"
+      ],
+      "revision": "device-audio-v2"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  },
+  {
+    "slug": "lacto-cortex",
+    "url": "http://127.0.0.1:8076/preview/20261017/lacto-cortex.html?skipgc&revision=audio-batch-v1&check=1792345656",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        24
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 8467200,
+      "scene": {
+        "running": true,
+        "time": 46.67529999999702,
+        "view": "8k-phone"
+      },
+      "targets": {
+        "rumble": 0.3,
+        "metal": 0,
+        "rumbleCutoff": 480,
+        "metalCutoff": 1900,
+        "rumblePan": 0,
+        "metalPan": 0
+      },
+      "error": null,
+      "source": "lacto-cortex",
+      "layers": [
+        "rumble"
+      ],
+      "revision": "device-audio-v2"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  },
+  {
+    "slug": "earth-origin-material",
+    "url": "http://127.0.0.1:8076/preview/20261017/earth-origin-material.html?skipgc&revision=audio-v2&check=1792346174",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        29
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 20462400,
+      "scene": {
+        "running": true,
+        "ready": true,
+        "time": 0.59739999999851,
+        "view": 0
+      },
+      "targets": {
+        "fan": 0.52,
+        "wind": 0.035,
+        "fanCutoff": 1400,
+        "windCutoff": 1700,
+        "fanPan": 0,
+        "windPan": 0
+      },
+      "error": null,
+      "source": "earth-origin-material",
+      "revision": "interiors-audio-v2"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  },
+  {
+    "slug": "preservation-hall",
+    "url": "http://127.0.0.1:8076/preview/20261017/preservation-hall.html?skipgc&revision=audio-v2&check=1792346191",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        29
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 20462400,
+      "scene": {
+        "running": true,
+        "ready": true,
+        "time": 0.3267000000029802,
+        "view": 0
+      },
+      "targets": {
+        "fan": 0.55,
+        "wind": 0.008,
+        "fanCutoff": 1400,
+        "windCutoff": 1200,
+        "fanPan": 0,
+        "windPan": 0
+      },
+      "error": null,
+      "source": "preservation-hall",
+      "revision": "interiors-audio-v2"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  },
+  {
+    "slug": "shoko",
+    "url": "http://127.0.0.1:8076/preview/20261017/shoko.html?skipgc&revision=audio-v2&check=1792346192#lower",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        29,
+        17,
+        17,
+        17
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 38455200,
+      "scene": {
+        "running": true,
+        "ready": true,
+        "time": 1.33839999999851,
+        "view": "lower"
+      },
+      "targets": {
+        "room": 0.24,
+        "wind": 0,
+        "river": 0.08,
+        "rill": 0.115,
+        "conveyor": 0.1,
+        "roomCutoff": 2400,
+        "windCutoff": 1000,
+        "riverCutoff": 1800,
+        "rillCutoff": 2600,
+        "conveyorCutoff": 1600,
+        "roomPan": 0,
+        "windPan": 0,
+        "riverPan": 0.12,
+        "rillPan": 0.28,
+        "conveyorPan": -0.2
+      },
+      "error": null,
+      "source": "shoko",
+      "revision": "shoko-audio-v2"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 235.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  },
+  {
+    "slug": "armillary",
+    "url": "http://127.0.0.1:8076/preview/20261017/armillary.html?skipgc&revision=audio-v2&check=1792346203",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        59,
+        24,
+        24,
+        24,
+        24,
+        14
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 44623256,
+      "sparksPlayed": 0,
+      "activeSparks": 0,
+      "lastSpark": null,
+      "scene": {
+        "running": true,
+        "time": 1.1332000000000002,
+        "view": "wide",
+        "effects": {
+          "sequence": 26,
+          "arcIntensity": 0.6815501711021711,
+          "sparks": [
+            {
+              "id": 19,
+              "time": 0.8164999999999992,
+              "brightness": 1.1286104775705355,
+              "x": 0.13362963294501023,
+              "y": -0.1489365072043385,
+              "visible": true,
+              "distance": 23.969870004663743
+            },
+            {
+              "id": 20,
+              "time": 1.0164999999999993,
+              "brightness": 0.7834391151483384,
+              "x": -0.14897383755765672,
+              "y": 0.01132112410047384,
+              "visible": true,
+              "distance": 22.364374541761602
+            },
+            {
+              "id": 21,
+              "time": 1.0164999999999993,
+              "brightness": 1.2555582437737405,
+              "x": -0.0937139582290163,
+              "y": -0.15022672276638235,
+              "visible": true,
+              "distance": 23.72090048909784
+            },
+            {
+              "id": 22,
+              "time": 1.0164999999999993,
+              "brightness": 0.5251975061907732,
+              "x": 0.023632278496910627,
+              "y": -0.13324369454484836,
+              "visible": true,
+              "distance": 27.213775481509813
+            },
+            {
+              "id": 23,
+              "time": 1.0164999999999993,
+              "brightness": 1.2364729036532074,
+              "x": -0.16814232031287818,
+              "y": -0.13743501403100042,
+              "visible": true,
+              "distance": 26.304158379627758
+            },
+            {
+              "id": 24,
+              "time": 1.0332000000000001,
+              "brightness": 1.0299504635357941,
+              "x": 0.06162364621467547,
+              "y": 0.10226916718034955,
+              "visible": true,
+              "distance": 27.20621249498307
+            },
+            {
+              "id": 25,
+              "time": 1.1332000000000002,
+              "brightness": 0.7230417322730555,
+              "x": 0.2476711895197684,
+              "y": 0.049100734096257925,
+              "visible": true,
+              "distance": 23.313965083303735
+            },
+            {
+              "id": 26,
+              "time": 1.1332000000000002,
+              "brightness": 0.6504390785179257,
+              "x": 0.07364001331565825,
+              "y": -0.1338269143781211,
+              "visible": true,
+              "distance": 27.085076029743274
+            }
+          ],
+          "rings": [
+            {
+              "rps": 0.6651412176670785,
+              "axis": [
+                -0.8193249071688804,
+                -0.41120929008787904,
+                -0.3995167283583106
+              ],
+              "quaternion": [
+                0.7706773023322648,
+                -0.6280233283097347,
+                0.0901154131946106,
+                -0.05934987003684911
+              ]
+            },
+            {
+              "rps": 0.7538578474254992,
+              "axis": [
+                -0.6953561353280354,
+                0.7146461942261745,
+                0.07589902594700343
+              ],
+              "quaternion": [
+                -0.7016564731153171,
+                -0.08477747042803721,
+                0.5827561415159754,
+                0.4011062873710786
+              ]
+            },
+            {
+              "rps": 0.48321244426043025,
+              "axis": [
+                0.2031243166391665,
+                -0.9705451554777356,
+                0.12954772544730198
+              ],
+              "quaternion": [
+                -0.6317968648835536,
+                0.23920916155339406,
+                0.6648249795292516,
+                0.3187780499754733
+              ]
+            },
+            {
+              "rps": 0.7290259635993253,
+              "axis": [
+                0.7634955143862604,
+                0.5701951303702759,
+                -0.3032360677988086
+              ],
+              "quaternion": [
+                0.6356373454842802,
+                0.37374155500495293,
+                0.5316514517880264,
+                -0.4166883114509711
+              ]
+            }
+          ],
+          "hologram": {
+            "name": "brain",
+            "previous": "wafer",
+            "age": 1.1332000000000002,
+            "cycle": 14,
+            "transition": 3
+          }
+        }
+      },
+      "targets": {
+        "grass": 0.6837841978492476,
+        "coast": 0.12,
+        "grassCutoff": 6000,
+        "coastCutoff": 1900,
+        "grassPan": 0,
+        "coastPan": 0,
+        "rotation0": 0.03873526025272578,
+        "rotation0Rate": 1.0209974556904566,
+        "rotation0Cutoff": 585.3252835398116,
+        "rotation0Pan": -0.2816385666293073,
+        "rotation1": 0.04021079239335402,
+        "rotation1Rate": 1.04031990038916,
+        "rotation1Cutoff": 600.4319221224341,
+        "rotation1Pan": -0.0780632249923806,
+        "rotation2": 0.03139106369976332,
+        "rotation2Rate": 0.9248234532111864,
+        "rotation2Cutoff": 510.13469978329124,
+        "rotation2Pan": 0.0058550353956901766,
+        "rotation3": 0.038956676951591704,
+        "rotation3Rate": 1.0238969600803676,
+        "rotation3Cutoff": 587.5921687901055,
+        "rotation3Pan": 0.28935591270694316,
+        "hologram": 0.21573440000000002,
+        "hologramRate": 0.87,
+        "hologramCutoff": 2029.46,
+        "hologramPan": 0.008648646881235431
+      },
+      "error": null,
+      "source": "armillary",
+      "revision": "armillary-audio-v2"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [
+      {
+        "viewport": [
+          320,
+          568
+        ],
+        "speaker": {
+          "x": 163.90625,
+          "y": 14,
+          "width": 44,
+          "height": 44
+        },
+        "menu": {
+          "x": 215.90625,
+          "y": 14,
+          "width": 88.09375,
+          "height": 44
+        }
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "speaker": {
+          "x": 233.90625,
+          "y": 14,
+          "width": 44,
+          "height": 44
+        },
+        "menu": {
+          "x": 285.90625,
+          "y": 14,
+          "width": 88.09375,
+          "height": 44
+        }
+      },
+      {
+        "viewport": [
+          844,
+          390
+        ],
+        "speaker": {
+          "x": 687.90625,
+          "y": 14,
+          "width": 44,
+          "height": 44
+        },
+        "menu": {
+          "x": 739.90625,
+          "y": 14,
+          "width": 88.09375,
+          "height": 44
+        }
+      },
+      {
+        "viewport": [
+          1100,
+          800
+        ],
+        "speaker": {
+          "x": 943.90625,
+          "y": 14,
+          "width": 44,
+          "height": 44
+        },
+        "menu": {
+          "x": 995.90625,
+          "y": 14,
+          "width": 88.09375,
+          "height": 44
+        }
+      }
+    ],
+    "errors": []
+  },
+  {
+    "slug": "armillary-v2",
+    "url": "http://127.0.0.1:8076/preview/20261017/armillary-v2.html?skipgc&revision=audio-v2&check=1792346231",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        59,
+        24,
+        24,
+        24,
+        24,
+        14
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 44623256,
+      "sparksPlayed": 0,
+      "activeSparks": 0,
+      "lastSpark": null,
+      "scene": {
+        "running": true,
+        "time": 1.0500999999999996,
+        "view": "wide",
+        "effects": {
+          "sequence": 21,
+          "arcIntensity": 0.2134376548450574,
+          "sparks": [
+            {
+              "id": 17,
+              "time": 0.7500999999999995,
+              "brightness": 0.5658704671528263,
+              "x": 0.11205036057295516,
+              "y": -0.14195357053415045,
+              "visible": true,
+              "distance": 24.497169848283804
+            },
+            {
+              "id": 18,
+              "time": 0.8500999999999995,
+              "brightness": 0.8972683708600273,
+              "x": 0.0839485481825316,
+              "y": 0.15191196827687614,
+              "visible": true,
+              "distance": 25.96900990809985
+            },
+            {
+              "id": 19,
+              "time": 0.8500999999999995,
+              "brightness": 1.1506954810499699,
+              "x": 0.08266726830911628,
+              "y": -0.14546340661835314,
+              "visible": true,
+              "distance": 25.697838578120184
+            },
+            {
+              "id": 20,
+              "time": 0.9500999999999995,
+              "brightness": 1.0621614245765978,
+              "x": 0.3208436559669004,
+              "y": 0.02035026384817591,
+              "visible": true,
+              "distance": 26.158374357295894
+            },
+            {
+              "id": 21,
+              "time": 1.0500999999999996,
+              "brightness": 0.5118506651198981,
+              "x": 0.32409221473282485,
+              "y": 0.055077327731614716,
+              "visible": true,
+              "distance": 24.834999815025697
+            }
+          ],
+          "rings": [
+            {
+              "rps": 1.1445735592626758,
+              "axis": [
+                0.36408255657057675,
+                -0.13731428542729548,
+                -0.9211887314869978
+              ],
+              "quaternion": [
+                0.9350094386920895,
+                0.09124002984256517,
+                0.12076347411263866,
+                0.32070046746345326
+              ]
+            },
+            {
+              "rps": 1.030585812040409,
+              "axis": [
+                -0.9664094760333046,
+                -0.1933424971430927,
+                0.16932632232321984
+              ],
+              "quaternion": [
+                0.0051310468437521855,
+                0.23461500274050956,
+                0.9660161800002258,
+                0.1083614914309024
+              ]
+            },
+            {
+              "rps": 0.6188953026608887,
+              "axis": [
+                -0.12260804262888782,
+                -0.39494175292546063,
+                -0.9104879349441578
+              ],
+              "quaternion": [
+                0.6647114937181183,
+                -0.10948065962858976,
+                -0.16808906551415503,
+                -0.7196656733101108
+              ]
+            },
+            {
+              "rps": 1.075148798744062,
+              "axis": [
+                -0.3320530602636881,
+                0.9415220934804653,
+                -0.05724432423988955
+              ],
+              "quaternion": [
+                -0.2587048175783958,
+                0.9388393277152385,
+                -0.20513699168650137,
+                0.09783327010143539
+              ]
+            }
+          ],
+          "hologram": {
+            "name": "brain",
+            "previous": "wafer",
+            "age": 1.0500999999999996,
+            "cycle": 14,
+            "transition": 3
+          }
+        }
+      },
+      "targets": {
+        "grass": 0.683481213850155,
+        "coast": 0.12,
+        "grassCutoff": 6000,
+        "coastCutoff": 1900,
+        "grassPan": 0,
+        "coastPan": 0,
+        "rotation0": 0.05328145783819943,
+        "rotation0Rate": 1.2114833764526116,
+        "rotation0Cutoff": 734.2506397720418,
+        "rotation0Pan": 0.006839125597822293,
+        "rotation1": 0.049832688583961324,
+        "rotation1Rate": 1.1663209219328268,
+        "rotation1Cutoff": 698.9418116929373,
+        "rotation1Pan": -0.13456480379966235,
+        "rotation2": 0.03537836478114138,
+        "rotation2Rate": 0.9770381102292324,
+        "rotation2Cutoff": 550.9570679973999,
+        "rotation2Pan": -0.08270396942963604,
+        "rotation3": 0.0510904987856079,
+        "rotation3Rate": 1.1827922460020084,
+        "rotation3Cutoff": 711.8193923288429,
+        "rotation3Pan": 0.051559608207935245,
+        "hologram": 0.2163992,
+        "hologramRate": 0.87,
+        "hologramCutoff": 2039.1550000000002,
+        "hologramPan": 0.007957327009921808
+      },
+      "error": null,
+      "source": "armillary-v2",
+      "revision": "armillary-audio-v2"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  }
+]
