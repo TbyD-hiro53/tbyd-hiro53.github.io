@@ -1,0 +1,79 @@
+[
+  {
+    "id": "700254",
+    "url": "https://freesound.org/people/JackRabbott/sounds/700254/",
+    "license": "CC0 1.0",
+    "licenseURL": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "acquired": "public HQ preview, not original WAV/FLAC",
+    "file": "/workspace/previews/2026-10-18/audio-survey/700254-hq-preview.mp3",
+    "bytes": 607352,
+    "sha256": "21cdac7e15461df953d4107ff16913778f8e66dd8f3a170efb5aa67ca69fa7a9",
+    "status": "downloaded; listening approval pending"
+  },
+  {
+    "id": "554314",
+    "url": "https://freesound.org/people/finneganmilla/sounds/554314/",
+    "license": "CC0 1.0",
+    "licenseURL": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "acquired": "public HQ preview, not original WAV/FLAC",
+    "file": "/workspace/previews/2026-10-18/audio-survey/554314-hq-preview.mp3",
+    "bytes": 1001603,
+    "sha256": "0b8ac21c6b7aac5401378870031deead72a3b5081ea1b328b1c7c7d100dbcd4f",
+    "status": "downloaded; listening approval pending"
+  },
+  {
+    "id": "376534",
+    "url": "https://freesound.org/people/keirofinch/sounds/376534/",
+    "license": "CC0 1.0",
+    "licenseURL": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "acquired": "public HQ preview, not original WAV/FLAC",
+    "file": "/workspace/previews/2026-10-18/audio-survey/376534-hq-preview.mp3",
+    "bytes": 461328,
+    "sha256": "2542f7f1fe333b8ab74c65cd59570e77cf75a775cb0bf7e69f4ec21ea7183a95",
+    "status": "downloaded; listening approval pending"
+  },
+  {
+    "id": "517995",
+    "url": "https://freesound.org/people/waweee/sounds/517995/",
+    "license": "CC0 1.0",
+    "licenseURL": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "acquired": "public HQ preview, not original WAV/FLAC",
+    "file": "/workspace/previews/2026-10-18/audio-survey/517995-hq-preview.mp3",
+    "bytes": 6148848,
+    "sha256": "c5286642430fb6cfd1750c2b671a2aec55582b746b68034054eec29ac44b814c",
+    "status": "downloaded; listening approval pending"
+  },
+  {
+    "id": "336556",
+    "url": "https://freesound.org/people/humanoide9000/sounds/336556/",
+    "license": "CC BY 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+    "acquired": "public HQ preview, not original WAV/FLAC",
+    "file": "/workspace/previews/2026-10-18/audio-survey/336556-hq-preview.mp3",
+    "bytes": 150768,
+    "sha256": "651876a7cf212180e8f91bd21548e0925421351112f543eb2068df93ed000df5",
+    "status": "downloaded; listening approval pending"
+  },
+  {
+    "id": "451614",
+    "url": "https://freesound.org/people/kyles/sounds/451614/",
+    "license": "CC0 1.0",
+    "licenseURL": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "acquired": "public HQ preview, not original WAV/FLAC",
+    "file": "/workspace/previews/2026-10-18/audio-survey/451614-hq-preview.mp3",
+    "bytes": 9741984,
+    "sha256": "fd2cb08fbb724b865c7114b84508b4ce360a937cc8d2b54ca92be9ad1faf4095",
+    "status": "downloaded; listening approval pending"
+  },
+  {
+    "id": "538210",
+    "url": "https://freesound.org/people/oldestmillennial/sounds/538210/",
+    "license": "CC BY 3.0",
+    "licenseURL": "http://creativecommons.org/licenses/by/3.0/",
+    "acquired": "public HQ preview, not original WAV/FLAC",
+    "file": "/workspace/previews/2026-10-18/audio-survey/538210-hq-preview.mp3",
+    "bytes": 648612,
+    "sha256": "96aa42d6114b300a95cd955a65f5e45da1889f8915f839035a14f3cc96cd6f1e",
+    "status": "downloaded; listening approval pending"
+  }
+]
