@@ -1,0 +1,92 @@
+[
+  {
+    "work": "lacto-cortex",
+    "base": "../../",
+    "canonical": "https://tbyd-hiro53.github.io/lacto-cortex.html",
+    "noindex": true,
+    "audioScript": [
+      "device-audio-v1-20261019.js"
+    ]
+  },
+  {
+    "work": "lacto-tricore",
+    "base": "../../",
+    "canonical": "https://tbyd-hiro53.github.io/lacto-tricore.html",
+    "noindex": true,
+    "audioScript": [
+      "device-audio-v1-20261019.js"
+    ]
+  },
+  {
+    "work": "core-37",
+    "base": "../../",
+    "canonical": "https://tbyd-hiro53.github.io/core-37.html",
+    "noindex": true,
+    "audioScript": [
+      "device-audio-v1-20261019.js"
+    ]
+  },
+  {
+    "work": "armillary",
+    "base": "../../",
+    "canonical": "https://tbyd-hiro53.github.io/armillary.html",
+    "noindex": true,
+    "audioScript": [
+      "outdoor-audio-v1-20261019.js"
+    ]
+  },
+  {
+    "work": "armillary-v2",
+    "base": "../../",
+    "canonical": "https://tbyd-hiro53.github.io/armillary-v2.html",
+    "noindex": true,
+    "audioScript": [
+      "outdoor-audio-v1-20261019.js"
+    ]
+  },
+  {
+    "work": "binary-dusk",
+    "base": "../../",
+    "canonical": "https://tbyd-hiro53.github.io/binary-dusk.html",
+    "noindex": true,
+    "audioScript": [
+      "outdoor-audio-v1-20261019.js"
+    ]
+  },
+  {
+    "work": "earth-origin-material",
+    "base": "../../",
+    "canonical": "https://tbyd-hiro53.github.io/earth-origin-material.html",
+    "noindex": true,
+    "audioScript": [
+      "interiors-audio-v1-20261019.js"
+    ]
+  },
+  {
+    "work": "preservation-hall",
+    "base": "../../",
+    "canonical": "https://tbyd-hiro53.github.io/preservation-hall.html",
+    "noindex": true,
+    "audioScript": [
+      "interiors-audio-v1-20261019.js"
+    ]
+  },
+  {
+    "work": "shoko",
+    "base": "../../",
+    "canonical": "https://tbyd-hiro53.github.io/shoko.html",
+    "noindex": true,
+    "audioScript": [
+      "interiors-audio-v1-20261019.js"
+    ]
+  },
+  {
+    "work": "sanctum",
+    "base": "../../",
+    "canonical": "https://tbyd-hiro53.github.io/sanctum.html",
+    "noindex": true,
+    "audioScript": [
+      "sanctum-audio-v1-20261019.js"
+    ]
+  }
+]

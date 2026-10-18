@@ -1,0 +1,110 @@
+{
+  "composer-liquid-v1-20260919.css": {
+    "bytes": 3690,
+    "sha256": "5865bfe55e291af905aa424d498b04b588e7186de85c0b66c4047ab2e1febe53"
+  },
+  "composer-liquid-v2-20260919.js": {
+    "bytes": 9139,
+    "sha256": "63690ef8730b9d45315ee7d700d7802b1671f563835be1b75ba23cd8e1c87948"
+  },
+  "h53-chrome-copy-en-v1-20260923.js": {
+    "bytes": 32028,
+    "sha256": "1530e558729d3d260f0d80c39f53b95056ab6863cd79f6f7c6caea6e0c276f5f"
+  },
+  "h53-chrome-v2-20261016.js": {
+    "bytes": 24283,
+    "sha256": "2155656e299ad98706464dd324006f4f260e7b3087667ea850ce5c7082c4c17b"
+  },
+  "h53-direct-controls-v1-20260919.css": {
+    "bytes": 6190,
+    "sha256": "bcd9db0d248b2e3ddd4e4dc4bcaed2d0a3a18721fb8cb1b06671a022ed2a4729"
+  },
+  "h53-direct-controls-v1-20260919.js": {
+    "bytes": 3766,
+    "sha256": "652799bf2ee9b8f9b890f81504870809c4574220f4fa8fcdae0895f239400110"
+  },
+  "h53-dismiss-v2-20261018.js": {
+    "bytes": 3803,
+    "sha256": "40f76617d6a59fdc2e9c306b76d8ef0d16ec0a16e71413f459db01244c5fefba"
+  },
+  "h53-liquid-glass-optics-v1.js": {
+    "bytes": 15957,
+    "sha256": "a9ea4ca3b752e8d005d47cb94c6616272059066ed815f22ac42a52785784987c"
+  },
+  "h53-liquid-host-v1-20260919.js": {
+    "bytes": 5478,
+    "sha256": "de6bf802d39283cb7f5c8366fdfc17326ba876e57a3dfd9e292ea481c1d6a7e8"
+  },
+  "h53-liquid-layout-v1-20260919.css": {
+    "bytes": 1995,
+    "sha256": "8852435a74d070f4c48739acc0fc2bfc462f445046e898b6d48fea6cb4650526"
+  },
+  "h53-liquid-ui-v1-20260919.css": {
+    "bytes": 2666,
+    "sha256": "abf0a2130a5bab9dc04c26c5d910f5eda3700b4c3336fe54e324ba566c770c4c"
+  },
+  "h53-liquid-ui-v1-20260919.js": {
+    "bytes": 23219,
+    "sha256": "6690b247142a68e2d099760f7a0a39f9b23c91ceafb1b657db0a0bd7a0eff367"
+  },
+  "h53-reading-layout-v3-20261018.js": {
+    "bytes": 5338,
+    "sha256": "2b0ca96aa3215ce128d36b34e878d7bf73c60701fab97775bf74844bbfe65be4"
+  },
+  "interiors-audio-v1-20261019-room.mp3": {
+    "bytes": 585186,
+    "sha256": "f949b1b45b646ee21d6600d30ca55a075f78b98153bcfe9d115c23cae5757c09"
+  },
+  "preview/20261017/sanctum.html": {
+    "bytes": 21004,
+    "sha256": "cccda5e09f438cca2f7cda0d92174d332612d4b9313a8fd1570a91fae6681d82"
+  },
+  "sanctum-audio-v1-20261019.js": {
+    "bytes": 12019,
+    "sha256": "f4f062ae3efbefa02271361932b208a44d126713cfd7548f49563fb4746dee3e"
+  },
+  "sanctum-v6-w1-agx-lut.png": {
+    "bytes": 87530,
+    "sha256": "762b008580d96838609b31e38afdc61c28b0e7e3831dae26f45b8e3bde88b9fb"
+  },
+  "sanctum-v6-w1-geo.bin": {
+    "bytes": 1730136,
+    "sha256": "6822cd0151b5eee2b14697b6dfaeb9be29b8689b7d48c9dcd5a98df9d5097a2d"
+  },
+  "sanctum-v6-w1-geo.json": {
+    "bytes": 627,
+    "sha256": "fc0d032f26ddd23c710cea0e0eb6831c4c2f5c7b58531f52f60aa9e96c8053a2"
+  },
+  "sanctum-v6-w1-style.css": {
+    "bytes": 2506,
+    "sha256": "d964d4dc04212c7432ca33b4422f51a8e1a051a7a1971962858f36f731b23e9c"
+  },
+  "sanctum-v6-w1-three-r128.js": {
+    "bytes": 603446,
+    "sha256": "f36957277d6ece3c6db2a5c0461319ef4a9b21611e4d7f987be6a42f5ffe456f"
+  },
+  "sanctum-v6-w1-ui-copy.js": {
+    "bytes": 1222,
+    "sha256": "cd852f60249f8c9a2bd5265a8c190806bd4893f4b0a8bf8ad28d1ce5564bfc9a"
+  },
+  "sanctum-v6-w12-app.js": {
+    "bytes": 59567,
+    "sha256": "439a20697902d1e95ce05c0b96b29f3408c3858038e4156c0b4229037f55cb0d"
+  },
+  "sanctum-v6-w3-ui.js": {
+    "bytes": 8365,
+    "sha256": "193c3f052642ab1440ac675ccb5fb5d81877184bac6fbee8ab0b8e0286de5a9b"
+  },
+  "sanctum-v6-w7-env-glass.png": {
+    "bytes": 365990,
+    "sha256": "5ae60894faa242a0c50c04630f0427fc720162d52ba600bf323266d6d80e5a71"
+  },
+  "sanctum-v6-w7-env-steel.png": {
+    "bytes": 433444,
+    "sha256": "fafc556b17a72e9edccf2a91b9544eb246af5925cb22b026ef30c03ca363f9e2"
+  },
+  "sanctum-v6-w7-lm.png": {
+    "bytes": 4683758,
+    "sha256": "45fca177044b205fe79c1260b961b7231cf8d654ea70cff4eceb110d32ddb51c"
+  }
+}

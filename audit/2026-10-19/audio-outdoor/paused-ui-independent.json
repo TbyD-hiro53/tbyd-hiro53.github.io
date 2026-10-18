@@ -1,0 +1,48 @@
+[
+  {
+    "work": "armillary",
+    "baseURL": "http://127.0.0.1:8075",
+    "motionRemainsPaused": true,
+    "sceneTimeUnchanged": 0,
+    "settledFrameDelta": 0,
+    "menuGlassMatchesDOM": {
+      "glass": [
+        16,
+        68,
+        288,
+        488
+      ],
+      "dom": [
+        16,
+        68,
+        288,
+        488
+      ]
+    },
+    "aboutAndBackCredits": "passed",
+    "errors": []
+  },
+  {
+    "work": "armillary-v2",
+    "baseURL": "http://127.0.0.1:8075",
+    "motionRemainsPaused": true,
+    "sceneTimeUnchanged": 0,
+    "settledFrameDelta": 0,
+    "menuGlassMatchesDOM": {
+      "glass": [
+        16,
+        68,
+        288,
+        488
+      ],
+      "dom": [
+        16,
+        68,
+        288,
+        488
+      ]
+    },
+    "aboutAndBackCredits": "passed",
+    "errors": []
+  }
+]

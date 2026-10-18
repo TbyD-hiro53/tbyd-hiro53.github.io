@@ -1,0 +1,71 @@
+[
+  {
+    "name": "wind",
+    "source": "517995",
+    "sourceFile": "/workspace/previews/2026-10-18/audio-survey/517995-hq-preview.mp3",
+    "sourceSHA256": "c5286642430fb6cfd1750c2b671a2aec55582b746b68034054eec29ac44b814c",
+    "excerpt": [
+      50,
+      80
+    ],
+    "approvedFilters": "highpass=f=45,volume=42dB",
+    "targetRMSDBFS": -28,
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "peakControl": ".40*tanh(x/.40)",
+    "file": "interiors-audio-v1-20261019-wind.mp3",
+    "bytes": 585186,
+    "sha256": "499fb4c260c6202583912b04de0ac82174e6aa80950fcd97dfb30c288ff56bb4",
+    "loopSeconds": 29.0,
+    "rmsDBFS": -28.642681121826172,
+    "peak": 0.3279990553855896,
+    "seamStep": 0.0019063339568674564,
+    "ordinaryStep99": 0.01579853892326355
+  },
+  {
+    "name": "room",
+    "source": "451614",
+    "sourceFile": "/workspace/previews/2026-10-18/audio-survey/451614-hq-preview.mp3",
+    "sourceSHA256": "fd2cb08fbb724b865c7114b84508b4ce360a937cc8d2b54ca92be9ad1faf4095",
+    "excerpt": [
+      285,
+      315
+    ],
+    "approvedFilters": "volume=-6dB,highpass=f=45,lowpass=f=3500,acompressor=threshold=0.12:ratio=2:attack=5:release=180:makeup=1,volume=2.8dB",
+    "targetRMSDBFS": -34,
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "peakControl": ".40*tanh(x/.40)",
+    "file": "interiors-audio-v1-20261019-room.mp3",
+    "bytes": 585186,
+    "sha256": "f949b1b45b646ee21d6600d30ca55a075f78b98153bcfe9d115c23cae5757c09",
+    "loopSeconds": 29.0,
+    "rmsDBFS": -34.46583938598633,
+    "peak": 0.08561220020055771,
+    "seamStep": 0.0006916932761669159,
+    "ordinaryStep99": 0.0035077212378382683
+  },
+  {
+    "name": "conveyor",
+    "source": "538210",
+    "sourceFile": "/workspace/previews/2026-10-18/audio-survey/538210-hq-preview.mp3",
+    "sourceSHA256": "96aa42d6114b300a95cd955a65f5e45da1889f8915f839035a14f3cc96cd6f1e",
+    "excerpt": [
+      1,
+      19
+    ],
+    "approvedFilters": "highpass=f=70,lowpass=f=1800",
+    "targetRMSDBFS": -31,
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "peakControl": ".40*tanh(x/.40)",
+    "file": "interiors-audio-v1-20261019-conveyor.mp3",
+    "bytes": 345382,
+    "sha256": "af4c64a156ef018ba5f73232ccbb7194b22a275d1b306038ad9a61bb4c91c04e",
+    "loopSeconds": 17.0,
+    "rmsDBFS": -31.523223876953125,
+    "peak": 0.18617019057273865,
+    "seamStep": 6.295740604400635e-06,
+    "ordinaryStep99": 0.003109753131866455
+  }
+]

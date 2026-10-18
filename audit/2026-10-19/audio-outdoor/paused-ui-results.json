@@ -1,0 +1,800 @@
+{
+  "before": {
+    "frame": 2,
+    "playing": false,
+    "panel": {
+      "hidden": false,
+      "opacity": "1",
+      "visibility": "visible",
+      "style": "--reading-left: 44px; --reading-top: 68px; --reading-width: 330px; --reading-height: 764px;",
+      "rect": {
+        "x": 44,
+        "y": 68,
+        "width": 330,
+        "height": 335,
+        "top": 68,
+        "right": 374,
+        "bottom": 403,
+        "left": 44
+      }
+    },
+    "host": {
+      "frames": 1,
+      "error": null,
+      "blocked": true,
+      "ui": {
+        "simplified": false,
+        "opticsReady": true,
+        "busy": false,
+        "surfaceCount": 8,
+        "ownedRAF": false,
+        "states": [
+          {
+            "id": "composerBack",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              16,
+              14,
+              61.046875,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "composerToggle",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              285.90625,
+              14,
+              88.09375,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "composerMenu",
+            "phase": "idle",
+            "hidden": false,
+            "contentOpacity": 1,
+            "strength": 1,
+            "panelMix": 1,
+            "press": 0,
+            "anchor": [
+              285.9063720703125,
+              14.000057220458984,
+              88.093505859375,
+              43.99988555908203
+            ],
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "clipRect": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "id": "composerMenuClose",
+            "phase": "idle",
+            "hidden": false,
+            "contentOpacity": 1,
+            "strength": 1,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "clipRect": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "id": "composerShow",
+            "phase": "hidden",
+            "hidden": true,
+            "contentOpacity": 1,
+            "strength": 1,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "clipRect": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "id": "surface-5",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              43.78125,
+              696,
+              86.484375,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "surface-6",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              138.265625,
+              696,
+              70.875,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "surface-7",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              217.140625,
+              696,
+              63.03125,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "surface-8",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              288.171875,
+              696,
+              58.03125,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "surface-9",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              125.40625,
+              748,
+              53.484375,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "surface-10",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              186.890625,
+              748,
+              77.6875,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "h53-audio-toggle",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "clipRect": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      "optics": {
+        "backend": "display-srgb-webgl-overlay",
+        "sourceMode": "display-srgb",
+        "sourceWidth": 390,
+        "sourceHeight": 844,
+        "renderWidth": 390,
+        "renderHeight": 844,
+        "captures": 1,
+        "draws": 1,
+        "lastDrawCalls": 8,
+        "lastCaptureMs": 0,
+        "lastDrawMs": 6.399999998509884,
+        "hasFrame": true,
+        "error": null
+      },
+      "submitMedianMs": 8.799999997019768,
+      "submitP95Ms": 8.799999997019768
+    },
+    "buttons": [
+      {
+        "text": "\u00d7",
+        "opacity": "1",
+        "visibility": "visible"
+      },
+      {
+        "text": "\u4f5c\u54c1\u306b\u3064\u3044\u3066",
+        "opacity": "1",
+        "visibility": "visible"
+      },
+      {
+        "text": "\u5168\u753b\u9762",
+        "opacity": "1",
+        "visibility": "visible"
+      },
+      {
+        "text": "UI\u3092\u96a0\u3059",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    ]
+  },
+  "after": {
+    "frame": 3,
+    "playing": false,
+    "panel": {
+      "hidden": false,
+      "opacity": "1",
+      "visibility": "visible",
+      "style": "--reading-left: 44px; --reading-top: 68px; --reading-width: 330px; --reading-height: 764px;",
+      "rect": {
+        "x": 44,
+        "y": 68,
+        "width": 330,
+        "height": 335,
+        "top": 68,
+        "right": 374,
+        "bottom": 403,
+        "left": 44
+      }
+    },
+    "host": {
+      "frames": 2,
+      "error": null,
+      "blocked": true,
+      "ui": {
+        "simplified": false,
+        "opticsReady": true,
+        "busy": false,
+        "surfaceCount": 2,
+        "ownedRAF": false,
+        "states": [
+          {
+            "id": "composerBack",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              16,
+              14,
+              61.046875,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "composerToggle",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              285.90625,
+              14,
+              88.09375,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "composerMenu",
+            "phase": "idle",
+            "hidden": false,
+            "contentOpacity": 1,
+            "strength": 1,
+            "panelMix": 1,
+            "press": 0,
+            "anchor": [
+              285.9063720703125,
+              14.000057220458984,
+              88.093505859375,
+              43.99988555908203
+            ],
+            "rect": [
+              44,
+              68,
+              330,
+              335
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "composerMenuClose",
+            "phase": "idle",
+            "hidden": false,
+            "contentOpacity": 1,
+            "strength": 1,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              314,
+              81,
+              44,
+              44
+            ],
+            "clipRect": [
+              44,
+              68,
+              330,
+              335
+            ]
+          },
+          {
+            "id": "composerShow",
+            "phase": "hidden",
+            "hidden": true,
+            "contentOpacity": 1,
+            "strength": 1,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "clipRect": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "id": "surface-5",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              43.78125,
+              696,
+              86.484375,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "surface-6",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              138.265625,
+              696,
+              70.875,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "surface-7",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              217.140625,
+              696,
+              63.03125,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "surface-8",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              288.171875,
+              696,
+              58.03125,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "surface-9",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              125.40625,
+              748,
+              53.484375,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "surface-10",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              186.890625,
+              748,
+              77.6875,
+              44
+            ],
+            "clipRect": [
+              0,
+              0,
+              390,
+              844
+            ]
+          },
+          {
+            "id": "h53-audio-toggle",
+            "phase": "hidden",
+            "hidden": false,
+            "contentOpacity": 0,
+            "strength": 0,
+            "panelMix": 0,
+            "press": 0,
+            "anchor": [
+              0,
+              0,
+              44,
+              44
+            ],
+            "rect": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "clipRect": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      "optics": {
+        "backend": "display-srgb-webgl-overlay",
+        "sourceMode": "display-srgb",
+        "sourceWidth": 390,
+        "sourceHeight": 844,
+        "renderWidth": 390,
+        "renderHeight": 844,
+        "captures": 2,
+        "draws": 2,
+        "lastDrawCalls": 2,
+        "lastCaptureMs": 0,
+        "lastDrawMs": 0.20000000298023224,
+        "hasFrame": true,
+        "error": null
+      },
+      "submitMedianMs": 8.799999997019768,
+      "submitP95Ms": 8.799999997019768
+    },
+    "buttons": [
+      {
+        "text": "\u00d7",
+        "opacity": "1",
+        "visibility": "visible"
+      },
+      {
+        "text": "\u4f5c\u54c1\u306b\u3064\u3044\u3066",
+        "opacity": "1",
+        "visibility": "visible"
+      },
+      {
+        "text": "\u5168\u753b\u9762",
+        "opacity": "1",
+        "visibility": "visible"
+      },
+      {
+        "text": "UI\u3092\u96a0\u3059",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    ]
+  },
+  "closed": {
+    "hidden": true,
+    "playing": false
+  }
+}

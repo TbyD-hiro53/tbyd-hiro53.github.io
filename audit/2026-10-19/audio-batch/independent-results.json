@@ -1,0 +1,534 @@
+[
+  {
+    "slug": "lacto-cortex",
+    "url": "http://127.0.0.1:8075/preview/20261017/lacto-cortex.html?skipgc&revision=audio-batch-v1&check=1792343449",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        17,
+        17
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 11995200,
+      "scene": {
+        "running": true,
+        "time": 51.70629999999702,
+        "view": "8k-phone"
+      },
+      "targets": {
+        "perfusion": 0.3278059257837546,
+        "drive": 0.23,
+        "transport": 0,
+        "perfusionCutoff": 2500,
+        "driveCutoff": 1100,
+        "transportCutoff": 1300,
+        "perfusionPan": 0,
+        "drivePan": 0,
+        "transportPan": 0
+      },
+      "error": null,
+      "source": "lacto-cortex",
+      "revision": "device-audio-v1"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  },
+  {
+    "slug": "lacto-tricore",
+    "url": "http://127.0.0.1:8075/preview/20261017/lacto-tricore.html?skipgc&revision=audio-batch-v1&check=1792343527",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        17,
+        17
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 11995200,
+      "scene": {
+        "running": true,
+        "time": 0.5332000000000002,
+        "view": "main",
+        "narrating": false
+      },
+      "targets": {
+        "perfusion": 0.32,
+        "drive": 0.2,
+        "transport": 0,
+        "perfusionCutoff": 2400,
+        "driveCutoff": 1100,
+        "transportCutoff": 1300,
+        "perfusionPan": 0,
+        "drivePan": 0,
+        "transportPan": 0
+      },
+      "error": null,
+      "source": "lacto-tricore",
+      "revision": "device-audio-v1"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  },
+  {
+    "slug": "core-37",
+    "url": "http://127.0.0.1:8075/preview/20261017/core-37.html?skipgc&revision=audio-batch-v1&check=1792343529",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        17,
+        17
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 11995200,
+      "scene": {
+        "running": true,
+        "time": 0.7999,
+        "view": "room",
+        "narrating": false
+      },
+      "targets": {
+        "perfusion": 0,
+        "drive": 0.36,
+        "transport": 0.2,
+        "perfusionCutoff": 2500,
+        "driveCutoff": 1100,
+        "transportCutoff": 1300,
+        "perfusionPan": 0,
+        "drivePan": 0,
+        "transportPan": 0
+      },
+      "error": null,
+      "source": "core-37",
+      "revision": "device-audio-v1"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  },
+  {
+    "slug": "armillary",
+    "url": "http://127.0.0.1:8075/preview/20261017/armillary.html?skipgc&revision=audio-batch-v1&check=1792343531",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        59
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 31046400,
+      "scene": {
+        "running": true,
+        "time": 0.9668000000000003,
+        "view": "wide"
+      },
+      "targets": {
+        "grass": 0.6831771532494882,
+        "coast": 0.12,
+        "grassCutoff": 6000,
+        "coastCutoff": 1900,
+        "grassPan": 0,
+        "coastPan": 0
+      },
+      "error": null,
+      "source": "armillary",
+      "revision": "outdoor-audio-v1"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [
+      {
+        "viewport": [
+          320,
+          568
+        ],
+        "speaker": {
+          "x": 163.90625,
+          "y": 14,
+          "width": 44,
+          "height": 44
+        },
+        "menu": {
+          "x": 215.90625,
+          "y": 14,
+          "width": 88.09375,
+          "height": 44
+        }
+      },
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "speaker": {
+          "x": 233.90625,
+          "y": 14,
+          "width": 44,
+          "height": 44
+        },
+        "menu": {
+          "x": 285.90625,
+          "y": 14,
+          "width": 88.09375,
+          "height": 44
+        }
+      },
+      {
+        "viewport": [
+          844,
+          390
+        ],
+        "speaker": {
+          "x": 687.90625,
+          "y": 14,
+          "width": 44,
+          "height": 44
+        },
+        "menu": {
+          "x": 739.90625,
+          "y": 14,
+          "width": 88.09375,
+          "height": 44
+        }
+      },
+      {
+        "viewport": [
+          1100,
+          800
+        ],
+        "speaker": {
+          "x": 943.90625,
+          "y": 14,
+          "width": 44,
+          "height": 44
+        },
+        "menu": {
+          "x": 995.90625,
+          "y": 14,
+          "width": 88.09375,
+          "height": 44
+        }
+      }
+    ],
+    "errors": []
+  },
+  {
+    "slug": "armillary-v2",
+    "url": "http://127.0.0.1:8075/preview/20261017/armillary-v2.html?skipgc&revision=audio-batch-v1&check=1792343557",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        59
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 31046400,
+      "scene": {
+        "running": true,
+        "time": 1.0666000000000004,
+        "view": "wide"
+      },
+      "targets": {
+        "grass": 0.6835414016296107,
+        "coast": 0.12,
+        "grassCutoff": 6000,
+        "coastCutoff": 1900,
+        "grassPan": 0,
+        "coastPan": 0
+      },
+      "error": null,
+      "source": "armillary-v2",
+      "revision": "outdoor-audio-v1"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  },
+  {
+    "slug": "binary-dusk",
+    "url": "http://127.0.0.1:8075/preview/20261017/binary-dusk.html?skipgc&revision=audio-batch-v1&check=1792343579",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        59
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 31046400,
+      "scene": {
+        "running": true,
+        "time": 1.0105999999940396,
+        "view": "portrait"
+      },
+      "targets": {
+        "grass": 0.5027144320309178,
+        "coast": 0.12,
+        "grassCutoff": 5200,
+        "coastCutoff": 1600,
+        "grassPan": 0,
+        "coastPan": -0.48
+      },
+      "error": null,
+      "source": "binary-dusk",
+      "revision": "outdoor-audio-v1"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  },
+  {
+    "slug": "earth-origin-material",
+    "url": "http://127.0.0.1:8075/preview/20261017/earth-origin-material.html?skipgc&revision=audio-batch-v1&check=1792343587",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        29
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 20462400,
+      "scene": {
+        "running": true,
+        "ready": true,
+        "time": 0.7141000000014901,
+        "view": 0
+      },
+      "targets": {
+        "room": 0.5,
+        "wind": 0.15,
+        "river": 0,
+        "rill": 0,
+        "conveyor": 0,
+        "roomCutoff": 2400,
+        "windCutoff": 2400,
+        "riverCutoff": 2400,
+        "rillCutoff": 4200,
+        "conveyorCutoff": 1600,
+        "roomPan": 0,
+        "windPan": 0,
+        "riverPan": 0.12,
+        "rillPan": 0.28,
+        "conveyorPan": -0.2
+      },
+      "error": null,
+      "source": "earth-origin-material",
+      "revision": "interiors-audio-v1"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  },
+  {
+    "slug": "preservation-hall",
+    "url": "http://127.0.0.1:8075/preview/20261017/preservation-hall.html?skipgc&revision=audio-batch-v1&check=1792343599",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        29
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 20462400,
+      "scene": {
+        "running": true,
+        "ready": true,
+        "time": 0.3908000000044703,
+        "view": 0
+      },
+      "targets": {
+        "room": 0.65,
+        "wind": 0.035,
+        "river": 0,
+        "rill": 0,
+        "conveyor": 0,
+        "roomCutoff": 2400,
+        "windCutoff": 1500,
+        "riverCutoff": 2400,
+        "rillCutoff": 4200,
+        "conveyorCutoff": 1600,
+        "roomPan": 0,
+        "windPan": 0,
+        "riverPan": 0.12,
+        "rillPan": 0.28,
+        "conveyorPan": -0.2
+      },
+      "error": null,
+      "source": "preservation-hall",
+      "revision": "interiors-audio-v1"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  },
+  {
+    "slug": "shoko",
+    "url": "http://127.0.0.1:8075/preview/20261017/shoko.html?skipgc&revision=audio-batch-v1&check=1792343600#lower",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        17,
+        17,
+        17
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 28224000,
+      "scene": {
+        "running": true,
+        "ready": true,
+        "time": 1.4306000000014898,
+        "view": "lower"
+      },
+      "targets": {
+        "room": 0.24,
+        "wind": 0,
+        "river": 0.23,
+        "rill": 0.33,
+        "conveyor": 0.1,
+        "roomCutoff": 2400,
+        "windCutoff": 1600,
+        "riverCutoff": 2400,
+        "rillCutoff": 4200,
+        "conveyorCutoff": 1600,
+        "roomPan": 0,
+        "windPan": 0,
+        "riverPan": 0.12,
+        "rillPan": 0.28,
+        "conveyorPan": -0.2
+      },
+      "error": null,
+      "source": "shoko",
+      "revision": "interiors-audio-v1"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 235.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  },
+  {
+    "slug": "sanctum",
+    "url": "http://127.0.0.1:8075/preview/20261017/sanctum.html?skipgc&revision=audio-batch-v1&check=1792343612",
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        29
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 10231200,
+      "scene": {
+        "running": true,
+        "time": 1.9038000000044704,
+        "view": "hall"
+      },
+      "targets": {
+        "room": 0.65,
+        "roomCutoff": 3200,
+        "roomPan": 0
+      },
+      "error": null,
+      "source": "sanctum",
+      "revision": "audio-v1"
+    },
+    "noAutoload": true,
+    "speakerRect": {
+      "x": 233.90625,
+      "y": 14,
+      "width": 44,
+      "height": 44
+    },
+    "mute": "passed",
+    "responsiveExtra": [],
+    "errors": []
+  }
+]

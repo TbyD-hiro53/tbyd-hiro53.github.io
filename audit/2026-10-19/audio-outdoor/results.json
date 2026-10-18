@@ -1,0 +1,86 @@
+[
+  {
+    "work": "armillary-v2",
+    "report": {
+      "enabled": false,
+      "playing": false,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        59
+      ],
+      "loaded": true,
+      "volume": 0.3,
+      "decodedBytes": 31046400,
+      "scene": {
+        "running": true,
+        "time": 1.5935119999955383,
+        "view": "rim"
+      },
+      "targets": {
+        "grass": 0.7564144646904345,
+        "coast": 0.14,
+        "grassCutoff": 6000,
+        "coastCutoff": 1900,
+        "grassPan": 0,
+        "coastPan": 0
+      },
+      "error": null,
+      "source": "armillary-v2",
+      "revision": "outdoor-audio-v1"
+    },
+    "errors": [],
+    "checks": [
+      "no initial audio/context",
+      "gesture starts 29/59s loops",
+      "pause/resume",
+      "view changes",
+      "320/390/844/1100 controls",
+      "menu/volume/credits",
+      "pagehide/pageshow",
+      "cross-tab claim"
+    ]
+  },
+  {
+    "work": "binary-dusk",
+    "report": {
+      "enabled": false,
+      "playing": false,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        59
+      ],
+      "loaded": true,
+      "volume": 0.3,
+      "decodedBytes": 31046400,
+      "scene": {
+        "running": true,
+        "time": 18.045400000020848,
+        "view": "landscape"
+      },
+      "targets": {
+        "grass": 0.5186546572206581,
+        "coast": 0.12,
+        "grassCutoff": 5200,
+        "coastCutoff": 1600,
+        "grassPan": 0,
+        "coastPan": -0.48
+      },
+      "error": null,
+      "source": "binary-dusk",
+      "revision": "outdoor-audio-v1"
+    },
+    "errors": [],
+    "checks": [
+      "no initial audio/context",
+      "gesture starts 29/59s loops",
+      "pause/resume",
+      "view changes",
+      "320/390/844/1100 controls",
+      "menu/volume/credits",
+      "pagehide/pageshow",
+      "cross-tab claim"
+    ]
+  }
+]

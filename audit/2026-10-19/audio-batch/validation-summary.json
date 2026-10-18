@@ -1,0 +1,68 @@
+{
+  "independentPlaybackWorks": [
+    "lacto-cortex",
+    "lacto-tricore",
+    "core-37",
+    "armillary",
+    "armillary-v2",
+    "binary-dusk",
+    "earth-origin-material",
+    "preservation-hall",
+    "shoko",
+    "sanctum"
+  ],
+  "errors": [],
+  "armillaryPausedMenus": [
+    {
+      "work": "armillary",
+      "baseURL": "http://127.0.0.1:8075",
+      "motionRemainsPaused": true,
+      "sceneTimeUnchanged": 0,
+      "settledFrameDelta": 0,
+      "menuGlassMatchesDOM": {
+        "glass": [
+          16,
+          68,
+          288,
+          488
+        ],
+        "dom": [
+          16,
+          68,
+          288,
+          488
+        ]
+      },
+      "aboutAndBackCredits": "passed",
+      "errors": []
+    },
+    {
+      "work": "armillary-v2",
+      "baseURL": "http://127.0.0.1:8075",
+      "motionRemainsPaused": true,
+      "sceneTimeUnchanged": 0,
+      "settledFrameDelta": 0,
+      "menuGlassMatchesDOM": {
+        "glass": [
+          16,
+          68,
+          288,
+          488
+        ],
+        "dom": [
+          16,
+          68,
+          288,
+          488
+        ]
+      },
+      "aboutAndBackCredits": "passed",
+      "errors": []
+    }
+  ],
+  "sourceHashesVerified": 8,
+  "renderer": "Chromium SwiftShader",
+  "nativeSafariTested": false,
+  "subjectiveMixApproval": "pending",
+  "productionArtworkFilesChanged": false
+}

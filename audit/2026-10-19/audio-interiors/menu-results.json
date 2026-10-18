@@ -1,0 +1,32 @@
+[
+  {
+    "work": "preservation-hall",
+    "menu": {
+      "x": 88,
+      "y": 70,
+      "width": 290,
+      "height": 360.734375
+    },
+    "copyright": {
+      "x": 0,
+      "y": 807,
+      "width": 390,
+      "height": 30
+    }
+  },
+  {
+    "work": "shoko",
+    "menu": {
+      "x": 146,
+      "y": 72,
+      "width": 230,
+      "height": 704
+    },
+    "copyright": {
+      "x": 0,
+      "y": 804,
+      "width": 390,
+      "height": 40
+    }
+  }
+]

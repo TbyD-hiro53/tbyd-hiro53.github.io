@@ -1,0 +1,10 @@
+{
+  "archive": "/workspace/previews/2026-10-19/audio-batch/h53-ten-works-audio-preview-v1-20261019.zip",
+  "bytes": 886181595,
+  "sha256": "415d168d545ec2d41f835bb7d526c3919096dd56de1f162e06b0f51527f73226",
+  "files": 1643,
+  "extraction": "/workspace/verification/audio-batch-v1",
+  "crc": "passed",
+  "extractedHashes": "all matched",
+  "scope": "All site files and eight raw source HQ MP3 previews; no Git metadata or Blender edit sources"
+}

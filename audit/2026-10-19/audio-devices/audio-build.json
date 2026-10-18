@@ -1,0 +1,77 @@
+[
+  {
+    "name": "perfusion",
+    "source": "700254",
+    "excerpt": [
+      1,
+      18
+    ],
+    "filters": [
+      100,
+      3200
+    ],
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "peakControl": "0.32*tanh(x/0.32)",
+    "file": "device-audio-v1-20261019-perfusion.mp3",
+    "bytes": 345382,
+    "duration": 17.0,
+    "rmsDBFS": -27.7618408203125,
+    "peak": 0.30496978759765625,
+    "seamStep": 2.0042061805725098e-06,
+    "ordinaryStep99": 0.027824686840176582,
+    "sha256": "c90cdb3d4254b5026942ee051e42a5a2caf409931fbfe38bfce014a795689abe",
+    "decodedBytes44100": 5997600,
+    "decodedBytes48000": 6528000
+  },
+  {
+    "name": "drive",
+    "source": "554314",
+    "excerpt": [
+      1,
+      18
+    ],
+    "filters": [
+      80,
+      1400
+    ],
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "peakControl": "0.32*tanh(x/0.32)",
+    "file": "device-audio-v1-20261019-drive.mp3",
+    "bytes": 345382,
+    "duration": 17.0,
+    "rmsDBFS": -29.55164909362793,
+    "peak": 0.15658286213874817,
+    "seamStep": 0.0010126084089279175,
+    "ordinaryStep99": 0.02223111316561699,
+    "sha256": "c41e3167e6ab9d2c0280b9fa61209afb7b9217a8652a394acae0fc8f001d2216",
+    "decodedBytes44100": 5997600,
+    "decodedBytes48000": 6528000
+  },
+  {
+    "name": "transport",
+    "source": "538210",
+    "excerpt": [
+      1,
+      18
+    ],
+    "filters": [
+      120,
+      1800
+    ],
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "peakControl": "0.32*tanh(x/0.32)",
+    "file": "device-audio-v1-20261019-transport.mp3",
+    "bytes": 345382,
+    "duration": 17.0,
+    "rmsDBFS": -30.60958480834961,
+    "peak": 0.2482844591140747,
+    "seamStep": 2.3258529836311936e-05,
+    "ordinaryStep99": 0.005424175411462784,
+    "sha256": "dcd8f6b2e74d323c992e9dd38f4d3346110afe4413b9f5ff0e1c4ede0c8c5e72",
+    "decodedBytes44100": 5997600,
+    "decodedBytes48000": 6528000
+  }
+]

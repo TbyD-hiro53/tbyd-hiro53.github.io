@@ -1,0 +1,638 @@
+[
+  {
+    "slug": "lacto-tricore",
+    "initialAudio": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        17,
+        17
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 11995200,
+      "scene": {
+        "running": true,
+        "time": 0.8999999999999999,
+        "view": "main",
+        "narrating": false
+      },
+      "targets": {
+        "perfusion": 0.32,
+        "drive": 0.2,
+        "transport": 0,
+        "perfusionCutoff": 2400,
+        "driveCutoff": 1100,
+        "transportCutoff": 1300,
+        "perfusionPan": 0,
+        "drivePan": 0,
+        "transportPan": 0
+      },
+      "error": null,
+      "source": "lacto-tricore",
+      "revision": "device-audio-v1"
+    },
+    "sizes": [
+      {
+        "size": [
+          320,
+          568
+        ],
+        "audio": [
+          163.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          215.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          390,
+          844
+        ],
+        "audio": [
+          233.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          285.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          844,
+          390
+        ],
+        "audio": [
+          687.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          739.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          1100,
+          800
+        ],
+        "audio": [
+          943.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          995.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      }
+    ],
+    "views": [
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 11995200,
+        "scene": {
+          "running": true,
+          "time": 2.8500000000000014,
+          "view": "brain",
+          "narrating": false
+        },
+        "targets": {
+          "perfusion": 0.38,
+          "drive": 0.13,
+          "transport": 0,
+          "perfusionCutoff": 2400,
+          "driveCutoff": 1100,
+          "transportCutoff": 1300,
+          "perfusionPan": 0,
+          "drivePan": 0,
+          "transportPan": 0
+        },
+        "error": null,
+        "source": "lacto-tricore",
+        "revision": "device-audio-v1"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 11995200,
+        "scene": {
+          "running": true,
+          "time": 3.6832999999999974,
+          "view": "sanc",
+          "narrating": false
+        },
+        "targets": {
+          "perfusion": 0.68,
+          "drive": 0.28,
+          "transport": 0,
+          "perfusionCutoff": 3200,
+          "driveCutoff": 1100,
+          "transportCutoff": 1300,
+          "perfusionPan": 0,
+          "drivePan": 0,
+          "transportPan": 0
+        },
+        "error": null,
+        "source": "lacto-tricore",
+        "revision": "device-audio-v1"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 11995200,
+        "scene": {
+          "running": true,
+          "time": 4.283299999999997,
+          "view": "main",
+          "narrating": false
+        },
+        "targets": {
+          "perfusion": 0.32,
+          "drive": 0.2,
+          "transport": 0,
+          "perfusionCutoff": 2400,
+          "driveCutoff": 1100,
+          "transportCutoff": 1300,
+          "perfusionPan": 0,
+          "drivePan": 0,
+          "transportPan": 0
+        },
+        "error": null,
+        "source": "lacto-tricore",
+        "revision": "device-audio-v1"
+      }
+    ],
+    "errors": [],
+    "requests": 2,
+    "lifecycle": "pause/resume, mute, bfcache, cross-tab passed"
+  },
+  {
+    "slug": "core-37",
+    "initialAudio": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        17,
+        17
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 11995200,
+      "scene": {
+        "running": true,
+        "time": 0.7331999999999999,
+        "view": "room",
+        "narrating": false
+      },
+      "targets": {
+        "perfusion": 0,
+        "drive": 0.36,
+        "transport": 0.2,
+        "perfusionCutoff": 2500,
+        "driveCutoff": 1100,
+        "transportCutoff": 1300,
+        "perfusionPan": 0,
+        "drivePan": 0,
+        "transportPan": 0
+      },
+      "error": null,
+      "source": "core-37",
+      "revision": "device-audio-v1"
+    },
+    "sizes": [
+      {
+        "size": [
+          320,
+          568
+        ],
+        "audio": [
+          163.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          215.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          390,
+          844
+        ],
+        "audio": [
+          233.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          285.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          844,
+          390
+        ],
+        "audio": [
+          687.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          739.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          1100,
+          800
+        ],
+        "audio": [
+          943.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          995.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      }
+    ],
+    "views": [
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 11995200,
+        "scene": {
+          "running": true,
+          "time": 22.3664,
+          "view": "room",
+          "narrating": true
+        },
+        "targets": {
+          "perfusion": 0,
+          "drive": 0.22319999999999998,
+          "transport": 0.124,
+          "perfusionCutoff": 2500,
+          "driveCutoff": 1100,
+          "transportCutoff": 1300,
+          "perfusionPan": 0,
+          "drivePan": 0,
+          "transportPan": 0
+        },
+        "error": null,
+        "source": "core-37",
+        "revision": "device-audio-v1"
+      }
+    ],
+    "errors": [],
+    "requests": 2,
+    "lifecycle": "pause/resume, mute, bfcache, cross-tab passed"
+  },
+  {
+    "slug": "lacto-cortex",
+    "initialAudio": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        17,
+        17
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 11995200,
+      "scene": {
+        "running": true,
+        "time": 86.9168999999985,
+        "view": "8k-phone"
+      },
+      "targets": {
+        "perfusion": 0.32593652674506446,
+        "drive": 0.23,
+        "transport": 0,
+        "perfusionCutoff": 2500,
+        "driveCutoff": 1100,
+        "transportCutoff": 1300,
+        "perfusionPan": 0,
+        "drivePan": 0,
+        "transportPan": 0
+      },
+      "error": null,
+      "source": "lacto-cortex",
+      "revision": "device-audio-v1"
+    },
+    "sizes": [
+      {
+        "size": [
+          320,
+          568
+        ],
+        "audio": [
+          163.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          215.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          390,
+          844
+        ],
+        "audio": [
+          233.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          285.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          844,
+          390
+        ],
+        "audio": [
+          687.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          739.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      },
+      {
+        "size": [
+          1100,
+          800
+        ],
+        "audio": [
+          943.90625,
+          14,
+          44,
+          44
+        ],
+        "menu": [
+          995.90625,
+          14,
+          88.09375,
+          44
+        ],
+        "overlap": false
+      }
+    ],
+    "views": [
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 11995200,
+        "scene": {
+          "running": true,
+          "time": 136.7426000000015,
+          "view": "c-tank"
+        },
+        "targets": {
+          "perfusion": 0.3277736630872729,
+          "drive": 0.23,
+          "transport": 0,
+          "perfusionCutoff": 2500,
+          "driveCutoff": 1100,
+          "transportCutoff": 1300,
+          "perfusionPan": 0,
+          "drivePan": 0,
+          "transportPan": 0
+        },
+        "error": null,
+        "source": "lacto-cortex",
+        "revision": "device-audio-v1"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 11995200,
+        "scene": {
+          "running": true,
+          "time": 164.5605,
+          "view": "c-brain"
+        },
+        "targets": {
+          "perfusion": 0.5084648322502426,
+          "drive": 0.16,
+          "transport": 0,
+          "perfusionCutoff": 2500,
+          "driveCutoff": 1100,
+          "transportCutoff": 1300,
+          "perfusionPan": 0,
+          "drivePan": 0,
+          "transportPan": 0
+        },
+        "error": null,
+        "source": "lacto-cortex",
+        "revision": "device-audio-v1"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 11995200,
+        "scene": {
+          "running": true,
+          "time": 178.39670000000297,
+          "view": "c-lower"
+        },
+        "targets": {
+          "perfusion": 0.3129313832710405,
+          "drive": 0.23,
+          "transport": 0,
+          "perfusionCutoff": 2500,
+          "driveCutoff": 1100,
+          "transportCutoff": 1300,
+          "perfusionPan": 0,
+          "drivePan": 0,
+          "transportPan": 0
+        },
+        "error": null,
+        "source": "lacto-cortex",
+        "revision": "device-audio-v1"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 11995200,
+        "scene": {
+          "running": true,
+          "time": 189.1493999999985,
+          "view": "c-panel"
+        },
+        "targets": {
+          "perfusion": 0.3260094041398859,
+          "drive": 0.23,
+          "transport": 0,
+          "perfusionCutoff": 2500,
+          "driveCutoff": 1100,
+          "transportCutoff": 1300,
+          "perfusionPan": 0,
+          "drivePan": 0,
+          "transportPan": 0
+        },
+        "error": null,
+        "source": "lacto-cortex",
+        "revision": "device-audio-v1"
+      },
+      {
+        "enabled": true,
+        "playing": true,
+        "context": "running",
+        "loopSeconds": [
+          17,
+          17
+        ],
+        "loaded": true,
+        "volume": 0.55,
+        "decodedBytes": 11995200,
+        "scene": {
+          "running": true,
+          "time": 200.83980000000446,
+          "view": "c-turntable"
+        },
+        "targets": {
+          "perfusion": 0.32286092640130315,
+          "drive": 0.23,
+          "transport": 0,
+          "perfusionCutoff": 2500,
+          "driveCutoff": 1100,
+          "transportCutoff": 1300,
+          "perfusionPan": 0,
+          "drivePan": 0,
+          "transportPan": 0
+        },
+        "error": null,
+        "source": "lacto-cortex",
+        "revision": "device-audio-v1"
+      }
+    ],
+    "errors": [],
+    "requests": 2,
+    "lifecycle": "pause/resume, mute, bfcache, cross-tab passed"
+  }
+]

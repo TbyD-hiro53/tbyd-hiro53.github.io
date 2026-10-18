@@ -1,0 +1,46 @@
+[
+  {
+    "name": "grass",
+    "source": "517995",
+    "sourceFile": "/workspace/previews/2026-10-18/audio-survey/517995-hq-preview.mp3",
+    "sourceSHA256": "c5286642430fb6cfd1750c2b671a2aec55582b746b68034054eec29ac44b814c",
+    "excerpt": [
+      50,
+      80
+    ],
+    "filters": "highpass=f=45,volume=42dB",
+    "overlapSeconds": 1,
+    "guardSeconds": 0.1,
+    "peakControl": ".32*tanh(x/.32)",
+    "file": "outdoor-audio-v1-20261019-grass.mp3",
+    "sha256": "a13e0b63a55cf040be5381d4f28f528f7c8e1006f5ada2f3093f84fda4bf140d",
+    "bytes": 585186,
+    "duration": 29,
+    "rmsDBFS": -27.534259796142578,
+    "peak": 0.2918044328689575,
+    "seamStep": 0.0022158529609441757,
+    "ordinaryStep99": 0.01805901899933815
+  },
+  {
+    "name": "coast",
+    "source": "165580",
+    "sourceFile": "/workspace/previews/2026-10-18/audio-survey/165580-hq-preview.mp3",
+    "sourceSHA256": "79f9d96b6c71559f82e622c5332fbaebe692ca804b59a3ee3c62a51e2c734b2e",
+    "excerpt": [
+      615,
+      675
+    ],
+    "filters": "highpass=f=110,lowpass=f=5500",
+    "overlapSeconds": 1,
+    "guardSeconds": 0.1,
+    "peakControl": ".32*tanh(x/.32)",
+    "file": "outdoor-audio-v1-20261019-coast.mp3",
+    "sha256": "5e3f877951f868e22fca999388e409f87959173bf471b5a834115255d959f098",
+    "bytes": 1185480,
+    "duration": 59,
+    "rmsDBFS": -28.60287857055664,
+    "peak": 0.20152151584625244,
+    "seamStep": 0.0020190365612506866,
+    "ordinaryStep99": 0.0051775481551885605
+  }
+]
