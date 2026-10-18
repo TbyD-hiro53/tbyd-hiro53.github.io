@@ -1,0 +1,11 @@
+{
+  "path": "/workspace/previews/2026-10-19/core-binary-audio-release/h53-core-binary-audio-release-20261019.zip",
+  "bytes": 103797558,
+  "sha256": "9331df9a49c88758e4c7e2f461911c491a1365e87c1d9d1dc3882922646022dd",
+  "entries": 218,
+  "extract": "/workspace/verification/core-binary-audio-release",
+  "manifestVerified": true,
+  "crcVerified": true,
+  "independentBrowserQA": "Passed both root entries; results in independent-results.json",
+  "runtimeDependenciesCovered": 80
+}

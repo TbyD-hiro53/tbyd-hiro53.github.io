@@ -1,0 +1,148 @@
+[
+  {
+    "slug": "core-37",
+    "initialPlaying": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        17,
+        17
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 11995200,
+      "scene": {
+        "running": true,
+        "time": 0.7166999999999998,
+        "view": "room",
+        "narrating": false
+      },
+      "targets": {
+        "perfusion": 0,
+        "drive": 0.36,
+        "transport": 0.2,
+        "perfusionCutoff": 2500,
+        "driveCutoff": 1100,
+        "transportCutoff": 1300,
+        "perfusionPan": 0,
+        "drivePan": 0,
+        "transportPan": 0
+      },
+      "error": null,
+      "source": "core-37",
+      "revision": "device-audio-v1"
+    },
+    "final": {
+      "enabled": false,
+      "playing": false,
+      "context": "running",
+      "loopSeconds": [
+        17,
+        17
+      ],
+      "loaded": true,
+      "volume": 0.3,
+      "decodedBytes": 11995200,
+      "scene": {
+        "running": true,
+        "time": 22.73293400000002,
+        "view": "room",
+        "narrating": true
+      },
+      "targets": {
+        "perfusion": 0,
+        "drive": 0.22319999999999998,
+        "transport": 0.124,
+        "perfusionCutoff": 2500,
+        "driveCutoff": 1100,
+        "transportCutoff": 1300,
+        "perfusionPan": 0,
+        "drivePan": 0,
+        "transportPan": 0
+      },
+      "error": null,
+      "source": "core-37",
+      "revision": "device-audio-v1"
+    },
+    "errors": [],
+    "checks": [
+      "production path, canonical, no preview base/noindex",
+      "gesture-only loading",
+      "approved loop lengths",
+      "pause/resume",
+      "volume/attribution",
+      "ONE YEAR narration duck",
+      "mute"
+    ]
+  },
+  {
+    "slug": "binary-dusk",
+    "initialPlaying": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        59
+      ],
+      "loaded": true,
+      "volume": 0.55,
+      "decodedBytes": 31046400,
+      "scene": {
+        "running": true,
+        "time": 1.0275000000074506,
+        "view": "portrait"
+      },
+      "targets": {
+        "grass": 0.5026179169363777,
+        "coast": 0.12,
+        "grassCutoff": 5200,
+        "coastCutoff": 1600,
+        "grassPan": 0,
+        "coastPan": -0.48
+      },
+      "error": null,
+      "source": "binary-dusk",
+      "revision": "outdoor-audio-v1"
+    },
+    "final": {
+      "enabled": false,
+      "playing": false,
+      "context": "running",
+      "loopSeconds": [
+        29,
+        59
+      ],
+      "loaded": true,
+      "volume": 0.3,
+      "decodedBytes": 31046400,
+      "scene": {
+        "running": true,
+        "time": 6.3282999999970215,
+        "view": "landscape"
+      },
+      "targets": {
+        "grass": 0.5154738345586319,
+        "coast": 0.12,
+        "grassCutoff": 5200,
+        "coastCutoff": 1600,
+        "grassPan": 0,
+        "coastPan": -0.48
+      },
+      "error": null,
+      "source": "binary-dusk",
+      "revision": "outdoor-audio-v1"
+    },
+    "errors": [],
+    "checks": [
+      "production path, canonical, no preview base/noindex",
+      "gesture-only loading",
+      "approved loop lengths",
+      "pause/resume",
+      "volume/attribution",
+      "SUNSET + landscape assets + left distant sea",
+      "mute"
+    ]
+  }
+]
