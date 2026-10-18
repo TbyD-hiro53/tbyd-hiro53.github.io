@@ -1,0 +1,50 @@
+[
+  {
+    "file": "armillary-audio-v4-20261019-spark1.mp3",
+    "source": "BMacZero / ContinuousSpark.wav / 94128 / CC0",
+    "sourceInterval": [
+      0,
+      0.14
+    ],
+    "duration": 0.14,
+    "filters": "900Hz HP, 10000Hz LP; stereo unchanged (source mono); transient expander 2ms RMS threshold30% peak-envelope, squared gain; -24dBFS target and tanh peak shaping; 1ms attack and10ms end fades; no reverberation, delay, pitch shift or generated noise",
+    "codecGuardSeconds": 0.1,
+    "bytes": 6730,
+    "sha256": "1e33fc7fb060440757c10a12de45145c307ce81121bbc93e07617050630b3abe",
+    "rmsDBFS": -26.990001678466797,
+    "peak": 0.4239192605018616,
+    "sourceSHA256": "15f5dd478dee7a9f3c6cebfde290cf9e4b1ba0016557f42ba5aff1150b57e935"
+  },
+  {
+    "file": "armillary-audio-v4-20261019-spark2.mp3",
+    "source": "BMacZero / ContinuousSpark.wav / 94128 / CC0",
+    "sourceInterval": [
+      0.035,
+      0.185
+    ],
+    "duration": 0.15,
+    "filters": "900Hz HP, 10000Hz LP; stereo unchanged (source mono); transient expander 2ms RMS threshold30% peak-envelope, squared gain; -24dBFS target and tanh peak shaping; 1ms attack and10ms end fades; no reverberation, delay, pitch shift or generated noise",
+    "codecGuardSeconds": 0.1,
+    "bytes": 6730,
+    "sha256": "f64e49d8bad5824d14c8c7053dc1140ac936f681ba8b068b78515a055b39a765",
+    "rmsDBFS": -27.604520797729492,
+    "peak": 0.4025367498397827,
+    "sourceSHA256": "15f5dd478dee7a9f3c6cebfde290cf9e4b1ba0016557f42ba5aff1150b57e935"
+  },
+  {
+    "file": "armillary-audio-v4-20261019-spark3.mp3",
+    "source": "BMacZero / ContinuousSpark.wav / 94128 / CC0",
+    "sourceInterval": [
+      0.07,
+      0.217
+    ],
+    "duration": 0.147,
+    "filters": "900Hz HP, 10000Hz LP; stereo unchanged (source mono); transient expander 2ms RMS threshold30% peak-envelope, squared gain; -24dBFS target and tanh peak shaping; 1ms attack and10ms end fades; no reverberation, delay, pitch shift or generated noise",
+    "codecGuardSeconds": 0.1,
+    "bytes": 6730,
+    "sha256": "352a37dda29cbccf9d0fce9cd16cffc18d8206fc99c93be129db722569f9a048",
+    "rmsDBFS": -27.049806594848633,
+    "peak": 0.4042191803455353,
+    "sourceSHA256": "15f5dd478dee7a9f3c6cebfde290cf9e4b1ba0016557f42ba5aff1150b57e935"
+  }
+]

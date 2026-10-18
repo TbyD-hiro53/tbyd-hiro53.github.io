@@ -1,0 +1,19 @@
+[
+  {
+    "url": "https://freesound.org/people/BMacZero/sounds/94128/",
+    "title": "Freesound - ContinuousSpark.wav by BMacZero",
+    "description": " ContinuousSpark.wav Overall rating (30 ratings) BMacZero April 5th, 2010 Follow Sound effects > Objects / House appliances A looping recording of a small Tesla generator sparking. Sound illegal or offensive? Flag it! electric electricity loop spark tesla Type Wave (.wav) Duration 0:00.217 File size 18.8 KB Sample rate 44.1 kHz Bit depth 16 bit Channels Mono ",
+    "licenses": [
+      "http://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "mp3": [
+      "https://cdn.freesound.org/previews/94/94128_1554918-hq.mp3"
+    ],
+    "file": "/workspace/previews/2026-10-19/armillary-audio-v3-sources/94128-hq-preview.mp3",
+    "bytes": 9081,
+    "sha256": "15f5dd478dee7a9f3c6cebfde290cf9e4b1ba0016557f42ba5aff1150b57e935",
+    "acquired": "Public HQ MP3 preview, original WAV not acquired",
+    "selected": true,
+    "usage": "Three dry short burst excerpts; quiet tails attenuated; see audio-build.json"
+  }
+]

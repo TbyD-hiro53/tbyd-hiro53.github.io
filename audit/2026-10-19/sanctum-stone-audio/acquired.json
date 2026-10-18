@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/oramics/sampled/master/IR/Voxengo/LICENSE.txt",
+    "file": "/workspace/previews/2026-10-19/sanctum-stone-sources/LICENSE.txt",
+    "bytes": 1944,
+    "sha256": "76432ea1e85df29ac66c53f133fa183fda0da698ef0a655ae3e0df90d709c983"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/oramics/sampled/master/IR/Voxengo/samples/st_nicolaes_church.wav",
+    "file": "/workspace/previews/2026-10-19/sanctum-stone-sources/st_nicolaes_church.wav",
+    "bytes": 1408816,
+    "sha256": "e98f2aff3033c41023f29284250d5b2eed09b0242e310ba5ac7334a1f103922f"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/oramics/sampled/master/IR/Voxengo/samples/derlon_sanctuary.wav",
+    "file": "/workspace/previews/2026-10-19/sanctum-stone-sources/derlon_sanctuary.wav",
+    "bytes": 706232,
+    "sha256": "605a2ea24dbc83e63d1acd9d3a44c1c170074caba357f5c90fb0be8bf8e18792"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/oramics/sampled/master/IR/Voxengo/samples/five_columns_long.wav",
+    "file": "/workspace/previews/2026-10-19/sanctum-stone-sources/five_columns_long.wav",
+    "bytes": 706228,
+    "sha256": "dead4666dc10e4883d9815b352f4b4ab8fe0266ce1467e31e0e4abfa885422a8"
+  }
+]

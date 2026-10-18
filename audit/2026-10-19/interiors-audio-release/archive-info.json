@@ -1,0 +1,10 @@
+{
+  "archive": "/workspace/previews/2026-10-19/interiors-audio-release/h53-interiors-audio-release-20261019.zip",
+  "bytes": 84080009,
+  "sha256": "377c0cf139b4e224dc2ffc2eda929d496fba2889dc429da2886552a31f6230a3",
+  "manifestFiles": 223,
+  "extracted": "/workspace/verification/interiors-audio-release",
+  "zipCRC": "PASS",
+  "allFileHashes": "PASS",
+  "sourceArchive": "/workspace/previews/2026-10-19/interiors-audio-v3/h53-interiors-audio-v3-20261019.zip"
+}

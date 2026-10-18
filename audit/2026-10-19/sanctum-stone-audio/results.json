@@ -1,0 +1,29 @@
+{
+  "clips": [
+    {
+      "duration": 27.986213,
+      "playing": true,
+      "volume": 0.55
+    },
+    {
+      "duration": 24.003311,
+      "playing": true,
+      "volume": 0.55
+    },
+    {
+      "duration": 24.003288,
+      "playing": true,
+      "volume": 0.55
+    }
+  ],
+  "requestsBeforePlay": 0,
+  "exclusivePlayback": true,
+  "pagehidePauses": true,
+  "responsiveWidths": [
+    320,
+    390,
+    844,
+    1100
+  ],
+  "errors": []
+}

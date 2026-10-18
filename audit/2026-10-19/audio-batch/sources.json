@@ -63,10 +63,7 @@
     "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
     "file": "336556-hq-preview.mp3",
     "sha256": "651876a7cf212180e8f91bd21548e0925421351112f543eb2068df93ed000df5",
-    "previewWorks": [
-      "armillary",
-      "armillary-v2"
-    ],
+    "previewWorks": [],
     "originalAcquired": false,
     "acquiredFormat": "Public HQ MP3 preview",
     "approval": "Source audition accepted; new edited effects await artwork mix review"
@@ -81,9 +78,7 @@
     "licenseURL": "http://creativecommons.org/publicdomain/zero/1.0/",
     "file": "451614-hq-preview.mp3",
     "sha256": "fd2cb08fbb724b865c7114b84508b4ce360a937cc8d2b54ca92be9ad1faf4095",
-    "previewWorks": [
-      "sanctum"
-    ],
+    "previewWorks": [],
     "originalAcquired": false,
     "acquiredFormat": "Public HQ MP3 preview",
     "approval": "Source audition accepted; final artwork mixes require listening review"
@@ -99,18 +94,16 @@
     "file": "538210-hq-preview.mp3",
     "sha256": "96aa42d6114b300a95cd955a65f5e45da1889f8915f839035a14f3cc96cd6f1e",
     "previewWorks": [
-      "shoko",
       "lacto-cortex",
-      "lacto-tricore",
-      "armillary",
-      "armillary-v2"
+      "lacto-tricore"
     ],
     "originalAcquired": false,
     "acquiredFormat": "Public HQ MP3 preview",
     "approval": "Source audition accepted; final artwork mixes require listening review",
-    "currentMixNote": "Cortex / Tricore v3: water removed, mechanical rumble +6dB, Tricore metallic layer removed; review pending. Core mix approved.",
+    "currentMixNote": "Cortex / Tricore v4: mechanical rumble leveled offline, temporal modulation removed; water and clatter remain removed; review pending. Core mix approved.",
     "publishedWorks": [
-      "core-37"
+      "core-37",
+      "shoko"
     ]
   },
   {
@@ -123,12 +116,13 @@
     "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
     "file": "479322-hq-preview.mp3",
     "sha256": "ff8b9c68bc02e55cb98999e639d3ee46b439c11c74c526d8a98138f4525f08bf",
-    "previewWorks": [
-      "shoko"
-    ],
+    "previewWorks": [],
     "originalAcquired": false,
     "acquiredFormat": "Public HQ MP3 preview",
-    "approval": "Source audition accepted; final artwork mixes require listening review"
+    "approval": "Source audition accepted; final artwork mixes require listening review",
+    "publishedWorks": [
+      "shoko"
+    ]
   },
   {
     "key": "S09",
@@ -140,12 +134,13 @@
     "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
     "file": "197705-hq-preview.mp3",
     "sha256": "a3a555323d879e4d375685766641a3cb0ebb3d9cc22880bae2342282bba145f7",
-    "previewWorks": [
-      "shoko"
-    ],
+    "previewWorks": [],
     "originalAcquired": false,
     "acquiredFormat": "Public HQ MP3 preview",
-    "approval": "Source audition accepted; final artwork mixes require listening review"
+    "approval": "Source audition accepted; final artwork mixes require listening review",
+    "publishedWorks": [
+      "shoko"
+    ]
   },
   {
     "key": "S10",
@@ -178,10 +173,7 @@
     "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
     "file": "412313-hq-preview.mp3",
     "sha256": "3124611d3c79543fcbdbdcea0ecf03a23c311b9fd08fb52d9909c62853d21493",
-    "previewWorks": [
-      "armillary",
-      "armillary-v2"
-    ],
+    "previewWorks": [],
     "originalAcquired": false,
     "acquiredFormat": "Public HQ MP3 preview",
     "approval": "New recording and artwork mix awaiting author listening review"
@@ -196,14 +188,15 @@
     "sha256": "057433ec4d1243ba0758c4765e737f2b181a333124ee334ba233fe78855c5fb1",
     "key": "S12",
     "file": "478643-hq-preview.mp3",
-    "previewWorks": [
+    "previewWorks": [],
+    "originalAcquired": false,
+    "acquiredFormat": "Public HQ MP3 preview",
+    "approval": "Interior artwork mixes approved and promoted to production",
+    "publishedWorks": [
       "earth-origin-material",
       "preservation-hall",
       "shoko"
-    ],
-    "originalAcquired": false,
-    "acquiredFormat": "Public HQ MP3 preview",
-    "approval": "Replacement recording and artwork mix awaiting author listening review"
+    ]
   },
   {
     "id": "523389",
@@ -215,13 +208,35 @@
     "sha256": "80eb06d3a6b4d8e00f89d9cd20f4d0262b90714ca7bf4603238ec5e51d8e5b2c",
     "key": "S13",
     "file": "523389-hq-preview.mp3",
-    "previewWorks": [
+    "previewWorks": [],
+    "originalAcquired": false,
+    "acquiredFormat": "Public HQ MP3 preview",
+    "approval": "Interior artwork mixes approved and promoted to production",
+    "publishedWorks": [
       "earth-origin-material",
       "preservation-hall",
       "shoko"
     ],
+    "studyUses": [
+      "sanctum-stone-audio-v1 (new mix not approved)"
+    ]
+  },
+  {
+    "key": "S14",
+    "id": "94128",
+    "author": "BMacZero",
+    "title": "ContinuousSpark.wav",
+    "url": "https://freesound.org/people/BMacZero/sounds/94128/",
+    "license": "CC0 1.0",
+    "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "file": "94128-hq-preview.mp3",
+    "sha256": "15f5dd478dee7a9f3c6cebfde290cf9e4b1ba0016557f42ba5aff1150b57e935",
+    "previewWorks": [
+      "armillary",
+      "armillary-v2"
+    ],
     "originalAcquired": false,
     "acquiredFormat": "Public HQ MP3 preview",
-    "approval": "Replacement recording and artwork mix awaiting author listening review"
+    "approval": "Dry electrical burst replacement awaiting author listening review"
   }
 ]

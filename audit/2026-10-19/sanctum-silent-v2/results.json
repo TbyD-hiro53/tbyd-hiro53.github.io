@@ -1,0 +1,9 @@
+{
+  "ready": true,
+  "noSpeaker": true,
+  "audioContexts": 0,
+  "audioRequests": [],
+  "errors": [],
+  "cameraAndMenu": "passed",
+  "testDPR": 0.25
+}
