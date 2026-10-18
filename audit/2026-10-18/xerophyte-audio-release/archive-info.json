@@ -1,0 +1,10 @@
+{
+  "archive": "/workspace/previews/2026-10-18/xerophyte-audio-v1/h53-xerophyte-audio-release-20261018.zip",
+  "sha256": "4b886289b7094b672704bd27a967dd95a718e7bfbb4419a9f07670210345642a",
+  "bytes": 61734683,
+  "files": 111,
+  "extraction": "/workspace/verification/xerophyte-audio-release",
+  "crc": "passed",
+  "extractedHashes": "all matched",
+  "approvedPreviewParity": "exact except preview base/noindex"
+}

@@ -1,0 +1,30 @@
+{
+  "url": "http://127.0.0.1:8071/xerophyte.html?skipgc",
+  "audio": {
+    "enabled": true,
+    "playing": true,
+    "context": "running",
+    "loaded": true,
+    "volume": 0.55,
+    "decodedBytes": 16052400,
+    "scene": {
+      "running": true,
+      "time": 2.049999999999999,
+      "stormTime": 0.849999999999999,
+      "wind": 0.08217381518518518,
+      "sand": 0.0006366759347652019,
+      "veil": 0,
+      "gust": 0.7302684025830216
+    },
+    "targets": {
+      "wind": 0.10164731126443505,
+      "sand": 0.00013338847885243217,
+      "windCutoff": 400.4019192499476,
+      "sandCutoff": 5201.305759781286
+    },
+    "error": null,
+    "source": "xerophyte",
+    "revision": "audio-v1"
+  },
+  "errors": []
+}
