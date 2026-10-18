@@ -1,0 +1,33 @@
+[
+  {
+    "width": 320,
+    "noOverflow": true
+  },
+  {
+    "width": 390,
+    "noOverflow": true
+  },
+  {
+    "width": 1100,
+    "noOverflow": true
+  },
+  {
+    "source": "S03",
+    "playback": true,
+    "singlePlayer": true
+  },
+  {
+    "source": "S04",
+    "playback": true,
+    "singlePlayer": true
+  },
+  {
+    "source": "S06",
+    "playback": true,
+    "singlePlayer": true
+  },
+  {
+    "noAudioBeforeGesture": true,
+    "errors": []
+  }
+]

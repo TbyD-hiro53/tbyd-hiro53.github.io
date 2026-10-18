@@ -1,0 +1,17 @@
+{
+  "S03": {
+    "status": "再試聴",
+    "request": "ブツブツではなく、サーッという連続した砂嵐",
+    "file": "audio-survey-v4-S03-sandwash.mp3"
+  },
+  "S04": {
+    "status": "作者合格",
+    "file": "audio-survey-v3-S04.mp3",
+    "approvedFileSHA256": "5a33b5eceb4d54af1f9adca8cdfe998062852b1ea1e33432a430d7ad86734b80"
+  },
+  "S06": {
+    "status": "作者合格",
+    "file": "audio-survey-v3-S06-clean.mp3",
+    "approvedFileSHA256": "ea1d7dc1215c4c2722b13fff26e3319894b645744b1ebff3db91b34f8bf237b2"
+  }
+}

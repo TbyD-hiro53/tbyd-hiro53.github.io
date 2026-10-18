@@ -1,0 +1,18 @@
+[
+  {
+    "file": "audio-survey-v3-S03-mix.mp3",
+    "seconds": 30.0,
+    "peakDB": -5.244123935699463,
+    "meanDB": -36.49357223510742,
+    "interior20msEnvelopeSpread95_10DB": 11.359657287597656,
+    "sha256": "d2194aa17b2307175c57a6ce2d3780c728433e7387a0e9f9c755d3cbf78680ce"
+  },
+  {
+    "file": "audio-survey-v4-S03-sandwash.mp3",
+    "seconds": 30.0,
+    "peakDB": -10.803380012512207,
+    "meanDB": -25.158842086791992,
+    "interior20msEnvelopeSpread95_10DB": 0.9733260869979858,
+    "sha256": "76ccc09b38d02a8bbc0313c7cb9528d52d01a53a24a042cb67f4946e75bf7c85"
+  }
+]

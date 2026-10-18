@@ -1,0 +1,37 @@
+{
+  "file": "audio-survey-v4-S03-sandwash.mp3",
+  "sources": [
+    {
+      "id": "446950",
+      "kind": "author-designed synthetic sand sweep",
+      "start": 5.5,
+      "duration": 6,
+      "filter": "highpass 500 Hz, lowpass 7600 Hz",
+      "rmsDB": -25,
+      "loopCrossfadeSeconds": 1,
+      "envelope": "350 ms RMS, gain limited to 0.75\u20131.35"
+    },
+    {
+      "id": "825860",
+      "kind": "flowing sand field recording per uploader description",
+      "start": 30,
+      "duration": 30,
+      "filter": "highpass 1100 Hz, lowpass 7200 Hz",
+      "rmsDB": -38
+    },
+    {
+      "id": "376534",
+      "kind": "field-recorded wind",
+      "start": 1,
+      "duration": 18,
+      "filter": "highpass 45 Hz, lowpass 600 Hz",
+      "rmsDB": -42,
+      "loopCrossfadeSeconds": 1.5
+    }
+  ],
+  "rejectedSourceRemoved": "244967",
+  "finalGain": 1.0,
+  "fadeInSeconds": 0.5,
+  "fadeOutSeconds": 1,
+  "duration": 30
+}
