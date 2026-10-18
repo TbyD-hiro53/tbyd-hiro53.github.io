@@ -1,0 +1,110 @@
+[
+  {
+    "prefix": "gap-pano-color",
+    "codec": "v12-xor",
+    "bytes": 844528,
+    "decodedSHA256": "0abee27c2261a60388893cfc445e95698f7dd9edfb5bce81d4fc17330144399c"
+  },
+  {
+    "prefix": "gap-pano-depth",
+    "codec": "v12-xor",
+    "bytes": 189966,
+    "decodedSHA256": "f4a17b870bf0ca18d302b321be640b63a4801dd744efcf82f9c509bb7c6b9d7f"
+  },
+  {
+    "prefix": "gap-detail-color",
+    "codec": "v12-add-sub",
+    "bytes": 1754061,
+    "decodedSHA256": "d6dddf1189255b434aa48e044b380eb894a303b43b592971f63be69fcfea9a93"
+  },
+  {
+    "prefix": "gap-detail-depth",
+    "codec": "v12-add-sub",
+    "bytes": 622111,
+    "decodedSHA256": "e565d7e85645573eeeb90ec96758cad922cfdf4d77acd6f4a1163f5fc743d171"
+  },
+  {
+    "prefix": "gap-mirror-color",
+    "codec": "v12-add-sub",
+    "bytes": 204594,
+    "decodedSHA256": "cc75792d2a685b4b3c9c937788d9996ef3af6a72bee3a925abf50c3cdac1858c"
+  },
+  {
+    "prefix": "gap-mirror-depth",
+    "codec": "v12-add-sub",
+    "bytes": 110642,
+    "decodedSHA256": "d61ddb0c66d334f2a458711124836538ba688ab866899e8ef4f03f7fad34f5d0"
+  },
+  {
+    "prefix": "under-pano-color",
+    "codec": "v12-add-sub",
+    "bytes": 887691,
+    "decodedSHA256": "215178b20a56691569fd4e60f156aad381a688daf2172911b9ec22bfe42b67ed"
+  },
+  {
+    "prefix": "under-pano-depth",
+    "codec": "v12-add-sub",
+    "bytes": 383294,
+    "decodedSHA256": "1b04c717f87c17ee2831244d1bbe82bd8d6ca22cf3d6283210a53a2e64342388"
+  },
+  {
+    "prefix": "under-detail-color",
+    "codec": "v12-add-sub",
+    "bytes": 490846,
+    "decodedSHA256": "b8529a931e7b72c2e5a6b32d7b4e43a2ab85bfbc40d40ec7178ba0e34677c705"
+  },
+  {
+    "prefix": "under-detail-depth",
+    "codec": "v12-add-sub",
+    "bytes": 221916,
+    "decodedSHA256": "3a39b59d2f61dc85ba9ec537900d3a10fdd695e124b17151f0a43f1f1ce99760"
+  },
+  {
+    "prefix": "under-mirror-color",
+    "codec": "v12-add-sub",
+    "bytes": 215113,
+    "decodedSHA256": "6efec7e64bfc4811b64c91559d61296be9941fb7f772caa7dc506f05bca63380"
+  },
+  {
+    "prefix": "under-mirror-depth",
+    "codec": "v12-add-sub",
+    "bytes": 112027,
+    "decodedSHA256": "a3b9a5d0b22d1ef467e52e406d4b80a46081f80af5fcdf354d3f6803d43367f9"
+  },
+  {
+    "prefix": "bank-pano-color",
+    "codec": "v12-add-sub",
+    "bytes": 2130487,
+    "decodedSHA256": "15dadc1d54a92c2cdac65bbc19d96c9716f55b61f408b403bf0fcd8ba8eef315"
+  },
+  {
+    "prefix": "bank-pano-depth",
+    "codec": "v12-add-sub",
+    "bytes": 976162,
+    "decodedSHA256": "19a9a2b36b7c9bdd0d4b375ef168b118298b75f427ee00778faa97669b9754a2"
+  },
+  {
+    "prefix": "bank-detail-color",
+    "codec": "v12-add-sub",
+    "bytes": 10715890,
+    "decodedSHA256": "7e00c4e2c3dcce520b3f1ed466017eefb3ba71fa12f2caa36b059616988e20c9"
+  },
+  {
+    "prefix": "bank-detail-depth",
+    "codec": "v12-add-sub",
+    "bytes": 5214743,
+    "decodedSHA256": "7af621eac5f10f23e4d2d80cb39c6116f9b45e680b299d4b3bf4353bf4851e1a"
+  },
+  {
+    "prefix": "bank-mirror-color",
+    "codec": "v12-add-sub",
+    "bytes": 604146,
+    "decodedSHA256": "61af4630684ff18ce32334376ce3248d26f2c71d9b821827d293ffe2f1bc3b0a"
+  },
+  {
+    "prefix": "bank-mirror-depth",
+    "codec": "v12-add-sub",
+    "bytes": 329319,
+    "decodedSHA256": "c2da5b7e5b92b8e8c30a12e40b06110c1804558984c9c2d7bc6e6faf35ca8063"
+  }
+]

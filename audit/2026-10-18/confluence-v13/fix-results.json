@@ -1,0 +1,20 @@
+[
+  {
+    "view": 0,
+    "closePreservesLook": true,
+    "closeDoubleTapPreservesLook": true,
+    "laterExplicitResetWorks": true
+  },
+  {
+    "view": 1,
+    "closePreservesLook": true,
+    "closeDoubleTapPreservesLook": true,
+    "laterExplicitResetWorks": true
+  },
+  {
+    "view": 2,
+    "closePreservesLook": true,
+    "closeDoubleTapPreservesLook": true,
+    "laterExplicitResetWorks": true
+  }
+]
