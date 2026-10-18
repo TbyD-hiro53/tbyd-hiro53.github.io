@@ -1,0 +1,46 @@
+[
+  {
+    "name": "river",
+    "source": "479322",
+    "excerpt": [
+      1,
+      18
+    ],
+    "filters": [
+      80,
+      7000
+    ],
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "peakControl": "0.32*tanh(x/0.32)",
+    "file": "confluence-audio-v1-20261018-river.mp3",
+    "bytes": 345382,
+    "duration": 17.0,
+    "rmsDBFS": -25.858137130737305,
+    "peak": 0.3782358765602112,
+    "seamStep": 0.018246732652187347,
+    "ordinaryStep99": 0.08744566142559052
+  },
+  {
+    "name": "rill",
+    "source": "197705",
+    "excerpt": [
+      1,
+      18
+    ],
+    "filters": [
+      120,
+      8500
+    ],
+    "overlapSeconds": 1,
+    "codecGuardSeconds": 0.1,
+    "peakControl": "0.32*tanh(x/0.32)",
+    "file": "confluence-audio-v1-20261018-rill.mp3",
+    "bytes": 345382,
+    "duration": 17.0,
+    "rmsDBFS": -28.060832977294922,
+    "peak": 0.3491392731666565,
+    "seamStep": 0.0020471662282943726,
+    "ordinaryStep99": 0.05464961379766464
+  }
+]
