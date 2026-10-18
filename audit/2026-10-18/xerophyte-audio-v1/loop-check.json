@@ -1,0 +1,14 @@
+{
+  "sand": {
+    "seamStep": 0.03648824244737625,
+    "ordinaryStep99Percentile": 0.13643766939640045,
+    "stepPercentile": 30.366197799826256,
+    "noPeakAtSeam": true
+  },
+  "wind": {
+    "seamStep": 0.0026880651712417603,
+    "ordinaryStep99Percentile": 0.005548849701881409,
+    "stepPercentile": 80.98904829114038,
+    "noPeakAtSeam": true
+  }
+}

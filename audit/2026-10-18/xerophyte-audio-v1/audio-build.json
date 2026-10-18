@@ -1,0 +1,47 @@
+{
+  "sand": {
+    "file": "xerophyte-audio-v1-20261018-sand.mp3",
+    "bytes": 581529,
+    "duration": 29.0,
+    "rmsDBFS": -25.0966739654541,
+    "peak": 0.27792415022850037,
+    "peakDBFS": -11.121474266052246,
+    "seamStep": 0.03648824244737625,
+    "seamRmsRatio": 1.0196211338043213
+  },
+  "wind": {
+    "file": "xerophyte-audio-v1-20261018-wind.mp3",
+    "bytes": 331276,
+    "duration": 16.5,
+    "rmsDBFS": -28.445655822753906,
+    "peak": 0.2435748428106308,
+    "peakDBFS": -12.267352104187012,
+    "seamStep": 0.0026880651712417603,
+    "seamRmsRatio": 1.07563316822052
+  },
+  "worstCasePeakBoundAtFullVolume": 0.7049602290987969,
+  "sources": [
+    {
+      "id": 446950,
+      "author": "Lonofi / Mathias Rossignol",
+      "license": "CC BY 4.0",
+      "type": "synthetic designed sand sweep",
+      "excerpt": "5.5\u201311.5 s; HP500/LP7600 Hz; 350 ms envelope gain 0.75\u20131.35; repeated 1 s equal-power overlap; \u221225 dBFS RMS before circularization"
+    },
+    {
+      "id": 825860,
+      "author": "Vrymaa",
+      "license": "CC0",
+      "type": "flowing sand recording according to uploader",
+      "excerpt": "30\u201360 s; HP1100/LP7200 Hz; \u221238 dBFS RMS before circularization"
+    },
+    {
+      "id": 376534,
+      "author": "keirofinch",
+      "license": "CC0",
+      "type": "wind recording",
+      "excerpt": "1\u201319 s; HP45/LP600 Hz; circular 1.5 s equal-power overlap; \u221228 dBFS RMS"
+    }
+  ],
+  "note": "Accepted S03 v4 sand timbre preserved. Sand combined then circularized with 1 s overlap; no end fades. Wind separated and lifted for runtime storm envelope. Rejected contact-mic 244967 is absent. Source files are public HQ MP3 previews, not original WAVs."
+}

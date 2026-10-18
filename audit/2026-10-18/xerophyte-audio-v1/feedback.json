@@ -1,0 +1,16 @@
+{
+  "S03": {
+    "status": "作者合格・Xerophyte組み込みプレビュー",
+    "approvedFile": "preview/20261017/audio-survey-v4-S03-sandwash.mp3",
+    "request": "砂の音は風とうまく組み合わせ、強弱をつけて実装して欲しいです。とりあえずこの音は合格なので、制作に取り掛かってokです",
+    "implementation": "preview/20261017/xerophyte.html?skipgc&revision=audio-v1",
+    "approvedFileSHA256": "76ccc09b38d02a8bbc0313c7cb9528d52d01a53a24a042cb67f4946e75bf7c85"
+  },
+  "S04": {
+    "status": "作者合格・変更なし"
+  },
+  "S06": {
+    "status": "作者合格・変更なし"
+  },
+  "productionXerophyte": "未反映。音源の採用承認に基づく、作品内の音の確認用プレビュー。"
+}
