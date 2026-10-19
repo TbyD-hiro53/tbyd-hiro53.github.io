@@ -1,0 +1,16 @@
+{
+  "date_jst": "2026-10-19",
+  "user_instruction": "この音でいきましょう。",
+  "selected_freesound_id": 164785,
+  "decision": "author approved this sound for Sanctum corridor",
+  "presented_excerpt_seconds": [
+    70,
+    100
+  ],
+  "implementation_note": "Use the supplied 70–100 s excerpt as the starting material. Final loop seam, gain and integration remain for the cloud implementation.",
+  "assistant_auditory_review": false,
+  "audio_hashes_unchanged": {
+    "audio/164785_int_cave_room_tone_hq_preview.mp3": "150485e6b3c2882a5500d4e9035796092ab995d1be69bf2931c7df274db0fed2",
+    "audio/164785_audition_070-100s_from_preview.wav": "2ee37efc96bc9840395a7f0d534d596b09475ea4a914c51c9f1b7fa1146afecc"
+  }
+}

@@ -1,0 +1,96 @@
+[
+  {
+    "width": 320,
+    "height": 568,
+    "a": {
+      "x": 163.90625,
+      "y": 14,
+      "w": 44,
+      "h": 44
+    },
+    "m": {
+      "x": 215.90625,
+      "y": 14,
+      "w": 88.09375,
+      "h": 44
+    }
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "a": {
+      "x": 233.90625,
+      "y": 14,
+      "w": 44,
+      "h": 44
+    },
+    "m": {
+      "x": 285.90625,
+      "y": 14,
+      "w": 88.09375,
+      "h": 44
+    }
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "a": {
+      "x": 687.90625,
+      "y": 14,
+      "w": 44,
+      "h": 44
+    },
+    "m": {
+      "x": 739.90625,
+      "y": 14,
+      "w": 88.09375,
+      "h": 44
+    }
+  },
+  {
+    "width": 1100,
+    "height": 800,
+    "a": {
+      "x": 943.90625,
+      "y": 14,
+      "w": 44,
+      "h": 44
+    },
+    "m": {
+      "x": 995.90625,
+      "y": 14,
+      "w": 88.09375,
+      "h": 44
+    }
+  },
+  {
+    "report": {
+      "enabled": true,
+      "playing": true,
+      "context": "running",
+      "loopSeconds": [
+        28
+      ],
+      "loaded": true,
+      "volume": 0.3,
+      "decodedBytes": 4939200,
+      "scene": {
+        "running": true,
+        "time": 65.83340000002077,
+        "view": "hall"
+      },
+      "targets": {
+        "room": 1,
+        "roomPan": 0
+      },
+      "error": null,
+      "source": "sanctum-corridor",
+      "voiceStarts": 5,
+      "revision": "corridor-v1"
+    },
+    "errors": [],
+    "audioRequests": [
+      "http://127.0.0.1:8060/sanctum-corridor-v1-20261019-cave.mp3"
+    ]
+  }
+]

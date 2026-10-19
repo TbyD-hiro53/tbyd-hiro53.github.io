@@ -1,0 +1,43 @@
+{
+  "source": "INT Cave Room tone.wav",
+  "author": "deleted_user_2104797",
+  "sourceURL": "https://freesound.org/people/deleted_user_2104797/sounds/164785/",
+  "license": "CC0 1.0 Universal",
+  "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "provenance": "Freesound HQ preview MP3 decoded to excerpt WAV; not original WAV",
+  "excerptSeconds": [
+    70,
+    100
+  ],
+  "inputSHA256": "2ee37efc96bc9840395a7f0d534d596b09475ea4a914c51c9f1b7fa1146afecc",
+  "loopSeconds": 28,
+  "crossfadeSeconds": 2,
+  "crossfade": "smooth equal power, overlapping supplied tail/head; no reverb, EQ, denoising, pitch shifting, normalization, or generated sound",
+  "fileGainDB": -18.80725378988488,
+  "defaultNetGainDB": -24,
+  "file": "sanctum-corridor-v1-20261019-cave.mp3",
+  "bytes": 565004,
+  "sha256": "3529a892a56d59db2820aaa521401d0889a1f65748b341e9cfb6d565891247fe",
+  "codecGuardSeconds": 0.1,
+  "decodedChecks": [
+    {
+      "sampleRate": 44100,
+      "seconds": 28.0,
+      "seamStep": 0.000551851699128747,
+      "sampleStepP99": 0.0010796748101711273,
+      "peakDBFS": -24.89419937133789,
+      "rmsDBFS": -39.10247802734375,
+      "defaultGainDB": -5.192746210115122
+    },
+    {
+      "sampleRate": 48000,
+      "seconds": 28.0,
+      "seamStep": 0.0004778425209224224,
+      "sampleStepP99": 0.001050726161338389,
+      "peakDBFS": -24.894580841064453,
+      "rmsDBFS": -39.10237503051758,
+      "defaultGainDB": -5.192746210115122
+    }
+  ],
+  "subjectiveAssistantAudition": false
+}

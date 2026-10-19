@@ -1,0 +1,7 @@
+INT Cave Room tone.wav
+Author shown by Freesound: deleted_user_2104797
+Source: https://freesound.org/people/deleted_user_2104797/sounds/164785/
+Licence: CC0 1.0 Universal — https://creativecommons.org/publicdomain/zero/1.0/
+Obtained: Freesound HQ MP3 preview, not the original WAV.
+Modification in audition WAV: MP3 decoded to PCM16; cropped to 70–100 seconds; no gain, filtering, denoising, synthesis or added reverberation.
+Downloaded on 2026-10-19 JST. Attribution is retained voluntarily for provenance; no endorsement is implied.

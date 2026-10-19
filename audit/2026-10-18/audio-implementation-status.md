@@ -14,7 +14,7 @@ Supersedes the audio progress statements in work-status.md and the historical au
 | Binary Dusk | Approved v1 grass-wind and distant coastal-air audio promoted to production binary-dusk.html |
 | Earth Origin Material / The Preservation Hall | Approved v3 isolated-fan/tree-wind audio promoted to production; weak indoor mix retained |
 | SHOKO | Approved v3 room/wind recording replacement promoted to production; quiet lower-floor water and seven-scene mix retained |
-| Sanctum | Device explicitly silent per author; old room-tone preview removed. Three modeled-IR/wind studies rejected as too loud and withdrawn. Seek quiet real cave/underground-cavity recording; no replacement audio installed |
+| Sanctum | Device silent. Author-approved cave room tone 164785 installed in corridor-v1 preview: HQ preview-derived 70–100s excerpt, 2s seam crossfade / 28s loop, default gain about −24 dB. Production promotion pending. |
 | Lacto-Caloris / The Vacant Seat | Intentional silence recommended from canon (vacuum / beat explicitly not sound); no audio added |
 
 Confluence v13 visuals, Earth door-detail fixes, Tricore fluid improvements and the previously approved shared reading UI are already in production. The approved Confluence current/audio release retains those visual changes.

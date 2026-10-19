@@ -1,0 +1,13 @@
+# Sanctum corridor v1 — 2026-10-19 JST
+
+The author supplied and explicitly approved Freesound 164785 for the surrounding corridor. The source is INT Cave Room tone.wav by deleted_user_2104797, CC0 1.0. The supplied files are a public HQ MP3 and a 70–100s PCM excerpt decoded from that MP3; they are not the original WAV. Verified ZIP CRC and all 17 manifest hashes before extraction. SOURCE-CREDITS.txt and author-selection.json preserve the approval/provenance. The original handoff ZIP is retained in the preservation archive.
+
+The supplied 30-second mono excerpt is the only audio source. A two-second smooth equal-power tail/head crossfade yields a 28-second periodic loop. Constant file gain −18.807 dB plus the existing .55 default UI volume makes approximately −24 dB relative to the supplied excerpt. No added reverberation, synthesis, EQ, denoising, normalization, or pitch change. Encoding uses 100ms cyclic guards; the browser trims them before looping. Both 44.1k and 48k decoded boundary steps are below the signal's 99th-percentile sample step. This numerical check is not a subjective listening claim. Source quality/content is accepted by the author; the assistant has not independently listened.
+
+The room layer is centered and unchanged across viewpoints; it is not attached to the energy, torus or particles. Device remains silent. Speaker sits beside Menu, initially muted; no audio fetch or AudioContext before a user gesture. The established pause control also stops ambience. Audio runs on its own clock without frame-drift restarts. Fades handle enable/disable; background tabs/pagehide suspend it; cross-tab claims prevent simultaneous artwork audio.
+
+Only the Sanctum preview, its corridor-study status and the audio hub change. Production Sanctum remains the accepted silent release until mix approval. The existing scene geometry, camera, energy animation and materials are unchanged. Browser verification uses Chromium with software rendering and viewport emulation; native iOS/Safari is not available.
+
+## Validation
+
+Working copy and independent ZIP extraction both passed: no initial MP3 request/AudioContext, one approved MP3 only, 28-second decoded loop, full cycle without a source restart, pause/resume, mute/re-enable, menu credits and volume, 320/390/844/1100px control layout, hide/restore UI, other-tab audio claim, persisted pagehide suspend and pageshow resume. No page/resource errors. Decoded mono buffer uses 4,939,200 bytes at the test browser's 44.1kHz. Source ZIP CRC and all 17 source manifest entries match. Final preservation ZIP includes the original handoff ZIP, extracted source/approval records, scene/runtime dependencies, and verification evidence.
