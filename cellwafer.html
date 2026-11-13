@@ -2,6 +2,11 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="h53-display-support-v1-20261113.css">
+<script src="h53-display-support-v1-20261113.js" data-artwork="{&quot;title&quot;:&quot;Cellwafer v1&quot;,&quot;image&quot;:&quot;cellwafer-thumb.jpg&quot;,&quot;description_ja&quot;:&quot;基幹作品 Cyberwafer を、三色六面の素子ひとつだけで組み直した3Dピクセル版。T構造体・四重の周回文字環・降下ウエハーのすべてが同じ素子でできており、見える色は素子の姿勢だけで決まる。収束ボタンで全体が一個の立方体へ畳まれ、六面に銘が現れる。ドラッグで回転、ピンチで拡大。&quot;,&quot;description_en&quot;:&quot;The core work Cyberwafer rebuilt from one component alone — a single cube, three colours across six faces. The T structure, the four rings of circling text and the descending wafers are all made of that same element, and the colour that shows is decided by its attitude and nothing else. CONVERGE folds the whole into one cube bearing the mark upon all six faces. Drag to rotate, pinch to zoom.&quot;}"></script>
+
+
+
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -227,7 +232,7 @@ var bodyGeo = roundedBoxGeo(BODY, CRAD, 2);
 /* ============================================================
    renderer / scene
    ============================================================ */
-var renderer = new THREE.WebGLRenderer({ antialias: false, alpha: false, powerPreference: 'high-performance' });
+var renderer;try { renderer = new THREE.WebGLRenderer({ antialias: false, alpha: false, powerPreference: 'high-performance' }); } catch (e) { window.H53DisplaySupport.show(window.H53DisplaySupport.reasonFor(e)); return; }
 renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.outputEncoding = THREE.sRGBEncoding;

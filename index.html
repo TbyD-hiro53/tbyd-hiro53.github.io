@@ -590,7 +590,7 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
 
   <div class="seal">
     <span class="pulse" aria-hidden="true"></span>
-    <span class="seal-t">5 lineages &middot; <b>32 / 32 sealed</b></span>
+    <span class="seal-t">5 lineages &middot; <b id="sealCount">31 / 31 sealed</b></span>
   </div>
 </div>
 
@@ -1614,6 +1614,8 @@ h2.sec{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:upperca
 (function(){
   var holdingsCount = document.querySelectorAll('.entry[data-k]').length;
   /* 件数は総数だけを出す（ASSET と SOURCE を分けた数を並べると、どれが作品数か迷う） */
+  var sealCount = document.getElementById('sealCount');
+  if (sealCount) sealCount.textContent = holdingsCount + ' / ' + holdingsCount + ' sealed';
   var countEl = document.getElementById('count');
   if (countEl) countEl.textContent = holdingsCount + ' works';
   var lines = [

@@ -1,0 +1,16 @@
+/* Recovery UI only; the healthy artwork retains its original layout and gestures. */
+html.h53-display-failed body > :not(#h53-display-fallback):not(script):not(style):not(link) { display: none !important; }
+html.h53-display-failed, html.h53-display-failed body { touch-action: manipulation !important; }
+#h53-display-fallback { position: fixed; inset: 0; z-index: 2147483647; overflow: auto; overscroll-behavior: contain; box-sizing: border-box; padding: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left)); background: #080b13; color: #ece3eb; font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans CJK JP", "Noto Sans JP", "Yu Gothic", sans-serif; text-align: left; user-select: text; -webkit-user-select: text; touch-action: manipulation; }
+#h53-display-fallback * { box-sizing: border-box; }
+#h53-display-fallback .h53-display-card { max-width: 680px; margin: 0 auto; }
+#h53-display-fallback h1 { font-size: 1.4em; line-height: 1.4; margin: .5em 0; }
+#h53-display-fallback .h53-display-artwork { font-size: .9em; letter-spacing: .04em; }
+#h53-display-fallback p { margin: .8em 0; overflow-wrap: anywhere; }
+#h53-display-fallback nav { display: flex; flex-wrap: wrap; gap: 12px; margin: 1.2em 0; }
+#h53-display-fallback a, #h53-display-fallback button { display: inline-block; color: #ece3eb; font: inherit; text-transform: none; min-height: 44px; padding: 8px 17px; border: 1px solid rgba(242,230,242,.23); border-radius: 999px; background: linear-gradient(150deg,rgba(111,99,114,.30),rgba(28,32,40,.66)); cursor: pointer; text-decoration: none; touch-action: manipulation; }
+#h53-display-fallback a:focus-visible, #h53-display-fallback button:focus-visible { outline: 2px solid #76e2d4; outline-offset: 4px; }
+#h53-display-fallback figure { margin: 1.4em 0 1em; }
+#h53-display-fallback img { display: block; width: 100%; height: auto; max-height: 45vh; object-fit: contain; }
+#h53-display-fallback img[hidden] { display: none; }
+#h53-display-fallback figcaption, #h53-display-fallback .h53-display-credit { font-size: .8em; }
